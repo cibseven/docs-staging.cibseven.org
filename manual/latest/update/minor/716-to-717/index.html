@@ -24,7 +24,7 @@
   
 
   <link rel="stylesheet" href="/manual/latest/css/docs.9f129a00105d0d24cc75d54daabc84fc17f98711f78f552e74638fcb64a32d6d.css" integrity="sha256-nxKaABBdDSTMddVNqryE/Bf5hxH3j1UudGOPy2SjLW0=">
-  <link rel="canonical" href="https://docs.cibseven.de/manual/7.22/update/minor/716-to-717/" />
+  <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/update/minor/716-to-717/" />
 </head>
 <body class="">
 
@@ -98,9 +98,9 @@
       
     
 
-    <span class="number"><a>7.22</a>
+    <span class="number"><a>1.0</a>
       
-        (7.22)
+        (1.0)
       
     </span>
   
@@ -744,7 +744,7 @@
           
   <li>
     
-      <a href="/manual/latest/user-guide/camunda-bpm-run/" >CIB seven Run</a>
+      <a href="/manual/latest/user-guide/cibseven-bpm-run/" >CIB seven Run</a>
     
   </li>
 
@@ -2605,7 +2605,7 @@
           
   <li>
     
-      <a href="/manual/latest/installation/camunda-bpm-run/" >Remote Engine Distribution</a>
+      <a href="/manual/latest/installation/cibseven-bpm-run/" >Remote Engine Distribution</a>
     
   </li>
 
@@ -4422,7 +4422,7 @@
       
         <option >latest</option>
       
-        <option  selected >7.22</option>
+        <option  selected >1.0</option>
       
     </select>
   </div>
@@ -4523,7 +4523,7 @@ parser against <a href="https://en.wikipedia.org/wiki/XML_external_entity_attack
 <a href="https://en.wikipedia.org/wiki/Billion_laughs_attack">Billion laughs attacks</a>.</p>
 <p>You can restore the old behavior by passing the appropriate <a href="/manual/latest/user-guide/data-formats/configuring-spin-integration/#configuration-properties-of-the-spin-plugin">configuration properties to the Spin process engine plugin</a>.</p>
 <h1 id="extended-camunda-run-cors-configuration-properties">Extended Camunda Run CORS configuration properties</h1>
-<p>Version 7.17 of the Camunda Run distribution brings new <a href="/manual/latest/user-guide/camunda-bpm-run/#cross-origin-resource-sharing">CORS configuration properties</a>. There are no
+<p>Version 7.17 of the Camunda Run distribution brings new <a href="/manual/latest/user-guide/cibseven-bpm-run/#cross-origin-resource-sharing">CORS configuration properties</a>. There are no
 changes in the existing CORS behavior. The new CORS configuration properties rather allow you to set additional parameters on the CORS filter like
 credentials support.</p>
 <h1 id="improved-camunda-run-library-support">Improved Camunda Run library support</h1>
@@ -4534,7 +4534,7 @@ version, we made it easier to configure and use Camunda Run with the LDAP plugin
 is now available within Camunda Run by default. With the Administrator Authorization plugin, you can configure which
 LDAP user group gains administrative access to configure additional authorizations.</p>
 <p>The Administrator Authorization plugin configuration properties are integrated with Camunda Run. You can find them
-in the <a href="/manual/latest/user-guide/camunda-bpm-run/#ldap-administrator-authorization">LDAP Adminstrator Authorization section</a>
+in the <a href="/manual/latest/user-guide/cibseven-bpm-run/#ldap-administrator-authorization">LDAP Adminstrator Authorization section</a>
 of the Camunda Run documentation. You can also find a template LDAP configuration in the Camunda Run <code>production.yml</code>.</p>
 <h2 id="groovy-scripting-engine-included">Groovy scripting engine included</h2>
 <p>The Camunda Run distribution now ships with the Groovy scripting engine as well, in the form of the
@@ -4548,12 +4548,12 @@ anymore.</p>
 other Camunda distro. Users that use connectors in their BPMN processes don&rsquo;t need to provide any additional binary
 when upgrading to a new Camunda Run version anymore.</p>
 <h1 id="changed-camunda-run-start-script-behavior">Changed Camunda Run start script behavior</h1>
-<p>Camunda Run starts with the <a href="/manual/latest/user-guide/camunda-bpm-run/#starting-with-camunda-platform-run">provided <code>start.sh</code> or <code>start.bat</code> scripts</a>.
+<p>Camunda Run starts with the <a href="/manual/latest/user-guide/cibseven-bpm-run/#starting-with-camunda-platform-run">provided <code>start.sh</code> or <code>start.bat</code> scripts</a>.
 When you execute one of these scripts, Camunda Run starts and outputs logs to the command line.</p>
 <p>With version 7.17, we made a small change to the behavior of these start scripts. If you don&rsquo;t provide any additional
 arguments to the start script, it will start Camunda Run as a detached process. You can then use the new <code>shutdown.sh</code>
 or <code>shutdown.bat</code> script to stop Camunda Run.</p>
-<p>If you want to have the old start script behavior, pass the desired <a href="/manual/latest/user-guide/camunda-bpm-run/#start-script-arguments">start script arguments</a>
+<p>If you want to have the old start script behavior, pass the desired <a href="/manual/latest/user-guide/cibseven-bpm-run/#start-script-arguments">start script arguments</a>
 directly to the script.</p>
 <h1 id="disabled-remote-access-to-h2-console">Disabled remote access to H2 console</h1>
 <p>The CIB seven.17.0 release deactivates remote access to the H2 console application in the Tomcat and Wildfly distributions. The H2 application accepts only localhost connections moving forward.</p>
