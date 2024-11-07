@@ -3,19 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/721-to-722/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.cibseven.de/manual/1.0/installation/database-schema/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/720-to-721/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/719-to-720/</loc>
   </url>
   
   <url>
@@ -27,27 +15,7 @@
   </url>
   
   <url>
-    <loc>https://docs.cibseven.de/manual/1.0/installation/cibseven-bpm-run/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/718-to-719/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/717-to-718/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/716-to-717/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/715-to-716/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/714-to-715/</loc>
+    <loc>https://docs.cibseven.de/manual/1.0/installation/cibseven-run/</loc>
   </url>
   
   <url>
@@ -207,26 +175,6 @@
   </url>
   
   <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/spring-boot-starter/migration-22-23/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/spring-boot-starter/migration-23-30/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/spring-boot-starter/migration-31-32/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/spring-boot-starter/migration-33-34/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/spring-boot-starter/migration-34-713/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.cibseven.de/manual/1.0/reference/rest/overview/</loc>
   </url>
   
@@ -275,10 +223,6 @@
   </url>
   
   <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/spring-boot-starter/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.cibseven.de/manual/1.0/user-guide/spring-boot-integration/version-compatibility/</loc>
   </url>
   
@@ -304,14 +248,6 @@
   
   <url>
     <loc>https://docs.cibseven.de/manual/1.0/user-guide/process-applications/the-process-application-class/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/713-to-714/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/</loc>
   </url>
   
   <url>
@@ -531,15 +467,7 @@
   </url>
   
   <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/ce-to-ee/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.cibseven.de/manual/1.0/reference/bpmn20/events/none-events/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/patch-level/</loc>
   </url>
   
   <url>
@@ -616,10 +544,6 @@
   
   <url>
     <loc>https://docs.cibseven.de/manual/1.0/user-guide/process-applications/the-processes-xml-deployment-descriptor/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/712-to-713/</loc>
   </url>
   
   <url>
@@ -755,10 +679,6 @@
   </url>
   
   <url>
-    <loc>https://docs.cibseven.de/manual/1.0/installation/full/was/manual-liberty/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.cibseven.de/manual/1.0/reference/deployment-descriptors/tags/job-executor/</loc>
   </url>
   
@@ -819,10 +739,6 @@
   </url>
   
   <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/711-to-712/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.cibseven.de/manual/1.0/reference/bpmn20/tasks/user-task/</loc>
   </url>
   
@@ -860,10 +776,6 @@
   
   <url>
     <loc>https://docs.cibseven.de/manual/1.0/reference/cmmn11/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/installation/full/was/configuration/</loc>
   </url>
   
   <url>
@@ -920,10 +832,6 @@
   
   <url>
     <loc>https://docs.cibseven.de/manual/1.0/installation/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/installation/full/was/</loc>
   </url>
   
   <url>
@@ -999,19 +907,7 @@
   </url>
   
   <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/710-to-711/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.cibseven.de/manual/1.0/webapps/cockpit/auditing/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/introduction/telemetry/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/79-to-710/</loc>
   </url>
   
   <url>
@@ -1035,7 +931,7 @@
   </url>
   
   <url>
-    <loc>https://docs.cibseven.de/manual/1.0/user-guide/cibseven-bpm-run/</loc>
+    <loc>https://docs.cibseven.de/manual/1.0/user-guide/cibseven-run/</loc>
   </url>
   
   <url>
@@ -1171,10 +1067,6 @@
   </url>
   
   <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/78-to-79/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.cibseven.de/manual/1.0/reference/rest/overview/variables/</loc>
   </url>
   
@@ -1196,10 +1088,6 @@
   
   <url>
     <loc>https://docs.cibseven.de/manual/1.0/user-guide/spring-boot-integration/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/77-to-78/</loc>
   </url>
   
   <url>
@@ -1303,10 +1191,6 @@
   </url>
   
   <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/76-to-77/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.cibseven.de/manual/1.0/reference/connect/</loc>
   </url>
   
@@ -1367,10 +1251,6 @@
   </url>
   
   <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/75-to-76/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.cibseven.de/manual/1.0/webapps/cockpit/bpmn/correlate-message/</loc>
   </url>
   
@@ -1427,10 +1307,6 @@
   </url>
   
   <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/74-to-75/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.cibseven.de/manual/1.0/reference/forms/embedded-forms/controls/bpmn-buttons/</loc>
   </url>
   
@@ -1444,10 +1320,6 @@
   
   <url>
     <loc>https://docs.cibseven.de/manual/1.0/reference/bpmn20/events/terminate-event/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/73-to-74/</loc>
   </url>
   
   <url>
@@ -1479,10 +1351,6 @@
   </url>
   
   <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/72-to-73/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.cibseven.de/manual/1.0/user-guide/task-forms/</loc>
   </url>
   
@@ -1499,10 +1367,6 @@
   </url>
   
   <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/71-to-72/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.cibseven.de/manual/1.0/user-guide/process-engine/process-instance-migration/</loc>
   </url>
   
@@ -1512,10 +1376,6 @@
   
   <url>
     <loc>https://docs.cibseven.de/manual/1.0/user-guide/process-engine/database/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/70-to-71/</loc>
   </url>
   
   <url>
@@ -1644,370 +1504,6 @@
   
   <url>
     <loc>https://docs.cibseven.de/manual/1.0/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/71-to-72/glassfish/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/72-to-73/glassfish/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/73-to-74/glassfish/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/74-to-75/glassfish/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/716-to-717/jboss/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/71-to-72/jboss/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/72-to-73/jboss/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/73-to-74/jboss/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/710-to-711/jboss/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/711-to-712/jboss/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/712-to-713/jboss/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/713-to-714/jboss/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/714-to-715/jboss/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/715-to-716/jboss/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/74-to-75/jboss/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/75-to-76/jboss/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/76-to-77/jboss/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/77-to-78/jboss/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/78-to-79/jboss/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/79-to-710/jboss/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/71-to-72/tomcat/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/710-to-711/tomcat/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/711-to-712/tomcat/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/712-to-713/tomcat/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/713-to-714/tomcat/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/714-to-715/tomcat/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/715-to-716/tomcat/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/716-to-717/tomcat/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/717-to-718/tomcat/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/718-to-719/tomcat/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/719-to-720/tomcat/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/72-to-73/tomcat/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/720-to-721/tomcat/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/721-to-722/tomcat/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/73-to-74/tomcat/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/74-to-75/tomcat/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/75-to-76/tomcat/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/76-to-77/tomcat/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/77-to-78/tomcat/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/78-to-79/tomcat/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/79-to-710/tomcat/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/717-to-718/jboss/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/718-to-719/jboss/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/719-to-720/jboss/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/720-to-721/jboss/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/721-to-722/jboss/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/71-to-72/was/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/710-to-711/was/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/711-to-712/was/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/712-to-713/was/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/713-to-714/was/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/714-to-715/was/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/715-to-716/was/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/716-to-717/was/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/717-to-718/was/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/718-to-719/was/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/72-to-73/was/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/73-to-74/was/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/74-to-75/was/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/75-to-76/was/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/76-to-77/was/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/77-to-78/was/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/78-to-79/was/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/79-to-710/was/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/719-to-720/was/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/720-to-721/was/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/721-to-722/was/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/71-to-72/wls/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/710-to-711/wls/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/711-to-712/wls/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/712-to-713/wls/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/713-to-714/wls/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/714-to-715/wls/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/715-to-716/wls/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/716-to-717/wls/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/717-to-718/wls/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/718-to-719/wls/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/719-to-720/wls/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/72-to-73/wls/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/720-to-721/wls/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/721-to-722/wls/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/73-to-74/wls/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/74-to-75/wls/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/75-to-76/wls/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/76-to-77/wls/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/77-to-78/wls/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/78-to-79/wls/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/79-to-710/wls/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/74-to-75/webapp/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/75-to-76/webapp/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/update/minor/76-to-77/webapp/</loc>
   </url>
   
 </urlset>
