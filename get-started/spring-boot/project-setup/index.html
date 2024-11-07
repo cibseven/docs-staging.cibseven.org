@@ -520,7 +520,7 @@
 <p>We will start by setting up a Spring Boot application as an Apache Maven Project inside Eclipse. This consists of three steps:</p>
 <ol>
 <li>Create a new Maven Project in Eclipse</li>
-<li>Add the Camunda &amp; Spring Boot dependencies</li>
+<li>Add the CIB seven &amp; Spring Boot dependencies</li>
 <li>Add a main class as an entry point for launching the Spring Boot application.</li>
 </ol>
 <p>In the following sections, we go through this process step by step.</p>
@@ -533,9 +533,9 @@
 </figure>
 
 <p>When you are done, click Finish. Eclipse sets up a new Maven project. The project appears in the <em>Project Explorer</em> view.</p>
-<h2 id="add-camunda-platform--spring-boot-dependencies">Add Camunda Platform &amp; Spring Boot Dependencies</h2>
+<h2 id="add-cib-seven--spring-boot-dependencies">Add CIB seven &amp; Spring Boot Dependencies</h2>
 <p>The next step consists of setting up the Maven dependencies for the new project. Maven dependencies need to be added to the <code>pom.xml</code> file of the project.
-We add the Spring Boot BOM in the &ldquo;dependency management&rdquo; section and the Camunda Spring Boot Starter for Webapps, which will automatically include the Camunda engine and webapps in the app.
+We add the Spring Boot BOM in the &ldquo;dependency management&rdquo; section and the CIB seven Spring Boot Starter for Webapps, which will automatically include the CIB seven engine and webapps in the app.
 We also use <code>spring-boot-maven-plugin</code>, which does all the magic for packaging Spring Boot application content together.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;project</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://maven.apache.org/POM/4.0.0&#34;</span> <span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span> <span style="color:#a6e22e">xsi:schemaLocation=</span><span style="color:#e6db74">&#34;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&#34;</span><span style="color:#f92672">&gt;</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;modelVersion&gt;</span>4.0.0<span style="color:#f92672">&lt;/modelVersion&gt;</span>
@@ -544,11 +544,19 @@ We also use <code>spring-boot-maven-plugin</code>, which does all the magic for 
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;version&gt;</span>0.0.1-SNAPSHOT<span style="color:#f92672">&lt;/version&gt;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;properties&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;camunda.spring-boot.version&gt;</span>7.22.0<span style="color:#f92672">&lt;/camunda.spring-boot.version&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;camunda.spring-boot.version&gt;</span>7.22.0-cibseven<span style="color:#f92672">&lt;/camunda.spring-boot.version&gt;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;spring-boot.version&gt;</span>3.3.3<span style="color:#f92672">&lt;/spring-boot.version&gt;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;maven.compiler.release&gt;</span>17<span style="color:#f92672">&lt;/maven.compiler.release&gt;</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/properties&gt;</span>
 </span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;repositories&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;repository&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;id&gt;</span>mvn-cibseven-public<span style="color:#f92672">&lt;/id&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;name&gt;</span>CIB seven Public Repository<span style="color:#f92672">&lt;/name&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;url&gt;</span>https://artifacts.cibseven.de/repository/public<span style="color:#f92672">&lt;/url&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/repository&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/repositories&gt;</span>
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;dependencyManagement&gt;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;dependencies&gt;</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;dependency&gt;</span>
@@ -621,39 +629,39 @@ The class is added in the <code>src/main/java</code> folder in the <code>org.cam
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h2 id="build-and-run">Build and Run</h2>
 <p>Now you can perform the first build. Select the <code>pom.xml</code> in the Package Explorer, perform a right-click and select <code>Run As / Maven Install</code>.</p>
-<p>Our first Camunda Spring Boot application is ready now. As a result of the build, you will have a JAR-file in your <code>target</code> folder. This JAR is a Spring Boot application,
-which embeds inside Tomcat as a web container, Camunda engine and Camunda Web applications resources.
-When started, it will use an in-memory H2 database for Camunda Engine needs.</p>
+<p>Our first CIB seven Spring Boot application is ready now. As a result of the build, you will have a JAR-file in your <code>target</code> folder. This JAR is a Spring Boot application,
+which embeds inside Tomcat as a web container, CIB seven engine and web applications resources.
+When started, it will use an in-memory H2 database for CIB seven engine needs.</p>
 <p>You can run the application by right-clicking on the <code>WebappExampleProcessApplication</code> class and selecting <code>Run as / Java application</code>.
 Wait until you see a similar line in the console:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Started WebappExampleProcessApplication in 10.584 seconds
-</span></span></code></pre></div><p>Then go to <a href="http://localhost:8080/">http://localhost:8080/</a> in your browser and enjoy the Camunda webapps.</p>
+</span></span></code></pre></div><p>Then go to <a href="http://localhost:8080/">http://localhost:8080/</a> in your browser and enjoy the CIB seven webapps.</p>
 <p>Another way to run the app is to simply run the JAR-file with a <code>java -jar</code> command.</p>
 
 <div class="panel-group gs-download-step-panel" id="gitStep-1">
   <div class="panel panel-success">
     <div class="panel-heading">
       <div class="pull-right">
-        <a class="btn btn-success gs-download-step-btn" href="https://github.com/camunda/camunda-get-started-spring-boot/archive/Step-1.zip">
+        <a class="btn btn-success gs-download-step-btn" href="https://github.com/cibseven/cibseven-get-started-spring-boot/archive/Step-1.zip">
           <span i class="glyphicon glyphicon-download-alt"></span>
           Source Code Step-1
         </a>
       </div>
       <h4>Catch up: Get the Sources of Step-1.</h4>
       <p class="text-muted">
-        <a href="https://github.com/camunda/camunda-get-started-spring-boot/archive/Step-1.zip">Download as .zip</a>
+        <a href="https://github.com/cibseven/cibseven-get-started-spring-boot/archive/Step-1.zip">Download as .zip</a>
         or checkout the corresponding tag with <a class="toggle-instructions">Git</a>.
       </p>
     </div>
     <div class="panel-body">
-      <p>You can checkout the current state from the <a href="https://github.com/camunda/camunda-get-started-spring-boot">GitHub repository</a>.</p>
+      <p>You can checkout the current state from the <a href="https://github.com/cibseven/cibseven-get-started-spring-boot">GitHub repository</a>.</p>
       <p>If you have not cloned the repository yet, please execute the following command:
-      <pre class="console">git clone https://github.com/camunda/camunda-get-started-spring-boot.git</pre>
+      <pre class="console">git clone https://github.com/cibseven/cibseven-get-started-spring-boot.git</pre>
       </p>
       <p>
       To checkout the current state of the process application please execute the following command:
       <pre class="console">git checkout -f Step-1</pre>
-      Or download as archive from <a href="https://github.com/camunda/camunda-get-started-spring-boot/releases/tag/Step-1">here</a>.
+      Or download as archive from <a href="https://github.com/cibseven/cibseven-get-started-spring-boot/releases/tag/Step-1">here</a>.
       </p>
     </div>
   </div>
@@ -669,7 +677,7 @@ Wait until you see a similar line in the console:</p>
   <nav id="TableOfContents">
   <ul>
     <li><a href="#create-a-new-maven-project">Create a new Maven Project</a></li>
-    <li><a href="#add-camunda-platform--spring-boot-dependencies">Add Camunda Platform &amp; Spring Boot Dependencies</a></li>
+    <li><a href="#add-cib-seven--spring-boot-dependencies">Add CIB seven &amp; Spring Boot Dependencies</a></li>
     <li><a href="#add-main-class-to-our-spring-boot-application">Add Main Class to our Spring Boot Application</a></li>
     <li><a href="#build-and-run">Build and Run</a></li>
   </ul>
