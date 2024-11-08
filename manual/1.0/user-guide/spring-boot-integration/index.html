@@ -3368,38 +3368,40 @@
     </div>
 
     <div class="col-xs-12 content-text">
-      <p>The Camunda Engine can be used in a Spring Boot application by using provided Spring Boot starters.
+      <p>The CIB seven engine can be used in a Spring Boot application by using provided Spring Boot starters.
 Spring boot starters allow to enable behavior of your spring-boot application by adding dependencies to the classpath.</p>
-<p>These starters will pre-configure the Camunda process engine, REST API and Web applications, so they can easily be used in a standalone process application.</p>
-<p>If you are not familiar with <a href="http://projects.spring.io/spring-boot/">Spring Boot</a>, read the <a href="http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#getting-started">getting started</a> guide or use the <a href="https://start.camunda.com/">CIB seven Initializr</a>.</p>
+<p>These starters will pre-configure the CIB seven process engine, REST API and Web applications, so they can easily be used in a standalone process application.</p>
+<p>If you are not familiar with <a href="http://projects.spring.io/spring-boot/">Spring Boot</a>, read the <a href="http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#getting-started">getting started</a> guide.</p>
 <p>To enable CIB seven auto configuration, add the following dependency to your <code>pom.xml</code>:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;dependency&gt;</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;groupId&gt;</span>org.camunda.bpm.springboot<span style="color:#f92672">&lt;/groupId&gt;</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;artifactId&gt;</span>camunda-bpm-spring-boot-starter<span style="color:#f92672">&lt;/artifactId&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;version&gt;</span>1.0.0<span style="color:#f92672">&lt;/version&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;version&gt;</span>7.22.0-cibseven<span style="color:#f92672">&lt;/version&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/dependency&gt;</span>
-</span></span></code></pre></div><p>This will add the Camunda engine v.1.0.0 to your dependencies.</p>
+</span></span></code></pre></div><p>CIB seven relies on Sonatype Nexus Repository to provide all artifacts to users at <a href="https://artifacts.cibseven.de/">artifacts.cibseven.de</a>.</p>
+<p>Extra repository should be added to <code>settings.xml</code> or to the POM file:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>  <span style="color:#f92672">&lt;repositories&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;repository&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;id&gt;</span>mvn-cibseven-public<span style="color:#f92672">&lt;/id&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;name&gt;</span>CIB seven Public Repository<span style="color:#f92672">&lt;/name&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;url&gt;</span>https://artifacts.cibseven.de/repository/public/<span style="color:#f92672">&lt;/url&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/repository&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/repositories&gt;</span>
+</span></span></code></pre></div><p>This will add the CIB seven engine 7.22.0-cibseven to your dependencies.</p>
 <p>Other starters that can be used are:</p>
 <ul>
 <li><a href="rest-api"><code>camunda-bpm-spring-boot-starter-rest</code></a></li>
 <li><a href="webapps"><code>camunda-bpm-spring-boot-starter-webapp</code></a></li>
 <li><a href="/manual/1.0/user-guide/ext-client/spring-boot-starter/"><code>camunda-bpm-spring-boot-starter-external-task-client</code></a></li>
 </ul>
-<h1 id="using-enterprise-edition">Using Enterprise Edition</h1>
-<p>To use Camunda Spring Boot Starter with Camunda EE you need to define the EE version of the webapp (<code>camunda-bpm-spring-boot-starter-webapp-ee</code> instead of <code>camunda-bpm-spring-boot-starter-webapp</code>), see also <a href="webapps/">Web Applications</a>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;dependency&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;groupId&gt;</span>org.camunda.bpm.springboot<span style="color:#f92672">&lt;/groupId&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;artifactId&gt;</span>camunda-bpm-spring-boot-starter-webapp-ee<span style="color:#f92672">&lt;/artifactId&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;version&gt;</span>1.0.0-ee<span style="color:#f92672">&lt;/version&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/dependency&gt;</span>
-</span></span></code></pre></div><h1 id="requirements">Requirements</h1>
-<p>Camunda Spring Boot Starter requires Java 17.</p>
+<h1 id="requirements">Requirements</h1>
+<p>CIB seven Spring Boot Starter requires Java 17.</p>
 <h1 id="supported-deployment-scenarios">Supported deployment scenarios</h1>
-<p>Following deployment scenario is supported by Camunda:</p>
+<p>Following deployment scenario is supported by CIB seven:</p>
 <ul>
 <li>executable JAR with embedded Tomcat and one embedded process engine (plus Webapps when needed)</li>
 </ul>
-<p>There are other possible variations that might also work, but are not tested by Camunda at the moment.</p>
+<p>There are other possible variations that might also work, but are not tested by our team at the moment.</p>
 
     </div>
 
