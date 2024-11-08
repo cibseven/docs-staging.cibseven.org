@@ -3458,9 +3458,9 @@ class would provide a method named</p>
   <p><p>If you configure the process engine in <code>standalone.xml</code> and provide a custom configuration class packaged inside an own module, the camunda-wildfly-subsystem module needs to have a module dependency on the module providing the class.</p>
 <p>If you fail to do this, you will see the following error log:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>Caused by: org.camunda.bpm.engine.ProcessEngineException: Could not load &#39;foo.bar&#39;: the class must be visible from the camunda-wildfly-subsystem module.
-</span></span><span style="display:flex;"><span>    at org.camunda.bpm.container.impl.jboss.service.MscManagedProcessEngineController.createProcessEngineConfiguration(MscManagedProcessEngineController.java:187) [camunda-wildfly-subsystem-1.0.0.jar:]
-</span></span><span style="display:flex;"><span>    at org.camunda.bpm.container.impl.jboss.service.MscManagedProcessEngineController.startProcessEngine(MscManagedProcessEngineController.java:138) [camunda-wildfly-subsystem-1.0.0.jar:]
-</span></span><span style="display:flex;"><span>    at org.camunda.bpm.container.impl.jboss.service.MscManagedProcessEngineController$3.run(MscManagedProcessEngineController.java:126) [camunda-wildfly-subsystem-1.0.0.jar:]
+</span></span><span style="display:flex;"><span>    at org.camunda.bpm.container.impl.jboss.service.MscManagedProcessEngineController.createProcessEngineConfiguration(MscManagedProcessEngineController.java:187) [camunda-wildfly-subsystem-7.22.0-cibseven.jar:]
+</span></span><span style="display:flex;"><span>    at org.camunda.bpm.container.impl.jboss.service.MscManagedProcessEngineController.startProcessEngine(MscManagedProcessEngineController.java:138) [camunda-wildfly-subsystem-7.22.0-cibseven.jar:]
+</span></span><span style="display:flex;"><span>    at org.camunda.bpm.container.impl.jboss.service.MscManagedProcessEngineController$3.run(MscManagedProcessEngineController.java:126) [camunda-wildfly-subsystem-7.22.0-cibseven.jar:]
 </span></span></code></pre></div></p>
 </div>
 

@@ -3384,30 +3384,6 @@
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/repositories&gt;</span>
 </span></span></code></pre></div><p>By default the application path is <code>/camunda</code>, so without any further configuration you can access
 the Webapps under <a href="http://localhost:8080/camunda/app/">http://localhost:8080/camunda/app/</a>.</p>
-<h2 id="enterprise-webapps">Enterprise webapps</h2>
-<div class="note enterprise-feature">
-  <h3>Enterprise Feature</h3>
-
-  <p class="description">Please note that this feature is only included in the enterprise edition of CIB seven, it is not available in the community edition.</p>
-
-  <p>
-    Check the <a href="http://camunda.com/platform-7/editions/">Camunda enterprise homepage</a>
-    for more information or get your
-    <a href="http://camunda.com/download/enterprise/">free trial version.</a>
-  </p>
-</div>
-
-<p>To use the enterprise Web applications, include another starter:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;dependency&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;groupId&gt;</span>org.camunda.bpm.springboot<span style="color:#f92672">&lt;/groupId&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;artifactId&gt;</span>camunda-bpm-spring-boot-starter-webapp-ee<span style="color:#f92672">&lt;/artifactId&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;version&gt;</span>${project-version}<span style="color:#f92672">&lt;/version&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/dependency&gt;</span>
-</span></span></code></pre></div><p>Also don&rsquo;t forget to define the appropriate Camunda engine version (with &ldquo;ee&rdquo; suffix): see <a href="../#using-enterprise-edition">Using Enterprise Edition</a>.</p>
-<p>If you are using the enterprise edition, you can also use the <a href="/manual/1.0/user-guide/spring-boot-integration/configuration/#license-file"><code>camunda.bpm.license-file</code></a>
-property to provide a license file that is inserted on application start. Or copy your license file under the name
-<code>camunda-license.txt</code> to your <code>src/main/resources</code>. See the dedicated <a href="/manual/1.0/user-guide/license-use/">License docs section</a>
-for more details on how to add a License key to your Camunda installation.</p>
 <h2 id="configurations">Configurations</h2>
 <p>You can change the application path with the following configuration property in your <code>application.yaml</code> file:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#a6e22e">camunda.bpm.webapp.application-path</span><span style="color:#f92672">=</span><span style="color:#e6db74">/my/application/path</span>
@@ -3431,7 +3407,6 @@ CSRF Prevention Filter Whitelist (via the configuration property <code>camunda.b
   <h3>On this Page:</h3>
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#enterprise-webapps">Enterprise webapps</a></li>
     <li><a href="#configurations">Configurations</a></li>
     <li><a href="#error-pages">Error Pages</a></li>
     <li><a href="#building-custom-rest-apis">Building Custom REST APIs</a></li>
