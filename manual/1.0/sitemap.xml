@@ -135,10 +135,6 @@
   </url>
   
   <url>
-    <loc>https://docs.cibseven.de/manual/1.0/installation/full/jboss/pre-packaged/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.cibseven.de/manual/1.0/installation/full/tomcat/pre-packaged/</loc>
   </url>
   
@@ -412,10 +408,6 @@
   
   <url>
     <loc>https://docs.cibseven.de/manual/1.0/installation/full/tomcat/manual/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/installation/standalone-webapplication/</loc>
   </url>
   
   <url>

@@ -2652,14 +2652,6 @@
           
   <li>
     
-      <a href="/manual/1.0/installation/full/jboss/pre-packaged/" >Pre-Packaged Distribution</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
       <a href="/manual/1.0/installation/full/jboss/manual/" >Manual Installation</a>
     
   </li>
@@ -2687,14 +2679,6 @@
   <li>
     
       <a href="/manual/1.0/installation/docker/" >Docker</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/manual/1.0/installation/standalone-webapplication/" >Standalone Webapplication (.war)</a>
     
   </li>
 
@@ -3205,7 +3189,7 @@ To resolve this, move the weld library away from the war and place it into the <
 <p>The above workaround is not guaranteed to work for cases with bean references between WAR deployments (WAR A referencing a bean from WAR B).</p>
 <p>The following test scenarios fail on Tomcat 10:</p>
 <ul>
-<li><a href="https://github.com/camunda/camunda-bpm-platform/blob/f37877b822dabcbf3cee5806bd5833d18cdcb543/qa/integration-tests-engine/src/test/java/org/camunda/bpm/integrationtest/functional/context/CallActivityContextSwitchTest.java">CallActivityContextSwitchTest</a></li>
+<li><a href="https://github.com/cibseven/cibseven/blob/f37877b822dabcbf3cee5806bd5833d18cdcb543/qa/integration-tests-engine/src/test/java/org/camunda/bpm/integrationtest/functional/context/CallActivityContextSwitchTest.java">CallActivityContextSwitchTest</a></li>
 <li><a href="https://github.com/camunda/camunda-bpm-platform/blob/f37877b822dabcbf3cee5806bd5833d18cdcb543/qa/integration-tests-engine/src/test/java/org/camunda/bpm/integrationtest/functional/cdi/CdiBeanCallActivityResolutionTest.java">CdiBeanCallActivityResolutionTest</a></li>
 </ul>
 </p>
@@ -3301,29 +3285,29 @@ into <code>${TOMCAT_HOME}/conf/server.xml</code>:</p>
 <h2 id="cockpit-tasklist-and-admin">Cockpit, Tasklist and Admin</h2>
 <p>The following steps are required to deploy the applications:</p>
 <ol>
-<li>Download the CIB seven web application that contains both applications from our <a href="https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/webapp/camunda-webapp-tomcat/">Artifact Repository</a>.
-Or switch to the private repository for the enterprise version (User and password from license required).
+<li>
+<p>Download the CIB seven web application that contains both applications from our <a href="https://artifacts.cibseven.de/service/rest/repository/browse/public/org/camunda/bpm/webapp/camunda-webapp-tomcat/7.22.0-cibseven/">Artifact Repository</a>.
+Choose the correct version named <code>camunda-engine-rest-7.22.0-cibseven-tomcat.war</code>.</p>
 <ul>
-<li>For <a href="https://artifacts.camunda.com/ui/native/camunda-bpm/org/camunda/bpm/webapp/camunda-webapp-tomcat-jakarta/">Tomcat 10</a>, the name of the artifact is <code>$PLATFORM_VERSION/camunda-webapp-tomcat-jakarta-$PLATFORM_VERSION.war</code>.</li>
-<li>For <a href="https://artifacts.camunda.com/ui/native/camunda-bpm/org/camunda/bpm/webapp/camunda-webapp-tomcat/">Tomcat 9</a>, the name of the artifact is <code>$PLATFORM_VERSION/camunda-webapp-tomcat-$PLATFORM_VERSION.war</code>.</li>
+<li>For <a href="https://artifacts.cibseven.de/service/rest/repository/browse/public/org/camunda/bpm/camunda-engine-rest-jakarta/7.22.0-cibseven/">Tomcat 10</a>, the name of the artifact is <code>camunda-engine-rest-jakarta-7.22.0-cibseven-tomcat.war</code>.</li>
+<li>For <a href="https://artifacts.cibseven.de/service/rest/repository/browse/public/org/camunda/bpm/camunda-engine-rest/7.22.0-cibseven/">Tomcat 9</a>, the name of the artifact is <code>camunda-engine-rest-7.22.0-cibseven-tomcat.war</code>.</li>
 </ul>
 </li>
-<li>Copy the war file to <code>$TOMCAT_HOME/webapps/camunda.war</code>.
-Optionally you may name it differently or extract it to a folder to deploy it to a different context path.</li>
-<li>Startup Tomcat.</li>
-<li>Access Cockpit and Tasklist via <code>/camunda/app/cockpit</code> and <code>/camunda/app/tasklist</code> or under the context path you configured.</li>
+<li>
+<p>Copy the war file to <code>$TOMCAT_HOME/webapps/camunda.war</code>.
+Optionally you may name it differently or extract it to a folder to deploy it to a different context path.</p>
+</li>
+<li>
+<p>Startup Tomcat.</p>
+</li>
+<li>
+<p>Access Cockpit and Tasklist via <code>/camunda/app/cockpit</code> and <code>/camunda/app/tasklist</code> or under the context path you configured.</p>
+</li>
 </ol>
 <h2 id="rest-api">REST API</h2>
 <p>The following steps are required to deploy the REST API:</p>
 <ol>
-<li>Download the REST API web application archive from our <a href="https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/camunda-engine-rest/">Artifact Repository</a>.
-Or switch to the private repository for the enterprise version (User and password from license required).
-Choose the correct version named <code>$PLATFORM_VERSION/camunda-engine-rest-$PLATFORM_VERSION-tomcat.war</code>.
-<ul>
-<li>For <a href="https://artifacts.camunda.com/artifactory/public/org/camunda/bpm/camunda-engine-rest-jakarta/">Tomcat 10</a>, the name of the artifact is <code>$PLATFORM_VERSION/camunda-engine-rest-jakarta-$PLATFORM_VERSION-tomcat.war</code>.</li>
-<li>For <a href="https://artifacts.camunda.com/artifactory/public/org/camunda/bpm/camunda-engine-rest/">Tomcat 9</a>, the name of the artifact is <code>$PLATFORM_VERSION/camunda-engine-rest-$PLATFORM_VERSION-tomcat.war</code>.</li>
-</ul>
-</li>
+<li>Download the REST API web application archive from our <a href="https://artifacts.cibseven.de/service/rest/repository/browse/public/org/camunda/bpm/camunda-engine-rest/7.22.0-cibseven/">Artifact Repository</a>.</li>
 <li>Copy the war file to <code>$TOMCAT_HOME/webapps</code>.
 Optionally you may rename it or extract it to a folder to deploy it to a specific context like <code>/engine-rest</code>.</li>
 <li>Startup Tomcat.</li>
