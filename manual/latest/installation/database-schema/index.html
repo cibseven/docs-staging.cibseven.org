@@ -2678,33 +2678,6 @@
   </li>
 
         
-          
-  <li>
-    
-      <a href="/manual/latest/installation/full/wls/" >Oracle WebLogic</a>
-      <ul>
-        
-          
-  <li>
-    
-      <a href="/manual/latest/installation/full/wls/manual/" >Manual Installation</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/manual/latest/installation/full/wls/configuration/" >Configuration</a>
-    
-  </li>
-
-        
-      </ul>
-    
-  </li>
-
-        
       </ul>
     
   </li>
@@ -2802,14 +2775,6 @@
           
   <li>
     
-      <a href="/manual/latest/webapps/admin/auditing/" >Auditing</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
       <a href="/manual/latest/webapps/admin/configuration/" >Configuration</a>
     
   </li>
@@ -2875,38 +2840,6 @@
           
   <li>
     
-      <a href="/manual/latest/webapps/cockpit/bpmn/process-history-views/" >History</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/manual/latest/webapps/cockpit/bpmn/process-instance-modification/" >Instance Modification</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/manual/latest/webapps/cockpit/bpmn/process-instance-restart/" >Instance Restart</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/manual/latest/webapps/cockpit/bpmn/process-instance-migration/" >Instance Migration</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
       <a href="/manual/latest/webapps/cockpit/bpmn/failed-jobs/" >Failed Jobs</a>
     
   </li>
@@ -2916,14 +2849,6 @@
   <li>
     
       <a href="/manual/latest/webapps/cockpit/bpmn/suspension/" >Suspension</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/manual/latest/webapps/cockpit/bpmn/correlate-message/" >Correlate Message</a>
     
   </li>
 
@@ -2966,79 +2891,12 @@
           
   <li>
     
-      <a href="/manual/latest/webapps/cockpit/dmn/decision-requirements-instance-view/" >Decision Requirements Definition Instance View</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/manual/latest/webapps/cockpit/dmn/decision-requirements-definition-view/" >Decision Requirements Definition View</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
       <a href="/manual/latest/webapps/cockpit/dmn/decision-instance-view/" >Decision Instance View</a>
     
   </li>
 
         
-          
-  <li>
-    
-      <a href="/manual/latest/webapps/cockpit/dmn/live-editing/" >Live Editing</a>
-    
-  </li>
-
-        
       </ul>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/manual/latest/webapps/cockpit/cmmn/" >CMMN Cases</a>
-      <ul>
-        
-          
-  <li>
-    
-      <a href="/manual/latest/webapps/cockpit/cmmn/dashboard/" >Dashboard</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/manual/latest/webapps/cockpit/cmmn/case-definition-view/" >Case Definition View</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/manual/latest/webapps/cockpit/cmmn/case-instance-view/" >Case Instance View</a>
-    
-  </li>
-
-        
-      </ul>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/manual/latest/webapps/cockpit/cleanup/" >Cleanup</a>
     
   </li>
 
@@ -3047,49 +2905,6 @@
   <li>
     
       <a href="/manual/latest/webapps/cockpit/deployment-view/" >Deployments</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/manual/latest/webapps/cockpit/auditing/" >Auditing</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/manual/latest/webapps/cockpit/batch/" >Batch</a>
-      <ul>
-        
-          
-  <li>
-    
-      <a href="/manual/latest/webapps/cockpit/batch/batch-operation/" >Batch operation</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/manual/latest/webapps/cockpit/batch/monitoring/" >Batch View</a>
-    
-  </li>
-
-        
-      </ul>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/manual/latest/webapps/cockpit/reporting/" >Reports</a>
     
   </li>
 
@@ -3459,27 +3274,14 @@ This changelog helps Liquibase to keep track of the changes that have been made 
 Based on that changelog and the tracking tables, Liquibase determines which changes it needs to apply when you instruct it to update your schema.</p>
 <p>Perform the following steps to update the database schema on your database instance:</p>
 <ol>
-<li>
-<p>Select the respective version you want to update to (<code>$Y</code>) on our <a href="https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/distro/camunda-sql-scripts/">Artifact Repository</a> and download the resources as a <code>zip</code> or <code>tar.gz</code> file.
+<li>Select the respective version you want to update to (<code>$Y</code>) on our <a href="https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/distro/camunda-sql-scripts/">Artifact Repository</a> and download the resources as a <code>zip</code> or <code>tar.gz</code> file.
 Open the <code>camunda-sql-scripts-$Y/liquibase</code> folder to find the changelog file.
-In case you are using a <a href="/manual/latest/introduction/downloading-cibseven/#full-distribution">pre-packaged distribution</a>, the Liquibase resources already reside in the <code>sql/liquibase</code> folder of the distribution with version <code>$Y</code>.</p>
-</li>
-<li>
-<p>Run Liquibase&rsquo;s <a href="https://docs.liquibase.com/commands/community/update.html">update command</a> referencing the new <code>camunda-changelog.xml</code> of version <code>$Y</code>.
+In case you are using a <a href="/manual/latest/introduction/downloading-cibseven/#full-distribution">pre-packaged distribution</a>, the Liquibase resources already reside in the <code>sql/liquibase</code> folder of the distribution with version <code>$Y</code>.</li>
+<li>Run Liquibase&rsquo;s <a href="https://docs.liquibase.com/commands/community/update.html">update command</a> referencing the new <code>camunda-changelog.xml</code> of version <code>$Y</code>.
 Liquibase takes care of determining the necessary changes and applying them to your database according to the new changelog.
-You can pass on the connection details to your database instance via parameters as described in the Liquibase documentation or <a href="https://docs.liquibase.com/workflows/liquibase-community/creating-config-properties.html">create a properties file</a>.</p>
-</li>
-<li>
-<p>We highly recommend updating to the latest patch version that is within the bounds of the new minor version you are updating to (<code>$Y</code>).</p>
-<p><em>Attention</em>: This step is only relevant when you are using an enterprise version of CIB seven, e.g., <code>7.16.X</code> where <code>X &gt; 0</code>.</p>
-</li>
+You can pass on the connection details to your database instance via parameters as described in the Liquibase documentation or <a href="https://docs.liquibase.com/workflows/liquibase-community/creating-config-properties.html">create a properties file</a>.</li>
+<li>We highly recommend updating to the latest patch version that is within the bounds of the new minor version you are updating to (<code>$Y</code>).</li>
 </ol>
-
-<div class="note bg-warning docs-warning">
-  <h3>Do I need to apply every minor version if I missed a few?</h3>
-  <p>Liquibase takes care of determining which upgrade scripts to apply automatically according to the changelog of your target version (<code>$Y</code>).</p>
-</div>
-
 
 <div class="note bg-info docs-info">
   <h3>Dry run</h3>
@@ -3521,29 +3323,10 @@ The scripts update the database from one minor version to the next and change th
 </li>
 <li>
 <p>We highly recommend checking for any existing patch scripts for your database that are within the bounds of the new minor version you are updating to (<code>$Y</code>). Execute them in ascending order by version number. The procedure is the same as in step 1, only for the new minor version.</p>
-<p><em>Attention</em>: This step is only relevant when you are using an enterprise version of CIB seven, e.g., <code>7.16.X</code> where <code>X &gt; 0</code>.</p>
 </li>
 </ol>
-
-<div class="note bg-warning docs-warning">
-  <h3>Do I need to apply every minor version if I missed a few?</h3>
-  <p>If you need to apply multiple minor versions, you MUST execute the database alteration scripts in minor version order as they are NOT cumulative.</p>
-</div>
-
 <h2 id="patch-level-update">Patch level update</h2>
 <p>This section explains how to perform a patch-level update for your database schema. The <em>patch level</em> is the version number &ldquo;after the second dot&rdquo;. For example, update from <code>7.14.2</code> to <code>7.14.3</code>.</p>
-<div class="note enterprise-feature">
-  <h3>Enterprise Feature</h3>
-
-  <p class="description">Please note that Patch Level Updates are only provided to enterprise customers. They are not available in the community edition.</p>
-
-  <p>
-    Check the <a href="http://camunda.com/platform-7/editions/">Camunda enterprise homepage</a>
-    for more information or get your
-    <a href="http://camunda.com/download/enterprise/">free trial version.</a>
-  </p>
-</div>
-
 <p>Between patch levels, the structure of the database schema does not change. The database structure of all patch releases is backward compatible with the corresponding minor version. For example, the database schema of all <code>7.14.x</code> versions are backward compatible with the <code>7.14.0</code> schema.</p>
 <p>The one exception to this is a bug in the database schema itself. If you are affected by such a bug, you have the option to run a patch script. The following list contains all available patch scripts, information on what the fixes are related to, and a link to the corresponding <a href="https://jira.camunda.com/projects/CAM">Camunda Jira</a> issue:</p>
 <table class="table desc-table">
@@ -3554,7 +3337,7 @@ The scripts update the database from one minor version to the next and change th
       <th>Description</th>
       <th>Affected databases</th>
       <th>Issue link</th>
-    <tr>
+    </tr>
   </thead>
   <tbody>
     <tr>
@@ -3704,7 +3487,8 @@ The scripts update the database from one minor version to the next and change th
       <td>All databases</td>
       <td><a href="https://app.camunda.com/jira/browse/CAM-8833">CAM-8833</a></td>
     </tr>
-    <td>7.7</td>
+    <tr>
+      <td>7.7</td>
       <td>engine_7.7_patch_7.7.8_to_7.7.9_2.sql</td>
       <td>Add a missing index on foreign key to prevent deadlocks.</td>
       <td>DB2, SQL Server</td>
@@ -3848,7 +3632,7 @@ The scripts update the database from one minor version to the next and change th
       <td>7.10</td>
       <td>engine_7.10_patch_7.10.6_to_7.10.7.sql</td>
       <td>Add index to improve history cleanup performance.
-      <br>
+      <br/>
       <strong>This patch script is introduced in 7.10.9</strong>. If your current patch is 7.10.6, 7.10.7 or 7.10.8, please execute the script to upgrade to 7.10.9+.
       </td>
       <td>All databases</td>

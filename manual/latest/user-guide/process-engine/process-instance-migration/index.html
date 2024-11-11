@@ -2678,33 +2678,6 @@
   </li>
 
         
-          
-  <li>
-    
-      <a href="/manual/latest/installation/full/wls/" >Oracle WebLogic</a>
-      <ul>
-        
-          
-  <li>
-    
-      <a href="/manual/latest/installation/full/wls/manual/" >Manual Installation</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/manual/latest/installation/full/wls/configuration/" >Configuration</a>
-    
-  </li>
-
-        
-      </ul>
-    
-  </li>
-
-        
       </ul>
     
   </li>
@@ -2802,14 +2775,6 @@
           
   <li>
     
-      <a href="/manual/latest/webapps/admin/auditing/" >Auditing</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
       <a href="/manual/latest/webapps/admin/configuration/" >Configuration</a>
     
   </li>
@@ -2875,38 +2840,6 @@
           
   <li>
     
-      <a href="/manual/latest/webapps/cockpit/bpmn/process-history-views/" >History</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/manual/latest/webapps/cockpit/bpmn/process-instance-modification/" >Instance Modification</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/manual/latest/webapps/cockpit/bpmn/process-instance-restart/" >Instance Restart</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/manual/latest/webapps/cockpit/bpmn/process-instance-migration/" >Instance Migration</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
       <a href="/manual/latest/webapps/cockpit/bpmn/failed-jobs/" >Failed Jobs</a>
     
   </li>
@@ -2916,14 +2849,6 @@
   <li>
     
       <a href="/manual/latest/webapps/cockpit/bpmn/suspension/" >Suspension</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/manual/latest/webapps/cockpit/bpmn/correlate-message/" >Correlate Message</a>
     
   </li>
 
@@ -2966,79 +2891,12 @@
           
   <li>
     
-      <a href="/manual/latest/webapps/cockpit/dmn/decision-requirements-instance-view/" >Decision Requirements Definition Instance View</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/manual/latest/webapps/cockpit/dmn/decision-requirements-definition-view/" >Decision Requirements Definition View</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
       <a href="/manual/latest/webapps/cockpit/dmn/decision-instance-view/" >Decision Instance View</a>
     
   </li>
 
         
-          
-  <li>
-    
-      <a href="/manual/latest/webapps/cockpit/dmn/live-editing/" >Live Editing</a>
-    
-  </li>
-
-        
       </ul>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/manual/latest/webapps/cockpit/cmmn/" >CMMN Cases</a>
-      <ul>
-        
-          
-  <li>
-    
-      <a href="/manual/latest/webapps/cockpit/cmmn/dashboard/" >Dashboard</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/manual/latest/webapps/cockpit/cmmn/case-definition-view/" >Case Definition View</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/manual/latest/webapps/cockpit/cmmn/case-instance-view/" >Case Instance View</a>
-    
-  </li>
-
-        
-      </ul>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/manual/latest/webapps/cockpit/cleanup/" >Cleanup</a>
     
   </li>
 
@@ -3047,49 +2905,6 @@
   <li>
     
       <a href="/manual/latest/webapps/cockpit/deployment-view/" >Deployments</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/manual/latest/webapps/cockpit/auditing/" >Auditing</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/manual/latest/webapps/cockpit/batch/" >Batch</a>
-      <ul>
-        
-          
-  <li>
-    
-      <a href="/manual/latest/webapps/cockpit/batch/batch-operation/" >Batch operation</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/manual/latest/webapps/cockpit/batch/monitoring/" >Batch View</a>
-    
-  </li>
-
-        
-      </ul>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/manual/latest/webapps/cockpit/reporting/" >Reports</a>
     
   </li>
 
@@ -3397,18 +3212,6 @@ canceling an activity instance before migration and starting a new instance afte
 <div data-bpmn-diagram="../bpmn/process-instance-migration/example1"></div>
 <p>Process <code>exampleProcess:2</code>:</p>
 <div data-bpmn-diagram="../bpmn/process-instance-migration/example2"></div>
-<div class="note enterprise-feature">
-  <h3>Enterprise Feature</h3>
-
-  <p class="description">The Camunda enterprise edition provides a user interface to migrate process instances in <a href="/manual/latest/webapps/cockpit/bpmn/process-instance-migration/">Camunda Cockpit</a></p>
-
-  <p>
-    Check the <a href="http://camunda.com/platform-7/editions/">Camunda enterprise homepage</a>
-    for more information or get your
-    <a href="http://camunda.com/download/enterprise/">free trial version.</a>
-  </p>
-</div>
-
 <h1 id="process-instance-migration-by-example">Process Instance Migration by Example</h1>
 <p>We can define a migration plan using the API entrance point <code>RuntimeService#createMigrationPlan</code>.
 It returns a fluent builder to create a migration plan. For our example, the code looks like:</p>

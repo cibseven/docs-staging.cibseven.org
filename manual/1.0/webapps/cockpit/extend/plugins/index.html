@@ -2678,33 +2678,6 @@
   </li>
 
         
-          
-  <li>
-    
-      <a href="/manual/1.0/installation/full/wls/" >Oracle WebLogic</a>
-      <ul>
-        
-          
-  <li>
-    
-      <a href="/manual/1.0/installation/full/wls/manual/" >Manual Installation</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/manual/1.0/installation/full/wls/configuration/" >Configuration</a>
-    
-  </li>
-
-        
-      </ul>
-    
-  </li>
-
-        
       </ul>
     
   </li>
@@ -2802,14 +2775,6 @@
           
   <li>
     
-      <a href="/manual/1.0/webapps/admin/auditing/" >Auditing</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
       <a href="/manual/1.0/webapps/admin/configuration/" >Configuration</a>
     
   </li>
@@ -2875,38 +2840,6 @@
           
   <li>
     
-      <a href="/manual/1.0/webapps/cockpit/bpmn/process-history-views/" >History</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/manual/1.0/webapps/cockpit/bpmn/process-instance-modification/" >Instance Modification</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/manual/1.0/webapps/cockpit/bpmn/process-instance-restart/" >Instance Restart</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/manual/1.0/webapps/cockpit/bpmn/process-instance-migration/" >Instance Migration</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
       <a href="/manual/1.0/webapps/cockpit/bpmn/failed-jobs/" >Failed Jobs</a>
     
   </li>
@@ -2916,14 +2849,6 @@
   <li>
     
       <a href="/manual/1.0/webapps/cockpit/bpmn/suspension/" >Suspension</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/manual/1.0/webapps/cockpit/bpmn/correlate-message/" >Correlate Message</a>
     
   </li>
 
@@ -2966,79 +2891,12 @@
           
   <li>
     
-      <a href="/manual/1.0/webapps/cockpit/dmn/decision-requirements-instance-view/" >Decision Requirements Definition Instance View</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/manual/1.0/webapps/cockpit/dmn/decision-requirements-definition-view/" >Decision Requirements Definition View</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
       <a href="/manual/1.0/webapps/cockpit/dmn/decision-instance-view/" >Decision Instance View</a>
     
   </li>
 
         
-          
-  <li>
-    
-      <a href="/manual/1.0/webapps/cockpit/dmn/live-editing/" >Live Editing</a>
-    
-  </li>
-
-        
       </ul>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/manual/1.0/webapps/cockpit/cmmn/" >CMMN Cases</a>
-      <ul>
-        
-          
-  <li>
-    
-      <a href="/manual/1.0/webapps/cockpit/cmmn/dashboard/" >Dashboard</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/manual/1.0/webapps/cockpit/cmmn/case-definition-view/" >Case Definition View</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/manual/1.0/webapps/cockpit/cmmn/case-instance-view/" >Case Instance View</a>
-    
-  </li>
-
-        
-      </ul>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/manual/1.0/webapps/cockpit/cleanup/" >Cleanup</a>
     
   </li>
 
@@ -3047,49 +2905,6 @@
   <li>
     
       <a href="/manual/1.0/webapps/cockpit/deployment-view/" >Deployments</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/manual/1.0/webapps/cockpit/auditing/" >Auditing</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/manual/1.0/webapps/cockpit/batch/" >Batch</a>
-      <ul>
-        
-          
-  <li>
-    
-      <a href="/manual/1.0/webapps/cockpit/batch/batch-operation/" >Batch operation</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/manual/1.0/webapps/cockpit/batch/monitoring/" >Batch View</a>
-    
-  </li>
-
-        
-      </ul>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/manual/1.0/webapps/cockpit/reporting/" >Reports</a>
     
   </li>
 
@@ -4006,55 +3821,7 @@ This plugin point does not receive a DOM node to render into but an instance of 
        /></span>
 </figure>
 
-<h2 id="report-view">Report View</h2>
-<p><strong>Name:</strong> <code>cockpit.report</code></p>
-<p>See the <a href="/manual/1.0/webapps/cockpit/reporting/">Reports</a> section for an example report plugin.</p>
-<p>This plugin points properties contain the attribute <code>label</code>, which will be rendered in the navigation even when the plugin is not selected.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Javascript" data-lang="Javascript"><span style="display:flex;"><span><span style="color:#a6e22e">properties</span><span style="color:#f92672">:</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">label</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;My Plugin&#34;</span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h2 id="batch-operation">Batch Operation</h2>
-<p><strong>Name:</strong> <code>cockpit.batch.operation</code></p>
-<figure class="image">
-  <span><img
-      src="../../img/plugin-points/plugin-point-batch-operation.png"
-      
-          title="Custom Plugin"
-       /></span>
-</figure>
-
-<p>The render function can be used to create a form for custom payloads to your batch operation.</p>
-<p>A simple batch operation without a payload could look like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;my-batch-plugin&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">pluginPoint</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cockpit.batch.operation&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">priority</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">render</span><span style="color:#f92672">:</span> () =&gt; {},
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">properties</span><span style="color:#f92672">:</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Defines which instances the search field will be showing
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">searchType</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;process&#34;</span> <span style="color:#f92672">||</span> <span style="color:#e6db74">&#34;decision&#34;</span> <span style="color:#f92672">||</span> <span style="color:#e6db74">&#34;batch&#34;</span>,
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// A function which returns the endpoint and the payload of the batch operation. The argument contains either the search query or the selected IDs.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// &#39;api&#39; contains the engine API endpoints. See &#34;Attributes in Detail&#34; for more information.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">onSubmit</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span>({ <span style="color:#a6e22e">query</span>, <span style="color:#a6e22e">ids</span>, <span style="color:#a6e22e">api</span> }) {
-</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// The return value must contain the endpoint and the payload object.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">return</span> {
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">endpoint</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;/my/custom/batch/endpoint&#34;</span>,
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">payload</span><span style="color:#f92672">:</span> {}
-</span></span><span style="display:flex;"><span>      };
-</span></span><span style="display:flex;"><span>    },
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// These labels are required
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">labels</span><span style="color:#f92672">:</span> {
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">dropdownLabel</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Title in the Dropdown menu&#34;</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">sentenceLabel</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;e.g. &#39;modify&#39;&#34;</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">passiveLabel</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;e.g. &#39;modified&#39;&#34;</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">searchHtml</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;an &lt;b&gt;HTML&lt;/b&gt; string to be displayed over the search bar&#34;</span>
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>};
-</span></span></code></pre></div><h2 id="incident-action">Incident Action</h2>
+<h2 id="incident-action">Incident Action</h2>
 <p><strong>Name:</strong> <code>cockpit.incident.action</code></p>
 <figure class="image">
   <span><img
@@ -4130,8 +3897,6 @@ This plugin point does not receive a DOM node to render into but an instance of 
     <li><a href="#repository-resource-action">Repository Resource Action</a></li>
     <li><a href="#repository-resource-detail">Repository Resource Detail</a></li>
     <li><a href="#open-task-dashboard">Open Task Dashboard</a></li>
-    <li><a href="#report-view">Report View</a></li>
-    <li><a href="#batch-operation">Batch Operation</a></li>
     <li><a href="#incident-action">Incident Action</a></li>
   </ul>
 </nav>

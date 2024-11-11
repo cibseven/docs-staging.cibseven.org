@@ -7,10 +7,6 @@
   </url>
   
   <url>
-    <loc>https://docs.cibseven.de/manual/1.0/webapps/cockpit/cmmn/dashboard/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.cibseven.de/manual/1.0/webapps/cockpit/dmn/dashboard/</loc>
   </url>
   
@@ -27,19 +23,11 @@
   </url>
   
   <url>
-    <loc>https://docs.cibseven.de/manual/1.0/webapps/cockpit/batch/batch-operation/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.cibseven.de/manual/1.0/reference/deployment-descriptors/descriptors/bpm-platform-xml/</loc>
   </url>
   
   <url>
     <loc>https://docs.cibseven.de/manual/1.0/reference/bpmn20/custom-extensions/extension-elements/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/webapps/cockpit/cmmn/case-definition-view/</loc>
   </url>
   
   <url>
@@ -88,14 +76,6 @@
   
   <url>
     <loc>https://docs.cibseven.de/manual/1.0/webapps/cockpit/dmn/decision-definition-view/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/webapps/cockpit/dmn/decision-requirements-instance-view/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/webapps/cockpit/dmn/decision-requirements-definition-view/</loc>
   </url>
   
   <url>
@@ -303,10 +283,6 @@
   </url>
   
   <url>
-    <loc>https://docs.cibseven.de/manual/1.0/webapps/cockpit/cmmn/case-instance-view/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.cibseven.de/manual/1.0/introduction/third-party-libraries/cibseven-bpm-platform-license-book/</loc>
   </url>
   
@@ -436,10 +412,6 @@
   
   <url>
     <loc>https://docs.cibseven.de/manual/1.0/installation/full/tomcat/manual/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/installation/full/wls/manual/</loc>
   </url>
   
   <url>
@@ -607,10 +579,6 @@
   </url>
   
   <url>
-    <loc>https://docs.cibseven.de/manual/1.0/installation/full/wls/configuration/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.cibseven.de/manual/1.0/installation/full/tomcat/configuration/</loc>
   </url>
   
@@ -687,10 +655,6 @@
   </url>
   
   <url>
-    <loc>https://docs.cibseven.de/manual/1.0/webapps/cockpit/dmn/live-editing/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.cibseven.de/manual/1.0/reference/bpmn20/events/message-events/</loc>
   </url>
   
@@ -755,10 +719,6 @@
   </url>
   
   <url>
-    <loc>https://docs.cibseven.de/manual/1.0/webapps/cockpit/cmmn/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.cibseven.de/manual/1.0/installation/karaf-osgi/</loc>
   </url>
   
@@ -768,10 +728,6 @@
   
   <url>
     <loc>https://docs.cibseven.de/manual/1.0/reference/bpmn20/tasks/business-rule-task/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/webapps/cockpit/cleanup/</loc>
   </url>
   
   <url>
@@ -816,10 +772,6 @@
   
   <url>
     <loc>https://docs.cibseven.de/manual/1.0/reference/cmmn11/grouping-tasks/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/webapps/cockpit/bpmn/process-history-views/</loc>
   </url>
   
   <url>
@@ -907,23 +859,7 @@
   </url>
   
   <url>
-    <loc>https://docs.cibseven.de/manual/1.0/webapps/cockpit/auditing/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.cibseven.de/manual/1.0/webapps/admin/plugins/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/webapps/admin/auditing/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/webapps/cockpit/batch/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/webapps/cockpit/batch/monitoring/</loc>
   </url>
   
   <url>
@@ -987,14 +923,6 @@
   </url>
   
   <url>
-    <loc>https://docs.cibseven.de/manual/1.0/installation/full/wls/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/webapps/cockpit/bpmn/process-instance-restart/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.cibseven.de/manual/1.0/reference/spin/xml/05-mapping-xml/</loc>
   </url>
   
@@ -1016,10 +944,6 @@
   
   <url>
     <loc>https://docs.cibseven.de/manual/1.0/user-guide/process-engine/process-instance-modification/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/webapps/cockpit/bpmn/process-instance-modification/</loc>
   </url>
   
   <url>
@@ -1080,10 +1004,6 @@
   
   <url>
     <loc>https://docs.cibseven.de/manual/1.0/reference/bpmn20/events/escalation-events/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/webapps/cockpit/bpmn/process-instance-migration/</loc>
   </url>
   
   <url>
@@ -1175,10 +1095,6 @@
   </url>
   
   <url>
-    <loc>https://docs.cibseven.de/manual/1.0/webapps/cockpit/reporting/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.cibseven.de/manual/1.0/reference/cmmn11/sentry/</loc>
   </url>
   
@@ -1248,10 +1164,6 @@
   
   <url>
     <loc>https://docs.cibseven.de/manual/1.0/update/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/manual/1.0/webapps/cockpit/bpmn/correlate-message/</loc>
   </url>
   
   <url>
