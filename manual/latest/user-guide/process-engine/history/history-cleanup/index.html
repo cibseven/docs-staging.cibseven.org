@@ -1327,14 +1327,6 @@
           
   <li>
     
-      <a href="/manual/latest/user-guide/license-use/" >Camunda License Keys</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
       <a href="/manual/latest/user-guide/ext-client/" >External Task Client</a>
       <ul>
         
@@ -3338,13 +3330,7 @@ be configured explicitly if needed.</p>
 <p>The <code>taskMetricsTimeToLive</code> property can be used to define a TTL for task metrics entries produced by user task assignments.
 The property accepts values in the ISO-8601 date format. Note that only the notation to define a number of days is allowed.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;taskMetricsTimeToLive&#34;</span><span style="color:#f92672">&gt;</span>P540D<span style="color:#f92672">&lt;/property&gt;</span>
-</span></span></code></pre></div>
-<div class="note bg-warning docs-warning">
-  <h3>Heads Up!</h3>
-  <p>If you are an enterprise customer, your license agreement might require you to report some metrics annually. Please store task metrics from <code>ACT_RU_TASK_METER_LOG</code> for at least 18 months until they were reported.</p>
-</div>
-
-<h3 id="cleanup-window">Cleanup window</h3>
+</span></span></code></pre></div><h3 id="cleanup-window">Cleanup window</h3>
 <p>For automated history cleanup on a regular basis, a batch window must be configured - the period of time during the day when the cleanup is to run.</p>
 <p>Use the following engine configuration properties to define a batch window for every day of the week:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;historyCleanupBatchWindowStartTime&#34;</span><span style="color:#f92672">&gt;</span>20:00<span style="color:#f92672">&lt;/property&gt;</span>

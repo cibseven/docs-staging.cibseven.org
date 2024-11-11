@@ -39,10 +39,6 @@
   </url>
   
   <url>
-    <loc>/get-started/archive/rpa/requirements/</loc>
-  </url>
-  
-  <url>
     <loc>/get-started/spring-boot/project-setup/</loc>
   </url>
   
@@ -68,10 +64,6 @@
   
   <url>
     <loc>/get-started/archive/javaee7/</loc>
-  </url>
-  
-  <url>
-    <loc>/get-started/archive/rpa/installation/</loc>
   </url>
   
   <url>
@@ -115,10 +107,6 @@
   </url>
   
   <url>
-    <loc>/get-started/archive/rpa/orchestrating-bots/</loc>
-  </url>
-  
-  <url>
     <loc>/get-started/quick-start/user-task/</loc>
   </url>
   
@@ -131,15 +119,7 @@
   </url>
   
   <url>
-    <loc>/get-started/archive/rpa/error-handling/</loc>
-  </url>
-  
-  <url>
     <loc>/get-started/dmn/deploy/</loc>
-  </url>
-  
-  <url>
-    <loc>/get-started/archive/rpa/</loc>
   </url>
   
   <url>

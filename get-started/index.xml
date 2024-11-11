@@ -36,13 +36,6 @@
       <description>&lt;p&gt;First, you need to install the Camunda Platform and the Camunda Modeler.&lt;/p&gt;&#xA;&lt;p&gt;In the following section, we&amp;rsquo;ll describe how to install the Camunda Platform locally on your machine.&lt;/p&gt;&#xA;&#xA;&lt;div class=&#34;note bg-info docs-info&#34;&gt;&#xA;  &lt;h3&gt;Hint&lt;/h3&gt;&#xA;  &lt;p&gt;&lt;p&gt;If you prefer, you can also run the Camunda Platform with Docker:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;docker pull camunda/camunda-bpm-platform:run-latest&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;docker run -d --name camunda -p 8080:8080 camunda/camunda-bpm-platform:run-latest&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Afterwards, you can &lt;a href=&#34;#camunda-modeler&#34;&gt;install the Camunda Modeler&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;h1 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h1&gt;&#xA;&lt;p&gt;Please make sure you have the following installed:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Java Runtime Environment 11&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;You can verify this by using your terminal, shell, or command line:&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Requirements</title>
-      <link>/get-started/archive/rpa/requirements/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/get-started/archive/rpa/requirements/</guid>
-      <description>&lt;p&gt;Several components are involved in setting up proper RPA Orchestration in this guide.&#xA;Therefore, a couple of requirements should be fulfilled before starting with this guide.&#xA;You can also jump ahead to the &lt;a href=&#34;../installation&#34;&gt;Installation &amp;amp; Configuration&lt;/a&gt; page if you are familiar&#xA;with the requirements already.&lt;/p&gt;&#xA;&lt;h1 id=&#34;knowledge-requirements&#34;&gt;Knowledge Requirements&lt;/h1&gt;&#xA;&lt;p&gt;In order to succeed with this getting started guide, we expect that you already know&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;How to create and trigger robots with your RPA vendor (UiPath or AutomationAnywhere)&lt;/li&gt;&#xA;&lt;li&gt;How to model and execute BPMN process diagrams with the Camunda stack&lt;/li&gt;&#xA;&lt;li&gt;How to work with process variables as part of JUEL expressions&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;If you never executed a process model with the Camunda engine, we recommend starting with the &lt;a href=&#34;../../quick-start&#34;&gt;Quick Start Guide&lt;/a&gt; first.&lt;/p&gt;</description>
-    </item>
-    <item>
       <title>Setup a Spring Boot Project</title>
       <link>/get-started/spring-boot/project-setup/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -83,13 +76,6 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/get-started/quick-start/service-task/</guid>
       <description>&lt;p&gt;In this section, you&amp;rsquo;ll learn how to create your first BPMN 2.0 process with the Camunda Modeler and how to execute automated steps. Start by opening up Camunda Modeler.&lt;/p&gt;&#xA;&lt;h1 id=&#34;create-a-new-bpmn-diagram&#34;&gt;Create a new BPMN Diagram&lt;/h1&gt;&#xA;&lt;p&gt;Create a new BPMN diagram by clicking &lt;em&gt;File &amp;gt; New File &amp;gt; BPMN Diagram (Camunda Platform)&lt;/em&gt;.&lt;/p&gt;&#xA;&lt;figure class=&#34;image&#34;&gt;&#xA;  &lt;span&gt;&lt;img&#xA;      src=&#34;../img/modeler-new-bpmn-diagram.png&#34;&#xA;       /&gt;&lt;/span&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;h2 id=&#34;start-with-a-simple-process&#34;&gt;Start with a Simple Process&lt;/h2&gt;&#xA;&lt;p&gt;Start by modeling a simple process.&lt;/p&gt;&#xA;&lt;figure class=&#34;image&#34;&gt;&#xA;  &lt;span&gt;&lt;img&#xA;      src=&#34;../img/modeler-step1.png&#34;&#xA;       /&gt;&lt;/span&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Double-click on the Start Event. A text box will open. Name the Start Event &amp;ldquo;Payment Retrieval Requested&amp;rdquo;.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Installation &amp; Configuration</title>
-      <link>/get-started/archive/rpa/installation/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/get-started/archive/rpa/installation/</guid>
-      <description>&lt;p&gt;After familiarizing yourself with all &lt;a href=&#34;../requirements&#34;&gt;Requirements&lt;/a&gt;, this section will dive deeper into the components involved in RPA Orchestration and how you should set them up. If your setup is already prepared, jump ahead to &lt;a href=&#34;../orchestrating-bots&#34;&gt;Orchestrating RPA Bots&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h1 id=&#34;rpa-vendor-credentials&#34;&gt;RPA Vendor Credentials&lt;/h1&gt;&#xA;&lt;p&gt;To orchestrate RPA bots, we will connect the Camunda Platform Workflow Engine to your RPA vendor via the Camunda RPA Bridge.&#xA;This component will require configuration parameters to connect to your RPA vendor.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Setup a Java EE Application Project</title>
@@ -155,13 +141,6 @@
       <description>&lt;p&gt;In this section we learn how to deploy a process and invoke a Spring Bean from a BPMN 2.0 Service Task.&lt;/p&gt;&#xA;&lt;h1 id=&#34;deploy-and-invoke-bpmn-process&#34;&gt;Deploy and Invoke BPMN Process&lt;/h1&gt;&#xA;&lt;p&gt;Now that we know how to bootstrap the process engine within a Spring Boot Application, we can add a BPMN 2.0 process&#xA;model and interact with the process from inside our Spring beans. In this section, we will&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Model an executable BPMN 2.0 process.&lt;/li&gt;&#xA;&lt;li&gt;Use Spring Boot Starter auto-deployment for BPMN 2.0 processes.&lt;/li&gt;&#xA;&lt;li&gt;Create a process application.&lt;/li&gt;&#xA;&lt;li&gt;Start a process instance from our process application.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;model-an-executable-bpmn-20-process-and-deploy-it&#34;&gt;Model an Executable BPMN 2.0 Process and Deploy It&lt;/h2&gt;&#xA;&lt;p&gt;Start by modeling an executable process using the Camunda Modeler. The process should look as depicted in the screenshot below.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Orchestrating RPA Bots</title>
-      <link>/get-started/archive/rpa/orchestrating-bots/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/get-started/archive/rpa/orchestrating-bots/</guid>
-      <description>&lt;p&gt;After setting up all components in the &lt;a href=&#34;../installation&#34;&gt;Installation &amp;amp; Configuration&lt;/a&gt;, we will now dive into a concrete example of setting up RPA Orchestration. If your example is already up and running and you would like to dig deeper into &lt;a href=&#34;../error-handling&#34;&gt;Error Handling&lt;/a&gt;, go ahead.&lt;/p&gt;&#xA;&lt;h1 id=&#34;creating-and-deploying-a-bot&#34;&gt;Creating and deploying a Bot&lt;/h1&gt;&#xA;&lt;h2 id=&#34;uipath&#34;&gt;UiPath&lt;/h2&gt;&#xA;&lt;p&gt;To orchestrate your RPA bots and the tasks that they automate, you need to create a UiPath package that contains the scripts that the RPA bots should execute. In UiPath, these scripts are called &amp;ldquo;Process&amp;rdquo;.&lt;/p&gt;</description>
-    </item>
-    <item>
       <title>Add a User Task to the Process (4/6)</title>
       <link>/get-started/quick-start/user-task/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -181,13 +160,6 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/get-started/archive/javaee7/deploy/</guid>
       <description>&lt;p&gt;The next step consists in building and deploying the process application.&lt;/p&gt;&#xA;&lt;h1 id=&#34;build-the-process-application&#34;&gt;Build the Process Application&lt;/h1&gt;&#xA;&lt;p&gt;To deploy the process application select the &lt;code&gt;pom.xml&lt;/code&gt; in the Package Explorer, perform a right-click and select &lt;code&gt;Run As / Maven Clean&lt;/code&gt; and afterwards &lt;code&gt;Run As / Maven Install&lt;/code&gt;. This will generate a WAR file named &lt;code&gt;pizza-order.war&lt;/code&gt; in the &lt;code&gt;target/&lt;/code&gt; folder of your Maven project.&lt;/p&gt;&#xA;&lt;p&gt;If the &lt;code&gt;pizza-order.war&lt;/code&gt; file is not visible after having performed the Maven build, you need to refresh the project (F5) in Eclipse.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Error Handling</title>
-      <link>/get-started/archive/rpa/error-handling/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/get-started/archive/rpa/error-handling/</guid>
-      <description>&lt;p&gt;Now that we can &lt;a href=&#34;../orchestrating-bots&#34;&gt;Orchestrate RPA Bots&lt;/a&gt; let&amp;rsquo;s have a look at how to react to a failing RPA bot or - generally speaking - how to handle the result of a bot as a BPMN error. Please note that the features presented here only work with a Camunda Platform 7.15 or later.&lt;/p&gt;&#xA;&lt;h1 id=&#34;scenarios&#34;&gt;Scenarios&lt;/h1&gt;&#xA;&lt;p&gt;As mentioned already, we can generally react to the result of an RPA bot execution by throwing a BPMN error. There are two main use cases for this:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Evaluate, Deploy and Test the decision table</title>

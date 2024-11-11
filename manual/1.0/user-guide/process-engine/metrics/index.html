@@ -1327,14 +1327,6 @@
           
   <li>
     
-      <a href="/manual/1.0/user-guide/license-use/" >Camunda License Keys</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
       <a href="/manual/1.0/user-guide/ext-client/" >External Task Client</a>
       <ul>
         
@@ -3170,13 +3162,7 @@
       <p>The process engine reports runtime metrics to the database that can help draw conclusions about usage, load, and performance of CIB seven. Metrics are reported in the database tables <code>ACT_RU_METER_LOG</code> and <code>ACT_RU_TASK_METER_LOG</code>. Single metric entries in <code>ACT_RU_METER_LOG</code> consist of a metric identifier, a value as natural number in the Java <code>long</code> range that the metric took in a certain timespan and a name identifying the metric reporter. Task metric entries in <code>ACT_RU_TASK_METER_LOG</code> comprise a fixed-length, pseudonymized assignee value and the point in time it was assigned at. There is a set of built-in metrics that are reported by default.</p>
 <h1 id="built-in-metrics">Built-in Metrics</h1>
 <p>The following table describes the built-in metrics. The identifiers of all built-in metrics are available as constants of the class <a href="/javadoc/cibseven/1.0/org/camunda/bpm/engine/management/Metrics.html">org.camunda.bpm.engine.management.Metrics</a>
-.
-
-<div class="note bg-warning docs-warning">
-  <h3>Heads Up!</h3>
-  <p>If you are an enterprise customer, your license agreement might require you to report some metrics annually. Please store <code>root-process-instance-start</code>, <code>activity-instance-start</code>, <code>executed-decision-instances</code> and <code>executed-decision-elements</code> metrics from <code>ACT_RU_METER_LOG</code> as well as task metrics from <code>ACT_RU_TASK_METER_LOG</code> for at least 18 months until they were reported.</p>
-</div>
-</p>
+.</p>
 <table class="table table-striped">
   <tr>
     <th>Category</th>
@@ -3276,7 +3262,6 @@
     <td>The number of task metrics removed by history clean up.</td>
   </tr>
 </table>
-<p>*Some enterprise agreements require annual reports of some metrics. Please store those metrics for at least 18 months.</p>
 <h1 id="querying">Querying</h1>
 <p>Metrics can be queried by making a <a href="/javadoc/cibseven/1.0/org/camunda/bpm/engine/management/MetricsQuery.html">MetricsQuery</a>
  offered by the <code>ManagementService</code>. For example, the following query retrieves the number of all executed activity instances throughout the entire history of reporting:</p>

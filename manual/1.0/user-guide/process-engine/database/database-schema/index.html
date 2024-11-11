@@ -1327,14 +1327,6 @@
           
   <li>
     
-      <a href="/manual/1.0/user-guide/license-use/" >Camunda License Keys</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
       <a href="/manual/1.0/user-guide/ext-client/" >External Task Client</a>
       <ul>
         
@@ -3224,22 +3216,10 @@ used:</p>
 and performance of CIB seven. Metrics are reported as numbers in the Java <code>long</code> range and count the occurrence of
 specific events. Please find detailed information about how metrics are collected in the <a href="/manual/1.0/user-guide/process-engine/metrics/">Metrics User Guide</a>.</p>
 <p>The default configuration of the <a href="/manual/1.0/user-guide/process-engine/metrics/#metrics-reporter">MetricsReporter</a> will create one row per <a href="/manual/1.0/user-guide/process-engine/metrics/#built-in-metrics">metric</a> in <code>ACT_RU_METER_LOG</code> every 15 minutes.</p>
-
-<div class="note bg-warning docs-warning">
-  <h3>Heads Up!</h3>
-  <p>If you are an enterprise customer, your license agreement might require you to report some metrics annually. Please store <code>root-process-instance-start</code>, <code>activity-instance-start</code>, <code>executed-decision-instances</code> and <code>executed-decision-elements</code> metrics for at least 18 months until they were reported.</p>
-</div>
-
 <h2 id="task-metrics-log-act_ru_task_meter_log">Task Metrics Log (ACT_RU_TASK_METER_LOG)</h2>
 <p>The <code>ACT_RU_TASK_METER_LOG</code> table contains a collection of task related metrics that can help draw conclusions about usage, load
 and performance of the BPM platform. Task metrics contain a pseudonymized and fixed-length value of task assignees and their time of appearance. Please find detailed information about how task metrics are collected in the <a href="/manual/1.0/user-guide/process-engine/metrics/">Metrics User Guide</a>.</p>
 <p>Every assignment of a task to an assignee will create one row in <code>ACT_RU_TASK_METER_LOG</code>.</p>
-
-<div class="note bg-warning docs-warning">
-  <h3>Heads Up!</h3>
-  <p>If you are an enterprise customer, your license agreement might require you to report some metrics annually. Please store task metrics for at least 18 months until they were reported.</p>
-</div>
-
 <h1 id="entity-relationship-diagrams">Entity Relationship Diagrams</h1>
 
 <div class="note bg-info docs-info">

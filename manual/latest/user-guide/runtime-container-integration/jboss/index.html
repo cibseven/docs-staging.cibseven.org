@@ -1327,14 +1327,6 @@
           
   <li>
     
-      <a href="/manual/latest/user-guide/license-use/" >Camunda License Keys</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
       <a href="/manual/latest/user-guide/ext-client/" >External Task Client</a>
       <ul>
         
@@ -3443,7 +3435,7 @@ Wildfly offers multiple <a href="https://docs.wildfly.org/23/Developer_Guide.htm
 <h2 id="explicit-service-dependencies">Explicit Service Dependencies</h2>
 <p>If an application does not use the Process Application API but still needs to interact with a process engine, it is important to declare the dependency on the Process Engine Service explicitly. If we fail to declare the dependency, there is no guarantee that the process engine is available to the application.</p>
 <ul>
-<li>When the application server is started, it will bring up services concurrently. If it is not aware of the dependency between the application and the process engine, the application may start <em>before</em> the process engine, potentially resulting in exceptions if the process engine is accessed from some deployment listener (like a servlet context listener or a @PostConstruct callback of an Enterprise Bean).</li>
+<li>When the application server is started, it will bring up services concurrently. If it is not aware of the dependency between the application and the process engine, the application may start <em>before</em> the process engine, potentially resulting in exceptions if the process engine is accessed from some deployment listener (like a servlet context listener).</li>
 <li>If the process engine is stopped while the application is deployed, the application server must stop the application as well.</li>
 </ul>
 <p>The simplest way to add an explicit dependency on the process engine is to bind the process engine in the application&rsquo;s local naming space. For instance, we can add the following resource reference to the <code>web.xml</code> file of a web application:</p>
