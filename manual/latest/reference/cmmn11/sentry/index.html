@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/latest/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/latest/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/reference/cmmn11/sentry/" />
 </head>
 <body class="">
@@ -3165,21 +3165,21 @@
 <div class="cmmn-symbol"><img src="/manual/latest//img/short-codes/cmmn-marker-exit-criterion.png" /></div>
 
 <p>In XML, a sentry can be specified as follows:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;planItem</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;PlanItem_HumanTask_1&#34;</span> <span style="color:#a6e22e">definitionRef=</span><span style="color:#e6db74">&#34;HumanTask_1&#34;</span><span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;planItem</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;PlanItem_HumanTask_2&#34;</span> <span style="color:#a6e22e">definitionRef=</span><span style="color:#e6db74">&#34;HumanTask_1&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;entryCriterion</span> <span style="color:#a6e22e">sentryRef=</span><span style="color:#e6db74">&#34;Sentry_1&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/planItem&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;sentry</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;Sentry_1&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;planItemOnPart</span> <span style="color:#a6e22e">sourceRef=</span><span style="color:#e6db74">&#34;PlanItem_HumanTask_1&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;standardEvent&gt;</span>complete<span style="color:#f92672">&lt;/standardEvent&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/planItemOnPart&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;ifPart&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;condition&gt;</span>${myVar &gt; 100}<span style="color:#f92672">&lt;/condition&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/ifPart&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/sentry&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;humanTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;HumanTask_1&#34;</span><span style="color:#f92672">/&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;planItem</span> <span class="na">id=</span><span class="s">&#34;PlanItem_HumanTask_1&#34;</span> <span class="na">definitionRef=</span><span class="s">&#34;HumanTask_1&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;planItem</span> <span class="na">id=</span><span class="s">&#34;PlanItem_HumanTask_2&#34;</span> <span class="na">definitionRef=</span><span class="s">&#34;HumanTask_1&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;entryCriterion</span> <span class="na">sentryRef=</span><span class="s">&#34;Sentry_1&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/planItem&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;sentry</span> <span class="na">id=</span><span class="s">&#34;Sentry_1&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;planItemOnPart</span> <span class="na">sourceRef=</span><span class="s">&#34;PlanItem_HumanTask_1&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;standardEvent&gt;</span>complete<span class="nt">&lt;/standardEvent&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/planItemOnPart&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;ifPart&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;condition&gt;</span>${myVar &gt; 100}<span class="nt">&lt;/condition&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/ifPart&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/sentry&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;humanTask</span> <span class="na">id=</span><span class="s">&#34;HumanTask_1&#34;</span><span class="nt">/&gt;</span>
 </span></span></code></pre></div><p>The above example defines a sentry that is fulfilled when the plan item <code>PlanItem_HumanTask_1</code> performs the state transition <code>complete</code> (note the <code>planItemOnPart</code> element) and a variable named <code>myVar</code> has a value greater than 100 (note the <code>ifPart</code> element). Furthermore, it serves as an <a href="/manual/latest/reference/cmmn11/concepts/entry-exit-criteria/">entry criterion</a> for the plan item <code>PlanItem_HumanTask_2</code> that becomes <code>ENABLED</code> as soon as the sentry is fulfilled (note the <code>entryCriterion</code> child element of the element <code>PlanItem_HumanTask_2</code>).</p>
 <p>As conditions or event triggers, sentries may define the following elements:</p>
 <ul>
@@ -3188,28 +3188,28 @@
 </ul>
 <h1 id="onpart">OnPart</h1>
 <p>OnParts are defined on lifecycle transitions for plan items or case file items. As the Camunda engine does not currently support case file items, it is only possible to use <em>plan item OnParts</em>. A sentry with an OnPart can be defined as follows:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;sentry</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;Sentry_1&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;planItemOnPart</span> <span style="color:#a6e22e">sourceRef=</span><span style="color:#e6db74">&#34;PlanItem_1&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;standardEvent&gt;</span>complete<span style="color:#f92672">&lt;/standardEvent&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/planItemOnPart&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/sentry&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;sentry</span> <span class="na">id=</span><span class="s">&#34;Sentry_1&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;planItemOnPart</span> <span class="na">sourceRef=</span><span class="s">&#34;PlanItem_1&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;standardEvent&gt;</span>complete<span class="nt">&lt;/standardEvent&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/planItemOnPart&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/sentry&gt;</span>
 </span></span></code></pre></div><p>A <code>planItemOnPart</code> must always reference a plan item by the attribute <code>sourceRef</code>. This plan item must be contained by the same stage the sentry is defined in. The child element <code>standardEvent</code> can the identifier of any lifecycle transition from that plan item&rsquo;s lifecycle and that is supported by the camunda engine. Note that different plan item definitions define different lifecycles. For details on valid lifecycle transitions, see the <a href="/manual/latest/reference/cmmn11/concepts/lifecycle/">Lifecycles</a> section.</p>
 <p>As an alternative to <code>sourceRef</code>, the CMMN specification allows to define an attribute <code>sentryRef</code> responsible for referencing another sentry such that the onPart is fulfilled when the plan item that sentry references performs the <em>exit</em> state transition. This attribute is currently not supported by the Camunda engine.</p>
 <p>Note that it is possible to have any number of OnParts which allows to combine multiple events. All OnParts must be fulfilled for a sentry to occur, i.e., specifying multiple OnParts is a conjunction of multiple events. An OnPart is fulfilled as soon as the element it is defined on performs the specified lifecycle transition. It is irrelevant whether this element performs any other subsequent lifecycle transitions.</p>
 <h1 id="ifpart">IfPart</h1>
 <p>An IfPart defines an additional condition that is checked when all OnParts of the sentry are fulfilled. Only if the IfPart evaluates to <code>true</code>, the sentry is fulfilled. In Camunda, a sentry with an IfPart looks as follows:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;sentry</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;Sentry_1&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;ifPart&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;condition&gt;</span>${myVar &gt; 100}<span style="color:#f92672">&lt;/condition&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/ifPart&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/sentry&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;sentry</span> <span class="na">id=</span><span class="s">&#34;Sentry_1&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;ifPart&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;condition&gt;</span>${myVar &gt; 100}<span class="nt">&lt;/condition&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/ifPart&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/sentry&gt;</span>
 </span></span></code></pre></div><p>A sentry can have at most one IfPart and that IfPart can have at most one <code>condition</code> element. In the <code>condition</code> element, expression language must be used. In such an expression, case variables can be accessed by their name. The above example defines a condition that evaluates to <code>true</code> if there is a variable named <code>myVar</code> and that variable&rsquo;s value is greater than 100.</p>
 <p>In addition to variable names, the identifier <code>caseExecution</code> can be used to access the execution object for the stage that the sentry is defined in. The below example explicitly accesses a local variable of that execution:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;sentry</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;Sentry_1&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;ifPart&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;condition&gt;</span>${caseExecution.getVariableLocal(&#34;myVar&#34;) &gt; 100}<span style="color:#f92672">&lt;/condition&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/ifPart&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/sentry&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;sentry</span> <span class="na">id=</span><span class="s">&#34;Sentry_1&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;ifPart&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;condition&gt;</span>${caseExecution.getVariableLocal(&#34;myVar&#34;) &gt; 100}<span class="nt">&lt;/condition&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/ifPart&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/sentry&gt;</span>
 </span></span></code></pre></div><p>The CMMN specification allows to reference a case file item by the sentry attribute <code>contextRef</code>. This attribute is not supported by the Camunda engine and therefore ignored.</p>
 <p>The engine evaluates IfParts at every lifecycle transition of a plan item contained in the sentry&rsquo;s stage. That means, if an IfPart is not satisfied immediately when all OnParts have occurred, the sentry may still occur at any later lifecycle transition.</p>
 <h1 id="camunda-extensions">Camunda Extensions</h1>

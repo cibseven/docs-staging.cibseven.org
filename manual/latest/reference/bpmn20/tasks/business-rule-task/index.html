@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/latest/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/latest/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/reference/bpmn20/tasks/business-rule-task/" />
 </head>
 <body class="">
@@ -3174,25 +3174,25 @@ version,</li>
 <li><code>version</code> which allows you to specify a specific version to execute with the <code>camunda:decisionRefVersion</code> attribute, and</li>
 <li><code>versionTag</code> which allows you to specify a specific version tag to execute with the <code>camunda:decisionRefVersionTag</code> attribute.</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;businessRuleTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;businessRuleTask&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">camunda:decisionRef=</span><span style="color:#e6db74">&#34;myDecision&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">camunda:decisionRefBinding=</span><span style="color:#e6db74">&#34;version&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">camunda:decisionRefVersion=</span><span style="color:#e6db74">&#34;12&#34;</span> <span style="color:#f92672">/&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;businessRuleTask</span> <span class="na">id=</span><span class="s">&#34;businessRuleTask&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="na">camunda:decisionRef=</span><span class="s">&#34;myDecision&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="na">camunda:decisionRefBinding=</span><span class="s">&#34;version&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="na">camunda:decisionRefVersion=</span><span class="s">&#34;12&#34;</span> <span class="nt">/&gt;</span>
 </span></span></code></pre></div><p>The <code>camunda:decisionRefBinding</code> attribute defaults to <code>latest</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;businessRuleTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;businessRuleTask&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">camunda:decisionRef=</span><span style="color:#e6db74">&#34;myDecision&#34;</span> <span style="color:#f92672">/&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;businessRuleTask</span> <span class="na">id=</span><span class="s">&#34;businessRuleTask&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="na">camunda:decisionRef=</span><span class="s">&#34;myDecision&#34;</span> <span class="nt">/&gt;</span>
 </span></span></code></pre></div><p>The attributes <code>camunda:decisionRef</code>, <code>camunda:decisionRefVersion</code>, and <code>camunda:decisionRefVersionTag</code> can be specified as
 an expression which will be evaluated on execution of the task.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;businessRuleTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;businessRuleTask&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">camunda:decisionRef=</span><span style="color:#e6db74">&#34;${decisionKey}&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">camunda:decisionRefBinding=</span><span style="color:#e6db74">&#34;version&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">camunda:decisionRefVersion=</span><span style="color:#e6db74">&#34;${decisionVersion}&#34;</span> <span style="color:#f92672">/&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;businessRuleTask</span> <span class="na">id=</span><span class="s">&#34;businessRuleTask&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="na">camunda:decisionRef=</span><span class="s">&#34;${decisionKey}&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="na">camunda:decisionRefBinding=</span><span class="s">&#34;version&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="na">camunda:decisionRefVersion=</span><span class="s">&#34;${decisionVersion}&#34;</span> <span class="nt">/&gt;</span>
 </span></span></code></pre></div><p>The output of the decision, also called decision result, is not saved as process variable automatically. It has to pass into a process variable by using a <a href="/manual/latest/user-guide/process-engine/decisions/bpmn-cmmn/#predefined-mapping-of-the-decision-result">predefined</a> or a <a href="/manual/latest/user-guide/process-engine/decisions/bpmn-cmmn/#custom-mapping-into-process-variables">custom</a> mapping of the decision result.</p>
 <p>In case of a predefined mapping, the <code>camunda:mapDecisionResult</code> attribute references the mapper to use. The result of the mapping is saved in the variable which is specified by the <code>camunda:resultVariable</code> attribute. If no predefined mapper is set then the <code>resultList</code> mapper is used by default.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;businessRuleTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;businessRuleTask&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">camunda:decisionRef=</span><span style="color:#e6db74">&#34;myDecision&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">camunda:mapDecisionResult=</span><span style="color:#e6db74">&#34;singleEntry&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">camunda:resultVariable=</span><span style="color:#e6db74">&#34;result&#34;</span> <span style="color:#f92672">/&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;businessRuleTask</span> <span class="na">id=</span><span class="s">&#34;businessRuleTask&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="na">camunda:decisionRef=</span><span class="s">&#34;myDecision&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="na">camunda:mapDecisionResult=</span><span class="s">&#34;singleEntry&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="na">camunda:resultVariable=</span><span class="s">&#34;result&#34;</span> <span class="nt">/&gt;</span>
 </span></span></code></pre></div><p>See the <a href="/manual/latest/user-guide/process-engine/decisions/bpmn-cmmn/#the-decision-result">User Guide</a> for details about the mapping.</p>
 
 <div class="note bg-warning docs-warning">
@@ -3210,22 +3210,22 @@ If the calling process definition has a tenant id, a decision definition with th
 <h2 id="explicit-tenant-resolution">Explicit Tenant Resolution</h2>
 <p>In some situations it may be useful to override this default behavior and specify the tenant id explicitly.</p>
 <p>The <code>camunda:decisionRefTenantId</code> attribute allows to explicitly specify a tenant id:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;businessRuleTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;businessRuleTask&#34;</span> <span style="color:#a6e22e">decisionRef=</span><span style="color:#e6db74">&#34;myDecision&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">camunda:decisionRefTenantId=</span><span style="color:#e6db74">&#34;TENANT_1&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/businessRuleTask&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;businessRuleTask</span> <span class="na">id=</span><span class="s">&#34;businessRuleTask&#34;</span> <span class="na">decisionRef=</span><span class="s">&#34;myDecision&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">camunda:decisionRefTenantId=</span><span class="s">&#34;TENANT_1&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/businessRuleTask&gt;</span>
 </span></span></code></pre></div><p>If the tenant id is not known at design time, an expression can be used as well:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;businessRuleTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;businessRuleTask&#34;</span> <span style="color:#a6e22e">decisionRef=</span><span style="color:#e6db74">&#34;myDecision&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">camunda:decisionRefTenantId=</span><span style="color:#e6db74">&#34;${ myBean.calculateTenantId(variable) }&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/businessRuleTask&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;businessRuleTask</span> <span class="na">id=</span><span class="s">&#34;businessRuleTask&#34;</span> <span class="na">decisionRef=</span><span class="s">&#34;myDecision&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">camunda:decisionRefTenantId=</span><span class="s">&#34;${ myBean.calculateTenantId(variable) }&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/businessRuleTask&gt;</span>
 </span></span></code></pre></div><p>An expression also allows using the tenant id of the calling process instance instead of the calling process definition:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;businessRuleTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;businessRuleTask&#34;</span> <span style="color:#a6e22e">decisionRef=</span><span style="color:#e6db74">&#34;myDecision&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">camunda:decisionRefTenantId=</span><span style="color:#e6db74">&#34;${ execution.tenantId }&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/businessRuleTask&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;businessRuleTask</span> <span class="na">id=</span><span class="s">&#34;businessRuleTask&#34;</span> <span class="na">decisionRef=</span><span class="s">&#34;myDecision&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">camunda:decisionRefTenantId=</span><span class="s">&#34;${ execution.tenantId }&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/businessRuleTask&gt;</span>
 </span></span></code></pre></div><h1 id="using-a-custom-rule-engine">Using a Custom Rule Engine</h1>
 <p>You can integrate with other rule engines. To do so, you have to plug in your
 implementation of the rule task the same way as in a Service Task.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;businessRuleTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;businessRuleTask&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">camunda:delegateExpression=</span><span style="color:#e6db74">&#34;${MyRuleServiceDelegate}&#34;</span> <span style="color:#f92672">/&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;businessRuleTask</span> <span class="na">id=</span><span class="s">&#34;businessRuleTask&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="na">camunda:delegateExpression=</span><span class="s">&#34;${MyRuleServiceDelegate}&#34;</span> <span class="nt">/&gt;</span>
 </span></span></code></pre></div><h1 id="using-delegate-code">Using Delegate Code</h1>
 <p>Alternatively, a Business Rule Task can be implemented using Java Delegation just as a Service Task. For more
 information on this please see the <a href="/manual/latest/reference/bpmn20/tasks/service-task/">Service Tasks</a> documentation.</p>

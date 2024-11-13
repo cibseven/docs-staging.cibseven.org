@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/latest/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/latest/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/user-guide/spring-boot-integration/spring-security/" />
 </head>
 <body class="">
@@ -3167,14 +3167,14 @@ configuration classes that integrate Spring Security with Camunda Webapp&rsquo;s
 <h1 id="activate-oauth2">Activate OAuth2</h1>
 <h2 id="spring-boot">Spring Boot</h2>
 <p>In order to enable the Spring Security OAuth2 integration in Spring Boot, add the following dependency to your project:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;dependency&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;groupId&gt;</span>org.camunda.bpm.springboot<span style="color:#f92672">&lt;/groupId&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;artifactId&gt;</span>camunda-bpm-spring-boot-starter-security<span style="color:#f92672">&lt;/artifactId&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/dependency&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependency&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;groupId&gt;</span>org.camunda.bpm.springboot<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;artifactId&gt;</span>camunda-bpm-spring-boot-starter-security<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/dependency&gt;</span>
 </span></span></code></pre></div><h2 id="camunda-run">Camunda Run</h2>
 <p>Camunda Run already contains the required libraries, all you need to do is to activate them.
 In order to enable the Spring Security OAuth2 integration in Camunda Run, start Run with an extra <code>--oauth2</code> argument:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>./start.sh --webapps --rest --oauth2
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">./start.sh --webapps --rest --oauth2
 </span></span></code></pre></div><h1 id="auto-configuration">Auto Configuration</h1>
 <p>The Camunda integration has two default auto configurations. Depending on the OAuth2 client
 registration in the application properties (<code>spring.security.oauth2.client.registration</code>) either the
@@ -3214,13 +3214,13 @@ above-mentioned <a href="https://docs.spring.io/spring-security/reference/servle
 <p>For creating initial authorizations in your application, you have the following options available:</p>
 <ol>
 <li>The <code>camunda.bpm.admin-user</code> property to create an administrator user with authorizations:
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">camunda.bpm</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">admin-user</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">id</span>: <span style="color:#ae81ff">demo</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">password</span>: <span style="color:#ae81ff">demo</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">firstName</span>: <span style="color:#ae81ff">Demo</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">lastName</span>: <span style="color:#ae81ff">Demo</span>
-</span></span></code></pre></div></li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">camunda.bpm</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">admin-user</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l">demo</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l">demo</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">firstName</span><span class="p">:</span><span class="w"> </span><span class="l">Demo</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">lastName</span><span class="p">:</span><span class="w"> </span><span class="l">Demo</span><span class="w">
+</span></span></span></code></pre></div></li>
 </ol>
 <ul>
 <li>See <a href="/manual/latest/user-guide/spring-boot-integration/configuration/#camunda-engine-properties">Camunda Engine Properties</a> documentation for more details.</li>
@@ -3236,19 +3236,19 @@ This is achieved with a custom <a href="/manual/latest/user-guide/process-engine
 <p>This is a read-only identity provider that configures user&rsquo;s groups from the <a href="https://docs.spring.io/spring-security/reference/servlet/authorization/architecture.html">Spring Security&rsquo;s granted authorities</a>.
 This identity provider also supports the default Camunda Database Identity Service as a fallback for authentications for the REST API.</p>
 <p>The identity provider is activated by default. You can override this with the following properties:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">camunda.bpm.oauth2</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">identity-provider</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">enabled</span>: <span style="color:#66d9ef">false</span>
-</span></span></code></pre></div><p>See <a href="#configuration">Configuration</a> section for more information.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">camunda.bpm.oauth2</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">identity-provider</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span></code></pre></div><p>See <a href="#configuration">Configuration</a> section for more information.</p>
 <h2 id="granted-authorities-mapper">Granted Authorities Mapper</h2>
 <p>We also provide a default granted authorities mapper, that can override the Spring Security
 authorities, that are by default populated with the scope (<code>scp</code>) claim.</p>
 <p>This mapper can be enabled with the <code>group-name-attribute</code> property:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">camunda.bpm.oauth2</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">identity-provider</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">enabled</span>: <span style="color:#66d9ef">true</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">group-name-attribute</span>: <span style="color:#ae81ff">cognito:groups</span>
-</span></span></code></pre></div><p>The mapper is only activated if the property is configured.
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">camunda.bpm.oauth2</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">identity-provider</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">group-name-attribute</span><span class="p">:</span><span class="w"> </span><span class="l">cognito:groups</span><span class="w">
+</span></span></span></code></pre></div><p>The mapper is only activated if the property is configured.
 It supports claims with types of collection of <code>String</code>s and <code>String</code>.
 If the claim is a <code>String</code>, it will try to split it with a delimiter which is comma by default.
 You can override the default delimiter with the <code>group-name-delimiter</code> property.</p>
@@ -3308,11 +3308,11 @@ As a consequence, when the Webapp user clicks on the logout, it invokes Spring&r
 <p>We support client initiated OIDC SSO logout.
 Please refer Spring&rsquo;s <a href="https://docs.spring.io/spring-security/reference/reactive/oauth2/login/logout.html#oauth2login-advanced-oidc-logout">OpenID Connect 1.0 Client-Initiated Logout</a> section for more information.</p>
 <p>In order to configure this feature, use the following properties:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">camunda.bpm.oauth2</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">sso-logout</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">enabled</span>: <span style="color:#66d9ef">true</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">postLogoutRedirectUri</span>: <span style="color:#ae81ff">https://camunda.com/</span>
-</span></span></code></pre></div><h2 id="configuration-1">Configuration</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">camunda.bpm.oauth2</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">sso-logout</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">postLogoutRedirectUri</span><span class="p">:</span><span class="w"> </span><span class="l">https://camunda.com/</span><span class="w">
+</span></span></span></code></pre></div><h2 id="configuration-1">Configuration</h2>
 <p>All configuration properties of the identity provider start with the prefix <code>camunda.bpm.oauth2.sso-logout</code>.
 The following properties are available:</p>
 <table class="table table-striped">
@@ -3349,32 +3349,32 @@ which means the user session can be revalidated more frequently.</p>
 <h1 id="logging">Logging</h1>
 <p>You can switch the level of the following logger to track bean registrations, user authentication or logout, and token authorizations.
 Logging can be enabled for the package via the following property:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">logging</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">level</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">org.camunda.bpm.spring.boot.starter.security.oauth2</span>: <span style="color:#ae81ff">DEBUG</span>
-</span></span></code></pre></div><h1 id="example">Example</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">logging</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">level</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">org.camunda.bpm.spring.boot.starter.security.oauth2</span><span class="p">:</span><span class="w"> </span><span class="l">DEBUG</span><span class="w">
+</span></span></span></code></pre></div><h1 id="example">Example</h1>
 <p>In this section we provide an example configuration with OKTA as OIDC provider.
 Additionally, we also mark and explain a few lines:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">camunda.bpm.oauth2</span>:
-</span></span><span style="display:flex;"><span> <span style="color:#f92672">sso-logout</span>: <span style="color:#75715e"># 1</span>
-</span></span><span style="display:flex;"><span>   <span style="color:#f92672">enabled</span>: <span style="color:#66d9ef">true</span>
-</span></span><span style="display:flex;"><span>   <span style="color:#f92672">postLogoutRedirectUri</span>: <span style="color:#ae81ff">https://camunda.com/</span>
-</span></span><span style="display:flex;"><span> <span style="color:#f92672">identity-provider</span>:
-</span></span><span style="display:flex;"><span>   <span style="color:#f92672">group-name-attribute</span>: <span style="color:#ae81ff">okta-groups</span> <span style="color:#75715e"># 2</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">spring.security</span>: <span style="color:#75715e"># 3</span>
-</span></span><span style="display:flex;"><span> <span style="color:#f92672">oauth2</span>:
-</span></span><span style="display:flex;"><span>   <span style="color:#f92672">client</span>:
-</span></span><span style="display:flex;"><span>     <span style="color:#f92672">registration</span>:
-</span></span><span style="display:flex;"><span>       <span style="color:#f92672">okta</span>:
-</span></span><span style="display:flex;"><span>         <span style="color:#f92672">clientId</span>: <span style="color:#ae81ff">&lt;clientId&gt;</span>
-</span></span><span style="display:flex;"><span>         <span style="color:#f92672">clientSecret</span>: <span style="color:#ae81ff">&lt;clientSecret&gt;</span>
-</span></span><span style="display:flex;"><span>         <span style="color:#f92672">scope</span>: <span style="color:#ae81ff">openid,profile,email,offline_access</span> <span style="color:#75715e"># 4</span>
-</span></span><span style="display:flex;"><span>     <span style="color:#f92672">provider</span>:
-</span></span><span style="display:flex;"><span>       <span style="color:#f92672">okta</span>:
-</span></span><span style="display:flex;"><span>         <span style="color:#f92672">issuerUri</span>: <span style="color:#ae81ff">&lt;issuerUri&gt;</span>
-</span></span><span style="display:flex;"><span>         <span style="color:#f92672">user-name-attribute</span>: <span style="color:#ae81ff">preferred_username</span> <span style="color:#75715e"># 5</span>
-</span></span></code></pre></div><ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">camunda.bpm.oauth2</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="nt">sso-logout</span><span class="p">:</span><span class="w"> </span><span class="c"># 1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="nt">postLogoutRedirectUri</span><span class="p">:</span><span class="w"> </span><span class="l">https://camunda.com/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="nt">identity-provider</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="nt">group-name-attribute</span><span class="p">:</span><span class="w"> </span><span class="l">okta-groups</span><span class="w"> </span><span class="c"># 2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spring.security</span><span class="p">:</span><span class="w"> </span><span class="c"># 3</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="nt">oauth2</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="nt">client</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="nt">registration</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">       </span><span class="nt">okta</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">         </span><span class="nt">clientId</span><span class="p">:</span><span class="w"> </span><span class="l">&lt;clientId&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">         </span><span class="nt">clientSecret</span><span class="p">:</span><span class="w"> </span><span class="l">&lt;clientSecret&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">         </span><span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="l">openid,profile,email,offline_access</span><span class="w"> </span><span class="c"># 4</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="nt">provider</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">       </span><span class="nt">okta</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">         </span><span class="nt">issuerUri</span><span class="p">:</span><span class="w"> </span><span class="l">&lt;issuerUri&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">         </span><span class="nt">user-name-attribute</span><span class="p">:</span><span class="w"> </span><span class="l">preferred_username</span><span class="w"> </span><span class="c"># 5</span><span class="w">
+</span></span></span></code></pre></div><ol>
 <li>Client initiated SSO activated, redirect uri overridden.</li>
 <li>Identity provider groups loaded from custom <code>okta-groups</code> claim.
 <ul>
@@ -3399,17 +3399,17 @@ Additionally, we also mark and explain a few lines:</p>
 <p>If you wish to use Spring Security but without Camunda&rsquo;s integration classes, you can do so by
 excluding the two auto configuration classes:</p>
 <p>Either with the <code>@EnableAutoConfiguration</code> annotation:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@EnableAutoConfiguration</span>(exclude<span style="color:#f92672">=</span>{
-</span></span><span style="display:flex;"><span>    CamundaSpringSecurityOAuth2AutoConfiguration.<span style="color:#a6e22e">class</span>,
-</span></span><span style="display:flex;"><span>    CamundaBpmSpringSecurityDisableAutoConfiguration.<span style="color:#a6e22e">class</span>
-</span></span><span style="display:flex;"><span>});
-</span></span></code></pre></div><p>Or in the application properties:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">spring</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">autoconfigure</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">exclude</span>:
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">org.camunda.bpm.spring.boot.starter.security.oauth2.CamundaSpringSecurityOAuth2AutoConfiguration</span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">org.camunda.bpm.spring.boot.starter.security.oauth2.CamundaBpmSpringSecurityDisableAutoConfiguration</span>
-</span></span></code></pre></div><p>For more information, please refer to Spring&rsquo;s <a href="https://docs.spring.io/spring-boot/reference/using/auto-configuration.html#using.auto-configuration.disabling-specific">Disabling Specific Auto-configuration Classes</a> documentation.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@EnableAutoConfiguration</span><span class="p">(</span><span class="n">exclude</span><span class="o">=</span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">CamundaSpringSecurityOAuth2AutoConfiguration</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">CamundaBpmSpringSecurityDisableAutoConfiguration</span><span class="p">.</span><span class="na">class</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">});</span><span class="w">
+</span></span></span></code></pre></div><p>Or in the application properties:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">spring</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">autoconfigure</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">exclude</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">org.camunda.bpm.spring.boot.starter.security.oauth2.CamundaSpringSecurityOAuth2AutoConfiguration</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">org.camunda.bpm.spring.boot.starter.security.oauth2.CamundaBpmSpringSecurityDisableAutoConfiguration</span><span class="w">
+</span></span></span></code></pre></div><p>For more information, please refer to Spring&rsquo;s <a href="https://docs.spring.io/spring-boot/reference/using/auto-configuration.html#using.auto-configuration.disabling-specific">Disabling Specific Auto-configuration Classes</a> documentation.</p>
 
     </div>
   </div>

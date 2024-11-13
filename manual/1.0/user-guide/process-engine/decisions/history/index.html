@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/1.0/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/1.0/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/user-guide/process-engine/decisions/history/" />
 </head>
 <body class="">
@@ -3177,83 +3177,83 @@ for decisions is created.</p>
 example, use the following query to get all history entries for a decision
 definition with key <code>checkOrder</code> ordered by the time when the decision was
 evaluated.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>List<span style="color:#f92672">&lt;</span>HistoricDecisionInstance<span style="color:#f92672">&gt;</span> historicDecisions <span style="color:#f92672">=</span> processEngine
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">getHistoryService</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">createHistoricDecisionInstanceQuery</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">decisionDefinitionKey</span>(<span style="color:#e6db74">&#34;checkOrder&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">orderByEvaluationTime</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">asc</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">list</span>();
-</span></span></code></pre></div><p>Decisions which were evaluated from a <a href="/manual/1.0/reference/bpmn20/tasks/business-rule-task/#using-camunda-dmn-engine">BPMN business rule task</a> can be
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">List</span><span class="o">&lt;</span><span class="n">HistoricDecisionInstance</span><span class="o">&gt;</span><span class="w"> </span><span class="n">historicDecisions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">processEngine</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">getHistoryService</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">createHistoricDecisionInstanceQuery</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">decisionDefinitionKey</span><span class="p">(</span><span class="s">&#34;checkOrder&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">orderByEvaluationTime</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">asc</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">list</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><p>Decisions which were evaluated from a <a href="/manual/1.0/reference/bpmn20/tasks/business-rule-task/#using-camunda-dmn-engine">BPMN business rule task</a> can be
 filtered by the process definition id or key and process instance id.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>HistoryService historyService <span style="color:#f92672">=</span> processEngine.<span style="color:#a6e22e">getHistoryService</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>List<span style="color:#f92672">&lt;</span>HistoricDecisionInstance<span style="color:#f92672">&gt;</span> historicDecisionInstances <span style="color:#f92672">=</span> historyService
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">createHistoricDecisionInstanceQuery</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">processDefinitionId</span>(<span style="color:#e6db74">&#34;processDefinitionId&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">list</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>historicDecisionInstances <span style="color:#f92672">=</span> historyService
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">createHistoricDecisionInstanceQuery</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">processDefinitionKey</span>(<span style="color:#e6db74">&#34;processDefinitionKey&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">list</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>historicDecisionInstances <span style="color:#f92672">=</span> historyService
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">createHistoricDecisionInstanceQuery</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">processInstanceId</span>(<span style="color:#e6db74">&#34;processInstanceId&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">list</span>();
-</span></span></code></pre></div><p>Decisions which were evaluated from a <a href="/manual/1.0/reference/cmmn11/tasks/decision-task/">CMMN decision task</a> can be filtered
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">HistoryService</span><span class="w"> </span><span class="n">historyService</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">processEngine</span><span class="p">.</span><span class="na">getHistoryService</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">List</span><span class="o">&lt;</span><span class="n">HistoricDecisionInstance</span><span class="o">&gt;</span><span class="w"> </span><span class="n">historicDecisionInstances</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">historyService</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">createHistoricDecisionInstanceQuery</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">processDefinitionId</span><span class="p">(</span><span class="s">&#34;processDefinitionId&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">list</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">historicDecisionInstances</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">historyService</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">createHistoricDecisionInstanceQuery</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">processDefinitionKey</span><span class="p">(</span><span class="s">&#34;processDefinitionKey&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">list</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">historicDecisionInstances</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">historyService</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">createHistoricDecisionInstanceQuery</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">processInstanceId</span><span class="p">(</span><span class="s">&#34;processInstanceId&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">list</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><p>Decisions which were evaluated from a <a href="/manual/1.0/reference/cmmn11/tasks/decision-task/">CMMN decision task</a> can be filtered
 by the case definition id or key and case instance id.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>HistoryService historyService <span style="color:#f92672">=</span> processEngine.<span style="color:#a6e22e">getHistoryService</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>List<span style="color:#f92672">&lt;</span>HistoricDecisionInstance<span style="color:#f92672">&gt;</span> historicDecisionInstances <span style="color:#f92672">=</span> historyService
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">createHistoricDecisionInstanceQuery</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">caseDefinitionId</span>(<span style="color:#e6db74">&#34;caseDefinitionId&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">list</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>historicDecisionInstances <span style="color:#f92672">=</span> historyService
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">createHistoricDecisionInstanceQuery</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">caseDefinitionKey</span>(<span style="color:#e6db74">&#34;caseDefinitionKey&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">list</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>historicDecisionInstances <span style="color:#f92672">=</span> historyService
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">createHistoricDecisionInstanceQuery</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">caseInstanceId</span>(<span style="color:#e6db74">&#34;caseInstanceId&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">list</span>();
-</span></span></code></pre></div><p>Note that the inputs and outputs of a decision are not included in the query
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">HistoryService</span><span class="w"> </span><span class="n">historyService</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">processEngine</span><span class="p">.</span><span class="na">getHistoryService</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">List</span><span class="o">&lt;</span><span class="n">HistoricDecisionInstance</span><span class="o">&gt;</span><span class="w"> </span><span class="n">historicDecisionInstances</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">historyService</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">createHistoricDecisionInstanceQuery</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">caseDefinitionId</span><span class="p">(</span><span class="s">&#34;caseDefinitionId&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">list</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">historicDecisionInstances</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">historyService</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">createHistoricDecisionInstanceQuery</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">caseDefinitionKey</span><span class="p">(</span><span class="s">&#34;caseDefinitionKey&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">list</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">historicDecisionInstances</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">historyService</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">createHistoricDecisionInstanceQuery</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">caseInstanceId</span><span class="p">(</span><span class="s">&#34;caseInstanceId&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">list</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><p>Note that the inputs and outputs of a decision are not included in the query
 result by default. Call the methods <code>includeInputs()</code> and <code>includeOutputs()</code> on
 the query to retrieve the inputs and outputs from the result.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>List<span style="color:#f92672">&lt;</span>HistoricDecisionInstance<span style="color:#f92672">&gt;</span> historicDecisions <span style="color:#f92672">=</span> processEngine
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">getHistoryService</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">createHistoricDecisionInstanceQuery</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">decisionDefinitionKey</span>(<span style="color:#e6db74">&#34;checkOrder&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">includeInputs</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">includeOutputs</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">list</span>();
-</span></span></code></pre></div><h1 id="the-historic-decision-instance">The Historic Decision Instance</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">List</span><span class="o">&lt;</span><span class="n">HistoricDecisionInstance</span><span class="o">&gt;</span><span class="w"> </span><span class="n">historicDecisions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">processEngine</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">getHistoryService</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">createHistoricDecisionInstanceQuery</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">decisionDefinitionKey</span><span class="p">(</span><span class="s">&#34;checkOrder&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">includeInputs</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">includeOutputs</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">list</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><h1 id="the-historic-decision-instance">The Historic Decision Instance</h1>
 <p>The <a href="/javadoc/cibseven/1.0/?org/camunda/bpm/engine/history/HistoricDecisionInstance">HistoricDecisionInstance</a>
  contains information about a single
 evaluation of a decision.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>HistoricDecisionInstance historicDecision <span style="color:#f92672">=</span> ...;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// id of the decision definition</span>
-</span></span><span style="display:flex;"><span>String decisionDefinitionId <span style="color:#f92672">=</span> historicDecision.<span style="color:#a6e22e">getDecisionDefinitionId</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// key of the decision definition</span>
-</span></span><span style="display:flex;"><span>String decisionDefinitionKey <span style="color:#f92672">=</span> historicDecision.<span style="color:#a6e22e">getDecisionDefinitionKey</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// name of the decision</span>
-</span></span><span style="display:flex;"><span>String decisionDefinitionName <span style="color:#f92672">=</span> historicDecision.<span style="color:#a6e22e">getDecisionDefinitionName</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// time when the decision was evaluated</span>
-</span></span><span style="display:flex;"><span>Date evaluationTime <span style="color:#f92672">=</span> historicDecision.<span style="color:#a6e22e">getEvaluationTime</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// inputs of the decision (if includeInputs was specified in the query)</span>
-</span></span><span style="display:flex;"><span>List<span style="color:#f92672">&lt;</span>HistoricDecisionInputInstance<span style="color:#f92672">&gt;</span> inputs <span style="color:#f92672">=</span> historicDecision.<span style="color:#a6e22e">getInputs</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// outputs of the decision (if includeOutputs was specified in the query)</span>
-</span></span><span style="display:flex;"><span>List<span style="color:#f92672">&lt;</span>HistoricDecisionOutputInstance<span style="color:#f92672">&gt;</span> outputs <span style="color:#f92672">=</span> historicDecision.<span style="color:#a6e22e">getOutputs</span>();
-</span></span></code></pre></div><p>In case the decision was evaluated from a process, information of the process
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">HistoricDecisionInstance</span><span class="w"> </span><span class="n">historicDecision</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// id of the decision definition</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">String</span><span class="w"> </span><span class="n">decisionDefinitionId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">historicDecision</span><span class="p">.</span><span class="na">getDecisionDefinitionId</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// key of the decision definition</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">String</span><span class="w"> </span><span class="n">decisionDefinitionKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">historicDecision</span><span class="p">.</span><span class="na">getDecisionDefinitionKey</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// name of the decision</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">String</span><span class="w"> </span><span class="n">decisionDefinitionName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">historicDecision</span><span class="p">.</span><span class="na">getDecisionDefinitionName</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// time when the decision was evaluated</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Date</span><span class="w"> </span><span class="n">evaluationTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">historicDecision</span><span class="p">.</span><span class="na">getEvaluationTime</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// inputs of the decision (if includeInputs was specified in the query)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">List</span><span class="o">&lt;</span><span class="n">HistoricDecisionInputInstance</span><span class="o">&gt;</span><span class="w"> </span><span class="n">inputs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">historicDecision</span><span class="p">.</span><span class="na">getInputs</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// outputs of the decision (if includeOutputs was specified in the query)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">List</span><span class="o">&lt;</span><span class="n">HistoricDecisionOutputInstance</span><span class="o">&gt;</span><span class="w"> </span><span class="n">outputs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">historicDecision</span><span class="p">.</span><span class="na">getOutputs</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><p>In case the decision was evaluated from a process, information of the process
 definition, the process instance and the activity is set in the
 <code>HistoricDecisionInstance</code>. The same applies for decisions evaluated from
 a case, where the history instance will reference the corresponding case
@@ -3267,21 +3267,21 @@ reference</a>.</p>
 <p>The <a href="/javadoc/cibseven/1.0/?org/camunda/bpm/engine/history/HistoricDecisionInputInstance">HistoricDecisionInputInstance</a>
  represents one input of an
 evaluated decision (e.g., an input clause of a decision table).</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>HistoricDecisionInputInstance input <span style="color:#f92672">=</span> ...;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// id of the input clause</span>
-</span></span><span style="display:flex;"><span>String clauseId <span style="color:#f92672">=</span> input.<span style="color:#a6e22e">getClauseId</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// label of the input clause</span>
-</span></span><span style="display:flex;"><span>String clauseName <span style="color:#f92672">=</span> input.<span style="color:#a6e22e">getClauseName</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// evaluated value of the input expression</span>
-</span></span><span style="display:flex;"><span>Object value <span style="color:#f92672">=</span> input.<span style="color:#a6e22e">getValue</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// evaluated value of the input expression as typed value</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// which contains type information</span>
-</span></span><span style="display:flex;"><span>TypedValue typedValue <span style="color:#f92672">=</span> input.<span style="color:#a6e22e">getTypedValue</span>();
-</span></span></code></pre></div><p>Note that the value may be the result of a type transformation in case the
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">HistoricDecisionInputInstance</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// id of the input clause</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">String</span><span class="w"> </span><span class="n">clauseId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">input</span><span class="p">.</span><span class="na">getClauseId</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// label of the input clause</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">String</span><span class="w"> </span><span class="n">clauseName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">input</span><span class="p">.</span><span class="na">getClauseName</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// evaluated value of the input expression</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Object</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">input</span><span class="p">.</span><span class="na">getValue</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// evaluated value of the input expression as typed value</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// which contains type information</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">TypedValue</span><span class="w"> </span><span class="n">typedValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">input</span><span class="p">.</span><span class="na">getTypedValue</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><p>Note that the value may be the result of a type transformation in case the
 input specifies a type.</p>
 <h2 id="historic-decision-output-instance">Historic Decision Output Instance</h2>
 <p>The <a href="/javadoc/cibseven/1.0/?org/camunda/bpm/engine/history/HistoricDecisionOutputInstance">HistoricDecisionOutputInstance</a>
@@ -3289,30 +3289,30 @@ input specifies a type.</p>
 evaluated decision. If the decision is implemented as decision table, the
 <code>HistoricDecisionInstance</code> contains one <code>HistoricDecisionOutputInstance</code>
 for each output clause and matched rule.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>HistoricDecisionOutputInstance output <span style="color:#f92672">=</span> ...;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// id of the output clause</span>
-</span></span><span style="display:flex;"><span>String clauseId <span style="color:#f92672">=</span> output.<span style="color:#a6e22e">getClauseId</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// label of the output clause</span>
-</span></span><span style="display:flex;"><span>String clauseName <span style="color:#f92672">=</span> output.<span style="color:#a6e22e">getClauseName</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// evaluated value of the output entry</span>
-</span></span><span style="display:flex;"><span>Object value <span style="color:#f92672">=</span> output.<span style="color:#a6e22e">getValue</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// evaluated value of the output entry as typed value</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// which contains type information</span>
-</span></span><span style="display:flex;"><span>TypedValue typedValue <span style="color:#f92672">=</span> output.<span style="color:#a6e22e">getTypedValue</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// id of matched rule the output belongs to</span>
-</span></span><span style="display:flex;"><span>String ruleId <span style="color:#f92672">=</span> output.<span style="color:#a6e22e">getRuleId</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// the position of the rule in the list of matched rules</span>
-</span></span><span style="display:flex;"><span>Integer ruleOrder <span style="color:#f92672">=</span> output.<span style="color:#a6e22e">getRuleOrder</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// name of the output clause used as output variable identifier</span>
-</span></span><span style="display:flex;"><span>String variableName <span style="color:#f92672">=</span> output.<span style="color:#a6e22e">getVariableName</span>();
-</span></span></code></pre></div><p>Note that the value may be the result of a type transformation in case the
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">HistoricDecisionOutputInstance</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// id of the output clause</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">String</span><span class="w"> </span><span class="n">clauseId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">output</span><span class="p">.</span><span class="na">getClauseId</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// label of the output clause</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">String</span><span class="w"> </span><span class="n">clauseName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">output</span><span class="p">.</span><span class="na">getClauseName</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// evaluated value of the output entry</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Object</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">output</span><span class="p">.</span><span class="na">getValue</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// evaluated value of the output entry as typed value</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// which contains type information</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">TypedValue</span><span class="w"> </span><span class="n">typedValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">output</span><span class="p">.</span><span class="na">getTypedValue</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// id of matched rule the output belongs to</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">String</span><span class="w"> </span><span class="n">ruleId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">output</span><span class="p">.</span><span class="na">getRuleId</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// the position of the rule in the list of matched rules</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Integer</span><span class="w"> </span><span class="n">ruleOrder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">output</span><span class="p">.</span><span class="na">getRuleOrder</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// name of the output clause used as output variable identifier</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">String</span><span class="w"> </span><span class="n">variableName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">output</span><span class="p">.</span><span class="na">getVariableName</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><p>Note that the value may be the result of a type transformation in case the
 output specifies a type.</p>
 <h1 id="cockpit">Cockpit</h1>
 <p>You can audit the evaluated decision definitions in the <a href="/manual/1.0/webapps/cockpit/dmn/">Cockpit</a> webapp.</p>

@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/latest/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/latest/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/user-guide/process-engine/decisions/repository/" />
 </head>
 <body class="">
@@ -3170,32 +3170,32 @@ a process application. The platform will recognize all files with a <code>.dmn</
 <p>Use the Repository Service to create a new deployment and add
 DMN resources to it. The following code, for example, will create a new
 deployment for a DMN file in the classpath.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>String resourceName <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;MyDecision.dmn11.xml&#34;</span>;
-</span></span><span style="display:flex;"><span>Deploymnet deployment <span style="color:#f92672">=</span> processEngine
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">getRepositoryService</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">createDeployment</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">addClasspathResource</span>(resourceName)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">deploy</span>();
-</span></span></code></pre></div><h2 id="deploying-a-decision-with-a-process-application">Deploying a decision with a Process Application</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">String</span><span class="w"> </span><span class="n">resourceName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;MyDecision.dmn11.xml&#34;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Deploymnet</span><span class="w"> </span><span class="n">deployment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">processEngine</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">getRepositoryService</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">createDeployment</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">addClasspathResource</span><span class="p">(</span><span class="n">resourceName</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">deploy</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><h2 id="deploying-a-decision-with-a-process-application">Deploying a decision with a Process Application</h2>
 <p>If you deploy a <a href="/manual/latest/user-guide/process-applications/">Process Application</a>, you can add the DMN file to your
 archive as other resources, like BPMN processes. The DMN files must have
 a <code>.dmn</code> or <code>.dmn11.xml</code> file extension to be recognized as DMN resource.</p>
 <p>If your <a href="/manual/latest/reference/deployment-descriptors/tags/process-archive/">Process Archive</a> is set up to scan for process definitions, it will
 automatically deploy the DMN definitions too. This is the default.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;process-archive</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;loan-approval&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;properties&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;isScanForProcessDefinitions&#34;</span><span style="color:#f92672">&gt;</span>true<span style="color:#f92672">&lt;/property&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/properties&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/process-archive&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;process-archive</span> <span class="na">name=</span><span class="s">&#34;loan-approval&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;properties&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;isScanForProcessDefinitions&#34;</span><span class="nt">&gt;</span>true<span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/properties&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/process-archive&gt;</span>
 </span></span></code></pre></div><p>Otherwise, you have to specify the DMN resources explicitly in the <a href="/manual/latest/reference/deployment-descriptors/tags/process-archive/">Process
 Archive</a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;process-archive</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;loan-approval&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;resource&gt;</span>bpmn/invoice.bpmn<span style="color:#f92672">&lt;/resource&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;resource&gt;</span>dmn/assign-approver.dmn<span style="color:#f92672">&lt;/resource&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;properties&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;isScanForProcessDefinitions&#34;</span><span style="color:#f92672">&gt;</span>false<span style="color:#f92672">&lt;/property&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/properties&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/process-archive&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;process-archive</span> <span class="na">name=</span><span class="s">&#34;loan-approval&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;resource&gt;</span>bpmn/invoice.bpmn<span class="nt">&lt;/resource&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;resource&gt;</span>dmn/assign-approver.dmn<span class="nt">&lt;/resource&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;properties&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;isScanForProcessDefinitions&#34;</span><span class="nt">&gt;</span>false<span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/properties&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/process-archive&gt;</span>
 </span></span></code></pre></div><h1 id="versioning-of-decisions">Versioning of Decisions</h1>
 <p>When a DMN resource is deployed to the platform, every supported DMN Decision
 is transformed into a <em>Decision Definition</em>. A decision definition represents
@@ -3210,14 +3210,14 @@ platform.</li>
 <h2 id="the-decision-definition-key">The Decision Definition Key</h2>
 <p>The decision definition key is equivalent to the <code>id</code> attribute of the DMN
 decision in the DMN XML.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;definitions</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;https://www.omg.org/spec/DMN/20191111/MODEL/&#34;</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;definitions&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;definitions&#34;</span> <span style="color:#a6e22e">namespace=</span><span style="color:#e6db74">&#34;http://camunda.org/schema/1.0/dmn&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;decision</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;my-decision&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;My Decision&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;decisionTable&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;output</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;output1&#34;</span><span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/decisionTable&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/decision&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/definitions&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;definitions</span> <span class="na">xmlns=</span><span class="s">&#34;https://www.omg.org/spec/DMN/20191111/MODEL/&#34;</span> <span class="na">id=</span><span class="s">&#34;definitions&#34;</span> <span class="na">name=</span><span class="s">&#34;definitions&#34;</span> <span class="na">namespace=</span><span class="s">&#34;http://camunda.org/schema/1.0/dmn&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;decision</span> <span class="na">id=</span><span class="s">&#34;my-decision&#34;</span> <span class="na">name=</span><span class="s">&#34;My Decision&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;decisionTable&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;output</span> <span class="na">id=</span><span class="s">&#34;output1&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/decisionTable&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/decision&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/definitions&gt;</span>
 </span></span></code></pre></div><p>When deploying the above DMN XML file, a decision definition having the following properties is created:</p>
 <ul>
 <li><code>id</code>: GENERATED</li>
@@ -3254,13 +3254,13 @@ platform.</li>
 <p>Note that the decision requirements definition is only created if the DMN resource contains more than one decision.</p>
 <h2 id="the-decision-requirements-definition-key">The Decision Requirements Definition Key</h2>
 <p>The decision requirements definition key is equivalent to the <code>id</code> attribute of the <code>definitions</code> element in the DMN XML.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;definitions</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;https://www.omg.org/spec/DMN/20191111/MODEL/&#34;</span> 
-</span></span><span style="display:flex;"><span>             <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;my-drg&#34;</span> 
-</span></span><span style="display:flex;"><span>             <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;My DRG&#34;</span> 
-</span></span><span style="display:flex;"><span>             <span style="color:#a6e22e">namespace=</span><span style="color:#e6db74">&#34;http://camunda.org/schema/1.0/dmn&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- ... --&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/definitions&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;definitions</span> <span class="na">xmlns=</span><span class="s">&#34;https://www.omg.org/spec/DMN/20191111/MODEL/&#34;</span> 
+</span></span><span class="line"><span class="cl">             <span class="na">id=</span><span class="s">&#34;my-drg&#34;</span> 
+</span></span><span class="line"><span class="cl">             <span class="na">name=</span><span class="s">&#34;My DRG&#34;</span> 
+</span></span><span class="line"><span class="cl">             <span class="na">namespace=</span><span class="s">&#34;http://camunda.org/schema/1.0/dmn&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="c">&lt;!-- ... --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/definitions&gt;</span>
 </span></span></code></pre></div><p>When deploying the above DMN XML file, a decision requirements definition having the following properties is created:</p>
 <ul>
 <li><code>id</code>: GENERATED</li>
@@ -3278,60 +3278,60 @@ the existing one, increasing its version by one.</p>
 <p>All deployed decision definitions and decision requirements definitions can be queried by the repository service API.</p>
 <h2 id="querying-decision-definitions">Querying Decision Definitions</h2>
 <p>Get a decision definition with the id &ldquo;decisionDefinitionId&rdquo;:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>DecisionDefinition decisionDefinition <span style="color:#f92672">=</span> processEngine
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">getRepositoryService</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">getDecisionDefinition</span>(<span style="color:#e6db74">&#34;decisionDefinitionId&#34;</span>);
-</span></span></code></pre></div><p>Query for a decision definition with the key &ldquo;decisionDefinitionKey&rdquo; and
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">DecisionDefinition</span><span class="w"> </span><span class="n">decisionDefinition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">processEngine</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">getRepositoryService</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">getDecisionDefinition</span><span class="p">(</span><span class="s">&#34;decisionDefinitionId&#34;</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><p>Query for a decision definition with the key &ldquo;decisionDefinitionKey&rdquo; and
 version 1:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>DecisionDefinition decisionDefinition <span style="color:#f92672">=</span> processEngine
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">getRepositoryService</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">createDecisionDefinitionQuery</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">decisionDefinitionKey</span>(<span style="color:#e6db74">&#34;decisionDefinitionKey&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">decisionDefinitionVersion</span>(1)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">singleResult</span>();
-</span></span></code></pre></div><p>Query for the latest version of decision definition with the key &ldquo;decisionDefinitionKey&rdquo;:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>DecisionDefinition decisionDefinition <span style="color:#f92672">=</span> processEngine
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">getRepositoryService</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">createDecisionDefinitionQuery</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">decisionDefinitionKey</span>(<span style="color:#e6db74">&#34;decisionDefinitionKey&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">latestVersion</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">singleResult</span>();
-</span></span></code></pre></div><p>Query for all versions of decision definitions with the key
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">DecisionDefinition</span><span class="w"> </span><span class="n">decisionDefinition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">processEngine</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">getRepositoryService</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">createDecisionDefinitionQuery</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">decisionDefinitionKey</span><span class="p">(</span><span class="s">&#34;decisionDefinitionKey&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">decisionDefinitionVersion</span><span class="p">(</span><span class="n">1</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">singleResult</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><p>Query for the latest version of decision definition with the key &ldquo;decisionDefinitionKey&rdquo;:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">DecisionDefinition</span><span class="w"> </span><span class="n">decisionDefinition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">processEngine</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">getRepositoryService</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">createDecisionDefinitionQuery</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">decisionDefinitionKey</span><span class="p">(</span><span class="s">&#34;decisionDefinitionKey&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">latestVersion</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">singleResult</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><p>Query for all versions of decision definitions with the key
 &ldquo;decisionDefinitionKey&rdquo;:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>List<span style="color:#f92672">&lt;</span>DecisionDefinition<span style="color:#f92672">&gt;</span> decisionDefinitions <span style="color:#f92672">=</span> processEngine
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">getRepositoryService</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">createDecisionDefinitionQuery</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">decisionDefinitionKey</span>(<span style="color:#e6db74">&#34;decisionDefinitionKey&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">list</span>();
-</span></span></code></pre></div><p>Additionally, the repository service can be used to get the DMN XML file,
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">List</span><span class="o">&lt;</span><span class="n">DecisionDefinition</span><span class="o">&gt;</span><span class="w"> </span><span class="n">decisionDefinitions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">processEngine</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">getRepositoryService</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">createDecisionDefinitionQuery</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">decisionDefinitionKey</span><span class="p">(</span><span class="s">&#34;decisionDefinitionKey&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">list</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><p>Additionally, the repository service can be used to get the DMN XML file,
 a DMN model instance or deployed diagram images.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>RepositoryService repositoryService <span style="color:#f92672">=</span> processEngine.<span style="color:#a6e22e">getRepositoryService</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>DmnModelInstance dmnModelInstance <span style="color:#f92672">=</span> repositoryService
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">getDmnModelInstance</span>(<span style="color:#e6db74">&#34;decisionDefinitionId&#34;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>InputStream modelInputStream <span style="color:#f92672">=</span> repositoryService
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">getDecisionModel</span>(<span style="color:#e6db74">&#34;decisionDefinitionId&#34;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>InputStream diagramInputStream <span style="color:#f92672">=</span> repositoryService
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">getDecisionDiagram</span>(<span style="color:#e6db74">&#34;decisionDefinitionId&#34;</span>);
-</span></span></code></pre></div><h2 id="querying-decision-requirements-definitions">Querying Decision Requirements Definitions</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">RepositoryService</span><span class="w"> </span><span class="n">repositoryService</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">processEngine</span><span class="p">.</span><span class="na">getRepositoryService</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">DmnModelInstance</span><span class="w"> </span><span class="n">dmnModelInstance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">repositoryService</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">getDmnModelInstance</span><span class="p">(</span><span class="s">&#34;decisionDefinitionId&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">InputStream</span><span class="w"> </span><span class="n">modelInputStream</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">repositoryService</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">getDecisionModel</span><span class="p">(</span><span class="s">&#34;decisionDefinitionId&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">InputStream</span><span class="w"> </span><span class="n">diagramInputStream</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">repositoryService</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">getDecisionDiagram</span><span class="p">(</span><span class="s">&#34;decisionDefinitionId&#34;</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><h2 id="querying-decision-requirements-definitions">Querying Decision Requirements Definitions</h2>
 <p>The decision requirements definitions can be queried in a similar way to the decision definitions.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// query for the latest version of a decision requirements definition by key</span>
-</span></span><span style="display:flex;"><span>DecisionRequirementsDefinition decisionRequirementsDefinition <span style="color:#f92672">=</span> processEngine
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">getRepositoryService</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">createDecisionRequirementsDefinitionQuery</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">decisionRequirementsDefinitionKey</span>(key)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">latestVersion</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">singleResult</span>();
-</span></span><span style="display:flex;"><span>  
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// query for all versions of decision requirements definitions by name</span>
-</span></span><span style="display:flex;"><span>List<span style="color:#f92672">&lt;</span>DecisionRequirementsDefinition<span style="color:#f92672">&gt;</span> decisionRequirementsDefinitions <span style="color:#f92672">=</span> processEngine
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">getRepositoryService</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">createDecisionRequirementsDefinitionQuery</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">decisionRequirementsDefinitionName</span>(name)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">list</span>();  
-</span></span></code></pre></div><h1 id="authorizations-for-querying-the-decision-repository">Authorizations for Querying the Decision Repository</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// query for the latest version of a decision requirements definition by key</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">DecisionRequirementsDefinition</span><span class="w"> </span><span class="n">decisionRequirementsDefinition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">processEngine</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">getRepositoryService</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">createDecisionRequirementsDefinitionQuery</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">decisionRequirementsDefinitionKey</span><span class="p">(</span><span class="n">key</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">latestVersion</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">singleResult</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// query for all versions of decision requirements definitions by name</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">List</span><span class="o">&lt;</span><span class="n">DecisionRequirementsDefinition</span><span class="o">&gt;</span><span class="w"> </span><span class="n">decisionRequirementsDefinitions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">processEngine</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">getRepositoryService</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">createDecisionRequirementsDefinitionQuery</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">decisionRequirementsDefinitionName</span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">list</span><span class="p">();</span><span class="w">  
+</span></span></span></code></pre></div><h1 id="authorizations-for-querying-the-decision-repository">Authorizations for Querying the Decision Repository</h1>
 <p>The user needs the <code>READ</code> permission on the resource <code>DECISION_DEFINITION</code> to
 query decision definitions. This permission is also required to retrieve decision
 definitions, decision models and decision diagrams from the repository. The

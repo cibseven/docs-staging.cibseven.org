@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/latest/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/latest/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/reference/connect/" />
 </head>
 <body class="">
@@ -3170,8 +3170,8 @@ configure the connector instances.</p>
 <p>During the request invocation of a connector an interceptor chain is passed.
 The user can add own interceptors to this chain. The interceptor is called for
 every request of this connector.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>connector.<span style="color:#a6e22e">addRequestInterceptor</span>(interceptor).<span style="color:#a6e22e">createRequest</span>();
-</span></span></code></pre></div><h1 id="maven-coordinates">Maven Coordinates</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">connector</span><span class="p">.</span><span class="na">addRequestInterceptor</span><span class="p">(</span><span class="n">interceptor</span><span class="p">).</span><span class="na">createRequest</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><h1 id="maven-coordinates">Maven Coordinates</h1>
 <p>Connect can be used in any Java-based application by adding the following maven
 dependency to your <code>pom.xml</code> file:</p>
 
@@ -3182,28 +3182,28 @@ dependency to your <code>pom.xml</code> file:</p>
 to ensure correct versions for every Camunda project.</p>
 </div>
 
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;dependencyManagement&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;dependencies&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;dependency&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;groupId&gt;</span>org.camunda.connect<span style="color:#f92672">&lt;/groupId&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;artifactId&gt;</span>camunda-connect-bom<span style="color:#f92672">&lt;/artifactId&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;scope&gt;</span>import<span style="color:#f92672">&lt;/scope&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;type&gt;</span>pom<span style="color:#f92672">&lt;/type&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;version&gt;</span>${version.camunda}<span style="color:#f92672">&lt;/version&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/dependency&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/dependencies&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/dependencyManagement&gt;</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;dependencies&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;dependency&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;groupId&gt;</span>org.camunda.connect<span style="color:#f92672">&lt;/groupId&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;artifactId&gt;</span>camunda-connect-core<span style="color:#f92672">&lt;/artifactId&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/dependency&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;dependency&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;groupId&gt;</span>org.camunda.connect<span style="color:#f92672">&lt;/groupId&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;artifactId&gt;</span>camunda-connect-connectors-all<span style="color:#f92672">&lt;/artifactId&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/dependency&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/dependencies&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependencyManagement&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;dependencies&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;dependency&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;groupId&gt;</span>org.camunda.connect<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;artifactId&gt;</span>camunda-connect-bom<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;scope&gt;</span>import<span class="nt">&lt;/scope&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;type&gt;</span>pom<span class="nt">&lt;/type&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;version&gt;</span>${version.camunda}<span class="nt">&lt;/version&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/dependency&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/dependencies&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/dependencyManagement&gt;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependencies&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;dependency&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;groupId&gt;</span>org.camunda.connect<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;artifactId&gt;</span>camunda-connect-core<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/dependency&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;dependency&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;groupId&gt;</span>org.camunda.connect<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;artifactId&gt;</span>camunda-connect-connectors-all<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/dependency&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/dependencies&gt;</span>
 </span></span></code></pre></div><p>Camunda Connect is published to <a href="http://search.maven.org/#search%7Cga%7C1%7Ccamunda-connect">maven central</a>.</p>
 
 <div class="note bg-info docs-info">

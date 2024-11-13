@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/latest/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/latest/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/installation/full/tomcat/configuration/" />
 </head>
 <body class="">
@@ -3173,51 +3173,51 @@
 
 <h3 id="adjust-the-process-engine-configuration">Adjust the Process Engine Configuration</h3>
 <p>Edit the file <code>bpm-platform.xml</code> located inside the folder <code>$TOMCAT_HOME/conf</code> and add the <a href="/manual/latest/user-guide/process-engine/identity-service/#the-ldap-identity-service">LDAP Identity Provider Plugin</a> and the <a href="/manual/latest/user-guide/process-engine/authorization-service/#the-administrator-authorization-plugin">Administrator Authorization Plugin</a>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;bpm-platform</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://www.camunda.org/schema/1.0/BpmPlatform&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">xsi:schemaLocation=</span><span style="color:#e6db74">&#34;http://www.camunda.org/schema/1.0/BpmPlatform http://www.camunda.org/schema/1.0/BpmPlatform &#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  ...
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;process-engine</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;default&#34;</span><span style="color:#f92672">&gt;</span> ...
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;properties&gt;</span>...<span style="color:#f92672">&lt;/properties&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;plugins&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;plugin&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;class&gt;</span>org.camunda.bpm.identity.impl.ldap.plugin.LdapIdentityProviderPlugin<span style="color:#f92672">&lt;/class&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;properties&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;serverUrl&#34;</span><span style="color:#f92672">&gt;</span>ldap://localhost:4334/<span style="color:#f92672">&lt;/property&gt;</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;managerDn&#34;</span><span style="color:#f92672">&gt;</span>uid=jonny,ou=office-berlin,o=camunda,c=org<span style="color:#f92672">&lt;/property&gt;</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;managerPassword&#34;</span><span style="color:#f92672">&gt;</span>s3cr3t<span style="color:#f92672">&lt;/property&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;baseDn&#34;</span><span style="color:#f92672">&gt;</span>o=camunda,c=org<span style="color:#f92672">&lt;/property&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;userSearchBase&#34;</span><span style="color:#f92672">&gt;&lt;/property&gt;</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;userSearchFilter&#34;</span><span style="color:#f92672">&gt;</span>(objectclass=person)<span style="color:#f92672">&lt;/property&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;userIdAttribute&#34;</span><span style="color:#f92672">&gt;</span>uid<span style="color:#f92672">&lt;/property&gt;</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;userFirstnameAttribute&#34;</span><span style="color:#f92672">&gt;</span>cn<span style="color:#f92672">&lt;/property&gt;</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;userLastnameAttribute&#34;</span><span style="color:#f92672">&gt;</span>sn<span style="color:#f92672">&lt;/property&gt;</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;userEmailAttribute&#34;</span><span style="color:#f92672">&gt;</span>mail<span style="color:#f92672">&lt;/property&gt;</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;userPasswordAttribute&#34;</span><span style="color:#f92672">&gt;</span>userpassword<span style="color:#f92672">&lt;/property&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;groupSearchBase&#34;</span><span style="color:#f92672">&gt;&lt;/property&gt;</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;groupSearchFilter&#34;</span><span style="color:#f92672">&gt;</span>(objectclass=groupOfNames)<span style="color:#f92672">&lt;/property&gt;</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;groupIdAttribute&#34;</span><span style="color:#f92672">&gt;</span>ou<span style="color:#f92672">&lt;/property&gt;</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;groupNameAttribute&#34;</span><span style="color:#f92672">&gt;</span>cn<span style="color:#f92672">&lt;/property&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;groupMemberAttribute&#34;</span><span style="color:#f92672">&gt;</span>member<span style="color:#f92672">&lt;/property&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/properties&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/plugin&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;plugin&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;class&gt;</span>org.camunda.bpm.engine.impl.plugin.AdministratorAuthorizationPlugin<span style="color:#f92672">&lt;/class&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;properties&gt;</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;administratorUserName&#34;</span><span style="color:#f92672">&gt;</span>admin<span style="color:#f92672">&lt;/property&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/properties&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/plugin&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/plugins&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/process-engine&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/bpm-platform&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;bpm-platform</span> <span class="na">xmlns=</span><span class="s">&#34;http://www.camunda.org/schema/1.0/BpmPlatform&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">xmlns:xsi=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">xsi:schemaLocation=</span><span class="s">&#34;http://www.camunda.org/schema/1.0/BpmPlatform http://www.camunda.org/schema/1.0/BpmPlatform &#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  ...
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;process-engine</span> <span class="na">name=</span><span class="s">&#34;default&#34;</span><span class="nt">&gt;</span> ...
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;properties&gt;</span>...<span class="nt">&lt;/properties&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;plugins&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;plugin&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;class&gt;</span>org.camunda.bpm.identity.impl.ldap.plugin.LdapIdentityProviderPlugin<span class="nt">&lt;/class&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;properties&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">          <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;serverUrl&#34;</span><span class="nt">&gt;</span>ldap://localhost:4334/<span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;managerDn&#34;</span><span class="nt">&gt;</span>uid=jonny,ou=office-berlin,o=camunda,c=org<span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;managerPassword&#34;</span><span class="nt">&gt;</span>s3cr3t<span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">          <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;baseDn&#34;</span><span class="nt">&gt;</span>o=camunda,c=org<span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">          <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;userSearchBase&#34;</span><span class="nt">&gt;&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;userSearchFilter&#34;</span><span class="nt">&gt;</span>(objectclass=person)<span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">          <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;userIdAttribute&#34;</span><span class="nt">&gt;</span>uid<span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;userFirstnameAttribute&#34;</span><span class="nt">&gt;</span>cn<span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;userLastnameAttribute&#34;</span><span class="nt">&gt;</span>sn<span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;userEmailAttribute&#34;</span><span class="nt">&gt;</span>mail<span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;userPasswordAttribute&#34;</span><span class="nt">&gt;</span>userpassword<span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">          <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;groupSearchBase&#34;</span><span class="nt">&gt;&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;groupSearchFilter&#34;</span><span class="nt">&gt;</span>(objectclass=groupOfNames)<span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;groupIdAttribute&#34;</span><span class="nt">&gt;</span>ou<span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;groupNameAttribute&#34;</span><span class="nt">&gt;</span>cn<span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">          <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;groupMemberAttribute&#34;</span><span class="nt">&gt;</span>member<span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/properties&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/plugin&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;plugin&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;class&gt;</span>org.camunda.bpm.engine.impl.plugin.AdministratorAuthorizationPlugin<span class="nt">&lt;/class&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;properties&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;administratorUserName&#34;</span><span class="nt">&gt;</span>admin<span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/properties&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/plugin&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/plugins&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/process-engine&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/bpm-platform&gt;</span>
 </span></span></code></pre></div><p>The <code>administratorUserName</code> property should contain the user id of the LDAP user you want to grant administrator authorizations to. You can then use this user to log in to the web application and grant authorizations to additional users.</p>
 <p>See our user guide for complete documentation on the <a href="/manual/latest/user-guide/process-engine/identity-service/#the-ldap-identity-service">LDAP Identity Provider Plugin</a> and the <a href="/manual/latest/user-guide/process-engine/authorization-service/#the-administrator-authorization-plugin">Administrator Authorization Plugin</a>.</p>
 <h2 id="hal-resource-caching">HAL Resource Caching</h2>
@@ -3225,75 +3225,75 @@
 Users and Groups in the Camunda webapplication. In order to activate this, add the following
 configuration to the <code>web.xml</code> file of Camunda webapplication
 (<code>camunda-webapp-tomcat-$PLATFORM_VERSION.war/WEB-INF/web.xml</code>):</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;web-app</span> <span style="color:#a6e22e">version=</span><span style="color:#e6db74">&#34;2.5&#34;</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://java.sun.com/xml/ns/javaee&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">xsi:schemaLocation=</span><span style="color:#e6db74">&#34;http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- ... --&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;listener&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;listener-class&gt;</span>org.camunda.bpm.engine.rest.hal.cache.HalRelationCacheBootstrap<span style="color:#f92672">&lt;/listener-class&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/listener&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;context-param&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;param-name&gt;</span>org.camunda.bpm.engine.rest.hal.cache.config<span style="color:#f92672">&lt;/param-name&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;param-value&gt;</span>
-</span></span><span style="display:flex;"><span>      {
-</span></span><span style="display:flex;"><span>        &#34;cacheImplementation&#34;: &#34;org.camunda.bpm.engine.rest.hal.cache.DefaultHalResourceCache&#34;,
-</span></span><span style="display:flex;"><span>        &#34;caches&#34;: {
-</span></span><span style="display:flex;"><span>          &#34;org.camunda.bpm.engine.rest.hal.user.HalUser&#34;: {
-</span></span><span style="display:flex;"><span>            &#34;capacity&#34;: 100,
-</span></span><span style="display:flex;"><span>            &#34;secondsToLive&#34;: 900
-</span></span><span style="display:flex;"><span>          },
-</span></span><span style="display:flex;"><span>          &#34;org.camunda.bpm.engine.rest.hal.group.HalGroup&#34;: {
-</span></span><span style="display:flex;"><span>            &#34;capacity&#34;: 100,
-</span></span><span style="display:flex;"><span>            &#34;secondsToLive&#34;: 900
-</span></span><span style="display:flex;"><span>          }
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>      }
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/param-value&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/context-param&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- ... --&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/web-app&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;web-app</span> <span class="na">version=</span><span class="s">&#34;2.5&#34;</span> <span class="na">xmlns=</span><span class="s">&#34;http://java.sun.com/xml/ns/javaee&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">xmlns:xsi=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">xsi:schemaLocation=</span><span class="s">&#34;http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c">&lt;!-- ... --&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;listener&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;listener-class&gt;</span>org.camunda.bpm.engine.rest.hal.cache.HalRelationCacheBootstrap<span class="nt">&lt;/listener-class&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/listener&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;context-param&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;param-name&gt;</span>org.camunda.bpm.engine.rest.hal.cache.config<span class="nt">&lt;/param-name&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;param-value&gt;</span>
+</span></span><span class="line"><span class="cl">      {
+</span></span><span class="line"><span class="cl">        &#34;cacheImplementation&#34;: &#34;org.camunda.bpm.engine.rest.hal.cache.DefaultHalResourceCache&#34;,
+</span></span><span class="line"><span class="cl">        &#34;caches&#34;: {
+</span></span><span class="line"><span class="cl">          &#34;org.camunda.bpm.engine.rest.hal.user.HalUser&#34;: {
+</span></span><span class="line"><span class="cl">            &#34;capacity&#34;: 100,
+</span></span><span class="line"><span class="cl">            &#34;secondsToLive&#34;: 900
+</span></span><span class="line"><span class="cl">          },
+</span></span><span class="line"><span class="cl">          &#34;org.camunda.bpm.engine.rest.hal.group.HalGroup&#34;: {
+</span></span><span class="line"><span class="cl">            &#34;capacity&#34;: 100,
+</span></span><span class="line"><span class="cl">            &#34;secondsToLive&#34;: 900
+</span></span><span class="line"><span class="cl">          }
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">      }
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/param-value&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/context-param&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c">&lt;!-- ... --&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/web-app&gt;</span>
 </span></span></code></pre></div><h2 id="session-cookie-in-webapps">Session Cookie in Webapps</h2>
 <p>To configure the <strong>Session Cookie</strong>, you can adjust the deployment descriptor of the Web applications.
 You can find it in the <code>WEB-INF/web.xml</code> in the following section:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>...
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;session-config&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;cookie-config&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;secure&gt;</span>false<span style="color:#f92672">&lt;/secure&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;http-only&gt;</span>true<span style="color:#f92672">&lt;/http-only&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/cookie-config&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/session-config&gt;</span>
-</span></span><span style="display:flex;"><span>...
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;session-config&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;cookie-config&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;secure&gt;</span>false<span class="nt">&lt;/secure&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;http-only&gt;</span>true<span class="nt">&lt;/http-only&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/cookie-config&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/session-config&gt;</span>
+</span></span><span class="line"><span class="cl">...
 </span></span></code></pre></div><p>Please note that security-related configurations for the <strong>Session Cookie</strong> can only be applied with the Deployment Descriptor (<code>web.xml</code>) version set to 3.0.</p>
 <p>To customize the <code>SameSite</code> attribute of the session cookie, you can adjust the <code>SessionCookieFilter</code>.
 You can find it in the <code>WEB-INF/web.xml</code> as well in the following section:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>...
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;filter&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;filter-name&gt;</span>SessionCookieFilter<span style="color:#f92672">&lt;/filter-name&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;filter-class&gt;</span>org.camunda.bpm.webapp.impl.security.filter.SessionCookieFilter<span style="color:#f92672">&lt;/filter-class&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/filter&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;filter-mapping&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;filter-name&gt;</span>SessionCookieFilter<span style="color:#f92672">&lt;/filter-name&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;url-pattern&gt;</span>/*<span style="color:#f92672">&lt;/url-pattern&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/filter-mapping&gt;</span>
-</span></span><span style="display:flex;"><span>...
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;filter&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;filter-name&gt;</span>SessionCookieFilter<span class="nt">&lt;/filter-name&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;filter-class&gt;</span>org.camunda.bpm.webapp.impl.security.filter.SessionCookieFilter<span class="nt">&lt;/filter-class&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/filter&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;filter-mapping&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;filter-name&gt;</span>SessionCookieFilter<span class="nt">&lt;/filter-name&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;url-pattern&gt;</span>/*<span class="nt">&lt;/url-pattern&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/filter-mapping&gt;</span>
+</span></span><span class="line"><span class="cl">...
 </span></span></code></pre></div><p>By default, the <code>SameSite</code> flag will be set to <code>LAX</code> by the filter.
 You can change the default behavior by adding configuration parameters to the servlet filter configuration:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>...
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;filter&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;filter-name&gt;</span>SessionCookieFilter<span style="color:#f92672">&lt;/filter-name&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;filter-class&gt;</span>org.camunda.bpm.webapp.impl.security.filter.SessionCookieFilter<span style="color:#f92672">&lt;/filter-class&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;init-param&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;param-name&gt;</span>sameSiteCookieValue<span style="color:#f92672">&lt;/param-name&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;param-value&gt;</span>Strict<span style="color:#f92672">&lt;/param-value&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/init-param&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/filter&gt;</span>
-</span></span><span style="display:flex;"><span>...
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;filter&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;filter-name&gt;</span>SessionCookieFilter<span class="nt">&lt;/filter-name&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;filter-class&gt;</span>org.camunda.bpm.webapp.impl.security.filter.SessionCookieFilter<span class="nt">&lt;/filter-class&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;init-param&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;param-name&gt;</span>sameSiteCookieValue<span class="nt">&lt;/param-name&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;param-value&gt;</span>Strict<span class="nt">&lt;/param-value&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/init-param&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/filter&gt;</span>
+</span></span><span class="line"><span class="cl">...
 </span></span></code></pre></div><p>Note that the filter only adds the <code>SameSite</code> attribute to the cookie if this attribute is not present yet.
 It does not alter any existing value that has been set prior to the filter execution.</p>
 <p>The servlet filter accepts several initialization parameters besides the one describes above.
@@ -3360,38 +3360,38 @@ The following list describes all possible parameters you can use for the filter 
 <p>To customize the configuration of security-related HTTP headers in the web applications its deployment descriptor needs
 to be adjusted. You can find it under <code>WEB-INF/web.xml</code>.</p>
 <p>Please watch out for the following section:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>...
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;filter&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;filter-name&gt;</span>HttpHeaderSecurity<span style="color:#f92672">&lt;/filter-name&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;filter-class&gt;</span>
-</span></span><span style="display:flex;"><span>    org.camunda.bpm.webapp.impl.security.filter.headersec.HttpHeaderSecurityFilter
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/filter-class&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/filter&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;filter-mapping&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;filter-name&gt;</span>HttpHeaderSecurity<span style="color:#f92672">&lt;/filter-name&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;url-pattern&gt;</span>/*<span style="color:#f92672">&lt;/url-pattern&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;dispatcher&gt;</span>REQUEST<span style="color:#f92672">&lt;/dispatcher&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/filter-mapping&gt;</span>
-</span></span><span style="display:flex;"><span>...
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;filter&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;filter-name&gt;</span>HttpHeaderSecurity<span class="nt">&lt;/filter-name&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;filter-class&gt;</span>
+</span></span><span class="line"><span class="cl">    org.camunda.bpm.webapp.impl.security.filter.headersec.HttpHeaderSecurityFilter
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/filter-class&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/filter&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;filter-mapping&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;filter-name&gt;</span>HttpHeaderSecurity<span class="nt">&lt;/filter-name&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;url-pattern&gt;</span>/*<span class="nt">&lt;/url-pattern&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;dispatcher&gt;</span>REQUEST<span class="nt">&lt;/dispatcher&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/filter-mapping&gt;</span>
+</span></span><span class="line"><span class="cl">...
 </span></span></code></pre></div><p>You can change the default behavior by adding configuration parameters to the servlet filter configuration:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>...
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;filter&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;filter-name&gt;</span>HttpHeaderSecurity<span style="color:#f92672">&lt;/filter-name&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;filter-class&gt;</span>
-</span></span><span style="display:flex;"><span>    org.camunda.bpm.webapp.impl.security.filter.headersec.HttpHeaderSecurityFilter
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/filter-class&gt;</span>
-</span></span><span style="display:flex;"><span>  
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;init-param&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;param-name&gt;</span>contentSecurityPolicyValue<span style="color:#f92672">&lt;/param-name&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;param-value&gt;</span>
-</span></span><span style="display:flex;"><span>      base-uri &#39;self&#39;;
-</span></span><span style="display:flex;"><span>      default-src &#39;self&#39; &#39;unsafe-inline&#39;
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/param-value&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/init-param&gt;</span>
-</span></span><span style="display:flex;"><span>  
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/filter&gt;</span>
-</span></span><span style="display:flex;"><span>...
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;filter&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;filter-name&gt;</span>HttpHeaderSecurity<span class="nt">&lt;/filter-name&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;filter-class&gt;</span>
+</span></span><span class="line"><span class="cl">    org.camunda.bpm.webapp.impl.security.filter.headersec.HttpHeaderSecurityFilter
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/filter-class&gt;</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;init-param&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;param-name&gt;</span>contentSecurityPolicyValue<span class="nt">&lt;/param-name&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;param-value&gt;</span>
+</span></span><span class="line"><span class="cl">      base-uri &#39;self&#39;;
+</span></span><span class="line"><span class="cl">      default-src &#39;self&#39; &#39;unsafe-inline&#39;
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/param-value&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/init-param&gt;</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/filter&gt;</span>
+</span></span><span class="line"><span class="cl">...
 </span></span></code></pre></div><p>Please also see the detailed overview about the
 <a href="/manual/latest/webapps/shared-options/header-security/#how-to-configure">HTTP Header Security configuration settings</a>.</p>
 

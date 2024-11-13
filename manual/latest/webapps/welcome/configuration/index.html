@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/latest/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/latest/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/webapps/welcome/configuration/" />
 </head>
 <body class="">
@@ -3165,43 +3165,43 @@ available:</p>
 <h1 id="custom-links">Custom links</h1>
 <p>Can be used to add some useful links for the user, such as other applications or intranet sites.</p>
 <h2 id="example">Example</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// …
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">links</span><span style="color:#f92672">:</span> [
-</span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">label</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Camunda Forum&#39;</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">href</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;https://forum.camunda.org&#39;</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Forum for Camnuda BPM users and developers&#39;</span>
-</span></span><span style="display:flex;"><span>    },
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// ...
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  ]
-</span></span><span style="display:flex;"><span>}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// …
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">links</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">label</span><span class="o">:</span> <span class="s1">&#39;Camunda Forum&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">href</span><span class="o">:</span> <span class="s1">&#39;https://forum.camunda.org&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">description</span><span class="o">:</span> <span class="s1">&#39;Forum for Camnuda BPM users and developers&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// ...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h1 id="logo-and-header-color">Logo and Header Color</h1>
 <p>You can change the visual aspects of Welcome. The user stylesheet file is located in
 <code>app/welcome/styles/user-styles.css</code>. This file contains CSS which is loaded into Welcome
 and can override the standard styles.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span>.<span style="color:#a6e22e">navbar-brand</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">/* hides the &#34;Camunda Welcome&#34; text */</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">text-indent</span>: <span style="color:#ae81ff">-999</span><span style="color:#66d9ef">em</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">/* put your logo */</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">background-image</span>: url(<span style="color:#e6db74">./path/to/the/logo.png</span>);
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">/* sets the width to match the logo&#39;s width */</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">80</span><span style="color:#66d9ef">px</span>;
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">/* changes the header bottom border color  */</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span><span style="color:#f92672">cam-widget-header</span><span style="color:#f92672">]</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">border-bottom-color</span>: <span style="color:#66d9ef">blue</span>;
-</span></span><span style="display:flex;"><span>}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="p">.</span><span class="nc">navbar-brand</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c">/* hides the &#34;Camunda Welcome&#34; text */</span>
+</span></span><span class="line"><span class="cl">  <span class="k">text-indent</span><span class="p">:</span> <span class="mi">-999</span><span class="kt">em</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="c">/* put your logo */</span>
+</span></span><span class="line"><span class="cl">  <span class="k">background-image</span><span class="p">:</span> <span class="nb">url</span><span class="p">(</span><span class="sx">./path/to/the/logo.png</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="c">/* sets the width to match the logo&#39;s width */</span>
+</span></span><span class="line"><span class="cl">  <span class="k">width</span><span class="p">:</span> <span class="mi">80</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">/* changes the header bottom border color  */</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span><span class="nt">cam-widget-header</span><span class="o">]</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">border-bottom-color</span><span class="p">:</span> <span class="kc">blue</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p><strong>Note:</strong> you can also change the app name (<em>Welcome</em>) and vendor (<em>Camunda</em>)
 by changing the <code>app/welcome/scripts/config.js</code> configuration file as follow:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// …
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">app</span><span style="color:#f92672">:</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Welcome&#39;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">vendor</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Company&#39;</span>
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// …
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">app</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Welcome&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">vendor</span><span class="o">:</span> <span class="s1">&#39;Company&#39;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h1 id="localization">Localization</h1>
 <p>Welcome can be localized. Camunda maintains English and German translation files.
 You can find and download community maintained translation files at the <a href="https://github.com/camunda-community-hub/camunda-7-webapp-translations">Camunda webapp translations repository</a>.</p>
@@ -3214,13 +3214,13 @@ locales. Every locale which is contained in this list must have a locale file in
 directory with the corresponding language code.</p>
 <p>If the browser uses a language which is not available, the Welcome application uses the locale which is
 defined via the <code>fallbackLocale</code> property in the configuration file:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// …
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#e6db74">&#34;locales&#34;</span><span style="color:#f92672">:</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;availableLocales&#34;</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#34;en&#34;</span>, <span style="color:#e6db74">&#34;de&#34;</span>],
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;fallbackLocale&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;en&#34;</span>
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// …
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="s2">&#34;locales&#34;</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;availableLocales&#34;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&#34;en&#34;</span><span class="p">,</span> <span class="s2">&#34;de&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;fallbackLocale&#34;</span><span class="o">:</span> <span class="s2">&#34;en&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>To create a new localization for the Welcome application, copy the provided language file, translate it and
 save it as a new localization file with the corresponding language code. To make the new translation
 available, add it to the list of available locales in the configuration file.</p>
@@ -3228,18 +3228,18 @@ available, add it to the list of available locales in the configuration file.</p
 <p>The default name of the CSRF Cookie is <code>XSRF-TOKEN</code>. When using other applications within the
 same-origin, the CSRF mechanisms could interfere with each other. To avoid the name conflict, you
 can change the name of the CSRF cookie in the <code>config.js</code> file as follows:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// …
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">csrfCookieName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;MY-XSRF-TOKEN&#39;</span>
-</span></span><span style="display:flex;"><span>};
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// …
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">csrfCookieName</span><span class="o">:</span> <span class="s1">&#39;MY-XSRF-TOKEN&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
 </span></span></code></pre></div><p><strong>Note:</strong> Please make sure to change the CSRF cookie name also on <a href="/manual/latest/webapps/shared-options/csrf-prevention/#cookie-name">server-side</a>.</p>
 <h1 id="disable-welcome-message-for-new-users">Disable Welcome Message for new Users</h1>
 <p>First-time visitors are shown a message directing them to the camunda welcome page. If you do
 not want this message to be shown, you can disable it by adjusting the <code>config.js</code> as follows:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// …
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">disableWelcomeMessage</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>
-</span></span><span style="display:flex;"><span>};
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// …
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">disableWelcomeMessage</span><span class="o">:</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
 </span></span></code></pre></div><p><strong>Note:</strong> This does only affect the Welcome login page. For other webapps, you need to adjust the corresponding config file as well.</p>
 
     </div>

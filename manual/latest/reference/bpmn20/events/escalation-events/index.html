@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/latest/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/latest/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/reference/bpmn20/events/escalation-events/" />
 </head>
 <body class="">
@@ -3163,17 +3163,17 @@
 <div data-bpmn-diagram="../bpmn/escalation-example"></div>
 <h1 id="defining-escalation">Defining Escalation</h1>
 <p>An escalation event definition is declared by using the <code>escalationEventDefinition</code> element. The attribute <code>escalationRef</code> references an <code>escalation</code> element declared as a child element of the definitions root element. The following is an excerpt of a process in which an escalation event is declared and referenced by an escalation intermediate throw event.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;definitions&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;escalation</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;lateShipment&#34;</span> <span style="color:#a6e22e">escalationCode=</span><span style="color:#e6db74">&#34;ORDER-LATE-SHIPMENT&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- ... --&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;process&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">&lt;!-- ... --&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;intermediateThrowEvent</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;throwEscalation&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;late shipment&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;escalationEventDefinition</span> <span style="color:#a6e22e">escalationRef=</span><span style="color:#e6db74">&#34;lateShipment&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/intermediateThrowEvent&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">&lt;!-- ... --&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/process&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/definitions&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;definitions&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;escalation</span> <span class="na">id=</span><span class="s">&#34;lateShipment&#34;</span> <span class="na">escalationCode=</span><span class="s">&#34;ORDER-LATE-SHIPMENT&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="c">&lt;!-- ... --&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;process&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="c">&lt;!-- ... --&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;intermediateThrowEvent</span> <span class="na">id=</span><span class="s">&#34;throwEscalation&#34;</span> <span class="na">name=</span><span class="s">&#34;late shipment&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;escalationEventDefinition</span> <span class="na">escalationRef=</span><span class="s">&#34;lateShipment&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/intermediateThrowEvent&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="c">&lt;!-- ... --&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/process&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/definitions&gt;</span>
 </span></span></code></pre></div><h1 id="catching-escalation-events">Catching Escalation Events</h1>
 <h2 id="escalation-start-event">Escalation Start Event</h2>
 <ul>
@@ -3190,12 +3190,12 @@
 <div data-bpmn-diagram="../bpmn/escalation-start-event"></div>
 <p>An event sub-process with an escalation start event is triggered by an escalation event that occurs in the same scope or in a lower scope (e.g., sub-process or call activity). When the sub-process is triggered by an escalation event from a call activity, then the defined output variables of the call activity are passed to the sub-process.</p>
 <p>Two optional attributes can be added to the escalation start event, <code>escalationRef</code> and <code>escalationCodeVariable</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;subprocess</span> <span style="color:#a6e22e">triggeredByEvent=</span><span style="color:#e6db74">&#34;true&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;startEvent</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;catchEscalation&#34;</span> <span style="color:#a6e22e">isInterrupting=</span><span style="color:#e6db74">&#34;false&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;escalationEventDefinition</span> <span style="color:#a6e22e">camunda:escalationCodeVariable=</span><span style="color:#e6db74">&#34;code&#34;</span><span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/startEvent&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- ... --&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/subprocess&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;subprocess</span> <span class="na">triggeredByEvent=</span><span class="s">&#34;true&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;startEvent</span> <span class="na">id=</span><span class="s">&#34;catchEscalation&#34;</span> <span class="na">isInterrupting=</span><span class="s">&#34;false&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;escalationEventDefinition</span> <span class="na">camunda:escalationCodeVariable=</span><span class="s">&#34;code&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/startEvent&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="c">&lt;!-- ... --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/subprocess&gt;</span>
 </span></span></code></pre></div><ul>
 <li>If <code>escalationRef</code> is omitted or <code>escalationCode</code> of referenced escalation is omitted, the event sub-process is triggered by any escalation event, regardless of the escalation code of the escalation.</li>
 <li>In case an <code>escalationRef</code> is set, the event sub-process is only triggered by escalation events with the defined escalation code.</li>
@@ -3244,9 +3244,9 @@
 <div data-bpmn-diagram="../bpmn/escalation-boundary-event"></div>
 <p>An escalation boundary event can only attached on an embedded sub-process or a call activity, since an escalation can only be thrown by an escalation intermediate throw event or an escalation end event. When the boundary event is triggered by an escalation event from a call activity, then the defined output variables of the call activity are passed to the scope of the boundary event.</p>
 <p>Two optional attributes can be added to the escalation boundary event, <code>escalationRef</code> and <code>escalationCodeVariable</code>, see <a href="#escalation-start-event">Escalation Start Event</a>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;boundaryEvent</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;catchEscalation&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;late shipment&#34;</span> <span style="color:#a6e22e">attachedToRef=</span><span style="color:#e6db74">&#34;productProcurement&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;escalationEventDefinition</span> <span style="color:#a6e22e">escalationRef=</span><span style="color:#e6db74">&#34;lateShipment&#34;</span> <span style="color:#a6e22e">cancelActivity=</span><span style="color:#e6db74">&#34;false&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/boundaryEvent&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;boundaryEvent</span> <span class="na">id=</span><span class="s">&#34;catchEscalation&#34;</span> <span class="na">name=</span><span class="s">&#34;late shipment&#34;</span> <span class="na">attachedToRef=</span><span class="s">&#34;productProcurement&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;escalationEventDefinition</span> <span class="na">escalationRef=</span><span class="s">&#34;lateShipment&#34;</span> <span class="na">cancelActivity=</span><span class="s">&#34;false&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/boundaryEvent&gt;</span>
 </span></span></code></pre></div>
 <div class="note bg-warning docs-warning">
   <h3>Current Limitations</h3>
@@ -3282,17 +3282,17 @@
 <p>When process execution arrives at an escalation intermediate throw event, a named escalation is thrown. This escalation can be caught by an escalation boundary event or an event sub-process with an escalation start event which has the same or none escalation code.</p>
 <div data-bpmn-diagram="../bpmn/escalation-intermediate-throw-event"></div>
 <p>Like an error event, an escalation event is propagated to upper scopes (e.g., from sub-process or call activity) till it is caught. In case no boundary event or event sub-process caught the event, the execution just continues with normal flow. If the escalation is propagated to an upper scope via call activity then the defined output variables of the call activity are passed to the upper scope.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;intermediateThrowEvent</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;throwEscalation&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;order shipped&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;escalationEventDefinition</span> <span style="color:#a6e22e">escalationRef=</span><span style="color:#e6db74">&#34;orderShipped&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/intermediateThrowEvent&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;intermediateThrowEvent</span> <span class="na">id=</span><span class="s">&#34;throwEscalation&#34;</span> <span class="na">name=</span><span class="s">&#34;order shipped&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;escalationEventDefinition</span> <span class="na">escalationRef=</span><span class="s">&#34;orderShipped&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/intermediateThrowEvent&gt;</span>
 </span></span></code></pre></div><h2 id="escalation-end-event">Escalation End Event</h2>
 <div class="bpmn-symbol"><img src="/manual/latest//img/short-codes/bpmn-escalation-end-event.png" /></div>
 
 <p>When process execution arrives at an escalation end event, the current path of execution is ended and a named escalation is thrown. It has the same behavior as an <a href="#escalation-intermediate-throw-event">escalation intermediate throw event</a>.</p>
 <div data-bpmn-diagram="../bpmn/escalation-end-event"></div>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;endEvent</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;throwEscalation&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;late shipment&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;escalationEventDefinition</span> <span style="color:#a6e22e">escalationRef=</span><span style="color:#e6db74">&#34;lateShipment&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/endEvent&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;endEvent</span> <span class="na">id=</span><span class="s">&#34;throwEscalation&#34;</span> <span class="na">name=</span><span class="s">&#34;late shipment&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;escalationEventDefinition</span> <span class="na">escalationRef=</span><span class="s">&#34;lateShipment&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/endEvent&gt;</span>
 </span></span></code></pre></div>
     </div>
   </div>

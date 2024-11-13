@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/latest/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/latest/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/user-guide/process-engine/external-tasks/" />
 </head>
 <body class="">
@@ -3201,10 +3201,10 @@ User tasks are created by the process engine and added to a task list. The proce
 <p>To work with external tasks they have to be declared in the BPMN XML. At runtime, external task instances can be accessed via Java and REST API. The following explains the API concepts and focuses on the Java API. Often the REST API is more suitable in this context, especially when implementing workers running in different environments with different technologies.</p>
 <h2 id="bpmn">BPMN</h2>
 <p>In the BPMN XML of a process definition, a service task can be declared to be performed by an external worker by using the attributes <code>camunda:type</code> and <code>camunda:topic</code>. For example, a service task <em>Validate Address</em> can be configured to provide an external task instance for the topic <code>AddressValidation</code> as follows:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;serviceTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;validateAddressTask&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Validate Address&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">camunda:type=</span><span style="color:#e6db74">&#34;external&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">camunda:topic=</span><span style="color:#e6db74">&#34;AddressValidation&#34;</span> <span style="color:#f92672">/&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;serviceTask</span> <span class="na">id=</span><span class="s">&#34;validateAddressTask&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">name=</span><span class="s">&#34;Validate Address&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">camunda:type=</span><span class="s">&#34;external&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">camunda:topic=</span><span class="s">&#34;AddressValidation&#34;</span> <span class="nt">/&gt;</span>
 </span></span></code></pre></div><p>It is possible to define the topic name by using an <a href="/manual/latest/user-guide/process-engine/expression-language/">expression</a> instead of a constant value.</p>
 <p>In addition, other <em>service-task-like</em> elements such as send tasks, business rule tasks, and throwing message events can be implemented with the external task pattern. See the <a href="/manual/latest/reference/bpmn20/">BPMN 2.0 implementation reference</a> for details.</p>
 <h3 id="error-event-definitions">Error Event Definitions</h3>
@@ -3214,16 +3214,16 @@ for <code>errorMessage</code>, <code>errorDetails</code>, <code>workerId</code>,
 <p>The expression is evaluated on invocations of <code>ExternalTaskService#complete</code> and
 <code>ExternalTaskService#handleFailure</code>. If the expression evaluates to <code>true</code>, the actual method execution is canceled and replaced by throwing the respective BPMN error. This error can be caught by an
 <a href="/manual/latest/reference/bpmn20/events/error-events/#error-boundary-event">Error Boundary Event</a>. This implies that the error event definition can be used in success and failure scenarios alike - even if the task was completed successfully, you can still decide to throw a BPMN error.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;serviceTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;validateAddressTask&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Validate Address&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">camunda:type=</span><span style="color:#e6db74">&#34;external&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">camunda:topic=</span><span style="color:#e6db74">&#34;AddressValidation&#34;</span> <span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;camunda:errorEventDefinition</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;addressErrorDefinition&#34;</span> 
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">errorRef=</span><span style="color:#e6db74">&#34;addressError&#34;</span> 
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">expression=</span><span style="color:#e6db74">&#34;${externalTask.getErrorDetails().contains(&#39;address error found&#39;)}&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/serviceTask&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;serviceTask</span> <span class="na">id=</span><span class="s">&#34;validateAddressTask&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">name=</span><span class="s">&#34;Validate Address&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">camunda:type=</span><span class="s">&#34;external&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">camunda:topic=</span><span class="s">&#34;AddressValidation&#34;</span> <span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;camunda:errorEventDefinition</span> <span class="na">id=</span><span class="s">&#34;addressErrorDefinition&#34;</span> 
+</span></span><span class="line"><span class="cl">      <span class="na">errorRef=</span><span class="s">&#34;addressError&#34;</span> 
+</span></span><span class="line"><span class="cl">      <span class="na">expression=</span><span class="s">&#34;${externalTask.getErrorDetails().contains(&#39;address error found&#39;)}&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/serviceTask&gt;</span>
 </span></span></code></pre></div><p>Further information on the functionality of error event definitions on external tasks can be found in the <a href="/manual/latest/user-guide/process-engine/expression-language/#external-task-error-handling">expression language user guide</a>.</p>
 <h2 id="rest-api">Rest API</h2>
 <p>See the <a href="/manual/latest/reference/rest/specification/#tag/External-Task">REST API documentation</a> for how the API operations can be accessed via HTTP.</p>
@@ -3251,101 +3251,101 @@ cancelled when a new request is received.</p>
 <p>In order to enable the &lsquo;Unique Worker Request&rsquo; flag, the <code>engine-rest/WEB-INF/web.xml</code> file included in the <em>engine-rest</em>
 artifact needs to be adjusted by setting the context parameter <code>fetch-and-lock-unique-worker-request</code> to <code>true</code>. Please
 consider the following configuration snippet:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;!-- ... --&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;context-param&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;param-name&gt;</span>fetch-and-lock-unique-worker-request<span style="color:#f92672">&lt;/param-name&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;param-value&gt;</span>true<span style="color:#f92672">&lt;/param-value&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/context-param&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">&lt;!-- ... --&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="c">&lt;!-- ... --&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;context-param&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;param-name&gt;</span>fetch-and-lock-unique-worker-request<span class="nt">&lt;/param-name&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;param-value&gt;</span>true<span class="nt">&lt;/param-value&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/context-param&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- ... --&gt;</span>
 </span></span></code></pre></div><h2 id="java-api">Java API</h2>
 <p>The entry point to the Java API for external tasks is the <code>ExternalTaskService</code>. It can be accessed via <code>processEngine.getExternalTaskService()</code>.</p>
 <p>The following is an example of an interaction which fetches 10 tasks,
 works on these tasks in a loop and for each task, either completes the task or marks it as failed.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>List<span style="color:#f92672">&lt;</span>LockedExternalTask<span style="color:#f92672">&gt;</span> tasks <span style="color:#f92672">=</span> externalTaskService.<span style="color:#a6e22e">fetchAndLock</span>(10, <span style="color:#e6db74">&#34;externalWorkerId&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">topic</span>(<span style="color:#e6db74">&#34;AddressValidation&#34;</span>, 60L <span style="color:#f92672">*</span> 1000L)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">execute</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (LockedExternalTask task : tasks) {
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">try</span> {
-</span></span><span style="display:flex;"><span>    String topic <span style="color:#f92672">=</span> task.<span style="color:#a6e22e">getTopicName</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// work on task for that topic</span>
-</span></span><span style="display:flex;"><span>    ...
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// if the work is successful, mark the task as completed</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(success) {
-</span></span><span style="display:flex;"><span>      externalTaskService.<span style="color:#a6e22e">complete</span>(task.<span style="color:#a6e22e">getId</span>(), variables);
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span> {
-</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// if the work was not successful, mark it as failed</span>
-</span></span><span style="display:flex;"><span>      externalTaskService.<span style="color:#a6e22e">handleFailure</span>(
-</span></span><span style="display:flex;"><span>        task.<span style="color:#a6e22e">getId</span>(),
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;externalWorkerId&#34;</span>,
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;Address could not be validated: Address database not reachable&#34;</span>,
-</span></span><span style="display:flex;"><span>        1, 10L <span style="color:#f92672">*</span> 60L <span style="color:#f92672">*</span> 1000L);
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">catch</span>(Exception e) {
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//... handle exception</span>
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>The following sections address the different interactions with the <code>ExternalTaskService</code> in greater detail.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">List</span><span class="o">&lt;</span><span class="n">LockedExternalTask</span><span class="o">&gt;</span><span class="w"> </span><span class="n">tasks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">externalTaskService</span><span class="p">.</span><span class="na">fetchAndLock</span><span class="p">(</span><span class="n">10</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;externalWorkerId&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">topic</span><span class="p">(</span><span class="s">&#34;AddressValidation&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">60L</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">1000L</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">execute</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">LockedExternalTask</span><span class="w"> </span><span class="n">task</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">tasks</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">topic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">task</span><span class="p">.</span><span class="na">getTopicName</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// work on task for that topic</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// if the work is successful, mark the task as completed</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">success</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="n">externalTaskService</span><span class="p">.</span><span class="na">complete</span><span class="p">(</span><span class="n">task</span><span class="p">.</span><span class="na">getId</span><span class="p">(),</span><span class="w"> </span><span class="n">variables</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c1">// if the work was not successful, mark it as failed</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="n">externalTaskService</span><span class="p">.</span><span class="na">handleFailure</span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">task</span><span class="p">.</span><span class="na">getId</span><span class="p">(),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="s">&#34;externalWorkerId&#34;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="s">&#34;Address could not be validated: Address database not reachable&#34;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">1</span><span class="p">,</span><span class="w"> </span><span class="n">10L</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">60L</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">1000L</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">catch</span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">//... handle exception</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>The following sections address the different interactions with the <code>ExternalTaskService</code> in greater detail.</p>
 <h3 id="fetching-tasks">Fetching Tasks</h3>
 <p>In order to implement a polling worker, a fetching operation can be executed by using the method <code>ExternalTaskService#fetchAndLock</code>. This method returns a fluent builder that allows to define a set of topics to fetch tasks for. Consider the following code snippet:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>List<span style="color:#f92672">&lt;</span>LockedExternalTask<span style="color:#f92672">&gt;</span> tasks <span style="color:#f92672">=</span> externalTaskService.<span style="color:#a6e22e">fetchAndLock</span>(10, <span style="color:#e6db74">&#34;externalWorkerId&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">topic</span>(<span style="color:#e6db74">&#34;AddressValidation&#34;</span>, 60L <span style="color:#f92672">*</span> 1000L)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">topic</span>(<span style="color:#e6db74">&#34;ShipmentScheduling&#34;</span>, 120L <span style="color:#f92672">*</span> 1000L)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">execute</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (LockedExternalTask task : tasks) {
-</span></span><span style="display:flex;"><span>  String topic <span style="color:#f92672">=</span> task.<span style="color:#a6e22e">getTopicName</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// work on task for that topic</span>
-</span></span><span style="display:flex;"><span>  ...
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>This code fetches at most 10 tasks of the topics <code>AddressValidation</code> and <code>ShipmentScheduling</code>. The result tasks are locked exclusively for the worker with id <code>externalWorkerId</code>. Locking means that the task is reserved for this worker for a certain duration beginning with the time of fetching and prevents that another worker can fetch the same task while the lock is valid. If the lock expires and the task has not been completed meanwhile, a different worker can fetch it such that silently failing workers do not block execution indefinitely. The exact duration is given in the single topic fetch instructions: Tasks for <code>AddressValidation</code> are locked for 60 seconds (<code>60L * 1000L</code> milliseconds) while tasks for <code>ShipmentScheduling</code> are locked for 120 seconds (<code>120L * 1000L</code> milliseconds). The lock expiration duration should not be shorter than than the expected execution time. It should also not be too high if that implies a too long timeout until the task is retried in case the worker fails silently.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">List</span><span class="o">&lt;</span><span class="n">LockedExternalTask</span><span class="o">&gt;</span><span class="w"> </span><span class="n">tasks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">externalTaskService</span><span class="p">.</span><span class="na">fetchAndLock</span><span class="p">(</span><span class="n">10</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;externalWorkerId&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">topic</span><span class="p">(</span><span class="s">&#34;AddressValidation&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">60L</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">1000L</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">topic</span><span class="p">(</span><span class="s">&#34;ShipmentScheduling&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">120L</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">1000L</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">execute</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">LockedExternalTask</span><span class="w"> </span><span class="n">task</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">tasks</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">String</span><span class="w"> </span><span class="n">topic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">task</span><span class="p">.</span><span class="na">getTopicName</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c1">// work on task for that topic</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>This code fetches at most 10 tasks of the topics <code>AddressValidation</code> and <code>ShipmentScheduling</code>. The result tasks are locked exclusively for the worker with id <code>externalWorkerId</code>. Locking means that the task is reserved for this worker for a certain duration beginning with the time of fetching and prevents that another worker can fetch the same task while the lock is valid. If the lock expires and the task has not been completed meanwhile, a different worker can fetch it such that silently failing workers do not block execution indefinitely. The exact duration is given in the single topic fetch instructions: Tasks for <code>AddressValidation</code> are locked for 60 seconds (<code>60L * 1000L</code> milliseconds) while tasks for <code>ShipmentScheduling</code> are locked for 120 seconds (<code>120L * 1000L</code> milliseconds). The lock expiration duration should not be shorter than than the expected execution time. It should also not be too high if that implies a too long timeout until the task is retried in case the worker fails silently.</p>
 <p>Variables that are required to perform a task can be fetched along with the task. For example, assume that the <code>AddressValidation</code> task requires an <code>address</code> variable. Fetching tasks with this variable could look like:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>List<span style="color:#f92672">&lt;</span>LockedExternalTask<span style="color:#f92672">&gt;</span> tasks <span style="color:#f92672">=</span> externalTaskService.<span style="color:#a6e22e">fetchAndLock</span>(10, <span style="color:#e6db74">&#34;externalWorkerId&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">topic</span>(<span style="color:#e6db74">&#34;AddressValidation&#34;</span>, 60L <span style="color:#f92672">*</span> 1000L).<span style="color:#a6e22e">variables</span>(<span style="color:#e6db74">&#34;address&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">execute</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (LockedExternalTask task : tasks) {
-</span></span><span style="display:flex;"><span>  String topic <span style="color:#f92672">=</span> task.<span style="color:#a6e22e">getTopicName</span>();
-</span></span><span style="display:flex;"><span>  String address <span style="color:#f92672">=</span> (String) task.<span style="color:#a6e22e">getVariables</span>().<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#34;address&#34;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// work on task for that topic</span>
-</span></span><span style="display:flex;"><span>  ...
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>The resulting tasks then contain the current values of the requested variable. Note that the variable values are the values that are visible in the scope hierarchy from the external task&rsquo;s execution. See the chapter on <a href="/manual/latest/user-guide/process-engine/variables/#variable-scopes-and-variable-visibility">Variable Scopes and Variable Visibility</a> for details.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">List</span><span class="o">&lt;</span><span class="n">LockedExternalTask</span><span class="o">&gt;</span><span class="w"> </span><span class="n">tasks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">externalTaskService</span><span class="p">.</span><span class="na">fetchAndLock</span><span class="p">(</span><span class="n">10</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;externalWorkerId&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">topic</span><span class="p">(</span><span class="s">&#34;AddressValidation&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">60L</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">1000L</span><span class="p">).</span><span class="na">variables</span><span class="p">(</span><span class="s">&#34;address&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">execute</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">LockedExternalTask</span><span class="w"> </span><span class="n">task</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">tasks</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">String</span><span class="w"> </span><span class="n">topic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">task</span><span class="p">.</span><span class="na">getTopicName</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">String</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="n">task</span><span class="p">.</span><span class="na">getVariables</span><span class="p">().</span><span class="na">get</span><span class="p">(</span><span class="s">&#34;address&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c1">// work on task for that topic</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>The resulting tasks then contain the current values of the requested variable. Note that the variable values are the values that are visible in the scope hierarchy from the external task&rsquo;s execution. See the chapter on <a href="/manual/latest/user-guide/process-engine/variables/#variable-scopes-and-variable-visibility">Variable Scopes and Variable Visibility</a> for details.</p>
 <p>In order to fetch all variables, call to <code>variables()</code> method should be omitted</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>List<span style="color:#f92672">&lt;</span>LockedExternalTask<span style="color:#f92672">&gt;</span> tasks <span style="color:#f92672">=</span> externalTaskService.<span style="color:#a6e22e">fetchAndLock</span>(10, <span style="color:#e6db74">&#34;externalWorkerId&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">topic</span>(<span style="color:#e6db74">&#34;AddressValidation&#34;</span>, 60L <span style="color:#f92672">*</span> 1000L)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">execute</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (LockedExternalTask task : tasks) {
-</span></span><span style="display:flex;"><span>  String topic <span style="color:#f92672">=</span> task.<span style="color:#a6e22e">getTopicName</span>();
-</span></span><span style="display:flex;"><span>  String address <span style="color:#f92672">=</span> (String) task.<span style="color:#a6e22e">getVariables</span>().<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#34;address&#34;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// work on task for that topic</span>
-</span></span><span style="display:flex;"><span>  ...
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>In order to enable the deserialization of serialized variables values (typically variables that store custom Java objects), it is necessary to call <code>enableCustomObjectDeserialization()</code>. Otherwise an exception, that the object is not deserialized, is thrown once the serialized variable is retrieved from the variables map.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>List<span style="color:#f92672">&lt;</span>LockedExternalTask<span style="color:#f92672">&gt;</span> tasks <span style="color:#f92672">=</span> externalTaskService.<span style="color:#a6e22e">fetchAndLock</span>(10, <span style="color:#e6db74">&#34;externalWorkerId&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">topic</span>(<span style="color:#e6db74">&#34;AddressValidation&#34;</span>, 60L <span style="color:#f92672">*</span> 1000L)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">variables</span>(<span style="color:#e6db74">&#34;address&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">enableCustomObjectDeserialization</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">execute</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (LockedExternalTask task : tasks) {
-</span></span><span style="display:flex;"><span>  String topic <span style="color:#f92672">=</span> task.<span style="color:#a6e22e">getTopicName</span>();
-</span></span><span style="display:flex;"><span>  MyAddressClass address <span style="color:#f92672">=</span> (MyAddressClass) task.<span style="color:#a6e22e">getVariables</span>().<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#34;address&#34;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// work on task for that topic</span>
-</span></span><span style="display:flex;"><span>  ...
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h3 id="external-task-prioritization">External Task Prioritization</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">List</span><span class="o">&lt;</span><span class="n">LockedExternalTask</span><span class="o">&gt;</span><span class="w"> </span><span class="n">tasks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">externalTaskService</span><span class="p">.</span><span class="na">fetchAndLock</span><span class="p">(</span><span class="n">10</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;externalWorkerId&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">topic</span><span class="p">(</span><span class="s">&#34;AddressValidation&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">60L</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">1000L</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">execute</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">LockedExternalTask</span><span class="w"> </span><span class="n">task</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">tasks</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">String</span><span class="w"> </span><span class="n">topic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">task</span><span class="p">.</span><span class="na">getTopicName</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">String</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="n">task</span><span class="p">.</span><span class="na">getVariables</span><span class="p">().</span><span class="na">get</span><span class="p">(</span><span class="s">&#34;address&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c1">// work on task for that topic</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>In order to enable the deserialization of serialized variables values (typically variables that store custom Java objects), it is necessary to call <code>enableCustomObjectDeserialization()</code>. Otherwise an exception, that the object is not deserialized, is thrown once the serialized variable is retrieved from the variables map.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">List</span><span class="o">&lt;</span><span class="n">LockedExternalTask</span><span class="o">&gt;</span><span class="w"> </span><span class="n">tasks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">externalTaskService</span><span class="p">.</span><span class="na">fetchAndLock</span><span class="p">(</span><span class="n">10</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;externalWorkerId&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">topic</span><span class="p">(</span><span class="s">&#34;AddressValidation&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">60L</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">1000L</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">variables</span><span class="p">(</span><span class="s">&#34;address&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">enableCustomObjectDeserialization</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">execute</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">LockedExternalTask</span><span class="w"> </span><span class="n">task</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">tasks</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">String</span><span class="w"> </span><span class="n">topic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">task</span><span class="p">.</span><span class="na">getTopicName</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">MyAddressClass</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">MyAddressClass</span><span class="p">)</span><span class="w"> </span><span class="n">task</span><span class="p">.</span><span class="na">getVariables</span><span class="p">().</span><span class="na">get</span><span class="p">(</span><span class="s">&#34;address&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c1">// work on task for that topic</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h3 id="external-task-prioritization">External Task Prioritization</h3>
 <p>External task prioritization is similar to job prioritization. The same problem exists with starvation which should be considered.
 For further details, see the section on <a href="/manual/latest/user-guide/process-engine/the-job-executor/#the-job-priority">Job Prioritization</a>.</p>
 <h3 id="configure-the-process-engine-for-external-task-priorities">Configure the Process Engine for External Task Priorities</h3>
@@ -3363,73 +3363,73 @@ Expressions, on the other hand, allow assigning a different priority to each ins
 The concrete value can be the result of a complex calculation and be based on user-provided data (resulting from a task form or other sources).</p>
 <h4 id="priorities-at-the-process-level">Priorities at the Process Level</h4>
 <p>When configuring external task priorities at the process instance level, the <code>camunda:taskPriority</code> attribute needs to be applied to the bpmn <code>&lt;process ...&gt;</code> element:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;bpmn:process</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;Process_1&#34;</span> <span style="color:#a6e22e">isExecutable=</span><span style="color:#e6db74">&#34;true&#34;</span> <span style="color:#a6e22e">camunda:taskPriority=</span><span style="color:#e6db74">&#34;8&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  ...
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/bpmn:process&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;bpmn:process</span> <span class="na">id=</span><span class="s">&#34;Process_1&#34;</span> <span class="na">isExecutable=</span><span class="s">&#34;true&#34;</span> <span class="na">camunda:taskPriority=</span><span class="s">&#34;8&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  ...
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/bpmn:process&gt;</span>
 </span></span></code></pre></div><p>The effect is that all external tasks inside the process inherit the same priority (unless it is overridden locally).
 The above example shows how a constant value can be used for setting the priority. This way the same priority is applied to all instances of the process.
 If different process instances need to be executed with different priorities, an expression can be used:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;bpmn:process</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;Process_1&#34;</span> <span style="color:#a6e22e">isExecutable=</span><span style="color:#e6db74">&#34;true&#34;</span> <span style="color:#a6e22e">camunda:taskPriority=</span><span style="color:#e6db74">&#34;${order.priority}&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  ...
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/bpmn:process&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;bpmn:process</span> <span class="na">id=</span><span class="s">&#34;Process_1&#34;</span> <span class="na">isExecutable=</span><span class="s">&#34;true&#34;</span> <span class="na">camunda:taskPriority=</span><span class="s">&#34;${order.priority}&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  ...
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/bpmn:process&gt;</span>
 </span></span></code></pre></div><p>In the above example the priority is determined based on the property <code>priority</code> of the variable <code>order</code>.</p>
 <h4 id="priorities-at-the-service-task-level">Priorities at the Service Task Level</h4>
 <p>When configuring external task priorities at the service task level, the <code>camunda:taskPriority</code> attribute needs to be applied to the bpmn <code>&lt;serviceTask ...&gt;</code> element.
 The service task must be an external task with the attribute <code>camunda:type=&quot;external&quot;</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>  ...
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;serviceTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;externalTaskWithPrio&#34;</span> 
-</span></span><span style="display:flex;"><span>               <span style="color:#a6e22e">camunda:type=</span><span style="color:#e6db74">&#34;external&#34;</span> 
-</span></span><span style="display:flex;"><span>			   <span style="color:#a6e22e">camunda:topic=</span><span style="color:#e6db74">&#34;externalTaskTopic&#34;</span> 
-</span></span><span style="display:flex;"><span>			   <span style="color:#a6e22e">camunda:taskPriority=</span><span style="color:#e6db74">&#34;8&#34;</span><span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>  ...
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">  ...
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;serviceTask</span> <span class="na">id=</span><span class="s">&#34;externalTaskWithPrio&#34;</span> 
+</span></span><span class="line"><span class="cl">               <span class="na">camunda:type=</span><span class="s">&#34;external&#34;</span> 
+</span></span><span class="line"><span class="cl">			   <span class="na">camunda:topic=</span><span class="s">&#34;externalTaskTopic&#34;</span> 
+</span></span><span class="line"><span class="cl">			   <span class="na">camunda:taskPriority=</span><span class="s">&#34;8&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  ...
 </span></span></code></pre></div><p>The effect is that the priority is set for the defined external task (overrides the process taskPriority).
 The above example shows how a constant value can be used for setting the priority. This way the same priority is applied to the external task in different instances of the process.
 If different process instances need to be executed with different external task priorities, an expression can be used:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>  ...
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;serviceTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;externalTaskWithPrio&#34;</span> 
-</span></span><span style="display:flex;"><span>               <span style="color:#a6e22e">camunda:type=</span><span style="color:#e6db74">&#34;external&#34;</span> 
-</span></span><span style="display:flex;"><span>			   <span style="color:#a6e22e">camunda:topic=</span><span style="color:#e6db74">&#34;externalTaskTopic&#34;</span> 
-</span></span><span style="display:flex;"><span>			   <span style="color:#a6e22e">camunda:taskPriority=</span><span style="color:#e6db74">&#34;${order.priority}&#34;</span><span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>  ...
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">  ...
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;serviceTask</span> <span class="na">id=</span><span class="s">&#34;externalTaskWithPrio&#34;</span> 
+</span></span><span class="line"><span class="cl">               <span class="na">camunda:type=</span><span class="s">&#34;external&#34;</span> 
+</span></span><span class="line"><span class="cl">			   <span class="na">camunda:topic=</span><span class="s">&#34;externalTaskTopic&#34;</span> 
+</span></span><span class="line"><span class="cl">			   <span class="na">camunda:taskPriority=</span><span class="s">&#34;${order.priority}&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  ...
 </span></span></code></pre></div><p>In the above example the priority is determined based on the property <code>priority</code> of the variable <code>order</code>.</p>
 <h3 id="fetch-external-task">Fetch external task</h3>
 <h4 id="by-priority">By priority</h4>
 <p>To fetch external tasks based on their priority, the overloaded method <code>ExternalTaskService#fetchAndLock</code> with the parameter <code>usePriority</code> can be used.
 The method without the boolean parameter returns the external tasks arbitrarily. If the parameter is given, the returned external tasks are ordered descendingly.
 See the following example which regards the priority of the external tasks:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>List<span style="color:#f92672">&lt;</span>LockedExternalTask<span style="color:#f92672">&gt;</span> tasks <span style="color:#f92672">=</span> externalTaskService.<span style="color:#a6e22e">fetchAndLock</span>(10, <span style="color:#e6db74">&#34;externalWorkerId&#34;</span>, <span style="color:#66d9ef">true</span>)
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">topic</span>(<span style="color:#e6db74">&#34;AddressValidation&#34;</span>, 60L <span style="color:#f92672">*</span> 1000L)
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">topic</span>(<span style="color:#e6db74">&#34;ShipmentScheduling&#34;</span>, 120L <span style="color:#f92672">*</span> 1000L)
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">execute</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (LockedExternalTask task : tasks) {
-</span></span><span style="display:flex;"><span>  String topic <span style="color:#f92672">=</span> task.<span style="color:#a6e22e">getTopicName</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// work on task for that topic</span>
-</span></span><span style="display:flex;"><span>  ...
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h4 id="by-create-time">By create time</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">List</span><span class="o">&lt;</span><span class="n">LockedExternalTask</span><span class="o">&gt;</span><span class="w"> </span><span class="n">tasks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">externalTaskService</span><span class="p">.</span><span class="na">fetchAndLock</span><span class="p">(</span><span class="n">10</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;externalWorkerId&#34;</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">topic</span><span class="p">(</span><span class="s">&#34;AddressValidation&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">60L</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">1000L</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">topic</span><span class="p">(</span><span class="s">&#34;ShipmentScheduling&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">120L</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">1000L</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">execute</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">LockedExternalTask</span><span class="w"> </span><span class="n">task</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">tasks</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">String</span><span class="w"> </span><span class="n">topic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">task</span><span class="p">.</span><span class="na">getTopicName</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c1">// work on task for that topic</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h4 id="by-create-time">By create time</h4>
 <p>External tasks can also be fetched using their <code>createTime</code> in LIFO or FIFO order. This behavior allows clients to optimize their processing and avoid starvation in scenarios where the age of tasks and consumption are not aligned.</p>
 <p>Method <code>ExternalTaskService#fetchAndLock()</code> can be combined with the following methods to configure the ordering:</p>
 <p><strong><code>asc()</code></strong> - Tasks will be sorted using ascending order. The first task (at zero index) will have the earliest time and the last will have the oldest.</p>
 <p><strong><code>desc()</code></strong> - Tasks will be sorted using descending order. The first task (at zero index) will have the oldest time and the last will have the earliest.</p>
 <p>See the following example on fetching tasks by <code>createTime</code> descending :</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>List<span style="color:#f92672">&lt;</span>LockedExternalTask<span style="color:#f92672">&gt;</span> tasks <span style="color:#f92672">=</span> externalTaskService.<span style="color:#a6e22e">fetchAndLock</span>()
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">workerId</span>(<span style="color:#e6db74">&#34;worker&#34;</span>)
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">maxTasks</span>(10)
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">orderByCreateTime</span>().<span style="color:#a6e22e">desc</span>()
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">subscribe</span>()
-</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">topic</span>(<span style="color:#e6db74">&#34;AddressValidation&#34;</span>, 60L <span style="color:#f92672">*</span> 1000L)
-</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">topic</span>(<span style="color:#e6db74">&#34;ShipmentScheduling&#34;</span>, 120L <span style="color:#f92672">*</span> 1000L)
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">execute</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (LockedExternalTask task : tasks) {
-</span></span><span style="display:flex;"><span>  String topic <span style="color:#f92672">=</span> task.<span style="color:#a6e22e">getTopicName</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// work on task for that topic</span>
-</span></span><span style="display:flex;"><span>  ...
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">List</span><span class="o">&lt;</span><span class="n">LockedExternalTask</span><span class="o">&gt;</span><span class="w"> </span><span class="n">tasks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">externalTaskService</span><span class="p">.</span><span class="na">fetchAndLock</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">workerId</span><span class="p">(</span><span class="s">&#34;worker&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">maxTasks</span><span class="p">(</span><span class="n">10</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">orderByCreateTime</span><span class="p">().</span><span class="na">desc</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">subscribe</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="na">topic</span><span class="p">(</span><span class="s">&#34;AddressValidation&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">60L</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">1000L</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="na">topic</span><span class="p">(</span><span class="s">&#34;ShipmentScheduling&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">120L</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">1000L</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">execute</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">LockedExternalTask</span><span class="w"> </span><span class="n">task</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">tasks</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">String</span><span class="w"> </span><span class="n">topic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">task</span><span class="p">.</span><span class="na">getTopicName</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c1">// work on task for that topic</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div>
 <div class="note bg-info docs-info">
   <h3></h3>
   <p>External tasks created with engine versions &lt; 7.21.0 will not have the <code>createTime</code> attribute. When using fetch and lock by <code>createTime</code> on them the behavior depends on how your database handles sorting of null values.</p>
@@ -3439,22 +3439,22 @@ See the following example which regards the priority of the external tasks:</p>
 <p>Multiple sorting criteria can be combined when fetching external tasks. For example passing <code>true</code> to the parameter <code>usePriority</code> and selecting an effective sorting value for <code>createTime</code> configuration leads to external tasks being sorted with priority descending first; when two tasks share the same priority, the selected <code>createTime</code> order will be used for sorting the results with priority equality.</p>
 <p>This is an example demonstration of the above example:</p>
 <p>Given the following indicative tasks:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>ExternalTask1 <span style="color:#f92672">[</span>priority<span style="color:#f92672">=</span>0, createTime<span style="color:#f92672">=</span>1<span style="color:#f92672">]</span>
-</span></span><span style="display:flex;"><span>ExternalTask2 <span style="color:#f92672">[</span>priority<span style="color:#f92672">=</span>2, createTime<span style="color:#f92672">=</span>2<span style="color:#f92672">]</span>
-</span></span><span style="display:flex;"><span>ExternalTask3 <span style="color:#f92672">[</span>priority<span style="color:#f92672">=</span>0, createTime<span style="color:#f92672">=</span>3<span style="color:#f92672">]</span>
-</span></span><span style="display:flex;"><span>ExternalTask4 <span style="color:#f92672">[</span>priority<span style="color:#f92672">=</span>3, createTime<span style="color:#f92672">=</span>4<span style="color:#f92672">]</span>
-</span></span></code></pre></div><p>And invocation configuration with <code>priority</code> and <code>createTime</code> sorting:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>externalTaskService.<span style="color:#a6e22e">fetchAndLock</span>()
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">maxTasks</span>(10)
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">workerId</span>(<span style="color:#e6db74">&#34;worker&#34;</span>)
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">usePriority</span>(<span style="color:#66d9ef">true</span>)
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">orderByCreateTime</span>().<span style="color:#a6e22e">desc</span>();
-</span></span></code></pre></div><p>The results would be returned in the following order:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>ExternalTask4 <span style="color:#f92672">[</span>priority<span style="color:#f92672">=</span>3, createTime<span style="color:#f92672">=</span>4<span style="color:#f92672">]</span>
-</span></span><span style="display:flex;"><span>ExternalTask2 <span style="color:#f92672">[</span>priority<span style="color:#f92672">=</span>2, createTime<span style="color:#f92672">=</span>2<span style="color:#f92672">]</span>
-</span></span><span style="display:flex;"><span>ExternalTask3 <span style="color:#f92672">[</span>priority<span style="color:#f92672">=</span>0, createTime<span style="color:#f92672">=</span>3<span style="color:#f92672">]</span>
-</span></span><span style="display:flex;"><span>ExternalTask1 <span style="color:#f92672">[</span>priority<span style="color:#f92672">=</span>0, createTime<span style="color:#f92672">=</span>1<span style="color:#f92672">]</span>
-</span></span></code></pre></div><p>Note: The <code>createTime</code> field used in the example uses numbers for easing the visual demonstration. In real results, the <code>createTime</code> will be populated using a <code>Date</code> value.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">ExternalTask1</span><span class="w"> </span><span class="o">[</span><span class="n">priority</span><span class="o">=</span><span class="n">0</span><span class="p">,</span><span class="w"> </span><span class="n">createTime</span><span class="o">=</span><span class="n">1</span><span class="o">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">ExternalTask2</span><span class="w"> </span><span class="o">[</span><span class="n">priority</span><span class="o">=</span><span class="n">2</span><span class="p">,</span><span class="w"> </span><span class="n">createTime</span><span class="o">=</span><span class="n">2</span><span class="o">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">ExternalTask3</span><span class="w"> </span><span class="o">[</span><span class="n">priority</span><span class="o">=</span><span class="n">0</span><span class="p">,</span><span class="w"> </span><span class="n">createTime</span><span class="o">=</span><span class="n">3</span><span class="o">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">ExternalTask4</span><span class="w"> </span><span class="o">[</span><span class="n">priority</span><span class="o">=</span><span class="n">3</span><span class="p">,</span><span class="w"> </span><span class="n">createTime</span><span class="o">=</span><span class="n">4</span><span class="o">]</span><span class="w">
+</span></span></span></code></pre></div><p>And invocation configuration with <code>priority</code> and <code>createTime</code> sorting:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">externalTaskService</span><span class="p">.</span><span class="na">fetchAndLock</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">maxTasks</span><span class="p">(</span><span class="n">10</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">workerId</span><span class="p">(</span><span class="s">&#34;worker&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">usePriority</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">orderByCreateTime</span><span class="p">().</span><span class="na">desc</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><p>The results would be returned in the following order:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">ExternalTask4</span><span class="w"> </span><span class="o">[</span><span class="n">priority</span><span class="o">=</span><span class="n">3</span><span class="p">,</span><span class="w"> </span><span class="n">createTime</span><span class="o">=</span><span class="n">4</span><span class="o">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">ExternalTask2</span><span class="w"> </span><span class="o">[</span><span class="n">priority</span><span class="o">=</span><span class="n">2</span><span class="p">,</span><span class="w"> </span><span class="n">createTime</span><span class="o">=</span><span class="n">2</span><span class="o">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">ExternalTask3</span><span class="w"> </span><span class="o">[</span><span class="n">priority</span><span class="o">=</span><span class="n">0</span><span class="p">,</span><span class="w"> </span><span class="n">createTime</span><span class="o">=</span><span class="n">3</span><span class="o">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">ExternalTask1</span><span class="w"> </span><span class="o">[</span><span class="n">priority</span><span class="o">=</span><span class="n">0</span><span class="p">,</span><span class="w"> </span><span class="n">createTime</span><span class="o">=</span><span class="n">1</span><span class="o">]</span><span class="w">
+</span></span></span></code></pre></div><p>Note: The <code>createTime</code> field used in the example uses numbers for easing the visual demonstration. In real results, the <code>createTime</code> will be populated using a <code>Date</code> value.</p>
 
 <div class="note bg-info docs-info">
   <h3></h3>
@@ -3474,26 +3474,26 @@ See the following example which regards the priority of the external tasks:</p>
 <h3 id="reporting-task-failure">Reporting Task Failure</h3>
 <p>A worker may not always be able to complete a task successfully. In this case it can report a failure to the process engine by using <code>ExternalTaskService#handleFailure</code>. Like <code>#complete</code>, <code>#handleFailure</code> can only be invoked by the worker possessing the most recent lock for a task. The <code>#handleFailure</code> method takes four additional arguments: <code>errorMessage</code>,<code>errorDetails</code>, <code>retries</code>, <code>retryTimeout</code>. The error message can contain a description of the nature of the problem and is limited to 666 characters. It can be accessed when the task is fetched again or is queried for. The <code>errorDetails</code> can contain the full error description and are unlimited in length. Error details are accessible through the separate method <code>ExternalTaskService#getExternalTaskErrorDetails</code>, based on task id parameter. With <code>retries</code> and <code>retryTimout</code>, workers can specify a retry strategy. When setting <code>retries</code> to a value &gt; 0, the task can be fetched again after <code>retryTimeout</code> expires. When setting retries to 0, a task can no longer be fetched and an incident is created for this task.</p>
 <p>Consider the following code snippet:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>List<span style="color:#f92672">&lt;</span>LockedExternalTask<span style="color:#f92672">&gt;</span> tasks <span style="color:#f92672">=</span> externalTaskService.<span style="color:#a6e22e">fetchAndLock</span>(10, <span style="color:#e6db74">&#34;externalWorkerId&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">topic</span>(<span style="color:#e6db74">&#34;AddressValidation&#34;</span>, 60L <span style="color:#f92672">*</span> 1000L).<span style="color:#a6e22e">variables</span>(<span style="color:#e6db74">&#34;address&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">execute</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>LockedExternalTask task <span style="color:#f92672">=</span> tasks.<span style="color:#a6e22e">get</span>(0);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// ... processing the task fails</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>externalTaskService.<span style="color:#a6e22e">handleFailure</span>(
-</span></span><span style="display:flex;"><span>  task.<span style="color:#a6e22e">getId</span>(),
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;externalWorkerId&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;Address could not be validated: Address database not reachable&#34;</span>,     <span style="color:#75715e">// errorMessage</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;Super long error details&#34;</span>,                                           <span style="color:#75715e">// errorDetails</span>
-</span></span><span style="display:flex;"><span>  1,                                                                    <span style="color:#75715e">// retries</span>
-</span></span><span style="display:flex;"><span>  10L <span style="color:#f92672">*</span> 60L <span style="color:#f92672">*</span> 1000L);                                                   <span style="color:#75715e">// retryTimeout</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// ... other activities</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>externalTaskService.<span style="color:#a6e22e">getExternalTaskErrorDetails</span>(task.<span style="color:#a6e22e">getId</span>());
-</span></span></code></pre></div><p>A failure is reported for the locked task such that it can be retried once more after 10 minutes. The process engine does not decrement retries itself. Instead, such a behavior can be implemented by setting the retries to <code>task.getRetries() - 1</code> when reporting a failure.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">List</span><span class="o">&lt;</span><span class="n">LockedExternalTask</span><span class="o">&gt;</span><span class="w"> </span><span class="n">tasks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">externalTaskService</span><span class="p">.</span><span class="na">fetchAndLock</span><span class="p">(</span><span class="n">10</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;externalWorkerId&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">topic</span><span class="p">(</span><span class="s">&#34;AddressValidation&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">60L</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">1000L</span><span class="p">).</span><span class="na">variables</span><span class="p">(</span><span class="s">&#34;address&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">execute</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">LockedExternalTask</span><span class="w"> </span><span class="n">task</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tasks</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">0</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// ... processing the task fails</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">externalTaskService</span><span class="p">.</span><span class="na">handleFailure</span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">task</span><span class="p">.</span><span class="na">getId</span><span class="p">(),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="s">&#34;externalWorkerId&#34;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="s">&#34;Address could not be validated: Address database not reachable&#34;</span><span class="p">,</span><span class="w">     </span><span class="c1">// errorMessage</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="s">&#34;Super long error details&#34;</span><span class="p">,</span><span class="w">                                           </span><span class="c1">// errorDetails</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">1</span><span class="p">,</span><span class="w">                                                                    </span><span class="c1">// retries</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">10L</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">60L</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">1000L</span><span class="p">);</span><span class="w">                                                   </span><span class="c1">// retryTimeout</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// ... other activities</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">externalTaskService</span><span class="p">.</span><span class="na">getExternalTaskErrorDetails</span><span class="p">(</span><span class="n">task</span><span class="p">.</span><span class="na">getId</span><span class="p">());</span><span class="w">
+</span></span></span></code></pre></div><p>A failure is reported for the locked task such that it can be retried once more after 10 minutes. The process engine does not decrement retries itself. Instead, such a behavior can be implemented by setting the retries to <code>task.getRetries() - 1</code> when reporting a failure.</p>
 <p>At the moment when error details are required, they are queried from the service using separate method.</p>
 
 <div class="note bg-info docs-info">
@@ -3509,21 +3509,21 @@ The <code>#handleBpmnError</code> method takes one additional argument: <code>er
 The error code identifies a predefined error. If the given <code>errorCode</code> does not exist or there is no boundary event defined,
 the current activity instance simply ends and the error is not handled.</p>
 <p>See the following example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>List<span style="color:#f92672">&lt;</span>LockedExternalTask<span style="color:#f92672">&gt;</span> tasks <span style="color:#f92672">=</span> externalTaskService.<span style="color:#a6e22e">fetchAndLock</span>(10, <span style="color:#e6db74">&#34;externalWorkerId&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">topic</span>(<span style="color:#e6db74">&#34;AddressValidation&#34;</span>, 60L <span style="color:#f92672">*</span> 1000L).<span style="color:#a6e22e">variables</span>(<span style="color:#e6db74">&#34;address&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">execute</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>LockedExternalTask task <span style="color:#f92672">=</span> tasks.<span style="color:#a6e22e">get</span>(0);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// ... business error appears</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>externalTaskService.<span style="color:#a6e22e">handleBpmnError</span>(
-</span></span><span style="display:flex;"><span>  task.<span style="color:#a6e22e">getId</span>(),
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;externalWorkerId&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;bpmn-error&#34;</span>, <span style="color:#75715e">// errorCode</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;Thrown BPMN Error during...&#34;</span>, <span style="color:#75715e">// errorMessage</span>
-</span></span><span style="display:flex;"><span>  variables);
-</span></span></code></pre></div><p>A BPMN error with the error code <code>bpmn-error</code> is propagated. If a boundary event with this error code exists, the BPMN error will be caught and handled.
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">List</span><span class="o">&lt;</span><span class="n">LockedExternalTask</span><span class="o">&gt;</span><span class="w"> </span><span class="n">tasks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">externalTaskService</span><span class="p">.</span><span class="na">fetchAndLock</span><span class="p">(</span><span class="n">10</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;externalWorkerId&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">topic</span><span class="p">(</span><span class="s">&#34;AddressValidation&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">60L</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">1000L</span><span class="p">).</span><span class="na">variables</span><span class="p">(</span><span class="s">&#34;address&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">execute</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">LockedExternalTask</span><span class="w"> </span><span class="n">task</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tasks</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">0</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// ... business error appears</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">externalTaskService</span><span class="p">.</span><span class="na">handleBpmnError</span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">task</span><span class="p">.</span><span class="na">getId</span><span class="p">(),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="s">&#34;externalWorkerId&#34;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="s">&#34;bpmn-error&#34;</span><span class="p">,</span><span class="w"> </span><span class="c1">// errorCode</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="s">&#34;Thrown BPMN Error during...&#34;</span><span class="p">,</span><span class="w"> </span><span class="c1">// errorMessage</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">variables</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><p>A BPMN error with the error code <code>bpmn-error</code> is propagated. If a boundary event with this error code exists, the BPMN error will be caught and handled.
 The error message and variables are optional. They can provide additional information for the error. The variables will be passed to the execution if the BPMN error is caught.</p>
 <h3 id="querying-tasks">Querying Tasks</h3>
 <p>A query for external tasks can be made via <code>ExternalTaskService#createExternalTaskQuery</code>. Contrary to <code>#fetchAndLock</code>, this is a reading query that does not set any locks.</p>

@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/latest/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/latest/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/user-guide/runtime-container-integration/job-execution-with-managed-resources/" />
 </head>
 <body class="">
@@ -3166,42 +3166,42 @@
 <p>In order to facilitate the <code>ManagedJobExecutor</code>, the engine must be configured to use it. For instance, when bootstrapping the engine from Java code, you would create a new instance of the <code>ManagedJobExecutor</code> and provide the resource dependency it has by injecting it from your application server&rsquo;s environment. The <code>ManagedJobExecutor</code> can then be set as the <code>JobExecutor</code> that the process engine should use.</p>
 <h2 id="example-usage">Example usage</h2>
 <p>The following code listing shows the essential configuration performed.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@ApplicationScoped</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">EngineBuilder</span> {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Inject the ManagedExecutorService from the application server</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Resource</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> ManagedExecutorService managedExecutorService;
-</span></span><span style="display:flex;"><span>  
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> ProcessEngine processEngine;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> ManagedJobExecutor managedJobExecutor;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@PostConstruct</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">build</span>() {
-</span></span><span style="display:flex;"><span>  	<span style="color:#75715e">// Create a new ManagedJobExecutor</span>
-</span></span><span style="display:flex;"><span>  	managedJobExecutor <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ManagedJobExecutor(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">managedExecutorService</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  	<span style="color:#75715e">// Create a process engine configuration </span>
-</span></span><span style="display:flex;"><span>    ProcessEngineConfigurationImpl engineConfiguration <span style="color:#f92672">=</span> ...
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Other configuration</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Use the ManagedJobExecutor</span>
-</span></span><span style="display:flex;"><span>    engineConfiguration.<span style="color:#a6e22e">setJobExecutor</span>(managedJobExecutor);
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Build the process engine</span>
-</span></span><span style="display:flex;"><span>    processEngine <span style="color:#f92672">=</span> engineConfiguration.<span style="color:#a6e22e">buildProcessEngine</span>();
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>  
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@PreDestroy</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">stopEngine</span>() {
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Ensure the engine and job executor are shutdown as well</span>
-</span></span><span style="display:flex;"><span>    processEngine.<span style="color:#a6e22e">close</span>();
-</span></span><span style="display:flex;"><span>    managedJobExecutor.<span style="color:#a6e22e">shutdown</span>();
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@ApplicationScoped</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">EngineBuilder</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c1">// Inject the ManagedExecutorService from the application server</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@Resource</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="n">ManagedExecutorService</span><span class="w"> </span><span class="n">managedExecutorService</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="n">ProcessEngine</span><span class="w"> </span><span class="n">processEngine</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="n">ManagedJobExecutor</span><span class="w"> </span><span class="n">managedJobExecutor</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@PostConstruct</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">build</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  	</span><span class="c1">// Create a new ManagedJobExecutor</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  	</span><span class="n">managedJobExecutor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ManagedJobExecutor</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">managedExecutorService</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  	</span><span class="c1">// Create a process engine configuration </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">ProcessEngineConfigurationImpl</span><span class="w"> </span><span class="n">engineConfiguration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// Other configuration</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// Use the ManagedJobExecutor</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">engineConfiguration</span><span class="p">.</span><span class="na">setJobExecutor</span><span class="p">(</span><span class="n">managedJobExecutor</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// Build the process engine</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">processEngine</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">engineConfiguration</span><span class="p">.</span><span class="na">buildProcessEngine</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@PreDestroy</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">stopEngine</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// Ensure the engine and job executor are shutdown as well</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">processEngine</span><span class="p">.</span><span class="na">close</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">managedJobExecutor</span><span class="p">.</span><span class="na">shutdown</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div>
 <div class="note bg-info docs-info">
   <h3>Unmanaged resources</h3>
   <p><p>The example above injects a container managed resource, the <code>ManagedExecutorService</code>, into an object for which the lifecycle is <strong>not</strong> controlled by the application server (the <code>ManagedJobExecutor</code> which is instantiated with its constructor). This is not a generally recommended practice, because the dependencies that are injected may become unavailable.</p>

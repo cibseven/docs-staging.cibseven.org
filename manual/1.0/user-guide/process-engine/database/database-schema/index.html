@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/1.0/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/1.0/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/user-guide/process-engine/database/database-schema/" />
 </head>
 <body class="">
@@ -3210,8 +3210,8 @@ the <code>version</code> the database was updated to and the date and time
 (<code>timestamp</code>) of the update.</p>
 <p>To retrieve entries from the schema log, the SchemaLogQuery-API can be
 used:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>List<span style="color:#f92672">&lt;</span>SchemaLogEntry<span style="color:#f92672">&gt;</span> entries <span style="color:#f92672">=</span> managementService.<span style="color:#a6e22e">createSchemaLogQuery</span>().<span style="color:#a6e22e">list</span>();
-</span></span></code></pre></div><h2 id="metrics-log-act_ru_meter_log">Metrics Log (ACT_RU_METER_LOG)</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">List</span><span class="o">&lt;</span><span class="n">SchemaLogEntry</span><span class="o">&gt;</span><span class="w"> </span><span class="n">entries</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">managementService</span><span class="p">.</span><span class="na">createSchemaLogQuery</span><span class="p">().</span><span class="na">list</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><h2 id="metrics-log-act_ru_meter_log">Metrics Log (ACT_RU_METER_LOG)</h2>
 <p>The <code>ACT_RU_METER_LOG</code> table contains a collection of runtime metrics that can help draw conclusions about usage, load
 and performance of CIB seven. Metrics are reported as numbers in the Java <code>long</code> range and count the occurrence of
 specific events. Please find detailed information about how metrics are collected in the <a href="/manual/1.0/user-guide/process-engine/metrics/">Metrics User Guide</a>.</p>

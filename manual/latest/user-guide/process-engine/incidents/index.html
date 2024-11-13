@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/latest/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/latest/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/user-guide/process-engine/incidents/" />
 </head>
 <body class="">
@@ -3161,10 +3161,10 @@
     <div class="col-xs-12 content-text">
       <p>Incidents are notable events that happen in the process engine. Such incidents usually indicate some kind of problem related to process execution. Examples of such incidents may be a failed job with depleted retries (retries = 0), indicating that an execution is stuck and manual administrative action is necessary to repair the process instance. If such incidents arise, the process engine fires an internal event which can be handled by a configurable incident handler.</p>
 <p>In the default configuration, the process engine writes incidents to the process engine database. You may then query the database for different types and kinds of incidents using the <code>IncidentQuery</code> exposed by the <code>RuntimeService</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>runtimeService.<span style="color:#a6e22e">createIncidentQuery</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">processDefinitionId</span>(<span style="color:#e6db74">&#34;someDefinition&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">list</span>();
-</span></span></code></pre></div><p>Incidents are stored in the ACT_RU_INCIDENT database table.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">runtimeService</span><span class="p">.</span><span class="na">createIncidentQuery</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">processDefinitionId</span><span class="p">(</span><span class="s">&#34;someDefinition&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">list</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><p>Incidents are stored in the ACT_RU_INCIDENT database table.</p>
 <p>If you want to customize the incident handling behavior, it is possible to replace the default incident handlers in the process engine configuration and provide custom implementations (see below).</p>
 <h1 id="incident-types">Incident Types</h1>
 <p>There are different types of incidents. Currently the process engine supports the following incidents:</p>
@@ -3175,10 +3175,10 @@
 <p>It is possible to create custom incidents of any type with the Java API.</p>
 <h1 id="creating-and-resolving-custom-incidents">Creating and Resolving Custom Incidents</h1>
 <p>An incident of any type can be created by calling <code>RuntimeService#createIncident</code> &hellip;</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>runtimeService.<span style="color:#a6e22e">createIncident</span>(<span style="color:#e6db74">&#34;someType&#34;</span>, <span style="color:#e6db74">&#34;someExecution&#34;</span>, <span style="color:#e6db74">&#34;someConfiguration&#34;</span>, <span style="color:#e6db74">&#34;someMessage&#34;</span>);
-</span></span></code></pre></div><p>&hellip; or directly <code>DelegateExecution#createIncident</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>delegateExecution.<span style="color:#a6e22e">createIncident</span>(<span style="color:#e6db74">&#34;someType&#34;</span>, <span style="color:#e6db74">&#34;someConfiguration&#34;</span>, <span style="color:#e6db74">&#34;someMessage&#34;</span>);
-</span></span></code></pre></div><p>Custom incidents must always be related to an existing Execution.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">runtimeService</span><span class="p">.</span><span class="na">createIncident</span><span class="p">(</span><span class="s">&#34;someType&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;someExecution&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;someConfiguration&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;someMessage&#34;</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><p>&hellip; or directly <code>DelegateExecution#createIncident</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">delegateExecution</span><span class="p">.</span><span class="na">createIncident</span><span class="p">(</span><span class="s">&#34;someType&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;someConfiguration&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;someMessage&#34;</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><p>Custom incidents must always be related to an existing Execution.</p>
 <p>An incident of any type, except for <strong>failedJob</strong> and <strong>failedExternalTask</strong>, can be resolved by calling <code>RuntimeService#resolveIncident</code>.</p>
 <p>Incidents can be <a href="/manual/latest/reference/rest/specification/#tag/Execution/operation/createIncident">created</a> and <a href="/manual/latest/reference/rest/specification/#tag/Incident/operation/resolveIncident">resolved</a> through the REST API as well.</p>
 <h1 id="de-activate-incidents">(De-)Activate Incidents</h1>
@@ -3190,20 +3190,20 @@ The following properties are available in the <code>org.camunda.bpm.engine.Proce
 <h1 id="implement-custom-incident-handlers">Implement Custom Incident Handlers</h1>
 <p>Incident Handlers are responsible for handling incidents of a certain type (see <a href="#incident-types">Incident Types</a> ).</p>
 <p>An Incident Handler implements the following interface:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">IncidentHandler</span> {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  String <span style="color:#a6e22e">getIncidentHandlerType</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  Incident <span style="color:#a6e22e">handleIncident</span>(IncidentContext context, String message);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">resolveIncident</span>(IncidentContext context);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">deleteIncident</span>(IncidentContext context);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>The <code>handleIncident</code> method is called when a new incident is created. The <code>resolveIncident</code> method is called when an incident is resolved. If you want to provide a custom incident handler implementation you can replace one or multiple incident handlers using the following method:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>org.<span style="color:#a6e22e">camunda</span>.<span style="color:#a6e22e">bpm</span>.<span style="color:#a6e22e">engine</span>.<span style="color:#a6e22e">impl</span>.<span style="color:#a6e22e">cfg</span>.<span style="color:#a6e22e">ProcessEngineConfigurationImpl</span>.<span style="color:#a6e22e">setCustomIncidentHandlers</span>(List<span style="color:#f92672">&lt;</span>IncidentHandler<span style="color:#f92672">&gt;</span>)
-</span></span></code></pre></div><p>An example of a custom incident handler could be a handler which extends the default behavior by sending an email to an administrator whenever an incident of type <code>failedJob</code> occurs. However, just adding the custom incident handler overwrites the default behavior with the custom incident handlers behavior. As a consequence, the default incident handler is not executed anymore. If the default behavior should be executed as well, then the custom incident handler also needs to invoke the default incident handler, which includes using internal API.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">IncidentHandler</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">String</span><span class="w"> </span><span class="nf">getIncidentHandlerType</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">Incident</span><span class="w"> </span><span class="nf">handleIncident</span><span class="p">(</span><span class="n">IncidentContext</span><span class="w"> </span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">message</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">resolveIncident</span><span class="p">(</span><span class="n">IncidentContext</span><span class="w"> </span><span class="n">context</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">deleteIncident</span><span class="p">(</span><span class="n">IncidentContext</span><span class="w"> </span><span class="n">context</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>The <code>handleIncident</code> method is called when a new incident is created. The <code>resolveIncident</code> method is called when an incident is resolved. If you want to provide a custom incident handler implementation you can replace one or multiple incident handlers using the following method:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">org</span><span class="p">.</span><span class="na">camunda</span><span class="p">.</span><span class="na">bpm</span><span class="p">.</span><span class="na">engine</span><span class="p">.</span><span class="na">impl</span><span class="p">.</span><span class="na">cfg</span><span class="p">.</span><span class="na">ProcessEngineConfigurationImpl</span><span class="p">.</span><span class="na">setCustomIncidentHandlers</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">IncidentHandler</span><span class="o">&gt;</span><span class="p">)</span><span class="w">
+</span></span></span></code></pre></div><p>An example of a custom incident handler could be a handler which extends the default behavior by sending an email to an administrator whenever an incident of type <code>failedJob</code> occurs. However, just adding the custom incident handler overwrites the default behavior with the custom incident handlers behavior. As a consequence, the default incident handler is not executed anymore. If the default behavior should be executed as well, then the custom incident handler also needs to invoke the default incident handler, which includes using internal API.</p>
 
 <div class="note bg-warning docs-warning">
   <h3>Use of Internal API</h3>
@@ -3214,10 +3214,10 @@ The following properties are available in the <code>org.camunda.bpm.engine.Proce
 <p>By default, an incident can only be handled by one handler with a same type.
 Composite incident handlers allow defining one main and multiple sub handlers. Only the result from the &ldquo;main&rdquo; incident handler will be returned.</p>
 <p>To enable composite incident handlers, configure the following property:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;compositeIncidentHandlersEnabled&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;true&#34;</span> <span style="color:#f92672">/&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;compositeIncidentHandlersEnabled&#34;</span> <span class="na">value=</span><span class="s">&#34;true&#34;</span> <span class="nt">/&gt;</span>
 </span></span></code></pre></div><p>If you want to provide multiple incident handlers, you can add them using the following method:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>org.<span style="color:#a6e22e">camunda</span>.<span style="color:#a6e22e">bpm</span>.<span style="color:#a6e22e">engine</span>.<span style="color:#a6e22e">impl</span>.<span style="color:#a6e22e">cfg</span>.<span style="color:#a6e22e">ProcessEngineConfigurationImpl</span>.<span style="color:#a6e22e">setCustomIncidentHandlers</span>(List<span style="color:#f92672">&lt;</span>IncidentHandler<span style="color:#f92672">&gt;</span>)
-</span></span></code></pre></div><p>All additional incident handlers will be added as sub handlers to the <code>CompositeIncidentHandler</code> for the same handler type.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">org</span><span class="p">.</span><span class="na">camunda</span><span class="p">.</span><span class="na">bpm</span><span class="p">.</span><span class="na">engine</span><span class="p">.</span><span class="na">impl</span><span class="p">.</span><span class="na">cfg</span><span class="p">.</span><span class="na">ProcessEngineConfigurationImpl</span><span class="p">.</span><span class="na">setCustomIncidentHandlers</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">IncidentHandler</span><span class="o">&gt;</span><span class="p">)</span><span class="w">
+</span></span></span></code></pre></div><p>All additional incident handlers will be added as sub handlers to the <code>CompositeIncidentHandler</code> for the same handler type.</p>
 <p>By default, the main handler is <code>DefaultIncidentHandler</code>. To override the main handler, create a <code>CompositeIncidentHandler</code> with your own main <code>IncidentHandler</code> and initialize the incident handlers in the engine configuration before setting up the engine.</p>
 <p>See javadoc for more details
 <a href="/javadoc/cibseven/1.0/org/camunda/bpm/engine/impl/incident/CompositeIncidentHandler.html">Composite Incident Handler</a>

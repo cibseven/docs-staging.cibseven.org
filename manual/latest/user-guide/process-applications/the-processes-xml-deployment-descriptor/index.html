@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/latest/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/latest/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/user-guide/process-applications/the-processes-xml-deployment-descriptor/" />
 </head>
 <body class="">
@@ -3160,19 +3160,19 @@
 
     <div class="col-xs-12 content-text">
       <p>The processes.xml deployment descriptor contains the deployment metadata for a process application. The following example is a simple example of a <code>processes.xml</code> deployment descriptor:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;process-application</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://www.camunda.org/schema/1.0/ProcessApplication&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;process-archive</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;loan-approval&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;process-engine&gt;</span>default<span style="color:#f92672">&lt;/process-engine&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;properties&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;isDeleteUponUndeploy&#34;</span><span style="color:#f92672">&gt;</span>false<span style="color:#f92672">&lt;/property&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;isScanForProcessDefinitions&#34;</span><span style="color:#f92672">&gt;</span>true<span style="color:#f92672">&lt;/property&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/properties&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/process-archive&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/process-application&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;process-application</span>
+</span></span><span class="line"><span class="cl">  <span class="na">xmlns=</span><span class="s">&#34;http://www.camunda.org/schema/1.0/ProcessApplication&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">xmlns:xsi=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;process-archive</span> <span class="na">name=</span><span class="s">&#34;loan-approval&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;process-engine&gt;</span>default<span class="nt">&lt;/process-engine&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;properties&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;isDeleteUponUndeploy&#34;</span><span class="nt">&gt;</span>false<span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;isScanForProcessDefinitions&#34;</span><span class="nt">&gt;</span>true<span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/properties&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/process-archive&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/process-application&gt;</span>
 </span></span></code></pre></div><p>A single deployment (process-archive) is declared. The process archive has the name <em>loan-approval</em> and is deployed to the process engine with the name <em>default</em>. Two additional properties are specified:</p>
 <ul>
 <li><code>isDeleteUponUndeploy</code>: this property controls whether the undeployment of the process application should entail that the process engine deployment is deleted from the database. The default setting is false. If this property is set to true, undeployment of the process application leads to the removal of the deployment (including process instances) from the database.</li>
@@ -3181,68 +3181,68 @@
 <p>See <a href="/manual/latest/reference/deployment-descriptors/descriptors/processes-xml/">Deployment Descriptor Reference</a> for complete documentation of the syntax of the <code>processes.xml</code> file.</p>
 <h1 id="empty-processesxml">Empty processes.xml</h1>
 <p>The processes.xml may optionally be empty (left blank). In this case default values are used. The empty processes.xml corresponds to the following configuration:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;process-application</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://www.camunda.org/schema/1.0/ProcessApplication&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;process-archive&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;properties&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;isDeleteUponUndeploy&#34;</span><span style="color:#f92672">&gt;</span>false<span style="color:#f92672">&lt;/property&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;isScanForProcessDefinitions&#34;</span><span style="color:#f92672">&gt;</span>true<span style="color:#f92672">&lt;/property&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/properties&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/process-archive&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/process-application&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;process-application</span>
+</span></span><span class="line"><span class="cl">  <span class="na">xmlns=</span><span class="s">&#34;http://www.camunda.org/schema/1.0/ProcessApplication&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">xmlns:xsi=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;process-archive&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;properties&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;isDeleteUponUndeploy&#34;</span><span class="nt">&gt;</span>false<span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;isScanForProcessDefinitions&#34;</span><span class="nt">&gt;</span>true<span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/properties&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/process-archive&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/process-application&gt;</span>
 </span></span></code></pre></div><p>The empty processes.xml will scan for process definitions and perform a single deployment to the default process engine.</p>
 <h1 id="location-of-the-processesxml-file">Location of the processes.xml File</h1>
 <p>The default location of the processes.xml file is <code>META-INF/processes.xml</code>. CIB seven will parse and process all processes.xml files on the classpath of a process application. Composite process applications (WAR / EAR) may carry multiple subdeployments providing a META-INF/processes.xml file.</p>
 <p>In an apache maven based project, add the the processes.xml file to the <code>src/main/resources/META-INF</code> folder.</p>
 <h1 id="custom-location-for-the-processesxml-file">Custom Location for the processes.xml File</h1>
 <p>If you want to specify a custom location for the processes.xml file, you need to use the <code>deploymentDescriptors</code> property of the <code>@ProcessApplication</code> annotation:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@ProcessApplication</span>(
-</span></span><span style="display:flex;"><span>    name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;my-app&#34;</span>,
-</span></span><span style="display:flex;"><span>    deploymentDescriptors<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;path/to/my/processes.xml&#34;</span>}
-</span></span><span style="display:flex;"><span>)
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyProcessApp</span> <span style="color:#66d9ef">extends</span> ServletProcessApplication {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>The provided path(s) must be resolvable through the <code>ClassLoader#getResourceAsStream(String)</code>-Method of the classloader returned  by the <code>AbstractProcessApplication#getProcessApplicationClassloader()</code> method of the process application.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@ProcessApplication</span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">name</span><span class="o">=</span><span class="s">&#34;my-app&#34;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">deploymentDescriptors</span><span class="o">=</span><span class="p">{</span><span class="s">&#34;path/to/my/processes.xml&#34;</span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyProcessApp</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">ServletProcessApplication</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>The provided path(s) must be resolvable through the <code>ClassLoader#getResourceAsStream(String)</code>-Method of the classloader returned  by the <code>AbstractProcessApplication#getProcessApplicationClassloader()</code> method of the process application.</p>
 <p>Multiple distinct locations are supported.</p>
 <h1 id="configure-process-engines-in-the-processesxml-file">Configure Process Engines in the processes.xml File</h1>
 <p>The processes.xml file can also be used for configuring one or multiple process engine(s). The following is an example of a configuration of a process engine inside a processes.xml file:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;process-application</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://www.camunda.org/schema/1.0/ProcessApplication&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;process-engine</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;my-engine&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;configuration&gt;</span>org.camunda.bpm.engine.impl.cfg.StandaloneInMemProcessEngineConfiguration<span style="color:#f92672">&lt;/configuration&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/process-engine&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;process-archive</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;loan-approval&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;process-engine&gt;</span>my-engine<span style="color:#f92672">&lt;/process-engine&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;properties&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;isDeleteUponUndeploy&#34;</span><span style="color:#f92672">&gt;</span>false<span style="color:#f92672">&lt;/property&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;isScanForProcessDefinitions&#34;</span><span style="color:#f92672">&gt;</span>true<span style="color:#f92672">&lt;/property&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/properties&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/process-archive&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/process-application&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;process-application</span>
+</span></span><span class="line"><span class="cl"><span class="na">xmlns=</span><span class="s">&#34;http://www.camunda.org/schema/1.0/ProcessApplication&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="na">xmlns:xsi=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;process-engine</span> <span class="na">name=</span><span class="s">&#34;my-engine&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;configuration&gt;</span>org.camunda.bpm.engine.impl.cfg.StandaloneInMemProcessEngineConfiguration<span class="nt">&lt;/configuration&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/process-engine&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;process-archive</span> <span class="na">name=</span><span class="s">&#34;loan-approval&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;process-engine&gt;</span>my-engine<span class="nt">&lt;/process-engine&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;properties&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;isDeleteUponUndeploy&#34;</span><span class="nt">&gt;</span>false<span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;isScanForProcessDefinitions&#34;</span><span class="nt">&gt;</span>true<span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/properties&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/process-archive&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/process-application&gt;</span>
 </span></span></code></pre></div><p>The <code>&lt;configuration&gt;...&lt;/configuration&gt;</code> property allows specifying the name of a process engine configuration class to be used when building the process engine.</p>
 <h1 id="specify-tenant-ids-for-process-archives-in-the-processesxml-file">Specify Tenant-Ids for Process Archives in the processes.xml File</h1>
 <p>For <a href="/manual/latest/user-guide/process-engine/multi-tenancy/#single-process-engine-with-tenant-identifiers">Multi-Tenancy with Tenant-Identifiers</a>, you can specify a tenant-id of a process archive by setting the attribute <code>tenantId</code>. If a tenant-id is set then all containing resources will be deployed for the given tenant-id. The following is an example of a processes.xml file which contains one process archive with a tenant-id:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;process-application</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://www.camunda.org/schema/1.0/ProcessApplication&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;process-archive</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;loan-approval&#34;</span> <span style="color:#a6e22e">tenantId=</span><span style="color:#e6db74">&#34;tenant1&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;process-engine&gt;</span>default<span style="color:#f92672">&lt;/process-engine&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;properties&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;isDeleteUponUndeploy&#34;</span><span style="color:#f92672">&gt;</span>false<span style="color:#f92672">&lt;/property&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;isScanForProcessDefinitions&#34;</span><span style="color:#f92672">&gt;</span>false<span style="color:#f92672">&lt;/property&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/properties&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/process-archive&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/process-application&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;process-application</span>
+</span></span><span class="line"><span class="cl"><span class="na">xmlns=</span><span class="s">&#34;http://www.camunda.org/schema/1.0/ProcessApplication&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="na">xmlns:xsi=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;process-archive</span> <span class="na">name=</span><span class="s">&#34;loan-approval&#34;</span> <span class="na">tenantId=</span><span class="s">&#34;tenant1&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;process-engine&gt;</span>default<span class="nt">&lt;/process-engine&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;properties&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;isDeleteUponUndeploy&#34;</span><span class="nt">&gt;</span>false<span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;isScanForProcessDefinitions&#34;</span><span class="nt">&gt;</span>false<span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/properties&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/process-archive&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/process-application&gt;</span>
 </span></span></code></pre></div><p>Note that the processes.xml file can contain multiple process archives with different tenant-ids.</p>
 <h1 id="process-application-deployment">Process Application Deployment</h1>
 <p>When deploying a set of BPMN 2.0 files to the process engine, a process deployment is created. The process deployment is performed to the process engine database so that when the process engine is stopped and restarted, the process definitions can be restored from the database and execution can continue. When a process application performs a deployment, in addition to the database deployment it will create a registration for this deployment with the process engine. This is illustrated in the following figure:</p>
@@ -3287,34 +3287,34 @@
 <p>The first one, which is the default way, is that a previous deployment will be resolved based on the process definition keys. Depending on the processes you deploy with your process application all deployments will be resumed that contain process definitions with the same key.</p>
 <p>The second option is to resume deployments based on the deployment name (more precisely the value of the <code>name</code> attribute of the process archive). That way you can delete a process in a new  deployment but the process application will register itself for the previous deployments and therefore also for the deleted process. This makes it possible that the running process instances of the deleted process can continue for this process application.</p>
 <p>To activate this behavior you have set the property <code>isResumePreviousVersions</code> to true and the property <code>resumePreviousBy</code> to <code>deployment-name</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;process-application</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://www.camunda.org/schema/1.0/ProcessApplication&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;process-archive</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;loan-approval&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    ...
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;properties&gt;</span>
-</span></span><span style="display:flex;"><span>      ...
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;isResumePreviousVersions&#34;</span><span style="color:#f92672">&gt;</span>true<span style="color:#f92672">&lt;/property&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;resumePreviousBy&#34;</span><span style="color:#f92672">&gt;</span>deployment-name<span style="color:#f92672">&lt;/property&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/properties&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/process-archive&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/process-application&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;process-application</span>
+</span></span><span class="line"><span class="cl">  <span class="na">xmlns=</span><span class="s">&#34;http://www.camunda.org/schema/1.0/ProcessApplication&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">xmlns:xsi=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;process-archive</span> <span class="na">name=</span><span class="s">&#34;loan-approval&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    ...
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;properties&gt;</span>
+</span></span><span class="line"><span class="cl">      ...
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;isResumePreviousVersions&#34;</span><span class="nt">&gt;</span>true<span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;resumePreviousBy&#34;</span><span class="nt">&gt;</span>deployment-name<span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/properties&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/process-archive&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/process-application&gt;</span>
 </span></span></code></pre></div><p>If you want to deactivate this feature, you have to set the property to <code>false</code> in processes.xml file:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;process-application</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://www.camunda.org/schema/1.0/ProcessApplication&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;process-archive</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;loan-approval&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    ...
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;properties&gt;</span>
-</span></span><span style="display:flex;"><span>      ...
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;isResumePreviousVersions&#34;</span><span style="color:#f92672">&gt;</span>false<span style="color:#f92672">&lt;/property&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/properties&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/process-archive&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/process-application&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;process-application</span>
+</span></span><span class="line"><span class="cl">  <span class="na">xmlns=</span><span class="s">&#34;http://www.camunda.org/schema/1.0/ProcessApplication&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">xmlns:xsi=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;process-archive</span> <span class="na">name=</span><span class="s">&#34;loan-approval&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    ...
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;properties&gt;</span>
+</span></span><span class="line"><span class="cl">      ...
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;isResumePreviousVersions&#34;</span><span class="nt">&gt;</span>false<span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/properties&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/process-archive&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/process-application&gt;</span>
 </span></span></code></pre></div>
     </div>
   </div>

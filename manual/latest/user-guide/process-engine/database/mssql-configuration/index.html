@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/latest/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/latest/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/user-guide/process-engine/database/mssql-configuration/" />
 </head>
 <body class="">
@@ -3182,12 +3182,12 @@ than most databases and do not interact well with the process engine&rsquo;s
 As a result you may suffer deadlocks when putting the process engine under high load.</p>
 <p>If you experience deadlocks in your MSSQL installation, you must execute the
 following statements in order to enable SNAPSHOT isolation:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">DATABASE</span> [process<span style="color:#f92672">-</span>engine]
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">SET</span> ALLOW_SNAPSHOT_ISOLATION <span style="color:#66d9ef">ON</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">DATABASE</span> [process<span style="color:#f92672">-</span>engine]
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">SET</span> READ_COMMITTED_SNAPSHOT <span style="color:#66d9ef">ON</span>
-</span></span></code></pre></div><p>where <code>[process-engine]</code> contains the name of your database.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">ALTER</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="p">[</span><span class="n">process</span><span class="o">-</span><span class="n">engine</span><span class="p">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SET</span><span class="w"> </span><span class="n">ALLOW_SNAPSHOT_ISOLATION</span><span class="w"> </span><span class="k">ON</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">ALTER</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="p">[</span><span class="n">process</span><span class="o">-</span><span class="n">engine</span><span class="p">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SET</span><span class="w"> </span><span class="n">READ_COMMITTED_SNAPSHOT</span><span class="w"> </span><span class="k">ON</span><span class="w">
+</span></span></span></code></pre></div><p>where <code>[process-engine]</code> contains the name of your database.</p>
 <h1 id="camunda-support-for-azure-sql">Camunda support for Azure SQL</h1>
 <p>This section applies only to the following Microsoft database products:</p>
 <ul>
@@ -3213,9 +3213,9 @@ SQL Server version is released. If a <em>Database Compatibility Level</em> value
 database, the default value will be used. Using the default value may lead to unexpected behavior, or
 behavior unsupported by Camunda.</p>
 <p>To set the <em>Database Compatibility Level</em> to a specific value, execute the following code:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">DATABASE</span> [database_name]
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">SET</span> COMPATIBILITY_LEVEL <span style="color:#f92672">=</span> [compatibility_level]
-</span></span></code></pre></div><p>In the code above, <code>[database_name]</code> should be replaced with the name of your database, and
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">ALTER</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="p">[</span><span class="n">database_name</span><span class="p">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SET</span><span class="w"> </span><span class="n">COMPATIBILITY_LEVEL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">compatibility_level</span><span class="p">]</span><span class="w">
+</span></span></span></code></pre></div><p>In the code above, <code>[database_name]</code> should be replaced with the name of your database, and
 <code>[compatibility_level]</code> should be replaced with the <em>Database Compatibility Level</em> value of the
 SQL Server version you would like to use. You can see a list of all the available values
 <a href="https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-compatibility-level?view=sql-server-ver15#arguments">at the Microsoft <em>Alter Compatibility Level</em> page</a>.</p>

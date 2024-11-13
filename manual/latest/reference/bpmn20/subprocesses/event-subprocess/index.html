@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/latest/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/latest/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/reference/bpmn20/subprocesses/event-subprocess/" />
 </head>
 <body class="">
@@ -3165,9 +3165,9 @@
 <p>The event subprocess is visualized as an embedded subprocess with a dotted outline.</p>
 <div data-bpmn-diagram="../bpmn/subprocess_event"> </div>
 <p>It is represented using XML in the same way as an embedded subprocess. Additionally, the attribute triggeredByEvent must have the value <code>true</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;subProcess</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;eventSubProcess&#34;</span> <span style="color:#a6e22e">triggeredByEvent=</span><span style="color:#e6db74">&#34;true&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- ... --&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/subProcess&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;subProcess</span> <span class="na">id=</span><span class="s">&#34;eventSubProcess&#34;</span> <span class="na">triggeredByEvent=</span><span class="s">&#34;true&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="c">&lt;!-- ... --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/subProcess&gt;</span>
 </span></span></code></pre></div>
 <div class="note bg-info docs-info">
   <h3></h3>
@@ -3181,13 +3181,13 @@
 <p>The following is an example of an event subprocess triggered using an Error Start Event. The event subprocess is located at the &ldquo;process level&rdquo;, i.e., is scoped to the process instance:</p>
 <div data-bpmn-diagram="../bpmn/event-subprocess"></div>
 <p>This is what the event subprocess looks like in XML:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;subProcess</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;eventSubProcess&#34;</span> <span style="color:#a6e22e">triggeredByEvent=</span><span style="color:#e6db74">&#34;true&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;startEvent</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;catchError&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;errorEventDefinition</span> <span style="color:#a6e22e">errorRef=</span><span style="color:#e6db74">&#34;error&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/startEvent&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;sequenceFlow</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;flow2&#34;</span> <span style="color:#a6e22e">sourceRef=</span><span style="color:#e6db74">&#34;catchError&#34;</span> <span style="color:#a6e22e">targetRef=</span><span style="color:#e6db74">&#34;taskAfterErrorCatch&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;userTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;taskAfterErrorCatch&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Provide additional data&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/subProcess&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;subProcess</span> <span class="na">id=</span><span class="s">&#34;eventSubProcess&#34;</span> <span class="na">triggeredByEvent=</span><span class="s">&#34;true&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;startEvent</span> <span class="na">id=</span><span class="s">&#34;catchError&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;errorEventDefinition</span> <span class="na">errorRef=</span><span class="s">&#34;error&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/startEvent&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;sequenceFlow</span> <span class="na">id=</span><span class="s">&#34;flow2&#34;</span> <span class="na">sourceRef=</span><span class="s">&#34;catchError&#34;</span> <span class="na">targetRef=</span><span class="s">&#34;taskAfterErrorCatch&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;userTask</span> <span class="na">id=</span><span class="s">&#34;taskAfterErrorCatch&#34;</span> <span class="na">name=</span><span class="s">&#34;Provide additional data&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/subProcess&gt;</span>
 </span></span></code></pre></div><p>As already stated, an event subprocess can also be added to an embedded subprocess. If it is added to an embedded subprocess, it becomes an alternative to a boundary event. Consider the two following process diagrams. In both cases the embedded subprocess throws an error event. Both times the error is caught and handled using a user task.</p>
 <div data-bpmn-diagram="../bpmn/event-subprocess-alternative1"></div>
 <p>as opposed to:</p>

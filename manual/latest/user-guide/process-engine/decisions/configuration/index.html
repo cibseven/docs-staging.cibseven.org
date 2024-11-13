@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/latest/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/latest/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/user-guide/process-engine/decisions/configuration/" />
 </head>
 <body class="">
@@ -3168,44 +3168,44 @@
 <p>In the examples the default expression language of the input expressions is set to <code>groovy</code>. A list of all possible configurations can be found in the <a href="/manual/latest/user-guide/dmn-engine/embed/#configuration-of-the-dmn-engine">DMN Engine Configuration</a> section.</p>
 <h1 id="configure-the-dmn-engine-using-java-api">Configure the DMN Engine using Java API</h1>
 <p>First, you need to create a <a href="/manual/latest/user-guide/process-engine/process-engine-bootstrapping/#bootstrap-a-process-engine-using-the-java-api">ProcessEngineConfiguration</a> object for the process engine and a <code>DmnEngineConfiguration</code> object for the DMN engine. Now you can configure the DMN engine using the <code>DmnEngineConfiguration</code> object. When you are done, set the object on the <code>ProcessEngineConfiguration</code> and call <code>buildProcessEngine()</code> to create the process engine.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// create the process engine configuration</span>
-</span></span><span style="display:flex;"><span>ProcessEngineConfigurationImpl processEngineConfiguration <span style="color:#f92672">=</span> <span style="color:#75715e">// ...</span>
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// create the DMN engine configuration    </span>
-</span></span><span style="display:flex;"><span>DefaultDmnEngineConfiguration dmnEngineConfiguration <span style="color:#f92672">=</span> (DefaultDmnEngineConfiguration) 
-</span></span><span style="display:flex;"><span>  DmnEngineConfiguration.<span style="color:#a6e22e">createDefaultDmnEngineConfiguration</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// configure the DMN engine ...</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// e.g. set the default expression language for input expressions to `groovy`</span>
-</span></span><span style="display:flex;"><span>dmnEngineConfiguration.<span style="color:#a6e22e">setDefaultInputExpressionExpressionLanguage</span>(<span style="color:#e6db74">&#34;groovy&#34;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// set the DMN engine configuration on the process engine configuration</span>
-</span></span><span style="display:flex;"><span>processEngineConfiguration.<span style="color:#a6e22e">setDmnEngineConfiguration</span>(dmnEngineConfiguration);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// build the process engine which includes the DMN engine</span>
-</span></span><span style="display:flex;"><span>processEngineConfiguration.<span style="color:#a6e22e">buildProcessEngine</span>();
-</span></span></code></pre></div><h1 id="configure-the-dmn-engine-using-spring-xml">Configure the DMN Engine using Spring XML</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// create the process engine configuration</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">ProcessEngineConfigurationImpl</span><span class="w"> </span><span class="n">processEngineConfiguration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="c1">// ...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// create the DMN engine configuration    </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">DefaultDmnEngineConfiguration</span><span class="w"> </span><span class="n">dmnEngineConfiguration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">DefaultDmnEngineConfiguration</span><span class="p">)</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">DmnEngineConfiguration</span><span class="p">.</span><span class="na">createDefaultDmnEngineConfiguration</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// configure the DMN engine ...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// e.g. set the default expression language for input expressions to `groovy`</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">dmnEngineConfiguration</span><span class="p">.</span><span class="na">setDefaultInputExpressionExpressionLanguage</span><span class="p">(</span><span class="s">&#34;groovy&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// set the DMN engine configuration on the process engine configuration</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">processEngineConfiguration</span><span class="p">.</span><span class="na">setDmnEngineConfiguration</span><span class="p">(</span><span class="n">dmnEngineConfiguration</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// build the process engine which includes the DMN engine</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">processEngineConfiguration</span><span class="p">.</span><span class="na">buildProcessEngine</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><h1 id="configure-the-dmn-engine-using-spring-xml">Configure the DMN Engine using Spring XML</h1>
 <p>Follow the <a href="/manual/latest/user-guide/process-engine/process-engine-bootstrapping/#configure-process-engine-using-spring-xml">instructions</a> to create a base <code>camunda.cfg.xml</code> XML configuration for the process engine.</p>
 <p>Add a new configuration bean of class <code>org.camunda.bpm.dmn.engine.impl.DefaultDmnEngineConfiguration</code>. Configure the DMN engine using the bean and set it as <code>dmnEngineConfiguration</code> property on the <code>processEngineConfiguration</code> bean.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;beans</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://www.springframework.org/schema/beans&#34;</span> 
-</span></span><span style="display:flex;"><span>       <span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
-</span></span><span style="display:flex;"><span>       <span style="color:#a6e22e">xsi:schemaLocation=</span><span style="color:#e6db74">&#34;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;processEngineConfiguration&#34;</span> 
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;org.camunda.bpm.engine.impl.cfg.StandaloneProcessEngineConfiguration&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;dmnEngineConfiguration&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;org.camunda.bpm.dmn.engine.impl.DefaultDmnEngineConfiguration&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">&lt;!-- configure the DMN engine ... --&gt;</span> 
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">&lt;!-- e.g. set the default expression language for input expressions to `groovy` --&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;defaultInputExpressionExpressionLanguage&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;groovy&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/bean&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/property&gt;</span>
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/bean&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/beans&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;beans</span> <span class="na">xmlns=</span><span class="s">&#34;http://www.springframework.org/schema/beans&#34;</span> 
+</span></span><span class="line"><span class="cl">       <span class="na">xmlns:xsi=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+</span></span><span class="line"><span class="cl">       <span class="na">xsi:schemaLocation=</span><span class="s">&#34;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;processEngineConfiguration&#34;</span> 
+</span></span><span class="line"><span class="cl">        <span class="na">class=</span><span class="s">&#34;org.camunda.bpm.engine.impl.cfg.StandaloneProcessEngineConfiguration&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;dmnEngineConfiguration&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;bean</span> <span class="na">class=</span><span class="s">&#34;org.camunda.bpm.dmn.engine.impl.DefaultDmnEngineConfiguration&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="c">&lt;!-- configure the DMN engine ... --&gt;</span> 
+</span></span><span class="line"><span class="cl">        <span class="c">&lt;!-- e.g. set the default expression language for input expressions to `groovy` --&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;defaultInputExpressionExpressionLanguage&#34;</span> <span class="na">value=</span><span class="s">&#34;groovy&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/bean&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/bean&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/beans&gt;</span>
 </span></span></code></pre></div>
     </div>
   </div>

@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/1.0/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/1.0/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/user-guide/ext-client/" />
 </head>
 <body class="">
@@ -3191,12 +3191,12 @@ situations a Basic Authentication implementation is provided by the client. Once
 <h3 id="topic-subscription">Topic Subscription</h3>
 <p>If a Service Task of the type &ldquo;External&rdquo; is placed inside a workflow, a topic name must be specified. The corresponding
 BPMN 2.0 XML could look as follows:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>...
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;serviceTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;checkCreditScoreTask&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Check credit score&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">camunda:type=</span><span style="color:#e6db74">&#34;external&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">camunda:topic=</span><span style="color:#e6db74">&#34;creditScoreChecker&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>...
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;serviceTask</span> <span class="na">id=</span><span class="s">&#34;checkCreditScoreTask&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">name=</span><span class="s">&#34;Check credit score&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">camunda:type=</span><span class="s">&#34;external&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">camunda:topic=</span><span class="s">&#34;creditScoreChecker&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">...
 </span></span></code></pre></div><p>As soon as the Workflow Engine reached an External Task in a BPMN process, a corresponding activity instance is created, which is waiting to be fetched and locked by a client.</p>
 <p>The client subscribes to the topic and fetches continuously for newly appearing External Tasks provided by the
 Workflow Engine. Each fetched External Task is marked with a temporary lock. Like this, no other clients can work on this
@@ -3242,30 +3242,30 @@ the External Task of the current lock.</p>
 <p>Setting typed variables requires the type to be specified explicitly. Typed variables can also be retrieved, the received object provides a variety of information besides type and
 value. Of course it is also possible to set and get multiple typed variables.</p>
 <h5 id="example-using-typed-json-xml-and-object-variables">Example: Using Typed JSON, XML and Object variables</h5>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// obtained via subscription</span>
-</span></span><span style="display:flex;"><span>ExternalTaskService externalTaskService <span style="color:#f92672">=</span> ..;
-</span></span><span style="display:flex;"><span>ExternalTask externalTask <span style="color:#f92672">=</span> ..;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>VariableMap variables <span style="color:#f92672">=</span> Variables.<span style="color:#a6e22e">createVariables</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>JsonValue jsonCustomer <span style="color:#f92672">=</span> externalTask.<span style="color:#a6e22e">getVariableTyped</span>(<span style="color:#e6db74">&#34;customer&#34;</span>);
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// deserialize jsonCustomer.getValue() to customer object</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// and modify ...</span>
-</span></span><span style="display:flex;"><span>variables.<span style="color:#a6e22e">put</span>(<span style="color:#e6db74">&#34;customer&#34;</span>, ClientValues.<span style="color:#a6e22e">jsonValue</span>(customerJsonString));
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>XmlValue xmlContract <span style="color:#f92672">=</span> externalTask.<span style="color:#a6e22e">getvariableTyped</span>(<span style="color:#e6db74">&#34;contract&#34;</span>);
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// deserialize xmlContract.getValue() to contract object</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// and modify ...</span>
-</span></span><span style="display:flex;"><span>variables.<span style="color:#a6e22e">put</span>(<span style="color:#e6db74">&#34;contract&#34;</span>, ClientValues.<span style="color:#a6e22e">xmlValue</span>(contractXmlString));
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>TypedValue typedInvoice <span style="color:#f92672">=</span> externalTask.<span style="color:#a6e22e">getVariableTyped</span>(<span style="color:#e6db74">&#34;invoice&#34;</span>);
-</span></span><span style="display:flex;"><span>Invoice invoice <span style="color:#f92672">=</span> (Invoice) typedInvoice.<span style="color:#a6e22e">getValue</span>();
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// modify invoice object</span>
-</span></span><span style="display:flex;"><span>variables.<span style="color:#a6e22e">put</span>(<span style="color:#e6db74">&#34;invoice&#34;</span>, ClientValue.<span style="color:#a6e22e">objectValue</span>(invoice)
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">serializationDataFormat</span>(<span style="color:#e6db74">&#34;application/xml&#34;</span>).<span style="color:#a6e22e">create</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>externalTaskService.<span style="color:#a6e22e">complete</span>(externalTask, variables);
-</span></span></code></pre></div><h3 id="logging">Logging</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// obtained via subscription</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">ExternalTaskService</span><span class="w"> </span><span class="n">externalTaskService</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">..;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">ExternalTask</span><span class="w"> </span><span class="n">externalTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">..;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">VariableMap</span><span class="w"> </span><span class="n">variables</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Variables</span><span class="p">.</span><span class="na">createVariables</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">JsonValue</span><span class="w"> </span><span class="n">jsonCustomer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">externalTask</span><span class="p">.</span><span class="na">getVariableTyped</span><span class="p">(</span><span class="s">&#34;customer&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// deserialize jsonCustomer.getValue() to customer object</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// and modify ...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">variables</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&#34;customer&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">ClientValues</span><span class="p">.</span><span class="na">jsonValue</span><span class="p">(</span><span class="n">customerJsonString</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">XmlValue</span><span class="w"> </span><span class="n">xmlContract</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">externalTask</span><span class="p">.</span><span class="na">getvariableTyped</span><span class="p">(</span><span class="s">&#34;contract&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// deserialize xmlContract.getValue() to contract object</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// and modify ...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">variables</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&#34;contract&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">ClientValues</span><span class="p">.</span><span class="na">xmlValue</span><span class="p">(</span><span class="n">contractXmlString</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">TypedValue</span><span class="w"> </span><span class="n">typedInvoice</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">externalTask</span><span class="p">.</span><span class="na">getVariableTyped</span><span class="p">(</span><span class="s">&#34;invoice&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Invoice</span><span class="w"> </span><span class="n">invoice</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Invoice</span><span class="p">)</span><span class="w"> </span><span class="n">typedInvoice</span><span class="p">.</span><span class="na">getValue</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// modify invoice object</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">variables</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&#34;invoice&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">ClientValue</span><span class="p">.</span><span class="na">objectValue</span><span class="p">(</span><span class="n">invoice</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">serializationDataFormat</span><span class="p">(</span><span class="s">&#34;application/xml&#34;</span><span class="p">).</span><span class="na">create</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">externalTaskService</span><span class="p">.</span><span class="na">complete</span><span class="p">(</span><span class="n">externalTask</span><span class="p">,</span><span class="w"> </span><span class="n">variables</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><h3 id="logging">Logging</h3>
 <p>The client implementations support logging various events in the client lifecycle.
 Hence situations like the following can be reported:</p>
 <ul>
@@ -3285,14 +3285,14 @@ Hence situations like the following can be reported:</p>
 the Apache <code>HttpClientBuilder</code> using the <code><a href="/javadoc/cibseven/1.0/org/camunda/bpm/client/ExternalTaskClientBuilder.html">ExternalTaskClientBuilder</a>
 </code>&rsquo;s <code>customizeHttpClient</code> method.
 The method accepts a <code>Consumer</code> as parameter that gives you access to the internal Apache <code>HttpClientBuilder</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>ExternalTaskClient.<span style="color:#a6e22e">create</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">baseUrl</span>(<span style="color:#e6db74">&#34;localhost&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">customizeHttpClient</span>((HttpClientBuilder httpClientBuilder) <span style="color:#f92672">-&gt;</span> 
-</span></span><span style="display:flex;"><span>    httpClientBuilder.<span style="color:#a6e22e">setDefaultRequestConfig</span>(RequestConfig.<span style="color:#a6e22e">custom</span>()
-</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">setResponseTimeout</span>(Timeout.<span style="color:#a6e22e">ofSeconds</span>(30))
-</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">build</span>()))
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">build</span>();
-</span></span></code></pre></div><h2 id="examples">Examples</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">ExternalTaskClient</span><span class="p">.</span><span class="na">create</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">baseUrl</span><span class="p">(</span><span class="s">&#34;localhost&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">customizeHttpClient</span><span class="p">((</span><span class="n">HttpClientBuilder</span><span class="w"> </span><span class="n">httpClientBuilder</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">httpClientBuilder</span><span class="p">.</span><span class="na">setDefaultRequestConfig</span><span class="p">(</span><span class="n">RequestConfig</span><span class="p">.</span><span class="na">custom</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="p">.</span><span class="na">setResponseTimeout</span><span class="p">(</span><span class="n">Timeout</span><span class="p">.</span><span class="na">ofSeconds</span><span class="p">(</span><span class="n">30</span><span class="p">))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="p">.</span><span class="na">build</span><span class="p">()))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><h2 id="examples">Examples</h2>
 <p>Complete examples of how to set up the different External Task Clients can be found on GitHub (<a href="https://github.com/camunda/camunda-bpm-examples/tree/1.0/clients/java">Java</a>,
 <a href="https://github.com/camunda/camunda-external-task-client-js/tree/master/examples">JavaScript</a>).</p>
 <h2 id="external-task-throughput">External task throughput</h2>

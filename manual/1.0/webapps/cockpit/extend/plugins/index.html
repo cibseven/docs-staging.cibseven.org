@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/1.0/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/1.0/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/webapps/cockpit/extend/plugins/" />
 </head>
 <body class="">
@@ -3233,14 +3233,14 @@ The default implementation contains two predefined assets: <code>app/plugin.js</
 
 <h2 id="structure-of-a-frontend-module">Structure of a Frontend Module</h2>
 <p>A frontend module always follows the same structure. This is how a sample <code>plugin.js</code> could look like:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Javascript" data-lang="Javascript"><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;customPlugin&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">pluginPoint</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cockpit.dashboard&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">priority</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">5</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">render</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">container</span> =&gt; {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">container</span>.<span style="color:#a6e22e">innerHTML</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Hello World!&#34;</span>;
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>};
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Javascript" data-lang="Javascript"><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">id</span><span class="o">:</span> <span class="s2">&#34;customPlugin&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">pluginPoint</span><span class="o">:</span> <span class="s2">&#34;cockpit.dashboard&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">priority</span><span class="o">:</span> <span class="mi">5</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">render</span><span class="o">:</span> <span class="nx">container</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">container</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">&#34;Hello World!&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
 </span></span></code></pre></div><p>This file can also be included standalone as a <a href="/manual/1.0/webapps/cockpit/extend/configuration/#custom-scripts">custom script</a>.</p>
 
 <div class="note bg-info docs-info">
@@ -3290,13 +3290,13 @@ The content of the attribute is a comma separated list formatted like: <code>&lt
 If the feature ID is not provided, the whole plugin will be excluded.</p>
 <h2 id="excluding-a-complete-plugin">Excluding a Complete Plugin</h2>
 <p>This example will completely deactivate the action buttons on the right side of the process instance view.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">base</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/&#34;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">cam-exclude-plugins</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;cockpit.processInstance.runtime.action&#34;</span> /&gt;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">base</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;/&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="na">cam-exclude-plugins</span><span class="o">=</span><span class="s">&#34;cockpit.processInstance.runtime.action&#34;</span> <span class="p">/&gt;</span>
 </span></span></code></pre></div><h2 id="excluding-a-plugin-feature">Excluding a Plugin Feature</h2>
 <p>In this example we deactivate the cancel action in the Cockpit process instance view and disable the job retry action button:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">base</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/&#34;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">cam-exclude-plugins</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;cockpit.processInstance.runtime.action:cancel-process-instance-action,
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                           cockpit.processInstance.runtime.action:job-retry-action&#34;</span> /&gt;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">base</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;/&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="na">cam-exclude-plugins</span><span class="o">=</span><span class="s">&#34;cockpit.processInstance.runtime.action:cancel-process-instance-action,
+</span></span></span><span class="line"><span class="cl"><span class="s">                           cockpit.processInstance.runtime.action:job-retry-action&#34;</span> <span class="p">/&gt;</span>
 </span></span></code></pre></div><h1 id="legacy-plugins">Legacy Plugins</h1>
 <p>Plugins created for CIB seven.13 or earlier can be included for compatibility. To achieve this, simply prefix your Plugin ID with <code>legacy-</code>. The AngularJS module name for the entry module will be <code>cockpit.plugin.legacy-*</code>.</p>
 <p>Please note that all Plugins with this prefix will be included using the 7.13 plugin mechanism. You cannot create new Plugins with IDs starting with <code>legacy</code>.</p>
@@ -3319,9 +3319,9 @@ Your <a href="#login">Login Plugin</a> can react to the data that this data plug
 <h2 id="route">Route</h2>
 <p><strong>Name:</strong> <code>cockpit.route</code></p>
 <p>This plugin points properties contain the attribute <code>path</code>, which stands for the hashRoute for this page. This will be rendered when the user navigates in the browser to the url, e.g. <code>#/my-path</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Javascript" data-lang="Javascript"><span style="display:flex;"><span><span style="color:#a6e22e">properties</span><span style="color:#f92672">:</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;/my-path&#34;</span>
-</span></span><span style="display:flex;"><span>}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Javascript" data-lang="Javascript"><span class="line"><span class="cl"><span class="nx">properties</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">path</span><span class="o">:</span> <span class="s2">&#34;/my-path&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h2 id="navigation">Navigation</h2>
 <figure class="image">
   <span><img
@@ -3334,9 +3334,9 @@ Your <a href="#login">Login Plugin</a> can react to the data that this data plug
 <p><strong>Name:</strong> <code>cockpit.navigation</code></p>
 <p>This plugin point can be used in conjunction with a <code>cockpit.route</code> plugin or for shortcuts to existing pages. Negative priority will hide the entry in a drop-down.</p>
 <p>This plugin points properties contain the attribute <code>path</code>, which matches the location to highlight the active menu entry when the user is on a certain page. The value can be a regex. If no <code>path</code> is set, the menu entry will never be highlighted.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Javascript" data-lang="Javascript"><span style="display:flex;"><span><span style="color:#a6e22e">properties</span><span style="color:#f92672">:</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;/my-path&#34;</span>
-</span></span><span style="display:flex;"><span>}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Javascript" data-lang="Javascript"><span class="line"><span class="cl"><span class="nx">properties</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">path</span><span class="o">:</span> <span class="s2">&#34;/my-path&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h2 id="login">Login</h2>
 <p><strong>Name:</strong> <code>cockpit.login</code></p>
 <figure class="image">
@@ -3411,9 +3411,9 @@ Your <a href="#login">Login Plugin</a> can react to the data that this data plug
 </figure>
 
 <p>This plugin points properties contain the attribute <code>label</code>, which will be rendered in the navigation even when the plugin is not selected.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Javascript" data-lang="Javascript"><span style="display:flex;"><span><span style="color:#a6e22e">properties</span><span style="color:#f92672">:</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">label</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;My Plugin&#34;</span>
-</span></span><span style="display:flex;"><span>}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Javascript" data-lang="Javascript"><span class="line"><span class="cl"><span class="nx">properties</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">label</span><span class="o">:</span> <span class="s2">&#34;My Plugin&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>This additional data is passed into the render function:</p>
 <ul>
 <li><code>processDefinitionId</code></li>
@@ -3429,9 +3429,9 @@ Your <a href="#login">Login Plugin</a> can react to the data that this data plug
 </figure>
 
 <p>This plugin points properties contain the attribute <code>label</code>, which will be rendered in the navigation even when the plugin is not selected.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Javascript" data-lang="Javascript"><span style="display:flex;"><span><span style="color:#a6e22e">properties</span><span style="color:#f92672">:</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">label</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;My Plugin&#34;</span>
-</span></span><span style="display:flex;"><span>}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Javascript" data-lang="Javascript"><span class="line"><span class="cl"><span class="nx">properties</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">label</span><span class="o">:</span> <span class="s2">&#34;My Plugin&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>This additional data is passed into the render function:</p>
 <ul>
 <li><code>processInstanceId</code></li>
@@ -3496,16 +3496,16 @@ Your <a href="#login">Login Plugin</a> can react to the data that this data plug
 
 <p>Diagram overlay plugins are a little different from other plugins.
 This plugin point does not receive a DOM node to render into but an instance of the Diagram viewer to create an overlay.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Javascript" data-lang="Javascript"><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;myOverlay&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">pluginPoint</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cockpit.processDefinition.diagram.plugin&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">priority</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">render</span><span style="color:#f92672">:</span> (<span style="color:#a6e22e">viewer</span>, {<span style="color:#a6e22e">processDefinitionId</span>}) =&gt; {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">viewer</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#34;overlays&#34;</span>).<span style="color:#a6e22e">add</span>(
-</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// ...
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    )
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>};
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Javascript" data-lang="Javascript"><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">id</span><span class="o">:</span> <span class="s2">&#34;myOverlay&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">pluginPoint</span><span class="o">:</span> <span class="s2">&#34;cockpit.processDefinition.diagram.plugin&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">priority</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">render</span><span class="o">:</span> <span class="p">(</span><span class="nx">viewer</span><span class="p">,</span> <span class="p">{</span><span class="nx">processDefinitionId</span><span class="p">})</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">viewer</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&#34;overlays&#34;</span><span class="p">).</span><span class="nx">add</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">      <span class="c1">// ...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
 </span></span></code></pre></div><p>This additional data is passed into the render function:</p>
 <ul>
 <li><code>processDefinitionId</code></li>
@@ -3551,9 +3551,9 @@ This plugin point does not receive a DOM node to render into but an instance of 
 </figure>
 
 <p>This plugin points properties contain the attribute <code>label</code>, which will be rendered in the navigation even when the plugin is not selected.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Javascript" data-lang="Javascript"><span style="display:flex;"><span><span style="color:#a6e22e">properties</span><span style="color:#f92672">:</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">label</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;My Plugin&#34;</span>
-</span></span><span style="display:flex;"><span>}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Javascript" data-lang="Javascript"><span class="line"><span class="cl"><span class="nx">properties</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">label</span><span class="o">:</span> <span class="s2">&#34;My Plugin&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>This additional data is passed into the render function:</p>
 <ul>
 <li><code>decisionDefinitionId</code></li>
@@ -3599,9 +3599,9 @@ This plugin point does not receive a DOM node to render into but an instance of 
 </figure>
 
 <p>This plugin points properties contain the attribute <code>label</code>, which will be rendered in the navigation even when the plugin is not selected.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Javascript" data-lang="Javascript"><span style="display:flex;"><span><span style="color:#a6e22e">properties</span><span style="color:#f92672">:</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">label</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;My Plugin&#34;</span>
-</span></span><span style="display:flex;"><span>}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Javascript" data-lang="Javascript"><span class="line"><span class="cl"><span class="nx">properties</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">label</span><span class="o">:</span> <span class="s2">&#34;My Plugin&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>This additional data is passed into the render function:</p>
 <ul>
 <li><code>decisionInstanceId</code></li>
@@ -3647,9 +3647,9 @@ This plugin point does not receive a DOM node to render into but an instance of 
 </figure>
 
 <p>This plugin points properties contain the attribute <code>label</code>, which will be rendered in the navigation even when the plugin is not selected.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Javascript" data-lang="Javascript"><span style="display:flex;"><span><span style="color:#a6e22e">properties</span><span style="color:#f92672">:</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">label</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;My Plugin&#34;</span>
-</span></span><span style="display:flex;"><span>}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Javascript" data-lang="Javascript"><span class="line"><span class="cl"><span class="nx">properties</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">label</span><span class="o">:</span> <span class="s2">&#34;My Plugin&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>This additional data is passed into the render function:</p>
 <ul>
 <li><code>decisionInstanceId</code></li>
@@ -3665,9 +3665,9 @@ This plugin point does not receive a DOM node to render into but an instance of 
 </figure>
 
 <p>This plugin points properties contain the attribute <code>label</code>, which will be rendered in the navigation even when the plugin is not selected.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Javascript" data-lang="Javascript"><span style="display:flex;"><span><span style="color:#a6e22e">properties</span><span style="color:#f92672">:</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">label</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;My Plugin&#34;</span>
-</span></span><span style="display:flex;"><span>}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Javascript" data-lang="Javascript"><span class="line"><span class="cl"><span class="nx">properties</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">label</span><span class="o">:</span> <span class="s2">&#34;My Plugin&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>This additional data is passed into the render function:</p>
 <ul>
 <li><code>caseDefinitionId</code></li>
@@ -3709,9 +3709,9 @@ This plugin point does not receive a DOM node to render into but an instance of 
 </figure>
 
 <p>This plugin points properties contain the attribute <code>label</code>, which will be rendered in the navigation even when the plugin is not selected.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Javascript" data-lang="Javascript"><span style="display:flex;"><span><span style="color:#a6e22e">properties</span><span style="color:#f92672">:</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">label</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;My Plugin&#34;</span>
-</span></span><span style="display:flex;"><span>}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Javascript" data-lang="Javascript"><span class="line"><span class="cl"><span class="nx">properties</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">label</span><span class="o">:</span> <span class="s2">&#34;My Plugin&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>This additional data is passed into the render function:</p>
 <ul>
 <li><code>caseInstanceId</code></li>

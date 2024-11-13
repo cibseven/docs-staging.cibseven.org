@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/1.0/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/1.0/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/user-guide/process-engine/process-diagram-api/" />
 </head>
 <body class="">
@@ -3173,19 +3173,19 @@
 <h1 id="bpmnio-diagram-renderer">bpmn.io Diagram Renderer</h1>
 <p>To render a process diagram, you need to retrieve the diagram XML via the <a href="/javadoc/cibseven/1.0/org/camunda/bpm/engine/RepositoryService.html">Java-</a>
  or <a href="/manual/1.0/reference/rest/specification/#tag/Process-Definition/operation/getProcessDefinitionBpmn20XmlByKey">REST API</a>. The following example shows how to render the process XML using bpmn.io. For more documentation regarding the annotation of the diagram and user interaction, please refer to the <a href="https://github.com/bpmn-io/bpmn-js">bpmn.io</a> page.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">BpmnViewer</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;bpmn-js&#39;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">xml</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">getBpmnXml</span>(); <span style="color:#75715e">// get the process xml via REST
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">viewer</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">BpmnViewer</span>({ <span style="color:#a6e22e">container</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;body&#39;</span> });
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">viewer</span>.<span style="color:#a6e22e">importXML</span>(<span style="color:#a6e22e">xml</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">err</span>) {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">err</span>) {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;error rendering&#39;</span>, <span style="color:#a6e22e">err</span>);
-</span></span><span style="display:flex;"><span>  } <span style="color:#66d9ef">else</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;rendered&#39;</span>);
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>});
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">BpmnViewer</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;bpmn-js&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">xml</span> <span class="o">=</span> <span class="nx">getBpmnXml</span><span class="p">();</span> <span class="c1">// get the process xml via REST
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">var</span> <span class="nx">viewer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">BpmnViewer</span><span class="p">({</span> <span class="nx">container</span><span class="o">:</span> <span class="s1">&#39;body&#39;</span> <span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">viewer</span><span class="p">.</span><span class="nx">importXML</span><span class="p">(</span><span class="nx">xml</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;error rendering&#39;</span><span class="p">,</span> <span class="nx">err</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;rendered&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
 </span></span></code></pre></div><p>Alternatively, you can use the  <a href="https://github.com/camunda/camunda-bpm-platform/blob/master/webapps/frontend/camunda-commons-ui/lib/widgets/bpmn-viewer/cam-widget-bpmn-viewer.html">bpmn-viewer widget</a> from the Camunda commons UI.</p>
 
     </div>

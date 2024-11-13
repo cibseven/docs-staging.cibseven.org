@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/1.0/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/1.0/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/user-guide/spring-framework-integration/configuration/" />
 </head>
 <body class="">
@@ -3163,15 +3163,15 @@
 <p>Note that you can also use a <a href="#using-spring-javaconfig">Spring JavaConfig</a> for bootstrapping instead of XML.</p>
 <h1 id="configure-an-application-managed-process-engine">Configure an Application-Managed Process Engine</h1>
 <p>The ProcessEngine can be configured as a regular Spring bean. The starting point of the integration is the class <code>org.camunda.bpm.engine.spring.ProcessEngineFactoryBean</code>. That bean takes a process engine configuration and creates the process engine. This means that the creation and configuration of properties for Spring is the same as documented in the configuration section. For Spring integration the configuration and engine beans will look like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;processEngineConfiguration&#34;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;org.camunda.bpm.engine.spring.SpringProcessEngineConfiguration&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    ...
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/bean&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;processEngine&#34;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;org.camunda.bpm.engine.spring.ProcessEngineFactoryBean&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;processEngineConfiguration&#34;</span> <span style="color:#a6e22e">ref=</span><span style="color:#e6db74">&#34;processEngineConfiguration&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/bean&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;processEngineConfiguration&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="na">class=</span><span class="s">&#34;org.camunda.bpm.engine.spring.SpringProcessEngineConfiguration&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    ...
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/bean&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;processEngine&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="na">class=</span><span class="s">&#34;org.camunda.bpm.engine.spring.ProcessEngineFactoryBean&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;processEngineConfiguration&#34;</span> <span class="na">ref=</span><span class="s">&#34;processEngineConfiguration&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/bean&gt;</span>
 </span></span></code></pre></div><p>Note that the processEngineConfiguration bean uses the <a href="/javadoc/cibseven/1.0/org/camunda/bpm/engine/spring/SpringProcessEngineConfiguration.html">SpringProcessEngineConfiguration</a>
  class.</p>
 <h1 id="configure-a-container-managed-process-engine-as-a-spring-bean">Configure a Container-Managed Process Engine as a Spring Bean</h1>
@@ -3180,110 +3180,110 @@
 <li>That none of your webapps include camunda-webapp*.jar within their own lib folder, this should be at a shared level.</li>
 <li>That your server.xml contains JNDI entries for the &lsquo;ProcessEngineService&rsquo; and &lsquo;ProcessApplicationService&rsquo; as below:</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;!-- Global JNDI resources
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     Documentation at /docs/jndi-resources-howto.html
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">--&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;GlobalNamingResources&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;Resource</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;java:global/camunda-bpm-platform/process-engine/ProcessEngineService!org.camunda.bpm.ProcessEngineService&#34;</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#a6e22e">auth=</span><span style="color:#e6db74">&#34;Container&#34;</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;org.camunda.bpm.ProcessEngineService&#34;</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#a6e22e">description=</span><span style="color:#e6db74">&#34;Camunda Platform Process Engine Service&#34;</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#a6e22e">factory=</span><span style="color:#e6db74">&#34;org.camunda.bpm.container.impl.jndi.ProcessEngineServiceObjectFactory&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;Resource</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;java:global/camunda-bpm-platform/process-engine/ProcessApplicationService!org.camunda.bpm.ProcessApplicationService&#34;</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#a6e22e">auth=</span><span style="color:#e6db74">&#34;Container&#34;</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;org.camunda.bpm.ProcessApplicationService&#34;</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#a6e22e">description=</span><span style="color:#e6db74">&#34;Camunda Platform Process Application Service&#34;</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#a6e22e">factory=</span><span style="color:#e6db74">&#34;org.camunda.bpm.container.impl.jndi.ProcessApplicationServiceObjectFactory&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>       ...
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/GlobalNamingResources&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="c">&lt;!-- Global JNDI resources
+</span></span></span><span class="line"><span class="cl"><span class="c">     Documentation at /docs/jndi-resources-howto.html
+</span></span></span><span class="line"><span class="cl"><span class="c">--&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;GlobalNamingResources&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;Resource</span> <span class="na">name=</span><span class="s">&#34;java:global/camunda-bpm-platform/process-engine/ProcessEngineService!org.camunda.bpm.ProcessEngineService&#34;</span>
+</span></span><span class="line"><span class="cl">              <span class="na">auth=</span><span class="s">&#34;Container&#34;</span>
+</span></span><span class="line"><span class="cl">              <span class="na">type=</span><span class="s">&#34;org.camunda.bpm.ProcessEngineService&#34;</span>
+</span></span><span class="line"><span class="cl">              <span class="na">description=</span><span class="s">&#34;Camunda Platform Process Engine Service&#34;</span>
+</span></span><span class="line"><span class="cl">              <span class="na">factory=</span><span class="s">&#34;org.camunda.bpm.container.impl.jndi.ProcessEngineServiceObjectFactory&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;Resource</span> <span class="na">name=</span><span class="s">&#34;java:global/camunda-bpm-platform/process-engine/ProcessApplicationService!org.camunda.bpm.ProcessApplicationService&#34;</span>
+</span></span><span class="line"><span class="cl">              <span class="na">auth=</span><span class="s">&#34;Container&#34;</span>
+</span></span><span class="line"><span class="cl">              <span class="na">type=</span><span class="s">&#34;org.camunda.bpm.ProcessApplicationService&#34;</span>
+</span></span><span class="line"><span class="cl">              <span class="na">description=</span><span class="s">&#34;Camunda Platform Process Application Service&#34;</span>
+</span></span><span class="line"><span class="cl">              <span class="na">factory=</span><span class="s">&#34;org.camunda.bpm.container.impl.jndi.ProcessApplicationServiceObjectFactory&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">       ...
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/GlobalNamingResources&gt;</span>
 </span></span></code></pre></div><p>In that case the constructed process engine object is registered with CIB seven and can be referenced for creating process application deployments and exposed through the runtime container integration.</p>
 <h1 id="configure-a-process-engine-plugin">Configure a Process Engine Plugin</h1>
 <p>In Spring you can configure a process engine plugin by setting a list value to the
 <code>processEnginePlugins</code> property of the <code>processEngineConfiguration</code> bean:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;processEngineConfiguration&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;org.camunda.bpm.engine.spring.SpringProcessEngineConfiguration&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  ...
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;processEnginePlugins&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;list&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;spinPlugin&#34;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;org.camunda.spin.plugin.impl.SpinProcessEnginePlugin&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/list&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/property&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/bean&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;processEngineConfiguration&#34;</span> <span class="na">class=</span><span class="s">&#34;org.camunda.bpm.engine.spring.SpringProcessEngineConfiguration&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  ...
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;processEnginePlugins&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;list&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;spinPlugin&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="na">class=</span><span class="s">&#34;org.camunda.spin.plugin.impl.SpinProcessEnginePlugin&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/list&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/bean&gt;</span>
 </span></span></code></pre></div><h1 id="using-spring-javaconfig">Using Spring JavaConfig</h1>
 <p>In addition to the Spring application context XML file, you can bootstrap the process engine using Spring JavaConfig. The configuration class can look like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Configuration</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ExampleProcessEngineConfiguration</span> {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Bean</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> DataSource <span style="color:#a6e22e">dataSource</span>() {
-</span></span><span style="display:flex;"><span>     <span style="color:#75715e">// Use a JNDI data source or read the properties from</span>
-</span></span><span style="display:flex;"><span>     <span style="color:#75715e">// env or a properties file.</span>
-</span></span><span style="display:flex;"><span>     <span style="color:#75715e">// Note: The following shows only a simple data source</span>
-</span></span><span style="display:flex;"><span>     <span style="color:#75715e">// for In-Memory H2 database.</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    SimpleDriverDataSource dataSource <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> SimpleDriverDataSource();
-</span></span><span style="display:flex;"><span>    dataSource.<span style="color:#a6e22e">setDriverClass</span>(org.<span style="color:#a6e22e">h2</span>.<span style="color:#a6e22e">Driver</span>.<span style="color:#a6e22e">class</span>);
-</span></span><span style="display:flex;"><span>    dataSource.<span style="color:#a6e22e">setUrl</span>(<span style="color:#e6db74">&#34;jdbc:h2:mem:camunda;DB_CLOSE_DELAY=-1&#34;</span>);
-</span></span><span style="display:flex;"><span>    dataSource.<span style="color:#a6e22e">setUsername</span>(<span style="color:#e6db74">&#34;sa&#34;</span>);
-</span></span><span style="display:flex;"><span>    dataSource.<span style="color:#a6e22e">setPassword</span>(<span style="color:#e6db74">&#34;&#34;</span>);
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> dataSource;
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Bean</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> PlatformTransactionManager <span style="color:#a6e22e">transactionManager</span>() {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> DataSourceTransactionManager(dataSource());
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Bean</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> SpringProcessEngineConfiguration <span style="color:#a6e22e">processEngineConfiguration</span>() {
-</span></span><span style="display:flex;"><span>    SpringProcessEngineConfiguration config <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> SpringProcessEngineConfiguration();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    config.<span style="color:#a6e22e">setDataSource</span>(dataSource());
-</span></span><span style="display:flex;"><span>    config.<span style="color:#a6e22e">setTransactionManager</span>(transactionManager());
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    config.<span style="color:#a6e22e">setDatabaseSchemaUpdate</span>(<span style="color:#e6db74">&#34;true&#34;</span>);
-</span></span><span style="display:flex;"><span>    config.<span style="color:#a6e22e">setHistory</span>(<span style="color:#e6db74">&#34;audit&#34;</span>);
-</span></span><span style="display:flex;"><span>    config.<span style="color:#a6e22e">setJobExecutorActivate</span>(<span style="color:#66d9ef">true</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> config;
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Bean</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> ProcessEngineFactoryBean <span style="color:#a6e22e">processEngine</span>() {
-</span></span><span style="display:flex;"><span>    ProcessEngineFactoryBean factoryBean <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ProcessEngineFactoryBean();
-</span></span><span style="display:flex;"><span>    factoryBean.<span style="color:#a6e22e">setProcessEngineConfiguration</span>(processEngineConfiguration());
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> factoryBean;
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Bean</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> RepositoryService <span style="color:#a6e22e">repositoryService</span>(ProcessEngine processEngine) {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> processEngine.<span style="color:#a6e22e">getRepositoryService</span>();
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Bean</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> RuntimeService <span style="color:#a6e22e">runtimeService</span>(ProcessEngine processEngine) {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> processEngine.<span style="color:#a6e22e">getRuntimeService</span>();
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Bean</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> TaskService <span style="color:#a6e22e">taskService</span>(ProcessEngine processEngine) {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> processEngine.<span style="color:#a6e22e">getTaskService</span>();
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// more engine services and additional beans ...</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>Note that you can define your custom beans in the configuration class, in combination with an additional XML file or using component scan. The following example adds a component scan to the configuration class to detect and instantiate all beans in the package &ldquo;com.example&rdquo;.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Configuration</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@ComponentScan</span>(<span style="color:#e6db74">&#34;com.example&#34;</span>)
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ExampleProcessEngineConfiguration</span> {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// ...</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Configuration</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ExampleProcessEngineConfiguration</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@Bean</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">DataSource</span><span class="w"> </span><span class="nf">dataSource</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="c1">// Use a JNDI data source or read the properties from</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="c1">// env or a properties file.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="c1">// Note: The following shows only a simple data source</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="c1">// for In-Memory H2 database.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">SimpleDriverDataSource</span><span class="w"> </span><span class="n">dataSource</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SimpleDriverDataSource</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">dataSource</span><span class="p">.</span><span class="na">setDriverClass</span><span class="p">(</span><span class="n">org</span><span class="p">.</span><span class="na">h2</span><span class="p">.</span><span class="na">Driver</span><span class="p">.</span><span class="na">class</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">dataSource</span><span class="p">.</span><span class="na">setUrl</span><span class="p">(</span><span class="s">&#34;jdbc:h2:mem:camunda;DB_CLOSE_DELAY=-1&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">dataSource</span><span class="p">.</span><span class="na">setUsername</span><span class="p">(</span><span class="s">&#34;sa&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">dataSource</span><span class="p">.</span><span class="na">setPassword</span><span class="p">(</span><span class="s">&#34;&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">dataSource</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@Bean</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">PlatformTransactionManager</span><span class="w"> </span><span class="nf">transactionManager</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DataSourceTransactionManager</span><span class="p">(</span><span class="n">dataSource</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@Bean</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">SpringProcessEngineConfiguration</span><span class="w"> </span><span class="nf">processEngineConfiguration</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">SpringProcessEngineConfiguration</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SpringProcessEngineConfiguration</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">config</span><span class="p">.</span><span class="na">setDataSource</span><span class="p">(</span><span class="n">dataSource</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">config</span><span class="p">.</span><span class="na">setTransactionManager</span><span class="p">(</span><span class="n">transactionManager</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">config</span><span class="p">.</span><span class="na">setDatabaseSchemaUpdate</span><span class="p">(</span><span class="s">&#34;true&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">config</span><span class="p">.</span><span class="na">setHistory</span><span class="p">(</span><span class="s">&#34;audit&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">config</span><span class="p">.</span><span class="na">setJobExecutorActivate</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">config</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@Bean</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">ProcessEngineFactoryBean</span><span class="w"> </span><span class="nf">processEngine</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">ProcessEngineFactoryBean</span><span class="w"> </span><span class="n">factoryBean</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ProcessEngineFactoryBean</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">factoryBean</span><span class="p">.</span><span class="na">setProcessEngineConfiguration</span><span class="p">(</span><span class="n">processEngineConfiguration</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">factoryBean</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@Bean</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">RepositoryService</span><span class="w"> </span><span class="nf">repositoryService</span><span class="p">(</span><span class="n">ProcessEngine</span><span class="w"> </span><span class="n">processEngine</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">processEngine</span><span class="p">.</span><span class="na">getRepositoryService</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@Bean</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">RuntimeService</span><span class="w"> </span><span class="nf">runtimeService</span><span class="p">(</span><span class="n">ProcessEngine</span><span class="w"> </span><span class="n">processEngine</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">processEngine</span><span class="p">.</span><span class="na">getRuntimeService</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@Bean</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">TaskService</span><span class="w"> </span><span class="nf">taskService</span><span class="p">(</span><span class="n">ProcessEngine</span><span class="w"> </span><span class="n">processEngine</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">processEngine</span><span class="p">.</span><span class="na">getTaskService</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c1">// more engine services and additional beans ...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>Note that you can define your custom beans in the configuration class, in combination with an additional XML file or using component scan. The following example adds a component scan to the configuration class to detect and instantiate all beans in the package &ldquo;com.example&rdquo;.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Configuration</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@ComponentScan</span><span class="p">(</span><span class="s">&#34;com.example&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ExampleProcessEngineConfiguration</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c1">// ...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div>
     </div>
   </div>
 </div>

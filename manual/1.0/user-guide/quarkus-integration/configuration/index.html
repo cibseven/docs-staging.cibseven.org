@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/1.0/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/1.0/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/user-guide/quarkus-integration/configuration/" />
 </head>
 <body class="">
@@ -3233,24 +3233,24 @@ docs use the <code>application.properties</code> format in the examples, but you
 <p>You can set any process engine configuration properties under the <code>quarkus.camunda</code> prefix. The
 <a href="/manual/1.0/reference/deployment-descriptors/tags/process-engine/#configuration-properties">Process Engine Configuration Properties</a> page documents all the available properties. Please
 convert any property names from <code>camelCase</code> to the <code>kebab-case</code> format, like in the following example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#a6e22e">quarkus.camunda.generic-config.cmmn-enabled</span><span style="color:#f92672">=</span><span style="color:#e6db74">false</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">quarkus.camunda.generic-config.dmn-enabled</span><span style="color:#f92672">=</span><span style="color:#e6db74">false</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">quarkus.camunda.generic-config.history</span><span style="color:#f92672">=</span><span style="color:#e6db74">none</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">quarkus.camunda.generic-config.initialize-telemetry</span><span style="color:#f92672">=</span><span style="color:#e6db74">false</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-properties" data-lang="properties"><span class="line"><span class="cl"><span class="na">quarkus.camunda.generic-config.cmmn-enabled</span><span class="o">=</span><span class="s">false</span>
+</span></span><span class="line"><span class="cl"><span class="na">quarkus.camunda.generic-config.dmn-enabled</span><span class="o">=</span><span class="s">false</span>
+</span></span><span class="line"><span class="cl"><span class="na">quarkus.camunda.generic-config.history</span><span class="o">=</span><span class="s">none</span>
+</span></span><span class="line"><span class="cl"><span class="na">quarkus.camunda.generic-config.initialize-telemetry</span><span class="o">=</span><span class="s">false</span>
 </span></span></code></pre></div><h3 id="programmatic-configuration">Programmatic Configuration</h3>
 <p>You can also configure the process engine programmatically, by providing a <code>QuarkusProcessEngineConfiguration</code> CDI bean.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@ApplicationScoped</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyCustomEngineConfig</span> <span style="color:#66d9ef">extends</span> QuarkusProcessEngineConfiguration {
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">MyCustomEngineConfig</span>() {
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// your custom configuration is done here</span>
-</span></span><span style="display:flex;"><span>    setProcessEngineName(<span style="color:#e6db74">&#34;customEngine&#34;</span>);
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>Note that values of properties set in a <code>QuarkusProcessEngineConfiguration</code> instance have a lower ordinal than
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@ApplicationScoped</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyCustomEngineConfig</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">QuarkusProcessEngineConfiguration</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="nf">MyCustomEngineConfig</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// your custom configuration is done here</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">setProcessEngineName</span><span class="p">(</span><span class="s">&#34;customEngine&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>Note that values of properties set in a <code>QuarkusProcessEngineConfiguration</code> instance have a lower ordinal than
 properties defined in a Quarkus config source.</p>
 <p>In the above example, a <code>QuarkusProcessEngineConfiguration</code> CDI bean defines &ldquo;customEngine&rdquo; as the <code>processEngineName</code>.
 However, if you define the following in an <code>application.properties</code> file</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#a6e22e">quarkus.camunda.generic-config.process-engine-name</span><span style="color:#f92672">=</span><span style="color:#e6db74">quarkusEngine</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-properties" data-lang="properties"><span class="line"><span class="cl"><span class="na">quarkus.camunda.generic-config.process-engine-name</span><span class="o">=</span><span class="s">quarkusEngine</span>
 </span></span></code></pre></div><p>then &ldquo;quarkusEngine&rdquo; will be used as the process engine name since Quarkus config sources have a higher ordinal than a
 <code>QuarkusProcessEngineConfiguration</code> CDI bean.</p>
 <h2 id="job-executor-configuration">Job Executor Configuration</h2>
@@ -3258,10 +3258,10 @@ However, if you define the following in an <code>application.properties</code> f
 configuration properties under the <code>quarkus.camunda.job-executor</code> prefix. The <a href="/manual/1.0/reference/deployment-descriptors/tags/job-executor/#job-acquisition-configuration-properties">Job Executor Configuration Properties</a>
 page documents all the available properties. Convert any property names you intend to use from <code>camelCase</code> to the
 <code>kebab-case</code> format, like in the following example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#a6e22e">quarkus.camunda.job-executor.generic-config.max-jobs-per-acquisition</span><span style="color:#f92672">=</span><span style="color:#e6db74">5</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">quarkus.camunda.job-executor.generic-config.lock-time-in-millis</span><span style="color:#f92672">=</span><span style="color:#e6db74">500000</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">quarkus.camunda.job-executor.generic-config.wait-time-in-millis</span><span style="color:#f92672">=</span><span style="color:#e6db74">7000</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">quarkus.camunda.job-executor.generic-config.max-wait</span><span style="color:#f92672">=</span><span style="color:#e6db74">65000</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-properties" data-lang="properties"><span class="line"><span class="cl"><span class="na">quarkus.camunda.job-executor.generic-config.max-jobs-per-acquisition</span><span class="o">=</span><span class="s">5</span>
+</span></span><span class="line"><span class="cl"><span class="na">quarkus.camunda.job-executor.generic-config.lock-time-in-millis</span><span class="o">=</span><span class="s">500000</span>
+</span></span><span class="line"><span class="cl"><span class="na">quarkus.camunda.job-executor.generic-config.wait-time-in-millis</span><span class="o">=</span><span class="s">7000</span>
+</span></span><span class="line"><span class="cl"><span class="na">quarkus.camunda.job-executor.generic-config.max-wait</span><span class="o">=</span><span class="s">65000</span>
 </span></span></code></pre></div><h2 id="quarkus-extension-configuration">Quarkus Extension Configuration</h2>
 <p>In addition to the general process engine and job executor configuration properties mentioned in the previous
 sections, the Camunda Quarkus extension provides some Quarkus-specific configuration properties. They can be set
@@ -3306,35 +3306,35 @@ A datasource is required to run the Camunda process engine.</p>
 <h3 id="choose-from-multiple-datasources">Choose from multiple datasources</h3>
 <p>When multiple datasources are available in your application, you can choose the one the Engine Extension
 should use by its name via the <code>camunda.datasource</code> configuration property. Consider the example configuration below:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#a6e22e">quarkus.datasource.engine-datasource.db-kind</span><span style="color:#f92672">=</span><span style="color:#e6db74">oracle</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">quarkus.datasource.engine-datasource.username</span><span style="color:#f92672">=</span><span style="color:#e6db74">my-username</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">quarkus.datasource.engine-datasource.password</span><span style="color:#f92672">=</span><span style="color:#e6db74">my-password</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">quarkus.datasource.engine-datasource.jdbc.url</span><span style="color:#f92672">=</span><span style="color:#e6db74">jdbc:oracle:thin:@localhost:1521:ORCL</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">quarkus.camunda.datasource</span><span style="color:#f92672">=</span><span style="color:#e6db74">engine-datasource</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-properties" data-lang="properties"><span class="line"><span class="cl"><span class="na">quarkus.datasource.engine-datasource.db-kind</span><span class="o">=</span><span class="s">oracle</span>
+</span></span><span class="line"><span class="cl"><span class="na">quarkus.datasource.engine-datasource.username</span><span class="o">=</span><span class="s">my-username</span>
+</span></span><span class="line"><span class="cl"><span class="na">quarkus.datasource.engine-datasource.password</span><span class="o">=</span><span class="s">my-password</span>
+</span></span><span class="line"><span class="cl"><span class="na">quarkus.datasource.engine-datasource.jdbc.url</span><span class="o">=</span><span class="s">jdbc:oracle:thin:@localhost:1521:ORCL</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="na">quarkus.camunda.datasource</span><span class="o">=</span><span class="s">engine-datasource</span>
 </span></span></code></pre></div><h2 id="example">Example</h2>
 <p>The following is an example of a Quarkus <code>application.properties</code> file that provides custom values for the process
 engine configuration, job executor and data source:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#75715e"># process engine configuration</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">quarkus.camunda.generic-config.cmmn-enabled</span><span style="color:#f92672">=</span><span style="color:#e6db74">false</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">quarkus.camunda.generic-config.dmn-enabled</span><span style="color:#f92672">=</span><span style="color:#e6db74">false</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">quarkus.camunda.generic-config.history</span><span style="color:#f92672">=</span><span style="color:#e6db74">none</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># job executor configuration</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">quarkus.camunda.job-executor.thread-pool.max-pool-size</span><span style="color:#f92672">=</span><span style="color:#e6db74">12</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">quarkus.camunda.job-executor.thread-pool.queue-size</span><span style="color:#f92672">=</span><span style="color:#e6db74">5</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">quarkus.camunda.job-executor.generic-config.max-jobs-per-acquisition</span><span style="color:#f92672">=</span><span style="color:#e6db74">5</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">quarkus.camunda.job-executor.generic-config.lock-time-in-millis</span><span style="color:#f92672">=</span><span style="color:#e6db74">500000</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">quarkus.camunda.job-executor.generic-config.wait-time-in-millis</span><span style="color:#f92672">=</span><span style="color:#e6db74">7000</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">quarkus.camunda.job-executor.generic-config.max-wait</span><span style="color:#f92672">=</span><span style="color:#e6db74">65000</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">quarkus.camunda.job-executor.generic-config.backoff-time-in-millis</span><span style="color:#f92672">=</span><span style="color:#e6db74">5</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># custom data source configuration and selection</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">quarkus.datasource.my-datasource.db-kind</span><span style="color:#f92672">=</span><span style="color:#e6db74">h2</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">quarkus.datasource.my-datasource.username</span><span style="color:#f92672">=</span><span style="color:#e6db74">camunda</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">quarkus.datasource.my-datasource.password</span><span style="color:#f92672">=</span><span style="color:#e6db74">camunda</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">quarkus.datasource.my-datasource.jdbc.url</span><span style="color:#f92672">=</span><span style="color:#e6db74">jdbc:h2:mem:camunda;TRACE_LEVEL_FILE=0;DB_CLOSE_ON_EXIT=FALSE</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">quarkus.camunda.datasource</span><span style="color:#f92672">=</span><span style="color:#e6db74">my-datasource</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-properties" data-lang="properties"><span class="line"><span class="cl"><span class="c1"># process engine configuration</span>
+</span></span><span class="line"><span class="cl"><span class="na">quarkus.camunda.generic-config.cmmn-enabled</span><span class="o">=</span><span class="s">false</span>
+</span></span><span class="line"><span class="cl"><span class="na">quarkus.camunda.generic-config.dmn-enabled</span><span class="o">=</span><span class="s">false</span>
+</span></span><span class="line"><span class="cl"><span class="na">quarkus.camunda.generic-config.history</span><span class="o">=</span><span class="s">none</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># job executor configuration</span>
+</span></span><span class="line"><span class="cl"><span class="na">quarkus.camunda.job-executor.thread-pool.max-pool-size</span><span class="o">=</span><span class="s">12</span>
+</span></span><span class="line"><span class="cl"><span class="na">quarkus.camunda.job-executor.thread-pool.queue-size</span><span class="o">=</span><span class="s">5</span>
+</span></span><span class="line"><span class="cl"><span class="na">quarkus.camunda.job-executor.generic-config.max-jobs-per-acquisition</span><span class="o">=</span><span class="s">5</span>
+</span></span><span class="line"><span class="cl"><span class="na">quarkus.camunda.job-executor.generic-config.lock-time-in-millis</span><span class="o">=</span><span class="s">500000</span>
+</span></span><span class="line"><span class="cl"><span class="na">quarkus.camunda.job-executor.generic-config.wait-time-in-millis</span><span class="o">=</span><span class="s">7000</span>
+</span></span><span class="line"><span class="cl"><span class="na">quarkus.camunda.job-executor.generic-config.max-wait</span><span class="o">=</span><span class="s">65000</span>
+</span></span><span class="line"><span class="cl"><span class="na">quarkus.camunda.job-executor.generic-config.backoff-time-in-millis</span><span class="o">=</span><span class="s">5</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># custom data source configuration and selection</span>
+</span></span><span class="line"><span class="cl"><span class="na">quarkus.datasource.my-datasource.db-kind</span><span class="o">=</span><span class="s">h2</span>
+</span></span><span class="line"><span class="cl"><span class="na">quarkus.datasource.my-datasource.username</span><span class="o">=</span><span class="s">camunda</span>
+</span></span><span class="line"><span class="cl"><span class="na">quarkus.datasource.my-datasource.password</span><span class="o">=</span><span class="s">camunda</span>
+</span></span><span class="line"><span class="cl"><span class="na">quarkus.datasource.my-datasource.jdbc.url</span><span class="o">=</span><span class="s">jdbc:h2:mem:camunda;TRACE_LEVEL_FILE=0;DB_CLOSE_ON_EXIT=FALSE</span>
+</span></span><span class="line"><span class="cl"><span class="na">quarkus.camunda.datasource</span><span class="o">=</span><span class="s">my-datasource</span>
 </span></span></code></pre></div>
     </div>
   </div>

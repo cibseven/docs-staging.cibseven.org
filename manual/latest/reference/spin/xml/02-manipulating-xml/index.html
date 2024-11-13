@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/latest/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/latest/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/reference/spin/xml/02-manipulating-xml/" />
 </head>
 <body class="">
@@ -3162,160 +3162,160 @@
       <p>The XML data type supports manipulation of XML attributes and child elements.</p>
 <h1 id="attributes">Attributes</h1>
 <h2 id="checking-for-attributes-in-xml">Checking for Attributes in XML</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import static</span> org.camunda.spin.Spin.XML;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>String xml <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&lt;order xmlns:cam=\&#34;http://camunda.org/example\&#34; id=\&#34;order1\&#34; cam:name=\&#34;name\&#34; /&gt;&#34;</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">boolean</span> hasAttr <span style="color:#f92672">=</span> XML(xml).<span style="color:#a6e22e">hasAttr</span>(<span style="color:#e6db74">&#34;id&#34;</span>);
-</span></span><span style="display:flex;"><span>assertTrue(hasAttr);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>hasAttr <span style="color:#f92672">=</span> XML(xml).<span style="color:#a6e22e">hasAttrNs</span>(<span style="color:#e6db74">&#34;http://camunda.org/example&#34;</span>, <span style="color:#e6db74">&#34;id&#34;</span>);
-</span></span><span style="display:flex;"><span>assertTrue(hasAttr);
-</span></span></code></pre></div><h2 id="reading-attributes-from-xml">Reading Attributes from XML</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import static</span> org.camunda.spin.Spin.XML;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>SpinXmlDomAttribute attribute <span style="color:#f92672">=</span> XML(<span style="color:#e6db74">&#34;&lt;order id=\&#34;order1\&#34; /&gt;&#34;</span>).<span style="color:#a6e22e">attr</span>(<span style="color:#e6db74">&#34;id&#34;</span>);
-</span></span><span style="display:flex;"><span>String id <span style="color:#f92672">=</span> XML(<span style="color:#e6db74">&#34;&lt;order id=\&#34;order1\&#34; /&gt;&#34;</span>).<span style="color:#a6e22e">attr</span>(<span style="color:#e6db74">&#34;id&#34;</span>).<span style="color:#a6e22e">value</span>();
-</span></span></code></pre></div><p>The <code>attr</code> method returns a wrapper of the XML attribute and with <code>value</code> the value of the attribute can be accessed.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import static</span><span class="w"> </span><span class="nn">org.camunda.spin.Spin.XML</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">String</span><span class="w"> </span><span class="n">xml</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;&lt;order xmlns:cam=\&#34;http://camunda.org/example\&#34; id=\&#34;order1\&#34; cam:name=\&#34;name\&#34; /&gt;&#34;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kt">boolean</span><span class="w"> </span><span class="n">hasAttr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">XML</span><span class="p">(</span><span class="n">xml</span><span class="p">).</span><span class="na">hasAttr</span><span class="p">(</span><span class="s">&#34;id&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">assertTrue</span><span class="p">(</span><span class="n">hasAttr</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">hasAttr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">XML</span><span class="p">(</span><span class="n">xml</span><span class="p">).</span><span class="na">hasAttrNs</span><span class="p">(</span><span class="s">&#34;http://camunda.org/example&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;id&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">assertTrue</span><span class="p">(</span><span class="n">hasAttr</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><h2 id="reading-attributes-from-xml">Reading Attributes from XML</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import static</span><span class="w"> </span><span class="nn">org.camunda.spin.Spin.XML</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">SpinXmlDomAttribute</span><span class="w"> </span><span class="n">attribute</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">XML</span><span class="p">(</span><span class="s">&#34;&lt;order id=\&#34;order1\&#34; /&gt;&#34;</span><span class="p">).</span><span class="na">attr</span><span class="p">(</span><span class="s">&#34;id&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">String</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">XML</span><span class="p">(</span><span class="s">&#34;&lt;order id=\&#34;order1\&#34; /&gt;&#34;</span><span class="p">).</span><span class="na">attr</span><span class="p">(</span><span class="s">&#34;id&#34;</span><span class="p">).</span><span class="na">value</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><p>The <code>attr</code> method returns a wrapper of the XML attribute and with <code>value</code> the value of the attribute can be accessed.</p>
 <p>If you want to access an attribute in another namespace, you have to use the <code>attrNs</code> method.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import static</span> org.camunda.spin.Spin.XML;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>String xml <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&lt;order xmlns:cam=\&#34;http://camunda.org/example\&#34; id=\&#34;order1\&#34; cam:name=\&#34;order1\&#34; /&gt;&#34;</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>SpinXmlDomAttribute attribute <span style="color:#f92672">=</span> XML(xml).<span style="color:#a6e22e">attrNs</span>(<span style="color:#e6db74">&#34;http://camunda.org/example&#34;</span>, <span style="color:#e6db74">&#34;name&#34;</span>);
-</span></span></code></pre></div><p>You can also get a collection of all attributes or only of a specific namespace.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import static</span> org.camunda.spin.Spin.XML;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>String xml <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&lt;order xmlns:cam=\&#34;http://camunda.org/example\&#34; id=\&#34;order1\&#34; cam:name=\&#34;order1\&#34; /&gt;&#34;</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// All attributes</span>
-</span></span><span style="display:flex;"><span>SpinCollection<span style="color:#f92672">&lt;</span>SpinXmlDomAttribute<span style="color:#f92672">&gt;</span> attributes <span style="color:#f92672">=</span> XML(xml).<span style="color:#a6e22e">attrs</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// All attributes of a specific namespace</span>
-</span></span><span style="display:flex;"><span>attributes <span style="color:#f92672">=</span> XML(xml).<span style="color:#a6e22e">attrs</span>(<span style="color:#e6db74">&#34;http://camunda.org/example&#34;</span>);
-</span></span></code></pre></div><p>Or you can directly get all attribute names instead.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import static</span> org.camunda.spin.Spin.XML;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>String xml <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&lt;order xmlns:cam=\&#34;http://camunda.org/example\&#34; id=\&#34;order1\&#34; cam:name=\&#34;order1\&#34; /&gt;&#34;</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// All attribute names</span>
-</span></span><span style="display:flex;"><span>List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> names <span style="color:#f92672">=</span> XML(xml).<span style="color:#a6e22e">attrNames</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// All attribute names of a specific namespace</span>
-</span></span><span style="display:flex;"><span>names <span style="color:#f92672">=</span> XML(xml).<span style="color:#a6e22e">attrNames</span>(<span style="color:#e6db74">&#34;http://camunda.org/example&#34;</span>);
-</span></span></code></pre></div><h2 id="writing-attributes-to-xml">Writing Attributes to XML</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import static</span><span class="w"> </span><span class="nn">org.camunda.spin.Spin.XML</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">String</span><span class="w"> </span><span class="n">xml</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;&lt;order xmlns:cam=\&#34;http://camunda.org/example\&#34; id=\&#34;order1\&#34; cam:name=\&#34;order1\&#34; /&gt;&#34;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">SpinXmlDomAttribute</span><span class="w"> </span><span class="n">attribute</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">XML</span><span class="p">(</span><span class="n">xml</span><span class="p">).</span><span class="na">attrNs</span><span class="p">(</span><span class="s">&#34;http://camunda.org/example&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;name&#34;</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><p>You can also get a collection of all attributes or only of a specific namespace.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import static</span><span class="w"> </span><span class="nn">org.camunda.spin.Spin.XML</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">String</span><span class="w"> </span><span class="n">xml</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;&lt;order xmlns:cam=\&#34;http://camunda.org/example\&#34; id=\&#34;order1\&#34; cam:name=\&#34;order1\&#34; /&gt;&#34;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// All attributes</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">SpinCollection</span><span class="o">&lt;</span><span class="n">SpinXmlDomAttribute</span><span class="o">&gt;</span><span class="w"> </span><span class="n">attributes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">XML</span><span class="p">(</span><span class="n">xml</span><span class="p">).</span><span class="na">attrs</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// All attributes of a specific namespace</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">attributes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">XML</span><span class="p">(</span><span class="n">xml</span><span class="p">).</span><span class="na">attrs</span><span class="p">(</span><span class="s">&#34;http://camunda.org/example&#34;</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><p>Or you can directly get all attribute names instead.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import static</span><span class="w"> </span><span class="nn">org.camunda.spin.Spin.XML</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">String</span><span class="w"> </span><span class="n">xml</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;&lt;order xmlns:cam=\&#34;http://camunda.org/example\&#34; id=\&#34;order1\&#34; cam:name=\&#34;order1\&#34; /&gt;&#34;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// All attribute names</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">XML</span><span class="p">(</span><span class="n">xml</span><span class="p">).</span><span class="na">attrNames</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// All attribute names of a specific namespace</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">XML</span><span class="p">(</span><span class="n">xml</span><span class="p">).</span><span class="na">attrNames</span><span class="p">(</span><span class="s">&#34;http://camunda.org/example&#34;</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><h2 id="writing-attributes-to-xml">Writing Attributes to XML</h2>
 <p>It is possible to set a new attribute value directly from the element wrapper or on the attribute wrapper.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import static</span> org.camunda.spin.Spin.XML;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>String xml <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&lt;order id=\&#34;order1\&#34; /&gt;&#34;</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>XML(xml).<span style="color:#a6e22e">attr</span>(<span style="color:#e6db74">&#34;id&#34;</span>, <span style="color:#e6db74">&#34;newId&#34;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>SpinXmlDomAttribute attribute <span style="color:#f92672">=</span> XML(xml).<span style="color:#a6e22e">attr</span>(<span style="color:#e6db74">&#34;id&#34;</span>);
-</span></span><span style="display:flex;"><span>attribute.<span style="color:#a6e22e">value</span>(<span style="color:#e6db74">&#34;newId&#34;</span>);
-</span></span></code></pre></div><p>You can also specify the namespace of the attribute to set.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import static</span> org.camunda.spin.Spin.XML;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>String xml <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&lt;order xmlns:cam=\&#34;http://camunda.org/example\&#34; id=\&#34;order1\&#34; cam:name=\&#34;name\&#34; /&gt;&#34;</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>XML(xml).<span style="color:#a6e22e">attrNs</span>(<span style="color:#e6db74">&#34;http://camunda.org/example&#34;</span>, <span style="color:#e6db74">&#34;name&#34;</span>, <span style="color:#e6db74">&#34;newName&#34;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>SpinXmlDomAttribute attribute <span style="color:#f92672">=</span> XML(xml).<span style="color:#a6e22e">attrNs</span>(<span style="color:#e6db74">&#34;http://camunda.org/example&#34;</span>, <span style="color:#e6db74">&#34;name&#34;</span>);
-</span></span><span style="display:flex;"><span>attribute.<span style="color:#a6e22e">value</span>(<span style="color:#e6db74">&#34;newName&#34;</span>);
-</span></span></code></pre></div><h2 id="removing-attributes-from-xml">Removing Attributes from XML</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import static</span><span class="w"> </span><span class="nn">org.camunda.spin.Spin.XML</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">String</span><span class="w"> </span><span class="n">xml</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;&lt;order id=\&#34;order1\&#34; /&gt;&#34;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">XML</span><span class="p">(</span><span class="n">xml</span><span class="p">).</span><span class="na">attr</span><span class="p">(</span><span class="s">&#34;id&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;newId&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">SpinXmlDomAttribute</span><span class="w"> </span><span class="n">attribute</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">XML</span><span class="p">(</span><span class="n">xml</span><span class="p">).</span><span class="na">attr</span><span class="p">(</span><span class="s">&#34;id&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">attribute</span><span class="p">.</span><span class="na">value</span><span class="p">(</span><span class="s">&#34;newId&#34;</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><p>You can also specify the namespace of the attribute to set.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import static</span><span class="w"> </span><span class="nn">org.camunda.spin.Spin.XML</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">String</span><span class="w"> </span><span class="n">xml</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;&lt;order xmlns:cam=\&#34;http://camunda.org/example\&#34; id=\&#34;order1\&#34; cam:name=\&#34;name\&#34; /&gt;&#34;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">XML</span><span class="p">(</span><span class="n">xml</span><span class="p">).</span><span class="na">attrNs</span><span class="p">(</span><span class="s">&#34;http://camunda.org/example&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;name&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;newName&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">SpinXmlDomAttribute</span><span class="w"> </span><span class="n">attribute</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">XML</span><span class="p">(</span><span class="n">xml</span><span class="p">).</span><span class="na">attrNs</span><span class="p">(</span><span class="s">&#34;http://camunda.org/example&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;name&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">attribute</span><span class="p">.</span><span class="na">value</span><span class="p">(</span><span class="s">&#34;newName&#34;</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><h2 id="removing-attributes-from-xml">Removing Attributes from XML</h2>
 <p>It is possible to remove an attribute from the element directly or to remove the attribute itself.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import static</span> org.camunda.spin.Spin.XML;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>String xml <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&lt;order id=\&#34;order1\&#34; /&gt;&#34;</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>SpinXmlDomElement element <span style="color:#f92672">=</span> XML(xml).<span style="color:#a6e22e">removeAttr</span>(<span style="color:#e6db74">&#34;id&#34;</span>);
-</span></span><span style="display:flex;"><span>assertFalse(element.<span style="color:#a6e22e">hasAttr</span>(<span style="color:#e6db74">&#34;id));
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">SpinXmlDomAttribute attribute = XML(xml).attr(&#34;</span>id<span style="color:#e6db74">&#34;);
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">element = attribute.remove();
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">assertFalse(element.hasAttr(&#34;</span>id));
-</span></span></code></pre></div><p>You can also specify the namespace of the attribute to remove.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import static</span> org.camunda.spin.Spin.XML;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>String xml <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&lt;order xmlns:cam=\&#34;http://camunda.org/example\&#34; id=\&#34;order1\&#34; cam:name=\&#34;name\&#34; /&gt;&#34;</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>SpinXmlDomElement element <span style="color:#f92672">=</span> XML(xml).<span style="color:#a6e22e">removeAttrNs</span>(<span style="color:#e6db74">&#34;http://camunda.org/example&#34;</span>, <span style="color:#e6db74">&#34;name&#34;</span>);
-</span></span><span style="display:flex;"><span>assertFalse(element.<span style="color:#a6e22e">hasAttrNs</span>(<span style="color:#e6db74">&#34;http://camunda.org/example/&#34;</span>, <span style="color:#e6db74">&#34;name&#34;</span>));
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>SpinXmlDomAttribute attribute <span style="color:#f92672">=</span> XML(xml).<span style="color:#a6e22e">attrNs</span>(<span style="color:#e6db74">&#34;http://camunda.org/example&#34;</span>, <span style="color:#e6db74">&#34;name&#34;</span>);
-</span></span><span style="display:flex;"><span>element <span style="color:#f92672">=</span> attribute.<span style="color:#a6e22e">remove</span>()
-</span></span><span style="display:flex;"><span>assertFalse(element.<span style="color:#a6e22e">hasAttrNs</span>(<span style="color:#e6db74">&#34;http://camunda.org/example&#34;</span>, <span style="color:#e6db74">&#34;name&#34;</span>));
-</span></span></code></pre></div><h1 id="text-content">Text Content</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import static</span><span class="w"> </span><span class="nn">org.camunda.spin.Spin.XML</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">String</span><span class="w"> </span><span class="n">xml</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;&lt;order id=\&#34;order1\&#34; /&gt;&#34;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">SpinXmlDomElement</span><span class="w"> </span><span class="n">element</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">XML</span><span class="p">(</span><span class="n">xml</span><span class="p">).</span><span class="na">removeAttr</span><span class="p">(</span><span class="s">&#34;id&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">assertFalse</span><span class="p">(</span><span class="n">element</span><span class="p">.</span><span class="na">hasAttr</span><span class="p">(</span><span class="s">&#34;id));
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">SpinXmlDomAttribute attribute = XML(xml).attr(&#34;</span><span class="n">id</span><span class="s">&#34;);
+</span></span></span><span class="line"><span class="cl"><span class="s">element = attribute.remove();
+</span></span></span><span class="line"><span class="cl"><span class="s">assertFalse(element.hasAttr(&#34;</span><span class="n">id</span><span class="p">));</span><span class="w">
+</span></span></span></code></pre></div><p>You can also specify the namespace of the attribute to remove.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import static</span><span class="w"> </span><span class="nn">org.camunda.spin.Spin.XML</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">String</span><span class="w"> </span><span class="n">xml</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;&lt;order xmlns:cam=\&#34;http://camunda.org/example\&#34; id=\&#34;order1\&#34; cam:name=\&#34;name\&#34; /&gt;&#34;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">SpinXmlDomElement</span><span class="w"> </span><span class="n">element</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">XML</span><span class="p">(</span><span class="n">xml</span><span class="p">).</span><span class="na">removeAttrNs</span><span class="p">(</span><span class="s">&#34;http://camunda.org/example&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;name&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">assertFalse</span><span class="p">(</span><span class="n">element</span><span class="p">.</span><span class="na">hasAttrNs</span><span class="p">(</span><span class="s">&#34;http://camunda.org/example/&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;name&#34;</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">SpinXmlDomAttribute</span><span class="w"> </span><span class="n">attribute</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">XML</span><span class="p">(</span><span class="n">xml</span><span class="p">).</span><span class="na">attrNs</span><span class="p">(</span><span class="s">&#34;http://camunda.org/example&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;name&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">element</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">attribute</span><span class="p">.</span><span class="na">remove</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">assertFalse</span><span class="p">(</span><span class="n">element</span><span class="p">.</span><span class="na">hasAttrNs</span><span class="p">(</span><span class="s">&#34;http://camunda.org/example&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;name&#34;</span><span class="p">));</span><span class="w">
+</span></span></span></code></pre></div><h1 id="text-content">Text Content</h1>
 <p>It is possible to read and write the text content of an XML element with the <code>textContent</code> method.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import static</span> org.camunda.spin.Spin.XML;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>SpinXmlDomElement element <span style="color:#f92672">=</span> XML(<span style="color:#e6db74">&#34;&lt;customer&gt;Foo&lt;/customer&gt;&#34;</span>);
-</span></span><span style="display:flex;"><span>assertEquals(<span style="color:#e6db74">&#34;Foo&#34;</span>, element.<span style="color:#a6e22e">textContent</span>());
-</span></span><span style="display:flex;"><span>element.<span style="color:#a6e22e">textContent</span>(<span style="color:#e6db74">&#34;Bar&#34;</span>);
-</span></span></code></pre></div><h1 id="child-elements">Child Elements</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import static</span><span class="w"> </span><span class="nn">org.camunda.spin.Spin.XML</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">SpinXmlDomElement</span><span class="w"> </span><span class="n">element</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">XML</span><span class="p">(</span><span class="s">&#34;&lt;customer&gt;Foo&lt;/customer&gt;&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">assertEquals</span><span class="p">(</span><span class="s">&#34;Foo&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">element</span><span class="p">.</span><span class="na">textContent</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">element</span><span class="p">.</span><span class="na">textContent</span><span class="p">(</span><span class="s">&#34;Bar&#34;</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><h1 id="child-elements">Child Elements</h1>
 <h2 id="reading-child-elements-from-xml">Reading Child Elements from XML</h2>
 <p>Besides attributes, you can also get a unique or all child elements of a specific type. Optionally, a namespace can be passed to the methods as first parameter.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import static</span> org.camunda.spin.Spin.XML;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>String xml <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&lt;order xmlns:cam=\&#34;http://camunda.org/example\&#34;&gt;&#34;</span> <span style="color:#f92672">+</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;&lt;date/&gt;&lt;cam:due/&gt;&lt;item/&gt;&lt;item/&gt;&lt;cam:op/&gt;&lt;cam:op/&gt;&lt;/order&gt;&#34;</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>SpinXmlDomElement date <span style="color:#f92672">=</span> XML(xml).<span style="color:#a6e22e">childElement</span>(<span style="color:#e6db74">&#34;date&#34;</span>);
-</span></span><span style="display:flex;"><span>SpinXmlDomElement due <span style="color:#f92672">=</span> XML(xml).<span style="color:#a6e22e">childElement</span>(<span style="color:#e6db74">&#34;http://camunda.org/example&#34;</span>, <span style="color:#e6db74">&#34;due&#34;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>SpinCollection<span style="color:#f92672">&lt;</span>SpinXmlDomElement<span style="color:#f92672">&gt;</span> items <span style="color:#f92672">=</span> XML(xml).<span style="color:#a6e22e">childElements</span>(<span style="color:#e6db74">&#34;item&#34;</span>);
-</span></span><span style="display:flex;"><span>SpinCollection<span style="color:#f92672">&lt;</span>SpinXmlDomElement<span style="color:#f92672">&gt;</span> ops <span style="color:#f92672">=</span> XML(xml).<span style="color:#a6e22e">childElements</span>(<span style="color:#e6db74">&#34;http://camunda.org/example&#34;</span>, <span style="color:#e6db74">&#34;ops&#34;</span>);
-</span></span></code></pre></div><h2 id="append-child-elements">Append Child Elements</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import static</span><span class="w"> </span><span class="nn">org.camunda.spin.Spin.XML</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">String</span><span class="w"> </span><span class="n">xml</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;&lt;order xmlns:cam=\&#34;http://camunda.org/example\&#34;&gt;&#34;</span><span class="w"> </span><span class="o">+</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="s">&#34;&lt;date/&gt;&lt;cam:due/&gt;&lt;item/&gt;&lt;item/&gt;&lt;cam:op/&gt;&lt;cam:op/&gt;&lt;/order&gt;&#34;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">SpinXmlDomElement</span><span class="w"> </span><span class="n">date</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">XML</span><span class="p">(</span><span class="n">xml</span><span class="p">).</span><span class="na">childElement</span><span class="p">(</span><span class="s">&#34;date&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">SpinXmlDomElement</span><span class="w"> </span><span class="n">due</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">XML</span><span class="p">(</span><span class="n">xml</span><span class="p">).</span><span class="na">childElement</span><span class="p">(</span><span class="s">&#34;http://camunda.org/example&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;due&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">SpinCollection</span><span class="o">&lt;</span><span class="n">SpinXmlDomElement</span><span class="o">&gt;</span><span class="w"> </span><span class="n">items</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">XML</span><span class="p">(</span><span class="n">xml</span><span class="p">).</span><span class="na">childElements</span><span class="p">(</span><span class="s">&#34;item&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">SpinCollection</span><span class="o">&lt;</span><span class="n">SpinXmlDomElement</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ops</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">XML</span><span class="p">(</span><span class="n">xml</span><span class="p">).</span><span class="na">childElements</span><span class="p">(</span><span class="s">&#34;http://camunda.org/example&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;ops&#34;</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><h2 id="append-child-elements">Append Child Elements</h2>
 <p>The method <code>append</code> is used to append a single or multiple child elements to an XML element.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import static</span> org.camunda.spin.Spin.XML;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>SpinXmlTreeElement root <span style="color:#f92672">=</span> XML(<span style="color:#e6db74">&#34;&lt;root/&gt;&#34;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>SpinXmlTreeElement child1 <span style="color:#f92672">=</span> XML(<span style="color:#e6db74">&#34;&lt;child/&gt;&#34;</span>);
-</span></span><span style="display:flex;"><span>SpinXmlTreeElement child2 <span style="color:#f92672">=</span> XML(<span style="color:#e6db74">&#34;&lt;child/&gt;&#34;</span>);
-</span></span><span style="display:flex;"><span>SpinXmlTreeElement child3 <span style="color:#f92672">=</span> XML(<span style="color:#e6db74">&#34;&lt;child/&gt;&#34;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>root.<span style="color:#a6e22e">append</span>(child1, child2, child3);
-</span></span></code></pre></div><h2 id="remove-child-elements">Remove Child Elements</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import static</span><span class="w"> </span><span class="nn">org.camunda.spin.Spin.XML</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">SpinXmlTreeElement</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">XML</span><span class="p">(</span><span class="s">&#34;&lt;root/&gt;&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">SpinXmlTreeElement</span><span class="w"> </span><span class="n">child1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">XML</span><span class="p">(</span><span class="s">&#34;&lt;child/&gt;&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">SpinXmlTreeElement</span><span class="w"> </span><span class="n">child2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">XML</span><span class="p">(</span><span class="s">&#34;&lt;child/&gt;&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">SpinXmlTreeElement</span><span class="w"> </span><span class="n">child3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">XML</span><span class="p">(</span><span class="s">&#34;&lt;child/&gt;&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">root</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="n">child1</span><span class="p">,</span><span class="w"> </span><span class="n">child2</span><span class="p">,</span><span class="w"> </span><span class="n">child3</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><h2 id="remove-child-elements">Remove Child Elements</h2>
 <p>To remove child elements from an XML element, the method <code>remove</code> is used. It accepts single or multiple child elements and removes them from the parent element.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import static</span> org.camunda.spin.Spin.XML;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>SpinXmlTreeElement root <span style="color:#f92672">=</span> XML(<span style="color:#e6db74">&#34;&lt;root&gt;&lt;child/&gt;&lt;child/&gt;&lt;child/&gt;&lt;/root&gt;&#34;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>root.<span style="color:#a6e22e">remove</span>(root.<span style="color:#a6e22e">childElements</span>(<span style="color:#e6db74">&#34;child&#34;</span>));
-</span></span></code></pre></div><h2 id="replace-elements">Replace Elements</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import static</span><span class="w"> </span><span class="nn">org.camunda.spin.Spin.XML</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">SpinXmlTreeElement</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">XML</span><span class="p">(</span><span class="s">&#34;&lt;root&gt;&lt;child/&gt;&lt;child/&gt;&lt;child/&gt;&lt;/root&gt;&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">root</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="n">root</span><span class="p">.</span><span class="na">childElements</span><span class="p">(</span><span class="s">&#34;child&#34;</span><span class="p">));</span><span class="w">
+</span></span></span></code></pre></div><h2 id="replace-elements">Replace Elements</h2>
 <p>To replace an element or a child element, the methods <code>replace</code> and <code>replaceChild</code> are used.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import static</span> org.camunda.spin.Spin.XML;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>SpinXmlTreeElement root <span style="color:#f92672">=</span> XML(<span style="color:#e6db74">&#34;&lt;root&gt;&lt;date/&gt;&lt;order/&gt;&lt;/root&gt;&#34;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>SpinXmlTreeElement child1 <span style="color:#f92672">=</span> XML(<span style="color:#e6db74">&#34;&lt;child/&gt;&#34;</span>);
-</span></span><span style="display:flex;"><span>root.<span style="color:#a6e22e">replaceChild</span>(root.<span style="color:#a6e22e">childElement</span>(<span style="color:#e6db74">&#34;date&#34;</span>), child1);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>SpinXmlTreeElement child2 <span style="color:#f92672">=</span> XML(<span style="color:#e6db74">&#34;&lt;child/&gt;&#34;</span>);
-</span></span><span style="display:flex;"><span>root.<span style="color:#a6e22e">childElement</span>(<span style="color:#e6db74">&#34;order&#34;</span>).<span style="color:#a6e22e">replace</span>(child2);
-</span></span></code></pre></div><h1 id="manipulating-xml-using-a-script-language">Manipulating XML using a Script Language</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import static</span><span class="w"> </span><span class="nn">org.camunda.spin.Spin.XML</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">SpinXmlTreeElement</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">XML</span><span class="p">(</span><span class="s">&#34;&lt;root&gt;&lt;date/&gt;&lt;order/&gt;&lt;/root&gt;&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">SpinXmlTreeElement</span><span class="w"> </span><span class="n">child1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">XML</span><span class="p">(</span><span class="s">&#34;&lt;child/&gt;&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">root</span><span class="p">.</span><span class="na">replaceChild</span><span class="p">(</span><span class="n">root</span><span class="p">.</span><span class="na">childElement</span><span class="p">(</span><span class="s">&#34;date&#34;</span><span class="p">),</span><span class="w"> </span><span class="n">child1</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">SpinXmlTreeElement</span><span class="w"> </span><span class="n">child2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">XML</span><span class="p">(</span><span class="s">&#34;&lt;child/&gt;&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">root</span><span class="p">.</span><span class="na">childElement</span><span class="p">(</span><span class="s">&#34;order&#34;</span><span class="p">).</span><span class="na">replace</span><span class="p">(</span><span class="n">child2</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><h1 id="manipulating-xml-using-a-script-language">Manipulating XML using a Script Language</h1>
 <p>XML can be manipulated from script languages in the same was as from Java. Since script languages use dynamic typing, you do not need to hint the data format but you can use autodetection. The following example demonstrates how to access an attribute and a child element from XML in Python:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>xml <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&lt;order id=&#34;1231&#34;&gt;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  &lt;item id=&#34;1&#34;/&gt;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&lt;/order&gt;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">assert</span> S(xml)<span style="color:#f92672">.</span>hasAttr(<span style="color:#e6db74">&#39;id&#39;</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>order_id <span style="color:#f92672">=</span> S(xml)<span style="color:#f92672">.</span>attr(<span style="color:#e6db74">&#39;id&#39;</span>)<span style="color:#f92672">.</span>value()
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">assert</span> order_id <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;1231&#39;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>element <span style="color:#f92672">=</span> S(xml)<span style="color:#f92672">.</span>attr(<span style="color:#e6db74">&#39;order&#39;</span>, <span style="color:#e6db74">&#39;order1&#39;</span>)
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">assert</span> element<span style="color:#f92672">.</span>hasAttr(<span style="color:#e6db74">&#39;order&#39;</span>)
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">assert</span> element<span style="color:#f92672">.</span>Attr(<span style="color:#e6db74">&#39;order&#39;</span>)<span style="color:#f92672">.</span>value() <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;order1&#39;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>element<span style="color:#f92672">.</span>removeAttr(<span style="color:#e6db74">&#39;order&#39;</span>)
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">assert</span> <span style="color:#f92672">not</span> element<span style="color:#f92672">.</span>hasAttr(<span style="color:#e6db74">&#39;order&#39;</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>item_id <span style="color:#f92672">=</span> S(xml)<span style="color:#f92672">.</span>childElement(<span style="color:#e6db74">&#39;item&#39;</span>)<span style="color:#f92672">.</span>attr(<span style="color:#e6db74">&#39;id&#39;</span>)<span style="color:#f92672">.</span>value()
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">assert</span> item_id <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;1&#39;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">xml</span> <span class="o">=</span> <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">&lt;order id=&#34;1231&#34;&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s2">  &lt;item id=&#34;1&#34;/&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s2">&lt;/order&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">assert</span> <span class="n">S</span><span class="p">(</span><span class="n">xml</span><span class="p">)</span><span class="o">.</span><span class="n">hasAttr</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">order_id</span> <span class="o">=</span> <span class="n">S</span><span class="p">(</span><span class="n">xml</span><span class="p">)</span><span class="o">.</span><span class="n">attr</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="k">assert</span> <span class="n">order_id</span> <span class="o">==</span> <span class="s1">&#39;1231&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">element</span> <span class="o">=</span> <span class="n">S</span><span class="p">(</span><span class="n">xml</span><span class="p">)</span><span class="o">.</span><span class="n">attr</span><span class="p">(</span><span class="s1">&#39;order&#39;</span><span class="p">,</span> <span class="s1">&#39;order1&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">assert</span> <span class="n">element</span><span class="o">.</span><span class="n">hasAttr</span><span class="p">(</span><span class="s1">&#39;order&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">assert</span> <span class="n">element</span><span class="o">.</span><span class="n">Attr</span><span class="p">(</span><span class="s1">&#39;order&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;order1&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">element</span><span class="o">.</span><span class="n">removeAttr</span><span class="p">(</span><span class="s1">&#39;order&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">assert</span> <span class="ow">not</span> <span class="n">element</span><span class="o">.</span><span class="n">hasAttr</span><span class="p">(</span><span class="s1">&#39;order&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">item_id</span> <span class="o">=</span> <span class="n">S</span><span class="p">(</span><span class="n">xml</span><span class="p">)</span><span class="o">.</span><span class="n">childElement</span><span class="p">(</span><span class="s1">&#39;item&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">attr</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="k">assert</span> <span class="n">item_id</span> <span class="o">==</span> <span class="s1">&#39;1&#39;</span>
 </span></span></code></pre></div>
     </div>
   </div>

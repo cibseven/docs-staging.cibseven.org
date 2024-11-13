@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/1.0/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/1.0/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/user-guide/process-engine/history/history-configuration/" />
 </head>
 <body class="">
@@ -3197,12 +3197,12 @@
 <p>In case of specific needs, you can also create a <a href="/manual/1.0/user-guide/process-engine/history/custom-implementation/#implement-a-custom-history-level">custom history level</a>.</p>
 <h2 id="set-the-history-level">Set the history level</h2>
 <p>The history level can be provided as a property in the process engine configuration. Depending on how the process engine is configured, the property can be set using Java code:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>ProcessEngine processEngine <span style="color:#f92672">=</span> ProcessEngineConfiguration
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">createProcessEngineConfigurationFromResourceDefault</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">setHistory</span>(ProcessEngineConfiguration.<span style="color:#a6e22e">HISTORY_FULL</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">buildProcessEngine</span>();
-</span></span></code></pre></div><p>It can also be set using Spring XML or a deployment descriptor (bpm-platform.xml, processes.xml). When using the Camunda Wildfly Subsystem, the property can be set through Wildfly configuration (standalone.xml, domain.xml).</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;history&#34;</span><span style="color:#f92672">&gt;</span>audit<span style="color:#f92672">&lt;/property&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">ProcessEngine</span><span class="w"> </span><span class="n">processEngine</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ProcessEngineConfiguration</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">createProcessEngineConfigurationFromResourceDefault</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">setHistory</span><span class="p">(</span><span class="n">ProcessEngineConfiguration</span><span class="p">.</span><span class="na">HISTORY_FULL</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">buildProcessEngine</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><p>It can also be set using Spring XML or a deployment descriptor (bpm-platform.xml, processes.xml). When using the Camunda Wildfly Subsystem, the property can be set through Wildfly configuration (standalone.xml, domain.xml).</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;history&#34;</span><span class="nt">&gt;</span>audit<span class="nt">&lt;/property&gt;</span>
 </span></span></code></pre></div><p>Note that when using the default history backend, the history level is stored in the database and cannot be changed later.</p>
 
 <div class="note bg-info docs-info">
@@ -3256,109 +3256,109 @@ which can be used for querying history.</p>
 <p>Below are a few examples which show some of the possibilities of the query API for history. Full description of the possibilities can be found in the Javadocs, in the <code>org.camunda.bpm.engine.history</code> package.</p>
 <p><strong>HistoricProcessInstanceQuery</strong></p>
 <p>Get the ten <code>HistoricProcessInstances</code> that are finished and that took the most time to complete (the longest duration) of all finished processes with definition &lsquo;XXX&rsquo;.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>historyService.<span style="color:#a6e22e">createHistoricProcessInstanceQuery</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">finished</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">processDefinitionId</span>(<span style="color:#e6db74">&#34;XXX&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">orderByProcessInstanceDuration</span>().<span style="color:#a6e22e">desc</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">listPage</span>(0, 10);
-</span></span></code></pre></div><p><strong>HistoricCaseInstanceQuery</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">historyService</span><span class="p">.</span><span class="na">createHistoricProcessInstanceQuery</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">finished</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">processDefinitionId</span><span class="p">(</span><span class="s">&#34;XXX&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">orderByProcessInstanceDuration</span><span class="p">().</span><span class="na">desc</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">listPage</span><span class="p">(</span><span class="n">0</span><span class="p">,</span><span class="w"> </span><span class="n">10</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><p><strong>HistoricCaseInstanceQuery</strong></p>
 <p>Get the ten <code>HistoricCaseInstances</code> that are closed and that took the most time to be closed (the longest duration) of all closed cases with definition &lsquo;XXX&rsquo;.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>historyService.<span style="color:#a6e22e">createHistoricCaseInstanceQuery</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">closed</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">caseDefinitionId</span>(<span style="color:#e6db74">&#34;XXX&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">orderByCaseInstanceDuration</span>().<span style="color:#a6e22e">desc</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">listPage</span>(0, 10);
-</span></span></code></pre></div><p><strong>HistoricActivityInstanceQuery</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">historyService</span><span class="p">.</span><span class="na">createHistoricCaseInstanceQuery</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">closed</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">caseDefinitionId</span><span class="p">(</span><span class="s">&#34;XXX&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">orderByCaseInstanceDuration</span><span class="p">().</span><span class="na">desc</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">listPage</span><span class="p">(</span><span class="n">0</span><span class="p">,</span><span class="w"> </span><span class="n">10</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><p><strong>HistoricActivityInstanceQuery</strong></p>
 <p>Get the last <code>HistoricActivityInstance</code> of type &lsquo;serviceTask&rsquo; that has been finished in any process that uses the processDefinition with id &lsquo;XXX&rsquo;.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>historyService.<span style="color:#a6e22e">createHistoricActivityInstanceQuery</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">activityType</span>(<span style="color:#e6db74">&#34;serviceTask&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">processDefinitionId</span>(<span style="color:#e6db74">&#34;XXX&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">finished</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">orderByHistoricActivityInstanceEndTime</span>().<span style="color:#a6e22e">desc</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">listPage</span>(0, 1);
-</span></span></code></pre></div><p><strong>HistoricCaseActivityInstanceQuery</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">historyService</span><span class="p">.</span><span class="na">createHistoricActivityInstanceQuery</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">activityType</span><span class="p">(</span><span class="s">&#34;serviceTask&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">processDefinitionId</span><span class="p">(</span><span class="s">&#34;XXX&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">finished</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">orderByHistoricActivityInstanceEndTime</span><span class="p">().</span><span class="na">desc</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">listPage</span><span class="p">(</span><span class="n">0</span><span class="p">,</span><span class="w"> </span><span class="n">1</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><p><strong>HistoricCaseActivityInstanceQuery</strong></p>
 <p>Get the last <code>HistoricCaseActivityInstance</code> that has been finished in any case that uses the caseDefinition with id &lsquo;XXX&rsquo;.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>historyService.<span style="color:#a6e22e">createHistoricCaseActivityInstanceQuery</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">caseDefinitionId</span>(<span style="color:#e6db74">&#34;XXX&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">finished</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">orderByHistoricCaseActivityInstanceEndTime</span>().<span style="color:#a6e22e">desc</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">listPage</span>(0, 1);
-</span></span></code></pre></div><p><strong>HistoricVariableInstanceQuery</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">historyService</span><span class="p">.</span><span class="na">createHistoricCaseActivityInstanceQuery</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">caseDefinitionId</span><span class="p">(</span><span class="s">&#34;XXX&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">finished</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">orderByHistoricCaseActivityInstanceEndTime</span><span class="p">().</span><span class="na">desc</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">listPage</span><span class="p">(</span><span class="n">0</span><span class="p">,</span><span class="w"> </span><span class="n">1</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><p><strong>HistoricVariableInstanceQuery</strong></p>
 <p>Get all HistoricVariableInstances from a finished process instance with id &lsquo;XXX&rsquo;, ordered by variable name.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>historyService.<span style="color:#a6e22e">createHistoricVariableInstanceQuery</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">processInstanceId</span>(<span style="color:#e6db74">&#34;XXX&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">orderByVariableName</span>().<span style="color:#a6e22e">desc</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">list</span>();
-</span></span></code></pre></div><p><strong>HistoricDetailQuery</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">historyService</span><span class="p">.</span><span class="na">createHistoricVariableInstanceQuery</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">processInstanceId</span><span class="p">(</span><span class="s">&#34;XXX&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">orderByVariableName</span><span class="p">().</span><span class="na">desc</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">list</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><p><strong>HistoricDetailQuery</strong></p>
 <p>The next example gets all variable-updates that have been done in process with id &lsquo;123&rsquo;. Only HistoricVariableUpdates will be returned by this query. Note that it&rsquo;s possible for a certain variable name to have multiple HistoricVariableUpdate entries, one for each time the variable was updated in the process. You can use orderByTime (the time the variable update was done) or orderByVariableRevision (revision of runtime variable at the time of updating) to find out in what order they occurred.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>historyService.<span style="color:#a6e22e">createHistoricDetailQuery</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">variableUpdates</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">processInstanceId</span>(<span style="color:#e6db74">&#34;123&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">orderByVariableName</span>().<span style="color:#a6e22e">asc</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">list</span>()
-</span></span></code></pre></div><p>The next example gets all variable updates that were performed on the task with id &lsquo;123&rsquo;. This returns all HistoricVariableUpdates for variables that were set on the task (task local variables), and NOT on the process instance.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>historyService.<span style="color:#a6e22e">createHistoricDetailQuery</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">variableUpdates</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">taskId</span>(<span style="color:#e6db74">&#34;123&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">orderByVariableName</span>().<span style="color:#a6e22e">asc</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">list</span>()
-</span></span></code></pre></div><p><strong>HistoricTaskInstanceQuery</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">historyService</span><span class="p">.</span><span class="na">createHistoricDetailQuery</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">variableUpdates</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">processInstanceId</span><span class="p">(</span><span class="s">&#34;123&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">orderByVariableName</span><span class="p">().</span><span class="na">asc</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">list</span><span class="p">()</span><span class="w">
+</span></span></span></code></pre></div><p>The next example gets all variable updates that were performed on the task with id &lsquo;123&rsquo;. This returns all HistoricVariableUpdates for variables that were set on the task (task local variables), and NOT on the process instance.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">historyService</span><span class="p">.</span><span class="na">createHistoricDetailQuery</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">variableUpdates</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">taskId</span><span class="p">(</span><span class="s">&#34;123&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">orderByVariableName</span><span class="p">().</span><span class="na">asc</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">list</span><span class="p">()</span><span class="w">
+</span></span></span></code></pre></div><p><strong>HistoricTaskInstanceQuery</strong></p>
 <p>Get the ten HistoricTaskInstances that are finished and that took the most time to complete (the longest duration) of all tasks.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>historyService.<span style="color:#a6e22e">createHistoricTaskInstanceQuery</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">finished</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">orderByHistoricTaskInstanceDuration</span>().<span style="color:#a6e22e">desc</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">listPage</span>(0, 10);
-</span></span></code></pre></div><p>Get HistoricTaskInstances that are deleted with a delete reason that contains &lsquo;invalid&rsquo; and that were last assigned to user &lsquo;jonny&rsquo;.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>historyService.<span style="color:#a6e22e">createHistoricTaskInstanceQuery</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">finished</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">taskDeleteReasonLike</span>(<span style="color:#e6db74">&#34;%invalid%&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">taskAssignee</span>(<span style="color:#e6db74">&#34;jonny&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">listPage</span>(0, 10);
-</span></span></code></pre></div><p><strong>HistoricIncidentQuery</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">historyService</span><span class="p">.</span><span class="na">createHistoricTaskInstanceQuery</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">finished</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">orderByHistoricTaskInstanceDuration</span><span class="p">().</span><span class="na">desc</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">listPage</span><span class="p">(</span><span class="n">0</span><span class="p">,</span><span class="w"> </span><span class="n">10</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><p>Get HistoricTaskInstances that are deleted with a delete reason that contains &lsquo;invalid&rsquo; and that were last assigned to user &lsquo;jonny&rsquo;.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">historyService</span><span class="p">.</span><span class="na">createHistoricTaskInstanceQuery</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">finished</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">taskDeleteReasonLike</span><span class="p">(</span><span class="s">&#34;%invalid%&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">taskAssignee</span><span class="p">(</span><span class="s">&#34;jonny&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">listPage</span><span class="p">(</span><span class="n">0</span><span class="p">,</span><span class="w"> </span><span class="n">10</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><p><strong>HistoricIncidentQuery</strong></p>
 <p>Query for all resolved incidents:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>historyService.<span style="color:#a6e22e">createHistoricIncidentQuery</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">resolved</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">list</span>();
-</span></span></code></pre></div><p><strong>UserOperationLogQuery</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">historyService</span><span class="p">.</span><span class="na">createHistoricIncidentQuery</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">resolved</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">list</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><p><strong>UserOperationLogQuery</strong></p>
 <p>Query for all operations performed by user &lsquo;jonny&rsquo;:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>historyService.<span style="color:#a6e22e">createUserOperationLogQuery</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">userId</span>(<span style="color:#e6db74">&#34;jonny&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">listPage</span>(0, 10);
-</span></span></code></pre></div><p><strong>HistoricJobLogQuery</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">historyService</span><span class="p">.</span><span class="na">createUserOperationLogQuery</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">userId</span><span class="p">(</span><span class="s">&#34;jonny&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">listPage</span><span class="p">(</span><span class="n">0</span><span class="p">,</span><span class="w"> </span><span class="n">10</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><p><strong>HistoricJobLogQuery</strong></p>
 <p>Query for successful historic job logs:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>historyService.<span style="color:#a6e22e">createHistoricJobLogQuery</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">successLog</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">list</span>();
-</span></span></code></pre></div><p><strong>HistoricDecisionInstanceQuery</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">historyService</span><span class="p">.</span><span class="na">createHistoricJobLogQuery</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">successLog</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">list</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><p><strong>HistoricDecisionInstanceQuery</strong></p>
 <p>Get all HistoricDecisionInstances from a decision with key &lsquo;checkOrder&rsquo; ordered by the time when the decision was evaluated.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>historyService.<span style="color:#a6e22e">createHistoricDecisionInstanceQuery</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">decisionDefinitionKey</span>(<span style="color:#e6db74">&#34;checkOrder&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">orderByEvaluationTime</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">asc</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">list</span>();
-</span></span></code></pre></div><p>Get all HistoricDecisionInstances from decisions that were evaluated during the execution of the process instance with id &lsquo;XXX&rsquo;. The HistoricDecisionInstances contains the input values on which the decision was evaluated and the output values of the matched rules.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>historyService.<span style="color:#a6e22e">createHistoricDecisionInstanceQuery</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">processInstanceId</span>(<span style="color:#e6db74">&#34;XXX&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">includeInputs</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">includeOutputs</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">list</span>();
-</span></span></code></pre></div><p><strong>HistoricBatchQuery</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">historyService</span><span class="p">.</span><span class="na">createHistoricDecisionInstanceQuery</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">decisionDefinitionKey</span><span class="p">(</span><span class="s">&#34;checkOrder&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">orderByEvaluationTime</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">asc</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">list</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><p>Get all HistoricDecisionInstances from decisions that were evaluated during the execution of the process instance with id &lsquo;XXX&rsquo;. The HistoricDecisionInstances contains the input values on which the decision was evaluated and the output values of the matched rules.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">historyService</span><span class="p">.</span><span class="na">createHistoricDecisionInstanceQuery</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">processInstanceId</span><span class="p">(</span><span class="s">&#34;XXX&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">includeInputs</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">includeOutputs</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">list</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><p><strong>HistoricBatchQuery</strong></p>
 <p>Get all historic process instance migration batches ordered by id.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>historyService.<span style="color:#a6e22e">createHistoricBatchQuery</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">type</span>(Batch.<span style="color:#a6e22e">TYPE_PROCESS_INSTANCE_MIGRATION</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">orderById</span>().<span style="color:#a6e22e">desc</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">list</span>();
-</span></span></code></pre></div><p><strong>HistoricIdentityLinkLogQuery</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">historyService</span><span class="p">.</span><span class="na">createHistoricBatchQuery</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">type</span><span class="p">(</span><span class="n">Batch</span><span class="p">.</span><span class="na">TYPE_PROCESS_INSTANCE_MIGRATION</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">orderById</span><span class="p">().</span><span class="na">desc</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">list</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><p><strong>HistoricIdentityLinkLogQuery</strong></p>
 <p>Query for all identity links that are related to the user &lsquo;demo&rsquo;.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>historyService.<span style="color:#a6e22e">createHistoricIdentityLinkLogQuery</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">userId</span>(<span style="color:#e6db74">&#34;demo&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">list</span>();
-</span></span></code></pre></div><p><strong>HistoricExternalTaskLogQuery</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">historyService</span><span class="p">.</span><span class="na">createHistoricIdentityLinkLogQuery</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">userId</span><span class="p">(</span><span class="s">&#34;demo&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">list</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><p><strong>HistoricExternalTaskLogQuery</strong></p>
 <p>Query for failed historic external task logs:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>historyService.<span style="color:#a6e22e">createHistoricExternalTaskLogQuery</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">failureLog</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">list</span>();
-</span></span></code></pre></div><h3 id="history-report">History report</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">historyService</span><span class="p">.</span><span class="na">createHistoricExternalTaskLogQuery</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">failureLog</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">list</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><h3 id="history-report">History report</h3>
 <p>You can use the reports section to retrieve custom statistics and reports. Currently, we support the following kinds of reports:</p>
 <ul>
 <li><a href="#instance-duration-report">Instance Duration Report</a></li>
@@ -3367,10 +3367,10 @@ which can be used for querying history.</p>
 </ul>
 <h4 id="instance-duration-report">Instance duration report</h4>
 <p>Retrieves a report about the duration of completed process instances, grouped by a specified period. These reports include the maximum, minimum and average duration of all completed process instances, which were started in the specified period. The following code snippet retrieves a report for every month since the engine was started:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>historyService
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">createHistoricProcessInstanceReport</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">duration</span>(PeriodUnit.<span style="color:#a6e22e">MONTH</span>);
-</span></span></code></pre></div><p>The supported periods so far are <code>MONTH</code> and <code>QUARTER</code> from <code>org.camunda.bpm.engine.query.PeriodUnit</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">historyService</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">createHistoricProcessInstanceReport</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">duration</span><span class="p">(</span><span class="n">PeriodUnit</span><span class="p">.</span><span class="na">MONTH</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><p>The supported periods so far are <code>MONTH</code> and <code>QUARTER</code> from <code>org.camunda.bpm.engine.query.PeriodUnit</code>.</p>
 <p>To narrow down the report query, one can use the following methods from <code>HistoricProcessInstanceReport</code>:</p>
 <ul>
 <li><code>startedBefore</code>: Only takes historic process instances into account that were started before a given date.</li>
@@ -3380,35 +3380,35 @@ which can be used for querying history.</p>
 </ul>
 <p>where <code>startedBefore</code> and <code>startedAfter</code> use <code>java.util.Date</code> (deprecated) or <code>java.util.Calendar</code> objects for the input.</p>
 <p>For instance, one could query for all historic process instances which were started before now and get their duration:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Calendar calendar <span style="color:#f92672">=</span> Calendar.<span style="color:#a6e22e">getInstance</span>();
-</span></span><span style="display:flex;"><span>historyService.<span style="color:#a6e22e">createHistoricProcessInstanceReport</span>()
-</span></span><span style="display:flex;"><span> .<span style="color:#a6e22e">startedBefore</span>(calendar.<span style="color:#a6e22e">getTime</span>())
-</span></span><span style="display:flex;"><span> .<span style="color:#a6e22e">duration</span>(PeriodUnit.<span style="color:#a6e22e">MONTH</span>);
-</span></span></code></pre></div><h4 id="task-report">Task report</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">Calendar</span><span class="w"> </span><span class="n">calendar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Calendar</span><span class="p">.</span><span class="na">getInstance</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">historyService</span><span class="p">.</span><span class="na">createHistoricProcessInstanceReport</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="p">.</span><span class="na">startedBefore</span><span class="p">(</span><span class="n">calendar</span><span class="p">.</span><span class="na">getTime</span><span class="p">())</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="p">.</span><span class="na">duration</span><span class="p">(</span><span class="n">PeriodUnit</span><span class="p">.</span><span class="na">MONTH</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><h4 id="task-report">Task report</h4>
 <p>Retrieves a report of completed tasks. For the task report there are two possible report types: count and duration.</p>
 <p>If you use the method <code>countByProcessDefinitionKey</code> or <code>countByTaskName</code> in the end of your report query, the report contains a list of completed task counts where an entry contains the task name, the definition key of the task, the process definition id, the process definition key, the process definition name and the count of how many tasks were completed for the specified key in a given period. The methods <code>countByProcessDefinitionKey</code> and <code>countByTaskName</code> then group the count reports according the criterion &lsquo;definition key&rsquo; or &rsquo;task name&rsquo;. To retrieve a task count report grouped by the task name, one could execute the following query:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>historyService
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">createHistoricTaskInstanceReport</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">countByTaskName</span>();
-</span></span></code></pre></div><p>If the report type is set to duration, the report contains a minimum, maximum and average duration value of all completed task instances in a given period.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>historyService
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">createHistoricTaskInstanceReport</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">duration</span>(PeriodUnit.<span style="color:#a6e22e">MONTH</span>);
-</span></span></code></pre></div><p>The supported period times and the confinement of the query works analogously to <a href="#instance-duration-report">Instance Duration Report</a>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">historyService</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">createHistoricTaskInstanceReport</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">countByTaskName</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><p>If the report type is set to duration, the report contains a minimum, maximum and average duration value of all completed task instances in a given period.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">historyService</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">createHistoricTaskInstanceReport</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">duration</span><span class="p">(</span><span class="n">PeriodUnit</span><span class="p">.</span><span class="na">MONTH</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><p>The supported period times and the confinement of the query works analogously to <a href="#instance-duration-report">Instance Duration Report</a>.</p>
 <h4 id="finished-instance-report">Finished instance report</h4>
 <p>Retrieves a report of finished process, decision or case instances. The report helps the user to tune the history time to live for definitions. They can see a summary of the historic data which can be cleaned after history cleanup. The output fields are definition id, key, name, version, count of the finished instances and count of the &lsquo;cleanable&rsquo; instances.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>historyService
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">createHistoricFinishedProcessInstanceReport</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">list</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>historyService
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">createHistoricFinishedDecisionInstanceReport</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">list</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>historyService
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">createHistoricFinishedCaseInstanceReport</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">list</span>();
-</span></span></code></pre></div><h3 id="partially-sorting-history-events-by-their-occurrence">Partially sorting history events by their occurrence</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">historyService</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">createHistoricFinishedProcessInstanceReport</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">list</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">historyService</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">createHistoricFinishedDecisionInstanceReport</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">list</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">historyService</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">createHistoricFinishedCaseInstanceReport</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">list</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><h3 id="partially-sorting-history-events-by-their-occurrence">Partially sorting history events by their occurrence</h3>
 <p>Sometimes you want to sort history events in the order in which they
 occurred. Please note that timestamps cannot be used for that.</p>
 <p>Most history events contain a timestamp which marks the point in time at which the action signified
@@ -3426,13 +3426,13 @@ parallel branches after a parallel gateway) cannot be compared to each other. In
 activities that are part of happens-before relation at the BPMN level will be ordered in respect to
 that relation.</p>
 <p>Example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>List<span style="color:#f92672">&lt;</span>HistoricActivityInstance<span style="color:#f92672">&gt;</span> result <span style="color:#f92672">=</span> historyService
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">createHistoricActivityInstanceQuery</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">processInstanceId</span>(<span style="color:#e6db74">&#34;someProcessInstanceId&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">orderPartiallyByOccurrence</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">asc</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">list</span>();
-</span></span></code></pre></div><p>Please note the returned list of historic activity instances in the example is
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">List</span><span class="o">&lt;</span><span class="n">HistoricActivityInstance</span><span class="o">&gt;</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">historyService</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">createHistoricActivityInstanceQuery</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">processInstanceId</span><span class="p">(</span><span class="s">&#34;someProcessInstanceId&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">orderPartiallyByOccurrence</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">asc</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">list</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><p>Please note the returned list of historic activity instances in the example is
 only partially sorted, as explained above. It guarantees that related
 activity instances are sorted by their occurrence. The ordering of unrelated
 activity instances is arbitrary and is not guaranteed.</p>

@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/1.0/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/1.0/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/reference/bpmn20/events/error-events/" />
 </head>
 <body class="">
@@ -3166,76 +3166,76 @@
 <p>You might also want to check out the basics of <a href="/manual/1.0/user-guide/process-engine/transactions-in-processes/#transaction-boundaries">Threading and Transactions</a> in the <a href="/manual/1.0/user-guide/">User Guide</a> first.</p>
 <h1 id="defining-an-error">Defining an Error</h1>
 <p>An error event definition references an error element. The following is an example of an error end event, referencing an error declaration:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;definitions&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;error</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;myError&#34;</span> <span style="color:#a6e22e">errorCode=</span><span style="color:#e6db74">&#34;ERROR-OCCURED&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;ERROR-OCCURED&#34;</span><span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- ... --&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;process&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">&lt;!-- ... --&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;endEvent</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;myErrorEndEvent&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;errorEventDefinition</span> <span style="color:#a6e22e">errorRef=</span><span style="color:#e6db74">&#34;myError&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/endEvent&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/process&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/definitions&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;definitions&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;error</span> <span class="na">id=</span><span class="s">&#34;myError&#34;</span> <span class="na">errorCode=</span><span class="s">&#34;ERROR-OCCURED&#34;</span> <span class="na">name=</span><span class="s">&#34;ERROR-OCCURED&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="c">&lt;!-- ... --&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;process&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="c">&lt;!-- ... --&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;endEvent</span> <span class="na">id=</span><span class="s">&#34;myErrorEndEvent&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;errorEventDefinition</span> <span class="na">errorRef=</span><span class="s">&#34;myError&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/endEvent&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/process&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/definitions&gt;</span>
 </span></span></code></pre></div><p>You can trigger this error event either with a throwing error event within your process definition or from Delegation Code, see the
 <a href="/manual/1.0/user-guide/process-engine/delegation-code/#throw-bpmn-errors-from-delegation-code">Throwing BPMN Errors from Delegation Code</a> section of the <a href="/manual/1.0/user-guide/">User Guide</a> for more information.</p>
 <p>Another possibility to define an error is setting of the type (class name) of any Java Exception as error code. Example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;definitions&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;error</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;myException&#34;</span> <span style="color:#a6e22e">errorCode=</span><span style="color:#e6db74">&#34;com.company.MyBusinessException&#34;</span> 
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;myBusinessException&#34;</span><span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- ... --&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;process&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">&lt;!-- ... --&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;endEvent</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;myErrorEndEvent&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;errorEventDefinition</span> <span style="color:#a6e22e">errorRef=</span><span style="color:#e6db74">&#34;myException&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/endEvent&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/process&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/definitions&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;definitions&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;error</span> <span class="na">id=</span><span class="s">&#34;myException&#34;</span> <span class="na">errorCode=</span><span class="s">&#34;com.company.MyBusinessException&#34;</span> 
+</span></span><span class="line"><span class="cl">      <span class="na">name=</span><span class="s">&#34;myBusinessException&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="c">&lt;!-- ... --&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;process&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="c">&lt;!-- ... --&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;endEvent</span> <span class="na">id=</span><span class="s">&#34;myErrorEndEvent&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;errorEventDefinition</span> <span class="na">errorRef=</span><span class="s">&#34;myException&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/endEvent&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/process&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/definitions&gt;</span>
 </span></span></code></pre></div><p>The exception type should only be used for business exceptions and not for technical exceptions in the process.</p>
 <p>An error event handler references the same error element to declare that it catches the error.</p>
 <p>It is also possible to define an error message with the <a href="/manual/1.0/reference/bpmn20/custom-extensions/extension-attributes/#errormessage"><code>camunda:errorMessage</code></a> extension for an error element to give further information about the error.
 The referencing error event definition must specify <a href="/manual/1.0/reference/bpmn20/custom-extensions/extension-attributes/#errormessagevariable"><code>camunda:errorMessageVariable</code></a> to receive the error message. The error message can also contain <a href="/manual/1.0/user-guide/process-engine/expression-language/">expressions</a>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;definitions&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;error</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;myError&#34;</span> <span style="color:#a6e22e">errorCode=</span><span style="color:#e6db74">&#34;ERROR-OCCURED&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;ERROR-OCCURED&#34;</span> 
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">camunda:errorMessage=</span><span style="color:#e6db74">&#34;Something went wrong: ${errorCause}&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- ... --&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;process&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">&lt;!-- ... --&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;endEvent</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;myErrorEndEvent&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;errorEventDefinition</span> <span style="color:#a6e22e">errorRef=</span><span style="color:#e6db74">&#34;myError&#34;</span> <span style="color:#a6e22e">camunda:errorMessageVariable=</span><span style="color:#e6db74">&#34;err&#34;</span><span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/endEvent&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/process&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/definitions&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;definitions&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;error</span> <span class="na">id=</span><span class="s">&#34;myError&#34;</span> <span class="na">errorCode=</span><span class="s">&#34;ERROR-OCCURED&#34;</span> <span class="na">name=</span><span class="s">&#34;ERROR-OCCURED&#34;</span> 
+</span></span><span class="line"><span class="cl">      <span class="na">camunda:errorMessage=</span><span class="s">&#34;Something went wrong: ${errorCause}&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="c">&lt;!-- ... --&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;process&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="c">&lt;!-- ... --&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;endEvent</span> <span class="na">id=</span><span class="s">&#34;myErrorEndEvent&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;errorEventDefinition</span> <span class="na">errorRef=</span><span class="s">&#34;myError&#34;</span> <span class="na">camunda:errorMessageVariable=</span><span class="s">&#34;err&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/endEvent&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/process&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/definitions&gt;</span>
 </span></span></code></pre></div><p>When the error thrown by the error end event is catched a process variable with the name <code>err</code> will be created that holds the evaluated message.</p>
 <p>For External Tasks, it is also possible to define error events by using a <a href="/manual/1.0/reference/bpmn20/custom-extensions/extension-elements/#erroreventdefinition">camunda:errorEventDefinition</a> as shown in the following example. It additionally requires an expression that must evaluate to <code>true</code> in order for the BPMN error to be thrown. For further details on how to use those error events, consult the <a href="/manual/1.0/user-guide/process-engine/external-tasks/#error-event-definitions">External Tasks Guide</a>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;serviceTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;validateAddressTask&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Validate Address&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">camunda:type=</span><span style="color:#e6db74">&#34;external&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">camunda:topic=</span><span style="color:#e6db74">&#34;AddressValidation&#34;</span> <span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;camunda:errorEventDefinition</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;addressErrorDefinition&#34;</span> 
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">errorRef=</span><span style="color:#e6db74">&#34;addressError&#34;</span> 
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">expression=</span><span style="color:#e6db74">&#34;${externalTask.getErrorDetails().contains(&#39;address error found&#39;)}&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/serviceTask&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;serviceTask</span> <span class="na">id=</span><span class="s">&#34;validateAddressTask&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">name=</span><span class="s">&#34;Validate Address&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">camunda:type=</span><span class="s">&#34;external&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">camunda:topic=</span><span class="s">&#34;AddressValidation&#34;</span> <span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;camunda:errorEventDefinition</span> <span class="na">id=</span><span class="s">&#34;addressErrorDefinition&#34;</span> 
+</span></span><span class="line"><span class="cl">      <span class="na">errorRef=</span><span class="s">&#34;addressError&#34;</span> 
+</span></span><span class="line"><span class="cl">      <span class="na">expression=</span><span class="s">&#34;${externalTask.getErrorDetails().contains(&#39;address error found&#39;)}&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/serviceTask&gt;</span>
 </span></span></code></pre></div><h1 id="error-start-event">Error Start Event</h1>
 <p>An error start event can only be used to trigger an Event Sub-Process - it <strong>cannot</strong> be used to start a process instance. The error start event is always interrupting.</p>
 <div data-bpmn-diagram="../bpmn/event-subprocess-alternative1"></div>
 <p>Three optional attributes can be added to the error start event: <code>errorRef</code>, <code>camunda:errorCodeVariable</code> and <code>camunda:errorMessageVariable</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;definitions&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;error</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;myException&#34;</span> <span style="color:#a6e22e">errorCode=</span><span style="color:#e6db74">&#34;com.company.MyBusinessException&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;myBusinessException&#34;</span><span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>  ...
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;process&gt;</span>
-</span></span><span style="display:flex;"><span>    ...
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;subProcess</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;SubProcess_1&#34;</span> <span style="color:#a6e22e">triggeredByEvent=</span><span style="color:#e6db74">&#34;true&#34;</span><span style="color:#f92672">&gt;</span>&gt;
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;startEvent</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;myErrorStartEvent&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;errorEventDefinition</span> <span style="color:#a6e22e">errorRef=</span><span style="color:#e6db74">&#34;myException&#34;</span> <span style="color:#a6e22e">camunda:errorCodeVariable=</span><span style="color:#e6db74">&#34;myErrorVariable&#34;</span>
-</span></span><span style="display:flex;"><span>  		  <span style="color:#a6e22e">camunda:errorMessageVariable=</span><span style="color:#e6db74">&#34;myErrorMessageVariable&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/startEvent&gt;</span>
-</span></span><span style="display:flex;"><span>    ...
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/subProcess&gt;</span>
-</span></span><span style="display:flex;"><span>  ...
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/process&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/definitions&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;definitions&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;error</span> <span class="na">id=</span><span class="s">&#34;myException&#34;</span> <span class="na">errorCode=</span><span class="s">&#34;com.company.MyBusinessException&#34;</span> <span class="na">name=</span><span class="s">&#34;myBusinessException&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  ...
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;process&gt;</span>
+</span></span><span class="line"><span class="cl">    ...
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;subProcess</span> <span class="na">id=</span><span class="s">&#34;SubProcess_1&#34;</span> <span class="na">triggeredByEvent=</span><span class="s">&#34;true&#34;</span><span class="nt">&gt;</span>&gt;
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;startEvent</span> <span class="na">id=</span><span class="s">&#34;myErrorStartEvent&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;errorEventDefinition</span> <span class="na">errorRef=</span><span class="s">&#34;myException&#34;</span> <span class="na">camunda:errorCodeVariable=</span><span class="s">&#34;myErrorVariable&#34;</span>
+</span></span><span class="line"><span class="cl">  		  <span class="na">camunda:errorMessageVariable=</span><span class="s">&#34;myErrorMessageVariable&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/startEvent&gt;</span>
+</span></span><span class="line"><span class="cl">    ...
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/subProcess&gt;</span>
+</span></span><span class="line"><span class="cl">  ...
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/process&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/definitions&gt;</span>
 </span></span></code></pre></div><ul>
 <li>If <code>errorRef</code> is omitted, the subprocess will start for every error event that occurs.</li>
 <li>The <code>camunda:errorCodeVariable</code> will contain the error code that was specified with the error.</li>
@@ -3292,20 +3292,20 @@ The referencing error event definition must specify <a href="/manual/1.0/referen
 <p>When an error event is caught, the activity on which the boundary event is defined is destroyed, also destroying all current executions therein (e.g., concurrent activities, nested subprocesses, etc.). Process execution continues following the outgoing sequence flow of the boundary event.</p>
 <div data-bpmn-diagram="../bpmn/event-subprocess-alternative2"></div>
 <p>A error boundary event is defined as a typical boundary event. As with the other error events, the errorRef references an error defined outside of the process element:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;definitions&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;error</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;myError&#34;</span> <span style="color:#a6e22e">errorCode=</span><span style="color:#e6db74">&#34;ERROR-OCCURED&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;name of error&#34;</span><span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- ... --&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;process&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">&lt;!-- ... --&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;subProcess</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;mySubProcess&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#75715e">&lt;!-- ... --&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/subProcess&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;boundaryEvent</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;catchError&#34;</span> <span style="color:#a6e22e">attachedToRef=</span><span style="color:#e6db74">&#34;mySubProcess&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;errorEventDefinition</span> <span style="color:#a6e22e">errorRef=</span><span style="color:#e6db74">&#34;myError&#34;</span> <span style="color:#a6e22e">camunda:errorCodeVariable=</span><span style="color:#e6db74">&#34;myErrorVariable&#34;</span>
-</span></span><span style="display:flex;"><span>	    <span style="color:#a6e22e">camunda:errorMessageVariable=</span><span style="color:#e6db74">&#34;myErrorMessageVariable&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/boundaryEvent&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/process&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/definitions&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;definitions&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;error</span> <span class="na">id=</span><span class="s">&#34;myError&#34;</span> <span class="na">errorCode=</span><span class="s">&#34;ERROR-OCCURED&#34;</span> <span class="na">name=</span><span class="s">&#34;name of error&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="c">&lt;!-- ... --&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;process&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="c">&lt;!-- ... --&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;subProcess</span> <span class="na">id=</span><span class="s">&#34;mySubProcess&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="c">&lt;!-- ... --&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/subProcess&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;boundaryEvent</span> <span class="na">id=</span><span class="s">&#34;catchError&#34;</span> <span class="na">attachedToRef=</span><span class="s">&#34;mySubProcess&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;errorEventDefinition</span> <span class="na">errorRef=</span><span class="s">&#34;myError&#34;</span> <span class="na">camunda:errorCodeVariable=</span><span class="s">&#34;myErrorVariable&#34;</span>
+</span></span><span class="line"><span class="cl">	    <span class="na">camunda:errorMessageVariable=</span><span class="s">&#34;myErrorMessageVariable&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/boundaryEvent&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/process&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/definitions&gt;</span>
 </span></span></code></pre></div><p>The errorCode is used to match the errors that are caught:</p>
 <ul>
 <li>If errorRef is omitted, the error boundary event will catch any error event, regardless of the errorCode of the error.</li>

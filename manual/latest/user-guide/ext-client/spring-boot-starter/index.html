@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/latest/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/latest/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/user-guide/ext-client/spring-boot-starter/" />
 </head>
 <body class="">
@@ -3162,11 +3162,11 @@
       <p>Camunda provides a Spring Boot Starter for the External Task Client. This allows you to easily add
 the External Task Client to your Spring Boot application by adding the following Maven dependency to
 your <code>pom.xml</code> file:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;dependency&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;groupId&gt;</span>org.camunda.bpm.springboot<span style="color:#f92672">&lt;/groupId&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;artifactId&gt;</span>camunda-bpm-spring-boot-starter-external-task-client<span style="color:#f92672">&lt;/artifactId&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;version&gt;</span>7.22.0-cibseven<span style="color:#f92672">&lt;/version&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/dependency&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependency&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;groupId&gt;</span>org.camunda.bpm.springboot<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;artifactId&gt;</span>camunda-bpm-spring-boot-starter-external-task-client<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;version&gt;</span>7.22.0-cibseven<span class="nt">&lt;/version&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/dependency&gt;</span>
 </span></span></code></pre></div><p>Please check Camunda <a href="https://github.com/camunda/camunda-bpm-examples/tree/7.22#external-task-client-spring-boot">External Task Client Spring Boot Starter Examples</a>.</p>
 <p>The Client can subscribe to one or more topic names that are defined in your BPMN process model.
 When the execution waits in an External Task, the Client executes your custom business logic.
@@ -3180,64 +3180,64 @@ called <code>ExternalTaskHandler</code>. A subscription is identified by a topic
 reference to the <code>ExternalTaskHandler</code> bean.</p>
 <p>You can subscribe the Client to the topic name <code>creditScoreChecker</code> by defining a bean with the return
 type <code>ExternalTaskHandler</code> and annotate this bean with:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@ExternalTaskSubscription</span>(<span style="color:#e6db74">&#34;creditScoreChecker&#34;</span>)
-</span></span></code></pre></div><p>The annotation requires at least the topic name. However, you can apply more configuration options by
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@ExternalTaskSubscription</span><span class="p">(</span><span class="s">&#34;creditScoreChecker&#34;</span><span class="p">)</span><span class="w">
+</span></span></span></code></pre></div><p>The annotation requires at least the topic name. However, you can apply more configuration options by
 either referencing the topic name in your <code>application.yml</code> file:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">camunda.bpm.client</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">base-url</span>: <span style="color:#ae81ff">http://localhost:8080/engine-rest</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">subscriptions</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">creditScoreChecker</span>:
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">process-definition-key</span>: <span style="color:#ae81ff">loan_process</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">include-extension-properties</span>: <span style="color:#66d9ef">true</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">variable-names</span>: <span style="color:#ae81ff">defaultScore</span>
-</span></span></code></pre></div><p>Or, by defining configuration attributes in the annotation:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@ExternalTaskSubscription</span>(
-</span></span><span style="display:flex;"><span>  topicName <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;creditScoreChecker&#34;</span>,
-</span></span><span style="display:flex;"><span>  processDefinitionKey <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;loan_process&#34;</span>,
-</span></span><span style="display:flex;"><span>  includeExtensionProperties <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>,
-</span></span><span style="display:flex;"><span>  variableNames <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;defaultScore&#34;</span>
-</span></span><span style="display:flex;"><span>)
-</span></span></code></pre></div><p>Please find the complete list of attributes in the
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">camunda.bpm.client</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">base-url</span><span class="p">:</span><span class="w"> </span><span class="l">http://localhost:8080/engine-rest</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">subscriptions</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">creditScoreChecker</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">process-definition-key</span><span class="p">:</span><span class="w"> </span><span class="l">loan_process</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">include-extension-properties</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">variable-names</span><span class="p">:</span><span class="w"> </span><span class="l">defaultScore</span><span class="w">
+</span></span></span></code></pre></div><p>Or, by defining configuration attributes in the annotation:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@ExternalTaskSubscription</span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">topicName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;creditScoreChecker&#34;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">processDefinitionKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;loan_process&#34;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">includeExtensionProperties</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">variableNames</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;defaultScore&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w">
+</span></span></span></code></pre></div><p>Please find the complete list of attributes in the
 <a href="/javadoc/cibseven/1.0/org/camunda/bpm/client/spring/annotation/ExternalTaskSubscription.html">Javadocs</a>
 .</p>
 <p><strong>Please Note:</strong> A property defined in the <code>application.yml</code> file always overrides the respective attribute defined programmatically via annotation.</p>
 <h3 id="handler-configuration-example">Handler Configuration Example</h3>
 <p>Please consider the following complete handler bean example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Configuration</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@ExternalTaskSubscription</span>(<span style="color:#e6db74">&#34;creditScoreChecker&#34;</span>)
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CreditScoreCheckerHandler</span> <span style="color:#66d9ef">implements</span> ExternalTaskHandler {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Override</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">execute</span>(ExternalTask externalTask, 
-</span></span><span style="display:flex;"><span>                      ExternalTaskService externalTaskService) {
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// add your business logic here</span>
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>If you want to define multiple handler beans within one configuration class, you can do it as follows:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Configuration</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">HandlerConfiguration</span> {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Bean</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@ExternalTaskSubscription</span>(<span style="color:#e6db74">&#34;creditScoreChecker&#34;</span>)
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> ExternalTaskHandler <span style="color:#a6e22e">creditScoreCheckerHandler</span>() {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> (externalTask, externalTaskService) <span style="color:#f92672">-&gt;</span> {
-</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// add your business logic here</span>
-</span></span><span style="display:flex;"><span>      externalTaskService.<span style="color:#a6e22e">complete</span>(externalTask);
-</span></span><span style="display:flex;"><span>    };
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Bean</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@ExternalTaskSubscription</span>(<span style="color:#e6db74">&#34;loanGranter&#34;</span>)
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> ExternalTaskHandler <span style="color:#a6e22e">loanGranterHandler</span>() {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> (externalTask, externalTaskService) <span style="color:#f92672">-&gt;</span> {
-</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// add your business logic here</span>
-</span></span><span style="display:flex;"><span>      externalTaskService.<span style="color:#a6e22e">complete</span>(externalTask);
-</span></span><span style="display:flex;"><span>    };
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h3 id="openclose-a-topic-subscription">Open/close a Topic Subscription</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Configuration</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@ExternalTaskSubscription</span><span class="p">(</span><span class="s">&#34;creditScoreChecker&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CreditScoreCheckerHandler</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">ExternalTaskHandler</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@Override</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">execute</span><span class="p">(</span><span class="n">ExternalTask</span><span class="w"> </span><span class="n">externalTask</span><span class="p">,</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">                      </span><span class="n">ExternalTaskService</span><span class="w"> </span><span class="n">externalTaskService</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// add your business logic here</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>If you want to define multiple handler beans within one configuration class, you can do it as follows:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Configuration</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">HandlerConfiguration</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@Bean</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@ExternalTaskSubscription</span><span class="p">(</span><span class="s">&#34;creditScoreChecker&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">ExternalTaskHandler</span><span class="w"> </span><span class="nf">creditScoreCheckerHandler</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">externalTask</span><span class="p">,</span><span class="w"> </span><span class="n">externalTaskService</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c1">// add your business logic here</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="n">externalTaskService</span><span class="p">.</span><span class="na">complete</span><span class="p">(</span><span class="n">externalTask</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">};</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@Bean</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@ExternalTaskSubscription</span><span class="p">(</span><span class="s">&#34;loanGranter&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">ExternalTaskHandler</span><span class="w"> </span><span class="nf">loanGranterHandler</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">externalTask</span><span class="p">,</span><span class="w"> </span><span class="n">externalTaskService</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c1">// add your business logic here</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="n">externalTaskService</span><span class="p">.</span><span class="na">complete</span><span class="p">(</span><span class="n">externalTask</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">};</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h3 id="openclose-a-topic-subscription">Open/close a Topic Subscription</h3>
 <p>When not further configured, a topic subscription is automatically opened when the Spring Boot
 application starts, meaning the Client starts immediately to fetch External Tasks related to the topic name.</p>
 <p>There might be situations in which a topic subscription should not be opened immediately when the
@@ -3247,45 +3247,45 @@ as the subscription has been initialized. The initialization process is triggere
 application is started.</p>
 <p>When the subscription has been initialized, a <code>SubscriptionInitializedEvent</code> is emitted, and the
 topic subscription can be opened or closed:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Configuration</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SubscriptionInitializedListener</span> 
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">implements</span> ApplicationListener<span style="color:#f92672">&lt;</span>SubscriptionInitializedEvent<span style="color:#f92672">&gt;</span> {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Override</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onApplicationEvent</span>(SubscriptionInitializedEvent event) {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    SpringTopicSubscription topicSubscription <span style="color:#f92672">=</span> event.<span style="color:#a6e22e">getSource</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    String topicName <span style="color:#f92672">=</span> topicSubscription.<span style="color:#a6e22e">getTopicName</span>();
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">boolean</span> isOpen <span style="color:#f92672">=</span> topicSubscription.<span style="color:#a6e22e">isOpen</span>();
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#e6db74">&#34;creditScoreChecker&#34;</span>.<span style="color:#a6e22e">equals</span>(topicName)) {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span>isOpen) {
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Start fetching for External Tasks</span>
-</span></span><span style="display:flex;"><span>        topicSubscription.<span style="color:#a6e22e">open</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      } <span style="color:#66d9ef">else</span> {
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Stop fetching for External Tasks</span>
-</span></span><span style="display:flex;"><span>        topicSubscription.<span style="color:#a6e22e">close</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      }
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h2 id="configuration">Configuration</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Configuration</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">SubscriptionInitializedListener</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">implements</span><span class="w"> </span><span class="n">ApplicationListener</span><span class="o">&lt;</span><span class="n">SubscriptionInitializedEvent</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@Override</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onApplicationEvent</span><span class="p">(</span><span class="n">SubscriptionInitializedEvent</span><span class="w"> </span><span class="n">event</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">SpringTopicSubscription</span><span class="w"> </span><span class="n">topicSubscription</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">event</span><span class="p">.</span><span class="na">getSource</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">topicName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">topicSubscription</span><span class="p">.</span><span class="na">getTopicName</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">boolean</span><span class="w"> </span><span class="n">isOpen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">topicSubscription</span><span class="p">.</span><span class="na">isOpen</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="s">&#34;creditScoreChecker&#34;</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">topicName</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">isOpen</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// Start fetching for External Tasks</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">topicSubscription</span><span class="p">.</span><span class="na">open</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// Stop fetching for External Tasks</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">topicSubscription</span><span class="p">.</span><span class="na">close</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h2 id="configuration">Configuration</h2>
 <h3 id="applicationyml-file"><code>application.yml</code> file</h3>
 <p>The central configuration point is the <code>application.yml</code> file.</p>
 <h4 id="client-bootstrapping">Client Bootstrapping</h4>
 <p>Please make sure to configure the properties together with the prefix: <code>camunda.bpm.client</code></p>
 <p>An example configuration could look as follows:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">camunda.bpm.client</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">base-url</span>: <span style="color:#ae81ff">http://localhost:8080/engine-rest</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">worker-id</span>: <span style="color:#ae81ff">spring-boot-worker</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">basic-auth</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">username</span>: <span style="color:#ae81ff">admin</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">password</span>: <span style="color:#ae81ff">admin</span>
-</span></span></code></pre></div><p>Available properties:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">camunda.bpm.client</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">base-url</span><span class="p">:</span><span class="w"> </span><span class="l">http://localhost:8080/engine-rest</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">worker-id</span><span class="p">:</span><span class="w"> </span><span class="l">spring-boot-worker</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">basic-auth</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l">admin</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l">admin</span><span class="w">
+</span></span></span></code></pre></div><p>Available properties:</p>
 <table class="table desc-table">
   <thead>
     <tr>
@@ -3414,16 +3414,16 @@ topic subscription can be opened or closed:</p>
 <h4 id="topic-subscription-1">Topic Subscription</h4>
 <p>The properties for topic subscriptions go under: <code>camunda.bpm.client.subscriptions</code></p>
 <p>The configuration properties can be applied for each topic name as follows:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">camunda.bpm.client</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># ADD CLIENT CONFIGURATION HERE</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">subscriptions</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">creditScoreChecker</span>:
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">process-definition-key</span>: <span style="color:#ae81ff">loan_process</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">include-extension-properties</span>: <span style="color:#66d9ef">true</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">variable-names</span>: <span style="color:#ae81ff">defaultScore</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">loanGranter</span>:
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">process-definition-key</span>: <span style="color:#ae81ff">loan_process</span>
-</span></span></code></pre></div><p>Available properties:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">camunda.bpm.client</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># ADD CLIENT CONFIGURATION HERE</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">subscriptions</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">creditScoreChecker</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">process-definition-key</span><span class="p">:</span><span class="w"> </span><span class="l">loan_process</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">include-extension-properties</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">variable-names</span><span class="p">:</span><span class="w"> </span><span class="l">defaultScore</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">loanGranter</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">process-definition-key</span><span class="p">:</span><span class="w"> </span><span class="l">loan_process</span><span class="w">
+</span></span></span></code></pre></div><p>Available properties:</p>
 <table class="table desc-table">
   <thead>
     <tr>
@@ -3566,63 +3566,63 @@ topic subscription can be opened or closed:</p>
 <h4 id="logging">Logging</h4>
 <p>To log the Client&rsquo;s internal workings, you can set the level of the logger <code>org.camunda.bpm.client.spring</code> to <code>DEBUG</code>.</p>
 <p>You can set the log level in your <code>application.yml</code> file as follows:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">logging.level.org.camunda.bpm.client.spring</span>: <span style="color:#ae81ff">DEBUG</span>
-</span></span></code></pre></div><p>For debugging, it might be helpful to increase the level of the logger <code>org.camunda.bpm.client</code> as well.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">logging.level.org.camunda.bpm.client.spring</span><span class="p">:</span><span class="w"> </span><span class="l">DEBUG</span><span class="w">
+</span></span></span></code></pre></div><p>For debugging, it might be helpful to increase the level of the logger <code>org.camunda.bpm.client</code> as well.</p>
 <h3 id="request-interceptor">Request Interceptor</h3>
 <p>A request interceptor is called whenever the Client performs an HTTP request. You can use this
 extension point, for example, to implement a custom authentication strategy like OAuth 2.0.</p>
 <p>You can register one or more request interceptors by defining beans of type <code>ClientRequestInterceptor</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Configuration</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">RequestInterceptorConfiguration</span> <span style="color:#66d9ef">implements</span> ClientRequestInterceptor {
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// ...</span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h3 id="backoff-strategy">Backoff Strategy</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Configuration</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">RequestInterceptorConfiguration</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">ClientRequestInterceptor</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c1">// ...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h3 id="backoff-strategy">Backoff Strategy</h3>
 <p>By default, the Client uses an exponential backoff strategy. You can replace it with a custom strategy
 by defining a bean of type <code>BackoffStrategy</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Configuration</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BackoffStrategyConfiguration</span> <span style="color:#66d9ef">implements</span> BackoffStrategy {
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// ...</span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h3 id="resolving-properties">Resolving Properties</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Configuration</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">BackoffStrategyConfiguration</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">BackoffStrategy</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c1">// ...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h3 id="resolving-properties">Resolving Properties</h3>
 <p>String-based Client configuration properties can be resolved from a custom properties file by
 defining a bean of type <code>PropertySourcesPlaceholderConfigurer</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Configuration</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PropertyPlaceholderConfiguration</span> 
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">extends</span> PropertySourcesPlaceholderConfigurer {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">PropertyPlaceholderConfiguration</span>() {
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Specify the *.properties file name that contains the property placeholders</span>
-</span></span><span style="display:flex;"><span>    Resource location <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ClassPathResource(<span style="color:#e6db74">&#34;client.properties&#34;</span>);
-</span></span><span style="display:flex;"><span>    setLocation(location);
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>When using the example shown above, the Client tries to resolve string-based properties from a
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Configuration</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">PropertyPlaceholderConfiguration</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">extends</span><span class="w"> </span><span class="n">PropertySourcesPlaceholderConfigurer</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="nf">PropertyPlaceholderConfiguration</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// Specify the *.properties file name that contains the property placeholders</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">Resource</span><span class="w"> </span><span class="n">location</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ClassPathResource</span><span class="p">(</span><span class="s">&#34;client.properties&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">setLocation</span><span class="p">(</span><span class="n">location</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>When using the example shown above, the Client tries to resolve string-based properties from a
 <code>client.properties</code> file as follows:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#a6e22e">client.baseUrl</span><span style="color:#f92672">=</span><span style="color:#e6db74">http://localhost:8080/engine-rest</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">client.workerId</span><span style="color:#f92672">=</span><span style="color:#e6db74">spring-boot-worker</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">client.dateFormat</span><span style="color:#f92672">=</span><span style="color:#e6db74">yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">client.serializationFormat</span><span style="color:#f92672">=</span><span style="color:#e6db74">application/json</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-properties" data-lang="properties"><span class="line"><span class="cl"><span class="na">client.baseUrl</span><span class="o">=</span><span class="s">http://localhost:8080/engine-rest</span>
+</span></span><span class="line"><span class="cl"><span class="na">client.workerId</span><span class="o">=</span><span class="s">spring-boot-worker</span>
+</span></span><span class="line"><span class="cl"><span class="na">client.dateFormat</span><span class="o">=</span><span class="s">yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ</span>
+</span></span><span class="line"><span class="cl"><span class="na">client.serializationFormat</span><span class="o">=</span><span class="s">application/json</span>
 </span></span></code></pre></div><p>Make sure to reference the respective placeholders defined above in your <code>application.yml</code> file:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">camunda.bpm.client</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">base-url</span>: <span style="color:#ae81ff">${client.baseUrl}</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">worker-id</span>: <span style="color:#ae81ff">${client.workerId}</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">date-format</span>: <span style="color:#ae81ff">${client.dateFormat}</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">default-serialization-format</span>: <span style="color:#ae81ff">${client.serializationFormat}</span>
-</span></span></code></pre></div><h3 id="custom-client">Custom Client</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">camunda.bpm.client</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">base-url</span><span class="p">:</span><span class="w"> </span><span class="l">${client.baseUrl}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">worker-id</span><span class="p">:</span><span class="w"> </span><span class="l">${client.workerId}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">date-format</span><span class="p">:</span><span class="w"> </span><span class="l">${client.dateFormat}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">default-serialization-format</span><span class="p">:</span><span class="w"> </span><span class="l">${client.serializationFormat}</span><span class="w">
+</span></span></span></code></pre></div><h3 id="custom-client">Custom Client</h3>
 <p>You can bootstrap the Client programmatically, which skips the internal creation of the Client:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Configuration</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CustomClientConfiguration</span> { 
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Bean</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> ExternalTaskClient <span style="color:#a6e22e">customClient</span>() {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> ExternalTaskClient.<span style="color:#a6e22e">create</span>()
-</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">baseUrl</span>(<span style="color:#e6db74">&#34;http://localhost:8080/engine-rest&#34;</span>)
-</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">build</span>();
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h2 id="beans">Beans</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Configuration</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CustomClientConfiguration</span><span class="w"> </span><span class="p">{</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@Bean</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">ExternalTaskClient</span><span class="w"> </span><span class="nf">customClient</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">ExternalTaskClient</span><span class="p">.</span><span class="na">create</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="na">baseUrl</span><span class="p">(</span><span class="s">&#34;http://localhost:8080/engine-rest&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h2 id="beans">Beans</h2>
 <p>You can define handler beans, but more beans are defined internally, and they are beyond your control.
 However, these beans can be accessed via auto wiring.</p>
 <h3 id="client-bean">Client Bean</h3>
@@ -3633,21 +3633,21 @@ However, these beans can be accessed via auto wiring.</p>
 <code>SpringTopicSubscription</code> is constructed. The bean name is composed of:</p>
 <pre tabindex="0"><code>handler bean name + &#34;Subscription&#34;
 </code></pre><p>For instance, the following handler bean definition:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Bean</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@ExternalTaskSubscription</span>(<span style="color:#e6db74">&#34;creditScoreChecker&#34;</span>)
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> ExternalTaskHandler <span style="color:#a6e22e">creditScoreCheckerHandler</span>() {
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// ...</span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>Will result in the subscription bean name:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Bean</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@ExternalTaskSubscription</span><span class="p">(</span><span class="s">&#34;creditScoreChecker&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="n">ExternalTaskHandler</span><span class="w"> </span><span class="nf">creditScoreCheckerHandler</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c1">// ...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>Will result in the subscription bean name:</p>
 <pre tabindex="0"><code>creditScoreCheckerHandlerSubscription
 </code></pre><h2 id="spring-only-module">Spring-only Module</h2>
 <p>If you want to use Spring instead of Spring Boot, you can add the following Maven dependency
 to your <code>pom.xml</code> file:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;dependency&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;groupId&gt;</span>org.camunda.bpm<span style="color:#f92672">&lt;/groupId&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;artifactId&gt;</span>camunda-external-task-client-spring<span style="color:#f92672">&lt;/artifactId&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;version&gt;</span>7.22.0-cibseven<span style="color:#f92672">&lt;/version&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/dependency&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependency&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;groupId&gt;</span>org.camunda.bpm<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;artifactId&gt;</span>camunda-external-task-client-spring<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;version&gt;</span>7.22.0-cibseven<span class="nt">&lt;/version&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/dependency&gt;</span>
 </span></span></code></pre></div><p>To bootstrap the Client, use the class annotation <code>@EnableExternalTaskClient</code>. You can find all
 configuration attributes in the
 <a href="/javadoc/cibseven/1.0/org/camunda/bpm/client/spring/annotation/EnableExternalTaskClient.html">Javadocs</a>

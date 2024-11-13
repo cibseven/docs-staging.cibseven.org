@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/1.0/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/1.0/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/user-guide/model-api/bpmn-model-api/read-a-model/" />
 </head>
 <body class="">
@@ -3161,85 +3161,85 @@
     <div class="col-xs-12 content-text">
       <p>If you already created a BPMN model and want to process it through the BPMN model API, you can import it with the
 following methods.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// read a model from a file</span>
-</span></span><span style="display:flex;"><span>File file <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> File(<span style="color:#e6db74">&#34;PATH/TO/MODEL.bpmn&#34;</span>);
-</span></span><span style="display:flex;"><span>BpmnModelInstance modelInstance <span style="color:#f92672">=</span> Bpmn.<span style="color:#a6e22e">readModelFromFile</span>(file);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// read a model from a stream</span>
-</span></span><span style="display:flex;"><span>InputStream stream <span style="color:#f92672">=</span> <span style="color:#f92672">[</span>...<span style="color:#f92672">]</span>
-</span></span><span style="display:flex;"><span>BpmnModelInstance modelInstance <span style="color:#f92672">=</span> Bpmn.<span style="color:#a6e22e">readModelFromStream</span>(stream);
-</span></span></code></pre></div><p>After you imported your model you can search for elements by their id or by the type of element.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// find element instance by ID</span>
-</span></span><span style="display:flex;"><span>StartEvent start <span style="color:#f92672">=</span> (StartEvent) modelInstance.<span style="color:#a6e22e">getModelElementById</span>(<span style="color:#e6db74">&#34;start&#34;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// find all elements of the type task</span>
-</span></span><span style="display:flex;"><span>ModelElementType taskType <span style="color:#f92672">=</span> modelInstance.<span style="color:#a6e22e">getModel</span>().<span style="color:#a6e22e">getType</span>(Task.<span style="color:#a6e22e">class</span>);
-</span></span><span style="display:flex;"><span>Collection<span style="color:#f92672">&lt;</span>ModelElementInstance<span style="color:#f92672">&gt;</span> taskInstances <span style="color:#f92672">=</span> modelInstance.<span style="color:#a6e22e">getModelElementsByType</span>(taskType);
-</span></span></code></pre></div><p>For every element instance you can now read and edit the attribute values. You can do this by either using the provided
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// read a model from a file</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">File</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="s">&#34;PATH/TO/MODEL.bpmn&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">BpmnModelInstance</span><span class="w"> </span><span class="n">modelInstance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Bpmn</span><span class="p">.</span><span class="na">readModelFromFile</span><span class="p">(</span><span class="n">file</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// read a model from a stream</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">InputStream</span><span class="w"> </span><span class="n">stream</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="p">...</span><span class="o">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">BpmnModelInstance</span><span class="w"> </span><span class="n">modelInstance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Bpmn</span><span class="p">.</span><span class="na">readModelFromStream</span><span class="p">(</span><span class="n">stream</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><p>After you imported your model you can search for elements by their id or by the type of element.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// find element instance by ID</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">StartEvent</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">StartEvent</span><span class="p">)</span><span class="w"> </span><span class="n">modelInstance</span><span class="p">.</span><span class="na">getModelElementById</span><span class="p">(</span><span class="s">&#34;start&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// find all elements of the type task</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">ModelElementType</span><span class="w"> </span><span class="n">taskType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">modelInstance</span><span class="p">.</span><span class="na">getModel</span><span class="p">().</span><span class="na">getType</span><span class="p">(</span><span class="n">Task</span><span class="p">.</span><span class="na">class</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Collection</span><span class="o">&lt;</span><span class="n">ModelElementInstance</span><span class="o">&gt;</span><span class="w"> </span><span class="n">taskInstances</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">modelInstance</span><span class="p">.</span><span class="na">getModelElementsByType</span><span class="p">(</span><span class="n">taskType</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><p>For every element instance you can now read and edit the attribute values. You can do this by either using the provided
 helper methods or the generic XML model API. If you added custom attributes to the BPMN elements, you can
 always access them with the generic XML model API.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>StartEvent start <span style="color:#f92672">=</span> (StartEvent) modelInstance.<span style="color:#a6e22e">getModelElementById</span>(<span style="color:#e6db74">&#34;start&#34;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// read attributes by helper methods</span>
-</span></span><span style="display:flex;"><span>String id <span style="color:#f92672">=</span> start.<span style="color:#a6e22e">getId</span>();
-</span></span><span style="display:flex;"><span>String name <span style="color:#f92672">=</span> start.<span style="color:#a6e22e">getName</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// edit attributes by helper methods</span>
-</span></span><span style="display:flex;"><span>start.<span style="color:#a6e22e">setId</span>(<span style="color:#e6db74">&#34;new-id&#34;</span>);
-</span></span><span style="display:flex;"><span>start.<span style="color:#a6e22e">setName</span>(<span style="color:#e6db74">&#34;new name&#34;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// read attributes by generic XML model API (with optional namespace)</span>
-</span></span><span style="display:flex;"><span>String custom1 <span style="color:#f92672">=</span> start.<span style="color:#a6e22e">getAttributeValue</span>(<span style="color:#e6db74">&#34;custom-attribute&#34;</span>);
-</span></span><span style="display:flex;"><span>String custom2 <span style="color:#f92672">=</span> start.<span style="color:#a6e22e">getAttributeValueNs</span>(<span style="color:#e6db74">&#34;custom-attribute-2&#34;</span>, <span style="color:#e6db74">&#34;http://camunda.org/custom&#34;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// edit attributes by generic XML model API (with optional namespace)</span>
-</span></span><span style="display:flex;"><span>start.<span style="color:#a6e22e">setAttributeValue</span>(<span style="color:#e6db74">&#34;custom-attribute&#34;</span>, <span style="color:#e6db74">&#34;new value&#34;</span>);
-</span></span><span style="display:flex;"><span>start.<span style="color:#a6e22e">setAttributeValueNs</span>(<span style="color:#e6db74">&#34;custom-attribute&#34;</span>, <span style="color:#e6db74">&#34;http://camunda.org/custom&#34;</span>, <span style="color:#e6db74">&#34;new value&#34;</span>);
-</span></span></code></pre></div><p>You can also access the child elements of an element or references to other elements. For example, a sequence flow
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">StartEvent</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">StartEvent</span><span class="p">)</span><span class="w"> </span><span class="n">modelInstance</span><span class="p">.</span><span class="na">getModelElementById</span><span class="p">(</span><span class="s">&#34;start&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// read attributes by helper methods</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">String</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">start</span><span class="p">.</span><span class="na">getId</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">start</span><span class="p">.</span><span class="na">getName</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// edit attributes by helper methods</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">start</span><span class="p">.</span><span class="na">setId</span><span class="p">(</span><span class="s">&#34;new-id&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">start</span><span class="p">.</span><span class="na">setName</span><span class="p">(</span><span class="s">&#34;new name&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// read attributes by generic XML model API (with optional namespace)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">String</span><span class="w"> </span><span class="n">custom1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">start</span><span class="p">.</span><span class="na">getAttributeValue</span><span class="p">(</span><span class="s">&#34;custom-attribute&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">String</span><span class="w"> </span><span class="n">custom2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">start</span><span class="p">.</span><span class="na">getAttributeValueNs</span><span class="p">(</span><span class="s">&#34;custom-attribute-2&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;http://camunda.org/custom&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// edit attributes by generic XML model API (with optional namespace)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">start</span><span class="p">.</span><span class="na">setAttributeValue</span><span class="p">(</span><span class="s">&#34;custom-attribute&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;new value&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">start</span><span class="p">.</span><span class="na">setAttributeValueNs</span><span class="p">(</span><span class="s">&#34;custom-attribute&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;http://camunda.org/custom&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;new value&#34;</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><p>You can also access the child elements of an element or references to other elements. For example, a sequence flow
 references a source and a target element while a flow node (like start event, tasks, etc.) has child elements
 for incoming and outgoing sequence flows.</p>
 <p>For example, the following BPMN model was created by the BPMN model API as an example for a simple process.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34; standalone=&#34;no&#34;?&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;definitions</span> <span style="color:#a6e22e">targetNamespace=</span><span style="color:#e6db74">&#34;http://camunda.org/examples&#34;</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://www.omg.org/spec/BPMN/20100524/MODEL&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;process</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;process-with-one-task&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;startEvent</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;start&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;outgoing&gt;</span>start-task1<span style="color:#f92672">&lt;/outgoing&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/startEvent&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;userTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;task1&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;incoming&gt;</span>start-task1<span style="color:#f92672">&lt;/incoming&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;outgoing&gt;</span>task1-end<span style="color:#f92672">&lt;/outgoing&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/userTask&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;endEvent</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;end&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;incoming&gt;</span>task1-end<span style="color:#f92672">&lt;/incoming&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/endEvent&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;sequenceFlow</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;start-task1&#34;</span> <span style="color:#a6e22e">sourceRef=</span><span style="color:#e6db74">&#34;start&#34;</span> <span style="color:#a6e22e">targetRef=</span><span style="color:#e6db74">&#34;task1&#34;</span><span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;sequenceFlow</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;task1-end&#34;</span> <span style="color:#a6e22e">sourceRef=</span><span style="color:#e6db74">&#34;task1&#34;</span> <span style="color:#a6e22e">targetRef=</span><span style="color:#e6db74">&#34;end&#34;</span><span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/process&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/definitions&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34; standalone=&#34;no&#34;?&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;definitions</span> <span class="na">targetNamespace=</span><span class="s">&#34;http://camunda.org/examples&#34;</span> <span class="na">xmlns=</span><span class="s">&#34;http://www.omg.org/spec/BPMN/20100524/MODEL&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;process</span> <span class="na">id=</span><span class="s">&#34;process-with-one-task&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;startEvent</span> <span class="na">id=</span><span class="s">&#34;start&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;outgoing&gt;</span>start-task1<span class="nt">&lt;/outgoing&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/startEvent&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;userTask</span> <span class="na">id=</span><span class="s">&#34;task1&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;incoming&gt;</span>start-task1<span class="nt">&lt;/incoming&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;outgoing&gt;</span>task1-end<span class="nt">&lt;/outgoing&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/userTask&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;endEvent</span> <span class="na">id=</span><span class="s">&#34;end&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;incoming&gt;</span>task1-end<span class="nt">&lt;/incoming&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/endEvent&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;sequenceFlow</span> <span class="na">id=</span><span class="s">&#34;start-task1&#34;</span> <span class="na">sourceRef=</span><span class="s">&#34;start&#34;</span> <span class="na">targetRef=</span><span class="s">&#34;task1&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;sequenceFlow</span> <span class="na">id=</span><span class="s">&#34;task1-end&#34;</span> <span class="na">sourceRef=</span><span class="s">&#34;task1&#34;</span> <span class="na">targetRef=</span><span class="s">&#34;end&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/process&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/definitions&gt;</span>
 </span></span></code></pre></div><p>You can now use the BPMN model API to get the source and target flow node of the sequence flow with the ID <em>start-task1</em>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// read bpmn model from file</span>
-</span></span><span style="display:flex;"><span>BpmnModelInstance modelInstance <span style="color:#f92672">=</span> Bpmn.<span style="color:#a6e22e">readModelFromFile</span>(<span style="color:#66d9ef">new</span> File(<span style="color:#e6db74">&#34;/PATH/TO/MODEL.bpmn&#34;</span>));
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// find sequence flow by id</span>
-</span></span><span style="display:flex;"><span>SequenceFlow sequenceFlow <span style="color:#f92672">=</span> (SequenceFlow) modelInstance.<span style="color:#a6e22e">getModelElementById</span>(<span style="color:#e6db74">&#34;start-task1&#34;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// get the source and target element</span>
-</span></span><span style="display:flex;"><span>FlowNode source <span style="color:#f92672">=</span> sequenceFlow.<span style="color:#a6e22e">getSource</span>();
-</span></span><span style="display:flex;"><span>FlowNode target <span style="color:#f92672">=</span> sequenceFlow.<span style="color:#a6e22e">getTarget</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// get all outgoing sequence flows of the source</span>
-</span></span><span style="display:flex;"><span>Collection<span style="color:#f92672">&lt;</span>SequenceFlow<span style="color:#f92672">&gt;</span> outgoing <span style="color:#f92672">=</span> source.<span style="color:#a6e22e">getOutgoing</span>();
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">assert</span>(outgoing.<span style="color:#a6e22e">contains</span>(sequenceFlow));
-</span></span></code></pre></div><p>With these references you can easily create helper methods for different use cases. For example, if you want to
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// read bpmn model from file</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">BpmnModelInstance</span><span class="w"> </span><span class="n">modelInstance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Bpmn</span><span class="p">.</span><span class="na">readModelFromFile</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="s">&#34;/PATH/TO/MODEL.bpmn&#34;</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// find sequence flow by id</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">SequenceFlow</span><span class="w"> </span><span class="n">sequenceFlow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">SequenceFlow</span><span class="p">)</span><span class="w"> </span><span class="n">modelInstance</span><span class="p">.</span><span class="na">getModelElementById</span><span class="p">(</span><span class="s">&#34;start-task1&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// get the source and target element</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">FlowNode</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sequenceFlow</span><span class="p">.</span><span class="na">getSource</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">FlowNode</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sequenceFlow</span><span class="p">.</span><span class="na">getTarget</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// get all outgoing sequence flows of the source</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Collection</span><span class="o">&lt;</span><span class="n">SequenceFlow</span><span class="o">&gt;</span><span class="w"> </span><span class="n">outgoing</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">source</span><span class="p">.</span><span class="na">getOutgoing</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">assert</span><span class="p">(</span><span class="n">outgoing</span><span class="p">.</span><span class="na">contains</span><span class="p">(</span><span class="n">sequenceFlow</span><span class="p">));</span><span class="w">
+</span></span></span></code></pre></div><p>With these references you can easily create helper methods for different use cases. For example, if you want to
 find the following flow nodes of a task or a gateway you can use a helper method like the following.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> Collection<span style="color:#f92672">&lt;</span>FlowNode<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getFlowingFlowNodes</span>(FlowNode node) {
-</span></span><span style="display:flex;"><span>  Collection<span style="color:#f92672">&lt;</span>FlowNode<span style="color:#f92672">&gt;</span> followingFlowNodes <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;</span>FlowNode<span style="color:#f92672">&gt;</span>();
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span> (SequenceFlow sequenceFlow : node.<span style="color:#a6e22e">getOutgoing</span>()) {
-</span></span><span style="display:flex;"><span>    followingFlowNodes.<span style="color:#a6e22e">add</span>(sequenceFlow.<span style="color:#a6e22e">getTarget</span>());
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> followingFlowNodes;
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="n">Collection</span><span class="o">&lt;</span><span class="n">FlowNode</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getFlowingFlowNodes</span><span class="p">(</span><span class="n">FlowNode</span><span class="w"> </span><span class="n">node</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">Collection</span><span class="o">&lt;</span><span class="n">FlowNode</span><span class="o">&gt;</span><span class="w"> </span><span class="n">followingFlowNodes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">FlowNode</span><span class="o">&gt;</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">SequenceFlow</span><span class="w"> </span><span class="n">sequenceFlow</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="na">getOutgoing</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">followingFlowNodes</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">sequenceFlow</span><span class="p">.</span><span class="na">getTarget</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">followingFlowNodes</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div>
     </div>
   </div>
 </div>

@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/1.0/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/1.0/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/user-guide/process-engine/deployment-cache/" />
 </head>
 <body class="">
@@ -3171,37 +3171,37 @@
 <li>Decision requirements definition</li>
 </ul>
 <p>In the process engine configuration one can specify the maximum capacity of the cache. The default value is <em>1000</em>. When the process engine is created, this property will be set and all resources will be scanned and deployed accordingly. As an example the maximum capacity could be set to <em>120</em> as follows:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;processEngineConfiguration&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;org.camunda.bpm.engine.impl.cfg.StandaloneInMemProcessEngineConfiguration&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">&lt;!-- Your property definitions! --&gt;</span>
-</span></span><span style="display:flex;"><span>					....
-</span></span><span style="display:flex;"><span>					
-</span></span><span style="display:flex;"><span>	<span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;cacheCapacity&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;120&#34;</span> <span style="color:#f92672">/&gt;</span>  
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/bean&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;processEngineConfiguration&#34;</span> <span class="na">class=</span><span class="s">&#34;org.camunda.bpm.engine.impl.cfg.StandaloneInMemProcessEngineConfiguration&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">	<span class="c">&lt;!-- Your property definitions! --&gt;</span>
+</span></span><span class="line"><span class="cl">					....
+</span></span><span class="line"><span class="cl">					
+</span></span><span class="line"><span class="cl">	<span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;cacheCapacity&#34;</span> <span class="na">value=</span><span class="s">&#34;120&#34;</span> <span class="nt">/&gt;</span>  
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/bean&gt;</span>
 </span></span></code></pre></div><p><strong>Note:</strong> The same capacity is used for all of the components stated above and it is not possible to set the capacity size individually for each component. Furthermore, in the default cache implementation corresponds the capacity size to the maximum number of elements in the cache that are used. That means, the absolute amount of physical storage (e.g. mega bytes) you use up depends on the size needed for the respective process definitions.</p>
 <h1 id="provide-a-custom-cache-implementation">Provide a custom Cache Implementation</h1>
 <p>The default implementation of the cache evicts the least recently used entry as soon as the maximum capacity is exceeded. If it is necessary to choose the evicted cache entries by a different criteria, one can provide its own cache implementation.</p>
 <p>One can do this by implementing the Cache interface from <em>org.camunda.util.commons package</em>. Let&rsquo;s assume for example that the following class has been implemented:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyCacheImplementation</span><span style="color:#f92672">&lt;</span>K, V<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">implements</span> Cache<span style="color:#f92672">&lt;</span>K, V<span style="color:#f92672">&gt;</span> {
-</span></span><span style="display:flex;"><span>	
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// implement interface methods and your own cache logic here</span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>Next, one need to plug in <em>MyCacheImplementation</em> into a custom <em>CacheFactory</em>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyCacheFactory</span> <span style="color:#66d9ef">extends</span> CacheFactory {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Override</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;</span> Cache<span style="color:#f92672">&lt;</span>String, T<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">createCache</span>(<span style="color:#66d9ef">int</span> maxNumberOfElementsInCache) {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> MyCacheImplementation<span style="color:#f92672">&lt;</span>String, T<span style="color:#f92672">&gt;</span>(maxNumberOfElementsInCache);
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>The factory is used to provide the cache implementation for different cache components such as the process definition or the case definition. Once this is done, one can use the process engine configuration where one can specify a set of resources. When the process engine is created, all those resources will be scanned and deployed. In the given example the custom cache factory could now be deployed as follows:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;processEngineConfiguration&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;org.camunda.bpm.engine.impl.cfg.StandaloneInMemProcessEngineConfiguration&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">&lt;!-- Your property definitions! --&gt;</span>
-</span></span><span style="display:flex;"><span>					....
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;cacheFactory&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>			<span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;org.camunda.bpm.engine.test.api.cfg.MyCacheFactory&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#f92672">&lt;/property&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/bean&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyCacheImplementation</span><span class="o">&lt;</span><span class="n">K</span><span class="p">,</span><span class="w"> </span><span class="n">V</span><span class="o">&gt;</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Cache</span><span class="o">&lt;</span><span class="n">K</span><span class="p">,</span><span class="w"> </span><span class="n">V</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="c1">// implement interface methods and your own cache logic here</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>Next, one need to plug in <em>MyCacheImplementation</em> into a custom <em>CacheFactory</em>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyCacheFactory</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">CacheFactory</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@Override</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Cache</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">createCache</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">maxNumberOfElementsInCache</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MyCacheImplementation</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">maxNumberOfElementsInCache</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>The factory is used to provide the cache implementation for different cache components such as the process definition or the case definition. Once this is done, one can use the process engine configuration where one can specify a set of resources. When the process engine is created, all those resources will be scanned and deployed. In the given example the custom cache factory could now be deployed as follows:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;processEngineConfiguration&#34;</span> <span class="na">class=</span><span class="s">&#34;org.camunda.bpm.engine.impl.cfg.StandaloneInMemProcessEngineConfiguration&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">	<span class="c">&lt;!-- Your property definitions! --&gt;</span>
+</span></span><span class="line"><span class="cl">					....
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;cacheFactory&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">			<span class="nt">&lt;bean</span> <span class="na">class=</span><span class="s">&#34;org.camunda.bpm.engine.test.api.cfg.MyCacheFactory&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">	<span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/bean&gt;</span>
 </span></span></code></pre></div>
     </div>
   </div>

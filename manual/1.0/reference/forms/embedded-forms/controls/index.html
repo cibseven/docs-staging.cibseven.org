@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/1.0/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/1.0/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/reference/forms/embedded-forms/controls/" />
 </head>
 <body class="">
@@ -3169,47 +3169,47 @@ These directives work on most of the HTML controls and allow users to declarativ
 
 <h1 id="the-cam-variable-name-directive">The <code>cam-variable-name</code> Directive</h1>
 <p>The <code>cam-variable-name</code> directive allows providing the name of a process / task / case variable. If the directive is discovered on an HTML control, the value of the variable is fetched from the server and written to the control.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span>
-</span></span><span style="display:flex;"><span>       <span style="color:#a6e22e">cam-variable-name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;CUSTOMER_ID&#34;</span>&gt;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span>
+</span></span><span class="line"><span class="cl">       <span class="na">cam-variable-name</span><span class="o">=</span><span class="s">&#34;CUSTOMER_ID&#34;</span><span class="p">&gt;</span>
 </span></span></code></pre></div><h1 id="the-cam-business-key-directive">The <code>cam-business-key</code> Directive</h1>
 <p>The <code>cam-business-key</code> is aimed to be used on a free text input field in order to define a businessKey at the <a href="/manual/1.0/reference/rest/specification/#tag/Process-Definition/operation/submitForm">start of a process</a>.
 This attribute is only relevant when the form is aimed to start a process.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span>
-</span></span><span style="display:flex;"><span>       <span style="color:#a6e22e">cam-business-key</span>&gt;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span>
+</span></span><span class="line"><span class="cl">       <span class="na">cam-business-key</span><span class="p">&gt;</span>
 </span></span></code></pre></div><p>See also: <a href="/manual/1.0/reference/forms/embedded-forms/javascript/generating-businesskey/">Setting the business key using Javascript</a></p>
 <h2 id="angularjs-support-and-cam-variable-name">AngularJS support and <code>cam-variable-name</code></h2>
 <p>If you use the AngularJS integration, the <code>cam-variable-name</code> directive will automatically bind the input to the model in case no binding is provided by the user.</p>
 <p>The following two markup examples have the same semantics:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span>
-</span></span><span style="display:flex;"><span>       <span style="color:#a6e22e">cam-variable-name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;CUSTOMER_ID&#34;</span>&gt;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span>
+</span></span><span class="line"><span class="cl">       <span class="na">cam-variable-name</span><span class="o">=</span><span class="s">&#34;CUSTOMER_ID&#34;</span><span class="p">&gt;</span>
 </span></span></code></pre></div><p>is the same as</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span>
-</span></span><span style="display:flex;"><span>       <span style="color:#a6e22e">cam-variable-name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;CUSTOMER_ID&#34;</span>
-</span></span><span style="display:flex;"><span>       <span style="color:#a6e22e">ng-model</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;CUSTOMER_ID&#34;</span>&gt;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span>
+</span></span><span class="line"><span class="cl">       <span class="na">cam-variable-name</span><span class="o">=</span><span class="s">&#34;CUSTOMER_ID&#34;</span>
+</span></span><span class="line"><span class="cl">       <span class="na">ng-model</span><span class="o">=</span><span class="s">&#34;CUSTOMER_ID&#34;</span><span class="p">&gt;</span>
 </span></span></code></pre></div><p>If the user provides a customer <code>ng-model</code> binding, it is respected:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span>
-</span></span><span style="display:flex;"><span>       <span style="color:#a6e22e">cam-variable-name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;CUSTOMER_ID&#34;</span>
-</span></span><span style="display:flex;"><span>       <span style="color:#a6e22e">ng-model</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;customerId&#34;</span>&gt;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Current value: {{customerId}}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span>
+</span></span><span class="line"><span class="cl">       <span class="na">cam-variable-name</span><span class="o">=</span><span class="s">&#34;CUSTOMER_ID&#34;</span>
+</span></span><span class="line"><span class="cl">       <span class="na">ng-model</span><span class="o">=</span><span class="s">&#34;customerId&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Current value: {{customerId}}
 </span></span></code></pre></div><h1 id="the-cam-variable-type-directive">The <code>cam-variable-type</code> Directive</h1>
 <p>The <code>cam-variable-type</code> directive allows specifying the type of a process / task / case variable. This is required if the variable does not yet exist.</p>
 <p>The following markup creates a text input field bound to a variable of type <code>Double</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span>
-</span></span><span style="display:flex;"><span>       <span style="color:#a6e22e">cam-variable-name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;INVOICE_AMOUNT&#34;</span>
-</span></span><span style="display:flex;"><span>       <span style="color:#a6e22e">cam-variable-type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Double&#34;</span>&gt;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span>
+</span></span><span class="line"><span class="cl">       <span class="na">cam-variable-name</span><span class="o">=</span><span class="s">&#34;INVOICE_AMOUNT&#34;</span>
+</span></span><span class="line"><span class="cl">       <span class="na">cam-variable-type</span><span class="o">=</span><span class="s">&#34;Double&#34;</span><span class="p">&gt;</span>
 </span></span></code></pre></div><h2 id="supported-variable-types">Supported Variable Types</h2>
 <p>See the section on <a href="/manual/1.0/user-guide/process-engine/variables/#supported-variable-values">variable types</a> for a list of variable types which are supported out of the box.</p>
 <h2 id="angularjs-support-and-cam-variable-type">AngularJS Support and <code>cam-variable-type</code></h2>
 <p>The <code>cam-variable-type</code> directive can be used as validation directive:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span>
-</span></span><span style="display:flex;"><span>       <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;invoiceAmount&#34;</span>
-</span></span><span style="display:flex;"><span>       <span style="color:#a6e22e">cam-variable-name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;INVOICE_AMOUNT&#34;</span>
-</span></span><span style="display:flex;"><span>       <span style="color:#a6e22e">cam-variable-type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Double&#34;</span>&gt;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">ng-show</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;myForm.invoiceAmount.$error.camVariableType&#34;</span>&gt;
-</span></span><span style="display:flex;"><span>  Input must be a &#39;Double&#39;.
-</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">span</span>&gt;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span>
+</span></span><span class="line"><span class="cl">       <span class="na">name</span><span class="o">=</span><span class="s">&#34;invoiceAmount&#34;</span>
+</span></span><span class="line"><span class="cl">       <span class="na">cam-variable-name</span><span class="o">=</span><span class="s">&#34;INVOICE_AMOUNT&#34;</span>
+</span></span><span class="line"><span class="cl">       <span class="na">cam-variable-type</span><span class="o">=</span><span class="s">&#34;Double&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">span</span> <span class="na">ng-show</span><span class="o">=</span><span class="s">&#34;myForm.invoiceAmount.$error.camVariableType&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  Input must be a &#39;Double&#39;.
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 </span></span></code></pre></div>
     </div>
   </div>

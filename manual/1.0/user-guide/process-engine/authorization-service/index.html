@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/1.0/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/1.0/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/user-guide/process-engine/authorization-service/" />
 </head>
 <body class="">
@@ -3205,10 +3205,10 @@
 Additionally, the <strong>All</strong> permission will vanish from a user if a single permission is revoked.</p>
 <p>For detailed list of available permissions please check <a href="#permissions-by-resource">Permission by resource</a> section.</p>
 <p>A single authorization object may assign multiple permissions to a single user and resource:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>authorization.<span style="color:#a6e22e">addPermission</span>(Permissions.<span style="color:#a6e22e">READ</span>);
-</span></span><span style="display:flex;"><span>authorization.<span style="color:#a6e22e">addPermission</span>(Permissions.<span style="color:#a6e22e">UPDATE</span>);
-</span></span><span style="display:flex;"><span>authorization.<span style="color:#a6e22e">addPermission</span>(Permissions.<span style="color:#a6e22e">DELETE</span>);
-</span></span></code></pre></div><h2 id="resources">Resources</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">authorization</span><span class="p">.</span><span class="na">addPermission</span><span class="p">(</span><span class="n">Permissions</span><span class="p">.</span><span class="na">READ</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">authorization</span><span class="p">.</span><span class="na">addPermission</span><span class="p">(</span><span class="n">Permissions</span><span class="p">.</span><span class="na">UPDATE</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">authorization</span><span class="p">.</span><span class="na">addPermission</span><span class="p">(</span><span class="n">Permissions</span><span class="p">.</span><span class="na">DELETE</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><h2 id="resources">Resources</h2>
 <p>Resources are the entities the user interacts with.</p>
 <p>The following resources are available:</p>
 <table class="table matrix-table table-condensed table-hover table-bordered">
@@ -3768,7 +3768,7 @@ Out of the box, it can be granted for the following categories (resource ids):</
 instance has been finished. The <a href="/manual/1.0/user-guide/process-engine/history/history-cleanup/#removal-time-based-strategy">Removal-Time-based History Cleanup Strategy</a> removes historic
 permissions at a later point.</p>
 <p>You can enable the permissions with the help of a <a href="/manual/1.0/reference/deployment-descriptors/tags/process-engine/#enable-historic-instance-permissions">process engine configuration flag</a>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;enableHistoricInstancePermissions&#34;</span><span style="color:#f92672">&gt;</span>true<span style="color:#f92672">&lt;/property&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;enableHistoricInstancePermissions&#34;</span><span class="nt">&gt;</span>true<span class="nt">&lt;/property&gt;</span>
 </span></span></code></pre></div><p>The feature is disabled by default because of two reasons:</p>
 <ol>
 <li>When enabled, the SQL queries are more complex because additional authorization checks are performed.
@@ -3965,17 +3965,17 @@ Typically, those people do not need full access to the system like an administra
 <p>The administrator authorization plugin is a process engine plugin with the following functionality: when the process engine is started, it grants administrative access to a configured group or user. Effectively this means that it grants all permissions on all resources to the configured group or user.</p>
 <p>Usually this is used to bootstrap an LDAP installation: granting administrative access to an initial user who can then log in to Admin and configure additional authorizations using the UI.</p>
 <p>The following is an example of how to configure the administrator authorization plugin in bpm-platform.xml / processes.xml:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;process-engine</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;default&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  ...
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;plugins&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;plugin&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;class&gt;</span>org.camunda.bpm.engine.impl.plugin.AdministratorAuthorizationPlugin<span style="color:#f92672">&lt;/class&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;properties&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;administratorUserName&#34;</span><span style="color:#f92672">&gt;</span>admin<span style="color:#f92672">&lt;/property&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/properties&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/plugin&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/plugins&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/process-engine&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;process-engine</span> <span class="na">name=</span><span class="s">&#34;default&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  ...
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;plugins&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;plugin&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;class&gt;</span>org.camunda.bpm.engine.impl.plugin.AdministratorAuthorizationPlugin<span class="nt">&lt;/class&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;properties&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;administratorUserName&#34;</span><span class="nt">&gt;</span>admin<span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/properties&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/plugin&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/plugins&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/process-engine&gt;</span>
 </span></span></code></pre></div><p>The plugin will make sure that administrator authorizations (ALL permissions) are granted on all resources whenever the process engine is started.</p>
 
 <div class="note bg-info docs-info">
@@ -4022,51 +4022,51 @@ Typically, those people do not need full access to the system like an administra
 <h1 id="java-api-example">Java API example</h1>
 <p>An authorization is created between a user/group and a resource. It describes the user/group&rsquo;s permissions to access that resource. An authorization may express different permissions, such as the permission to <strong>Read</strong>, <strong>Update</strong>, and <strong>Delete</strong> the resource. (See Authorization for details).</p>
 <p>To grant the permission to access a certain resource, an authorization object is created. For example, to give access to a certain filter:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Authorization auth <span style="color:#f92672">=</span> authorizationService.<span style="color:#a6e22e">createNewAuthorization</span>(AUTH_TYPE_GRANT);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// The authorization object can be configured either for a user or a group:</span>
-</span></span><span style="display:flex;"><span>auth.<span style="color:#a6e22e">setUserId</span>(<span style="color:#e6db74">&#34;john&#34;</span>);
-</span></span><span style="display:flex;"><span><span style="color:#75715e">//  -OR-</span>
-</span></span><span style="display:flex;"><span>auth.<span style="color:#a6e22e">setGroupId</span>(<span style="color:#e6db74">&#34;management&#34;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">//and a resource:</span>
-</span></span><span style="display:flex;"><span>auth.<span style="color:#a6e22e">setResource</span>(<span style="color:#e6db74">&#34;filter&#34;</span>);
-</span></span><span style="display:flex;"><span>auth.<span style="color:#a6e22e">setResourceId</span>(<span style="color:#e6db74">&#34;2313&#34;</span>);
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// a resource can also be a process definition</span>
-</span></span><span style="display:flex;"><span>auth.<span style="color:#a6e22e">setResource</span>(Resources.<span style="color:#a6e22e">PROCESS_INSTANCE</span>);
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// the process defintion key is the resource id</span>
-</span></span><span style="display:flex;"><span>auth.<span style="color:#a6e22e">setResourceId</span>(<span style="color:#e6db74">&#34;invoice&#34;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// finally the permissions to access that resource can be assigned:</span>
-</span></span><span style="display:flex;"><span>auth.<span style="color:#a6e22e">addPermission</span>(Permissions.<span style="color:#a6e22e">READ</span>);
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// more than one permission can be granted</span>
-</span></span><span style="display:flex;"><span>auth.<span style="color:#a6e22e">addPermission</span>(Permissions.<span style="color:#a6e22e">CREATE</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// and the authorization object is saved:</span>
-</span></span><span style="display:flex;"><span>authorizationService.<span style="color:#a6e22e">saveAuthorization</span>(auth);
-</span></span></code></pre></div><p>As a result, the given user or group will have permission to <strong>Read</strong> the referenced filter.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">Authorization</span><span class="w"> </span><span class="n">auth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">authorizationService</span><span class="p">.</span><span class="na">createNewAuthorization</span><span class="p">(</span><span class="n">AUTH_TYPE_GRANT</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// The authorization object can be configured either for a user or a group:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">auth</span><span class="p">.</span><span class="na">setUserId</span><span class="p">(</span><span class="s">&#34;john&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">//  -OR-</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">auth</span><span class="p">.</span><span class="na">setGroupId</span><span class="p">(</span><span class="s">&#34;management&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">//and a resource:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">auth</span><span class="p">.</span><span class="na">setResource</span><span class="p">(</span><span class="s">&#34;filter&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">auth</span><span class="p">.</span><span class="na">setResourceId</span><span class="p">(</span><span class="s">&#34;2313&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// a resource can also be a process definition</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">auth</span><span class="p">.</span><span class="na">setResource</span><span class="p">(</span><span class="n">Resources</span><span class="p">.</span><span class="na">PROCESS_INSTANCE</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// the process defintion key is the resource id</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">auth</span><span class="p">.</span><span class="na">setResourceId</span><span class="p">(</span><span class="s">&#34;invoice&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// finally the permissions to access that resource can be assigned:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">auth</span><span class="p">.</span><span class="na">addPermission</span><span class="p">(</span><span class="n">Permissions</span><span class="p">.</span><span class="na">READ</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// more than one permission can be granted</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">auth</span><span class="p">.</span><span class="na">addPermission</span><span class="p">(</span><span class="n">Permissions</span><span class="p">.</span><span class="na">CREATE</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// and the authorization object is saved:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">authorizationService</span><span class="p">.</span><span class="na">saveAuthorization</span><span class="p">(</span><span class="n">auth</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><p>As a result, the given user or group will have permission to <strong>Read</strong> the referenced filter.</p>
 <p>Another possible example would be to restrict the group of persons who are allowed to start a specific process:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">//we need to authorizations, one to access the process definition and another one to create process instances</span>
-</span></span><span style="display:flex;"><span>Authorization authProcessDefinition <span style="color:#f92672">=</span> authorizationService.<span style="color:#a6e22e">createNewAuthorization</span>(AUTH_TYPE_GRANT);
-</span></span><span style="display:flex;"><span>Authorization authProcessInstance <span style="color:#f92672">=</span> authorizationService.<span style="color:#a6e22e">createNewAuthorization</span>(AUTH_TYPE_GRANT);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>authProcessDefinition.<span style="color:#a6e22e">setUserId</span>(<span style="color:#e6db74">&#34;johnny&#34;</span>);
-</span></span><span style="display:flex;"><span>authProcessInstance.<span style="color:#a6e22e">setUserId</span>(<span style="color:#e6db74">&#34;johnny&#34;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>authProcessDefinition.<span style="color:#a6e22e">setResource</span>(Resources.<span style="color:#a6e22e">PROCESS_DEFINITION</span>);
-</span></span><span style="display:flex;"><span>authProcessInstance.<span style="color:#a6e22e">setResource</span>(Resources.<span style="color:#a6e22e">PROCESS_INSTANCE</span>);
-</span></span><span style="display:flex;"><span><span style="color:#75715e">//the resource id for a process definition is the process definition key</span>
-</span></span><span style="display:flex;"><span>authProcessDefinition.<span style="color:#a6e22e">setResourceId</span>(<span style="color:#e6db74">&#34;invoice&#34;</span>);
-</span></span><span style="display:flex;"><span><span style="color:#75715e">//asterisk to allow the start of a process instance</span>
-</span></span><span style="display:flex;"><span>authProcessInstance.<span style="color:#a6e22e">setResourceId</span>(<span style="color:#e6db74">&#34;*&#34;</span>)
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// allow the user to create instances of this process definition</span>
-</span></span><span style="display:flex;"><span>authProcessDefinition.<span style="color:#a6e22e">addPermission</span>(Permissions.<span style="color:#a6e22e">CREATE_INSTANCE</span>);
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// and to create processes</span>
-</span></span><span style="display:flex;"><span>authProcessInstance.<span style="color:#a6e22e">addPermission</span>(Permissions.<span style="color:#a6e22e">CREATE</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>authorizationService.<span style="color:#a6e22e">saveAuthorization</span>(authProcessDefinition);
-</span></span><span style="display:flex;"><span>authorizationService.<span style="color:#a6e22e">saveAuthorization</span>(authProcessInstance);
-</span></span></code></pre></div><h1 id="camunda-admin-webapp">Camunda Admin Webapp</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">//we need to authorizations, one to access the process definition and another one to create process instances</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Authorization</span><span class="w"> </span><span class="n">authProcessDefinition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">authorizationService</span><span class="p">.</span><span class="na">createNewAuthorization</span><span class="p">(</span><span class="n">AUTH_TYPE_GRANT</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Authorization</span><span class="w"> </span><span class="n">authProcessInstance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">authorizationService</span><span class="p">.</span><span class="na">createNewAuthorization</span><span class="p">(</span><span class="n">AUTH_TYPE_GRANT</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">authProcessDefinition</span><span class="p">.</span><span class="na">setUserId</span><span class="p">(</span><span class="s">&#34;johnny&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">authProcessInstance</span><span class="p">.</span><span class="na">setUserId</span><span class="p">(</span><span class="s">&#34;johnny&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">authProcessDefinition</span><span class="p">.</span><span class="na">setResource</span><span class="p">(</span><span class="n">Resources</span><span class="p">.</span><span class="na">PROCESS_DEFINITION</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">authProcessInstance</span><span class="p">.</span><span class="na">setResource</span><span class="p">(</span><span class="n">Resources</span><span class="p">.</span><span class="na">PROCESS_INSTANCE</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">//the resource id for a process definition is the process definition key</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">authProcessDefinition</span><span class="p">.</span><span class="na">setResourceId</span><span class="p">(</span><span class="s">&#34;invoice&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">//asterisk to allow the start of a process instance</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">authProcessInstance</span><span class="p">.</span><span class="na">setResourceId</span><span class="p">(</span><span class="s">&#34;*&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// allow the user to create instances of this process definition</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">authProcessDefinition</span><span class="p">.</span><span class="na">addPermission</span><span class="p">(</span><span class="n">Permissions</span><span class="p">.</span><span class="na">CREATE_INSTANCE</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// and to create processes</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">authProcessInstance</span><span class="p">.</span><span class="na">addPermission</span><span class="p">(</span><span class="n">Permissions</span><span class="p">.</span><span class="na">CREATE</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">authorizationService</span><span class="p">.</span><span class="na">saveAuthorization</span><span class="p">(</span><span class="n">authProcessDefinition</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">authorizationService</span><span class="p">.</span><span class="na">saveAuthorization</span><span class="p">(</span><span class="n">authProcessInstance</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><h1 id="camunda-admin-webapp">Camunda Admin Webapp</h1>
 <p>The Camunda Admin Webapplication provides an out of the box <a href="/manual/1.0/webapps/admin/authorization-management/">UI for configuring Authorizations</a>.</p>
 <h1 id="performance-considerations">Performance Considerations</h1>
 <p>Authorizations are calculated by the database which is most efficient. Example: when performing a task query, the database query only returns the tasks for which the user has a READ authorization.</p>

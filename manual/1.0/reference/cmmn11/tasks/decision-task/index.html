@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/1.0/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/1.0/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/reference/cmmn11/tasks/decision-task/" />
 </head>
 <body class="">
@@ -3164,19 +3164,19 @@
 
 <p>A decision task is a regular task that requires a <code>decisionRef</code> attribute that references a
 decision definition by its key. Such a decision task can be defined as follows:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;decisionTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;checkCreditDecision&#34;</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Check credit&#34;</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#a6e22e">decisionRef=</span><span style="color:#e6db74">&#34;checkCreditDecision&#34;</span> <span style="color:#f92672">/&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;decisionTask</span> <span class="na">id=</span><span class="s">&#34;checkCreditDecision&#34;</span>
+</span></span><span class="line"><span class="cl">              <span class="na">name=</span><span class="s">&#34;Check credit&#34;</span>
+</span></span><span class="line"><span class="cl">              <span class="na">decisionRef=</span><span class="s">&#34;checkCreditDecision&#34;</span> <span class="nt">/&gt;</span>
 </span></span></code></pre></div><p>Instead of the <code>decisionRef</code> attribute it is also possible to use an expression which must evaluate
 to a key of a decision definition at runtime.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;decisionTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;checkCreditDecision&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Check credit&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;decisionRefExpression&gt;</span>${resolveToCheckCreditDecision}<span style="color:#f92672">&lt;/decisionRefExpression&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/decisionTask&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;decisionTask</span> <span class="na">id=</span><span class="s">&#34;checkCreditDecision&#34;</span> <span class="na">name=</span><span class="s">&#34;Check credit&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;decisionRefExpression&gt;</span>${resolveToCheckCreditDecision}<span class="nt">&lt;/decisionRefExpression&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/decisionTask&gt;</span>
 </span></span></code></pre></div><p>One of the attributes <code>decisionRef</code> or <code>decisionRefExpression</code> must be present.</p>
 <p>The referenced decision definition is resolved at runtime. This means that the referenced decision can be deployed independently from the calling case, if needed.</p>
 <p>A decision task in state <code>ENABLED</code> can be started manually using the <code>CaseService</code> as follows:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>caseService.<span style="color:#a6e22e">manuallyStartCaseExecution</span>(<span style="color:#e6db74">&#34;aCaseExecutionId&#34;</span>);
-</span></span></code></pre></div><p>When the decision task instance becomes <code>ACTIVE</code>, the referenced decision is evaluated synchronously. As a consequence, the decision task is always executed as <code>blocking</code>, because the engine does not distinguish between a <code>blocking</code> and a <code>non-blocking</code> decision task.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">caseService</span><span class="p">.</span><span class="na">manuallyStartCaseExecution</span><span class="p">(</span><span class="s">&#34;aCaseExecutionId&#34;</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><p>When the decision task instance becomes <code>ACTIVE</code>, the referenced decision is evaluated synchronously. As a consequence, the decision task is always executed as <code>blocking</code>, because the engine does not distinguish between a <code>blocking</code> and a <code>non-blocking</code> decision task.</p>
 <h1 id="transactional-behavior">Transactional Behavior</h1>
 <p>The activation of the decision task as well as the evaluation of the decision are performed in the same transaction.</p>
 <h1 id="decision-binding">Decision Binding</h1>
@@ -3187,10 +3187,10 @@ to a key of a decision definition at runtime.</p>
 <li><code>version</code>: use a fixed version of the decision definition, in this case the attribute <code>decisionVersion</code> is required</li>
 </ul>
 <p>The following is an example of a decision task that calls the <code>checkCreditDecision</code> decision with version 3.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;decisionTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;checkCreditDecision&#34;</span> <span style="color:#a6e22e">decisionRef=</span><span style="color:#e6db74">&#34;checkCreditDecision&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">camunda:decisionBinding=</span><span style="color:#e6db74">&#34;version&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">camunda:decisionVersion=</span><span style="color:#e6db74">&#34;3&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/decisionTask&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;decisionTask</span> <span class="na">id=</span><span class="s">&#34;checkCreditDecision&#34;</span> <span class="na">decisionRef=</span><span class="s">&#34;checkCreditDecision&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">camunda:decisionBinding=</span><span class="s">&#34;version&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">camunda:decisionVersion=</span><span class="s">&#34;3&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/decisionTask&gt;</span>
 </span></span></code></pre></div><p>Note: It is also possible to use an expression for the attribute <code>decisionVersion</code> that must resolve to an integer at runtime.</p>
 <h1 id="decision-tenant-id">Decision Tenant Id</h1>
 <p>When the decision task resolves the decision definition to be evaluated it must take into account multi tenancy.</p>
@@ -3202,17 +3202,17 @@ If the calling case definition has a tenant id, a decision definition with the p
 <h2 id="explicit-tenant-resolution">Explicit Tenant Resolution</h2>
 <p>In some situations it may be useful to override this default behavior and specify the tenant id explicitly.</p>
 <p>The <code>camunda:decisionTenantId</code> attribute allows to explicitly specify a tenant id:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;decisionTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;checkCreditDecision&#34;</span> <span style="color:#a6e22e">decisionRef=</span><span style="color:#e6db74">&#34;checkCreditDecision&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">camunda:decisionTenantId=</span><span style="color:#e6db74">&#34;TENANT_1&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/decisionTask&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;decisionTask</span> <span class="na">id=</span><span class="s">&#34;checkCreditDecision&#34;</span> <span class="na">decisionRef=</span><span class="s">&#34;checkCreditDecision&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">camunda:decisionTenantId=</span><span class="s">&#34;TENANT_1&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/decisionTask&gt;</span>
 </span></span></code></pre></div><p>If the tenant id is not known at design time, an expression can be used as well:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;decisionTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;checkCreditDecision&#34;</span> <span style="color:#a6e22e">decisionRef=</span><span style="color:#e6db74">&#34;checkCreditDecision&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">camunda:decisionTenantId=</span><span style="color:#e6db74">&#34;${ myBean.calculateTenantId(variable) }&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/decisionTask&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;decisionTask</span> <span class="na">id=</span><span class="s">&#34;checkCreditDecision&#34;</span> <span class="na">decisionRef=</span><span class="s">&#34;checkCreditDecision&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">camunda:decisionTenantId=</span><span class="s">&#34;${ myBean.calculateTenantId(variable) }&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/decisionTask&gt;</span>
 </span></span></code></pre></div><p>An expression also allows using the tenant id of the calling case instance instead of the calling case definition:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;decisionTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;checkCreditDecision&#34;</span> <span style="color:#a6e22e">decisionRef=</span><span style="color:#e6db74">&#34;checkCreditDecision&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">camunda:decisionTenantId=</span><span style="color:#e6db74">&#34;${ caseExecution.tenantId }&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/decisionTask&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;decisionTask</span> <span class="na">id=</span><span class="s">&#34;checkCreditDecision&#34;</span> <span class="na">decisionRef=</span><span class="s">&#34;checkCreditDecision&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">camunda:decisionTenantId=</span><span class="s">&#34;${ caseExecution.tenantId }&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/decisionTask&gt;</span>
 </span></span></code></pre></div><h1 id="decision-result">Decision Result</h1>
 <p>The output of the decision, also called decision result, is not saved as case variable automatically. It has to pass into a case variable by using a <a href="/manual/1.0/user-guide/process-engine/decisions/bpmn-cmmn/#predefined-mapping-of-the-decision-result">predefined</a> or a <a href="/manual/1.0/user-guide/process-engine/decisions/bpmn-cmmn/#custom-mapping-to-case-variables">custom</a> mapping of the decision result.</p>
 <p>In case of a predefined mapping, the <code>camunda:mapDecisionResult</code> attribute references the mapper to use. The result of the mapping is saved in the variable which is specified by the <code>camunda:resultVariable</code> attribute. If no predefined mapper is set then the <code>resultList</code> mapper is used by default.</p>
@@ -3220,9 +3220,9 @@ If the calling case definition has a tenant id, a decision definition with the p
 maps the <code>singleEntry</code> of the decision result into the case variable <code>result</code>.
 The mapper <code>singleEntry</code> assumes that the decision result only contains one
 entry or none at all.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;decisionTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;checkCreditDecision&#34;</span> <span style="color:#a6e22e">decisionRef=</span><span style="color:#e6db74">&#34;checkCreditDecision&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">camunda:mapDecisionResult=</span><span style="color:#e6db74">&#34;singleEntry&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">camunda:resultVariable=</span><span style="color:#e6db74">&#34;result&#34;</span> <span style="color:#f92672">/&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;decisionTask</span> <span class="na">id=</span><span class="s">&#34;checkCreditDecision&#34;</span> <span class="na">decisionRef=</span><span class="s">&#34;checkCreditDecision&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="na">camunda:mapDecisionResult=</span><span class="s">&#34;singleEntry&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="na">camunda:resultVariable=</span><span class="s">&#34;result&#34;</span> <span class="nt">/&gt;</span>
 </span></span></code></pre></div><p>See the <a href="/manual/1.0/user-guide/process-engine/decisions/bpmn-cmmn/#the-decision-result">User Guide</a> for details about the mapping.</p>
 
 <div class="note bg-warning docs-warning">

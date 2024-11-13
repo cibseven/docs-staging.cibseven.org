@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/latest/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/latest/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/webapps/admin/plugins/" />
 </head>
 <body class="">
@@ -3182,9 +3182,9 @@
 <h2 id="route">Route</h2>
 <p><strong>Name:</strong> <code>admin.route</code></p>
 <p>This plugin points properties contain the attribute <code>path</code>, which stands for the hashRoute for this page. This will be rendered when the user navigates in the browser to the url, e.g. <code>#/my-path</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Javascript" data-lang="Javascript"><span style="display:flex;"><span><span style="color:#a6e22e">properties</span><span style="color:#f92672">:</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;/my-path&#34;</span>
-</span></span><span style="display:flex;"><span>}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Javascript" data-lang="Javascript"><span class="line"><span class="cl"><span class="nx">properties</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">path</span><span class="o">:</span> <span class="s2">&#34;/my-path&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h2 id="dashboard">Dashboard</h2>
 <p><strong>Name:</strong> <code>admin.dashboard.section</code></p>
 <figure class="image">
@@ -3197,10 +3197,10 @@
 
 <p>With CIB seven.5, the Admin webapp gets a dashboard based on plugins similar to the <a href="/manual/latest/webapps/cockpit/extend/plugins/#dashboard">Cockpit dashboard ones</a>.</p>
 <p>This plugin points properties contain the attributes <code>label</code> and <code>pagePath</code>, which are the heading of the new Section as well as the linked sub-page of the heading. If <code>pagePath</code> is <code>undefined</code>, the label will not be rendered as a link.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Javascript" data-lang="Javascript"><span style="display:flex;"><span><span style="color:#a6e22e">properties</span><span style="color:#f92672">:</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">label</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;My Plugin&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">pagePath</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;#/myPage&#39;</span>
-</span></span><span style="display:flex;"><span>}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Javascript" data-lang="Javascript"><span class="line"><span class="cl"><span class="nx">properties</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">label</span><span class="o">:</span> <span class="s2">&#34;My Plugin&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">pagePath</span><span class="o">:</span> <span class="s1">&#39;#/myPage&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>You can find examples of <a href="https://github.com/camunda/camunda-bpm-platform/tree/master/webapps/frontend/ui/admin/plugins/base/app/views/dashboard">Admin dashboard plugins here</a>.</p>
 
     </div>

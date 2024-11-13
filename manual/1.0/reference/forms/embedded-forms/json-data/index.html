@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/1.0/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/1.0/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/reference/forms/embedded-forms/json-data/" />
 </head>
 <body class="">
@@ -3162,37 +3162,37 @@
       <h1 id="fetching-an-existing-json-variable">Fetching an existing JSON Variable</h1>
 <p>The Form SDK will only fetch those variables which are actually used in a form. Since a JSON object is usually not bound to a single input field, we cannot use the <code>cam-variable-name</code> directive.
 We thus need to fetch the variable programatically:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">cam-script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/form-script&#34;</span>&gt;
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">camForm</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;form-loaded&#39;</span>, <span style="color:#66d9ef">function</span>() {
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// tell the form SDK to fetch the variable named &#39;customer&#39;
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">camForm</span>.<span style="color:#a6e22e">variableManager</span>.<span style="color:#a6e22e">fetchVariable</span>(<span style="color:#e6db74">&#39;customer&#39;</span>);
-</span></span><span style="display:flex;"><span>  });
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">camForm</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;variables-fetched&#39;</span>, <span style="color:#66d9ef">function</span>() {
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// work with the variable (bind it to the current AngularJS $scope)
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">$scope</span>.<span style="color:#a6e22e">customer</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">camForm</span>.<span style="color:#a6e22e">variableManager</span>.<span style="color:#a6e22e">variableValue</span>(<span style="color:#e6db74">&#39;customer&#39;</span>);
-</span></span><span style="display:flex;"><span>  });
-</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">script</span>&gt;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">cam-script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/form-script&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">camForm</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;form-loaded&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// tell the form SDK to fetch the variable named &#39;customer&#39;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">camForm</span><span class="p">.</span><span class="nx">variableManager</span><span class="p">.</span><span class="nx">fetchVariable</span><span class="p">(</span><span class="s1">&#39;customer&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">});</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">camForm</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;variables-fetched&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// work with the variable (bind it to the current AngularJS $scope)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">$scope</span><span class="p">.</span><span class="nx">customer</span> <span class="o">=</span> <span class="nx">camForm</span><span class="p">.</span><span class="nx">variableManager</span><span class="p">.</span><span class="nx">variableValue</span><span class="p">(</span><span class="s1">&#39;customer&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">});</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </span></span></code></pre></div><p>After that, you can work with the JSON object in your form, e.g., use it in input fields:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">ng-model</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;customer.firstName&#34;</span> <span style="color:#a6e22e">required</span> /&gt;
-</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">ng-model</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;customer.lastName&#34;</span> <span style="color:#a6e22e">required</span> /&gt;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span> <span class="na">ng-model</span><span class="o">=</span><span class="s">&#34;customer.firstName&#34;</span> <span class="na">required</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span> <span class="na">ng-model</span><span class="o">=</span><span class="s">&#34;customer.lastName&#34;</span> <span class="na">required</span> <span class="p">/&gt;</span>
 </span></span></code></pre></div><h1 id="creating-a-new-json-variable">Creating a new JSON Variable</h1>
 <p>You can use JSON objects in your embedded forms. In order to persist this data in the process instance, you have to explicitely create the variable in the <code>variableManager</code>. This code-snippet creates the variable <code>customer</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">cam-script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/form-script&#34;</span>&gt;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">customer</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">$scope</span>.<span style="color:#a6e22e">customer</span> <span style="color:#f92672">=</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">firstName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;John&#39;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">lastName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Doe&#39;</span>
-</span></span><span style="display:flex;"><span>  };
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">camForm</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;form-loaded&#39;</span>, <span style="color:#66d9ef">function</span>() {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// declare a &#39;json&#39; variable &#39;customer&#39;
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">camForm</span>.<span style="color:#a6e22e">variableManager</span>.<span style="color:#a6e22e">createVariable</span>({
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;customer&#39;</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;json&#39;</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">value</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">customer</span>
-</span></span><span style="display:flex;"><span>    });
-</span></span><span style="display:flex;"><span>  });
-</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">script</span>&gt;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">cam-script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/form-script&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">customer</span> <span class="o">=</span> <span class="nx">$scope</span><span class="p">.</span><span class="nx">customer</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">firstName</span><span class="o">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">lastName</span><span class="o">:</span> <span class="s1">&#39;Doe&#39;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nx">camForm</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;form-loaded&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// declare a &#39;json&#39; variable &#39;customer&#39;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">camForm</span><span class="p">.</span><span class="nx">variableManager</span><span class="p">.</span><span class="nx">createVariable</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;customer&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;json&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">value</span><span class="o">:</span> <span class="nx">customer</span>
+</span></span><span class="line"><span class="cl">    <span class="p">});</span>
+</span></span><span class="line"><span class="cl">  <span class="p">});</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </span></span></code></pre></div><h1 id="full-example">Full Example</h1>
 <p>A full example of this feature can be found in the <a href="https://github.com/camunda/camunda-bpm-examples/tree/master/usertask/task-form-embedded-json-variables">CIB seven Examples Repository</a>.</p>
 

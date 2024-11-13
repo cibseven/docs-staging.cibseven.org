@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/1.0/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/1.0/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/user-guide/process-engine/transactions-in-processes/" />
 </head>
 <body class="">
@@ -3213,25 +3213,25 @@ boundaries in the process.</p>
 process instance itself may be configured to be started asynchronously.</p>
 <p>An asynchronous continuation before an activity is enabled using the <code>camunda:asyncBefore</code> extension
 attribute:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;serviceTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;service1&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Generate Invoice&#34;</span> <span style="color:#a6e22e">camunda:asyncBefore=</span><span style="color:#e6db74">&#34;true&#34;</span> <span style="color:#a6e22e">camunda:class=</span><span style="color:#e6db74">&#34;my.custom.Delegate&#34;</span> <span style="color:#f92672">/&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;serviceTask</span> <span class="na">id=</span><span class="s">&#34;service1&#34;</span> <span class="na">name=</span><span class="s">&#34;Generate Invoice&#34;</span> <span class="na">camunda:asyncBefore=</span><span class="s">&#34;true&#34;</span> <span class="na">camunda:class=</span><span class="s">&#34;my.custom.Delegate&#34;</span> <span class="nt">/&gt;</span>
 </span></span></code></pre></div><p>An asynchronous continuation after an activity is enabled using the <code>camunda:asyncAfter</code> extension
 attribute:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;serviceTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;service1&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Generate Invoice&#34;</span> <span style="color:#a6e22e">camunda:asyncAfter=</span><span style="color:#e6db74">&#34;true&#34;</span> <span style="color:#a6e22e">camunda:class=</span><span style="color:#e6db74">&#34;my.custom.Delegate&#34;</span> <span style="color:#f92672">/&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;serviceTask</span> <span class="na">id=</span><span class="s">&#34;service1&#34;</span> <span class="na">name=</span><span class="s">&#34;Generate Invoice&#34;</span> <span class="na">camunda:asyncAfter=</span><span class="s">&#34;true&#34;</span> <span class="na">camunda:class=</span><span class="s">&#34;my.custom.Delegate&#34;</span> <span class="nt">/&gt;</span>
 </span></span></code></pre></div><p>Asynchronous instantiation of a process instance is enabled using the <code>camunda:asyncBefore</code>
 extension attribute on a process-level start event.
 On instantiation, the process instance will be created and persisted in the database, but execution
 will be deferred. Also, execution listeners will not be invoked synchronously. This can be helpful
 in various situations such as <a href="/manual/1.0/user-guide/process-engine/the-job-executor/#cluster-setups">heterogeneous clusters</a>,
 when the execution listener class is not available on the node that instantiates the process.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;startEvent</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;theStart&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Invoice Received&#34;</span> <span style="color:#a6e22e">camunda:asyncBefore=</span><span style="color:#e6db74">&#34;true&#34;</span> <span style="color:#f92672">/&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;startEvent</span> <span class="na">id=</span><span class="s">&#34;theStart&#34;</span> <span class="na">name=</span><span class="s">&#34;Invoice Received&#34;</span> <span class="na">camunda:asyncBefore=</span><span class="s">&#34;true&#34;</span> <span class="nt">/&gt;</span>
 </span></span></code></pre></div><h2 id="asynchronous-continuations-of-multi-instance-activities">Asynchronous Continuations of Multi-Instance Activities</h2>
 <p>A <a href="/manual/1.0/reference/bpmn20/tasks/task-markers/#multiple-instances">multi-instance activity</a> can be configured for asynchronous continuation like other activities. Declaring asynchronous continuation of a multi-instance activity makes the multi-instance body asynchronous, that means, the process continues asynchronously <em>before</em> the instances of that activity are created or <em>after</em> all instances have ended.</p>
 <p>Additionally, the inner activity can also be configured for asynchronous continuation using the <code>camunda:asyncBefore</code> and <code>camunda:asyncAfter</code> extension attributes on the <code>multiInstanceLoopCharacteristics</code> element:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;serviceTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;service1&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Generate Invoice&#34;</span> <span style="color:#a6e22e">camunda:class=</span><span style="color:#e6db74">&#34;my.custom.Delegate&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#f92672">&lt;multiInstanceLoopCharacteristics</span> <span style="color:#a6e22e">isSequential=</span><span style="color:#e6db74">&#34;false&#34;</span> <span style="color:#a6e22e">camunda:asyncBefore=</span><span style="color:#e6db74">&#34;true&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span> 		<span style="color:#f92672">&lt;loopCardinality&gt;</span>5<span style="color:#f92672">&lt;/loopCardinality&gt;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#f92672">&lt;/multiInstanceLoopCharacteristics&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/serviceTask&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;serviceTask</span> <span class="na">id=</span><span class="s">&#34;service1&#34;</span> <span class="na">name=</span><span class="s">&#34;Generate Invoice&#34;</span> <span class="na">camunda:class=</span><span class="s">&#34;my.custom.Delegate&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">	<span class="nt">&lt;multiInstanceLoopCharacteristics</span> <span class="na">isSequential=</span><span class="s">&#34;false&#34;</span> <span class="na">camunda:asyncBefore=</span><span class="s">&#34;true&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl"> 		<span class="nt">&lt;loopCardinality&gt;</span>5<span class="nt">&lt;/loopCardinality&gt;</span>
+</span></span><span class="line"><span class="cl">	<span class="nt">&lt;/multiInstanceLoopCharacteristics&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/serviceTask&gt;</span>
 </span></span></code></pre></div><p>Declaring asynchronous continuation of the inner activity makes each instance of the multi-instance activity asynchronous. In the above example, all instances of the parallel multi-instance activity will be created but their execution will be deferred. This can be useful to take more control over the transaction boundaries of the multi-instance activity or to enable true parallelism in case of a parallel multi-instance activity.</p>
 <h2 id="understand-asynchronous-continuations">Understand Asynchronous Continuations</h2>
 <p>To understand how asynchronous continuations work, we first need to understand how an activity is
@@ -3322,10 +3322,10 @@ or integrate with a platform transaction manager.</p>
 new transaction for each command which is executed. To configure the process engine to use
 standalone transaction management, use the
 <code>org.camunda.bpm.engine.impl.cfg.StandaloneProcessEngineConfiguration</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>ProcessEngineConfiguration.<span style="color:#a6e22e">createStandaloneProcessEngineConfiguration</span>()
-</span></span><span style="display:flex;"><span>  ...
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">buildProcessEngine</span>();
-</span></span></code></pre></div><p>The use cases for standalone transaction management are situations where the process engine does not
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">ProcessEngineConfiguration</span><span class="p">.</span><span class="na">createStandaloneProcessEngineConfiguration</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">buildProcessEngine</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><p>The use cases for standalone transaction management are situations where the process engine does not
 have to integrate with other transactional resources such as secondary datasources or messaging
 systems.</p>
 
@@ -3382,21 +3382,21 @@ the Process Engine that a new Process Engine Context needs to be created
 in order for the database operations in a nested Process Engine Command
 to be separated in a new transaction. The following <code>Java</code> code example
 shows how the class can be used:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">try</span> {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// declare new Process Engine Context</span>
-</span></span><span style="display:flex;"><span>  ProcessEngineContext.<span style="color:#a6e22e">requiresNew</span>();
-</span></span><span style="display:flex;"><span>  
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// call engine APIs</span>
-</span></span><span style="display:flex;"><span>  execution.<span style="color:#a6e22e">getProcessEngineServices</span>()
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">getRuntimeService</span>()
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">startProcessInstanceByKey</span>(<span style="color:#e6db74">&#34;EXAMPLE_PROCESS&#34;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>} <span style="color:#66d9ef">finally</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// clear declaration for new Process Engine Context</span>
-</span></span><span style="display:flex;"><span>  ProcessEngineContext.<span style="color:#a6e22e">clear</span>();
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h1 id="optimistic-locking">Optimistic Locking</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c1">// declare new Process Engine Context</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">ProcessEngineContext</span><span class="p">.</span><span class="na">requiresNew</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c1">// call engine APIs</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">execution</span><span class="p">.</span><span class="na">getProcessEngineServices</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">getRuntimeService</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">startProcessInstanceByKey</span><span class="p">(</span><span class="s">&#34;EXAMPLE_PROCESS&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c1">// clear declaration for new Process Engine Context</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">ProcessEngineContext</span><span class="p">.</span><span class="na">clear</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h1 id="optimistic-locking">Optimistic Locking</h1>
 <p>The Camunda Engine can be used in multi threaded applications. In such a setting, when multiple threads interact with the process engine concurrently, it can happen that these threads attempt to do changes to the same data. For example: two threads attempt to complete the same User Task at the same time (concurrently). Such a situation is a conflict: the task can be completed only once.</p>
 <p>Camunda Engine uses a well known technique called &ldquo;Optimistic Locking&rdquo; (or Optimistic Concurrently Control) to detect and resolve such situations.</p>
 <p>This section is structured in two parts: The first part introduces Optimistic Locking as a concept. You can skip this section in case you are already familiar with Optimistic Locking as such. The second part explains the usage of Optimistic Locking in Camunda.</p>
@@ -3461,8 +3461,8 @@ In such cases a conflict is detected and an <code>OptimisticLockingException</co
 <h3 id="the-optimisticlockingexception">The OptimisticLockingException</h3>
 <p>The <code>OptimisticLockingException</code> can be thrown by API methods.
 Consider the following invocation of the <code>completeTask(...)</code> method:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>taskService.<span style="color:#a6e22e">completeTask</span>(aTaskId); <span style="color:#75715e">// may throw OptimisticLockingException</span>
-</span></span></code></pre></div><p>The above method may throw an <code>OptimisticLockingException</code> in case executing the method call leads to concurrent modification of data.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">taskService</span><span class="p">.</span><span class="na">completeTask</span><span class="p">(</span><span class="n">aTaskId</span><span class="p">);</span><span class="w"> </span><span class="c1">// may throw OptimisticLockingException</span><span class="w">
+</span></span></span></code></pre></div><p>The above method may throw an <code>OptimisticLockingException</code> in case executing the method call leads to concurrent modification of data.</p>
 <p>Job execution can also cause an <code>OptimisticLockingException</code> to be thrown. Since this is expected, the execution will be retried.</p>
 <h4 id="handling-optimistic-locking-exceptions">Handling Optimistic Locking exceptions</h4>
 <p>In case the current Command is triggered by the Job Executor, <code>OptimisticLockingException</code>s are handled automatically using retries. Since this exception is expected to occur, it does not decrement the retry count.</p>

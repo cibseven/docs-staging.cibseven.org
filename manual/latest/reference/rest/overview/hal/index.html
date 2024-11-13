@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/latest/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/latest/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/reference/rest/overview/hal/" />
 </head>
 <body class="">
@@ -3167,10 +3167,10 @@ reduces the number of necessary requests to gather all information about a
 single task or a list of tasks.</p>
 <p>To interact with <code>HAL</code>, you have to set <code>application/hal+json</code> as Accept header. The
 response of a <code>HAL</code> request always has the following structure:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;_links&#34;</span> : {},
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;_embedded&#34;</span> : {}
-</span></span><span style="display:flex;"><span>}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-JSON" data-lang="JSON"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;_links&#34;</span> <span class="p">:</span> <span class="p">{},</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;_embedded&#34;</span> <span class="p">:</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>The property <code>_links</code> contains relational links that give an easy way to navigate between
 associated resources. A <code>_links</code> property contains at least a <code>self</code> relational link. The
 property <code>_embedded</code> includes other linked resources in the representing resource. Each
@@ -3181,82 +3181,82 @@ embedded resource will be structured as a <code>HAL</code> resource.</p>
 <p>Request Header:</p>
 <pre tabindex="0"><code>Accept: application/hal+json
 </code></pre><h2 id="response">Response</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;_links&#34;</span> : {
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;self&#34;</span>: {
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;href&#34;</span>: <span style="color:#e6db74">&#34;/task/a-task-id&#34;</span>
-</span></span><span style="display:flex;"><span>    },
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;assignee&#34;</span>: {
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;href&#34;</span>: <span style="color:#e6db74">&#34;/user/demo&#34;</span>
-</span></span><span style="display:flex;"><span>    },
-</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">...</span>
-</span></span><span style="display:flex;"><span>  },
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;_embedded&#34;</span> : {
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;group&#34;</span> : [{
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;_links&#34;</span> : {
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;self&#34;</span> : {
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;href&#34;</span> : <span style="color:#e6db74">&#34;/group/management&#34;</span>
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>      },
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;_embedded&#34;</span> : <span style="color:#66d9ef">null</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;id&#34;</span> : <span style="color:#e6db74">&#34;management&#34;</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#960050;background-color:#1e0010">...</span>
-</span></span><span style="display:flex;"><span>    }],
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;processDefinition&#34;</span> : [ {<span style="color:#960050;background-color:#1e0010">...</span>}, {<span style="color:#960050;background-color:#1e0010">...</span>} ],
-</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">...</span>
-</span></span><span style="display:flex;"><span>  },
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;id&#34;</span> : <span style="color:#e6db74">&#34;a-task-id&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;Assign Approver&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;assignee&#34;</span>: <span style="color:#e6db74">&#34;demo&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#960050;background-color:#1e0010">...</span>
-</span></span><span style="display:flex;"><span>}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-JSON" data-lang="JSON"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;_links&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;self&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;href&#34;</span><span class="p">:</span> <span class="s2">&#34;/task/a-task-id&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;assignee&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;href&#34;</span><span class="p">:</span> <span class="s2">&#34;/user/demo&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="err">...</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;_embedded&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;group&#34;</span> <span class="p">:</span> <span class="p">[{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;_links&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;self&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;href&#34;</span> <span class="p">:</span> <span class="s2">&#34;/group/management&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;_embedded&#34;</span> <span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;id&#34;</span> <span class="p">:</span> <span class="s2">&#34;management&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="err">...</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}],</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;processDefinition&#34;</span> <span class="p">:</span> <span class="p">[</span> <span class="p">{</span><span class="err">...</span><span class="p">},</span> <span class="p">{</span><span class="err">...</span><span class="p">}</span> <span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="err">...</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;id&#34;</span> <span class="p">:</span> <span class="s2">&#34;a-task-id&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;Assign Approver&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;assignee&#34;</span><span class="p">:</span> <span class="s2">&#34;demo&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="err">...</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h1 id="example-collection">Example: Collection</h1>
 <h2 id="request-1">Request</h2>
 <p>GET <code>/task</code></p>
 <p>Request Header:</p>
 <pre tabindex="0"><code>Accept: application/hal+json
 </code></pre><h2 id="response-1">Response</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;_links&#34;</span> : {
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;self&#34;</span>: {
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;href&#34;</span>: <span style="color:#e6db74">&#34;/task&#34;</span>
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>  },
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;_embedded&#34;</span> : {
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;assignee&#34;</span> : [{
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;_links&#34;</span> : {
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;self&#34;</span> : {
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;href&#34;</span> : <span style="color:#e6db74">&#34;/user/demo&#34;</span>
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>      },
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;_embedded&#34;</span> : <span style="color:#66d9ef">null</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#960050;background-color:#1e0010">id:</span> <span style="color:#f92672">&#34;demo&#34;</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#960050;background-color:#1e0010">...</span>
-</span></span><span style="display:flex;"><span>    }],
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;processDefinition&#34;</span> : [ {<span style="color:#960050;background-color:#1e0010">...</span>} ],
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;task&#34;</span> : [{
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;_links&#34;</span> : {
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;self&#34;</span>: {
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;href&#34;</span>: <span style="color:#e6db74">&#34;/task/a-task-id&#34;</span>
-</span></span><span style="display:flex;"><span>        },
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;assignee&#34;</span>: {
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;href&#34;</span>: <span style="color:#e6db74">&#34;/user/demo&#34;</span>
-</span></span><span style="display:flex;"><span>        },
-</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">...</span>
-</span></span><span style="display:flex;"><span>      },
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;_embedded&#34;</span> : {
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;variable&#34;</span> : [ {<span style="color:#960050;background-color:#1e0010">...</span>}, {<span style="color:#960050;background-color:#1e0010">...</span>} ]
-</span></span><span style="display:flex;"><span>      },
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;id&#34;</span> : <span style="color:#e6db74">&#34;a-task-id&#34;</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;Assign Approver&#34;</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;assignee&#34;</span>: <span style="color:#e6db74">&#34;demo&#34;</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#960050;background-color:#1e0010">...</span>
-</span></span><span style="display:flex;"><span>    }, {
-</span></span><span style="display:flex;"><span>      <span style="color:#960050;background-color:#1e0010">...</span>
-</span></span><span style="display:flex;"><span>    }]
-</span></span><span style="display:flex;"><span>  },
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;count&#34;</span> : <span style="color:#ae81ff">2</span>
-</span></span><span style="display:flex;"><span>}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-JSON" data-lang="JSON"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;_links&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;self&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;href&#34;</span><span class="p">:</span> <span class="s2">&#34;/task&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;_embedded&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;assignee&#34;</span> <span class="p">:</span> <span class="p">[{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;_links&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;self&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;href&#34;</span> <span class="p">:</span> <span class="s2">&#34;/user/demo&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;_embedded&#34;</span> <span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="err">id:</span> <span class="nt">&#34;demo&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="err">...</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}],</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;processDefinition&#34;</span> <span class="p">:</span> <span class="p">[</span> <span class="p">{</span><span class="err">...</span><span class="p">}</span> <span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;task&#34;</span> <span class="p">:</span> <span class="p">[{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;_links&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;self&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;href&#34;</span><span class="p">:</span> <span class="s2">&#34;/task/a-task-id&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;assignee&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;href&#34;</span><span class="p">:</span> <span class="s2">&#34;/user/demo&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="err">...</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;_embedded&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;variable&#34;</span> <span class="p">:</span> <span class="p">[</span> <span class="p">{</span><span class="err">...</span><span class="p">},</span> <span class="p">{</span><span class="err">...</span><span class="p">}</span> <span class="p">]</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;id&#34;</span> <span class="p">:</span> <span class="s2">&#34;a-task-id&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;Assign Approver&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;assignee&#34;</span><span class="p">:</span> <span class="s2">&#34;demo&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="err">...</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="err">...</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;count&#34;</span> <span class="p">:</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h1 id="caching-of-hal-relations">Caching of HAL Relations</h1>
 <p>During the generation of a HAL response, linked resources are resolved to embed
 them.  Some of these resolved resources, like process definitions or users, are
@@ -3266,49 +3266,49 @@ unnecessary overhead. To reduce such expensive requests, the REST API can be
 configured to use a cache to temporary store such relations.</p>
 <p>This caching can be configured in the <code>web.xml</code> file of the REST API (or the Camunda Web Application in
 case the REST API is embedded into the Camunda Web Application).</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;web-app</span> <span style="color:#a6e22e">version=</span><span style="color:#e6db74">&#34;2.5&#34;</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://java.sun.com/xml/ns/javaee&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">xsi:schemaLocation=</span><span style="color:#e6db74">&#34;http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- ... --&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;listener&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;listener-class&gt;</span>org.camunda.bpm.engine.rest.hal.cache.HalRelationCacheBootstrap<span style="color:#f92672">&lt;/listener-class&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/listener&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;context-param&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;param-name&gt;</span>org.camunda.bpm.engine.rest.hal.cache.config<span style="color:#f92672">&lt;/param-name&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;param-value&gt;</span>
-</span></span><span style="display:flex;"><span>      {
-</span></span><span style="display:flex;"><span>        &#34;cacheImplementation&#34;: &#34;org.camunda.bpm.engine.rest.hal.cache.DefaultHalResourceCache&#34;,
-</span></span><span style="display:flex;"><span>        &#34;caches&#34;: {
-</span></span><span style="display:flex;"><span>          &#34;org.camunda.bpm.engine.rest.hal.user.HalUser&#34;: {
-</span></span><span style="display:flex;"><span>            &#34;capacity&#34;: 100,
-</span></span><span style="display:flex;"><span>            &#34;secondsToLive&#34;: 900
-</span></span><span style="display:flex;"><span>          },
-</span></span><span style="display:flex;"><span>          &#34;org.camunda.bpm.engine.rest.hal.group.HalGroup&#34;: {
-</span></span><span style="display:flex;"><span>            &#34;capacity&#34;: 100,
-</span></span><span style="display:flex;"><span>            &#34;secondsToLive&#34;: 900
-</span></span><span style="display:flex;"><span>          },
-</span></span><span style="display:flex;"><span>          &#34;org.camunda.bpm.engine.rest.hal.processDefinition.HalProcessDefinition&#34;: {
-</span></span><span style="display:flex;"><span>            &#34;capacity&#34;: 100,
-</span></span><span style="display:flex;"><span>            &#34;secondsToLive&#34;: 600
-</span></span><span style="display:flex;"><span>          }
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>      }
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/param-value&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/context-param&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- ... --&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/web-app&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;web-app</span> <span class="na">version=</span><span class="s">&#34;2.5&#34;</span> <span class="na">xmlns=</span><span class="s">&#34;http://java.sun.com/xml/ns/javaee&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">xmlns:xsi=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">xsi:schemaLocation=</span><span class="s">&#34;http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c">&lt;!-- ... --&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;listener&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;listener-class&gt;</span>org.camunda.bpm.engine.rest.hal.cache.HalRelationCacheBootstrap<span class="nt">&lt;/listener-class&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/listener&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;context-param&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;param-name&gt;</span>org.camunda.bpm.engine.rest.hal.cache.config<span class="nt">&lt;/param-name&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;param-value&gt;</span>
+</span></span><span class="line"><span class="cl">      {
+</span></span><span class="line"><span class="cl">        &#34;cacheImplementation&#34;: &#34;org.camunda.bpm.engine.rest.hal.cache.DefaultHalResourceCache&#34;,
+</span></span><span class="line"><span class="cl">        &#34;caches&#34;: {
+</span></span><span class="line"><span class="cl">          &#34;org.camunda.bpm.engine.rest.hal.user.HalUser&#34;: {
+</span></span><span class="line"><span class="cl">            &#34;capacity&#34;: 100,
+</span></span><span class="line"><span class="cl">            &#34;secondsToLive&#34;: 900
+</span></span><span class="line"><span class="cl">          },
+</span></span><span class="line"><span class="cl">          &#34;org.camunda.bpm.engine.rest.hal.group.HalGroup&#34;: {
+</span></span><span class="line"><span class="cl">            &#34;capacity&#34;: 100,
+</span></span><span class="line"><span class="cl">            &#34;secondsToLive&#34;: 900
+</span></span><span class="line"><span class="cl">          },
+</span></span><span class="line"><span class="cl">          &#34;org.camunda.bpm.engine.rest.hal.processDefinition.HalProcessDefinition&#34;: {
+</span></span><span class="line"><span class="cl">            &#34;capacity&#34;: 100,
+</span></span><span class="line"><span class="cl">            &#34;secondsToLive&#34;: 600
+</span></span><span class="line"><span class="cl">          }
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">      }
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/param-value&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/context-param&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c">&lt;!-- ... --&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/web-app&gt;</span>
 </span></span></code></pre></div><h2 id="the-halrelationcachebootstrap-listener">The HalRelationCacheBootstrap Listener</h2>
 <p>To bootstrap the caching, the <code>HalRelationCacheBootstrap</code> context listener is
 used:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;listener&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;listener-class&gt;</span>org.camunda.bpm.engine.rest.hal.cache.HalRelationCacheBootstrap<span style="color:#f92672">&lt;/listener-class&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/listener&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;listener&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;listener-class&gt;</span>org.camunda.bpm.engine.rest.hal.cache.HalRelationCacheBootstrap<span class="nt">&lt;/listener-class&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/listener&gt;</span>
 </span></span></code></pre></div><p>It is configured by the context parameter
 <code>org.camunda.bpm.engine.rest.hal.cache.config</code>. The configuration is provided
 as JSON and consists of two properties:</p>

@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/1.0/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/1.0/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/reference/bpmn20/tasks/service-task/" />
 </head>
 <body class="">
@@ -3171,19 +3171,19 @@
 <li>Evaluating a value expression</li>
 </ul>
 <p>To specify a class that is called during process execution, the fully qualified classname needs to be provided by the <code>camunda:class</code> attribute.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;serviceTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;javaService&#34;</span>
-</span></span><span style="display:flex;"><span>             <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;My Java Service Task&#34;</span>
-</span></span><span style="display:flex;"><span>             <span style="color:#a6e22e">camunda:class=</span><span style="color:#e6db74">&#34;org.camunda.bpm.MyJavaDelegate&#34;</span> <span style="color:#f92672">/&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;serviceTask</span> <span class="na">id=</span><span class="s">&#34;javaService&#34;</span>
+</span></span><span class="line"><span class="cl">             <span class="na">name=</span><span class="s">&#34;My Java Service Task&#34;</span>
+</span></span><span class="line"><span class="cl">             <span class="na">camunda:class=</span><span class="s">&#34;org.camunda.bpm.MyJavaDelegate&#34;</span> <span class="nt">/&gt;</span>
 </span></span></code></pre></div><p>Please refer to the <a href="/manual/1.0/user-guide/process-engine/delegation-code/#java-delegate">Java Delegate</a> section of the <a href="/manual/1.0/user-guide/">User Guide</a> for details on how to implement a Java Delegate.</p>
 <p>It is also possible to use an expression that resolves to an object. This object must follow the
 same rules as objects that are created when the <code>camunda:class</code> attribute is used.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;serviceTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;beanService&#34;</span>
-</span></span><span style="display:flex;"><span>             <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;My Bean Service Task&#34;</span>
-</span></span><span style="display:flex;"><span>             <span style="color:#a6e22e">camunda:delegateExpression=</span><span style="color:#e6db74">&#34;${myDelegateBean}&#34;</span> <span style="color:#f92672">/&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;serviceTask</span> <span class="na">id=</span><span class="s">&#34;beanService&#34;</span>
+</span></span><span class="line"><span class="cl">             <span class="na">name=</span><span class="s">&#34;My Bean Service Task&#34;</span>
+</span></span><span class="line"><span class="cl">             <span class="na">camunda:delegateExpression=</span><span class="s">&#34;${myDelegateBean}&#34;</span> <span class="nt">/&gt;</span>
 </span></span></code></pre></div><p>Or an expression which calls a method or resolves to a value.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;serviceTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;expressionService&#34;</span>
-</span></span><span style="display:flex;"><span>             <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;My Expression Service Task&#34;</span>
-</span></span><span style="display:flex;"><span>             <span style="color:#a6e22e">camunda:expression=</span><span style="color:#e6db74">&#34;${myBean.doWork()}&#34;</span> <span style="color:#f92672">/&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;serviceTask</span> <span class="na">id=</span><span class="s">&#34;expressionService&#34;</span>
+</span></span><span class="line"><span class="cl">             <span class="na">name=</span><span class="s">&#34;My Expression Service Task&#34;</span>
+</span></span><span class="line"><span class="cl">             <span class="na">camunda:expression=</span><span class="s">&#34;${myBean.doWork()}&#34;</span> <span class="nt">/&gt;</span>
 </span></span></code></pre></div><p>For more information about expression language as delegation code, please see the corresponding
 <a href="/manual/1.0/user-guide/process-engine/expression-language/#use-expression-language-as-delegation-code">section</a>
 of the <a href="/manual/1.0/user-guide/">User Guide</a>.</p>
@@ -3192,9 +3192,9 @@ of the <a href="/manual/1.0/user-guide/">User Guide</a>.</p>
 <p>You can easily write generic Java Delegate classes which can be configured later on via the BPMN 2.0 XML in the Service Task. Please refer to the <a href="/manual/1.0/user-guide/process-engine/delegation-code/#field-injection">Field Injection</a> section of the <a href="/manual/1.0/user-guide/">User Guide</a> for details.</p>
 <h2 id="service-task-results">Service Task Results</h2>
 <p>The return value of a service execution (for a Service Task exclusively using expressions) can be assigned to an already existing or to a new process variable by specifying the process variable name as a literal value for the <code>camunda:resultVariable</code> attribute of a Service Task definition. Any existing value for a specific process variable will be overwritten by the result value of the service execution. When not specifying a result variable name, the service execution result value is ignored.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;serviceTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;aMethodExpressionServiceTask&#34;</span>
-</span></span><span style="display:flex;"><span>           <span style="color:#a6e22e">camunda:expression=</span><span style="color:#e6db74">&#34;#{myService.doSomething()}&#34;</span>
-</span></span><span style="display:flex;"><span>           <span style="color:#a6e22e">camunda:resultVariable=</span><span style="color:#e6db74">&#34;myVar&#34;</span> <span style="color:#f92672">/&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;serviceTask</span> <span class="na">id=</span><span class="s">&#34;aMethodExpressionServiceTask&#34;</span>
+</span></span><span class="line"><span class="cl">           <span class="na">camunda:expression=</span><span class="s">&#34;#{myService.doSomething()}&#34;</span>
+</span></span><span class="line"><span class="cl">           <span class="na">camunda:resultVariable=</span><span class="s">&#34;myVar&#34;</span> <span class="nt">/&gt;</span>
 </span></span></code></pre></div><p>In the example above, the result of the service execution (the return value of the <code>doSomething()</code> method invocation on object <code>myService</code>) is set to the process variable named <code>myVar</code> after the service execution completes.</p>
 
 <div class="note bg-warning docs-warning">
@@ -3205,9 +3205,9 @@ of the <a href="/manual/1.0/user-guide/">User Guide</a>.</p>
 <h1 id="external-tasks">External Tasks</h1>
 <p>In contrast to calling Java code, where the process engine synchronously invokes Java logic, it is possible to implement a Service Task outside of the process engine&rsquo;s boundaries in the form of an external task. When a Service Task is declared external, the process engine offers a work item to workers that independently poll the engine for work to do. This decouples the implementation of tasks from the process engine and allows to cross system and technology boundaries. See the <a href="/manual/1.0/user-guide/process-engine/external-tasks/">user guide on external tasks</a> for details on the concept and the relevant API.</p>
 <p>To declare a Service Task to be handled externally, the attribute <code>camunda:type</code> can be set to <code>external</code> and the attribute <code>camunda:topic</code> specifies the external task&rsquo;s topic. For example, the following XML snippet defines an external Service Task with topic <code>ShipmentProcessing</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;serviceTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;anExternalServiceTask&#34;</span>
-</span></span><span style="display:flex;"><span>           <span style="color:#a6e22e">camunda:type=</span><span style="color:#e6db74">&#34;external&#34;</span>
-</span></span><span style="display:flex;"><span>           <span style="color:#a6e22e">camunda:topic=</span><span style="color:#e6db74">&#34;ShipmentProcessing&#34;</span> <span style="color:#f92672">/&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;serviceTask</span> <span class="na">id=</span><span class="s">&#34;anExternalServiceTask&#34;</span>
+</span></span><span class="line"><span class="cl">           <span class="na">camunda:type=</span><span class="s">&#34;external&#34;</span>
+</span></span><span class="line"><span class="cl">           <span class="na">camunda:topic=</span><span class="s">&#34;ShipmentProcessing&#34;</span> <span class="nt">/&gt;</span>
 </span></span></code></pre></div><h1 id="camunda-extensions">Camunda Extensions</h1>
 <table class="table table-striped">
   <tr>

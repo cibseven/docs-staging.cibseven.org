@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/latest/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/latest/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/reference/forms/embedded-forms/controls/date-inputs/" />
 </head>
 <body class="">
@@ -3164,9 +3164,9 @@
 <p>To bind the input field to a Java <code>Date</code> variable, the directive
 <code>cam-variable-type=&quot;Date&quot;</code> must be used.</p>
 <p>Example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span>
-</span></span><span style="display:flex;"><span>       <span style="color:#a6e22e">cam-variable-name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;CONTRACT_START_DATE&#34;</span>
-</span></span><span style="display:flex;"><span>       <span style="color:#a6e22e">cam-variable-type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Date&#34;</span> /&gt;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span>
+</span></span><span class="line"><span class="cl">       <span class="na">cam-variable-name</span><span class="o">=</span><span class="s">&#34;CONTRACT_START_DATE&#34;</span>
+</span></span><span class="line"><span class="cl">       <span class="na">cam-variable-type</span><span class="o">=</span><span class="s">&#34;Date&#34;</span> <span class="p">/&gt;</span>
 </span></span></code></pre></div><h1 id="date-format">Date Format</h1>
 <p>Currently only the ISO Date Format <code>yyyy-MM-dd'T'HH:mm:ss</code> is supported.
 Example value: <code>2013-01-23T13:42:42</code></p>
@@ -3181,33 +3181,33 @@ Example value: <code>2013-01-23T13:42:42</code></p>
 <p>You can use the <a href="http://angular-ui.github.io/bootstrap/">Angular UI datepicker</a>
 directive to offer a datepicker for the date input field. The complete markup of the input field
 including the datepicker button is shown below.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;input-group&#34;</span>&gt;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span>
-</span></span><span style="display:flex;"><span>       <span style="color:#a6e22e">cam-variable-name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;CONTRACT_START_DATE&#34;</span>
-</span></span><span style="display:flex;"><span>       <span style="color:#a6e22e">cam-variable-type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Date&#34;</span>
-</span></span><span style="display:flex;"><span>       <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;form-control&#34;</span>
-</span></span><span style="display:flex;"><span>       <span style="color:#a6e22e">uib-datepicker-popup</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;yyyy-MM-dd&#39;T&#39;HH:mm:ss&#34;</span>
-</span></span><span style="display:flex;"><span>       <span style="color:#a6e22e">is-open</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;dateFieldOpened&#34;</span> /&gt;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;input-group-btn&#34;</span>&gt;
-</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;button&#34;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;btn btn-default&#34;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">ng-click</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;open($event)&#34;</span>&gt;
-</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">i</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;glyphicon glyphicon-calendar&#34;</span>&gt;&lt;/<span style="color:#f92672">i</span>&gt;
-</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">button</span>&gt;
-</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">span</span>&gt;
-</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">p</span>&gt;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;input-group&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span>
+</span></span><span class="line"><span class="cl">       <span class="na">cam-variable-name</span><span class="o">=</span><span class="s">&#34;CONTRACT_START_DATE&#34;</span>
+</span></span><span class="line"><span class="cl">       <span class="na">cam-variable-type</span><span class="o">=</span><span class="s">&#34;Date&#34;</span>
+</span></span><span class="line"><span class="cl">       <span class="na">class</span><span class="o">=</span><span class="s">&#34;form-control&#34;</span>
+</span></span><span class="line"><span class="cl">       <span class="na">uib-datepicker-popup</span><span class="o">=</span><span class="s">&#34;yyyy-MM-dd&#39;T&#39;HH:mm:ss&#34;</span>
+</span></span><span class="line"><span class="cl">       <span class="na">is-open</span><span class="o">=</span><span class="s">&#34;dateFieldOpened&#34;</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;input-group-btn&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;button&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="na">class</span><span class="o">=</span><span class="s">&#34;btn btn-default&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="na">ng-click</span><span class="o">=</span><span class="s">&#34;open($event)&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">i</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;glyphicon glyphicon-calendar&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">i</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
 </span></span></code></pre></div><p>In addition to the HTML markup, the following JavaScript must be included in the form file
 (see <a href="/manual/latest/reference/forms/embedded-forms/javascript/">Custom JavaScript</a>):</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">cam-script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/form-script&#34;</span>&gt;
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">$scope</span>.<span style="color:#a6e22e">open</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">$event</span>) {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">$event</span>.<span style="color:#a6e22e">preventDefault</span>();
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">$event</span>.<span style="color:#a6e22e">stopPropagation</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">$scope</span>.<span style="color:#a6e22e">dateFieldOpened</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>;
-</span></span><span style="display:flex;"><span>  };
-</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">script</span>&gt;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">cam-script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/form-script&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">$scope</span><span class="p">.</span><span class="nx">open</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$event</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">$event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">$event</span><span class="p">.</span><span class="nx">stopPropagation</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">$scope</span><span class="p">.</span><span class="nx">dateFieldOpened</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </span></span></code></pre></div><p>The attributes of the datepicker component are explained below:</p>
 <p>Additional attributes of the input element:</p>
 <ul>

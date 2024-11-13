@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/1.0/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/1.0/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/user-guide/process-engine/delegation-code/" />
 </head>
 <body class="">
@@ -3184,16 +3184,16 @@ which needs to contain the business logic. Process instance
 information such as process variables and other information can be accessed and
 manipulated through the <a href="/javadoc/cibseven/1.0/org/camunda/bpm/engine/delegate/DelegateExecution.html">DelegateExecution</a>
  interface (click on the link for a detailed Javadoc of its operations).</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ToUppercase</span> <span style="color:#66d9ef">implements</span> JavaDelegate {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">execute</span>(DelegateExecution execution) <span style="color:#66d9ef">throws</span> Exception {
-</span></span><span style="display:flex;"><span>      String <span style="color:#66d9ef">var</span> <span style="color:#960050;background-color:#1e0010">= (</span>String) execution.<span style="color:#a6e22e">getVariable</span>(<span style="color:#e6db74">&#34;input&#34;</span>);
-</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">var</span> <span style="color:#960050;background-color:#1e0010">= </span>var.<span style="color:#a6e22e">toUpperCase</span>();
-</span></span><span style="display:flex;"><span>      execution.<span style="color:#a6e22e">setVariable</span>(<span style="color:#e6db74">&#34;input&#34;</span>, var);
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ToUppercase</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">JavaDelegate</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">execute</span><span class="p">(</span><span class="n">DelegateExecution</span><span class="w"> </span><span class="n">execution</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="n">String</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="err">= (</span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="n">execution</span><span class="p">.</span><span class="na">getVariable</span><span class="p">(</span><span class="s">&#34;input&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="kd">var</span><span class="w"> </span><span class="err">= </span><span class="n">var</span><span class="p">.</span><span class="na">toUpperCase</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="n">execution</span><span class="p">.</span><span class="na">setVariable</span><span class="p">(</span><span class="s">&#34;input&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">var</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div>
 <div class="note bg-info docs-info">
   <h3>Note!</h3>
   <p>Each time a delegation class referencing activity is executed, a separate instance of this class will be created. This means that each time an activity is executed there will be used another instance of the class to call <code>execute(DelegateExecution)</code>.</p>
@@ -3234,30 +3234,30 @@ Please always use a public setter-method for the fields you want to have injecte
 Field Injection is supported when using the <code>class</code> or <code>delegateExpression</code> attribute. Note that we need
 to declare a <code>extensionElements</code> XML element before the actual field injection
 declarations, which is a requirement of the BPMN 2.0 XML Schema.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>  <span style="color:#f92672">&lt;serviceTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;javaService&#34;</span>
-</span></span><span style="display:flex;"><span>               <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Java service invocation&#34;</span>
-</span></span><span style="display:flex;"><span>               <span style="color:#a6e22e">camunda:class=</span><span style="color:#e6db74">&#34;org.camunda.bpm.examples.bpmn.servicetask.ToUpperCaseFieldInjected&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;camunda:field</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">stringValue=</span><span style="color:#e6db74">&#34;Hello World&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/serviceTask&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">  <span class="nt">&lt;serviceTask</span> <span class="na">id=</span><span class="s">&#34;javaService&#34;</span>
+</span></span><span class="line"><span class="cl">               <span class="na">name=</span><span class="s">&#34;Java service invocation&#34;</span>
+</span></span><span class="line"><span class="cl">               <span class="na">camunda:class=</span><span class="s">&#34;org.camunda.bpm.examples.bpmn.servicetask.ToUpperCaseFieldInjected&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;camunda:field</span> <span class="na">name=</span><span class="s">&#34;text&#34;</span> <span class="na">stringValue=</span><span class="s">&#34;Hello World&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/serviceTask&gt;</span>
 </span></span></code></pre></div><p>The class <code>ToUpperCaseFieldInjected</code> has a field
 <code>text</code> which is of type <code>org.camunda.bpm.engine.delegate.Expression</code>.
 When calling <code>text.getValue(execution)</code>, the configured string value
 <code>Hello World</code> will be returned.</p>
 <p>Alternatively, for longs texts (e.g., an inline e-mail) the <code>camunda:string</code> sub element can be
 used:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>  <span style="color:#f92672">&lt;serviceTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;javaService&#34;</span>
-</span></span><span style="display:flex;"><span>               <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Java service invocation&#34;</span>
-</span></span><span style="display:flex;"><span>               <span style="color:#a6e22e">camunda:class=</span><span style="color:#e6db74">&#34;org.camunda.bpm.examples.bpmn.servicetask.ToUpperCaseFieldInjected&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;camunda:field</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;text&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;camunda:string&gt;</span>
-</span></span><span style="display:flex;"><span>            Hello World
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/camunda:string&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/camunda:field&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/serviceTask&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">  <span class="nt">&lt;serviceTask</span> <span class="na">id=</span><span class="s">&#34;javaService&#34;</span>
+</span></span><span class="line"><span class="cl">               <span class="na">name=</span><span class="s">&#34;Java service invocation&#34;</span>
+</span></span><span class="line"><span class="cl">               <span class="na">camunda:class=</span><span class="s">&#34;org.camunda.bpm.examples.bpmn.servicetask.ToUpperCaseFieldInjected&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;camunda:field</span> <span class="na">name=</span><span class="s">&#34;text&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&lt;camunda:string&gt;</span>
+</span></span><span class="line"><span class="cl">            Hello World
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/camunda:string&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/camunda:field&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/serviceTask&gt;</span>
 </span></span></code></pre></div><p>To inject values that are dynamically resolved at runtime, expressions
 can be used. Those expressions can use process variables, CDI or Spring
 beans. As already noted, a separate instance of the Java class will be created
@@ -3266,36 +3266,36 @@ values in fields, you can inject value and method expressions in an
 <code>org.camunda.bpm.engine.delegate.Expression</code>
 which can be evaluated/invoked using the <code>DelegateExecution</code>
 passed in the <code>execute</code> method.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>  <span style="color:#f92672">&lt;serviceTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;javaService&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Java service invocation&#34;</span>
-</span></span><span style="display:flex;"><span>               <span style="color:#a6e22e">camunda:class=</span><span style="color:#e6db74">&#34;org.camunda.bpm.examples.bpmn.servicetask.ReverseStringsFieldInjected&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;camunda:field</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;text1&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;camunda:expression&gt;</span>${genderBean.getGenderString(gender)}<span style="color:#f92672">&lt;/camunda:expression&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/camunda:field&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;camunda:field</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;text2&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>         <span style="color:#f92672">&lt;camunda:expression&gt;</span>Hello ${gender == &#39;male&#39; ? &#39;Mr.&#39; : &#39;Mrs.&#39;} ${name}<span style="color:#f92672">&lt;/camunda:expression&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/camunda:field&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/serviceTask&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">  <span class="nt">&lt;serviceTask</span> <span class="na">id=</span><span class="s">&#34;javaService&#34;</span> <span class="na">name=</span><span class="s">&#34;Java service invocation&#34;</span>
+</span></span><span class="line"><span class="cl">               <span class="na">camunda:class=</span><span class="s">&#34;org.camunda.bpm.examples.bpmn.servicetask.ReverseStringsFieldInjected&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;camunda:field</span> <span class="na">name=</span><span class="s">&#34;text1&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;camunda:expression&gt;</span>${genderBean.getGenderString(gender)}<span class="nt">&lt;/camunda:expression&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/camunda:field&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;camunda:field</span> <span class="na">name=</span><span class="s">&#34;text2&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">         <span class="nt">&lt;camunda:expression&gt;</span>Hello ${gender == &#39;male&#39; ? &#39;Mr.&#39; : &#39;Mrs.&#39;} ${name}<span class="nt">&lt;/camunda:expression&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/camunda:field&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/serviceTask&gt;</span>
 </span></span></code></pre></div><p>The example class below uses the injected expressions and resolves
 them using the current <code>DelegateExecution</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ReverseStringsFieldInjected</span> <span style="color:#66d9ef">implements</span> JavaDelegate {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> Expression text1;
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> Expression text2;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">execute</span>(DelegateExecution execution) {
-</span></span><span style="display:flex;"><span>      String value1 <span style="color:#f92672">=</span> (String) text1.<span style="color:#a6e22e">getValue</span>(execution);
-</span></span><span style="display:flex;"><span>      execution.<span style="color:#a6e22e">setVariable</span>(<span style="color:#e6db74">&#34;var1&#34;</span>, <span style="color:#66d9ef">new</span> StringBuffer(value1).<span style="color:#a6e22e">reverse</span>().<span style="color:#a6e22e">toString</span>());
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      String value2 <span style="color:#f92672">=</span> (String) text2.<span style="color:#a6e22e">getValue</span>(execution);
-</span></span><span style="display:flex;"><span>      execution.<span style="color:#a6e22e">setVariable</span>(<span style="color:#e6db74">&#34;var2&#34;</span>, <span style="color:#66d9ef">new</span> StringBuffer(value2).<span style="color:#a6e22e">reverse</span>().<span style="color:#a6e22e">toString</span>());
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>  }
-</span></span></code></pre></div><p>Alternatively, you can also set the expressions as an attribute instead of a child-element, to make the XML less verbose.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>  <span style="color:#f92672">&lt;camunda:field</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;text1&#34;</span> <span style="color:#a6e22e">expression=</span><span style="color:#e6db74">&#34;${genderBean.getGenderString(gender)}&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;camunda:field</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;text2&#34;</span> <span style="color:#a6e22e">expression=</span><span style="color:#e6db74">&#34;Hello ${gender == &#39;male&#39; ? &#39;Mr.&#39; : &#39;Mrs.&#39;} ${name}&#34;</span> <span style="color:#f92672">/&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ReverseStringsFieldInjected</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">JavaDelegate</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Expression</span><span class="w"> </span><span class="n">text1</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Expression</span><span class="w"> </span><span class="n">text2</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">execute</span><span class="p">(</span><span class="n">DelegateExecution</span><span class="w"> </span><span class="n">execution</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="n">String</span><span class="w"> </span><span class="n">value1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="n">text1</span><span class="p">.</span><span class="na">getValue</span><span class="p">(</span><span class="n">execution</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="n">execution</span><span class="p">.</span><span class="na">setVariable</span><span class="p">(</span><span class="s">&#34;var1&#34;</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringBuffer</span><span class="p">(</span><span class="n">value1</span><span class="p">).</span><span class="na">reverse</span><span class="p">().</span><span class="na">toString</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="n">String</span><span class="w"> </span><span class="n">value2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="n">text2</span><span class="p">.</span><span class="na">getValue</span><span class="p">(</span><span class="n">execution</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="n">execution</span><span class="p">.</span><span class="na">setVariable</span><span class="p">(</span><span class="s">&#34;var2&#34;</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringBuffer</span><span class="p">(</span><span class="n">value2</span><span class="p">).</span><span class="na">reverse</span><span class="p">().</span><span class="na">toString</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>Alternatively, you can also set the expressions as an attribute instead of a child-element, to make the XML less verbose.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">  <span class="nt">&lt;camunda:field</span> <span class="na">name=</span><span class="s">&#34;text1&#34;</span> <span class="na">expression=</span><span class="s">&#34;${genderBean.getGenderString(gender)}&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;camunda:field</span> <span class="na">name=</span><span class="s">&#34;text2&#34;</span> <span class="na">expression=</span><span class="s">&#34;Hello ${gender == &#39;male&#39; ? &#39;Mr.&#39; : &#39;Mrs.&#39;} ${name}&#34;</span> <span class="nt">/&gt;</span>
 </span></span></code></pre></div>
 <div class="note bg-info docs-info">
   <h3>Note!</h3>
@@ -3312,19 +3312,19 @@ them using the current <code>DelegateExecution</code>.</p>
 <p>To implement a class that delegates the input and output variable mapping for a call activity, this class needs to implement the <code>org.camunda.bpm.engine.delegate.DelegateVariableMapping</code>
 interface. The implementation must provide the methods <code>mapInputVariables(DelegateExecution, VariableMap)</code> and <code>mapOutputVariables(DelegateExecution, VariableScope)</code>.
 See the following example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DelegatedVarMapping</span> <span style="color:#66d9ef">implements</span> DelegateVariableMapping {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Override</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">mapInputVariables</span>(DelegateExecution execution, VariableMap variables) {
-</span></span><span style="display:flex;"><span>    variables.<span style="color:#a6e22e">putValue</span>(<span style="color:#e6db74">&#34;inputVar&#34;</span>, <span style="color:#e6db74">&#34;inValue&#34;</span>);
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Override</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">mapOutputVariables</span>(DelegateExecution execution, VariableScope subInstance) {
-</span></span><span style="display:flex;"><span>    execution.<span style="color:#a6e22e">setVariable</span>(<span style="color:#e6db74">&#34;outputVar&#34;</span>, <span style="color:#e6db74">&#34;outValue&#34;</span>);
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>The <code>mapInputVariables</code> method is called before the call activity is executed, to map the input variables.
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">DelegatedVarMapping</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">DelegateVariableMapping</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@Override</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">mapInputVariables</span><span class="p">(</span><span class="n">DelegateExecution</span><span class="w"> </span><span class="n">execution</span><span class="p">,</span><span class="w"> </span><span class="n">VariableMap</span><span class="w"> </span><span class="n">variables</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">variables</span><span class="p">.</span><span class="na">putValue</span><span class="p">(</span><span class="s">&#34;inputVar&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;inValue&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@Override</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">mapOutputVariables</span><span class="p">(</span><span class="n">DelegateExecution</span><span class="w"> </span><span class="n">execution</span><span class="p">,</span><span class="w"> </span><span class="n">VariableScope</span><span class="w"> </span><span class="n">subInstance</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">execution</span><span class="p">.</span><span class="na">setVariable</span><span class="p">(</span><span class="s">&#34;outputVar&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;outValue&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>The <code>mapInputVariables</code> method is called before the call activity is executed, to map the input variables.
 The input variables should be put into the given variables map.
 The <code>mapOutputVariables</code> method is called after the call activity was executed, to map the output variables.
 The output variables can be directly set into the caller execution.
@@ -3340,52 +3340,52 @@ The behavior of the class loading is similar to the class loading on <a href="/m
 <li>Ending a start event or starting an end event.</li>
 </ul>
 <p>The following process definition contains 3 execution listeners:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>  <span style="color:#f92672">&lt;process</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;executionListenersProcess&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;camunda:executionListener</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">event=</span><span style="color:#e6db74">&#34;start&#34;</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;org.camunda.bpm.examples.bpmn.executionlistener.ExampleExecutionListenerOne&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;startEvent</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;theStart&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;sequenceFlow</span> <span style="color:#a6e22e">sourceRef=</span><span style="color:#e6db74">&#34;theStart&#34;</span> <span style="color:#a6e22e">targetRef=</span><span style="color:#e6db74">&#34;firstTask&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;userTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;firstTask&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;sequenceFlow</span> <span style="color:#a6e22e">sourceRef=</span><span style="color:#e6db74">&#34;firstTask&#34;</span> <span style="color:#a6e22e">targetRef=</span><span style="color:#e6db74">&#34;secondTask&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;camunda:executionListener&gt;</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;camunda:script</span> <span style="color:#a6e22e">scriptFormat=</span><span style="color:#e6db74">&#34;groovy&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>            println execution.eventName
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;/camunda:script&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/camunda:executionListener&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/sequenceFlow&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;userTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;secondTask&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;camunda:executionListener</span> <span style="color:#a6e22e">expression=</span><span style="color:#e6db74">&#34;${myPojo.myMethod(execution.eventName)}&#34;</span> <span style="color:#a6e22e">event=</span><span style="color:#e6db74">&#34;end&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/userTask&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;sequenceFlow</span> <span style="color:#a6e22e">sourceRef=</span><span style="color:#e6db74">&#34;secondTask&#34;</span> <span style="color:#a6e22e">targetRef=</span><span style="color:#e6db74">&#34;thirdTask&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;userTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;thirdTask&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;sequenceFlow</span> <span style="color:#a6e22e">sourceRef=</span><span style="color:#e6db74">&#34;thirdTask&#34;</span> <span style="color:#a6e22e">targetRef=</span><span style="color:#e6db74">&#34;theEnd&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;endEvent</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;theEnd&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/process&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">  <span class="nt">&lt;process</span> <span class="na">id=</span><span class="s">&#34;executionListenersProcess&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;camunda:executionListener</span>
+</span></span><span class="line"><span class="cl">          <span class="na">event=</span><span class="s">&#34;start&#34;</span>
+</span></span><span class="line"><span class="cl">          <span class="na">class=</span><span class="s">&#34;org.camunda.bpm.examples.bpmn.executionlistener.ExampleExecutionListenerOne&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;startEvent</span> <span class="na">id=</span><span class="s">&#34;theStart&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;sequenceFlow</span> <span class="na">sourceRef=</span><span class="s">&#34;theStart&#34;</span> <span class="na">targetRef=</span><span class="s">&#34;firstTask&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;userTask</span> <span class="na">id=</span><span class="s">&#34;firstTask&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;sequenceFlow</span> <span class="na">sourceRef=</span><span class="s">&#34;firstTask&#34;</span> <span class="na">targetRef=</span><span class="s">&#34;secondTask&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;camunda:executionListener&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&lt;camunda:script</span> <span class="na">scriptFormat=</span><span class="s">&#34;groovy&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">            println execution.eventName
+</span></span><span class="line"><span class="cl">          <span class="nt">&lt;/camunda:script&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/camunda:executionListener&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/sequenceFlow&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;userTask</span> <span class="na">id=</span><span class="s">&#34;secondTask&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;camunda:executionListener</span> <span class="na">expression=</span><span class="s">&#34;${myPojo.myMethod(execution.eventName)}&#34;</span> <span class="na">event=</span><span class="s">&#34;end&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/userTask&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;sequenceFlow</span> <span class="na">sourceRef=</span><span class="s">&#34;secondTask&#34;</span> <span class="na">targetRef=</span><span class="s">&#34;thirdTask&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;userTask</span> <span class="na">id=</span><span class="s">&#34;thirdTask&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;sequenceFlow</span> <span class="na">sourceRef=</span><span class="s">&#34;thirdTask&#34;</span> <span class="na">targetRef=</span><span class="s">&#34;theEnd&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;endEvent</span> <span class="na">id=</span><span class="s">&#34;theEnd&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/process&gt;</span>
 </span></span></code></pre></div><p>The first execution listener is notified when the process starts. The listener is an external Java-class (like ExampleExecutionListenerOne) and should implement the <code>org.camunda.bpm.engine.delegate.ExecutionListener</code> interface. When the event occurs (in this case end event) the method <code>notify(DelegateExecution execution)</code> is called.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ExampleExecutionListenerOne</span> <span style="color:#66d9ef">implements</span> ExecutionListener {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">notify</span>(DelegateExecution execution) <span style="color:#66d9ef">throws</span> Exception {
-</span></span><span style="display:flex;"><span>      execution.<span style="color:#a6e22e">setVariable</span>(<span style="color:#e6db74">&#34;variableSetInExecutionListener&#34;</span>, <span style="color:#e6db74">&#34;firstValue&#34;</span>);
-</span></span><span style="display:flex;"><span>      execution.<span style="color:#a6e22e">setVariable</span>(<span style="color:#e6db74">&#34;eventReceived&#34;</span>, execution.<span style="color:#a6e22e">getEventName</span>());
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>  }
-</span></span></code></pre></div><p>It is also possible to use a delegation class that implements the <code>org.camunda.bpm.engine.delegate.JavaDelegate</code> interface. These delegation classes can then be reused in other constructs, such as a delegation for a service task.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ExampleExecutionListenerOne</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">ExecutionListener</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">notify</span><span class="p">(</span><span class="n">DelegateExecution</span><span class="w"> </span><span class="n">execution</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="n">execution</span><span class="p">.</span><span class="na">setVariable</span><span class="p">(</span><span class="s">&#34;variableSetInExecutionListener&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;firstValue&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="n">execution</span><span class="p">.</span><span class="na">setVariable</span><span class="p">(</span><span class="s">&#34;eventReceived&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">execution</span><span class="p">.</span><span class="na">getEventName</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>It is also possible to use a delegation class that implements the <code>org.camunda.bpm.engine.delegate.JavaDelegate</code> interface. These delegation classes can then be reused in other constructs, such as a delegation for a service task.</p>
 <p>The second execution listener is called when the transition is taken. Note that the listener element
 doesn&rsquo;t define an event, since only take events are fired on transitions. Values in the event
 attribute are ignored when a listener is defined on a transition. Also it contains a
@@ -3394,7 +3394,7 @@ will be executed as execution listener. Alternatively it is possible to specify 
 code as external resources (see the documentation about <a href="/manual/1.0/user-guide/process-engine/scripting/#script-source">script sources</a> of script
 tasks).</p>
 <p>The last execution listener is called when activity secondTask ends. Instead of using the class on the listener declaration, a expression is defined instead which is evaluated/invoked when the event is fired.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>  <span style="color:#f92672">&lt;camunda:executionListener</span> <span style="color:#a6e22e">expression=</span><span style="color:#e6db74">&#34;${myPojo.myMethod(execution.eventName)}&#34;</span> <span style="color:#a6e22e">event=</span><span style="color:#e6db74">&#34;end&#34;</span> <span style="color:#f92672">/&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">  <span class="nt">&lt;camunda:executionListener</span> <span class="na">expression=</span><span class="s">&#34;${myPojo.myMethod(execution.eventName)}&#34;</span> <span class="na">event=</span><span class="s">&#34;end&#34;</span> <span class="nt">/&gt;</span>
 </span></span></code></pre></div>
 <div class="note bg-info docs-info">
   <h3>Note!</h3>
@@ -3403,14 +3403,14 @@ tasks).</p>
 
 <p>As with other expressions, execution variables are resolved and can be used. Because the execution implementation object has a property that exposes the event name, it&rsquo;s possible to pass the event-name to your methods using execution.eventName.</p>
 <p>Execution listeners also support using a delegateExpression, similar to a service task.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>  <span style="color:#f92672">&lt;camunda:executionListener</span> <span style="color:#a6e22e">event=</span><span style="color:#e6db74">&#34;start&#34;</span> <span style="color:#a6e22e">delegateExpression=</span><span style="color:#e6db74">&#34;${myExecutionListenerBean}&#34;</span> <span style="color:#f92672">/&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">  <span class="nt">&lt;camunda:executionListener</span> <span class="na">event=</span><span class="s">&#34;start&#34;</span> <span class="na">delegateExpression=</span><span class="s">&#34;${myExecutionListenerBean}&#34;</span> <span class="nt">/&gt;</span>
 </span></span></code></pre></div><h1 id="task-listener">Task Listener</h1>
 <p>A task listener is used to execute custom Java logic or an expression upon the occurrence of a certain task-related event. It can only be added in the process definition as a child element of a user task. Note that this also must happen as a child of the BPMN 2.0 extensionElements and in the Camunda namespace, since a task listener is a construct specifically for the Camunda engine.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>  <span style="color:#f92672">&lt;userTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;myTask&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;My Task&#34;</span> <span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;camunda:taskListener</span> <span style="color:#a6e22e">event=</span><span style="color:#e6db74">&#34;create&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;org.camunda.bpm.MyTaskCreateListener&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/userTask&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">  <span class="nt">&lt;userTask</span> <span class="na">id=</span><span class="s">&#34;myTask&#34;</span> <span class="na">name=</span><span class="s">&#34;My Task&#34;</span> <span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;camunda:taskListener</span> <span class="na">event=</span><span class="s">&#34;create&#34;</span> <span class="na">class=</span><span class="s">&#34;org.camunda.bpm.MyTaskCreateListener&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/userTask&gt;</span>
 </span></span></code></pre></div><h2 id="task-listener-event-lifecycle">Task Listener Event Lifecycle</h2>
 <p>The execution of Task Listeners is dependent on the order of firing of
 the following task-related events:</p>
@@ -3477,23 +3477,23 @@ element in the task listener and will only be fired if the <a href="/manual/1.0/
 </li>
 <li>
 <p><strong>class</strong>: the delegation class that must be called. This class must implement the <code>org.camunda.bpm.engine.impl.pvm.delegate.TaskListener</code> interface.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyTaskCreateListener</span> <span style="color:#66d9ef">implements</span> TaskListener {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">notify</span>(DelegateTask delegateTask) {
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Custom logic goes here</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// The task object is persisted in the database after this method has finished</span>
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>It is also possible to use Field Injection to pass process variables or the execution to the delegation class. Note that each time a delegation class referencing activity is executed, a separate instance of this class will be created.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyTaskCreateListener</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">TaskListener</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">notify</span><span class="p">(</span><span class="n">DelegateTask</span><span class="w"> </span><span class="n">delegateTask</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// Custom logic goes here</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// The task object is persisted in the database after this method has finished</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>It is also possible to use Field Injection to pass process variables or the execution to the delegation class. Note that each time a delegation class referencing activity is executed, a separate instance of this class will be created.</p>
 </li>
 <li>
 <p><strong>expression</strong>: (cannot be used together with the class attribute): specifies an expression that will be executed when the event happens. It is possible to pass the DelegateTask object and the name of the event (using task.eventName) to the called object as parameters.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;camunda:taskListener</span> <span style="color:#a6e22e">event=</span><span style="color:#e6db74">&#34;create&#34;</span> <span style="color:#a6e22e">expression=</span><span style="color:#e6db74">&#34;${myObject.callMethod(task, task.eventName)}&#34;</span> <span style="color:#f92672">/&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;camunda:taskListener</span> <span class="na">event=</span><span class="s">&#34;create&#34;</span> <span class="na">expression=</span><span class="s">&#34;${myObject.callMethod(task, task.eventName)}&#34;</span> <span class="nt">/&gt;</span>
 </span></span></code></pre></div></li>
 <li>
 <p><strong>delegateExpression</strong>: allows to specify an expression that resolves to an object implementing the TaskListener interface, similar to a service task.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;camunda:taskListener</span> <span style="color:#a6e22e">event=</span><span style="color:#e6db74">&#34;create&#34;</span> <span style="color:#a6e22e">delegateExpression=</span><span style="color:#e6db74">&#34;${myTaskListenerBean}&#34;</span> <span style="color:#f92672">/&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;camunda:taskListener</span> <span class="na">event=</span><span class="s">&#34;create&#34;</span> <span class="na">delegateExpression=</span><span class="s">&#34;${myTaskListenerBean}&#34;</span> <span class="nt">/&gt;</span>
 </span></span></code></pre></div></li>
 <li>
 <p><strong>id</strong>: a unique identifier of the listener within the scope of the user task, only required if the <code>event</code> is set to <code>timeout</code>.</p>
@@ -3504,103 +3504,103 @@ element in the task listener and will only be fired if the <a href="/manual/1.0/
 An external script resource can also be declared with the resource attribute of the
 <code>camunda:script</code> element (see the documentation about <a href="/manual/1.0/user-guide/process-engine/scripting/#script-source">script sources</a> of script
 tasks).</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>  <span style="color:#f92672">&lt;userTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;task&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;camunda:taskListener</span> <span style="color:#a6e22e">event=</span><span style="color:#e6db74">&#34;create&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;camunda:script</span> <span style="color:#a6e22e">scriptFormat=</span><span style="color:#e6db74">&#34;groovy&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>          println task.eventName
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/camunda:script&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/camunda:taskListener&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/userTask&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">  <span class="nt">&lt;userTask</span> <span class="na">id=</span><span class="s">&#34;task&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;camunda:taskListener</span> <span class="na">event=</span><span class="s">&#34;create&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;camunda:script</span> <span class="na">scriptFormat=</span><span class="s">&#34;groovy&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">          println task.eventName
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/camunda:script&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/camunda:taskListener&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/userTask&gt;</span>
 </span></span></code></pre></div><p>Furthermore, a <a href="/manual/1.0/reference/bpmn20/events/timer-events/#defining-a-timer">timerEventDefinition</a> child element can be used in conjunction with the <code>event</code> type <code>timeout</code>
 in order to define the associated timer. The specified delegate will be called by the <a href="/manual/1.0/user-guide/process-engine/the-job-executor/">Job Executor</a> when the timer is due.
 The execution of the user task will <strong>not</strong> be interrupted by this.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>  <span style="color:#f92672">&lt;userTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;task&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;camunda:taskListener</span> <span style="color:#a6e22e">event=</span><span style="color:#e6db74">&#34;timeout&#34;</span> <span style="color:#a6e22e">delegateExpression=</span><span style="color:#e6db74">&#34;${myTaskListenerBean}&#34;</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;friendly-reminder&#34;</span> <span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;timerEventDefinition&gt;</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;timeDuration</span> <span style="color:#a6e22e">xsi:type=</span><span style="color:#e6db74">&#34;tFormalExpression&#34;</span><span style="color:#f92672">&gt;</span>PT1H<span style="color:#f92672">&lt;/timeDuration&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/timerEventDefinition&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/camunda:taskListener&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/userTask&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">  <span class="nt">&lt;userTask</span> <span class="na">id=</span><span class="s">&#34;task&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;camunda:taskListener</span> <span class="na">event=</span><span class="s">&#34;timeout&#34;</span> <span class="na">delegateExpression=</span><span class="s">&#34;${myTaskListenerBean}&#34;</span> <span class="na">id=</span><span class="s">&#34;friendly-reminder&#34;</span> <span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;timerEventDefinition&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&lt;timeDuration</span> <span class="na">xsi:type=</span><span class="s">&#34;tFormalExpression&#34;</span><span class="nt">&gt;</span>PT1H<span class="nt">&lt;/timeDuration&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/timerEventDefinition&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/camunda:taskListener&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/userTask&gt;</span>
 </span></span></code></pre></div><h1 id="field-injection-on-listener">Field Injection on Listener</h1>
 <p>When using listeners configured with the class attribute, Field Injection can be applied. This is exactly the same mechanism as described for Java Delegates, which contains an overview of the possibilities provided by field injection.</p>
 <p>The fragment below shows a simple example process with an execution listener with fields injected:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>  <span style="color:#f92672">&lt;process</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;executionListenersProcess&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;camunda:executionListener</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;org.camunda.bpm.examples.bpmn.executionListener.ExampleFieldInjectedExecutionListener&#34;</span> <span style="color:#a6e22e">event=</span><span style="color:#e6db74">&#34;start&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;camunda:field</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;fixedValue&#34;</span> <span style="color:#a6e22e">stringValue=</span><span style="color:#e6db74">&#34;Yes, I am &#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;camunda:field</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;dynamicValue&#34;</span> <span style="color:#a6e22e">expression=</span><span style="color:#e6db74">&#34;${myVar}&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/camunda:executionListener&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;startEvent</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;theStart&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;sequenceFlow</span> <span style="color:#a6e22e">sourceRef=</span><span style="color:#e6db74">&#34;theStart&#34;</span> <span style="color:#a6e22e">targetRef=</span><span style="color:#e6db74">&#34;firstTask&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;userTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;firstTask&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;sequenceFlow</span> <span style="color:#a6e22e">sourceRef=</span><span style="color:#e6db74">&#34;firstTask&#34;</span> <span style="color:#a6e22e">targetRef=</span><span style="color:#e6db74">&#34;theEnd&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;endEvent</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;theEnd&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/process&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">  <span class="nt">&lt;process</span> <span class="na">id=</span><span class="s">&#34;executionListenersProcess&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;camunda:executionListener</span> <span class="na">class=</span><span class="s">&#34;org.camunda.bpm.examples.bpmn.executionListener.ExampleFieldInjectedExecutionListener&#34;</span> <span class="na">event=</span><span class="s">&#34;start&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;camunda:field</span> <span class="na">name=</span><span class="s">&#34;fixedValue&#34;</span> <span class="na">stringValue=</span><span class="s">&#34;Yes, I am &#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;camunda:field</span> <span class="na">name=</span><span class="s">&#34;dynamicValue&#34;</span> <span class="na">expression=</span><span class="s">&#34;${myVar}&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/camunda:executionListener&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;startEvent</span> <span class="na">id=</span><span class="s">&#34;theStart&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;sequenceFlow</span> <span class="na">sourceRef=</span><span class="s">&#34;theStart&#34;</span> <span class="na">targetRef=</span><span class="s">&#34;firstTask&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;userTask</span> <span class="na">id=</span><span class="s">&#34;firstTask&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;sequenceFlow</span> <span class="na">sourceRef=</span><span class="s">&#34;firstTask&#34;</span> <span class="na">targetRef=</span><span class="s">&#34;theEnd&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;endEvent</span> <span class="na">id=</span><span class="s">&#34;theEnd&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/process&gt;</span>
 </span></span></code></pre></div><p>The actual listener implementation may look as follows:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ExampleFieldInjectedExecutionListener</span> <span style="color:#66d9ef">implements</span> ExecutionListener {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> Expression fixedValue;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> Expression dynamicValue;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">notify</span>(DelegateExecution execution) <span style="color:#66d9ef">throws</span> Exception {
-</span></span><span style="display:flex;"><span>      String value <span style="color:#f92672">=</span>
-</span></span><span style="display:flex;"><span>        fixedValue.<span style="color:#a6e22e">getValue</span>(execution).<span style="color:#a6e22e">toString</span>() <span style="color:#f92672">+</span>
-</span></span><span style="display:flex;"><span>        dynamicValue.<span style="color:#a6e22e">getValue</span>(execution).<span style="color:#a6e22e">toString</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      execution.<span style="color:#a6e22e">setVariable</span>(<span style="color:#e6db74">&#34;var&#34;</span>, value);
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>  }
-</span></span></code></pre></div><p>The class <code>ExampleFieldInjectedExecutionListener</code> concatenates the 2 injected fields (one fixed and the other dynamic) and stores this in the process variable <em>var</em>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>  <span style="color:#a6e22e">@Deployment</span>(resources <span style="color:#f92672">=</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;org/camunda/bpm/examples/bpmn/executionListener/ExecutionListenersFieldInjectionProcess.bpmn20.xml&#34;</span>
-</span></span><span style="display:flex;"><span>  })
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">testExecutionListenerFieldInjection</span>() {
-</span></span><span style="display:flex;"><span>    Map<span style="color:#f92672">&lt;</span>String, Object<span style="color:#f92672">&gt;</span> variables <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HashMap<span style="color:#f92672">&lt;</span>String, Object<span style="color:#f92672">&gt;</span>();
-</span></span><span style="display:flex;"><span>    variables.<span style="color:#a6e22e">put</span>(<span style="color:#e6db74">&#34;myVar&#34;</span>, <span style="color:#e6db74">&#34;listening!&#34;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    ProcessInstance processInstance <span style="color:#f92672">=</span> runtimeService.<span style="color:#a6e22e">startProcessInstanceByKey</span>(<span style="color:#e6db74">&#34;executionListenersProcess&#34;</span>, variables);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    Object varSetByListener <span style="color:#f92672">=</span> runtimeService.<span style="color:#a6e22e">getVariable</span>(processInstance.<span style="color:#a6e22e">getId</span>(), <span style="color:#e6db74">&#34;var&#34;</span>);
-</span></span><span style="display:flex;"><span>    assertNotNull(varSetByListener);
-</span></span><span style="display:flex;"><span>    assertTrue(varSetByListener <span style="color:#66d9ef">instanceof</span> String);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Result is a concatenation of fixed injected field and injected expression</span>
-</span></span><span style="display:flex;"><span>    assertEquals(<span style="color:#e6db74">&#34;Yes, I am listening!&#34;</span>, varSetByListener);
-</span></span><span style="display:flex;"><span>  }
-</span></span></code></pre></div><h1 id="access-process-engine-services">Access Process Engine Services</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ExampleFieldInjectedExecutionListener</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">ExecutionListener</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Expression</span><span class="w"> </span><span class="n">fixedValue</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Expression</span><span class="w"> </span><span class="n">dynamicValue</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">notify</span><span class="p">(</span><span class="n">DelegateExecution</span><span class="w"> </span><span class="n">execution</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="n">String</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">fixedValue</span><span class="p">.</span><span class="na">getValue</span><span class="p">(</span><span class="n">execution</span><span class="p">).</span><span class="na">toString</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">dynamicValue</span><span class="p">.</span><span class="na">getValue</span><span class="p">(</span><span class="n">execution</span><span class="p">).</span><span class="na">toString</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="n">execution</span><span class="p">.</span><span class="na">setVariable</span><span class="p">(</span><span class="s">&#34;var&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>The class <code>ExampleFieldInjectedExecutionListener</code> concatenates the 2 injected fields (one fixed and the other dynamic) and stores this in the process variable <em>var</em>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@Deployment</span><span class="p">(</span><span class="n">resources</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s">&#34;org/camunda/bpm/examples/bpmn/executionListener/ExecutionListenersFieldInjectionProcess.bpmn20.xml&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">})</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">testExecutionListenerFieldInjection</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="n">variables</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="o">&gt;</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">variables</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&#34;myVar&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;listening!&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">ProcessInstance</span><span class="w"> </span><span class="n">processInstance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">runtimeService</span><span class="p">.</span><span class="na">startProcessInstanceByKey</span><span class="p">(</span><span class="s">&#34;executionListenersProcess&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">variables</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">Object</span><span class="w"> </span><span class="n">varSetByListener</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">runtimeService</span><span class="p">.</span><span class="na">getVariable</span><span class="p">(</span><span class="n">processInstance</span><span class="p">.</span><span class="na">getId</span><span class="p">(),</span><span class="w"> </span><span class="s">&#34;var&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">assertNotNull</span><span class="p">(</span><span class="n">varSetByListener</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">assertTrue</span><span class="p">(</span><span class="n">varSetByListener</span><span class="w"> </span><span class="k">instanceof</span><span class="w"> </span><span class="n">String</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// Result is a concatenation of fixed injected field and injected expression</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">assertEquals</span><span class="p">(</span><span class="s">&#34;Yes, I am listening!&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">varSetByListener</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h1 id="access-process-engine-services">Access Process Engine Services</h1>
 <p>It is possible to access the public API services (<code>RuntimeService</code>, <code>TaskService</code>, <code>RepositoryService</code> &hellip;) from the Delegation Code. The following is an example showing
 how to access the <code>TaskService</code> from a <code>JavaDelegate</code> implementation.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DelegateExample</span> <span style="color:#66d9ef">implements</span> JavaDelegate {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">execute</span>(DelegateExecution execution) <span style="color:#66d9ef">throws</span> Exception {
-</span></span><span style="display:flex;"><span>      TaskService taskService <span style="color:#f92672">=</span> execution.<span style="color:#a6e22e">getProcessEngineServices</span>().<span style="color:#a6e22e">taskService</span>();
-</span></span><span style="display:flex;"><span>      taskService.<span style="color:#a6e22e">createTaskQuery</span>()...;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  }
-</span></span></code></pre></div><h1 id="throw-bpmn-errors-from-delegation-code">Throw BPMN Errors from Delegation Code</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">DelegateExample</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">JavaDelegate</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">execute</span><span class="p">(</span><span class="n">DelegateExecution</span><span class="w"> </span><span class="n">execution</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="n">TaskService</span><span class="w"> </span><span class="n">taskService</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">execution</span><span class="p">.</span><span class="na">getProcessEngineServices</span><span class="p">().</span><span class="na">taskService</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="n">taskService</span><span class="p">.</span><span class="na">createTaskQuery</span><span class="p">()...;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h1 id="throw-bpmn-errors-from-delegation-code">Throw BPMN Errors from Delegation Code</h1>
 <p>It is possible to throw <code>BpmnError</code> from delegation code (Java Delegate, Execution and Task Listeners). This is done by using a provided Java exception class from within your Java code (e.g., in the JavaDelegate):</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BookOutGoodsDelegate</span> <span style="color:#66d9ef">implements</span> JavaDelegate {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">execute</span>(DelegateExecution execution) <span style="color:#66d9ef">throws</span> Exception {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span> {
-</span></span><span style="display:flex;"><span>        ...
-</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">catch</span> (NotOnStockException ex) {
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> BpmnError(NOT_ON_STOCK_ERROR);
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h2 id="throw-bpmn-errors-from-listeners">Throw BPMN Errors from Listeners</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">BookOutGoodsDelegate</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">JavaDelegate</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">execute</span><span class="p">(</span><span class="n">DelegateExecution</span><span class="w"> </span><span class="n">execution</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">NotOnStockException</span><span class="w"> </span><span class="n">ex</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BpmnError</span><span class="p">(</span><span class="n">NOT_ON_STOCK_ERROR</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h2 id="throw-bpmn-errors-from-listeners">Throw BPMN Errors from Listeners</h2>
 <p>When implementing an error catch event, keep in mind that the <code>BpmnError</code> will be caught when they are thrown in normal flow of the following listeners:</p>
 <ul>
 <li>start and end execution listeners on activity, gateway, and intermediate events</li>
@@ -3627,42 +3627,42 @@ how to access the <code>TaskService</code> from a <code>JavaDelegate</code> impl
 
 <h1 id="set-business-key-from-delegation-code">Set Business Key from Delegation Code</h1>
 <p>The option to set a new value of business key to already running process instance is shown in the example below:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BookOutGoodsDelegate</span> <span style="color:#66d9ef">implements</span> JavaDelegate {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">execute</span>(DelegateExecution execution) <span style="color:#66d9ef">throws</span> Exception {
-</span></span><span style="display:flex;"><span>    ...
-</span></span><span style="display:flex;"><span>    String recalculatedKey <span style="color:#f92672">=</span> (String) execution.<span style="color:#a6e22e">getVariable</span>(<span style="color:#e6db74">&#34;recalculatedKeyVariable&#34;</span>);
-</span></span><span style="display:flex;"><span>    execution.<span style="color:#a6e22e">setProcessBusinessKey</span>(recalculatedKey);
-</span></span><span style="display:flex;"><span>    ...
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h1 id="exception-codes">Exception codes</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">BookOutGoodsDelegate</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">JavaDelegate</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">execute</span><span class="p">(</span><span class="n">DelegateExecution</span><span class="w"> </span><span class="n">execution</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">recalculatedKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="n">execution</span><span class="p">.</span><span class="na">getVariable</span><span class="p">(</span><span class="s">&#34;recalculatedKeyVariable&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">execution</span><span class="p">.</span><span class="na">setProcessBusinessKey</span><span class="p">(</span><span class="n">recalculatedKey</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h1 id="exception-codes">Exception codes</h1>
 <p>You can throw a <code><a href="/javadoc/cibseven/1.0/org/camunda/bpm/engine/ProcessEngineException.html">ProcessEngineException</a>
 </code>
 from your delegation code and define your custom error code by passing it to the constructor or by
 calling <code>ProcessEngineException#setCode</code>.</p>
 <p>Also, you can create a custom exception class that extends the <code>ProcessEngineException</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// Defining a custom exception.</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyException</span> <span style="color:#66d9ef">extends</span> ProcessEngineException {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">MyException</span>(String message, <span style="color:#66d9ef">int</span> code) {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">super</span>(message, code);
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// Delegation code that throws MyException with a custom error code.</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyJavaDelegate</span> <span style="color:#66d9ef">implements</span> JavaDelegate {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Override</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">execute</span>(DelegateExecution execution) {
-</span></span><span style="display:flex;"><span>    String myErrorMessage <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;My error message.&#34;</span>;
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> myErrorCode <span style="color:#f92672">=</span> 22_222;
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> MyException(myErrorMessage, myErrorCode);
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>Setting a custom error code via Delegation Code allows your business logic to react to it by getting
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// Defining a custom exception.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyException</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">ProcessEngineException</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="nf">MyException</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">message</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">code</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">super</span><span class="p">(</span><span class="n">message</span><span class="p">,</span><span class="w"> </span><span class="n">code</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// Delegation code that throws MyException with a custom error code.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyJavaDelegate</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">JavaDelegate</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@Override</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">execute</span><span class="p">(</span><span class="n">DelegateExecution</span><span class="w"> </span><span class="n">execution</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">myErrorMessage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;My error message.&#34;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">myErrorCode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">22_222</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MyException</span><span class="p">(</span><span class="n">myErrorMessage</span><span class="p">,</span><span class="w"> </span><span class="n">myErrorCode</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>Setting a custom error code via Delegation Code allows your business logic to react to it by getting
 the code via <code>ProcessEngineException#getCode</code> when calling Camunda Java API or by evaluating the
 <code>code</code> property in the response of an <a href="/manual/1.0/reference/rest/overview/#exception-codes">erroneous REST API call</a>.</p>
 <p>If you don&rsquo;t set any code, the engine assigns <code>0</code>, which a custom or built-in error code provider can override.</p>

@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/latest/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/latest/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/user-guide/process-engine/decisions/decision-service/" />
 </head>
 <body class="">
@@ -3165,23 +3165,23 @@ to evaluate a deployed decision definition independently from BPMN and CMMN.</p>
 <p>To evaluate a deployed decision, reference it by id or a combination of key and version. If
 a key is used but no version is specified then the latest version of decision
 definition with the given key is evaluated.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>DecisionService decisionService <span style="color:#f92672">=</span> processEngine.<span style="color:#a6e22e">getDecisionService</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>VariableMap variables <span style="color:#f92672">=</span> Variables.<span style="color:#a6e22e">createVariables</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">putValue</span>(<span style="color:#e6db74">&#34;status&#34;</span>, <span style="color:#e6db74">&#34;bronze&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">putValue</span>(<span style="color:#e6db74">&#34;sum&#34;</span>, 1000);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>DmnDecisionResult decisionResult <span style="color:#f92672">=</span> decisionService
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">evaluateDecisionByKey</span>(<span style="color:#e6db74">&#34;decision-key&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">variables</span>(variables)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">evaluate</span>(); 
-</span></span><span style="display:flex;"><span>  
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// alternatively for decision tables only</span>
-</span></span><span style="display:flex;"><span>DmnDecisionTableResult decisionResult <span style="color:#f92672">=</span> decisionService
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">evaluateDecisionTableByKey</span>(<span style="color:#e6db74">&#34;decision-key&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">variables</span>(variables)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">evaluate</span>(); 
-</span></span></code></pre></div><h2 id="the-decision-key">The Decision Key</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">DecisionService</span><span class="w"> </span><span class="n">decisionService</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">processEngine</span><span class="p">.</span><span class="na">getDecisionService</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">VariableMap</span><span class="w"> </span><span class="n">variables</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Variables</span><span class="p">.</span><span class="na">createVariables</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">putValue</span><span class="p">(</span><span class="s">&#34;status&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;bronze&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">putValue</span><span class="p">(</span><span class="s">&#34;sum&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">1000</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">DmnDecisionResult</span><span class="w"> </span><span class="n">decisionResult</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">decisionService</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">evaluateDecisionByKey</span><span class="p">(</span><span class="s">&#34;decision-key&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">variables</span><span class="p">(</span><span class="n">variables</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">evaluate</span><span class="p">();</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// alternatively for decision tables only</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">DmnDecisionTableResult</span><span class="w"> </span><span class="n">decisionResult</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">decisionService</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">evaluateDecisionTableByKey</span><span class="p">(</span><span class="s">&#34;decision-key&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">variables</span><span class="p">(</span><span class="n">variables</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">evaluate</span><span class="p">();</span><span class="w"> 
+</span></span></span></code></pre></div><h2 id="the-decision-key">The Decision Key</h2>
 <p>The key of a decision definition is specified by the <code>id</code> attribute of the
 <code>decision</code> element in the DMN XML. The different naming is related to the
 <a href="/manual/latest/user-guide/process-engine/decisions/repository/#versioning-of-decisions">Versioning of Decisions</a>. Since a key can reference multiple versions of a
@@ -3206,24 +3206,24 @@ rule are represented by the key-value pairs. The key of a pair is specified by
 the name of the output.</p>
 <p>Instead, if the decision is implemented as <a href="/manual/latest/reference/dmn/decision-literal-expression/">decision literal expression</a> then the list contains only one entry. This entry represents the expression value and is mapped by the variable name.</p>
 <p>The decision result provides methods from interface <code>List&lt;Map&lt;String, Object&gt;&gt;</code> and some convenience methods.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>DmnDecisionResult decisionResult <span style="color:#f92672">=</span> ...;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// get the value of the single entry of the only matched rule</span>
-</span></span><span style="display:flex;"><span>String singleEntry <span style="color:#f92672">=</span> decisionResult.<span style="color:#a6e22e">getSingleResult</span>().<span style="color:#a6e22e">getSingleEntry</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// get the value of the result entry with name &#39;result&#39; of the only matched rule</span>
-</span></span><span style="display:flex;"><span>String result <span style="color:#f92672">=</span> decisionResult.<span style="color:#a6e22e">getSingleResult</span>().<span style="color:#a6e22e">getEntry</span>(<span style="color:#e6db74">&#34;result&#34;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// get the value of the first entry of the second matched rule</span>
-</span></span><span style="display:flex;"><span>String firstValue <span style="color:#f92672">=</span> decisionResult.<span style="color:#a6e22e">get</span>(1).<span style="color:#a6e22e">getFirstEntry</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// get a list of all entries with the output name &#39;result&#39; of all matched rules</span>
-</span></span><span style="display:flex;"><span>List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> results <span style="color:#f92672">=</span> decisionResult.<span style="color:#a6e22e">collectEntries</span>(<span style="color:#e6db74">&#34;result&#34;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// shortcut to get the single output entry of the single rule result</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// - combine getSingleResult() and getSingleEntry()</span>
-</span></span><span style="display:flex;"><span>String result <span style="color:#f92672">=</span> decisionResult.<span style="color:#a6e22e">getSingleEntry</span>();
-</span></span></code></pre></div><p>Note that the decision result also provides methods to get typed output entries.
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">DmnDecisionResult</span><span class="w"> </span><span class="n">decisionResult</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// get the value of the single entry of the only matched rule</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">String</span><span class="w"> </span><span class="n">singleEntry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">decisionResult</span><span class="p">.</span><span class="na">getSingleResult</span><span class="p">().</span><span class="na">getSingleEntry</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// get the value of the result entry with name &#39;result&#39; of the only matched rule</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">String</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">decisionResult</span><span class="p">.</span><span class="na">getSingleResult</span><span class="p">().</span><span class="na">getEntry</span><span class="p">(</span><span class="s">&#34;result&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// get the value of the first entry of the second matched rule</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">String</span><span class="w"> </span><span class="n">firstValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">decisionResult</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">1</span><span class="p">).</span><span class="na">getFirstEntry</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// get a list of all entries with the output name &#39;result&#39; of all matched rules</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">results</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">decisionResult</span><span class="p">.</span><span class="na">collectEntries</span><span class="p">(</span><span class="s">&#34;result&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// shortcut to get the single output entry of the single rule result</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// - combine getSingleResult() and getSingleEntry()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">String</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">decisionResult</span><span class="p">.</span><span class="na">getSingleEntry</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><p>Note that the decision result also provides methods to get typed output entries.
 A complete list of all methods can be found in the <a href="/javadoc/cibseven/1.0/?org/camunda/bpm/dmn/engine/DmnDecisionResult">Java Docs</a>
 .</p>
 <p>If the decision is implemented as <a href="/manual/latest/reference/dmn/decision-table/">decision table</a> then it can also be evaluated using one of the
@@ -3235,14 +3235,14 @@ A complete list of all methods can be found in the <a href="/javadoc/cibseven/1.
 <p>When a decision is evaluated, a new history entry of type
 <code>HistoricDecisionInstance</code> is created which contains the inputs and outputs of
 the decision. The history can be queried by the history service.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>List<span style="color:#f92672">&lt;</span>HistoricDecisionInstance<span style="color:#f92672">&gt;</span> historicDecisions <span style="color:#f92672">=</span> processEngine
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">getHistoryService</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">createHistoricDecisionInstanceQuery</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">decisionDefinitionKey</span>(<span style="color:#e6db74">&#34;decision-key&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">includeInputs</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">includeOutputs</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">list</span>();
-</span></span></code></pre></div><p>For more information about this, please refer to the <a href="/manual/latest/user-guide/process-engine/decisions/history/">History for DMN Decisions</a>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">List</span><span class="o">&lt;</span><span class="n">HistoricDecisionInstance</span><span class="o">&gt;</span><span class="w"> </span><span class="n">historicDecisions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">processEngine</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">getHistoryService</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">createHistoricDecisionInstanceQuery</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">decisionDefinitionKey</span><span class="p">(</span><span class="s">&#34;decision-key&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">includeInputs</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">includeOutputs</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">list</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><p>For more information about this, please refer to the <a href="/manual/latest/user-guide/process-engine/decisions/history/">History for DMN Decisions</a>.</p>
 
     </div>
   </div>

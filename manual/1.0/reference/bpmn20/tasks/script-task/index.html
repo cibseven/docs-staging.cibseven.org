@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/1.0/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/1.0/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/reference/bpmn20/tasks/script-task/" />
 </head>
 <body class="">
@@ -3163,14 +3163,14 @@
 <div class="bpmn-symbol"><img src="/manual/1.0//img/short-codes/bpmn-script-task.png" /></div>
 
 <p>A Script Task is defined by specifying the script and the scriptFormat.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;scriptTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;theScriptTask&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Execute script&#34;</span> <span style="color:#a6e22e">scriptFormat=</span><span style="color:#e6db74">&#34;groovy&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;script&gt;</span>
-</span></span><span style="display:flex;"><span>    sum = 0
-</span></span><span style="display:flex;"><span>    for ( i in inputArray ) {
-</span></span><span style="display:flex;"><span>      sum += i
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/script&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/scriptTask&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;scriptTask</span> <span class="na">id=</span><span class="s">&#34;theScriptTask&#34;</span> <span class="na">name=</span><span class="s">&#34;Execute script&#34;</span> <span class="na">scriptFormat=</span><span class="s">&#34;groovy&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;script&gt;</span>
+</span></span><span class="line"><span class="cl">    sum = 0
+</span></span><span class="line"><span class="cl">    for ( i in inputArray ) {
+</span></span><span class="line"><span class="cl">      sum += i
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/script&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/scriptTask&gt;</span>
 </span></span></code></pre></div><p>The value of the scriptFormat attribute must be a name that is compatible with JSR-223 (Scripting
 for the Java Platform). If you want to use a (JSR-223 compatible) scripting engine, you need to to
 add the corresponding jar to the classpath and use the appropriate name.</p>
@@ -3187,20 +3187,20 @@ information on the possible ways of providing the script source code please see 
 
 <h1 id="variables-in-scripts">Variables in Scripts</h1>
 <p>All process variables that are accessible through the execution that arrives in the Script Task can be used within the script. In the example below, the script variable <code>inputArray</code> is in fact a process variable (an array of integers).</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;script&gt;</span>
-</span></span><span style="display:flex;"><span>    sum = 0
-</span></span><span style="display:flex;"><span>    for ( i in inputArray ) {
-</span></span><span style="display:flex;"><span>      sum += i
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/script&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;script&gt;</span>
+</span></span><span class="line"><span class="cl">    sum = 0
+</span></span><span class="line"><span class="cl">    for ( i in inputArray ) {
+</span></span><span class="line"><span class="cl">      sum += i
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/script&gt;</span>
 </span></span></code></pre></div><p>It&rsquo;s also possible to set process variables in a script. Variables can be set by using the <code>setVariable(...)</code> methods provided by the <code>VariableScope</code> interface:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;script&gt;</span>
-</span></span><span style="display:flex;"><span>    sum = 0
-</span></span><span style="display:flex;"><span>    for ( i in inputArray ) {
-</span></span><span style="display:flex;"><span>      sum += i
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    execution.setVariable(&#34;sum&#34;, sum);
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/script&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;script&gt;</span>
+</span></span><span class="line"><span class="cl">    sum = 0
+</span></span><span class="line"><span class="cl">    for ( i in inputArray ) {
+</span></span><span class="line"><span class="cl">      sum += i
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">    execution.setVariable(&#34;sum&#34;, sum);
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/script&gt;</span>
 </span></span></code></pre></div><h2 id="enabling-auto-storing-of-script-variables">Enabling auto-storing of Script Variables</h2>
 <p>By setting the property <code>autoStoreScriptVariables</code> to <code>true</code> in the process engine configuration, the process engine will automatically store all <em>global</em> script variables as process variables.</p>
 <p>To use this feature, you have to</p>
@@ -3220,9 +3220,9 @@ example, Ruby will not export any of the script variables at all.</p>
 <code>out</code>, <code>out:print</code>, <code>lang:import</code>, <code>context</code>, <code>elcontext</code>.</p>
 <h1 id="script-results">Script Results</h1>
 <p>The return value of a Script Task can be assigned to a previously existing or to a new process variable by specifying the process variable name as a literal value for the <code>camunda:resultVariable</code> attribute of a Script Task definition. Any existing value for a specific process variable will be overwritten by the result value of the script execution. When a result variable name is not specified, the script result value gets ignored.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;scriptTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;theScriptTask&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Execute script&#34;</span> <span style="color:#a6e22e">scriptFormat=</span><span style="color:#e6db74">&#34;juel&#34;</span> <span style="color:#a6e22e">camunda:resultVariable=</span><span style="color:#e6db74">&#34;myVar&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;script&gt;</span>#{echo}<span style="color:#f92672">&lt;/script&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/scriptTask&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;scriptTask</span> <span class="na">id=</span><span class="s">&#34;theScriptTask&#34;</span> <span class="na">name=</span><span class="s">&#34;Execute script&#34;</span> <span class="na">scriptFormat=</span><span class="s">&#34;juel&#34;</span> <span class="na">camunda:resultVariable=</span><span class="s">&#34;myVar&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;script&gt;</span>#{echo}<span class="nt">&lt;/script&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/scriptTask&gt;</span>
 </span></span></code></pre></div><p>In the above example, the result of the script execution (the value of the resolved expression <code>#{echo}</code>) is set to the process variable named <code>myVar</code> after the script completes.</p>
 
 <div class="note bg-warning docs-warning">

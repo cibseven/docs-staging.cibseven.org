@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/1.0/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/1.0/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/reference/bpmn20/events/signal-events/" />
 </head>
 <body class="">
@@ -3167,53 +3167,53 @@
 <p>Note: It is important to understand that a signal event is broadcast to all active handlers. In the example given above this means that all instances of the process catching the signal would receive the event.</p>
 <h1 id="signal-event-definition">Signal Event Definition</h1>
 <p>A signal event definition is declared using the signalEventDefinition element. The attribute <code>signalRef</code> references a signal element declared as a child element of the definitions root element. The following is an excerpt of a process in which a signal event is thrown and caught by intermediate events. The signalEventDefinitions reference the &lsquo;global&rsquo; signal element.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;definitions&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- declaration of the signal --&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;signal</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;alertSignal&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;alert&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;process</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;catchSignal&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;intermediateThrowEvent</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;throwSignalEvent&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Alert&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#75715e">&lt;!-- signal event definition --&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;signalEventDefinition</span> <span style="color:#a6e22e">signalRef=</span><span style="color:#e6db74">&#34;alertSignal&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/intermediateThrowEvent&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">&lt;!-- ... --&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;intermediateCatchEvent</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;catchSignalEvent&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;On Alert&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#75715e">&lt;!-- signal event definition --&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;signalEventDefinition</span> <span style="color:#a6e22e">signalRef=</span><span style="color:#e6db74">&#34;alertSignal&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/intermediateCatchEvent&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">&lt;!-- ... --&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/process&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/definitions&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;definitions&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="c">&lt;!-- declaration of the signal --&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;signal</span> <span class="na">id=</span><span class="s">&#34;alertSignal&#34;</span> <span class="na">name=</span><span class="s">&#34;alert&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;process</span> <span class="na">id=</span><span class="s">&#34;catchSignal&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;intermediateThrowEvent</span> <span class="na">id=</span><span class="s">&#34;throwSignalEvent&#34;</span> <span class="na">name=</span><span class="s">&#34;Alert&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="c">&lt;!-- signal event definition --&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;signalEventDefinition</span> <span class="na">signalRef=</span><span class="s">&#34;alertSignal&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/intermediateThrowEvent&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="c">&lt;!-- ... --&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;intermediateCatchEvent</span> <span class="na">id=</span><span class="s">&#34;catchSignalEvent&#34;</span> <span class="na">name=</span><span class="s">&#34;On Alert&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="c">&lt;!-- signal event definition --&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;signalEventDefinition</span> <span class="na">signalRef=</span><span class="s">&#34;alertSignal&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/intermediateCatchEvent&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="c">&lt;!-- ... --&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/process&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/definitions&gt;</span>
 </span></span></code></pre></div><p><strong>Note</strong>: Contrary to other events, such error events, a signal is not consumed if it is caught. If you have two active signal boundary events catching the same signal event, both boundary events are triggered, even if they are part of different process instances.</p>
 <h2 id="expressions">Expressions</h2>
 <p>You can use expressions for the name in the signal event definition. The name is then resolved as soon as a process reaches the scope of the signal. For example when the process instances reaches a Signal Intermediate Catching Event, then the expression within the name is resolved.</p>
 <p>By using expressions within the signal name you can influence the signal name dynamically based on process variables. This could come in handy when for example there is the need to interrupt parallel branches. An example could look like follows:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;signal</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;alertSignal&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;alert-${execution.processBusinessKey}&#34;</span> <span style="color:#f92672">/&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;signal</span> <span class="na">id=</span><span class="s">&#34;alertSignal&#34;</span> <span class="na">name=</span><span class="s">&#34;alert-${execution.processBusinessKey}&#34;</span> <span class="nt">/&gt;</span>
 </span></span></code></pre></div><h1 id="signal-api">Signal Api</h1>
 <h2 id="triggering-throwing-signals">Triggering (Throwing) Signals</h2>
 <p>A signal can either be thrown by a process instance using a BPMN construct or programmatically using Java API. The <code>RuntimeService</code> provides a fluent API to throw a signal programmatically:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// broadcast signal</span>
-</span></span><span style="display:flex;"><span>runtimeService
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">createSignalEvent</span>(<span style="color:#e6db74">&#34;signalName&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">setVariables</span>(variables)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">send</span>();
-</span></span><span style="display:flex;"><span>  
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// deliver a signal to a single execution</span>
-</span></span><span style="display:flex;"><span>runtimeService
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">createSignalEvent</span>(<span style="color:#e6db74">&#34;signalName&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">executionId</span>(executionId)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">setVariables</span>(variables)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">send</span>();  
-</span></span></code></pre></div><p>Additionally, you can use one of the following methods offered by the <code>RuntimeService</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>RuntimeService.<span style="color:#a6e22e">signalEventReceived</span>(String signalName);
-</span></span><span style="display:flex;"><span>RuntimeService.<span style="color:#a6e22e">signalEventReceived</span>(String signalName, String executionId);
-</span></span></code></pre></div><p>If an execution id is specified then the signal is only delivered to the specific execution. Otherwise, the signal is thrown globally to all subscribed handlers (broadcast semantics).</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// broadcast signal</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">runtimeService</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">createSignalEvent</span><span class="p">(</span><span class="s">&#34;signalName&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">setVariables</span><span class="p">(</span><span class="n">variables</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">send</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// deliver a signal to a single execution</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">runtimeService</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">createSignalEvent</span><span class="p">(</span><span class="s">&#34;signalName&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">executionId</span><span class="p">(</span><span class="n">executionId</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">setVariables</span><span class="p">(</span><span class="n">variables</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">send</span><span class="p">();</span><span class="w">  
+</span></span></span></code></pre></div><p>Additionally, you can use one of the following methods offered by the <code>RuntimeService</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">RuntimeService</span><span class="p">.</span><span class="na">signalEventReceived</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">signalName</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">RuntimeService</span><span class="p">.</span><span class="na">signalEventReceived</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">signalName</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">executionId</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><p>If an execution id is specified then the signal is only delivered to the specific execution. Otherwise, the signal is thrown globally to all subscribed handlers (broadcast semantics).</p>
 <p>Note: The signal event does not perform any kind of correlation to a specific process instance. On the contrary, it is broadcast to all process instances. If you need to exclusively deliver a signal to a specific process instance, do not use the throwing signal event. Instead, perform the correlation manually using the appropriate query mechanisms and deliver the signal to a specific execution programmatically.</p>
 <h2 id="querying-for-signal-event-subscriptions">Querying for Signal Event Subscriptions</h2>
 <p>It is possible to query for all executions which have subscribed to a specific signal event:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>List<span style="color:#f92672">&lt;Execution&gt;</span> executions = runtimeService.createExecutionQuery()
-</span></span><span style="display:flex;"><span>    .signalEventSubscriptionName(&#34;alert&#34;)
-</span></span><span style="display:flex;"><span>    .list();
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">List<span class="nt">&lt;Execution&gt;</span> executions = runtimeService.createExecutionQuery()
+</span></span><span class="line"><span class="cl">    .signalEventSubscriptionName(&#34;alert&#34;)
+</span></span><span class="line"><span class="cl">    .list();
 </span></span></code></pre></div><p>You could then use the signal API to deliver the signal to these executions.</p>
 <h1 id="catching-signal-events">Catching Signal Events</h1>
 <h2 id="signal-start-event">Signal Start Event</h2>
@@ -3227,20 +3227,20 @@
 <li>Process versioning: Upon deployment of a new version of a process definition, the signal subscriptions of the previous version are canceled. This is also the case for signal events that are not present in the new version.</li>
 </ul>
 <p>A process instance of a process definition with one or more signal start events will be started, when a signal with the proper name is thrown. The signal can either be thrown by a process instance (i.e., on intermediate throwing signal event or signal end event) or using the following methods on the RuntimeService:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">signalEventReceived</span>(String signalName);
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">signalEventReceived</span>(String signalName, Map<span style="color:#f92672">&lt;</span>String, Object<span style="color:#f92672">&gt;</span> processVariables);
-</span></span></code></pre></div><p>Note: A thrown signal can start multiple process instances when multiple process definitions have a signal start event with the same signal name.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kt">void</span><span class="w"> </span><span class="nf">signalEventReceived</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">signalName</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kt">void</span><span class="w"> </span><span class="nf">signalEventReceived</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">signalName</span><span class="p">,</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="n">processVariables</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><p>Note: A thrown signal can start multiple process instances when multiple process definitions have a signal start event with the same signal name.</p>
 <p>The XML representation of a signal start event is the normal start event declaration with a signalEventDefinition child-element:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;startEvent</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;signalStart&#34;</span> <span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;signalEventDefinition</span> <span style="color:#a6e22e">signalRef=</span><span style="color:#e6db74">&#34;alertSignal&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/startEvent&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;startEvent</span> <span class="na">id=</span><span class="s">&#34;signalStart&#34;</span> <span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;signalEventDefinition</span> <span class="na">signalRef=</span><span class="s">&#34;alertSignal&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/startEvent&gt;</span>
 </span></span></code></pre></div><h2 id="signal-intermediate-catching-event">Signal Intermediate Catching Event</h2>
 <div class="bpmn-symbol"><img src="/manual/1.0//img/short-codes/bpmn-signal-intermediate-catch-event.png" /></div>
 
 <p>When a token arrives at the signal intermediate catching event, it will wait there until a signal with the proper name arrives.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;intermediateCatchEvent</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;signal&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;signalEventDefinition</span> <span style="color:#a6e22e">signalRef=</span><span style="color:#e6db74">&#34;newCustomerSignal&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/intermediateCatchEvent&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;intermediateCatchEvent</span> <span class="na">id=</span><span class="s">&#34;signal&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;signalEventDefinition</span> <span class="na">signalRef=</span><span class="s">&#34;newCustomerSignal&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/intermediateCatchEvent&gt;</span>
 </span></span></code></pre></div><h2 id="camunda-extensions">Camunda Extensions</h2>
 <p>The following extensions are supported for the Signal Intermediate Catching Event:</p>
 <table class="table table-striped">
@@ -3263,9 +3263,9 @@
 <h2 id="signal-boundary-event">Signal Boundary Event</h2>
 <p>When an execution arrives in the activity to which the signal boundary event is attached, the signal boundary event catches signals with the proper name.</p>
 <p>Note: Contrary to other events, such as the error boundary event, a signal boundary event does not only catch signal events thrown from the scope it is attached to. A signal event has a global scope (broadcast semantics), meaning that the signal can be thrown from any place, even from a different process instance.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;boundaryEvent</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;boundary&#34;</span> <span style="color:#a6e22e">attachedToRef=</span><span style="color:#e6db74">&#34;task&#34;</span> <span style="color:#a6e22e">cancelActivity=</span><span style="color:#e6db74">&#34;true&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;signalEventDefinition</span> <span style="color:#a6e22e">signalRef=</span><span style="color:#e6db74">&#34;alertSignal&#34;</span><span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/boundaryEvent&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;boundaryEvent</span> <span class="na">id=</span><span class="s">&#34;boundary&#34;</span> <span class="na">attachedToRef=</span><span class="s">&#34;task&#34;</span> <span class="na">cancelActivity=</span><span class="s">&#34;true&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;signalEventDefinition</span> <span class="na">signalRef=</span><span class="s">&#34;alertSignal&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/boundaryEvent&gt;</span>
 </span></span></code></pre></div><h1 id="throwing-signal-events">Throwing Signal Events</h1>
 <h2 id="signal-intermediate-throwing-event">Signal Intermediate Throwing Event</h2>
 <p>A signal intermediate throwing event throws a signal event for a defined signal.</p>
@@ -3277,62 +3277,62 @@
 <li>A signal can also be delivered asynchronously. In that case it is determined which handlers are active at the time the throwing signal event is reached. For each active handler, an asynchronous notification message (<code>Job</code>) is stored and delivered by the <code>JobExecutor</code>.</li></li>
 </ul>
 <p>A signal intermediate event is defined as an intermediate throwing event. In this case, the specific type sub-element is a signalEventDefinition element.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;intermediateThrowEvent</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;signal&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;signalEventDefinition</span> <span style="color:#a6e22e">signalRef=</span><span style="color:#e6db74">&#34;newCustomerSignal&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/intermediateThrowEvent&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;intermediateThrowEvent</span> <span class="na">id=</span><span class="s">&#34;signal&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;signalEventDefinition</span> <span class="na">signalRef=</span><span class="s">&#34;newCustomerSignal&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/intermediateThrowEvent&gt;</span>
 </span></span></code></pre></div><p>An asynchronous signal event would look like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;intermediateThrowEvent</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;signal&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;signalEventDefinition</span> <span style="color:#a6e22e">signalRef=</span><span style="color:#e6db74">&#34;newCustomerSignal&#34;</span> <span style="color:#a6e22e">camunda:asyncBefore=</span><span style="color:#e6db74">&#34;true&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/intermediateThrowEvent&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;intermediateThrowEvent</span> <span class="na">id=</span><span class="s">&#34;signal&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;signalEventDefinition</span> <span class="na">signalRef=</span><span class="s">&#34;newCustomerSignal&#34;</span> <span class="na">camunda:asyncBefore=</span><span class="s">&#34;true&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/intermediateThrowEvent&gt;</span>
 </span></span></code></pre></div><h2 id="signal-end-event">Signal End Event</h2>
 <div class="bpmn-symbol"><img src="/manual/1.0//img/short-codes/bpmn-signal-end-event.png" /></div>
 
 <p>A signal end event throws a signal event for a defined signal and the current path of execution is ended. It has the same behavior as a signal intermediate throwing event.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;endEvent</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;signal&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;signalEventDefinition</span> <span style="color:#a6e22e">signalRef=</span><span style="color:#e6db74">&#34;newCustomerSignal&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/endEvent&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;endEvent</span> <span class="na">id=</span><span class="s">&#34;signal&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;signalEventDefinition</span> <span class="na">signalRef=</span><span class="s">&#34;newCustomerSignal&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/endEvent&gt;</span>
 </span></span></code></pre></div><h2 id="passing-variables">Passing Variables</h2>
 <p>It is possible to pass process variables from the signal-throwing process instance, to all of the signal-catching process instances. The data is copied into a signal-catching process instance when it is started with a Signal Start Event, or before it leaves the wait-state in a Signal Intermediate Catching Event.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;signalEventDefinition</span> <span style="color:#a6e22e">signalRef=</span><span style="color:#e6db74">&#34;newCustomerSignal&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;camunda:in</span> <span style="color:#a6e22e">source=</span><span style="color:#e6db74">&#34;throwingVariableName&#34;</span> <span style="color:#a6e22e">target=</span><span style="color:#e6db74">&#34;catchingVariableName&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/signalEventDefinition&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;signalEventDefinition</span> <span class="na">signalRef=</span><span class="s">&#34;newCustomerSignal&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;camunda:in</span> <span class="na">source=</span><span class="s">&#34;throwingVariableName&#34;</span> <span class="na">target=</span><span class="s">&#34;catchingVariableName&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/signalEventDefinition&gt;</span>
 </span></span></code></pre></div><p>The variables declared in the &ldquo;camunda:in&rdquo; elements are set in the highest possible variable scope at the signal-catching process instance.</p>
 <p>It is also possible to use expressions and modify the data before it is passed on to the signal-catching process instances.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;signalEventDefinition</span> <span style="color:#a6e22e">signalRef=</span><span style="color:#e6db74">&#34;newCustomerSignal&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;camunda:in</span> <span style="color:#a6e22e">sourceExpression=</span><span style="color:#e6db74">&#34;${X + 5}&#34;</span> <span style="color:#a6e22e">target=</span><span style="color:#e6db74">&#34;Y&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/signalEventDefinition&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;signalEventDefinition</span> <span class="na">signalRef=</span><span class="s">&#34;newCustomerSignal&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;camunda:in</span> <span class="na">sourceExpression=</span><span class="s">&#34;${X + 5}&#34;</span> <span class="na">target=</span><span class="s">&#34;Y&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/signalEventDefinition&gt;</span>
 </span></span></code></pre></div><p>The <code>Y</code> process variable at the signal-catching process instances will have the value of <code>(X + 5)</code>, where <code>X</code> is a process variable of the signal-throwing process instance.</p>
 <p>Moreover, it can be declared that all of the process variable of the signal-throwing process instance be passed to the signal-catching processes.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;signalEventDefinition</span> <span style="color:#a6e22e">signalRef=</span><span style="color:#e6db74">&#34;newCustomerSignal&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;camunda:in</span> <span style="color:#a6e22e">variables=</span><span style="color:#e6db74">&#34;all&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/signalEventDefinition&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;signalEventDefinition</span> <span class="na">signalRef=</span><span class="s">&#34;newCustomerSignal&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;camunda:in</span> <span class="na">variables=</span><span class="s">&#34;all&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/signalEventDefinition&gt;</span>
 </span></span></code></pre></div><p>By setting local=&ldquo;true&rdquo;, only the local variables of the execution executing the Throwing Signal Event will be passed to the signal-catching process instances. These are the variables that can be declared as input parameters.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;signalEventDefinition</span> <span style="color:#a6e22e">signalRef=</span><span style="color:#e6db74">&#34;newCustomerSignal&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;camunda:in</span> <span style="color:#a6e22e">variables=</span><span style="color:#e6db74">&#34;all&#34;</span> <span style="color:#a6e22e">local=</span><span style="color:#e6db74">&#34;true&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/signalEventDefinition&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;signalEventDefinition</span> <span class="na">signalRef=</span><span class="s">&#34;newCustomerSignal&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;camunda:in</span> <span class="na">variables=</span><span class="s">&#34;all&#34;</span> <span class="na">local=</span><span class="s">&#34;true&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/signalEventDefinition&gt;</span>
 </span></span></code></pre></div><p>It is possible to use multiple of the above-mentioned options at once. For example (below), it can be declared that only the local variables are passed, a higher-scope variable, and an expression including the same, higher-scope variable.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;signalEventDefinition</span> <span style="color:#a6e22e">signalRef=</span><span style="color:#e6db74">&#34;newCustomerSignal&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;camunda:in</span> <span style="color:#a6e22e">variables=</span><span style="color:#e6db74">&#34;all&#34;</span> <span style="color:#a6e22e">local=</span><span style="color:#e6db74">&#34;true&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;camunda:in</span> <span style="color:#a6e22e">source=</span><span style="color:#e6db74">&#34;X&#34;</span> <span style="color:#a6e22e">target=</span><span style="color:#e6db74">&#34;Y&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;camunda:in</span> <span style="color:#a6e22e">sourceExpression=</span><span style="color:#e6db74">&#34;${X + 5}&#34;</span> <span style="color:#a6e22e">target=</span><span style="color:#e6db74">&#34;Z&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/signalEventDefinition&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;signalEventDefinition</span> <span class="na">signalRef=</span><span class="s">&#34;newCustomerSignal&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;camunda:in</span> <span class="na">variables=</span><span class="s">&#34;all&#34;</span> <span class="na">local=</span><span class="s">&#34;true&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;camunda:in</span> <span class="na">source=</span><span class="s">&#34;X&#34;</span> <span class="na">target=</span><span class="s">&#34;Y&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;camunda:in</span> <span class="na">sourceExpression=</span><span class="s">&#34;${X + 5}&#34;</span> <span class="na">target=</span><span class="s">&#34;Z&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/signalEventDefinition&gt;</span>
 </span></span></code></pre></div><h2 id="passing-a-business-key">Passing a Business Key</h2>
 <p>In addition to passing process variables to the signal-catching process instances, it is also possible to pass a Business Key. However, this Business Key passing can only be applied to process instances that use a Signal Start Event.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;signalEventDefinition</span> <span style="color:#a6e22e">signalRef=</span><span style="color:#e6db74">&#34;newCustomerSignal&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;camunda:in</span> <span style="color:#a6e22e">businessKey=</span><span style="color:#e6db74">&#34;${execution.processBusinessKey}&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/signalEventDefinition&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;signalEventDefinition</span> <span class="na">signalRef=</span><span class="s">&#34;newCustomerSignal&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&lt;camunda:in</span> <span class="na">businessKey=</span><span class="s">&#34;${execution.processBusinessKey}&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/signalEventDefinition&gt;</span>
 </span></span></code></pre></div><p>The business key &ldquo;camunda:in&rdquo; element can be used in combination with the process variable passing &ldquo;camunda:in&rdquo; elements.</p>
 <h2 id="camunda-extensions-1">Camunda Extensions</h2>
 <p>The following extensions are supported for the Signal Intermediate and End Throwing Events:</p>

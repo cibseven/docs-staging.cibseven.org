@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/1.0/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/1.0/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/reference/cmmn11/markers/repetition-rule/" />
 </head>
 <body class="">
@@ -3164,25 +3164,25 @@
 
 <p>Under which conditions a plan item is <em>repeatable</em> can be specified by a <em>repetition rule</em>.</p>
 <p>In XML, a repetition rule can be specified for an individual plan item or for a plan item definition. For a plan item it looks as follows:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;planItem</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;PlanItem_HumanTask&#34;</span> <span style="color:#a6e22e">definitionRef=</span><span style="color:#e6db74">&#34;HumanTask&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;itemControl&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;repetitionRule&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;condition&gt;</span><span style="color:#75715e">&lt;![CDATA[${var &lt; 100}]]&gt;</span><span style="color:#f92672">&lt;/condition&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/repetitionRule&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/itemControl&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/planItem&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;humanTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;HumanTask&#34;</span> <span style="color:#f92672">/&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;planItem</span> <span class="na">id=</span><span class="s">&#34;PlanItem_HumanTask&#34;</span> <span class="na">definitionRef=</span><span class="s">&#34;HumanTask&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;itemControl&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;repetitionRule&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;condition&gt;</span><span class="cp">&lt;![CDATA[${var &lt; 100}]]&gt;</span><span class="nt">&lt;/condition&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/repetitionRule&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/itemControl&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/planItem&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;humanTask</span> <span class="na">id=</span><span class="s">&#34;HumanTask&#34;</span> <span class="nt">/&gt;</span>
 </span></span></code></pre></div><p>For a plan item definition, the following XML can be used:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;planItem</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;PlanItem_HumanTask&#34;</span> <span style="color:#a6e22e">definitionRef=</span><span style="color:#e6db74">&#34;HumanTask&#34;</span><span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;humanTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;HumanTask_1&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;defaultControl&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;repetitionRule&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;condition&gt;</span><span style="color:#75715e">&lt;![CDATA[${var &lt; 100}]]&gt;</span><span style="color:#f92672">&lt;/condition&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/repetitionRule&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/defaultControl&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/humanTask&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;planItem</span> <span class="na">id=</span><span class="s">&#34;PlanItem_HumanTask&#34;</span> <span class="na">definitionRef=</span><span class="s">&#34;HumanTask&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;humanTask</span> <span class="na">id=</span><span class="s">&#34;HumanTask_1&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;defaultControl&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;repetitionRule&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;condition&gt;</span><span class="cp">&lt;![CDATA[${var &lt; 100}]]&gt;</span><span class="nt">&lt;/condition&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/repetitionRule&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/defaultControl&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/humanTask&gt;</span>
 </span></span></code></pre></div><p>The rule specified in the <code>humanTask</code> element is valid for all plan items that reference it, here <code>PlanItem_HumanTask_1</code>.</p>
 <p>The behavior of the repetition relies on the presence of entry criteria. If there is no entry criterion defined, then the repetition rule is evaluated by default in the transition into the <code>COMPLETED</code> state. Otherwise the repetition rule is only evaluated, when an entry criterion is satisfied and the plan item instance transitions away from the state <code>AVAILABLE</code> into the next state.</p>
 <h1 id="repetition-on-completion">Repetition on completion</h1>
@@ -3201,24 +3201,24 @@
 </figure>
 
 <p>The corresponding XML representation could look like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;definitions&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;case</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;case&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Case&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;casePlanModel</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;CasePlanModel_1&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;planItem</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;PlanItem_HumanTask_A&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;A&#34;</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">definitionRef=</span><span style="color:#e6db74">&#34;HumanTask&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;humanTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;HumanTask&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;defaultControl&gt;</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;repetitionRule&gt;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;condition&gt;</span><span style="color:#75715e">&lt;![CDATA[${score &lt; 50}]]&gt;</span><span style="color:#f92672">&lt;/condition&gt;</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;/repetitionRule&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/defaultControl&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/humanTask&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/casePlanModel&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/case&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/defintions&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;definitions&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;case</span> <span class="na">id=</span><span class="s">&#34;case&#34;</span> <span class="na">name=</span><span class="s">&#34;Case&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;casePlanModel</span> <span class="na">id=</span><span class="s">&#34;CasePlanModel_1&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;planItem</span> <span class="na">id=</span><span class="s">&#34;PlanItem_HumanTask_A&#34;</span> <span class="na">name=</span><span class="s">&#34;A&#34;</span>
+</span></span><span class="line"><span class="cl">                <span class="na">definitionRef=</span><span class="s">&#34;HumanTask&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;humanTask</span> <span class="na">id=</span><span class="s">&#34;HumanTask&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;defaultControl&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&lt;repetitionRule&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;condition&gt;</span><span class="cp">&lt;![CDATA[${score &lt; 50}]]&gt;</span><span class="nt">&lt;/condition&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&lt;/repetitionRule&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/defaultControl&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/humanTask&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/casePlanModel&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/case&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/defintions&gt;</span>
 </span></span></code></pre></div><p>This case contains a human task <em>A</em>. Task <em>A</em> has a repetition rule indicating that the task is repeatable as long as the variable <code>score</code> is less than <code>50</code>.</p>
 <p>In our example, the following steps might take place:</p>
 <ol>
@@ -3256,24 +3256,24 @@
 <li>From now on, no more repetitions of <em>A</em> can occur.</li>
 </ol>
 <p>The transition in which the repetition rule is evaluated can be changed by a Camunda extension attribute named <code>camunda:repeatOnStandardEvent</code>. For a task it looks as follows:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;definitions&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;case</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;case&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Case&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;casePlanModel</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;CasePlanModel_1&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;planItem</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;PlanItem_HumanTask_A&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;A&#34;</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">definitionRef=</span><span style="color:#e6db74">&#34;HumanTask&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;humanTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;HumanTask&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;defaultControl&gt;</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;repetitionRule</span> <span style="color:#a6e22e">camunda:repeatOnStandardEvent=</span><span style="color:#e6db74">&#34;disable&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;condition&gt;</span><span style="color:#75715e">&lt;![CDATA[${score &lt; 50}]]&gt;</span><span style="color:#f92672">&lt;/condition&gt;</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;/repetitionRule&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/defaultControl&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/humanTask&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/casePlanModel&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/case&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/defintions&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;definitions&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;case</span> <span class="na">id=</span><span class="s">&#34;case&#34;</span> <span class="na">name=</span><span class="s">&#34;Case&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;casePlanModel</span> <span class="na">id=</span><span class="s">&#34;CasePlanModel_1&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;planItem</span> <span class="na">id=</span><span class="s">&#34;PlanItem_HumanTask_A&#34;</span> <span class="na">name=</span><span class="s">&#34;A&#34;</span>
+</span></span><span class="line"><span class="cl">                <span class="na">definitionRef=</span><span class="s">&#34;HumanTask&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;humanTask</span> <span class="na">id=</span><span class="s">&#34;HumanTask&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;defaultControl&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&lt;repetitionRule</span> <span class="na">camunda:repeatOnStandardEvent=</span><span class="s">&#34;disable&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;condition&gt;</span><span class="cp">&lt;![CDATA[${score &lt; 50}]]&gt;</span><span class="nt">&lt;/condition&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&lt;/repetitionRule&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/defaultControl&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/humanTask&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/casePlanModel&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/case&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/defintions&gt;</span>
 </span></span></code></pre></div><p>This means that the repetition rule is  evaluated in the transition <code>disable</code>. So, whenever an instance of the defined human task gets disabled, the repetition rule is evaluated and if this rule evaluates to <code>true</code>, a new instance is created. As a consequence, the repetition rule is not evaluated when an instance transitions in state <code>COMPLETED</code> anymore.</p>
 <h1 id="repetition-triggered-by-entry-criteria">Repetition triggered by entry criteria</h1>
 <p>A trigger for a repetition of a milestone, stage or task is a satisfied <a href="/manual/1.0/reference/cmmn11/sentry/">sentry</a>, that is referenced as <a href="/manual/1.0/reference/cmmn11/concepts/entry-exit-criteria/">entry criterion</a>. Whenever an entry criterion is satisfied, the repetition rule is evaluated and if it evaluates to <code>true</code>, a new instance of the milestone, stage or task is created. The new instance transitions into the <code>AVAILABLE</code> state. The <em>previous</em> instance, in case of a milestone instance, transitions in state <code>COMPLETED</code> and, in case of a stage or task instance, into the <code>ACTIVE</code> or <code>ENABLED</code> state (depending on the <a href="/manual/1.0/reference/cmmn11/markers/manual-activation-rule/">manual activation rule</a>) because the entry criterion is satisfied.</p>
@@ -3285,41 +3285,41 @@
 </figure>
 
 <p>The corresponding XML representation could look like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;definitions&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;case</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;case&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Case&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;casePlanModel</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;CasePlanModel_1&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;planItem</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;PlanItem_HumanTask_B&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;B&#34;</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">definitionRef=</span><span style="color:#e6db74">&#34;HumanTask&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;entryCriterion</span> <span style="color:#a6e22e">sentryRef=</span><span style="color:#e6db74">&#34;Sentry_1&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/planItem&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;planItem</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;PlanItem_HumanTask_A&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;A&#34;</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">definitionRef=</span><span style="color:#e6db74">&#34;HumanTask&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;entryCriterion</span> <span style="color:#a6e22e">sentryRef=</span><span style="color:#e6db74">&#34;Sentry_2&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/planItem&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;sentry</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;Sentry_1&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>      	...
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/sentry&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;sentry</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;Sentry_2&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;planItemOnPart</span> <span style="color:#a6e22e">sourceRef=</span><span style="color:#e6db74">&#34;PlanItem_HumanTask_B&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;standardEvent&gt;</span>complete<span style="color:#f92672">&lt;/standardEvent&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/planItemOnPart&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/sentry&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;humanTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;HumanTask&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>      	<span style="color:#f92672">&lt;defaultControl&gt;</span>
-</span></span><span style="display:flex;"><span>      	  <span style="color:#f92672">&lt;repetitionRule&gt;</span>
-</span></span><span style="display:flex;"><span>      	    <span style="color:#f92672">&lt;condition&gt;</span><span style="color:#75715e">&lt;![CDATA[${score &lt; 50}]]&gt;</span><span style="color:#f92672">&lt;/condition&gt;</span>
-</span></span><span style="display:flex;"><span>      	  <span style="color:#f92672">&lt;/repetitionRule&gt;</span>
-</span></span><span style="display:flex;"><span>      	<span style="color:#f92672">&lt;/defaultControl&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/humanTask&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/casePlanModel&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/case&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/defintions&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;definitions&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;case</span> <span class="na">id=</span><span class="s">&#34;case&#34;</span> <span class="na">name=</span><span class="s">&#34;Case&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;casePlanModel</span> <span class="na">id=</span><span class="s">&#34;CasePlanModel_1&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;planItem</span> <span class="na">id=</span><span class="s">&#34;PlanItem_HumanTask_B&#34;</span> <span class="na">name=</span><span class="s">&#34;B&#34;</span>
+</span></span><span class="line"><span class="cl">                <span class="na">definitionRef=</span><span class="s">&#34;HumanTask&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;entryCriterion</span> <span class="na">sentryRef=</span><span class="s">&#34;Sentry_1&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/planItem&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;planItem</span> <span class="na">id=</span><span class="s">&#34;PlanItem_HumanTask_A&#34;</span> <span class="na">name=</span><span class="s">&#34;A&#34;</span>
+</span></span><span class="line"><span class="cl">                <span class="na">definitionRef=</span><span class="s">&#34;HumanTask&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;entryCriterion</span> <span class="na">sentryRef=</span><span class="s">&#34;Sentry_2&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/planItem&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;sentry</span> <span class="na">id=</span><span class="s">&#34;Sentry_1&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">      	...
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/sentry&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;sentry</span> <span class="na">id=</span><span class="s">&#34;Sentry_2&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;planItemOnPart</span> <span class="na">sourceRef=</span><span class="s">&#34;PlanItem_HumanTask_B&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&lt;standardEvent&gt;</span>complete<span class="nt">&lt;/standardEvent&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/planItemOnPart&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/sentry&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;humanTask</span> <span class="na">id=</span><span class="s">&#34;HumanTask&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">      	<span class="nt">&lt;defaultControl&gt;</span>
+</span></span><span class="line"><span class="cl">      	  <span class="nt">&lt;repetitionRule&gt;</span>
+</span></span><span class="line"><span class="cl">      	    <span class="nt">&lt;condition&gt;</span><span class="cp">&lt;![CDATA[${score &lt; 50}]]&gt;</span><span class="nt">&lt;/condition&gt;</span>
+</span></span><span class="line"><span class="cl">      	  <span class="nt">&lt;/repetitionRule&gt;</span>
+</span></span><span class="line"><span class="cl">      	<span class="nt">&lt;/defaultControl&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/humanTask&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/casePlanModel&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/case&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/defintions&gt;</span>
 </span></span></code></pre></div><p>This case contains two human tasks <em>A</em> and <em>B</em> that are connected by a sentry. Task <em>B</em> gets <code>ENABLED</code> if any conditions are fulfilled and task <em>A</em> gets <code>ENABLED</code> if an instance of <code>B</code> completes. Furthermore both tasks are repeatable as long as the variable <code>score</code> is less than <code>50</code>.</p>
 <p>In our example, the following steps might take place:</p>
 <ol>

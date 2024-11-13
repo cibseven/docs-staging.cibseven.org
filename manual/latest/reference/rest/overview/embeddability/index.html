@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/latest/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/latest/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/reference/rest/overview/embeddability/" />
 </head>
 <body class="">
@@ -3171,35 +3171,35 @@ Furthermore, the engine classes and Jackson&rsquo;s <code>com.fasterxml.jackson.
   <p>Please import the <a href="/get-started/apache-maven/">Camunda BOM</a> to ensure correct versions for every Camunda project.</p>
 </div>
 
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;dependency&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;groupId&gt;</span>org.camunda.bpm<span style="color:#f92672">&lt;/groupId&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;artifactId&gt;</span>camunda-engine-rest<span style="color:#f92672">&lt;/artifactId&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;classifier&gt;</span>classes<span style="color:#f92672">&lt;/classifier&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/dependency&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependency&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;groupId&gt;</span>org.camunda.bpm<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;artifactId&gt;</span>camunda-engine-rest<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;classifier&gt;</span>classes<span class="nt">&lt;/classifier&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/dependency&gt;</span>
 </span></span></code></pre></div><p>For Jakarta EE 9+ containers (like WildFly 27+), use the following dependency instead:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;dependency&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;groupId&gt;</span>org.camunda.bpm<span style="color:#f92672">&lt;/groupId&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;artifactId&gt;</span>camunda-engine-rest-jakarta<span style="color:#f92672">&lt;/artifactId&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;classifier&gt;</span>classes<span style="color:#f92672">&lt;/classifier&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/dependency&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependency&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;groupId&gt;</span>org.camunda.bpm<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;artifactId&gt;</span>camunda-engine-rest-jakarta<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;classifier&gt;</span>classes<span class="nt">&lt;/classifier&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/dependency&gt;</span>
 </span></span></code></pre></div><p><strong>Step 2:</strong> Add the REST resources that you need to your JAX-RS application. Example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@ApplicationPath</span>(<span style="color:#e6db74">&#34;/&#34;</span>)
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyApplication</span> <span style="color:#66d9ef">extends</span> Application {
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Override</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> Set<span style="color:#f92672">&lt;</span>Class<span style="color:#f92672">&lt;?&gt;&gt;</span> getClasses() {
-</span></span><span style="display:flex;"><span>    Set<span style="color:#f92672">&lt;</span>Class<span style="color:#f92672">&lt;?&gt;&gt;</span> classes <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HashSet<span style="color:#f92672">&lt;</span>Class<span style="color:#f92672">&lt;?&gt;&gt;</span>();
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// add your own classes</span>
-</span></span><span style="display:flex;"><span>    ...
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// add all camunda engine rest resources (or just add those that you actually need).</span>
-</span></span><span style="display:flex;"><span>    classes.<span style="color:#a6e22e">addAll</span>(CamundaRestResources.<span style="color:#a6e22e">getResourceClasses</span>());
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// mandatory</span>
-</span></span><span style="display:flex;"><span>    classes.<span style="color:#a6e22e">addAll</span>(CamundaRestResources.<span style="color:#a6e22e">getConfigurationClasses</span>());
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> classes;
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p><code>CamundaRestResources.getResourceClasses()</code> contains two JAX-RS resources that serve as the entry points. One of these (<code>org.camunda.bpm.engine.rest.impl.NamedProcessEngineRestServiceImpl</code>) provides all of the REST resources listed in this document on paths beginning with <code>/engine/{name}</code> while the other (<code>org.camunda.bpm.engine.rest.impl.DefaultProcessEngineRestServiceImpl</code>) provides access to the default engine&rsquo;s resources on the root path <code>/</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@ApplicationPath</span><span class="p">(</span><span class="s">&#34;/&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyApplication</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Application</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@Override</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">Set</span><span class="o">&lt;</span><span class="n">Class</span><span class="o">&lt;?&gt;&gt;</span><span class="w"> </span><span class="n">getClasses</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">Set</span><span class="o">&lt;</span><span class="n">Class</span><span class="o">&lt;?&gt;&gt;</span><span class="w"> </span><span class="n">classes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashSet</span><span class="o">&lt;</span><span class="n">Class</span><span class="o">&lt;?&gt;&gt;</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// add your own classes</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// add all camunda engine rest resources (or just add those that you actually need).</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">classes</span><span class="p">.</span><span class="na">addAll</span><span class="p">(</span><span class="n">CamundaRestResources</span><span class="p">.</span><span class="na">getResourceClasses</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// mandatory</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">classes</span><span class="p">.</span><span class="na">addAll</span><span class="p">(</span><span class="n">CamundaRestResources</span><span class="p">.</span><span class="na">getConfigurationClasses</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">classes</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p><code>CamundaRestResources.getResourceClasses()</code> contains two JAX-RS resources that serve as the entry points. One of these (<code>org.camunda.bpm.engine.rest.impl.NamedProcessEngineRestServiceImpl</code>) provides all of the REST resources listed in this document on paths beginning with <code>/engine/{name}</code> while the other (<code>org.camunda.bpm.engine.rest.impl.DefaultProcessEngineRestServiceImpl</code>) provides access to the default engine&rsquo;s resources on the root path <code>/</code>.</p>
 <p>To restrict the exposed REST resources to specific types (e.g., only process-definition-related methods), a subclass of <code>org.camunda.bpm.engine.rest.impl.AbstractProcessEngineRestServiceImpl</code> can be implemented and registered with the JAX-RS application. Such a subclass can control which resources get exposed by offering JAX-RS-annotated methods. See the sources of <code>NamedProcessEngineRestServiceImpl</code> and <code>DefaultProcessEngineRestServiceImpl</code> for an example. <strong>Note</strong>: The path to a subresource should always match the path defined in the subresource&rsquo;s interface.</p>
 <p>The configuration class <code>JacksonConfigurator</code> is required to correctly configure the serialization of date fields.
 You may also have to add the following Jackson providers: <code>com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider</code>,

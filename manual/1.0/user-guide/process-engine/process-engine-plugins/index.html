@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/1.0/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/1.0/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/user-guide/process-engine/process-engine-plugins/" />
 </head>
 <body class="">
@@ -3174,33 +3174,33 @@ extension to the <a href="/manual/1.0/user-guide/process-engine/process-engine-b
 <li>programatically.</li>
 </ul>
 <p>The following is an example of how to configure a process engine plugin in a bpm-platform.xml file:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;bpm-platform</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://www.camunda.org/schema/1.0/BpmPlatform&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">xsi:schemaLocation=</span><span style="color:#e6db74">&#34;http://www.camunda.org/schema/1.0/BpmPlatform http://www.camunda.org/schema/1.0/BpmPlatform &#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;job-executor&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;job-acquisition</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;default&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/job-executor&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;process-engine</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;default&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;job-acquisition&gt;</span>default<span style="color:#f92672">&lt;/job-acquisition&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;configuration&gt;</span>org.camunda.bpm.engine.impl.cfg.JtaProcessEngineConfiguration<span style="color:#f92672">&lt;/configuration&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;datasource&gt;</span>jdbc/ProcessEngine<span style="color:#f92672">&lt;/datasource&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;plugins&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;plugin&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;class&gt;</span>org.camunda.bpm.engine.MyCustomProcessEnginePlugin<span style="color:#f92672">&lt;/class&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;properties&gt;</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;boost&#34;</span><span style="color:#f92672">&gt;</span>10<span style="color:#f92672">&lt;/property&gt;</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;maxPerformance&#34;</span><span style="color:#f92672">&gt;</span>true<span style="color:#f92672">&lt;/property&gt;</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;actors&#34;</span><span style="color:#f92672">&gt;</span>akka<span style="color:#f92672">&lt;/property&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/properties&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/plugin&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/plugins&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/process-engine&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/bpm-platform&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;bpm-platform</span> <span class="na">xmlns=</span><span class="s">&#34;http://www.camunda.org/schema/1.0/BpmPlatform&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">xmlns:xsi=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">xsi:schemaLocation=</span><span class="s">&#34;http://www.camunda.org/schema/1.0/BpmPlatform http://www.camunda.org/schema/1.0/BpmPlatform &#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;job-executor&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;job-acquisition</span> <span class="na">name=</span><span class="s">&#34;default&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/job-executor&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;process-engine</span> <span class="na">name=</span><span class="s">&#34;default&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;job-acquisition&gt;</span>default<span class="nt">&lt;/job-acquisition&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;configuration&gt;</span>org.camunda.bpm.engine.impl.cfg.JtaProcessEngineConfiguration<span class="nt">&lt;/configuration&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;datasource&gt;</span>jdbc/ProcessEngine<span class="nt">&lt;/datasource&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;plugins&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;plugin&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;class&gt;</span>org.camunda.bpm.engine.MyCustomProcessEnginePlugin<span class="nt">&lt;/class&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;properties&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;boost&#34;</span><span class="nt">&gt;</span>10<span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;maxPerformance&#34;</span><span class="nt">&gt;</span>true<span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;actors&#34;</span><span class="nt">&gt;</span>akka<span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/properties&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/plugin&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/plugins&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/process-engine&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/bpm-platform&gt;</span>
 </span></span></code></pre></div><p>A process engine plugin class must be visible to the classloader which loads the process engine classes.</p>
 <h1 id="list-of-built-in-process-engine-plugins">List of Built-In Process Engine Plugins</h1>
 <p>The following is a list of built-in process engine plugins:</p>

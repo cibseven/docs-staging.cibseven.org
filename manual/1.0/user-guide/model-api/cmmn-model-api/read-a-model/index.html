@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/1.0/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/1.0/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/user-guide/model-api/cmmn-model-api/read-a-model/" />
 </head>
 <body class="">
@@ -3161,75 +3161,75 @@
     <div class="col-xs-12 content-text">
       <p>If you already created a CMMN model and want to process it through the CMMN model API, you can import it with the
 following methods.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// read a model from a file</span>
-</span></span><span style="display:flex;"><span>File file <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> File(<span style="color:#e6db74">&#34;PATH/TO/MODEL.cmmn&#34;</span>);
-</span></span><span style="display:flex;"><span>CmmnModelInstance modelInstance <span style="color:#f92672">=</span> Cmmn.<span style="color:#a6e22e">readModelFromFile</span>(file);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// read a model from a stream</span>
-</span></span><span style="display:flex;"><span>InputStream stream <span style="color:#f92672">=</span> <span style="color:#f92672">[</span>...<span style="color:#f92672">]</span>
-</span></span><span style="display:flex;"><span>CmmnModelInstance modelInstance <span style="color:#f92672">=</span> Cmmn.<span style="color:#a6e22e">readModelFromStream</span>(stream);
-</span></span></code></pre></div><p>After you imported your model you can search for elements by their id or by the type of element.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// find element instance by ID</span>
-</span></span><span style="display:flex;"><span>HumanTask humanTask <span style="color:#f92672">=</span> (HumanTask) modelInstance.<span style="color:#a6e22e">getModelElementById</span>(<span style="color:#e6db74">&#34;HumanTask_1&#34;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// find all elements of the type HumanTask</span>
-</span></span><span style="display:flex;"><span>ModelElementType humanTaskType <span style="color:#f92672">=</span> modelInstance.<span style="color:#a6e22e">getModel</span>().<span style="color:#a6e22e">getType</span>(HumanTask.<span style="color:#a6e22e">class</span>);
-</span></span><span style="display:flex;"><span>Collection<span style="color:#f92672">&lt;</span>ModelElementInstance<span style="color:#f92672">&gt;</span> humanTaskInstances <span style="color:#f92672">=</span> modelInstance.<span style="color:#a6e22e">getModelElementsByType</span>(humanTaskType);
-</span></span></code></pre></div><p>For every element instance you can now read and edit the attribute values. You can do this by either using the provided
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// read a model from a file</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">File</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="s">&#34;PATH/TO/MODEL.cmmn&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">CmmnModelInstance</span><span class="w"> </span><span class="n">modelInstance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Cmmn</span><span class="p">.</span><span class="na">readModelFromFile</span><span class="p">(</span><span class="n">file</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// read a model from a stream</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">InputStream</span><span class="w"> </span><span class="n">stream</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="p">...</span><span class="o">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">CmmnModelInstance</span><span class="w"> </span><span class="n">modelInstance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Cmmn</span><span class="p">.</span><span class="na">readModelFromStream</span><span class="p">(</span><span class="n">stream</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><p>After you imported your model you can search for elements by their id or by the type of element.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// find element instance by ID</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">HumanTask</span><span class="w"> </span><span class="n">humanTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">HumanTask</span><span class="p">)</span><span class="w"> </span><span class="n">modelInstance</span><span class="p">.</span><span class="na">getModelElementById</span><span class="p">(</span><span class="s">&#34;HumanTask_1&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// find all elements of the type HumanTask</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">ModelElementType</span><span class="w"> </span><span class="n">humanTaskType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">modelInstance</span><span class="p">.</span><span class="na">getModel</span><span class="p">().</span><span class="na">getType</span><span class="p">(</span><span class="n">HumanTask</span><span class="p">.</span><span class="na">class</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Collection</span><span class="o">&lt;</span><span class="n">ModelElementInstance</span><span class="o">&gt;</span><span class="w"> </span><span class="n">humanTaskInstances</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">modelInstance</span><span class="p">.</span><span class="na">getModelElementsByType</span><span class="p">(</span><span class="n">humanTaskType</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><p>For every element instance you can now read and edit the attribute values. You can do this by either using the provided
 helper methods or the generic XML model API. If you added custom attributes to the CMMN elements, you can
 always access them with the generic XML model API.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>HumanTask humanTask <span style="color:#f92672">=</span> (HumanTask) modelInstance.<span style="color:#a6e22e">getModelElementById</span>(<span style="color:#e6db74">&#34;HumanTask_1&#34;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// read attributes by helper methods</span>
-</span></span><span style="display:flex;"><span>String id <span style="color:#f92672">=</span> humanTask.<span style="color:#a6e22e">getId</span>();
-</span></span><span style="display:flex;"><span>String name <span style="color:#f92672">=</span> humanTask.<span style="color:#a6e22e">getName</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// edit attributes by helper methods</span>
-</span></span><span style="display:flex;"><span>humanTask.<span style="color:#a6e22e">setId</span>(<span style="color:#e6db74">&#34;new-id&#34;</span>);
-</span></span><span style="display:flex;"><span>humanTask.<span style="color:#a6e22e">setName</span>(<span style="color:#e6db74">&#34;new name&#34;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// read attributes by generic XML model API (with optional namespace)</span>
-</span></span><span style="display:flex;"><span>String custom1 <span style="color:#f92672">=</span> humanTask.<span style="color:#a6e22e">getAttributeValue</span>(<span style="color:#e6db74">&#34;custom-attribute&#34;</span>);
-</span></span><span style="display:flex;"><span>String custom2 <span style="color:#f92672">=</span> humanTask.<span style="color:#a6e22e">getAttributeValueNs</span>(<span style="color:#e6db74">&#34;custom-attribute-2&#34;</span>, <span style="color:#e6db74">&#34;http://camunda.org/custom&#34;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// edit attributes by generic XML model API (with optional namespace)</span>
-</span></span><span style="display:flex;"><span>humanTask.<span style="color:#a6e22e">setAttributeValue</span>(<span style="color:#e6db74">&#34;custom-attribute&#34;</span>, <span style="color:#e6db74">&#34;new value&#34;</span>);
-</span></span><span style="display:flex;"><span>humanTask.<span style="color:#a6e22e">setAttributeValueNs</span>(<span style="color:#e6db74">&#34;custom-attribute&#34;</span>, <span style="color:#e6db74">&#34;http://camunda.org/custom&#34;</span>, <span style="color:#e6db74">&#34;new value&#34;</span>);
-</span></span></code></pre></div><p>You can also access the child elements of an element or references to other elements. For example, a plan item
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">HumanTask</span><span class="w"> </span><span class="n">humanTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">HumanTask</span><span class="p">)</span><span class="w"> </span><span class="n">modelInstance</span><span class="p">.</span><span class="na">getModelElementById</span><span class="p">(</span><span class="s">&#34;HumanTask_1&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// read attributes by helper methods</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">String</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">humanTask</span><span class="p">.</span><span class="na">getId</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">humanTask</span><span class="p">.</span><span class="na">getName</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// edit attributes by helper methods</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">humanTask</span><span class="p">.</span><span class="na">setId</span><span class="p">(</span><span class="s">&#34;new-id&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">humanTask</span><span class="p">.</span><span class="na">setName</span><span class="p">(</span><span class="s">&#34;new name&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// read attributes by generic XML model API (with optional namespace)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">String</span><span class="w"> </span><span class="n">custom1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">humanTask</span><span class="p">.</span><span class="na">getAttributeValue</span><span class="p">(</span><span class="s">&#34;custom-attribute&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">String</span><span class="w"> </span><span class="n">custom2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">humanTask</span><span class="p">.</span><span class="na">getAttributeValueNs</span><span class="p">(</span><span class="s">&#34;custom-attribute-2&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;http://camunda.org/custom&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// edit attributes by generic XML model API (with optional namespace)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">humanTask</span><span class="p">.</span><span class="na">setAttributeValue</span><span class="p">(</span><span class="s">&#34;custom-attribute&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;new value&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">humanTask</span><span class="p">.</span><span class="na">setAttributeValueNs</span><span class="p">(</span><span class="s">&#34;custom-attribute&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;http://camunda.org/custom&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;new value&#34;</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><p>You can also access the child elements of an element or references to other elements. For example, a plan item
 references a definition element (like human task, process task, etc.) while the referenced definition element contains
 default control.</p>
 <p>Consider the following simple CMMN model:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34; standalone=&#34;no&#34;?&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;definitions</span> <span style="color:#a6e22e">targetNamespace=</span><span style="color:#e6db74">&#34;http://camunda.org/examples&#34;</span>
-</span></span><span style="display:flex;"><span>             <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://www.omg.org/spec/CMMN/20151109/MODEL&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;case</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;case-with-one-task&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;casePlanModel</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;CasePlanModel_1&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;planItem</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;PI_HumanTask_1&#34;</span> <span style="color:#a6e22e">definitionRef=</span><span style="color:#e6db74">&#34;HumanTask_1&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;A Task&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;humanTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;HumanTask_1&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;defaultControl&gt;</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;manualActivationRule&gt;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;condition&gt;</span>${false}<span style="color:#f92672">&lt;/condition&gt;</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;/manualActivationRule&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/defaultControl&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/humanTask&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/casePlanModel&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/case&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/definitions&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34; standalone=&#34;no&#34;?&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;definitions</span> <span class="na">targetNamespace=</span><span class="s">&#34;http://camunda.org/examples&#34;</span>
+</span></span><span class="line"><span class="cl">             <span class="na">xmlns=</span><span class="s">&#34;http://www.omg.org/spec/CMMN/20151109/MODEL&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;case</span> <span class="na">id=</span><span class="s">&#34;case-with-one-task&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;casePlanModel</span> <span class="na">id=</span><span class="s">&#34;CasePlanModel_1&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;planItem</span> <span class="na">id=</span><span class="s">&#34;PI_HumanTask_1&#34;</span> <span class="na">definitionRef=</span><span class="s">&#34;HumanTask_1&#34;</span> <span class="na">name=</span><span class="s">&#34;A Task&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;humanTask</span> <span class="na">id=</span><span class="s">&#34;HumanTask_1&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;defaultControl&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&lt;manualActivationRule&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;condition&gt;</span>${false}<span class="nt">&lt;/condition&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&lt;/manualActivationRule&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/defaultControl&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/humanTask&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/casePlanModel&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/case&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/definitions&gt;</span>
 </span></span></code></pre></div><p>You can now use the CMMN model API to get the definition of the plan item with the ID <em>PI_HumanTask_1</em>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// read cmmn model from file</span>
-</span></span><span style="display:flex;"><span>File file <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> File(<span style="color:#e6db74">&#34;PATH/TO/MODEL.cmmn&#34;</span>);
-</span></span><span style="display:flex;"><span>CmmnModelInstance modelInstance <span style="color:#f92672">=</span> Cmmn.<span style="color:#a6e22e">readModelFromFile</span>(file);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// find plan item by id</span>
-</span></span><span style="display:flex;"><span>PlanItem planItem <span style="color:#f92672">=</span> (PlanItem) modelInstance.<span style="color:#a6e22e">getModelElementById</span>(<span style="color:#e6db74">&#34;PI_HumanTask_1&#34;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// get the definition element</span>
-</span></span><span style="display:flex;"><span>PlanItemDefinition definition <span style="color:#f92672">=</span> planItem.<span style="color:#a6e22e">getDefinition</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// get the default control</span>
-</span></span><span style="display:flex;"><span>DefaultControl defaultControl <span style="color:#f92672">=</span> definition.<span style="color:#a6e22e">getDefaultControl</span>();
-</span></span><span style="display:flex;"><span>ManualActivationRule rule <span style="color:#f92672">=</span> defaultControl.<span style="color:#a6e22e">getManualActivationRule</span>();
-</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// read cmmn model from file</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">File</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="s">&#34;PATH/TO/MODEL.cmmn&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">CmmnModelInstance</span><span class="w"> </span><span class="n">modelInstance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Cmmn</span><span class="p">.</span><span class="na">readModelFromFile</span><span class="p">(</span><span class="n">file</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// find plan item by id</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">PlanItem</span><span class="w"> </span><span class="n">planItem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">PlanItem</span><span class="p">)</span><span class="w"> </span><span class="n">modelInstance</span><span class="p">.</span><span class="na">getModelElementById</span><span class="p">(</span><span class="s">&#34;PI_HumanTask_1&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// get the definition element</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">PlanItemDefinition</span><span class="w"> </span><span class="n">definition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">planItem</span><span class="p">.</span><span class="na">getDefinition</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// get the default control</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">DefaultControl</span><span class="w"> </span><span class="n">defaultControl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">definition</span><span class="p">.</span><span class="na">getDefaultControl</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">ManualActivationRule</span><span class="w"> </span><span class="n">rule</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">defaultControl</span><span class="p">.</span><span class="na">getManualActivationRule</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div>
     </div>
   </div>
 </div>

@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/1.0/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/1.0/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/user-guide/task-forms/jsf-task-forms/" />
 </head>
 <body class="">
@@ -3184,47 +3184,47 @@
 <li>the User Tasks. These are the forms the user has to complete when completing user tasks that are assigned to him.</li>
 </ul>
 <p>This is how the forms are referenced in the BPMN 2.0 XML with the <code>camunda:formKey</code> attribute:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;startEvent</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;start&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;invoice received&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">camunda:formKey=</span><span style="color:#e6db74">&#34;app:sample-start-form.jsf&#34;</span><span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;userTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;categorize-invoice&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Categorize Invoice&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">camunda:formKey=</span><span style="color:#e6db74">&#34;app:sample-task-form-1.jsf&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;userTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;file-invoice&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;File Invoice&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">camunda:formKey=</span><span style="color:#e6db74">&#34;app:sample-task-form-2.jsf&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;userTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;acknowledge-categorization&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Acknowledge Categorization&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">camunda:formKey=</span><span style="color:#e6db74">&#34;app:acknowledge-form.jsf&#34;</span> <span style="color:#f92672">/&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;startEvent</span> <span class="na">id=</span><span class="s">&#34;start&#34;</span> <span class="na">name=</span><span class="s">&#34;invoice received&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="na">camunda:formKey=</span><span class="s">&#34;app:sample-start-form.jsf&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;userTask</span> <span class="na">id=</span><span class="s">&#34;categorize-invoice&#34;</span> <span class="na">name=</span><span class="s">&#34;Categorize Invoice&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="na">camunda:formKey=</span><span class="s">&#34;app:sample-task-form-1.jsf&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;userTask</span> <span class="na">id=</span><span class="s">&#34;file-invoice&#34;</span> <span class="na">name=</span><span class="s">&#34;File Invoice&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="na">camunda:formKey=</span><span class="s">&#34;app:sample-task-form-2.jsf&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;userTask</span> <span class="na">id=</span><span class="s">&#34;acknowledge-categorization&#34;</span> <span class="na">name=</span><span class="s">&#34;Acknowledge Categorization&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="na">camunda:formKey=</span><span class="s">&#34;app:acknowledge-form.jsf&#34;</span> <span class="nt">/&gt;</span>
 </span></span></code></pre></div><h1 id="creating-simple-user-task-forms">Creating Simple User Task Forms</h1>
 <p>Create a JSF page in <code>src/main/webapp/WEB-INF</code> representing a form used for User Tasks. A very simple task form is shown below:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;!DOCTYPE HTML&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;html</span> <span style="color:#a6e22e">lang=</span><span style="color:#e6db74">&#34;en&#34;</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://www.w3.org/1999/xhtml&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">xmlns:ui=</span><span style="color:#e6db74">&#34;http://java.sun.com/jsf/facelets&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">xmlns:h=</span><span style="color:#e6db74">&#34;http://java.sun.com/jsf/html&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">xmlns:f=</span><span style="color:#e6db74">&#34;http://java.sun.com/jsf/core&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;f:view&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;h:head&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;f:metadata&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;f:event</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;preRenderView&#34;</span> <span style="color:#a6e22e">listener=</span><span style="color:#e6db74">&#34;#{camundaTaskForm.startTaskForm()}&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/f:metadata&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;title&gt;</span>Task Form: #{task.name}<span style="color:#f92672">&lt;/title&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/h:head&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;h:body&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;h1&gt;</span>#{task.name}<span style="color:#f92672">&lt;/h1&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;h:form</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;someForm&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;p&gt;</span>
-</span></span><span style="display:flex;"><span>        Here you would see the actual form to work on the task in a design
-</span></span><span style="display:flex;"><span>        normally either matching your task list or your business application
-</span></span><span style="display:flex;"><span>        (or both in the best case).
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/p&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;h:commandButton</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;complete&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;Task Completed&#34;</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">action=</span><span style="color:#e6db74">&#34;#{camundaTaskForm.completeTask()}&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/h:form&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/h:body&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/f:view&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/html&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;!DOCTYPE HTML&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">&#34;en&#34;</span> <span class="na">xmlns=</span><span class="s">&#34;http://www.w3.org/1999/xhtml&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">xmlns:ui=</span><span class="s">&#34;http://java.sun.com/jsf/facelets&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">xmlns:h=</span><span class="s">&#34;http://java.sun.com/jsf/html&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">xmlns:f=</span><span class="s">&#34;http://java.sun.com/jsf/core&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;f:view&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;h:head&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;f:metadata&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;f:event</span> <span class="na">type=</span><span class="s">&#34;preRenderView&#34;</span> <span class="na">listener=</span><span class="s">&#34;#{camundaTaskForm.startTaskForm()}&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/f:metadata&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;title&gt;</span>Task Form: #{task.name}<span class="nt">&lt;/title&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/h:head&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;h:body&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;h1&gt;</span>#{task.name}<span class="nt">&lt;/h1&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;h:form</span> <span class="na">id=</span><span class="s">&#34;someForm&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;p&gt;</span>
+</span></span><span class="line"><span class="cl">        Here you would see the actual form to work on the task in a design
+</span></span><span class="line"><span class="cl">        normally either matching your task list or your business application
+</span></span><span class="line"><span class="cl">        (or both in the best case).
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/p&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;h:commandButton</span> <span class="na">id=</span><span class="s">&#34;complete&#34;</span> <span class="na">value=</span><span class="s">&#34;Task Completed&#34;</span>
+</span></span><span class="line"><span class="cl">          <span class="na">action=</span><span class="s">&#34;#{camundaTaskForm.completeTask()}&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/h:form&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/h:body&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/f:view&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/html&gt;</span>
 </span></span></code></pre></div><p>Note that you need <code>camunda-engine-cdi</code> in order to have the <code>camundaTaskForm</code> bean available.</p>
 <h1 id="how-does-this-work">How does this work?</h1>
 <p>If the user clicks on &ldquo;Start to work on task&rdquo; <figure class="image">
@@ -3241,47 +3241,47 @@
 <li>starts the User Task in the process engine, meaning the bean sets the start date and assigns the task to the CDI business process scope (see <a href="/manual/1.0/user-guide/cdi-java-ee-integration/">CDI Integration</a> for details).</li>
 </ul>
 <p>For that, you just need to add this code block to the beginning of your JSF view:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;f:metadata&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;f:event</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;preRenderView&#34;</span> <span style="color:#a6e22e">listener=</span><span style="color:#e6db74">&#34;#{camundaTaskForm.startTaskForm()}&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/f:metadata&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;f:metadata&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;f:event</span> <span class="na">type=</span><span class="s">&#34;preRenderView&#34;</span> <span class="na">listener=</span><span class="s">&#34;#{camundaTaskForm.startTaskForm()}&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/f:metadata&gt;</span>
 </span></span></code></pre></div><p>Submit the form by calling the <code>camundaTaskForm</code> bean again, which:</p>
 <ul>
 <li>Completes the task in the process engine, causing the current token to advance in the process</li>
 <li>Ends the conversation</li>
 <li>Triggers a redirect to the callback URL of the tasklist</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;h:commandButton</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;complete&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;task completed&#34;</span> <span style="color:#a6e22e">action=</span><span style="color:#e6db74">&#34;#{camundaTaskForm.completeTask()}&#34;</span> <span style="color:#f92672">/&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;h:commandButton</span> <span class="na">id=</span><span class="s">&#34;complete&#34;</span> <span class="na">value=</span><span class="s">&#34;task completed&#34;</span> <span class="na">action=</span><span class="s">&#34;#{camundaTaskForm.completeTask()}&#34;</span> <span class="nt">/&gt;</span>
 </span></span></code></pre></div><p>Note that the command button doesn&rsquo;t have to be on the same form, you might have a whole wizard containing multiple forms in a row before having the <code>completeTask</code> button. This will work because of the conversation running in the background.</p>
 <h1 id="access-process-variables">Access Process Variables</h1>
 <p>In the forms you can access your own CDI beans as usual and also access the Camunda CDI beans. This makes it easy to access process variables, e.g., via the <code>processVariables</code> CDI bean:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;h:form</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;someForm&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;p&gt;</span>Here you would see the actual form to work on the task in some design normally either matching you task list or your business application (or both in the best case).<span style="color:#f92672">&lt;/p&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;table&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;tr&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;td&gt;</span>
-</span></span><span style="display:flex;"><span>        Process variable <span style="color:#f92672">&lt;strong&gt;</span>x<span style="color:#f92672">&lt;/strong&gt;</span> (given in in the start form):
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/td&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;td&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;h:outputText</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;#{processVariables[&#39;x&#39;]}&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/td&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/tr&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;tr&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;td&gt;</span>
-</span></span><span style="display:flex;"><span>        Process variable <span style="color:#f92672">&lt;strong&gt;</span>y<span style="color:#f92672">&lt;/strong&gt;</span> (added in this task form):
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/td&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;td&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;h:inputText</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;#{processVariables[&#39;y&#39;]}&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/td&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/tr&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;tr&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;td&gt;&lt;/td&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;td&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;h:commandButton</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;complete&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;Task Completed&#34;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">action=</span><span style="color:#e6db74">&#34;#{camundaTaskForm.completeTask()}&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/td&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/tr&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/table&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/h:form&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;h:form</span> <span class="na">id=</span><span class="s">&#34;someForm&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;p&gt;</span>Here you would see the actual form to work on the task in some design normally either matching you task list or your business application (or both in the best case).<span class="nt">&lt;/p&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;table&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;tr&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;td&gt;</span>
+</span></span><span class="line"><span class="cl">        Process variable <span class="nt">&lt;strong&gt;</span>x<span class="nt">&lt;/strong&gt;</span> (given in in the start form):
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/td&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;td&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;h:outputText</span> <span class="na">value=</span><span class="s">&#34;#{processVariables[&#39;x&#39;]}&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/td&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/tr&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;tr&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;td&gt;</span>
+</span></span><span class="line"><span class="cl">        Process variable <span class="nt">&lt;strong&gt;</span>y<span class="nt">&lt;/strong&gt;</span> (added in this task form):
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/td&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;td&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;h:inputText</span> <span class="na">value=</span><span class="s">&#34;#{processVariables[&#39;y&#39;]}&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/td&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/tr&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;tr&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;td&gt;&lt;/td&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;td&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;h:commandButton</span> <span class="na">id=</span><span class="s">&#34;complete&#34;</span> <span class="na">value=</span><span class="s">&#34;Task Completed&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="na">action=</span><span class="s">&#34;#{camundaTaskForm.completeTask()}&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/td&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/tr&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/table&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/h:form&gt;</span>
 </span></span></code></pre></div><p>This is rendered to a simple form:</p>
 <figure class="image">
   <span><img
@@ -3292,50 +3292,50 @@
 </figure>
 
 <p>The same mechanism can be used to start a new process instance:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;!DOCTYPE HTML&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;html</span> <span style="color:#a6e22e">lang=</span><span style="color:#e6db74">&#34;en&#34;</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://www.w3.org/1999/xhtml&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">xmlns:ui=</span><span style="color:#e6db74">&#34;http://java.sun.com/jsf/facelets&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">xmlns:h=</span><span style="color:#e6db74">&#34;http://java.sun.com/jsf/html&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">xmlns:f=</span><span style="color:#e6db74">&#34;http://java.sun.com/jsf/core&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;f:view&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;f:metadata&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;f:event</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;preRenderView&#34;</span> <span style="color:#a6e22e">listener=</span><span style="color:#e6db74">&#34;#{camundaTaskForm.startProcessInstanceByKeyForm()}&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/f:metadata&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;h:head&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;title&gt;</span>Start Process: #{camundaTaskForm.processDefinition.name}<span style="color:#f92672">&lt;/title&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/h:head&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;h:body&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;h1&gt;</span>#{camundaTaskForm.processDefinition.name}<span style="color:#f92672">&lt;/h1&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;p&gt;</span>Start a new process instance in version: #{camundaTaskForm.processDefinition.version}<span style="color:#f92672">&lt;/p&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;h:form</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;someForm&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;p&gt;</span>
-</span></span><span style="display:flex;"><span>        Here you see the actual form to start a new process instance, normally
-</span></span><span style="display:flex;"><span>        this would be in some design  either matching you task list or your business
-</span></span><span style="display:flex;"><span>        application (or both in the best case).
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/p&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;table&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;tr&gt;</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;td&gt;</span>
-</span></span><span style="display:flex;"><span>            Process variable <span style="color:#f92672">&lt;strong&gt;</span>x<span style="color:#f92672">&lt;/strong&gt;</span>:
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;/td&gt;</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;td&gt;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;h:inputText</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;#{processVariables[&#39;x&#39;]}&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;/td&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/tr&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;tr&gt;</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;td&gt;&lt;/td&gt;</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;td&gt;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;h:commandButton</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;start&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;Start Process Instance&#34;</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">action=</span><span style="color:#e6db74">&#34;#{camundaTaskForm.completeProcessInstanceForm()}&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;/td&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/tr&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/table&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/h:form&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/h:body&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/f:view&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/html&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;!DOCTYPE HTML&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">&#34;en&#34;</span> <span class="na">xmlns=</span><span class="s">&#34;http://www.w3.org/1999/xhtml&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">xmlns:ui=</span><span class="s">&#34;http://java.sun.com/jsf/facelets&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">xmlns:h=</span><span class="s">&#34;http://java.sun.com/jsf/html&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">xmlns:f=</span><span class="s">&#34;http://java.sun.com/jsf/core&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;f:view&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;f:metadata&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;f:event</span> <span class="na">type=</span><span class="s">&#34;preRenderView&#34;</span> <span class="na">listener=</span><span class="s">&#34;#{camundaTaskForm.startProcessInstanceByKeyForm()}&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/f:metadata&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;h:head&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;title&gt;</span>Start Process: #{camundaTaskForm.processDefinition.name}<span class="nt">&lt;/title&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/h:head&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;h:body&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;h1&gt;</span>#{camundaTaskForm.processDefinition.name}<span class="nt">&lt;/h1&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;p&gt;</span>Start a new process instance in version: #{camundaTaskForm.processDefinition.version}<span class="nt">&lt;/p&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;h:form</span> <span class="na">id=</span><span class="s">&#34;someForm&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;p&gt;</span>
+</span></span><span class="line"><span class="cl">        Here you see the actual form to start a new process instance, normally
+</span></span><span class="line"><span class="cl">        this would be in some design  either matching you task list or your business
+</span></span><span class="line"><span class="cl">        application (or both in the best case).
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/p&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;table&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;tr&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&lt;td&gt;</span>
+</span></span><span class="line"><span class="cl">            Process variable <span class="nt">&lt;strong&gt;</span>x<span class="nt">&lt;/strong&gt;</span>:
+</span></span><span class="line"><span class="cl">          <span class="nt">&lt;/td&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&lt;td&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;h:inputText</span> <span class="na">value=</span><span class="s">&#34;#{processVariables[&#39;x&#39;]}&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&lt;/td&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/tr&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;tr&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&lt;td&gt;&lt;/td&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&lt;td&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;h:commandButton</span> <span class="na">id=</span><span class="s">&#34;start&#34;</span> <span class="na">value=</span><span class="s">&#34;Start Process Instance&#34;</span>
+</span></span><span class="line"><span class="cl">                <span class="na">action=</span><span class="s">&#34;#{camundaTaskForm.completeProcessInstanceForm()}&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&lt;/td&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/tr&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/table&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/h:form&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/h:body&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/f:view&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/html&gt;</span>
 </span></span></code></pre></div><figure class="image">
   <span><img
       src="../img/startFormExample.png"
@@ -3357,16 +3357,16 @@
 <li>Remembers the callback URL to the centralized tasklist</li>
 </ul>
 <p>You need to add this code block to the beginning of your JSF view:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;f:metadata&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;f:event</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;preRenderView&#34;</span> <span style="color:#a6e22e">listener=</span><span style="color:#e6db74">&#34;#{camundaTaskForm.startProcessInstanceByIdForm()}&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/f:metadata&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;f:metadata&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;f:event</span> <span class="na">type=</span><span class="s">&#34;preRenderView&#34;</span> <span class="na">listener=</span><span class="s">&#34;#{camundaTaskForm.startProcessInstanceByIdForm()}&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/f:metadata&gt;</span>
 </span></span></code></pre></div><p>Submitting the start form now:</p>
 <ul>
 <li>Starts the process instance in the process engine</li>
 <li>Ends the conversation</li>
 <li>Triggers a redirect to the callback URL of the tasklist</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;h:commandButton</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;start&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;Start Process Instance&#34;</span> <span style="color:#a6e22e">action=</span><span style="color:#e6db74">&#34;#{camundaTaskForm.completeProcessInstanceForm()}&#34;</span> <span style="color:#f92672">/&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;h:commandButton</span> <span class="na">id=</span><span class="s">&#34;start&#34;</span> <span class="na">value=</span><span class="s">&#34;Start Process Instance&#34;</span> <span class="na">action=</span><span class="s">&#34;#{camundaTaskForm.completeProcessInstanceForm()}&#34;</span> <span class="nt">/&gt;</span>
 </span></span></code></pre></div><p>Note that the command button doesn&rsquo;t have to be on the same form, you might have a whole wizard containing multiple forms in a row before having the <code>completeProcessInstanceForm</code> button. This will work because of the conversation running in the background.</p>
 <h1 id="styling-your-task-forms">Styling your Task Forms</h1>
 <p>We use <a href="http://getbootstrap.com/">Twitter Bootstrap</a> in our tasklist - so best add this to your Process Application as well and you can easily polish your UI:</p>
@@ -3379,29 +3379,29 @@
 </figure>
 
 <p>To include CSS and Javascript libraries in your project you can add them to your maven project as dependencies.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;dependencies&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- ... --&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;dependency&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;groupId&gt;</span>org.webjars<span style="color:#f92672">&lt;/groupId&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;artifactId&gt;</span>bootstrap<span style="color:#f92672">&lt;/artifactId&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;version&gt;</span>3.1.1<span style="color:#f92672">&lt;/version&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/dependency&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/dependencies&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependencies&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c">&lt;!-- ... --&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;dependency&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;groupId&gt;</span>org.webjars<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;artifactId&gt;</span>bootstrap<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;version&gt;</span>3.1.1<span class="nt">&lt;/version&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/dependency&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/dependencies&gt;</span>
 </span></span></code></pre></div><p>To use them, add tags like the following ones to your JSF page. If you have several forms, it may be helpful to create a template that you can refer to from your forms to avoid redundancies..</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;h:head&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;title&gt;</span>your title<span style="color:#f92672">&lt;/title&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;meta</span> <span style="color:#a6e22e">http-equiv=</span><span style="color:#e6db74">&#34;Content-Type&#34;</span> <span style="color:#a6e22e">content=</span><span style="color:#e6db74">&#34;text/html; charset=utf-8&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- CSS Stylesheets --&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;h:outputStylesheet</span> <span style="color:#a6e22e">library=</span><span style="color:#e6db74">&#34;webjars/bootstrap/3.1.1/css&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;bootstrap.css&#34;</span><span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;h:outputStylesheet</span> <span style="color:#a6e22e">library=</span><span style="color:#e6db74">&#34;css&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;style.css&#34;</span><span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- Javascript Libraries --&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;h:outputScript</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span> <span style="color:#a6e22e">library=</span><span style="color:#e6db74">&#34;webjars/bootstrap/3.1.1/js&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;bootstrap.js&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/h:head&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;h:head&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;title&gt;</span>your title<span class="nt">&lt;/title&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">&#34;Content-Type&#34;</span> <span class="na">content=</span><span class="s">&#34;text/html; charset=utf-8&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c">&lt;!-- CSS Stylesheets --&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;h:outputStylesheet</span> <span class="na">library=</span><span class="s">&#34;webjars/bootstrap/3.1.1/css&#34;</span> <span class="na">name=</span><span class="s">&#34;bootstrap.css&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;h:outputStylesheet</span> <span class="na">library=</span><span class="s">&#34;css&#34;</span> <span class="na">name=</span><span class="s">&#34;style.css&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c">&lt;!-- Javascript Libraries --&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;h:outputScript</span> <span class="na">type=</span><span class="s">&#34;text/javascript&#34;</span> <span class="na">library=</span><span class="s">&#34;webjars/bootstrap/3.1.1/js&#34;</span> <span class="na">name=</span><span class="s">&#34;bootstrap.js&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/h:head&gt;</span>
 </span></span></code></pre></div>
     </div>
   </div>

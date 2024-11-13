@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/1.0/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/1.0/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/webapps/shared-options/csrf-prevention/" />
 </head>
 <body class="">
@@ -3163,39 +3163,39 @@
 <p>In Spring Boot Starter, the configuration needs to be made in the <code>application.yaml</code>.
 Please read more about it <a href="/manual/1.0/user-guide/spring-boot-integration/configuration/#csrf">here</a>.</p>
 <p>If you would like to enable the additional <em>Same Origin with Standard Headers</em> verification, the <code>targetOrigin</code> init-parameter should be set in the <code>web.xml</code> file of your application. That, and some additional optional initialization parameters are:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- CSRF Prevention filter --&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;filter&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;filter-name&gt;</span>CsrfPreventionFilter<span style="color:#f92672">&lt;/filter-name&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;filter-class&gt;</span>org.camunda.bpm.webapp.impl.security.filter.CsrfPreventionFilter<span style="color:#f92672">&lt;/filter-class&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;init-param&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;param-name&gt;</span>targetOrigin<span style="color:#f92672">&lt;/param-name&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;param-value&gt;</span>http://example.com<span style="color:#f92672">&lt;/param-value&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/init-param&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;init-param&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;param-name&gt;</span>denyStatus<span style="color:#f92672">&lt;/param-name&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;param-value&gt;</span>404<span style="color:#f92672">&lt;/param-value&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/init-param&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;init-param&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;param-name&gt;</span>randomClass<span style="color:#f92672">&lt;/param-name&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;param-value&gt;</span>java.security.SecureRandom<span style="color:#f92672">&lt;/param-value&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/init-param&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;init-param&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;param-name&gt;</span>entryPoints<span style="color:#f92672">&lt;/param-name&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;param-value&gt;</span>/api/engine/engine/default/history/task/count, /api/engine/engine/default/history/variable/count<span style="color:#f92672">&lt;/param-value&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/init-param&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;init-param&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;param-name&gt;</span>enableSecureCookie<span style="color:#f92672">&lt;/param-name&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;param-value&gt;</span>true<span style="color:#f92672">&lt;/param-value&gt;</span>               <span style="color:#75715e">&lt;!-- default value is false --&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/init-param&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;init-param&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;param-name&gt;</span>enableSameSiteCookie<span style="color:#f92672">&lt;/param-name&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;param-value&gt;</span>true<span style="color:#f92672">&lt;/param-value&gt;</span>               <span style="color:#75715e">&lt;!-- default value is true --&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/init-param&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/filter&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;filter-mapping&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;filter-name&gt;</span>CsrfPreventionFilter<span style="color:#f92672">&lt;/filter-name&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;url-pattern&gt;</span>/*<span style="color:#f92672">&lt;/url-pattern&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/filter-mapping&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">  <span class="c">&lt;!-- CSRF Prevention filter --&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;filter&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;filter-name&gt;</span>CsrfPreventionFilter<span class="nt">&lt;/filter-name&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;filter-class&gt;</span>org.camunda.bpm.webapp.impl.security.filter.CsrfPreventionFilter<span class="nt">&lt;/filter-class&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;init-param&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;param-name&gt;</span>targetOrigin<span class="nt">&lt;/param-name&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;param-value&gt;</span>http://example.com<span class="nt">&lt;/param-value&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/init-param&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;init-param&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;param-name&gt;</span>denyStatus<span class="nt">&lt;/param-name&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;param-value&gt;</span>404<span class="nt">&lt;/param-value&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/init-param&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;init-param&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;param-name&gt;</span>randomClass<span class="nt">&lt;/param-name&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;param-value&gt;</span>java.security.SecureRandom<span class="nt">&lt;/param-value&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/init-param&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;init-param&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;param-name&gt;</span>entryPoints<span class="nt">&lt;/param-name&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;param-value&gt;</span>/api/engine/engine/default/history/task/count, /api/engine/engine/default/history/variable/count<span class="nt">&lt;/param-value&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/init-param&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;init-param&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;param-name&gt;</span>enableSecureCookie<span class="nt">&lt;/param-name&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;param-value&gt;</span>true<span class="nt">&lt;/param-value&gt;</span>               <span class="c">&lt;!-- default value is false --&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/init-param&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;init-param&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;param-name&gt;</span>enableSameSiteCookie<span class="nt">&lt;/param-name&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;param-value&gt;</span>true<span class="nt">&lt;/param-value&gt;</span>               <span class="c">&lt;!-- default value is true --&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/init-param&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/filter&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;filter-mapping&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;filter-name&gt;</span>CsrfPreventionFilter<span class="nt">&lt;/filter-name&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;url-pattern&gt;</span>/*<span class="nt">&lt;/url-pattern&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/filter-mapping&gt;</span>
 </span></span></code></pre></div><table class="table table-striped">
   <tr>
     <th>Name</th>

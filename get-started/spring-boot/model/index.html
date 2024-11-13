@@ -21,7 +21,7 @@
 
   
 
-  <link rel="stylesheet" href="/get-started/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/get-started/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="/get-started/spring-boot/model/" />
 </head>
 <body class="">
@@ -240,194 +240,6 @@
     
   <li>
     
-      <a href="/get-started/archive/" >Archive</a>
-      <ul>
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/spring/" >Spring Framework</a>
-      <ul>
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/spring/project-setup/" >Project Setup</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/spring/embedded-process-engine/" >Embedded Process Engine Configuration</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/spring/service-task/" >Spring Bean Service Task</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/spring/shared-process-engine/" >Shared Process Engine</a>
-    
-  </li>
-
-        
-      </ul>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/javaee7/" >Java EE 7</a>
-      <ul>
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/javaee7/install/" >Download and Installation</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/javaee7/project-setup/" >Project Setup</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/javaee7/model/" >Model a Process</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/javaee7/deploy/" >Deploy</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/javaee7/start-form/" >JSF Start Form</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/javaee7/service-task/" >EJB Service Task</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/javaee7/task-form/" >JSF Task Form</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/javaee7/complete-process/" >Complete Process</a>
-    
-  </li>
-
-        
-      </ul>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/java-process-app/" >Java Process Application</a>
-      <ul>
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/java-process-app/install/" >Download and Installation</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/java-process-app/project-setup/" >Project Setup</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/java-process-app/model/" >Model a Process</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/java-process-app/deploy/" >Deploy and Test</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/java-process-app/forms/" >Forms</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/java-process-app/service-task/" >Java Service Task</a>
-    
-  </li>
-
-        
-      </ul>
-    
-  </li>
-
-        
-      </ul>
-    
-  </li>
-
-  
-    
-  <li>
-    
       <a href="/get-started/apache-maven/" >Maven Coordinates</a>
     
   </li>
@@ -505,16 +317,16 @@ to catch the &ldquo;post-deploy&rdquo; event to start the process instance at th
 <h2 id="start-a-process-instance-after-process-application-has-been-deployed">Start a Process Instance after Process Application has been Deployed</h2>
 <p>The next step consists of starting a process instance from our process application class. For this, we will process <code>PostDeployEvent</code>, which is fired as soon as
 our process application has been deployed to the Camunda engine.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>...
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Autowired</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> RuntimeService runtimeService;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@EventListener</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">processPostDeploy</span>(PostDeployEvent event) {
-</span></span><span style="display:flex;"><span>    runtimeService.<span style="color:#a6e22e">startProcessInstanceByKey</span>(<span style="color:#e6db74">&#34;loanApproval&#34;</span>);
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>...
-</span></span></code></pre></div><p>Note that we can easily inject the Camunda engine service via the <code>@Autowired</code> annotation.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="p">...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@Autowired</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="n">RuntimeService</span><span class="w"> </span><span class="n">runtimeService</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@EventListener</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">processPostDeploy</span><span class="p">(</span><span class="n">PostDeployEvent</span><span class="w"> </span><span class="n">event</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">runtimeService</span><span class="p">.</span><span class="na">startProcessInstanceByKey</span><span class="p">(</span><span class="s">&#34;loanApproval&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">...</span><span class="w">
+</span></span></span></code></pre></div><p>Note that we can easily inject the Camunda engine service via the <code>@Autowired</code> annotation.</p>
 <h2 id="rebuild-and-test">Rebuild and test</h2>
 <p>If you rebuild and restart the application, you should see the task &ldquo;Check the request&rdquo; in Tasklist under the &ldquo;All tasks&rdquo; filter:</p>
 <figure class="image">

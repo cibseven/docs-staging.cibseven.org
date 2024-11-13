@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/latest/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/latest/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/user-guide/data-formats/configuring-spin-integration/" />
 </head>
 <body class="">
@@ -3199,12 +3199,12 @@ registers variable serializers that enable the process engine to store Java obje
 <h2 id="maven-coordinates">Maven coordinates</h2>
 <p>Import the <a href="/get-started/apache-maven/">Camunda BOM</a> to ensure that you use the right version of Spin that is tested to work with your version of the process engine.</p>
 <p>All Spin artifacts have the group id <code>org.camunda.spin</code>, so in order to import <code>camunda-spin-core</code>, we can write:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;dependency&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;groupId&gt;</span>org.camunda.spin<span style="color:#f92672">&lt;/groupId&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;artifactId&gt;</span>camunda-spin-core<span style="color:#f92672">&lt;/artifactId&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- The version is omitted here, because it is managed via the BOM.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">    Declare a concrete version if you do not use the BOM --&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/dependency&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependency&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;groupId&gt;</span>org.camunda.spin<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;artifactId&gt;</span>camunda-spin-core<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="c">&lt;!-- The version is omitted here, because it is managed via the BOM.
+</span></span></span><span class="line"><span class="cl"><span class="c">    Declare a concrete version if you do not use the BOM --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/dependency&gt;</span>
 </span></span></code></pre></div><h1 id="integration-use-cases">Integration Use Cases</h1>
 <p>Depending on the application and process engine setup, it is recommended to use either <code>camunda-engine-plugin-spin</code> and <code>camunda-spin-core</code> (plus individual data formats) or <code>camunda-engine-plugin-spin</code> and <code>camunda-spin-dataformat-all</code>. The following sections explain when to use which for the most common use cases.</p>
 <h2 id="embedded-process-engine">Embedded Process Engine</h2>

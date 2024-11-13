@@ -21,7 +21,7 @@
 
   
 
-  <link rel="stylesheet" href="/get-started/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/get-started/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="/get-started/dmn/drg/" />
 </head>
 <body class="">
@@ -240,194 +240,6 @@
     
   <li>
     
-      <a href="/get-started/archive/" >Archive</a>
-      <ul>
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/spring/" >Spring Framework</a>
-      <ul>
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/spring/project-setup/" >Project Setup</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/spring/embedded-process-engine/" >Embedded Process Engine Configuration</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/spring/service-task/" >Spring Bean Service Task</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/spring/shared-process-engine/" >Shared Process Engine</a>
-    
-  </li>
-
-        
-      </ul>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/javaee7/" >Java EE 7</a>
-      <ul>
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/javaee7/install/" >Download and Installation</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/javaee7/project-setup/" >Project Setup</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/javaee7/model/" >Model a Process</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/javaee7/deploy/" >Deploy</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/javaee7/start-form/" >JSF Start Form</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/javaee7/service-task/" >EJB Service Task</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/javaee7/task-form/" >JSF Task Form</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/javaee7/complete-process/" >Complete Process</a>
-    
-  </li>
-
-        
-      </ul>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/java-process-app/" >Java Process Application</a>
-      <ul>
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/java-process-app/install/" >Download and Installation</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/java-process-app/project-setup/" >Project Setup</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/java-process-app/model/" >Model a Process</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/java-process-app/deploy/" >Deploy and Test</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/java-process-app/forms/" >Forms</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/java-process-app/service-task/" >Java Service Task</a>
-    
-  </li>
-
-        
-      </ul>
-    
-  </li>
-
-        
-      </ul>
-    
-  </li>
-
-  
-    
-  <li>
-    
       <a href="/get-started/apache-maven/" >Maven Coordinates</a>
     
   </li>
@@ -557,37 +369,37 @@
 
 <h1 id="evaluate-the-decision">Evaluate the Decision</h1>
 <p>To evaluate the <em>Beverages</em> decision, we extend the existing method in your Application class and add a new variable &ldquo;guestsWithChildren&rdquo;.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> org.camunda.bpm.getstarted.dmn;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@ProcessApplication</span>(<span style="color:#e6db74">&#34;Dinner App DMN&#34;</span>)
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DinnerApplication</span> <span style="color:#66d9ef">extends</span> ServletProcessApplication
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">static</span> Logger LOGGER <span style="color:#f92672">=</span> Logger.<span style="color:#a6e22e">getLogger</span>(DinnerApplication.<span style="color:#a6e22e">class</span>.<span style="color:#a6e22e">getName</span>());
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@PostDeploy</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">evaluateDecisionTable</span>(ProcessEngine processEngine) {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      DecisionService decisionService <span style="color:#f92672">=</span> processEngine.<span style="color:#a6e22e">getDecisionService</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      VariableMap variables <span style="color:#f92672">=</span> Variables.<span style="color:#a6e22e">createVariables</span>()
-</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">putValue</span>(<span style="color:#e6db74">&#34;season&#34;</span>, <span style="color:#e6db74">&#34;Spring&#34;</span>)
-</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">putValue</span>(<span style="color:#e6db74">&#34;guestCount&#34;</span>, 10)
-</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">putValue</span>(<span style="color:#e6db74">&#34;guestsWithChildren&#34;</span>, <span style="color:#66d9ef">false</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      DmnDecisionTableResult dishDecisionResult <span style="color:#f92672">=</span> decisionService.<span style="color:#a6e22e">evaluateDecisionTableByKey</span>(<span style="color:#e6db74">&#34;dish&#34;</span>, variables);
-</span></span><span style="display:flex;"><span>      String desiredDish <span style="color:#f92672">=</span> dishDecisionResult.<span style="color:#a6e22e">getSingleEntry</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      LOGGER.<span style="color:#a6e22e">log</span>(Level.<span style="color:#a6e22e">INFO</span>, <span style="color:#e6db74">&#34;\n\nDesired dish: {0}\n\n&#34;</span>, desiredDish);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      DmnDecisionTableResult beveragesDecisionResult <span style="color:#f92672">=</span> decisionService.<span style="color:#a6e22e">evaluateDecisionTableByKey</span>(<span style="color:#e6db74">&#34;beverages&#34;</span>, variables);
-</span></span><span style="display:flex;"><span>      List<span style="color:#f92672">&lt;</span>Object<span style="color:#f92672">&gt;</span> beverages <span style="color:#f92672">=</span> beveragesDecisionResult.<span style="color:#a6e22e">collectEntries</span>(<span style="color:#e6db74">&#34;beverages&#34;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      LOGGER.<span style="color:#a6e22e">log</span>(Level.<span style="color:#a6e22e">INFO</span>, <span style="color:#e6db74">&#34;\n\nDesired beverages: {0}\n\n&#34;</span>, beverages);
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nn">org.camunda.bpm.getstarted.dmn</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@ProcessApplication</span><span class="p">(</span><span class="s">&#34;Dinner App DMN&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">DinnerApplication</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">ServletProcessApplication</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">protected</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">Logger</span><span class="w"> </span><span class="n">LOGGER</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Logger</span><span class="p">.</span><span class="na">getLogger</span><span class="p">(</span><span class="n">DinnerApplication</span><span class="p">.</span><span class="na">class</span><span class="p">.</span><span class="na">getName</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@PostDeploy</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">evaluateDecisionTable</span><span class="p">(</span><span class="n">ProcessEngine</span><span class="w"> </span><span class="n">processEngine</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="n">DecisionService</span><span class="w"> </span><span class="n">decisionService</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">processEngine</span><span class="p">.</span><span class="na">getDecisionService</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="n">VariableMap</span><span class="w"> </span><span class="n">variables</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Variables</span><span class="p">.</span><span class="na">createVariables</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="na">putValue</span><span class="p">(</span><span class="s">&#34;season&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;Spring&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="na">putValue</span><span class="p">(</span><span class="s">&#34;guestCount&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">10</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="na">putValue</span><span class="p">(</span><span class="s">&#34;guestsWithChildren&#34;</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="n">DmnDecisionTableResult</span><span class="w"> </span><span class="n">dishDecisionResult</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">decisionService</span><span class="p">.</span><span class="na">evaluateDecisionTableByKey</span><span class="p">(</span><span class="s">&#34;dish&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">variables</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="n">String</span><span class="w"> </span><span class="n">desiredDish</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dishDecisionResult</span><span class="p">.</span><span class="na">getSingleEntry</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="n">LOGGER</span><span class="p">.</span><span class="na">log</span><span class="p">(</span><span class="n">Level</span><span class="p">.</span><span class="na">INFO</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;\n\nDesired dish: {0}\n\n&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">desiredDish</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="n">DmnDecisionTableResult</span><span class="w"> </span><span class="n">beveragesDecisionResult</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">decisionService</span><span class="p">.</span><span class="na">evaluateDecisionTableByKey</span><span class="p">(</span><span class="s">&#34;beverages&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">variables</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="n">beverages</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">beveragesDecisionResult</span><span class="p">.</span><span class="na">collectEntries</span><span class="p">(</span><span class="s">&#34;beverages&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="n">LOGGER</span><span class="p">.</span><span class="na">log</span><span class="p">(</span><span class="n">Level</span><span class="p">.</span><span class="na">INFO</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;\n\nDesired beverages: {0}\n\n&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">beverages</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div>
 <div class="panel-group gs-download-step-panel" id="gitStep-6">
   <div class="panel panel-success">
     <div class="panel-heading">

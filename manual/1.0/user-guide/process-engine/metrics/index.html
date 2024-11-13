@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/1.0/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/1.0/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/user-guide/process-engine/metrics/" />
 </head>
 <body class="">
@@ -3265,34 +3265,34 @@
 <h1 id="querying">Querying</h1>
 <p>Metrics can be queried by making a <a href="/javadoc/cibseven/1.0/org/camunda/bpm/engine/management/MetricsQuery.html">MetricsQuery</a>
  offered by the <code>ManagementService</code>. For example, the following query retrieves the number of all executed activity instances throughout the entire history of reporting:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">long</span> numCompletedActivityInstances <span style="color:#f92672">=</span> managementService
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">createMetricsQuery</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">name</span>(Metrics.<span style="color:#a6e22e">ACTIVTY_INSTANCE_START</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">sum</span>();
-</span></span></code></pre></div><p>The metrics query offers filters <code>#startDate(Date date)</code> and <code>#endDate(Date date)</code> to restrict the collected metrics to a certain timespan. In addition, by using the filter <code>#reporter(String reporterId)</code> the results can be restricted to metrics collected by a specific reporter. This option can be useful when configuring more than one engine against the same database, for example in a cluster setup.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kt">long</span><span class="w"> </span><span class="n">numCompletedActivityInstances</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">managementService</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">createMetricsQuery</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">name</span><span class="p">(</span><span class="n">Metrics</span><span class="p">.</span><span class="na">ACTIVTY_INSTANCE_START</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">sum</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><p>The metrics query offers filters <code>#startDate(Date date)</code> and <code>#endDate(Date date)</code> to restrict the collected metrics to a certain timespan. In addition, by using the filter <code>#reporter(String reporterId)</code> the results can be restricted to metrics collected by a specific reporter. This option can be useful when configuring more than one engine against the same database, for example in a cluster setup.</p>
 <p>Task metrics can be queried by using the <code>getUniqueTaskWorkerCount</code> method offered by the <code>ManagementService</code>. This method accepts optional <code>Date</code> values for <code>startTime</code> and <code>endTime</code> to restrict the metric to a certain timespan. For example, the following statement retrieves the number of all unique task workers until now:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">long</span> numUniqueTaskWorkers <span style="color:#f92672">=</span> managementService.<span style="color:#a6e22e">getUniqueTaskWorkerCount</span>(<span style="color:#66d9ef">null</span>, <span style="color:#66d9ef">null</span>);
-</span></span></code></pre></div><h1 id="configuration">Configuration</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kt">long</span><span class="w"> </span><span class="n">numUniqueTaskWorkers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">managementService</span><span class="p">.</span><span class="na">getUniqueTaskWorkerCount</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><h1 id="configuration">Configuration</h1>
 <h2 id="metrics-reporter">Metrics Reporter</h2>
 <p>The process engine flushes the collected metrics to the runtime database tables in an interval of 15 minutes. The behavior of metrics reporting can be changed by replacing the <code>dbMetricsReporter</code> instance of the process engine configuration. For example, to change the reporting interval, a process engine plugin replacing the reporter can be employed:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MetricsConfigurationPlugin</span> <span style="color:#66d9ef">implements</span> ProcessEnginePlugin {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">preInit</span>(ProcessEngineConfigurationImpl processEngineConfiguration) {
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">postInit</span>(ProcessEngineConfigurationImpl processEngineConfiguration) {
-</span></span><span style="display:flex;"><span>    DbMetricsReporter metricsReporter <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> DbMetricsReporter(processEngineConfiguration.<span style="color:#a6e22e">getMetricsRegistry</span>(),
-</span></span><span style="display:flex;"><span>        processEngineConfiguration.<span style="color:#a6e22e">getCommandExecutorTxRequired</span>());
-</span></span><span style="display:flex;"><span>    metricsReporter.<span style="color:#a6e22e">setReportingIntervalInSeconds</span>(5);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    processEngineConfiguration.<span style="color:#a6e22e">setDbMetricsReporter</span>(metricsReporter);
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">postProcessEngineBuild</span>(ProcessEngine processEngine) {
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MetricsConfigurationPlugin</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">ProcessEnginePlugin</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">preInit</span><span class="p">(</span><span class="n">ProcessEngineConfigurationImpl</span><span class="w"> </span><span class="n">processEngineConfiguration</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">postInit</span><span class="p">(</span><span class="n">ProcessEngineConfigurationImpl</span><span class="w"> </span><span class="n">processEngineConfiguration</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">DbMetricsReporter</span><span class="w"> </span><span class="n">metricsReporter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DbMetricsReporter</span><span class="p">(</span><span class="n">processEngineConfiguration</span><span class="p">.</span><span class="na">getMetricsRegistry</span><span class="p">(),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">processEngineConfiguration</span><span class="p">.</span><span class="na">getCommandExecutorTxRequired</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">metricsReporter</span><span class="p">.</span><span class="na">setReportingIntervalInSeconds</span><span class="p">(</span><span class="n">5</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">processEngineConfiguration</span><span class="p">.</span><span class="na">setDbMetricsReporter</span><span class="p">(</span><span class="n">metricsReporter</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">postProcessEngineBuild</span><span class="p">(</span><span class="n">ProcessEngine</span><span class="w"> </span><span class="n">processEngine</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div>
 <div class="note bg-info docs-info">
   <h3>Note</h3>
   <p>Task metric entries are created on every assignment of a user task. This behavior cannot be modified and is not in the responsibility of the metrics reporter.</p>
@@ -3317,8 +3317,8 @@ and setting the engine property <code>hostnameProvider</code> to an instance of 
 
 <h2 id="disable-reporting">Disable Reporting</h2>
 <p>By default, all built-in metrics are reported. For the configuration via XML file (e.g. standalone.xml or bpm-platform.xml) you can disable reporting by adding the properties:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;metricsEnabled&#34;</span><span style="color:#f92672">&gt;</span>false<span style="color:#f92672">&lt;/property&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;taskMetricsEnabled&#34;</span><span style="color:#f92672">&gt;</span>false<span style="color:#f92672">&lt;/property&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;metricsEnabled&#34;</span><span class="nt">&gt;</span>false<span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;taskMetricsEnabled&#34;</span><span class="nt">&gt;</span>false<span class="nt">&lt;/property&gt;</span>
 </span></span></code></pre></div><p>If you are directly accessing the Java API, you can disable the metrics reporting by using the engine configuration flags <code>isMetricsEnabled</code> and <code>isTaskMetricsEnabled</code> and set them to <code>false</code>.</p>
 
     </div>

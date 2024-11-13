@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/latest/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/latest/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/user-guide/model-api/dmn-model-api/read-a-model/" />
 </head>
 <body class="">
@@ -3161,116 +3161,116 @@
     <div class="col-xs-12 content-text">
       <p>If you already created a DMN model and want to process it through the DMN model API, you can import it with the
 following methods:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// read a model from a file</span>
-</span></span><span style="display:flex;"><span>File file <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> File(<span style="color:#e6db74">&#34;PATH/TO/MODEL.dmn&#34;</span>);
-</span></span><span style="display:flex;"><span>DmnModelInstance modelInstance <span style="color:#f92672">=</span> Dmn.<span style="color:#a6e22e">readModelFromFile</span>(file);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// read a model from a stream</span>
-</span></span><span style="display:flex;"><span>InputStream stream <span style="color:#f92672">=</span> <span style="color:#f92672">[</span>...<span style="color:#f92672">]</span>
-</span></span><span style="display:flex;"><span>DmnModelInstance modelInstance <span style="color:#f92672">=</span> Dmn.<span style="color:#a6e22e">readModelFromStream</span>(stream);
-</span></span></code></pre></div><p>After you imported your model, you can search for elements by their id or by the type of element.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// find element instance by ID</span>
-</span></span><span style="display:flex;"><span>DecisionTable decisionTable <span style="color:#f92672">=</span> modelInstance.<span style="color:#a6e22e">getModelElementById</span>(<span style="color:#e6db74">&#34;decisionTable1&#34;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// find all elements of the type DecisionTable</span>
-</span></span><span style="display:flex;"><span>ModelElementType decisionTableType <span style="color:#f92672">=</span> modelInstance.<span style="color:#a6e22e">getModel</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">getType</span>(DecisionTable.<span style="color:#a6e22e">class</span>);
-</span></span><span style="display:flex;"><span>Collection<span style="color:#f92672">&lt;</span>ModelElementInstance<span style="color:#f92672">&gt;</span> decisionTableInstances <span style="color:#f92672">=</span> 
-</span></span><span style="display:flex;"><span>  modelInstance.<span style="color:#a6e22e">getModelElementsByType</span>(decisionTableType);
-</span></span></code></pre></div><p>For every element instance you can now read and edit the attribute values. You can do this by either using the provided
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// read a model from a file</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">File</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="s">&#34;PATH/TO/MODEL.dmn&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">DmnModelInstance</span><span class="w"> </span><span class="n">modelInstance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Dmn</span><span class="p">.</span><span class="na">readModelFromFile</span><span class="p">(</span><span class="n">file</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// read a model from a stream</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">InputStream</span><span class="w"> </span><span class="n">stream</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="p">...</span><span class="o">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">DmnModelInstance</span><span class="w"> </span><span class="n">modelInstance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Dmn</span><span class="p">.</span><span class="na">readModelFromStream</span><span class="p">(</span><span class="n">stream</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><p>After you imported your model, you can search for elements by their id or by the type of element.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// find element instance by ID</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">DecisionTable</span><span class="w"> </span><span class="n">decisionTable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">modelInstance</span><span class="p">.</span><span class="na">getModelElementById</span><span class="p">(</span><span class="s">&#34;decisionTable1&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// find all elements of the type DecisionTable</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">ModelElementType</span><span class="w"> </span><span class="n">decisionTableType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">modelInstance</span><span class="p">.</span><span class="na">getModel</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">getType</span><span class="p">(</span><span class="n">DecisionTable</span><span class="p">.</span><span class="na">class</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Collection</span><span class="o">&lt;</span><span class="n">ModelElementInstance</span><span class="o">&gt;</span><span class="w"> </span><span class="n">decisionTableInstances</span><span class="w"> </span><span class="o">=</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">modelInstance</span><span class="p">.</span><span class="na">getModelElementsByType</span><span class="p">(</span><span class="n">decisionTableType</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><p>For every element instance you can now read and edit the attribute values. You can do this by either using the provided
 helper methods or the generic XML model API. If you added custom attributes to the DMN elements, you can
 always access them with the generic XML model API.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>DecisionTable decisionTable <span style="color:#f92672">=</span> modelInstance.<span style="color:#a6e22e">getModelElementById</span>(<span style="color:#e6db74">&#34;decisionTable1&#34;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// read attributes by helper methods</span>
-</span></span><span style="display:flex;"><span>String outputLabel <span style="color:#f92672">=</span> decisionTable.<span style="color:#a6e22e">getOutputLabel</span>();
-</span></span><span style="display:flex;"><span>Collection<span style="color:#f92672">&lt;</span>Input<span style="color:#f92672">&gt;</span> inputs <span style="color:#f92672">=</span> decisionTable.<span style="color:#a6e22e">getInputs</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// edit attributes by helper methods</span>
-</span></span><span style="display:flex;"><span>decisionTable.<span style="color:#a6e22e">setOutputLabel</span>(<span style="color:#e6db74">&#34;new-label&#34;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// read attributes by generic XML model API (with optional namespace)</span>
-</span></span><span style="display:flex;"><span>String custom1 <span style="color:#f92672">=</span> decisionTable.<span style="color:#a6e22e">getAttributeValue</span>(<span style="color:#e6db74">&#34;custom-attribute&#34;</span>);
-</span></span><span style="display:flex;"><span>String custom2 <span style="color:#f92672">=</span> decisionTable.<span style="color:#a6e22e">getAttributeValueNs</span>(<span style="color:#e6db74">&#34;custom-attribute-2&#34;</span>, 
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;http://camunda.org/custom&#34;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// edit attributes by generic XML model API (with optional namespace)</span>
-</span></span><span style="display:flex;"><span>decisionTable.<span style="color:#a6e22e">setAttributeValue</span>(<span style="color:#e6db74">&#34;custom-attribute&#34;</span>, <span style="color:#e6db74">&#34;new value&#34;</span>);
-</span></span><span style="display:flex;"><span>decisionTable.<span style="color:#a6e22e">setAttributeValueNs</span>(<span style="color:#e6db74">&#34;custom-attribute&#34;</span>, 
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;http://camunda.org/custom&#34;</span>, <span style="color:#e6db74">&#34;new value&#34;</span>);
-</span></span></code></pre></div><p>You can also access the child elements of an element or references to other elements. For example,
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">DecisionTable</span><span class="w"> </span><span class="n">decisionTable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">modelInstance</span><span class="p">.</span><span class="na">getModelElementById</span><span class="p">(</span><span class="s">&#34;decisionTable1&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// read attributes by helper methods</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">String</span><span class="w"> </span><span class="n">outputLabel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">decisionTable</span><span class="p">.</span><span class="na">getOutputLabel</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Collection</span><span class="o">&lt;</span><span class="n">Input</span><span class="o">&gt;</span><span class="w"> </span><span class="n">inputs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">decisionTable</span><span class="p">.</span><span class="na">getInputs</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// edit attributes by helper methods</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">decisionTable</span><span class="p">.</span><span class="na">setOutputLabel</span><span class="p">(</span><span class="s">&#34;new-label&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// read attributes by generic XML model API (with optional namespace)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">String</span><span class="w"> </span><span class="n">custom1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">decisionTable</span><span class="p">.</span><span class="na">getAttributeValue</span><span class="p">(</span><span class="s">&#34;custom-attribute&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">String</span><span class="w"> </span><span class="n">custom2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">decisionTable</span><span class="p">.</span><span class="na">getAttributeValueNs</span><span class="p">(</span><span class="s">&#34;custom-attribute-2&#34;</span><span class="p">,</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="s">&#34;http://camunda.org/custom&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// edit attributes by generic XML model API (with optional namespace)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">decisionTable</span><span class="p">.</span><span class="na">setAttributeValue</span><span class="p">(</span><span class="s">&#34;custom-attribute&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;new value&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">decisionTable</span><span class="p">.</span><span class="na">setAttributeValueNs</span><span class="p">(</span><span class="s">&#34;custom-attribute&#34;</span><span class="p">,</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="s">&#34;http://camunda.org/custom&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;new value&#34;</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><p>You can also access the child elements of an element or references to other elements. For example,
 a decision has a required decision which it depends on.
 A required decision is represented by a <code>requiredDecision</code> element inside an <code>informationRequirement</code> XML element.</p>
 <p>Consider the following simple DMN model:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;definitions</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;https://www.omg.org/spec/DMN/20191111/MODEL/&#34;</span> 
-</span></span><span style="display:flex;"><span>             <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;dish&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Dish&#34;</span> <span style="color:#a6e22e">namespace=</span><span style="color:#e6db74">&#34;test-drd-2&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;decision</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;dish-decision&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Dish Decision&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;informationRequirement&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;requiredDecision</span> <span style="color:#a6e22e">href=</span><span style="color:#e6db74">&#34;#season&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/informationRequirement&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;decisionTable</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;dishDecisionTable&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;input</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;seasonInput&#34;</span> <span style="color:#a6e22e">label=</span><span style="color:#e6db74">&#34;Season&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;inputExpression</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;seasonInputExpresion&#34;</span> <span style="color:#a6e22e">typeRef=</span><span style="color:#e6db74">&#34;string&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;text&gt;</span>season<span style="color:#f92672">&lt;/text&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/inputExpression&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/input&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;output</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;output&#34;</span> <span style="color:#a6e22e">label=</span><span style="color:#e6db74">&#34;Dish&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;desiredDish&#34;</span> <span style="color:#a6e22e">typeRef=</span><span style="color:#e6db74">&#34;string&#34;</span><span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;rule</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;dishRule1&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;inputEntry</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;dishInputEntry1&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;text&gt;</span><span style="color:#75715e">&lt;![CDATA[&#34;Spring&#34;]]&gt;</span><span style="color:#f92672">&lt;/text&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/inputEntry&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;outputEntry</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;dishOutputEntry1&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;text&gt;</span><span style="color:#75715e">&lt;![CDATA[&#34;Salad&#34;]]&gt;</span><span style="color:#f92672">&lt;/text&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/outputEntry&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/rule&gt;</span>
-</span></span><span style="display:flex;"><span>      ...
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/decisionTable&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/decision&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;decision</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;season&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Season decision&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;decisionTable</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;seasonDecisionTable&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;input</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;temperatureInput&#34;</span> <span style="color:#a6e22e">label=</span><span style="color:#e6db74">&#34;Weather in Celsius&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;inputExpression</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;temperatureInputExpression&#34;</span> <span style="color:#a6e22e">typeRef=</span><span style="color:#e6db74">&#34;integer&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;text&gt;</span>temperature<span style="color:#f92672">&lt;/text&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/inputExpression&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/input&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;output</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;seasonOutput&#34;</span> <span style="color:#a6e22e">label=</span><span style="color:#e6db74">&#34;season&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;season&#34;</span> <span style="color:#a6e22e">typeRef=</span><span style="color:#e6db74">&#34;string&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;rule</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;seasonRule1&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;inputEntry</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;seasonInputEntry1&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;text&gt;</span><span style="color:#75715e">&lt;![CDATA[&lt;10]]&gt;</span><span style="color:#f92672">&lt;/text&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/inputEntry&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;outputEntry</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;seasonOutputEntry1&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;text&gt;</span><span style="color:#75715e">&lt;![CDATA[&#34;Winter&#34;]]&gt;</span><span style="color:#f92672">&lt;/text&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/outputEntry&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/rule&gt;</span>
-</span></span><span style="display:flex;"><span>      ...
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/decisionTable&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/decision&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/definitions&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;definitions</span> <span class="na">xmlns=</span><span class="s">&#34;https://www.omg.org/spec/DMN/20191111/MODEL/&#34;</span> 
+</span></span><span class="line"><span class="cl">             <span class="na">id=</span><span class="s">&#34;dish&#34;</span> <span class="na">name=</span><span class="s">&#34;Dish&#34;</span> <span class="na">namespace=</span><span class="s">&#34;test-drd-2&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;decision</span> <span class="na">id=</span><span class="s">&#34;dish-decision&#34;</span> <span class="na">name=</span><span class="s">&#34;Dish Decision&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;informationRequirement&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;requiredDecision</span> <span class="na">href=</span><span class="s">&#34;#season&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/informationRequirement&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;decisionTable</span> <span class="na">id=</span><span class="s">&#34;dishDecisionTable&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">&#34;seasonInput&#34;</span> <span class="na">label=</span><span class="s">&#34;Season&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;inputExpression</span> <span class="na">id=</span><span class="s">&#34;seasonInputExpresion&#34;</span> <span class="na">typeRef=</span><span class="s">&#34;string&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&lt;text&gt;</span>season<span class="nt">&lt;/text&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/inputExpression&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/input&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;output</span> <span class="na">id=</span><span class="s">&#34;output&#34;</span> <span class="na">label=</span><span class="s">&#34;Dish&#34;</span> <span class="na">name=</span><span class="s">&#34;desiredDish&#34;</span> <span class="na">typeRef=</span><span class="s">&#34;string&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;rule</span> <span class="na">id=</span><span class="s">&#34;dishRule1&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;inputEntry</span> <span class="na">id=</span><span class="s">&#34;dishInputEntry1&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&lt;text&gt;</span><span class="cp">&lt;![CDATA[&#34;Spring&#34;]]&gt;</span><span class="nt">&lt;/text&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/inputEntry&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;outputEntry</span> <span class="na">id=</span><span class="s">&#34;dishOutputEntry1&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&lt;text&gt;</span><span class="cp">&lt;![CDATA[&#34;Salad&#34;]]&gt;</span><span class="nt">&lt;/text&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/outputEntry&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/rule&gt;</span>
+</span></span><span class="line"><span class="cl">      ...
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/decisionTable&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/decision&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;decision</span> <span class="na">id=</span><span class="s">&#34;season&#34;</span> <span class="na">name=</span><span class="s">&#34;Season decision&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;decisionTable</span> <span class="na">id=</span><span class="s">&#34;seasonDecisionTable&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">&#34;temperatureInput&#34;</span> <span class="na">label=</span><span class="s">&#34;Weather in Celsius&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;inputExpression</span> <span class="na">id=</span><span class="s">&#34;temperatureInputExpression&#34;</span> <span class="na">typeRef=</span><span class="s">&#34;integer&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&lt;text&gt;</span>temperature<span class="nt">&lt;/text&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/inputExpression&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/input&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;output</span> <span class="na">id=</span><span class="s">&#34;seasonOutput&#34;</span> <span class="na">label=</span><span class="s">&#34;season&#34;</span> <span class="na">name=</span><span class="s">&#34;season&#34;</span> <span class="na">typeRef=</span><span class="s">&#34;string&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;rule</span> <span class="na">id=</span><span class="s">&#34;seasonRule1&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;inputEntry</span> <span class="na">id=</span><span class="s">&#34;seasonInputEntry1&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&lt;text&gt;</span><span class="cp">&lt;![CDATA[&lt;10]]&gt;</span><span class="nt">&lt;/text&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/inputEntry&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;outputEntry</span> <span class="na">id=</span><span class="s">&#34;seasonOutputEntry1&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&lt;text&gt;</span><span class="cp">&lt;![CDATA[&#34;Winter&#34;]]&gt;</span><span class="nt">&lt;/text&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/outputEntry&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/rule&gt;</span>
+</span></span><span class="line"><span class="cl">      ...
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/decisionTable&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/decision&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/definitions&gt;</span>
 </span></span></code></pre></div><p>You can now use the DMN model API to get the input elements of the required decisions.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// read dmn model from file</span>
-</span></span><span style="display:flex;"><span>File file <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> File(<span style="color:#e6db74">&#34;PATH/TO/MODEL.dmn&#34;</span>);
-</span></span><span style="display:flex;"><span>DmnModelInstance modelInstance <span style="color:#f92672">=</span> Dmn.<span style="color:#a6e22e">readModelFromFile</span>(file);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// find the main decision by ID</span>
-</span></span><span style="display:flex;"><span>Decision decision <span style="color:#f92672">=</span> modelInstance.<span style="color:#a6e22e">getModelElementById</span>(<span style="color:#e6db74">&#34;dish-decision&#34;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// get the information requirements</span>
-</span></span><span style="display:flex;"><span>Collection<span style="color:#f92672">&lt;</span>InformationRequirement<span style="color:#f92672">&gt;</span> informationRequirements <span style="color:#f92672">=</span>
-</span></span><span style="display:flex;"><span>  decision.<span style="color:#a6e22e">getInformationRequirements</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// get the input of the required decisions</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (InformationRequirement informationRequirement : informationRequirements) {
-</span></span><span style="display:flex;"><span>  Decision requiredDecision <span style="color:#f92672">=</span> informationRequirement.<span style="color:#a6e22e">getRequiredDecision</span>();
-</span></span><span style="display:flex;"><span>  DecisionTable decisionTable <span style="color:#f92672">=</span>
-</span></span><span style="display:flex;"><span>    requiredDecision.<span style="color:#a6e22e">getUniqueChildElementByType</span>(DecisionTable.<span style="color:#a6e22e">class</span>);
-</span></span><span style="display:flex;"><span>  Collection<span style="color:#f92672">&lt;</span>Input<span style="color:#f92672">&gt;</span> inputs <span style="color:#f92672">=</span> decisionTable.<span style="color:#a6e22e">getInputs</span>();
-</span></span><span style="display:flex;"><span>  ...
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// read dmn model from file</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">File</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="s">&#34;PATH/TO/MODEL.dmn&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">DmnModelInstance</span><span class="w"> </span><span class="n">modelInstance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Dmn</span><span class="p">.</span><span class="na">readModelFromFile</span><span class="p">(</span><span class="n">file</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// find the main decision by ID</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Decision</span><span class="w"> </span><span class="n">decision</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">modelInstance</span><span class="p">.</span><span class="na">getModelElementById</span><span class="p">(</span><span class="s">&#34;dish-decision&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// get the information requirements</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Collection</span><span class="o">&lt;</span><span class="n">InformationRequirement</span><span class="o">&gt;</span><span class="w"> </span><span class="n">informationRequirements</span><span class="w"> </span><span class="o">=</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">decision</span><span class="p">.</span><span class="na">getInformationRequirements</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// get the input of the required decisions</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">InformationRequirement</span><span class="w"> </span><span class="n">informationRequirement</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">informationRequirements</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">Decision</span><span class="w"> </span><span class="n">requiredDecision</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">informationRequirement</span><span class="p">.</span><span class="na">getRequiredDecision</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">DecisionTable</span><span class="w"> </span><span class="n">decisionTable</span><span class="w"> </span><span class="o">=</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">requiredDecision</span><span class="p">.</span><span class="na">getUniqueChildElementByType</span><span class="p">(</span><span class="n">DecisionTable</span><span class="p">.</span><span class="na">class</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">Collection</span><span class="o">&lt;</span><span class="n">Input</span><span class="o">&gt;</span><span class="w"> </span><span class="n">inputs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">decisionTable</span><span class="p">.</span><span class="na">getInputs</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div>
     </div>
   </div>
 </div>

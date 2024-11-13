@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/latest/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/latest/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/reference/bpmn20/events/conditional-events/" />
 </head>
 <body class="">
@@ -3181,9 +3181,9 @@ satisfied, the execution of the process instance will be interrupted by the even
 This will cancel the current processing of the application.</p>
 <h1 id="condition">Condition</h1>
 <p>To specify when a conditional event should be triggered, a <code>condition</code> element must be specified as a sub-element of <code>conditionalEventDefinition</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;conditionalEventDefinition&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;condition</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;tFormalExpression&#34;</span><span style="color:#f92672">&gt;</span>${var1 == 1}<span style="color:#f92672">&lt;/condition&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/conditionalEventDefinition&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;conditionalEventDefinition&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;condition</span> <span class="na">type=</span><span class="s">&#34;tFormalExpression&#34;</span><span class="nt">&gt;</span>${var1 == 1}<span class="nt">&lt;/condition&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/conditionalEventDefinition&gt;</span>
 </span></span></code></pre></div><p>The specified condition can be an EL expression and has access to the process instance variables.
 For information about EL expressions, see the <a href="/manual/latest/user-guide/process-engine/expression-language/">Expression Language</a>
 section. A condition is evaluated every time a variable changes, see the <a href="#trigger-conditional-events">Trigger Conditional Events</a> section for details.</p>
@@ -3192,10 +3192,10 @@ For that, the Camunda extension attributes <code>camunda:variableName</code> and
 <p>By default, condition evaluation is triggered by any kind of variable change, i.e., create/update/delete of any variable. <code>variableName</code> can be used to restrict that to changes of a specific variable. <code>variableEvents</code> can be used to restrict the type of change. It is possible to specify more than one variable change event as a comma separated list.
 The attributes can be used in combination.</p>
 <p>The <code>conditionalEventDefinition</code> can, for example, look like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;conditionalEventDefinition</span> <span style="color:#a6e22e">camunda:variableName=</span><span style="color:#e6db74">&#34;var1&#34;</span>
-</span></span><span style="display:flex;"><span>                            <span style="color:#a6e22e">camunda:variableEvents=</span><span style="color:#e6db74">&#34;create, update&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;condition</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;tFormalExpression&#34;</span><span style="color:#f92672">&gt;</span>${var1 == 1}<span style="color:#f92672">&lt;/condition&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/conditionalEventDefinition&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;conditionalEventDefinition</span> <span class="na">camunda:variableName=</span><span class="s">&#34;var1&#34;</span>
+</span></span><span class="line"><span class="cl">                            <span class="na">camunda:variableEvents=</span><span class="s">&#34;create, update&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;condition</span> <span class="na">type=</span><span class="s">&#34;tFormalExpression&#34;</span><span class="nt">&gt;</span>${var1 == 1}<span class="nt">&lt;/condition&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/conditionalEventDefinition&gt;</span>
 </span></span></code></pre></div><p>The condition above is only evaluated if the variable <code>var1</code> is created or updated.
 The attributes are especially useful on non interrupting events, since these events can be triggered more than once!</p>
 <h1 id="conditional-boundary-event">Conditional Boundary Event</h1>
@@ -3205,22 +3205,22 @@ The non-interrupting event leads to the original activity not being interrupted,
 Instead, an additional path of execution is created, taking the outgoing transition of the event.
 A non interrupting conditional event can be triggered more than once as long as the activity it is attached to is active.</p>
 <p>In the XML representation for non interrupting conditional events, the cancelActivity attribute is set to false:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;boundaryEvent</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;conditionalEvent&#34;</span> <span style="color:#a6e22e">attachedToRef=</span><span style="color:#e6db74">&#34;taskWithCondition&#34;</span> <span style="color:#a6e22e">cancelActivity=</span><span style="color:#e6db74">&#34;false&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;conditionalEventDefinition&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;condition</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;tFormalExpression&#34;</span><span style="color:#f92672">&gt;</span>${var1 == 1}<span style="color:#f92672">&lt;/condition&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/conditionalEventDefinition&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/boundaryEvent&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;boundaryEvent</span> <span class="na">id=</span><span class="s">&#34;conditionalEvent&#34;</span> <span class="na">attachedToRef=</span><span class="s">&#34;taskWithCondition&#34;</span> <span class="na">cancelActivity=</span><span class="s">&#34;false&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;conditionalEventDefinition&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;condition</span> <span class="na">type=</span><span class="s">&#34;tFormalExpression&#34;</span><span class="nt">&gt;</span>${var1 == 1}<span class="nt">&lt;/condition&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/conditionalEventDefinition&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/boundaryEvent&gt;</span>
 </span></span></code></pre></div><h1 id="intermediate-conditional-catch-event">Intermediate Conditional Catch Event</h1>
 <p>An intermediate conditional event is like a wait until the condition is true. When the execution arrives at the catching event activity,
 the condition is evaluated for the first time. If the condition is satisfied, the execution process continues to the next activity.
 If the condition is not satisfied, the execution stays in this activity until the condition is satisfied.</p>
 <p>An intermediate conditional event is defined as an intermediate catching event.
 The specific sub-element type in this case is a conditionalEventDefinition element.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;intermediateCatchEvent</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;conditionalEvent&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;conditionalEventDefinition&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;condition</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;tFormalExpression&#34;</span><span style="color:#f92672">&gt;</span>${var1 == 1}<span style="color:#f92672">&lt;/condition&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/conditionalEventDefinition&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/intermediateCatchEvent&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;intermediateCatchEvent</span> <span class="na">id=</span><span class="s">&#34;conditionalEvent&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;conditionalEventDefinition&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;condition</span> <span class="na">type=</span><span class="s">&#34;tFormalExpression&#34;</span><span class="nt">&gt;</span>${var1 == 1}<span class="nt">&lt;/condition&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/conditionalEventDefinition&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/intermediateCatchEvent&gt;</span>
 </span></span></code></pre></div><h1 id="conditional-start-event">Conditional Start Event</h1>
 <p>A conditional start event can be used to start a process by evaluating some condition. One process can have one or more conditional start events.</p>
 <p>If more than one conditions are fulfilled the respective number of processes will be triggered.</p>
@@ -3231,34 +3231,34 @@ The specific sub-element type in this case is a conditionalEventDefinition eleme
 This is also the case for conditional events that are not present in the new version.</li>
 </ul>
 <p>When starting a process instance, a conditional start event can be triggered using the following method on the RuntimeService:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>List<span style="color:#f92672">&lt;</span>ProcessInstance<span style="color:#f92672">&gt;</span> instances <span style="color:#f92672">=</span> runtimeService
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">createConditionEvaluation</span>()
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">setVariable</span>(<span style="color:#e6db74">&#34;temperature&#34;</span>, 24)
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">evaluateStartConditions</span>();
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// or</span>
-</span></span><span style="display:flex;"><span>List<span style="color:#f92672">&lt;</span>ProcessInstance<span style="color:#f92672">&gt;</span> instances <span style="color:#f92672">=</span> runtimeService
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">createConditionEvaluation</span>()
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">setVariables</span>(variableMap)
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">evaluateStartConditions</span>();
-</span></span></code></pre></div><p>The provided variables are used to evaluate the conditions. Also they are passed as variables to the newly created process instances.
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">List</span><span class="o">&lt;</span><span class="n">ProcessInstance</span><span class="o">&gt;</span><span class="w"> </span><span class="n">instances</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">runtimeService</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">createConditionEvaluation</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">setVariable</span><span class="p">(</span><span class="s">&#34;temperature&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">24</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">evaluateStartConditions</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// or</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">List</span><span class="o">&lt;</span><span class="n">ProcessInstance</span><span class="o">&gt;</span><span class="w"> </span><span class="n">instances</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">runtimeService</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">createConditionEvaluation</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">setVariables</span><span class="p">(</span><span class="n">variableMap</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">evaluateStartConditions</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><p>The provided variables are used to evaluate the conditions. Also they are passed as variables to the newly created process instances.
 The XML representation of a conditional start event is the normal start event declaration with a <code>conditionalEventDefinition</code> child element.</p>
 <p>Optional: Adding <code>variableName</code> attribute to <code>conditionalEventDefinition</code> allows to specify a variable name on which a condition of a conditional event should be evaluated exclusively.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;startEvent</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;conditionalStartEvent&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;conditionalEventDefinition</span> <span style="color:#a6e22e">camunda:variableName=</span><span style="color:#e6db74">&#34;temperature&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;condition</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;tFormalExpression&#34;</span><span style="color:#f92672">&gt;</span>${temperature &gt; 20}<span style="color:#f92672">&lt;/condition&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/conditionalEventDefinition&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/startEvent&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;startEvent</span> <span class="na">id=</span><span class="s">&#34;conditionalStartEvent&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;conditionalEventDefinition</span> <span class="na">camunda:variableName=</span><span class="s">&#34;temperature&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;condition</span> <span class="na">type=</span><span class="s">&#34;tFormalExpression&#34;</span><span class="nt">&gt;</span>${temperature &gt; 20}<span class="nt">&lt;/condition&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/conditionalEventDefinition&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/startEvent&gt;</span>
 </span></span></code></pre></div><h1 id="conditional-start-event-for-event-sub-process">Conditional Start Event for Event Sub Process</h1>
 <p>Similar to conditional boundary events, conditional start events for event sub process can be interrupting and non interrupting.</p>
 <p>Note: An Event Sub-Process must have a single start event.</p>
 <p>The XML representation of a conditional start event is the normal start event declaration with a conditionalEventDefinition child-element:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;subProcess</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;EventSubProcess&#34;</span> <span style="color:#a6e22e">triggeredByEvent=</span><span style="color:#e6db74">&#34;true&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;startEvent</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;conditionalStartEvent&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;conditionalEventDefinition&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;condition</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;tFormalExpression&#34;</span><span style="color:#f92672">&gt;</span>${var1 == 1}<span style="color:#f92672">&lt;/condition&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/conditionalEventDefinition&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/startEvent&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/subProcess&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;subProcess</span> <span class="na">id=</span><span class="s">&#34;EventSubProcess&#34;</span> <span class="na">triggeredByEvent=</span><span class="s">&#34;true&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;startEvent</span> <span class="na">id=</span><span class="s">&#34;conditionalStartEvent&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;conditionalEventDefinition&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;condition</span> <span class="na">type=</span><span class="s">&#34;tFormalExpression&#34;</span><span class="nt">&gt;</span>${var1 == 1}<span class="nt">&lt;/condition&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/conditionalEventDefinition&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/startEvent&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/subProcess&gt;</span>
 </span></span></code></pre></div><h1 id="trigger-conditional-events">Trigger Conditional Events</h1>
 <h2 id="triggering-on-scope-instantiation">Triggering on Scope Instantiation</h2>
 <p>When a BPMN scope is instantiated, the event conditions which are available in this scope
@@ -3273,19 +3273,19 @@ That is the case if a variable is created, updated or deleted.</p>
 <h3 id="set-variable-from-outside">Set Variable From Outside</h3>
 <p>Variables can be changed from the outside with the help of the <a href="/manual/latest/user-guide/process-engine/variables/">variable API</a>.
 See the following example how to set a variable on the variable scope of the process instance:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>  <span style="color:#75715e">//set variable on process instance</span>
-</span></span><span style="display:flex;"><span>  runtimeService.<span style="color:#a6e22e">setVariable</span>(processInstance.<span style="color:#a6e22e">getId</span>(), <span style="color:#e6db74">&#34;variable&#34;</span>, 1);
-</span></span></code></pre></div><p>This statement triggers the evaluation of all applicable conditional events. For details, see the sections on <a href="#top-down-evaluation">Top-Down Evaluation</a> and <a href="#scoped-evaluation">Scoped Evaluation</a>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">  </span><span class="c1">//set variable on process instance</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">runtimeService</span><span class="p">.</span><span class="na">setVariable</span><span class="p">(</span><span class="n">processInstance</span><span class="p">.</span><span class="na">getId</span><span class="p">(),</span><span class="w"> </span><span class="s">&#34;variable&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">1</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><p>This statement triggers the evaluation of all applicable conditional events. For details, see the sections on <a href="#top-down-evaluation">Top-Down Evaluation</a> and <a href="#scoped-evaluation">Scoped Evaluation</a>.</p>
 <h3 id="set-variable-from-delegation-code">Set Variable From Delegation Code</h3>
 <p>Variables can not only be set from outside, but also also from within a process instance via <a href="/manual/latest/user-guide/process-engine/delegation-code/">delegation code</a>.</p>
 <p>For example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SetVariableDelegate</span> <span style="color:#66d9ef">implements</span> JavaDelegate {
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Override</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">execute</span>(DelegateExecution execution) <span style="color:#66d9ef">throws</span> Exception {
-</span></span><span style="display:flex;"><span>    execution.<span style="color:#a6e22e">setVariable</span>(<span style="color:#e6db74">&#34;variable&#34;</span>, 1);
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>When set from delegation code, variable changes do not trigger conditional events immediately, to not interfere with the remaining code execution. Instead, the changes are recorded and collectively dispatched at the end of a phase of the activity instance lifecycle.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">SetVariableDelegate</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">JavaDelegate</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@Override</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">execute</span><span class="p">(</span><span class="n">DelegateExecution</span><span class="w"> </span><span class="n">execution</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">execution</span><span class="p">.</span><span class="na">setVariable</span><span class="p">(</span><span class="s">&#34;variable&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">1</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>When set from delegation code, variable changes do not trigger conditional events immediately, to not interfere with the remaining code execution. Instead, the changes are recorded and collectively dispatched at the end of a phase of the activity instance lifecycle.</p>
 <p>In the following picture the different activity instance phases are displayed.</p>
 <figure class="image">
   <span><img

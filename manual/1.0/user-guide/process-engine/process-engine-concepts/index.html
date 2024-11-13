@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/1.0/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/1.0/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/user-guide/process-engine/process-engine-concepts/" />
 </head>
 <body class="">
@@ -3175,18 +3175,18 @@
 <p>In CIB seven you can deploy processes to the process engine in BPMN 2.0 XML format. The XML files are parsed and transformed into a process definition graph structure. This graph structure is executed by the process engine.</p>
 <h2 id="query-for-process-definitions">Query for Process Definitions</h2>
 <p>You can query for all deployed process definitions using the Java API and the <code>ProcessDefinitionQuery</code> made available through the <code>RepositoryService</code>. Example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>List<span style="color:#f92672">&lt;</span>ProcessDefinition<span style="color:#f92672">&gt;</span> processDefinitions <span style="color:#f92672">=</span> repositoryService.<span style="color:#a6e22e">createProcessDefinitionQuery</span>()
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">processDefinitionKey</span>(<span style="color:#e6db74">&#34;invoice&#34;</span>)
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">orderByProcessDefinitionVersion</span>()
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">asc</span>()
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">list</span>();
-</span></span></code></pre></div><p>The above query returns all deployed process definitions for the key <code>invoice</code> ordered by their <code>version</code> property.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">List</span><span class="o">&lt;</span><span class="n">ProcessDefinition</span><span class="o">&gt;</span><span class="w"> </span><span class="n">processDefinitions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">repositoryService</span><span class="p">.</span><span class="na">createProcessDefinitionQuery</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">processDefinitionKey</span><span class="p">(</span><span class="s">&#34;invoice&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">orderByProcessDefinitionVersion</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">asc</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">list</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><p>The above query returns all deployed process definitions for the key <code>invoice</code> ordered by their <code>version</code> property.</p>
 <p>You can also <a href="/manual/1.0/reference/rest/specification/#tag/Process-Definition/operation/getProcessDefinitions">query for process definitions using the REST API</a>.</p>
 <h2 id="keys-and-versions">Keys and Versions</h2>
 <p>The <em>key</em> of a process definition (<code>invoice</code> in the example above) is the logical identifier of the process. It is used throughout the API, most prominently for starting process instances (<a href="#process-instances">see section on process instances</a>). The key of a process definition is defined using the <code>id</code> property of the corresponding <code>&lt;process ... &gt;</code> element in the BPMN 2.0 XML file:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;process</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;invoice&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;invoice receipt&#34;</span> <span style="color:#a6e22e">isExecutable=</span><span style="color:#e6db74">&#34;true&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  ...
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/process&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;process</span> <span class="na">id=</span><span class="s">&#34;invoice&#34;</span> <span class="na">name=</span><span class="s">&#34;invoice receipt&#34;</span> <span class="na">isExecutable=</span><span class="s">&#34;true&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  ...
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/process&gt;</span>
 </span></span></code></pre></div><p>If you deploy multiple processes with the same key, they are treated as individual versions of the same process definition by the process engine. Please refer to <a href="/manual/1.0/user-guide/process-engine/process-versioning/">Process Versioning</a> for details.</p>
 <h2 id="suspend-process-definitions">Suspend Process Definitions</h2>
 <p>Suspending a process definition disables it temporarily, i.e., it cannot be instantiated while it is suspended. The <code>RuntimeService</code> Java API can be used to suspend a process definition. Similarly, you can activate a process definition to undo this effect.</p>
@@ -3210,32 +3210,32 @@ the <a href="/manual/1.0/reference/bpmn20/custom-extensions/extension-attributes
 exists to specify which processes are visible for being started by the user.</p>
 <p>For instance, this could be sensible for a subprocess: if it should only be possible to start the super process but not
 the subprocess, adjust the process xml file (*.bpmn) as follows:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;process</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;subProcess&#34;</span>
-</span></span><span style="display:flex;"><span>         <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Process called from Super Process&#34;</span>
-</span></span><span style="display:flex;"><span>         <span style="color:#a6e22e">isExecutable=</span><span style="color:#e6db74">&#34;true&#34;</span>
-</span></span><span style="display:flex;"><span>         <span style="color:#a6e22e">camunda:isStartableInTasklist=</span><span style="color:#e6db74">&#34;false&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>...
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/process&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;process</span> <span class="na">id=</span><span class="s">&#34;subProcess&#34;</span>
+</span></span><span class="line"><span class="cl">         <span class="na">name=</span><span class="s">&#34;Process called from Super Process&#34;</span>
+</span></span><span class="line"><span class="cl">         <span class="na">isExecutable=</span><span class="s">&#34;true&#34;</span>
+</span></span><span class="line"><span class="cl">         <span class="na">camunda:isStartableInTasklist=</span><span class="s">&#34;false&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/process&gt;</span>
 </span></span></code></pre></div><h2 id="start-a-process-instance-at-any-set-of-activities">Start a Process Instance at Any Set of Activities</h2>
 <p>The <code>startProcessInstanceByKey</code> and <code>startProcessInstanceById</code> methods start the process instance at their default initial activity, which is typically the single blank start event of the process definition. It is also possible to start anywhere in a process instance by using the <em>fluent builder</em> for process instances. The fluent builder can be accessed via the RuntimeService methods <code>createProcessInstanceByKey</code> and <code>createProcessInstanceById</code>.</p>
 <p>The following starts a process instance before the activity <code>SendInvoiceReceiptTask</code> and the embedded sub process <code>DeliverPizzaSubProcess</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>ProcessInstance instance <span style="color:#f92672">=</span> runtimeService.<span style="color:#a6e22e">createProcessInstanceByKey</span>(<span style="color:#e6db74">&#34;invoice&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">startBeforeActivity</span>(<span style="color:#e6db74">&#34;SendInvoiceReceiptTask&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">setVariable</span>(<span style="color:#e6db74">&#34;creditor&#34;</span>, <span style="color:#e6db74">&#34;Nice Pizza Inc.&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">startBeforeActivity</span>(<span style="color:#e6db74">&#34;DeliverPizzaSubProcess&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">setVariableLocal</span>(<span style="color:#e6db74">&#34;destination&#34;</span>, <span style="color:#e6db74">&#34;12 High Street&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">execute</span>();
-</span></span></code></pre></div><p>The fluent builder allows to submit any number of so-called instantiation instructions. When calling <code>execute</code>, the process engine performs these instructions in the order they are specified. In the above example, the engine first starts the task <em>SendInvoiceReceiptTask</em> and executes the process until it reaches a wait state and then starts <em>DeliverPizzaTask</em> and does the same. After these two instructions, the <code>execute</code> call returns.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">ProcessInstance</span><span class="w"> </span><span class="n">instance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">runtimeService</span><span class="p">.</span><span class="na">createProcessInstanceByKey</span><span class="p">(</span><span class="s">&#34;invoice&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">startBeforeActivity</span><span class="p">(</span><span class="s">&#34;SendInvoiceReceiptTask&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">setVariable</span><span class="p">(</span><span class="s">&#34;creditor&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;Nice Pizza Inc.&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">startBeforeActivity</span><span class="p">(</span><span class="s">&#34;DeliverPizzaSubProcess&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">setVariableLocal</span><span class="p">(</span><span class="s">&#34;destination&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;12 High Street&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">execute</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><p>The fluent builder allows to submit any number of so-called instantiation instructions. When calling <code>execute</code>, the process engine performs these instructions in the order they are specified. In the above example, the engine first starts the task <em>SendInvoiceReceiptTask</em> and executes the process until it reaches a wait state and then starts <em>DeliverPizzaTask</em> and does the same. After these two instructions, the <code>execute</code> call returns.</p>
 <h3 id="variables-in-return">Variables in Return</h3>
 <p>To access the latest variables which was used by the process instance during execution the <code>executeWithVariablesInReturn</code> can be used, instead of the <code>execute</code> method.
 See the following example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>ProcessInstanceWithVariables instance <span style="color:#f92672">=</span> runtimeService.<span style="color:#a6e22e">createProcessInstanceByKey</span>(<span style="color:#e6db74">&#34;invoice&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">startBeforeActivity</span>(<span style="color:#e6db74">&#34;SendInvoiceReceiptTask&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">setVariable</span>(<span style="color:#e6db74">&#34;creditor&#34;</span>, <span style="color:#e6db74">&#34;Nice Pizza Inc.&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">startBeforeActivity</span>(<span style="color:#e6db74">&#34;DeliverPizzaSubProcess&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">setVariableLocal</span>(<span style="color:#e6db74">&#34;destination&#34;</span>, <span style="color:#e6db74">&#34;12 High Street&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">executeWithVariablesInReturn</span>();
-</span></span></code></pre></div><p>The <code>executeWithVariablesInReturn</code> returns if the process instance ends or reaches a wait state. The returned <code>ProcessInstanceWithVariables</code> object contains the informations of the process instance and the latest variables.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">ProcessInstanceWithVariables</span><span class="w"> </span><span class="n">instance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">runtimeService</span><span class="p">.</span><span class="na">createProcessInstanceByKey</span><span class="p">(</span><span class="s">&#34;invoice&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">startBeforeActivity</span><span class="p">(</span><span class="s">&#34;SendInvoiceReceiptTask&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">setVariable</span><span class="p">(</span><span class="s">&#34;creditor&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;Nice Pizza Inc.&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">startBeforeActivity</span><span class="p">(</span><span class="s">&#34;DeliverPizzaSubProcess&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">setVariableLocal</span><span class="p">(</span><span class="s">&#34;destination&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;12 High Street&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">executeWithVariablesInReturn</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><p>The <code>executeWithVariablesInReturn</code> returns if the process instance ends or reaches a wait state. The returned <code>ProcessInstanceWithVariables</code> object contains the informations of the process instance and the latest variables.</p>
 <h2 id="query-for-process-instances">Query for Process Instances</h2>
 <p>You can query for all currently running process instances using the <code>ProcessInstanceQuery</code> offered by the <code>RuntimeService</code>:</p>
 <pre><code>runtimeService.createProcessInstanceQuery()
@@ -3286,10 +3286,10 @@ See the following example:</p>
 <p>Executions are hierarchical and all executions inside a process instance span a tree, the process instance being the root-node in the tree. Note: the process instance itself is an execution. Executions are <a href="/manual/1.0/user-guide/process-engine/variables/">variable scopes</a>, meaning that dynamic data can be associated with them.</p>
 <h2 id="query-for-executions">Query for Executions</h2>
 <p>You can query for executions using the <code>ExecutionQuery</code> offered by the <code>RuntimeService</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>runtimeService.<span style="color:#a6e22e">createExecutionQuery</span>()
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">processInstanceId</span>(someId)
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">list</span>();
-</span></span></code></pre></div><p>The above query returns all executions for a given process instance.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">runtimeService</span><span class="p">.</span><span class="na">createExecutionQuery</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">processInstanceId</span><span class="p">(</span><span class="n">someId</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">list</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><p>The above query returns all executions for a given process instance.</p>
 <p>You can also <a href="/manual/1.0/reference/rest/specification/#tag/Execution/operation/getExecutions">query for executions using the REST API</a>.</p>
 <h1 id="activity-instances">Activity Instances</h1>
 <p>The activity instance concept is similar to the execution concept but takes a different perspective. While an execution can be imagined as a <em>token</em> moving through the process, an activity instance represents an individual instance of an activity (task, subprocess, &hellip;). The concept of the activity instance is thus more <em>state-oriented</em>.</p>
@@ -3330,8 +3330,8 @@ See the following example:</p>
   cancel shipping
 </code></pre><h2 id="retrieve-an-activity-instance">Retrieve an Activity Instance</h2>
 <p>Currently, activity instances can only be retrieved for a process instance:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>ActivityInstance rootActivityInstance <span style="color:#f92672">=</span> runtimeService.<span style="color:#a6e22e">getActivityInstance</span>(processInstance.<span style="color:#a6e22e">getProcessInstanceId</span>());
-</span></span></code></pre></div><p>You can <a href="/manual/1.0/reference/rest/specification/#tag/Process-Instance/operation/getActivityInstanceTree">retrieve the activity instance tree using the REST API</a> as well.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">ActivityInstance</span><span class="w"> </span><span class="n">rootActivityInstance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">runtimeService</span><span class="p">.</span><span class="na">getActivityInstance</span><span class="p">(</span><span class="n">processInstance</span><span class="p">.</span><span class="na">getProcessInstanceId</span><span class="p">());</span><span class="w">
+</span></span></span></code></pre></div><p>You can <a href="/manual/1.0/reference/rest/specification/#tag/Process-Instance/operation/getActivityInstanceTree">retrieve the activity instance tree using the REST API</a> as well.</p>
 <h2 id="identity--uniqueness">Identity &amp; Uniqueness</h2>
 <p>Each activity instance is assigned a unique ID. The ID is persistent, if you invoke this method multiple times, the same activity instance IDs will be returned for the same activity instances. (However, there might be different executions assigned, see below)</p>
 <h2 id="relation-to-executions">Relation to Executions</h2>
@@ -3342,16 +3342,16 @@ See the following example:</p>
 <p>When a process is deployed, the process engine creates a Job Definition for each activity in the process which will create jobs at runtime. This allows you to query information about timers and asynchronous continuations in your processes.</p>
 <h2 id="query-for-jobs">Query for jobs</h2>
 <p>Using the management service, you can query for jobs. The following selects all jobs which are due after a certain date:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>managementService.<span style="color:#a6e22e">createJobQuery</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">duedateHigherThan</span>(someDate)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">list</span>()
-</span></span></code></pre></div><p>It is possible to query for jobs using the REST API.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">managementService</span><span class="p">.</span><span class="na">createJobQuery</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">duedateHigherThan</span><span class="p">(</span><span class="n">someDate</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">list</span><span class="p">()</span><span class="w">
+</span></span></span></code></pre></div><p>It is possible to query for jobs using the REST API.</p>
 <h2 id="query-for-job-definitions">Query for Job Definitions</h2>
 <p>Using the management service, you can also query for job definitions. The following selects all job definitions from a specific process definition:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>managementService.<span style="color:#a6e22e">createJobDefinitionQuery</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">processDefinitionKey</span>(<span style="color:#e6db74">&#34;orderProcess&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">list</span>()
-</span></span></code></pre></div><p>The result will contain information about all timers and asynchronous continuations in the order process.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">managementService</span><span class="p">.</span><span class="na">createJobDefinitionQuery</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">processDefinitionKey</span><span class="p">(</span><span class="s">&#34;orderProcess&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">list</span><span class="p">()</span><span class="w">
+</span></span></span></code></pre></div><p>The result will contain information about all timers and asynchronous continuations in the order process.</p>
 <p>It is also possible to query for job definitions using the REST API.</p>
 <h2 id="suspend-and-activate-job-execution">Suspend and Activate Job Execution</h2>
 <p>Job suspension prevents jobs from being executed. Suspension of job execution can be controlled on different levels:</p>
@@ -3361,15 +3361,15 @@ See the following example:</p>
 </ul>
 <p>Job suspension by Job Definition allows you to suspend all instances of a certain timer or an asynchronous continuation. Intuitively, this allows you to suspend a certain activity in a process in a way that all process instances will advance until they have reached this activity and then not continue since the activity is suspended.</p>
 <p>Let&rsquo;s assume there is a process deployed with key <code>orderProcess</code>, which contains a service task named <code>processPayment</code>. The service task has an asynchronous continuation configured which causes it to be executed by the job executor. The following example shows how you can prevent the <code>processPayment</code> service from being executed:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>List<span style="color:#f92672">&lt;</span>JobDefinition<span style="color:#f92672">&gt;</span> jobDefinitions <span style="color:#f92672">=</span> managementService.<span style="color:#a6e22e">createJobDefinitionQuery</span>()
-</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">processDefinitionKey</span>(<span style="color:#e6db74">&#34;orderProcess&#34;</span>)
-</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">activityIdIn</span>(<span style="color:#e6db74">&#34;processPayment&#34;</span>)
-</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">list</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (JobDefinition jobDefinition : jobDefinitions) {
-</span></span><span style="display:flex;"><span>  managementService.<span style="color:#a6e22e">suspendJobDefinitionById</span>(jobDefinition.<span style="color:#a6e22e">getId</span>(), <span style="color:#66d9ef">true</span>);
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">List</span><span class="o">&lt;</span><span class="n">JobDefinition</span><span class="o">&gt;</span><span class="w"> </span><span class="n">jobDefinitions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">managementService</span><span class="p">.</span><span class="na">createJobDefinitionQuery</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="na">processDefinitionKey</span><span class="p">(</span><span class="s">&#34;orderProcess&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="na">activityIdIn</span><span class="p">(</span><span class="s">&#34;processPayment&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="na">list</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">JobDefinition</span><span class="w"> </span><span class="n">jobDefinition</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">jobDefinitions</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">managementService</span><span class="p">.</span><span class="na">suspendJobDefinitionById</span><span class="p">(</span><span class="n">jobDefinition</span><span class="p">.</span><span class="na">getId</span><span class="p">(),</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div>
     </div>
   </div>
 </div>

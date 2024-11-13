@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/1.0/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/1.0/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/user-guide/process-engine/connectors/" />
 </head>
 <body class="">
@@ -3193,45 +3193,45 @@ connectors. Currently the following connector implementations exist:</p>
 
 <h2 id="camunda-connect-core">camunda-connect-core</h2>
 <p><code>camunda-connect-core</code> contains the core classes of Connect. Additionally, the HTTP and SOAP connectors can be added with the dependencies <code>camunda-connect-http-client</code> and <code>camunda-connect-soap-http-client</code>. These artifacts will transitively pull in their dependencies, like Apache HTTP client. For integration with the engine, the artifact <code>camunda-engine-plugin-connect</code> is needed. Given that the BOM is imported, the Maven coordinates are as follows:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;dependency&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;groupId&gt;</span>org.camunda.connect<span style="color:#f92672">&lt;/groupId&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;artifactId&gt;</span>camunda-connect-core<span style="color:#f92672">&lt;/artifactId&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/dependency&gt;</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;dependency&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;groupId&gt;</span>org.camunda.connect<span style="color:#f92672">&lt;/groupId&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;artifactId&gt;</span>camunda-connect-http-client<span style="color:#f92672">&lt;/artifactId&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/dependency&gt;</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;dependency&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;groupId&gt;</span>org.camunda.connect<span style="color:#f92672">&lt;/groupId&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;artifactId&gt;</span>camunda-connect-soap-http-client<span style="color:#f92672">&lt;/artifactId&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/dependency&gt;</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;dependency&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;groupId&gt;</span>org.camunda.bpm<span style="color:#f92672">&lt;/groupId&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;artifactId&gt;</span>camunda-engine-plugin-connect<span style="color:#f92672">&lt;/artifactId&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/dependency&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependency&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;groupId&gt;</span>org.camunda.connect<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;artifactId&gt;</span>camunda-connect-core<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/dependency&gt;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependency&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;groupId&gt;</span>org.camunda.connect<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;artifactId&gt;</span>camunda-connect-http-client<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/dependency&gt;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependency&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;groupId&gt;</span>org.camunda.connect<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;artifactId&gt;</span>camunda-connect-soap-http-client<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/dependency&gt;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependency&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;groupId&gt;</span>org.camunda.bpm<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;artifactId&gt;</span>camunda-engine-plugin-connect<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/dependency&gt;</span>
 </span></span></code></pre></div><h2 id="camunda-connect-connectors-all">camunda-connect-connectors-all</h2>
 <p>This artifact contains the HTTP and SOAP connectors as well as their dependencies. To avoid conflicts with other versions of these dependencies, the dependencies are relocated to different packages. <code>camunda-connect-connectors-all</code> has the following Maven coordinates:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;dependency&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;groupId&gt;</span>org.camunda.connect<span style="color:#f92672">&lt;/groupId&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;artifactId&gt;</span>camunda-connect-connectors-all<span style="color:#f92672">&lt;/artifactId&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/dependency&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependency&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;groupId&gt;</span>org.camunda.connect<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;artifactId&gt;</span>camunda-connect-connectors-all<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/dependency&gt;</span>
 </span></span></code></pre></div><h2 id="configure-the-process-engine-plugin">Configure the Process Engine Plugin</h2>
 <p><code>camunda-engine-plugin-connect</code> contains a class called <code>org.camunda.connect.plugin.impl.ConnectProcessEnginePlugin</code> that can be registered with a process engine using the <a href="/manual/1.0/user-guide/process-engine/process-engine-plugins/">plugin mechanism</a>. For example, a <code>bpm-platform.xml</code> file with the plugin enabled would look as follows:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;bpm-platform</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://www.camunda.org/schema/1.0/BpmPlatform&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">xsi:schemaLocation=</span><span style="color:#e6db74">&#34;http://www.camunda.org/schema/1.0/BpmPlatform http://www.camunda.org/schema/1.0/BpmPlatform &#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  ...
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;process-engine</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;default&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    ...
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;plugins&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;plugin&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;class&gt;</span>org.camunda.connect.plugin.impl.ConnectProcessEnginePlugin<span style="color:#f92672">&lt;/class&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/plugin&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/plugins&gt;</span>
-</span></span><span style="display:flex;"><span>    ...
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/process-engine&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/bpm-platform&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;bpm-platform</span> <span class="na">xmlns=</span><span class="s">&#34;http://www.camunda.org/schema/1.0/BpmPlatform&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">xmlns:xsi=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">xsi:schemaLocation=</span><span class="s">&#34;http://www.camunda.org/schema/1.0/BpmPlatform http://www.camunda.org/schema/1.0/BpmPlatform &#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  ...
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;process-engine</span> <span class="na">name=</span><span class="s">&#34;default&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    ...
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;plugins&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;plugin&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;class&gt;</span>org.camunda.connect.plugin.impl.ConnectProcessEnginePlugin<span class="nt">&lt;/class&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/plugin&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/plugins&gt;</span>
+</span></span><span class="line"><span class="cl">    ...
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/process-engine&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/bpm-platform&gt;</span>
 </span></span></code></pre></div>
 <div class="note bg-info docs-info">
   <h3></h3>
@@ -3241,30 +3241,30 @@ connectors. Currently the following connector implementations exist:</p>
 <h1 id="use-connectors">Use Connectors</h1>
 <p>To use a connector, you have to add the Camunda extension element <a href="/manual/1.0/reference/bpmn20/custom-extensions/extension-elements/#camunda-connector">connector</a>. The connector is configured by a unique <a href="/manual/1.0/reference/bpmn20/custom-extensions/extension-elements/#camunda-connectorid">connectorId</a>, which specifies the used connector implementation. The ids of the currently supported connectors can be found at the beginning of this section. Additionally, an <a href="/manual/1.0/user-guide/process-engine/variables/#input-output-variable-mapping">input/output mapping</a> is used to configure the connector. The required input parameters and the available output parameters depend on the connector implementation. Additional input parameters can also be provided to be used within the connector.</p>
 <p>As an example, a shortened configuration of the Camunda SOAP connector implementation is shown. A complete <a href="https://github.com/camunda/camunda-bpm-examples/tree/master/servicetask/soap-service">example</a> can be found in the <a href="https://github.com/camunda/camunda-bpm-examples">Camunda examples repository</a> on GitHub.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;serviceTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;soapRequest&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Simple SOAP Request&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;camunda:connector&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;camunda:connectorId&gt;</span>soap-http-connector<span style="color:#f92672">&lt;/camunda:connectorId&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;camunda:inputOutput&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;camunda:inputParameter</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;url&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>          http://example.com/webservice
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/camunda:inputParameter&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;camunda:inputParameter</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;payload&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#75715e">&lt;![CDATA[
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">            &lt;soap:Envelope ...&gt;
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">              ... // the request envelope
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">            &lt;/soap:Envelope&gt;
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">          ]]&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/camunda:inputParameter&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;camunda:outputParameter</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;result&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#75715e">&lt;![CDATA[
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">            ... // process response body
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">          ]]&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/camunda:outputParameter&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/camunda:inputOutput&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/camunda:connector&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/serviceTask&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;serviceTask</span> <span class="na">id=</span><span class="s">&#34;soapRequest&#34;</span> <span class="na">name=</span><span class="s">&#34;Simple SOAP Request&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;camunda:connector&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;camunda:connectorId&gt;</span>soap-http-connector<span class="nt">&lt;/camunda:connectorId&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;camunda:inputOutput&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;camunda:inputParameter</span> <span class="na">name=</span><span class="s">&#34;url&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">          http://example.com/webservice
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/camunda:inputParameter&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;camunda:inputParameter</span> <span class="na">name=</span><span class="s">&#34;payload&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="cp">&lt;![CDATA[
+</span></span></span><span class="line"><span class="cl"><span class="cp">            &lt;soap:Envelope ...&gt;
+</span></span></span><span class="line"><span class="cl"><span class="cp">              ... // the request envelope
+</span></span></span><span class="line"><span class="cl"><span class="cp">            &lt;/soap:Envelope&gt;
+</span></span></span><span class="line"><span class="cl"><span class="cp">          ]]&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/camunda:inputParameter&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;camunda:outputParameter</span> <span class="na">name=</span><span class="s">&#34;result&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="cp">&lt;![CDATA[
+</span></span></span><span class="line"><span class="cl"><span class="cp">            ... // process response body
+</span></span></span><span class="line"><span class="cl"><span class="cp">          ]]&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/camunda:outputParameter&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/camunda:inputOutput&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/camunda:connector&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/serviceTask&gt;</span>
 </span></span></code></pre></div><p>A full <a href="https://github.com/camunda/camunda-bpm-examples/tree/master/servicetask/rest-service">example</a> of the REST connector can also be found in the <a href="https://github.com/camunda/camunda-bpm-examples">Camunda examples repository</a> on GitHub.</p>
 
     </div>

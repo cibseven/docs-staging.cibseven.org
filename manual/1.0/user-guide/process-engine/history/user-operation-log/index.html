@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/1.0/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/1.0/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/user-guide/process-engine/history/user-operation-log/" />
 </head>
 <body class="">
@@ -3195,15 +3195,15 @@ business context.</p>
 </ul>
 <p>You can also set an annotation to an operation log which is already present:</p>
 <p>An annotation can be set and cleared via Java API:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>String operationId <span style="color:#f92672">=</span> historyService.<span style="color:#a6e22e">createUserOperationLogQuery</span>()
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">singleResult</span>()
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">getOperationId</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>String annotation <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Instances restarted due to wrong turn&#34;</span>;
-</span></span><span style="display:flex;"><span>historyService.<span style="color:#a6e22e">setAnnotationForOperationLogById</span>(operationId, annotation);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>historyService.<span style="color:#a6e22e">clearAnnotationForOperationLogById</span>(operationId);
-</span></span></code></pre></div><p><strong>Please note:</strong> Annotations are present on all entries that belong to an operation log.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">String</span><span class="w"> </span><span class="n">operationId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">historyService</span><span class="p">.</span><span class="na">createUserOperationLogQuery</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">singleResult</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">getOperationId</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">String</span><span class="w"> </span><span class="n">annotation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;Instances restarted due to wrong turn&#34;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">historyService</span><span class="p">.</span><span class="na">setAnnotationForOperationLogById</span><span class="p">(</span><span class="n">operationId</span><span class="p">,</span><span class="w"> </span><span class="n">annotation</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">historyService</span><span class="p">.</span><span class="na">clearAnnotationForOperationLogById</span><span class="p">(</span><span class="n">operationId</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><p><strong>Please note:</strong> Annotations are present on all entries that belong to an operation log.</p>
 <p>Please also see the REST API reference for <a href="/manual/1.0/reference/rest/specification/#tag/Historic-User-Operation-Log/operation/setAnnotationUserOperationLog">setting</a> and
 <a href="/manual/1.0/reference/rest/specification/#tag/Historic-User-Operation-Log/operation/clearAnnotationUserOperationLog">clearing</a> annotations.</p>
 <h2 id="glossary-of-operations-logged-in-the-user-operation-log">Glossary of operations logged in the user operation log</h2>

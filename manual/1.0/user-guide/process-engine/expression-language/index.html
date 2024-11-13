@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/1.0/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/1.0/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/user-guide/process-engine/expression-language/" />
 </head>
 <body class="">
@@ -3241,38 +3241,38 @@ general information about delegation code, see the corresponding
 a method expression. You can use special variables which are available inside an expression or
 Spring and CDI beans. For more information about <a href="#availability-of-variables-and-functions-inside-expression-language">variables</a> and <a href="/manual/1.0/user-guide/spring-framework-integration/#expression-resolving">Spring</a>, respectively <a href="/manual/1.0/user-guide/cdi-java-ee-integration/expression-resolving/">CDI</a> beans,
 please see the corresponding sections.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>  <span style="color:#f92672">&lt;process</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;process&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#75715e">&lt;!-- execution listener which uses an expression to set a process variable --&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;camunda:executionListener</span> <span style="color:#a6e22e">event=</span><span style="color:#e6db74">&#34;start&#34;</span> <span style="color:#a6e22e">expression=</span><span style="color:#e6db74">&#34;${execution.setVariable(&#39;test&#39;, &#39;foo&#39;)}&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">&lt;!-- ... --&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;userTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;userTask&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">&lt;!-- task listener which calls a method of a bean with current task as parameter --&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;camunda:taskListener</span> <span style="color:#a6e22e">event=</span><span style="color:#e6db74">&#34;complete&#34;</span> <span style="color:#a6e22e">expression=</span><span style="color:#e6db74">&#34;${myBean.taskDone(task)}&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/userTask&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">&lt;!-- ... --&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">&lt;!-- service task which evaluates an expression and saves it in a result variable --&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;serviceTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;serviceTask&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">camunda:expression=</span><span style="color:#e6db74">&#34;${myBean.ready}&#34;</span> <span style="color:#a6e22e">camunda:resultVariable=</span><span style="color:#e6db74">&#34;myVar&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">&lt;!-- ... --&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/process&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">  <span class="nt">&lt;process</span> <span class="na">id=</span><span class="s">&#34;process&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="c">&lt;!-- execution listener which uses an expression to set a process variable --&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;camunda:executionListener</span> <span class="na">event=</span><span class="s">&#34;start&#34;</span> <span class="na">expression=</span><span class="s">&#34;${execution.setVariable(&#39;test&#39;, &#39;foo&#39;)}&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c">&lt;!-- ... --&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;userTask</span> <span class="na">id=</span><span class="s">&#34;userTask&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="c">&lt;!-- task listener which calls a method of a bean with current task as parameter --&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;camunda:taskListener</span> <span class="na">event=</span><span class="s">&#34;complete&#34;</span> <span class="na">expression=</span><span class="s">&#34;${myBean.taskDone(task)}&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/userTask&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c">&lt;!-- ... --&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c">&lt;!-- service task which evaluates an expression and saves it in a result variable --&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;serviceTask</span> <span class="na">id=</span><span class="s">&#34;serviceTask&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="na">camunda:expression=</span><span class="s">&#34;${myBean.ready}&#34;</span> <span class="na">camunda:resultVariable=</span><span class="s">&#34;myVar&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c">&lt;!-- ... --&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/process&gt;</span>
 </span></span></code></pre></div><p>The attribute <code>camunda:delegateExpression</code> is used for expressions which evaluate to a delegate
 object. This delegate object must implement either the <code>JavaDelegate</code> or <code>ActivityBehavior</code>
 interface.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- service task which calls a bean implementing the JavaDelegate interface --&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;serviceTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;task1&#34;</span> <span style="color:#a6e22e">camunda:delegateExpression=</span><span style="color:#e6db74">&#34;${myBean}&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- service task which calls a method which returns delegate object --&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;serviceTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;task2&#34;</span> <span style="color:#a6e22e">camunda:delegateExpression=</span><span style="color:#e6db74">&#34;${myBean.createDelegate()}&#34;</span> <span style="color:#f92672">/&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">  <span class="c">&lt;!-- service task which calls a bean implementing the JavaDelegate interface --&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;serviceTask</span> <span class="na">id=</span><span class="s">&#34;task1&#34;</span> <span class="na">camunda:delegateExpression=</span><span class="s">&#34;${myBean}&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c">&lt;!-- service task which calls a method which returns delegate object --&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;serviceTask</span> <span class="na">id=</span><span class="s">&#34;task2&#34;</span> <span class="na">camunda:delegateExpression=</span><span class="s">&#34;${myBean.createDelegate()}&#34;</span> <span class="nt">/&gt;</span>
 </span></span></code></pre></div><h2 id="conditions">Conditions</h2>
 <p>To use conditional sequence flows or conditional events, expression language is usually used.
 For conditional sequence flows, a <code>conditionExpression</code> element of a sequence flow has to be used.
@@ -3282,15 +3282,15 @@ of the type <code>tFormalExpression</code>. The text content of the element is t
 context. To find more information about the available variables, please see the <a href="#availability-of-variables-and-functions-inside-expression-language">corresponding
 section</a>.</p>
 <p>The following example shows usage of expression language as condition of a sequence flow:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>  <span style="color:#f92672">&lt;sequenceFlow&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;conditionExpression</span> <span style="color:#a6e22e">xsi:type=</span><span style="color:#e6db74">&#34;tFormalExpression&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>      ${test == &#39;foo&#39;}
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/conditionExpression&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/sequenceFlow&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">  <span class="nt">&lt;sequenceFlow&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;conditionExpression</span> <span class="na">xsi:type=</span><span class="s">&#34;tFormalExpression&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">      ${test == &#39;foo&#39;}
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/conditionExpression&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/sequenceFlow&gt;</span>
 </span></span></code></pre></div><p>For usage of expression language on conditional events, see the following example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;conditionalEventDefinition&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;condition</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;tFormalExpression&#34;</span><span style="color:#f92672">&gt;</span>${var1 == 1}<span style="color:#f92672">&lt;/condition&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/conditionalEventDefinition&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;conditionalEventDefinition&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;condition</span> <span class="na">type=</span><span class="s">&#34;tFormalExpression&#34;</span><span class="nt">&gt;</span>${var1 == 1}<span class="nt">&lt;/condition&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/conditionalEventDefinition&gt;</span>
 </span></span></code></pre></div><h2 id="inputoutput-parameters">inputOutput Parameters</h2>
 <p>With the Camunda <code>inputOutput</code> extension element you can map an <code>inputParameter</code> or <code>outputParameter</code>
 with expression language.</p>
@@ -3299,15 +3299,15 @@ context. To find more information about the available variables please see the <
 section</a>.</p>
 <p>The following example shows an <code>inputParameter</code> which uses expression language to call a method of
 a bean.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>  <span style="color:#f92672">&lt;serviceTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;task&#34;</span> <span style="color:#a6e22e">camunda:class=</span><span style="color:#e6db74">&#34;org.camunda.bpm.example.SumDelegate&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;camunda:inputOutput&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;camunda:inputParameter</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;x&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>          ${myBean.calculateX()}
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/camunda:inputParameter&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/camunda:inputOutput&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/serviceTask&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">  <span class="nt">&lt;serviceTask</span> <span class="na">id=</span><span class="s">&#34;task&#34;</span> <span class="na">camunda:class=</span><span class="s">&#34;org.camunda.bpm.example.SumDelegate&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;camunda:inputOutput&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;camunda:inputParameter</span> <span class="na">name=</span><span class="s">&#34;x&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">          ${myBean.calculateX()}
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/camunda:inputParameter&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/camunda:inputOutput&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/serviceTask&gt;</span>
 </span></span></code></pre></div><h2 id="external-task-error-handling">External Task Error Handling</h2>
 <p>For External Tasks it is possible to define
 <a href="/manual/1.0/reference/bpmn20/custom-extensions/extension-elements/#erroreventdefinition">camunda:errorEventDefinition</a>
@@ -3318,17 +3318,17 @@ elements which can be provided with a JUEL expression. The expression is evaluat
  object via the key <code>externalTask</code> which provides getter methods for <code>errorMessage</code>, <code>errorDetails</code>, <code>workerId</code>, <code>retries</code> and more.</p>
 <p><strong>Examples:</strong></p>
 <p>How to access the External Task object:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;bpmn:serviceTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;myExternalTaskId&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;myExternalTask&#34;</span> <span style="color:#a6e22e">camunda:type=</span><span style="color:#e6db74">&#34;external&#34;</span> <span style="color:#a6e22e">camunda:topic=</span><span style="color:#e6db74">&#34;myTopic&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;bpmn:extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;camunda:errorEventDefinition</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;myErrorEventDefinition&#34;</span> <span style="color:#a6e22e">errorRef=</span><span style="color:#e6db74">&#34;myError&#34;</span> <span style="color:#a6e22e">expression=</span><span style="color:#e6db74">&#34;${externalTask.getWorkerId() == &#39;myWorkerId&#39;}&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/bpmn:extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/bpmn:serviceTask&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;bpmn:serviceTask</span> <span class="na">id=</span><span class="s">&#34;myExternalTaskId&#34;</span> <span class="na">name=</span><span class="s">&#34;myExternalTask&#34;</span> <span class="na">camunda:type=</span><span class="s">&#34;external&#34;</span> <span class="na">camunda:topic=</span><span class="s">&#34;myTopic&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;bpmn:extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;camunda:errorEventDefinition</span> <span class="na">id=</span><span class="s">&#34;myErrorEventDefinition&#34;</span> <span class="na">errorRef=</span><span class="s">&#34;myError&#34;</span> <span class="na">expression=</span><span class="s">&#34;${externalTask.getWorkerId() == &#39;myWorkerId&#39;}&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/bpmn:extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/bpmn:serviceTask&gt;</span>
 </span></span></code></pre></div><p>How to match an error message:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;bpmn:serviceTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;myExternalTaskId&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;myExternalTask&#34;</span> <span style="color:#a6e22e">camunda:type=</span><span style="color:#e6db74">&#34;external&#34;</span> <span style="color:#a6e22e">camunda:topic=</span><span style="color:#e6db74">&#34;myTopic&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;bpmn:extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;camunda:errorEventDefinition</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;myErrorEventDefinition&#34;</span> <span style="color:#a6e22e">errorRef=</span><span style="color:#e6db74">&#34;myError&#34;</span> <span style="color:#a6e22e">expression=</span><span style="color:#e6db74">&#34;${externalTask.getErrorDetails().contains(&#39;myErrorMessage&#39;)}&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/bpmn:extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/bpmn:serviceTask&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;bpmn:serviceTask</span> <span class="na">id=</span><span class="s">&#34;myExternalTaskId&#34;</span> <span class="na">name=</span><span class="s">&#34;myExternalTask&#34;</span> <span class="na">camunda:type=</span><span class="s">&#34;external&#34;</span> <span class="na">camunda:topic=</span><span class="s">&#34;myTopic&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;bpmn:extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;camunda:errorEventDefinition</span> <span class="na">id=</span><span class="s">&#34;myErrorEventDefinition&#34;</span> <span class="na">errorRef=</span><span class="s">&#34;myError&#34;</span> <span class="na">expression=</span><span class="s">&#34;${externalTask.getErrorDetails().contains(&#39;myErrorMessage&#39;)}&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/bpmn:extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/bpmn:serviceTask&gt;</span>
 </span></span></code></pre></div><p>For further details on the functionality of error event definitions in the context of external tasks, consult the <a href="/manual/1.0/user-guide/process-engine/external-tasks/#error-event-definitions">External Tasks Guide</a>.</p>
 <h2 id="value">Value</h2>
 <p>Different BPMN and CMMN elements allow to specify their content or an attribute value by an
@@ -3338,11 +3338,11 @@ for more detailed examples.</p>
 <h2 id="process-variables">Process Variables</h2>
 <p>All process variables of the current scope are directly available inside an expression. So a
 conditional sequence flow can directly check a variable value:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>  <span style="color:#f92672">&lt;sequenceFlow&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;conditionExpression</span> <span style="color:#a6e22e">xsi:type=</span><span style="color:#e6db74">&#34;tFormalExpression&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>      ${test == &#39;start&#39;}
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/conditionExpression&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/sequenceFlow&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">  <span class="nt">&lt;sequenceFlow&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;conditionExpression</span> <span class="na">xsi:type=</span><span class="s">&#34;tFormalExpression&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">      ${test == &#39;start&#39;}
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/conditionExpression&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/sequenceFlow&gt;</span>
 </span></span></code></pre></div><h2 id="internal-context-variables">Internal Context Variables</h2>
 <p>Depending on the current execution context, special built-in context variables are available while
 evaluating expressions:</p>
@@ -3395,16 +3395,16 @@ evaluating expressions:</p>
 </table>
 <p>The following example shows an expression which sets the variable <code>test</code> to the current
 event name of an execution listener.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>  <span style="color:#f92672">&lt;camunda:executionListener</span> <span style="color:#a6e22e">event=</span><span style="color:#e6db74">&#34;start&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">expression=</span><span style="color:#e6db74">&#34;${execution.setVariable(&#39;test&#39;, execution.eventName)}&#34;</span> <span style="color:#f92672">/&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">  <span class="nt">&lt;camunda:executionListener</span> <span class="na">event=</span><span class="s">&#34;start&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="na">expression=</span><span class="s">&#34;${execution.setVariable(&#39;test&#39;, execution.eventName)}&#34;</span> <span class="nt">/&gt;</span>
 </span></span></code></pre></div><h2 id="external-context-variables-with-spring-and-cdi">External Context Variables With Spring and CDI</h2>
 <p>If the process engine is integrated with Spring or CDI, it is possible to access Spring and CDI
 beans inside of expressions. Please see the corresponding sections for <a href="/manual/1.0/user-guide/spring-framework-integration/#expression-resolving">Spring</a> and <a href="/manual/1.0/user-guide/cdi-java-ee-integration/expression-resolving/">CDI</a>
 for more information. The following example shows the usage of a bean which implements the
 <code>JavaDelegate</code> interface as delegateExecution.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>  <span style="color:#f92672">&lt;serviceTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;task1&#34;</span> <span style="color:#a6e22e">camunda:delegateExpression=</span><span style="color:#e6db74">&#34;${myBean}&#34;</span> <span style="color:#f92672">/&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">  <span class="nt">&lt;serviceTask</span> <span class="na">id=</span><span class="s">&#34;task1&#34;</span> <span class="na">camunda:delegateExpression=</span><span class="s">&#34;${myBean}&#34;</span> <span class="nt">/&gt;</span>
 </span></span></code></pre></div><p>With the expression attribute any method of a bean can be called.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>  <span style="color:#f92672">&lt;serviceTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;task2&#34;</span> <span style="color:#a6e22e">camunda:expression=</span><span style="color:#e6db74">&#34;${myBean.myMethod(execution)}&#34;</span> <span style="color:#f92672">/&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">  <span class="nt">&lt;serviceTask</span> <span class="na">id=</span><span class="s">&#34;task2&#34;</span> <span class="na">camunda:expression=</span><span class="s">&#34;${myBean.myMethod(execution)}&#34;</span> <span class="nt">/&gt;</span>
 </span></span></code></pre></div><h2 id="internal-context-functions">Internal Context Functions</h2>
 <p>Special built-in context functions are available while evaluating expressions:</p>
 <table class="table">
@@ -3448,11 +3448,11 @@ for more information. The following example shows the usage of a bean which impl
 </table>
 <p>The following example sets the due date of a user task to the date 3 days after the creation
 of the task.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;userTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;theTask&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Important task&#34;</span> <span style="color:#a6e22e">camunda:dueDate=</span><span style="color:#e6db74">&#34;${dateTime().plusDays(3).toDate()}&#34;</span><span style="color:#f92672">/&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;userTask</span> <span class="na">id=</span><span class="s">&#34;theTask&#34;</span> <span class="na">name=</span><span class="s">&#34;Important task&#34;</span> <span class="na">camunda:dueDate=</span><span class="s">&#34;${dateTime().plusDays(3).toDate()}&#34;</span><span class="nt">/&gt;</span>
 </span></span></code></pre></div><h2 id="built-in-camunda-spin-functions">Built-In Camunda Spin Functions</h2>
 <p>If the Camunda Spin process engine plugin is activated, the Spin functions <code>S</code>,
 <code>XML</code> and <code>JSON</code> are also available inside of an expression. See the <a href="/manual/1.0/user-guide/data-formats/">Data Formats section</a> for a detailed explanation.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>  <span style="color:#f92672">&lt;serviceTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;task&#34;</span> <span style="color:#a6e22e">camunda:expression=</span><span style="color:#e6db74">&#34;${XML(xml).attr(&#39;test&#39;).value()}&#34;</span> <span style="color:#a6e22e">resultVariable=</span><span style="color:#e6db74">&#34;test&#34;</span> <span style="color:#f92672">/&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">  <span class="nt">&lt;serviceTask</span> <span class="na">id=</span><span class="s">&#34;task&#34;</span> <span class="na">camunda:expression=</span><span class="s">&#34;${XML(xml).attr(&#39;test&#39;).value()}&#34;</span> <span class="na">resultVariable=</span><span class="s">&#34;test&#34;</span> <span class="nt">/&gt;</span>
 </span></span></code></pre></div>
     </div>
   </div>

@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/1.0/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/1.0/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/reference/spin/xml/03-writing-xml/" />
 </head>
 <body class="">
@@ -3161,69 +3161,69 @@
     <div class="col-xs-12 content-text">
       <p>The XML datatype supports writing XML to Strings, output streams or writers.</p>
 <h1 id="writing-to-a-string">Writing to a String:</h1>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import static</span> org.camunda.spin.Spin.XML;
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.camunda.spin.xml.SpinXmlElement;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// Create XML element</span>
-</span></span><span style="display:flex;"><span>SpinXmlElement element <span style="color:#f92672">=</span> XML(<span style="color:#e6db74">&#34;&lt;root id=\&#34;test\&#34;/&gt;&#34;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>String xml <span style="color:#f92672">=</span> element.<span style="color:#a6e22e">toString</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>String value <span style="color:#f92672">=</span> element.<span style="color:#a6e22e">attr</span>(<span style="color:#e6db74">&#34;id&#34;</span>).<span style="color:#a6e22e">value</span>();
-</span></span></code></pre></div><h1 id="writing-to-an-output-stream">Writing to an Output Stream:</h1>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import static</span> org.camunda.spin.Spin.XML;
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.camunda.spin.xml.SpinXmlElement;
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.camunda.spin.xml.SpinXmlAttribute;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// Create XML element</span>
-</span></span><span style="display:flex;"><span>SpinXmlElement element <span style="color:#f92672">=</span> XML(<span style="color:#e6db74">&#34;&lt;root id=\&#34;test\&#34;/&gt;&#34;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">try</span> {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Define Output Stream</span>
-</span></span><span style="display:flex;"><span>  OutputStream outputStream <span style="color:#f92672">=</span> System.<span style="color:#a6e22e">out</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Wrap Output Stream in Writer</span>
-</span></span><span style="display:flex;"><span>  OutputStreamWriter outputStreamWriter <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> OutputStreamWriter(outputStream);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Write element to stream writer</span>
-</span></span><span style="display:flex;"><span>  element.<span style="color:#a6e22e">writeToWriter</span>(outputStreamWriter);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Get attribute from element</span>
-</span></span><span style="display:flex;"><span>  SpinXmlAttribute attr <span style="color:#f92672">=</span> element.<span style="color:#a6e22e">attr</span>(<span style="color:#e6db74">&#34;id&#34;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Write attribute value to stream writer</span>
-</span></span><span style="display:flex;"><span>  attr.<span style="color:#a6e22e">writeToWriter</span>(outputStreamWriter);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// End Output Stream</span>
-</span></span><span style="display:flex;"><span>  outputStreamWriter.<span style="color:#a6e22e">write</span>(<span style="color:#e6db74">&#34;\n&#34;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Close Output Stream and Writer</span>
-</span></span><span style="display:flex;"><span>  outputStreamWriter.<span style="color:#a6e22e">close</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>} <span style="color:#66d9ef">catch</span> (IOException e) {
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Handle exception if needed</span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h1 id="write-to-writer">Write to Writer</h1>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import static</span> org.camunda.spin.Spin.XML;
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.camunda.spin.xml.SpinXmlElement;
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.camunda.spin.xml.SpinXmlAttribute;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// Create XML element</span>
-</span></span><span style="display:flex;"><span>SpinXmlElement element <span style="color:#f92672">=</span> XML(<span style="color:#e6db74">&#34;&lt;root id=\&#34;test\&#34;/&gt;&#34;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// Create String Writer</span>
-</span></span><span style="display:flex;"><span>StringWriter writer <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> StringWriter();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// Write element to Writer</span>
-</span></span><span style="display:flex;"><span>element.<span style="color:#a6e22e">writeToWriter</span>(writer);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// Get attribute from element</span>
-</span></span><span style="display:flex;"><span>SpinXmlAttribute attr <span style="color:#f92672">=</span> element.<span style="color:#a6e22e">attr</span>(<span style="color:#e6db74">&#34;id&#34;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// Write attribute value to Writer</span>
-</span></span><span style="display:flex;"><span>attr.<span style="color:#a6e22e">writeToWriter</span>(writer);
-</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import static</span><span class="w"> </span><span class="nn">org.camunda.spin.Spin.XML</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.camunda.spin.xml.SpinXmlElement</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// Create XML element</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">SpinXmlElement</span><span class="w"> </span><span class="n">element</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">XML</span><span class="p">(</span><span class="s">&#34;&lt;root id=\&#34;test\&#34;/&gt;&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">String</span><span class="w"> </span><span class="n">xml</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">element</span><span class="p">.</span><span class="na">toString</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">String</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">element</span><span class="p">.</span><span class="na">attr</span><span class="p">(</span><span class="s">&#34;id&#34;</span><span class="p">).</span><span class="na">value</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><h1 id="writing-to-an-output-stream">Writing to an Output Stream:</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import static</span><span class="w"> </span><span class="nn">org.camunda.spin.Spin.XML</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.camunda.spin.xml.SpinXmlElement</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.camunda.spin.xml.SpinXmlAttribute</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// Create XML element</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">SpinXmlElement</span><span class="w"> </span><span class="n">element</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">XML</span><span class="p">(</span><span class="s">&#34;&lt;root id=\&#34;test\&#34;/&gt;&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c1">// Define Output Stream</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">OutputStream</span><span class="w"> </span><span class="n">outputStream</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c1">// Wrap Output Stream in Writer</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">OutputStreamWriter</span><span class="w"> </span><span class="n">outputStreamWriter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">OutputStreamWriter</span><span class="p">(</span><span class="n">outputStream</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c1">// Write element to stream writer</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">element</span><span class="p">.</span><span class="na">writeToWriter</span><span class="p">(</span><span class="n">outputStreamWriter</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c1">// Get attribute from element</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">SpinXmlAttribute</span><span class="w"> </span><span class="n">attr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">element</span><span class="p">.</span><span class="na">attr</span><span class="p">(</span><span class="s">&#34;id&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c1">// Write attribute value to stream writer</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">attr</span><span class="p">.</span><span class="na">writeToWriter</span><span class="p">(</span><span class="n">outputStreamWriter</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c1">// End Output Stream</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">outputStreamWriter</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="s">&#34;\n&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c1">// Close Output Stream and Writer</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">outputStreamWriter</span><span class="p">.</span><span class="na">close</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">IOException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c1">// Handle exception if needed</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h1 id="write-to-writer">Write to Writer</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import static</span><span class="w"> </span><span class="nn">org.camunda.spin.Spin.XML</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.camunda.spin.xml.SpinXmlElement</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.camunda.spin.xml.SpinXmlAttribute</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// Create XML element</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">SpinXmlElement</span><span class="w"> </span><span class="n">element</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">XML</span><span class="p">(</span><span class="s">&#34;&lt;root id=\&#34;test\&#34;/&gt;&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// Create String Writer</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">StringWriter</span><span class="w"> </span><span class="n">writer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringWriter</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// Write element to Writer</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">element</span><span class="p">.</span><span class="na">writeToWriter</span><span class="p">(</span><span class="n">writer</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// Get attribute from element</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">SpinXmlAttribute</span><span class="w"> </span><span class="n">attr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">element</span><span class="p">.</span><span class="na">attr</span><span class="p">(</span><span class="s">&#34;id&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// Write attribute value to Writer</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">attr</span><span class="p">.</span><span class="na">writeToWriter</span><span class="p">(</span><span class="n">writer</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div>
     </div>
   </div>
 </div>

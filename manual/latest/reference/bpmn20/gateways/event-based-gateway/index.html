@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/latest/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/latest/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/reference/bpmn20/gateways/event-based-gateway/" />
 </head>
 <body class="">
@@ -3170,41 +3170,41 @@
 <p>The following process is an example of a process with an event-based Gateway. When the execution arrives at the event-based Gateway, process execution is suspended. Additionally, the process instance subscribes to the alert signal event and creates a timer which fires after 10 minutes. This effectively causes the process engine to wait for ten minutes for a signal event. If the signal event occurs within 10 minutes, the timer is canceled and execution continues after the signal. If the signal is not fired, execution continues after the timer and the signal subscription is canceled.</p>
 <div data-bpmn-diagram="../bpmn/event-based-gateway"></div>
 <p>The corresponding xml looks like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;definitions&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;signal</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;alertSignal&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;alert&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;process</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;catchSignal&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;startEvent</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;start&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;sequenceFlow</span> <span style="color:#a6e22e">sourceRef=</span><span style="color:#e6db74">&#34;start&#34;</span> <span style="color:#a6e22e">targetRef=</span><span style="color:#e6db74">&#34;gw1&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;eventBasedGateway</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;gw1&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;sequenceFlow</span> <span style="color:#a6e22e">sourceRef=</span><span style="color:#e6db74">&#34;gw1&#34;</span> <span style="color:#a6e22e">targetRef=</span><span style="color:#e6db74">&#34;signalEvent&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;sequenceFlow</span> <span style="color:#a6e22e">sourceRef=</span><span style="color:#e6db74">&#34;gw1&#34;</span> <span style="color:#a6e22e">targetRef=</span><span style="color:#e6db74">&#34;timerEvent&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;intermediateCatchEvent</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;signalEvent&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Alert&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;signalEventDefinition</span> <span style="color:#a6e22e">signalRef=</span><span style="color:#e6db74">&#34;alertSignal&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/intermediateCatchEvent&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;intermediateCatchEvent</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;timerEvent&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Alert&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;timerEventDefinition&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;timeDuration&gt;</span>PT10M<span style="color:#f92672">&lt;/timeDuration&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/timerEventDefinition&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/intermediateCatchEvent&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;sequenceFlow</span> <span style="color:#a6e22e">sourceRef=</span><span style="color:#e6db74">&#34;timerEvent&#34;</span> <span style="color:#a6e22e">targetRef=</span><span style="color:#e6db74">&#34;exGw1&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;sequenceFlow</span> <span style="color:#a6e22e">sourceRef=</span><span style="color:#e6db74">&#34;signalEvent&#34;</span> <span style="color:#a6e22e">targetRef=</span><span style="color:#e6db74">&#34;task&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;userTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;task&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Handle alert&#34;</span><span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;exclusiveGateway</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;exGw1&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;sequenceFlow</span> <span style="color:#a6e22e">sourceRef=</span><span style="color:#e6db74">&#34;task&#34;</span> <span style="color:#a6e22e">targetRef=</span><span style="color:#e6db74">&#34;exGw1&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;sequenceFlow</span> <span style="color:#a6e22e">sourceRef=</span><span style="color:#e6db74">&#34;exGw1&#34;</span> <span style="color:#a6e22e">targetRef=</span><span style="color:#e6db74">&#34;end&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;endEvent</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;end&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/process&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/definitions&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;definitions&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;signal</span> <span class="na">id=</span><span class="s">&#34;alertSignal&#34;</span> <span class="na">name=</span><span class="s">&#34;alert&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;process</span> <span class="na">id=</span><span class="s">&#34;catchSignal&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;startEvent</span> <span class="na">id=</span><span class="s">&#34;start&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;sequenceFlow</span> <span class="na">sourceRef=</span><span class="s">&#34;start&#34;</span> <span class="na">targetRef=</span><span class="s">&#34;gw1&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;eventBasedGateway</span> <span class="na">id=</span><span class="s">&#34;gw1&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;sequenceFlow</span> <span class="na">sourceRef=</span><span class="s">&#34;gw1&#34;</span> <span class="na">targetRef=</span><span class="s">&#34;signalEvent&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;sequenceFlow</span> <span class="na">sourceRef=</span><span class="s">&#34;gw1&#34;</span> <span class="na">targetRef=</span><span class="s">&#34;timerEvent&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;intermediateCatchEvent</span> <span class="na">id=</span><span class="s">&#34;signalEvent&#34;</span> <span class="na">name=</span><span class="s">&#34;Alert&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;signalEventDefinition</span> <span class="na">signalRef=</span><span class="s">&#34;alertSignal&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/intermediateCatchEvent&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;intermediateCatchEvent</span> <span class="na">id=</span><span class="s">&#34;timerEvent&#34;</span> <span class="na">name=</span><span class="s">&#34;Alert&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;timerEventDefinition&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;timeDuration&gt;</span>PT10M<span class="nt">&lt;/timeDuration&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/timerEventDefinition&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/intermediateCatchEvent&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;sequenceFlow</span> <span class="na">sourceRef=</span><span class="s">&#34;timerEvent&#34;</span> <span class="na">targetRef=</span><span class="s">&#34;exGw1&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;sequenceFlow</span> <span class="na">sourceRef=</span><span class="s">&#34;signalEvent&#34;</span> <span class="na">targetRef=</span><span class="s">&#34;task&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;userTask</span> <span class="na">id=</span><span class="s">&#34;task&#34;</span> <span class="na">name=</span><span class="s">&#34;Handle alert&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;exclusiveGateway</span> <span class="na">id=</span><span class="s">&#34;exGw1&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;sequenceFlow</span> <span class="na">sourceRef=</span><span class="s">&#34;task&#34;</span> <span class="na">targetRef=</span><span class="s">&#34;exGw1&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;sequenceFlow</span> <span class="na">sourceRef=</span><span class="s">&#34;exGw1&#34;</span> <span class="na">targetRef=</span><span class="s">&#34;end&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;endEvent</span> <span class="na">id=</span><span class="s">&#34;end&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/process&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/definitions&gt;</span>
 </span></span></code></pre></div><h1 id="camunda-extensions">Camunda Extensions</h1>
 <table class="table table-striped">
   <tr>

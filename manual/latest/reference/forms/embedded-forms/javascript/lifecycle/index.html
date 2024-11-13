@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/latest/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/latest/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/reference/forms/embedded-forms/javascript/lifecycle/" />
 </head>
 <body class="">
@@ -3167,51 +3167,51 @@ backend. This means that the form SDK only fetches those variables which are act
 form. The most convenient way to use a variable is the <code>cam-variable-name</code> directive. However,
 there are some situations where directive-based usage is inconvenient. In such situations it is
 useful to declare additional variables programmatically:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">form</span> <span style="color:#a6e22e">role</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;form&#34;</span>&gt;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;my-container&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">cam-script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/form-script&#34;</span>&gt;
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">variableManager</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">camForm</span>.<span style="color:#a6e22e">variableManager</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">camForm</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;form-loaded&#39;</span>, <span style="color:#66d9ef">function</span>() {
-</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// this callback is executed *before* the variables are loaded from the server.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#75715e">// if we declare a variable here, its value will be fetched as well
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#a6e22e">variableManager</span>.<span style="color:#a6e22e">fetchVariable</span>(<span style="color:#e6db74">&#39;customVariable&#39;</span>);
-</span></span><span style="display:flex;"><span>    });
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">camForm</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;variables-fetched&#39;</span>, <span style="color:#66d9ef">function</span>() {
-</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// this callback is executed *after* the variables have been fetched from the server
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">variableValue</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">variableManager</span>.<span style="color:#a6e22e">variableValue</span>(<span style="color:#e6db74">&#39;customVariable&#39;</span>);
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">$</span>( <span style="color:#e6db74">&#39;#my-container&#39;</span>, <span style="color:#a6e22e">camForm</span>.<span style="color:#a6e22e">formElement</span>).<span style="color:#a6e22e">text</span>(<span style="color:#a6e22e">variableValue</span>);
-</span></span><span style="display:flex;"><span>    });
-</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">script</span>&gt;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">form</span>&gt;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">form</span> <span class="na">role</span><span class="o">=</span><span class="s">&#34;form&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;my-container&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">script</span> <span class="na">cam-script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/form-script&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">variableManager</span> <span class="o">=</span> <span class="nx">camForm</span><span class="p">.</span><span class="nx">variableManager</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">camForm</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;form-loaded&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="c1">// this callback is executed *before* the variables are loaded from the server.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="c1">// if we declare a variable here, its value will be fetched as well
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="nx">variableManager</span><span class="p">.</span><span class="nx">fetchVariable</span><span class="p">(</span><span class="s1">&#39;customVariable&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">camForm</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;variables-fetched&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="c1">// this callback is executed *after* the variables have been fetched from the server
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="kd">var</span> <span class="nx">variableValue</span> <span class="o">=</span> <span class="nx">variableManager</span><span class="p">.</span><span class="nx">variableValue</span><span class="p">(</span><span class="s1">&#39;customVariable&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">$</span><span class="p">(</span> <span class="s1">&#39;#my-container&#39;</span><span class="p">,</span> <span class="nx">camForm</span><span class="p">.</span><span class="nx">formElement</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="nx">variableValue</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">});</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
 </span></span></code></pre></div><h1 id="submitting-additional-variables">Submitting Additional Variables</h1>
 <p>Similar to fetching additional variables using a script, it is also possible to add additional
 variables to the submit:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">form</span> <span style="color:#a6e22e">role</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;form&#34;</span>&gt;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">cam-script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/form-script&#34;</span>&gt;
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">variableManager</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">camForm</span>.<span style="color:#a6e22e">variableManager</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">camForm</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;submit&#39;</span>, <span style="color:#66d9ef">function</span>() {
-</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// this callback is executed when the form is submitted, *before* the submit request to
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#75715e">// the server is executed
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
-</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// creating a new variable will add it to the form submit
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#a6e22e">variableManager</span>.<span style="color:#a6e22e">createVariable</span>({
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;customVariable&#39;</span>,
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;String&#39;</span>,
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Some Value...&#39;</span>,
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">isDirty</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>
-</span></span><span style="display:flex;"><span>      });
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    });
-</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">script</span>&gt;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">form</span>&gt;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">form</span> <span class="na">role</span><span class="o">=</span><span class="s">&#34;form&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">script</span> <span class="na">cam-script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/form-script&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">variableManager</span> <span class="o">=</span> <span class="nx">camForm</span><span class="p">.</span><span class="nx">variableManager</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">camForm</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;submit&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="c1">// this callback is executed when the form is submitted, *before* the submit request to
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="c1">// the server is executed
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">      <span class="c1">// creating a new variable will add it to the form submit
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="nx">variableManager</span><span class="p">.</span><span class="nx">createVariable</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;customVariable&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;String&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">value</span><span class="o">:</span> <span class="s1">&#39;Some Value...&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">isDirty</span><span class="o">:</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">      <span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">});</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
 </span></span></code></pre></div><h1 id="implementing-custom-fields">Implementing Custom Fields</h1>
 <p>The following is a small usage example which combines some of the features explained so far.
 It uses custom JavaScript to implement a custom interaction with a form field which does not
@@ -3222,77 +3222,77 @@ use any <code>cam-variable-*</code> directives.</p>
 <li>writing the variable&rsquo;s value to a form field,</li>
 <li>reading the value upon submit.</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">form</span> <span style="color:#a6e22e">role</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;form&#34;</span>&gt;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- custom control which does not use cam-variable* directives --&gt;</span>
-</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span>
-</span></span><span style="display:flex;"><span>         <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;form-control&#34;</span>
-</span></span><span style="display:flex;"><span>         <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;customField&#34;</span>&gt;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">cam-script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/form-script&#34;</span>&gt;
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">variableManager</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">camForm</span>.<span style="color:#a6e22e">variableManager</span>;
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">customField</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#39;#customField&#39;</span>, <span style="color:#a6e22e">camForm</span>.<span style="color:#a6e22e">formElement</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">camForm</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;form-loaded&#39;</span>, <span style="color:#66d9ef">function</span>() {
-</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// fetch the variable &#39;customVariable&#39;
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#a6e22e">variableManager</span>.<span style="color:#a6e22e">fetchVariable</span>(<span style="color:#e6db74">&#39;customVariable&#39;</span>);
-</span></span><span style="display:flex;"><span>    });
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">camForm</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;variables-fetched&#39;</span>, <span style="color:#66d9ef">function</span>() {
-</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// value has been fetched from the backend
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">value</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">variableManager</span>.<span style="color:#a6e22e">variableValue</span>(<span style="color:#e6db74">&#39;customVariable&#39;</span>);
-</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// write the variable value to the form field
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#a6e22e">customField</span>.<span style="color:#a6e22e">val</span>(<span style="color:#a6e22e">value</span>);
-</span></span><span style="display:flex;"><span>    });
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">camForm</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;submit&#39;</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">evt</span>) {
-</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">fieldValue</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">customField</span>.<span style="color:#a6e22e">val</span>();
-</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">backendValue</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">variableManager</span>.<span style="color:#a6e22e">variable</span>(<span style="color:#e6db74">&#39;customVariable&#39;</span>).<span style="color:#a6e22e">value</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">fieldValue</span> <span style="color:#f92672">===</span> <span style="color:#a6e22e">backendValue</span>) {
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// prevent submit if value of form field was not changed
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">evt</span>.<span style="color:#a6e22e">submitPrevented</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      } <span style="color:#66d9ef">else</span> {
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// set value in variable manager so that it can be sent to backend
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">variableManager</span>.<span style="color:#a6e22e">variableValue</span>(<span style="color:#e6db74">&#39;customVariable&#39;</span>, <span style="color:#a6e22e">fieldValue</span>);
-</span></span><span style="display:flex;"><span>      }
-</span></span><span style="display:flex;"><span>    });
-</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">script</span>&gt;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">form</span>&gt;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">form</span> <span class="na">role</span><span class="o">=</span><span class="s">&#34;form&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c">&lt;!-- custom control which does not use cam-variable* directives --&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span>
+</span></span><span class="line"><span class="cl">         <span class="na">class</span><span class="o">=</span><span class="s">&#34;form-control&#34;</span>
+</span></span><span class="line"><span class="cl">         <span class="na">id</span><span class="o">=</span><span class="s">&#34;customField&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">script</span> <span class="na">cam-script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/form-script&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">variableManager</span> <span class="o">=</span> <span class="nx">camForm</span><span class="p">.</span><span class="nx">variableManager</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">customField</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#customField&#39;</span><span class="p">,</span> <span class="nx">camForm</span><span class="p">.</span><span class="nx">formElement</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">camForm</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;form-loaded&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="c1">// fetch the variable &#39;customVariable&#39;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="nx">variableManager</span><span class="p">.</span><span class="nx">fetchVariable</span><span class="p">(</span><span class="s1">&#39;customVariable&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">camForm</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;variables-fetched&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="c1">// value has been fetched from the backend
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="kd">var</span> <span class="nx">value</span> <span class="o">=</span> <span class="nx">variableManager</span><span class="p">.</span><span class="nx">variableValue</span><span class="p">(</span><span class="s1">&#39;customVariable&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="c1">// write the variable value to the form field
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="nx">customField</span><span class="p">.</span><span class="nx">val</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">camForm</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;submit&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">evt</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="kd">var</span> <span class="nx">fieldValue</span> <span class="o">=</span> <span class="nx">customField</span><span class="p">.</span><span class="nx">val</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">      <span class="kd">var</span> <span class="nx">backendValue</span> <span class="o">=</span> <span class="nx">variableManager</span><span class="p">.</span><span class="nx">variable</span><span class="p">(</span><span class="s1">&#39;customVariable&#39;</span><span class="p">).</span><span class="nx">value</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="k">if</span><span class="p">(</span><span class="nx">fieldValue</span> <span class="o">===</span> <span class="nx">backendValue</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// prevent submit if value of form field was not changed
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nx">evt</span><span class="p">.</span><span class="nx">submitPrevented</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// set value in variable manager so that it can be sent to backend
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nx">variableManager</span><span class="p">.</span><span class="nx">variableValue</span><span class="p">(</span><span class="s1">&#39;customVariable&#39;</span><span class="p">,</span> <span class="nx">fieldValue</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">});</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
 </span></span></code></pre></div><p>The above example uses jQuery for interacting with the HTML controls. If you use AngularJS, you can also populate the <code>$scope</code> in the <code>variables-fetched</code> callback and read the values from the <code>$scope</code> in the <code>submit</code> callback:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">form</span> <span style="color:#a6e22e">role</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;form&#34;</span>&gt;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">&lt;!-- custom control which does not use cam-variable* directives
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     but binds to the angular scope --&gt;</span>
-</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span>
-</span></span><span style="display:flex;"><span>       <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;form-control&#34;</span>
-</span></span><span style="display:flex;"><span>       <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;customField&#34;</span>
-</span></span><span style="display:flex;"><span>       <span style="color:#a6e22e">ng-model</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;customerId&#34;</span>&gt;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">cam-script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/form-script&#34;</span>&gt;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">variableManager</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">camForm</span>.<span style="color:#a6e22e">variableManager</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">$scope</span>.<span style="color:#a6e22e">customerId</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">camForm</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;form-loaded&#39;</span>, <span style="color:#66d9ef">function</span>() {
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// fetch the variable &#39;customVariable&#39;
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">variableManager</span>.<span style="color:#a6e22e">fetchVariable</span>(<span style="color:#e6db74">&#39;customVariable&#39;</span>);
-</span></span><span style="display:flex;"><span>  });
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">camForm</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;variables-fetched&#39;</span>, <span style="color:#66d9ef">function</span>() {
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// value has been fetched, bind to $scope.customerId
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">$scope</span>.<span style="color:#a6e22e">customerId</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">variableManager</span>.<span style="color:#a6e22e">variable</span>(<span style="color:#e6db74">&#39;customVariable&#39;</span>).<span style="color:#a6e22e">value</span>;
-</span></span><span style="display:flex;"><span>  });
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">camForm</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;submit&#39;</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">evt</span>) {
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// set value in variable manager so that it can be sent to backend
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">variableManager</span>.<span style="color:#a6e22e">variableValue</span>(<span style="color:#e6db74">&#39;customVariable&#39;</span>, <span style="color:#a6e22e">$scope</span>.<span style="color:#a6e22e">customerId</span>);
-</span></span><span style="display:flex;"><span>  });
-</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">script</span>&gt;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">form</span>&gt;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">form</span> <span class="na">role</span><span class="o">=</span><span class="s">&#34;form&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- custom control which does not use cam-variable* directives
+</span></span></span><span class="line"><span class="cl"><span class="c">     but binds to the angular scope --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span>
+</span></span><span class="line"><span class="cl">       <span class="na">class</span><span class="o">=</span><span class="s">&#34;form-control&#34;</span>
+</span></span><span class="line"><span class="cl">       <span class="na">id</span><span class="o">=</span><span class="s">&#34;customField&#34;</span>
+</span></span><span class="line"><span class="cl">       <span class="na">ng-model</span><span class="o">=</span><span class="s">&#34;customerId&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">cam-script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/form-script&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">variableManager</span> <span class="o">=</span> <span class="nx">camForm</span><span class="p">.</span><span class="nx">variableManager</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nx">$scope</span><span class="p">.</span><span class="nx">customerId</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nx">camForm</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;form-loaded&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// fetch the variable &#39;customVariable&#39;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">variableManager</span><span class="p">.</span><span class="nx">fetchVariable</span><span class="p">(</span><span class="s1">&#39;customVariable&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nx">camForm</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;variables-fetched&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// value has been fetched, bind to $scope.customerId
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">$scope</span><span class="p">.</span><span class="nx">customerId</span> <span class="o">=</span> <span class="nx">variableManager</span><span class="p">.</span><span class="nx">variable</span><span class="p">(</span><span class="s1">&#39;customVariable&#39;</span><span class="p">).</span><span class="nx">value</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nx">camForm</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;submit&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">evt</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// set value in variable manager so that it can be sent to backend
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">variableManager</span><span class="p">.</span><span class="nx">variableValue</span><span class="p">(</span><span class="s1">&#39;customVariable&#39;</span><span class="p">,</span> <span class="nx">$scope</span><span class="p">.</span><span class="nx">customerId</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">});</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
 </span></span></code></pre></div>
     </div>
   </div>

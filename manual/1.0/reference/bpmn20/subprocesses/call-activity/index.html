@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/1.0/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/1.0/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/reference/bpmn20/subprocesses/call-activity/" />
 </head>
 <body class="">
@@ -3165,7 +3165,7 @@
 <div data-bpmn-diagram="../bpmn/call-activity"></div>
 <p>A call activity is visualized the same way as a collapsed embedded subprocess, however with a thick border. Depending on the modeling tool, a call activity can also be expanded, but the default visualization is the collapsed representation.</p>
 <p>A call activity is a regular activity that requires a calledElement which references a process definition by its key. In practice, this means that the id of the process is used in the calledElement:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;callActivity</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;callCheckCreditProcess&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Check credit&#34;</span> <span style="color:#a6e22e">calledElement=</span><span style="color:#e6db74">&#34;checkCreditProcess&#34;</span> <span style="color:#f92672">/&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;callActivity</span> <span class="na">id=</span><span class="s">&#34;callCheckCreditProcess&#34;</span> <span class="na">name=</span><span class="s">&#34;Check credit&#34;</span> <span class="na">calledElement=</span><span class="s">&#34;checkCreditProcess&#34;</span> <span class="nt">/&gt;</span>
 </span></span></code></pre></div><p>Note that the process definition of the subprocess is resolved at runtime. This means that the subprocess can be deployed independently from the calling process, if needed.</p>
 <h1 id="calledelement-binding">CalledElement Binding</h1>
 <p>In a call activity the <code>calledElement</code> attribute contains the process definition key as reference to the subprocess. This means that the latest process definition version of the subprocess is always called.
@@ -3177,15 +3177,15 @@ To call another version of the subprocess it is possible to define the attribute
 <li>version: call a fixed version of the process definition, in this case <code>calledElementVersion</code> is required. The version number can either be specified in the BPMN XML or returned by an expression (see <a href="/manual/1.0/reference/bpmn20/custom-extensions/extension-attributes/#calledelementversion">custom extensions</a>)</li>
 <li>versionTag: call a fixed version tag of the process definition, in this case <code>calledElementVersionTag</code> is required. The version tag can either be specified in the BPMN XML or returned by an expression (see <a href="/manual/1.0/reference/bpmn20/custom-extensions/extension-attributes/#calledelementversiontag">custom extensions</a>)</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;callActivity</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;callSubProcess&#34;</span> <span style="color:#a6e22e">calledElement=</span><span style="color:#e6db74">&#34;checkCreditProcess&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">camunda:calledElementBinding=</span><span style="color:#e6db74">&#34;latest|deployment|version&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">camunda:calledElementVersion=</span><span style="color:#e6db74">&#34;17&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/callActivity&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;callActivity</span> <span class="na">id=</span><span class="s">&#34;callSubProcess&#34;</span> <span class="na">calledElement=</span><span class="s">&#34;checkCreditProcess&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">camunda:calledElementBinding=</span><span class="s">&#34;latest|deployment|version&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">camunda:calledElementVersion=</span><span class="s">&#34;17&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/callActivity&gt;</span>
 </span></span></code></pre></div><p>or</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;callActivity</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;callSubProcess&#34;</span> <span style="color:#a6e22e">calledElement=</span><span style="color:#e6db74">&#34;checkCreditProcess&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">camunda:calledElementBinding=</span><span style="color:#e6db74">&#34;versionTag&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">camunda:calledElementVersionTag=</span><span style="color:#e6db74">&#34;ver-tag-1.0.1&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/callActivity&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;callActivity</span> <span class="na">id=</span><span class="s">&#34;callSubProcess&#34;</span> <span class="na">calledElement=</span><span class="s">&#34;checkCreditProcess&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">camunda:calledElementBinding=</span><span class="s">&#34;versionTag&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">camunda:calledElementVersionTag=</span><span class="s">&#34;ver-tag-1.0.1&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/callActivity&gt;</span>
 </span></span></code></pre></div><h1 id="calledelement-tenant-id">CalledElement Tenant Id</h1>
 <p>When the call activity resolves the process definition to be called it must take multi tenancy into account.</p>
 <h2 id="default-tenant-resolution">Default Tenant Resolution</h2>
@@ -3196,84 +3196,84 @@ If the calling process definition has a tenant id, a process definition with the
 <h2 id="explicit-tenant-resolution">Explicit Tenant Resolution</h2>
 <p>In some situations it may be useful to override this default behavior and specify the tenant id explicitly.</p>
 <p>The <code>camunda:calledElementTenantId</code> attribute allows to explicitly specify a tenant id:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;callActivity</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;callSubProcess&#34;</span> <span style="color:#a6e22e">calledElement=</span><span style="color:#e6db74">&#34;checkCreditProcess&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">camunda:calledElementTenantId=</span><span style="color:#e6db74">&#34;TENANT_1&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/callActivity&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;callActivity</span> <span class="na">id=</span><span class="s">&#34;callSubProcess&#34;</span> <span class="na">calledElement=</span><span class="s">&#34;checkCreditProcess&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">camunda:calledElementTenantId=</span><span class="s">&#34;TENANT_1&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/callActivity&gt;</span>
 </span></span></code></pre></div><p>If the tenant id is not known at design time, an expression can be used as well:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;callActivity</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;callSubProcess&#34;</span> <span style="color:#a6e22e">calledElement=</span><span style="color:#e6db74">&#34;checkCreditProcess&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">camunda:calledElementTenantId=</span><span style="color:#e6db74">&#34;${ myBean.calculateTenantId(variable) }&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/callActivity&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;callActivity</span> <span class="na">id=</span><span class="s">&#34;callSubProcess&#34;</span> <span class="na">calledElement=</span><span class="s">&#34;checkCreditProcess&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">camunda:calledElementTenantId=</span><span class="s">&#34;${ myBean.calculateTenantId(variable) }&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/callActivity&gt;</span>
 </span></span></code></pre></div><p>An expression also allows using the tenant id of the calling process instance instead of the calling process definition:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;callActivity</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;callSubProcess&#34;</span> <span style="color:#a6e22e">calledElement=</span><span style="color:#e6db74">&#34;checkCreditProcess&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">camunda:calledElementTenantId=</span><span style="color:#e6db74">&#34;${ execution.tenantId }&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/callActivity&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;callActivity</span> <span class="na">id=</span><span class="s">&#34;callSubProcess&#34;</span> <span class="na">calledElement=</span><span class="s">&#34;checkCreditProcess&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">camunda:calledElementTenantId=</span><span class="s">&#34;${ execution.tenantId }&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/callActivity&gt;</span>
 </span></span></code></pre></div><h1 id="passing-variables">Passing Variables</h1>
 <p>You can pass process variables to the subprocess and vice versa. The data is copied into the subprocess when it is started and copied back into the main process when it ends.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;callActivity</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;callSubProcess&#34;</span> <span style="color:#a6e22e">calledElement=</span><span style="color:#e6db74">&#34;checkCreditProcess&#34;</span> <span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;camunda:in</span> <span style="color:#a6e22e">source=</span><span style="color:#e6db74">&#34;someVariableInMainProcess&#34;</span> <span style="color:#a6e22e">target=</span><span style="color:#e6db74">&#34;nameOfVariableInSubProcess&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;camunda:out</span> <span style="color:#a6e22e">source=</span><span style="color:#e6db74">&#34;someVariableInSubProcss&#34;</span> <span style="color:#a6e22e">target=</span><span style="color:#e6db74">&#34;nameOfVariableInMainProcess&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/callActivity&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;callActivity</span> <span class="na">id=</span><span class="s">&#34;callSubProcess&#34;</span> <span class="na">calledElement=</span><span class="s">&#34;checkCreditProcess&#34;</span> <span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;camunda:in</span> <span class="na">source=</span><span class="s">&#34;someVariableInMainProcess&#34;</span> <span class="na">target=</span><span class="s">&#34;nameOfVariableInSubProcess&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;camunda:out</span> <span class="na">source=</span><span class="s">&#34;someVariableInSubProcss&#34;</span> <span class="na">target=</span><span class="s">&#34;nameOfVariableInMainProcess&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/callActivity&gt;</span>
 </span></span></code></pre></div><p>By default, variables declared in <code>out</code> elements are set in the highest possible variable scope.</p>
 <p>Furthermore, you can configure the call activity so that all process variables are passed to the subprocess and vice versa. The process variables have the same name in the main process as in the subprocess.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;callActivity</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;callSubProcess&#34;</span> <span style="color:#a6e22e">calledElement=</span><span style="color:#e6db74">&#34;checkCreditProcess&#34;</span> <span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;camunda:in</span> <span style="color:#a6e22e">variables=</span><span style="color:#e6db74">&#34;all&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;camunda:out</span> <span style="color:#a6e22e">variables=</span><span style="color:#e6db74">&#34;all&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/callActivity&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;callActivity</span> <span class="na">id=</span><span class="s">&#34;callSubProcess&#34;</span> <span class="na">calledElement=</span><span class="s">&#34;checkCreditProcess&#34;</span> <span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;camunda:in</span> <span class="na">variables=</span><span class="s">&#34;all&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;camunda:out</span> <span class="na">variables=</span><span class="s">&#34;all&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/callActivity&gt;</span>
 </span></span></code></pre></div><p>It is possible to use expressions here as well:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;callActivity</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;callSubProcess&#34;</span> <span style="color:#a6e22e">calledElement=</span><span style="color:#e6db74">&#34;checkCreditProcess&#34;</span> <span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;camunda:in</span> <span style="color:#a6e22e">sourceExpression=</span><span style="color:#e6db74">&#34;${x+5}&#34;</span> <span style="color:#a6e22e">target=</span><span style="color:#e6db74">&#34;y&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;camunda:out</span> <span style="color:#a6e22e">sourceExpression=</span><span style="color:#e6db74">&#34;${y+5}&#34;</span> <span style="color:#a6e22e">target=</span><span style="color:#e6db74">&#34;z&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/callActivity&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;callActivity</span> <span class="na">id=</span><span class="s">&#34;callSubProcess&#34;</span> <span class="na">calledElement=</span><span class="s">&#34;checkCreditProcess&#34;</span> <span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;camunda:in</span> <span class="na">sourceExpression=</span><span class="s">&#34;${x+5}&#34;</span> <span class="na">target=</span><span class="s">&#34;y&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;camunda:out</span> <span class="na">sourceExpression=</span><span class="s">&#34;${y+5}&#34;</span> <span class="na">target=</span><span class="s">&#34;z&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/callActivity&gt;</span>
 </span></span></code></pre></div><p>So in the end <code>z = y+5 = x+5+5</code> holds.</p>
 <p>Source expressions are evaluated in the context of the called process instance. That means, in cases where calling and called process definitions belong to different process applications, context like Java classes, Spring or CDI beans is resolved from the process application the called process definition belongs to.</p>
 <h2 id="variable-output-on-bpmn-error-event">Variable Output on BPMN Error Event</h2>
 <p>When a BPMN error event from a called process instance is caught in the calling process instance, the output variable mappings are executed as well. Depending on the BPMN models, this requires output parameters to tolerate <code>null</code> values for variables that do not exist in the called instance when the error is propagated.</p>
 <h2 id="combination-with-inputoutput-parameters">Combination with Input/Output parameters</h2>
 <p>Call activities can be combined with <a href="/manual/1.0/user-guide/process-engine/variables/#input-output-variable-mapping">Input/Output parameters</a> as well. This allows for an even more flexible mapping of variables into the called process. In order to only map variables that are declared in the <code>inputOutput</code> mapping, the attribute <code>local</code> can be used. Consider the following XML:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;callActivity</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;callSubProcess&#34;</span> <span style="color:#a6e22e">calledElement=</span><span style="color:#e6db74">&#34;checkCreditProcess&#34;</span> <span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">&lt;!-- Input/Output parameters --&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;camunda:inputOutput&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;camunda:inputParameter</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;var1&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;camunda:script</span> <span style="color:#a6e22e">scriptFormat=</span><span style="color:#e6db74">&#34;groovy&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#75715e">&lt;![CDATA[
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">            sum = a + b + c
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">          ]]&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/camunda:script&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/camunda:inputParameter&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;camunda:inputParameter</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;var2&#34;</span><span style="color:#f92672">&gt;&lt;/camunda:inputParameter&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/camunda:inputOutput&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">&lt;!-- Mapping to called instance --&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;camunda:in</span> <span style="color:#a6e22e">variables=</span><span style="color:#e6db74">&#34;all&#34;</span> <span style="color:#a6e22e">local=</span><span style="color:#e6db74">&#34;true&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/callActivity&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;callActivity</span> <span class="na">id=</span><span class="s">&#34;callSubProcess&#34;</span> <span class="na">calledElement=</span><span class="s">&#34;checkCreditProcess&#34;</span> <span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="c">&lt;!-- Input/Output parameters --&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;camunda:inputOutput&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;camunda:inputParameter</span> <span class="na">name=</span><span class="s">&#34;var1&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;camunda:script</span> <span class="na">scriptFormat=</span><span class="s">&#34;groovy&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="cp">&lt;![CDATA[
+</span></span></span><span class="line"><span class="cl"><span class="cp">            sum = a + b + c
+</span></span></span><span class="line"><span class="cl"><span class="cp">          ]]&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/camunda:script&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/camunda:inputParameter&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;camunda:inputParameter</span> <span class="na">name=</span><span class="s">&#34;var2&#34;</span><span class="nt">&gt;&lt;/camunda:inputParameter&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/camunda:inputOutput&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c">&lt;!-- Mapping to called instance --&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;camunda:in</span> <span class="na">variables=</span><span class="s">&#34;all&#34;</span> <span class="na">local=</span><span class="s">&#34;true&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/callActivity&gt;</span>
 </span></span></code></pre></div><p>Setting <code>local=&quot;true&quot;</code> means that all local variables of the execution executing the call activity are mapped into the called process instance. These are exactly the variables that are declared as input parameters.</p>
 <p>The same can be done with output parameters:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;callActivity</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;callSubProcess&#34;</span> <span style="color:#a6e22e">calledElement=</span><span style="color:#e6db74">&#34;checkCreditProcess&#34;</span> <span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">&lt;!-- Input/Output parameters --&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;camunda:inputOutput&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;camunda:outputParameter</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;var1&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;camunda:script</span> <span style="color:#a6e22e">scriptFormat=</span><span style="color:#e6db74">&#34;groovy&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#75715e">&lt;![CDATA[
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">            sum = a + b + c
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">          ]]&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/camunda:script&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/camunda:outputParameter&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;camunda:outputParameter</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;var2&#34;</span><span style="color:#f92672">&gt;&lt;/camunda:outputParameter&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/camunda:inputOutput&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">&lt;!-- Mapping from called instance --&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;camunda:out</span> <span style="color:#a6e22e">variables=</span><span style="color:#e6db74">&#34;all&#34;</span> <span style="color:#a6e22e">local=</span><span style="color:#e6db74">&#34;true&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/callActivity&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;callActivity</span> <span class="na">id=</span><span class="s">&#34;callSubProcess&#34;</span> <span class="na">calledElement=</span><span class="s">&#34;checkCreditProcess&#34;</span> <span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="c">&lt;!-- Input/Output parameters --&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;camunda:inputOutput&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;camunda:outputParameter</span> <span class="na">name=</span><span class="s">&#34;var1&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;camunda:script</span> <span class="na">scriptFormat=</span><span class="s">&#34;groovy&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="cp">&lt;![CDATA[
+</span></span></span><span class="line"><span class="cl"><span class="cp">            sum = a + b + c
+</span></span></span><span class="line"><span class="cl"><span class="cp">          ]]&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/camunda:script&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/camunda:outputParameter&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;camunda:outputParameter</span> <span class="na">name=</span><span class="s">&#34;var2&#34;</span><span class="nt">&gt;&lt;/camunda:outputParameter&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/camunda:inputOutput&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c">&lt;!-- Mapping from called instance --&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;camunda:out</span> <span class="na">variables=</span><span class="s">&#34;all&#34;</span> <span class="na">local=</span><span class="s">&#34;true&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/callActivity&gt;</span>
 </span></span></code></pre></div><p>When the called process instance ends, due to <code>local=&quot;true&quot;</code> in the <code>camunda:out</code> parameter all variables are mapped to local variables of the execution executing the call activity. These variables can be mapped to process instance variables by using an output mapping. Any variable that is not declared by a <code>camunda:outputParameter</code> element will not be available anymore after the call activity ends.</p>
 <h2 id="delegation-of-variable-mapping">Delegation of Variable Mapping</h2>
 <p>The mapping of input and output variables can also be delegated. This means the passing of input or/and output variables can be done in Java code.
@@ -3281,65 +3281,65 @@ For this the <a href="/manual/1.0/user-guide/process-engine/delegation-code/#del
 <p>There are two possible ways to use delegation for variable mapping.</p>
 <h3 id="delegate-variable-mapping-via-reference">Delegate Variable Mapping via Reference</h3>
 <p>The first one is to set the Camunda extension property <code>variableMappingClass</code> and reference the implementation of the <code>DelegateVariableMapping</code> interface via the whole class name.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span> <span style="color:#f92672">&lt;process</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;callSimpleSubProcess&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;startEvent</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;theStart&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;sequenceFlow</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;flow1&#34;</span> <span style="color:#a6e22e">sourceRef=</span><span style="color:#e6db74">&#34;theStart&#34;</span> <span style="color:#a6e22e">targetRef=</span><span style="color:#e6db74">&#34;callSubProcess&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;callActivity</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;callSubProcess&#34;</span> <span style="color:#a6e22e">calledElement=</span><span style="color:#e6db74">&#34;simpleSubProcess&#34;</span> <span style="color:#a6e22e">camunda:variableMappingClass=</span><span style="color:#e6db74">&#34;org.camunda.bpm.example.bpm.callactivity.DelegatedVarMapping&#34;</span><span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;sequenceFlow</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;flow3&#34;</span> <span style="color:#a6e22e">sourceRef=</span><span style="color:#e6db74">&#34;callSubProcess&#34;</span> <span style="color:#a6e22e">targetRef=</span><span style="color:#e6db74">&#34;taskAfterSubProcess&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;userTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;taskAfterSubProcess&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Task after subprocess&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;sequenceFlow</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;flow4&#34;</span> <span style="color:#a6e22e">sourceRef=</span><span style="color:#e6db74">&#34;taskAfterSubProcess&#34;</span> <span style="color:#a6e22e">targetRef=</span><span style="color:#e6db74">&#34;theEnd&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;endEvent</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;theEnd&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/process&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"> <span class="nt">&lt;process</span> <span class="na">id=</span><span class="s">&#34;callSimpleSubProcess&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;startEvent</span> <span class="na">id=</span><span class="s">&#34;theStart&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;sequenceFlow</span> <span class="na">id=</span><span class="s">&#34;flow1&#34;</span> <span class="na">sourceRef=</span><span class="s">&#34;theStart&#34;</span> <span class="na">targetRef=</span><span class="s">&#34;callSubProcess&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;callActivity</span> <span class="na">id=</span><span class="s">&#34;callSubProcess&#34;</span> <span class="na">calledElement=</span><span class="s">&#34;simpleSubProcess&#34;</span> <span class="na">camunda:variableMappingClass=</span><span class="s">&#34;org.camunda.bpm.example.bpm.callactivity.DelegatedVarMapping&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;sequenceFlow</span> <span class="na">id=</span><span class="s">&#34;flow3&#34;</span> <span class="na">sourceRef=</span><span class="s">&#34;callSubProcess&#34;</span> <span class="na">targetRef=</span><span class="s">&#34;taskAfterSubProcess&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;userTask</span> <span class="na">id=</span><span class="s">&#34;taskAfterSubProcess&#34;</span> <span class="na">name=</span><span class="s">&#34;Task after subprocess&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;sequenceFlow</span> <span class="na">id=</span><span class="s">&#34;flow4&#34;</span> <span class="na">sourceRef=</span><span class="s">&#34;taskAfterSubProcess&#34;</span> <span class="na">targetRef=</span><span class="s">&#34;theEnd&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;endEvent</span> <span class="na">id=</span><span class="s">&#34;theEnd&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/process&gt;</span>
 </span></span></code></pre></div><h3 id="delegate-variable-mapping-via-expression">Delegate Variable Mapping via Expression</h3>
 <p>The second one is to set the Camunda extension property <code>variableMappingDelegateExpression</code> with an expression.
 This allows to specify an expression that resolves to an object implementing the <code>DelegateVariableMapping</code> interface.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>  <span style="color:#f92672">&lt;process</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;callSimpleSubProcess&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;startEvent</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;theStart&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;sequenceFlow</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;flow1&#34;</span> <span style="color:#a6e22e">sourceRef=</span><span style="color:#e6db74">&#34;theStart&#34;</span> <span style="color:#a6e22e">targetRef=</span><span style="color:#e6db74">&#34;callSubProcess&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;callActivity</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;callSubProcess&#34;</span> <span style="color:#a6e22e">calledElement=</span><span style="color:#e6db74">&#34;simpleSubProcess&#34;</span> <span style="color:#a6e22e">camunda:variableMappingDelegateExpression=</span><span style="color:#e6db74">&#34;${expr}&#34;</span><span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;sequenceFlow</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;flow3&#34;</span> <span style="color:#a6e22e">sourceRef=</span><span style="color:#e6db74">&#34;callSubProcess&#34;</span> <span style="color:#a6e22e">targetRef=</span><span style="color:#e6db74">&#34;taskAfterSubProcess&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;userTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;taskAfterSubProcess&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Task after subprocess&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;sequenceFlow</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;flow4&#34;</span> <span style="color:#a6e22e">sourceRef=</span><span style="color:#e6db74">&#34;taskAfterSubProcess&#34;</span> <span style="color:#a6e22e">targetRef=</span><span style="color:#e6db74">&#34;theEnd&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;endEvent</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;theEnd&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/process&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">  <span class="nt">&lt;process</span> <span class="na">id=</span><span class="s">&#34;callSimpleSubProcess&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;startEvent</span> <span class="na">id=</span><span class="s">&#34;theStart&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;sequenceFlow</span> <span class="na">id=</span><span class="s">&#34;flow1&#34;</span> <span class="na">sourceRef=</span><span class="s">&#34;theStart&#34;</span> <span class="na">targetRef=</span><span class="s">&#34;callSubProcess&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;callActivity</span> <span class="na">id=</span><span class="s">&#34;callSubProcess&#34;</span> <span class="na">calledElement=</span><span class="s">&#34;simpleSubProcess&#34;</span> <span class="na">camunda:variableMappingDelegateExpression=</span><span class="s">&#34;${expr}&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;sequenceFlow</span> <span class="na">id=</span><span class="s">&#34;flow3&#34;</span> <span class="na">sourceRef=</span><span class="s">&#34;callSubProcess&#34;</span> <span class="na">targetRef=</span><span class="s">&#34;taskAfterSubProcess&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;userTask</span> <span class="na">id=</span><span class="s">&#34;taskAfterSubProcess&#34;</span> <span class="na">name=</span><span class="s">&#34;Task after subprocess&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;sequenceFlow</span> <span class="na">id=</span><span class="s">&#34;flow4&#34;</span> <span class="na">sourceRef=</span><span class="s">&#34;taskAfterSubProcess&#34;</span> <span class="na">targetRef=</span><span class="s">&#34;theEnd&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;endEvent</span> <span class="na">id=</span><span class="s">&#34;theEnd&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/process&gt;</span>
 </span></span></code></pre></div><p>See <a href="/manual/1.0/user-guide/process-engine/delegation-code/#delegate-variable-mapping">Delegate Variable Mapping</a> for further information of implementing the interface.</p>
 <h1 id="passing-business-key">Passing Business Key</h1>
 <p>You can pass the business key to the subprocess. The data is copied into the subprocess when it is started. You can not give back the business key to the parent process because the business key is not changeable.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;callActivity</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;callSubProcess&#34;</span> <span style="color:#a6e22e">calledElement=</span><span style="color:#e6db74">&#34;checkCreditProcess&#34;</span> <span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;camunda:in</span> <span style="color:#a6e22e">businessKey=</span><span style="color:#e6db74">&#34;#{execution.processBusinessKey}&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/callActivity&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;callActivity</span> <span class="na">id=</span><span class="s">&#34;callSubProcess&#34;</span> <span class="na">calledElement=</span><span class="s">&#34;checkCreditProcess&#34;</span> <span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;camunda:in</span> <span class="na">businessKey=</span><span class="s">&#34;#{execution.processBusinessKey}&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/callActivity&gt;</span>
 </span></span></code></pre></div><h1 id="example">Example</h1>
 <p>The following process diagram shows a simple handling of an order. Since, for example, the billing could be common to many other processes, it is modeled as a call activity.</p>
 <div data-bpmn-diagram="../bpmn/call-activity"></div>
 <p>The XML looks as follows:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;startEvent</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;theStart&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;sequenceFlow</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;flow1&#34;</span> <span style="color:#a6e22e">sourceRef=</span><span style="color:#e6db74">&#34;theStart&#34;</span> <span style="color:#a6e22e">targetRef=</span><span style="color:#e6db74">&#34;shipping&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;callActivity</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;shipping&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Shipping&#34;</span> <span style="color:#a6e22e">calledElement=</span><span style="color:#e6db74">&#34;shippingProcess&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;sequenceFlow</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;flow2&#34;</span> <span style="color:#a6e22e">sourceRef=</span><span style="color:#e6db74">&#34;shipping&#34;</span> <span style="color:#a6e22e">targetRef=</span><span style="color:#e6db74">&#34;billing&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;callActivity</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;billing&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Billing&#34;</span> <span style="color:#a6e22e">calledElement=</span><span style="color:#e6db74">&#34;billingProcess&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;sequenceFlow</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;flow3&#34;</span> <span style="color:#a6e22e">sourceRef=</span><span style="color:#e6db74">&#34;billing&#34;</span> <span style="color:#a6e22e">targetRef=</span><span style="color:#e6db74">&#34;end&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;endEvent</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;end&#34;</span> <span style="color:#f92672">/&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;startEvent</span> <span class="na">id=</span><span class="s">&#34;theStart&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;sequenceFlow</span> <span class="na">id=</span><span class="s">&#34;flow1&#34;</span> <span class="na">sourceRef=</span><span class="s">&#34;theStart&#34;</span> <span class="na">targetRef=</span><span class="s">&#34;shipping&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;callActivity</span> <span class="na">id=</span><span class="s">&#34;shipping&#34;</span> <span class="na">name=</span><span class="s">&#34;Shipping&#34;</span> <span class="na">calledElement=</span><span class="s">&#34;shippingProcess&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;sequenceFlow</span> <span class="na">id=</span><span class="s">&#34;flow2&#34;</span> <span class="na">sourceRef=</span><span class="s">&#34;shipping&#34;</span> <span class="na">targetRef=</span><span class="s">&#34;billing&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;callActivity</span> <span class="na">id=</span><span class="s">&#34;billing&#34;</span> <span class="na">name=</span><span class="s">&#34;Billing&#34;</span> <span class="na">calledElement=</span><span class="s">&#34;billingProcess&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;sequenceFlow</span> <span class="na">id=</span><span class="s">&#34;flow3&#34;</span> <span class="na">sourceRef=</span><span class="s">&#34;billing&#34;</span> <span class="na">targetRef=</span><span class="s">&#34;end&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;endEvent</span> <span class="na">id=</span><span class="s">&#34;end&#34;</span> <span class="nt">/&gt;</span>
 </span></span></code></pre></div><p>There is nothing special about the process definition of the subprocess. It could also be used without being called from another process.</p>
 <h1 id="create-a-case-instance">Create a Case Instance</h1>
 <p>A call activity can also be used to create a new CMMN case instance as a subordinate of the corresponding process instance. The call activity completes as soon as the created case instance reaches the state <code>COMPLETED</code> for the first time. In contrast to calling a BPMN process, the attribute <code>caseRef</code> instead of the attribute <code>calledElement</code> must be used to reference a case definition by its key. This means that the latest case definition version is always called.</p>
@@ -3351,25 +3351,25 @@ This allows to specify an expression that resolves to an object implementing the
 <li>deployment: if called case  definition is part of the same deployment as the calling process definition, use the version from deployment</li>
 <li>version: call a fixed version of the case definition, in this case <code>caseVersion</code> is required</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;callActivity</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;callSubProcess&#34;</span> <span style="color:#a6e22e">camunda:caseRef=</span><span style="color:#e6db74">&#34;checkCreditCase&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">camunda:caseBinding=</span><span style="color:#e6db74">&#34;latest|deployment|version&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">camunda:caseVersion=</span><span style="color:#e6db74">&#34;17&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/callActivity&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;callActivity</span> <span class="na">id=</span><span class="s">&#34;callSubProcess&#34;</span> <span class="na">camunda:caseRef=</span><span class="s">&#34;checkCreditCase&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">camunda:caseBinding=</span><span class="s">&#34;latest|deployment|version&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">camunda:caseVersion=</span><span class="s">&#34;17&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/callActivity&gt;</span>
 </span></span></code></pre></div><h2 id="case-tenant-id">Case Tenant Id</h2>
 <p>The call activity must take multi tenancy into account when resolving the case definition to be called.</p>
 <p>The <a href="#default-tenant-resolution">default behavior</a> is the same as when resolving BPMN Process Definitions (i.e., the tenant id of the calling process definition is used to resolve the called case definition.)</p>
 <p>In order to override the default behavior, the tenant id for resolving the called case definition can be specified explicitly using the <code>camunda:caseTenantId</code> attribute:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;callActivity</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;callSubProcess&#34;</span> <span style="color:#a6e22e">camunda:caseRef=</span><span style="color:#e6db74">&#34;checkCreditCase&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">camunda:caseTenantId=</span><span style="color:#e6db74">&#34;TENANT_1&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/callActivity&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;callActivity</span> <span class="na">id=</span><span class="s">&#34;callSubProcess&#34;</span> <span class="na">camunda:caseRef=</span><span class="s">&#34;checkCreditCase&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">camunda:caseTenantId=</span><span class="s">&#34;TENANT_1&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/callActivity&gt;</span>
 </span></span></code></pre></div><p>If the tenant id is not known at design time, an expression can be used as well:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;callActivity</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;callSubProcess&#34;</span> <span style="color:#a6e22e">camunda:caseRef=</span><span style="color:#e6db74">&#34;checkCreditCase&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">camunda:caseTenantId=</span><span style="color:#e6db74">&#34;${ myBean.calculateTenantId(variable) }&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/callActivity&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;callActivity</span> <span class="na">id=</span><span class="s">&#34;callSubProcess&#34;</span> <span class="na">camunda:caseRef=</span><span class="s">&#34;checkCreditCase&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">camunda:caseTenantId=</span><span class="s">&#34;${ myBean.calculateTenantId(variable) }&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/callActivity&gt;</span>
 </span></span></code></pre></div><p>An expression also allows using the tenant id of the calling process instance instead of the calling process definition:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;callActivity</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;callSubProcess&#34;</span> <span style="color:#a6e22e">camunda:caseRef=</span><span style="color:#e6db74">&#34;checkCreditCase&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">camunda:caseTenantId=</span><span style="color:#e6db74">&#34;${ execution.tenantId }&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/callActivity&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;callActivity</span> <span class="na">id=</span><span class="s">&#34;callSubProcess&#34;</span> <span class="na">camunda:caseRef=</span><span class="s">&#34;checkCreditCase&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">camunda:caseTenantId=</span><span class="s">&#34;${ execution.tenantId }&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/callActivity&gt;</span>
 </span></span></code></pre></div><h1 id="camunda-extensions">Camunda Extensions</h1>
 <table class="table table-striped">
   <tr>

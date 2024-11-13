@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/1.0/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/1.0/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/user-guide/model-api/bpmn-model-api/delegation-code/" />
 </head>
 <body class="">
@@ -3164,35 +3164,35 @@
 <p>If your class implements the <code>org.camunda.bpm.engine.delegate.JavaDelegate</code> interface, you can access the BPMN model instance
 and the current flow element. In the following example the <code>JavaDelegate</code> was added to a service task in the BPMN model.
 Therefore the returned flow element can be cast to a <code>ServiceTask</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ExampleServiceTask</span> <span style="color:#66d9ef">implements</span> JavaDelegate {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">execute</span>(DelegateExecution execution) <span style="color:#66d9ef">throws</span> Exception {
-</span></span><span style="display:flex;"><span>    BpmnModelInstance modelInstance <span style="color:#f92672">=</span> execution.<span style="color:#a6e22e">getBpmnModelInstance</span>();
-</span></span><span style="display:flex;"><span>    ServiceTask serviceTask <span style="color:#f92672">=</span> (ServiceTask) execution.<span style="color:#a6e22e">getBpmnModelElementInstance</span>();
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h1 id="execution-listener">Execution Listener</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ExampleServiceTask</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">JavaDelegate</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">execute</span><span class="p">(</span><span class="n">DelegateExecution</span><span class="w"> </span><span class="n">execution</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">BpmnModelInstance</span><span class="w"> </span><span class="n">modelInstance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">execution</span><span class="p">.</span><span class="na">getBpmnModelInstance</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">ServiceTask</span><span class="w"> </span><span class="n">serviceTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">ServiceTask</span><span class="p">)</span><span class="w"> </span><span class="n">execution</span><span class="p">.</span><span class="na">getBpmnModelElementInstance</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h1 id="execution-listener">Execution Listener</h1>
 <p>If your class implements the <code>org.camunda.bpm.engine.delegate.ExecutionListener</code> interface, you can access the BPMN model instance
 and the current flow element. As an Execution Listener can be added to several elements like process, events, tasks, gateways
 and sequence flows, it can not be guaranteed which type the flow element will be.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ExampleExecutionListener</span> <span style="color:#66d9ef">implements</span> ExecutionListener {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">notify</span>(DelegateExecution execution) <span style="color:#66d9ef">throws</span> Exception {
-</span></span><span style="display:flex;"><span>    BpmnModelInstance modelInstance <span style="color:#f92672">=</span> execution.<span style="color:#a6e22e">getBpmnModelInstance</span>();
-</span></span><span style="display:flex;"><span>    FlowElement flowElement <span style="color:#f92672">=</span> execution.<span style="color:#a6e22e">getBpmnModelElementInstance</span>();
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h1 id="task-listener">Task Listener</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ExampleExecutionListener</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">ExecutionListener</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">notify</span><span class="p">(</span><span class="n">DelegateExecution</span><span class="w"> </span><span class="n">execution</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">BpmnModelInstance</span><span class="w"> </span><span class="n">modelInstance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">execution</span><span class="p">.</span><span class="na">getBpmnModelInstance</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">FlowElement</span><span class="w"> </span><span class="n">flowElement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">execution</span><span class="p">.</span><span class="na">getBpmnModelElementInstance</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h1 id="task-listener">Task Listener</h1>
 <p>If your class implements the <code>org.camunda.bpm.engine.delegate.TaskListener</code> interface, you can access the BPMN model instance
 and the current user task since a Task Listener can only be added to a user task.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ExampleTaskListener</span> <span style="color:#66d9ef">implements</span> TaskListener {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">notify</span>(DelegateTask delegateTask) {
-</span></span><span style="display:flex;"><span>    BpmnModelInstance modelInstance <span style="color:#f92672">=</span> delegateTask.<span style="color:#a6e22e">getBpmnModelInstance</span>();
-</span></span><span style="display:flex;"><span>    UserTask userTask <span style="color:#f92672">=</span> delegateTask.<span style="color:#a6e22e">getBpmnModelElementInstance</span>();
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ExampleTaskListener</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">TaskListener</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">notify</span><span class="p">(</span><span class="n">DelegateTask</span><span class="w"> </span><span class="n">delegateTask</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">BpmnModelInstance</span><span class="w"> </span><span class="n">modelInstance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">delegateTask</span><span class="p">.</span><span class="na">getBpmnModelInstance</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">UserTask</span><span class="w"> </span><span class="n">userTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">delegateTask</span><span class="p">.</span><span class="na">getBpmnModelElementInstance</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div>
     </div>
   </div>
 </div>

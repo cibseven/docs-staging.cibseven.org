@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/1.0/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/1.0/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/user-guide/process-engine/process-instance-restart/" />
 </head>
 <body class="">
@@ -3178,15 +3178,15 @@ This can, for example, be useful when termination did not proceed in a desired w
 </figure>
 
 <p>Let us assume that the process instance has been canceled externally by a worker using the following code:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>ProcessInstance processInstance <span style="color:#f92672">=</span> runtimeService.<span style="color:#a6e22e">createProcessInstanceQuery</span>().<span style="color:#a6e22e">singleResult</span>();
-</span></span><span style="display:flex;"><span>runtimeService.<span style="color:#a6e22e">deleteProcessInstance</span>(processInstance.<span style="color:#a6e22e">getId</span>(), <span style="color:#e6db74">&#34;any reason&#34;</span>);
-</span></span></code></pre></div><p>After that, the manager decides to restore the last state of that process instance.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>runtimeService.<span style="color:#a6e22e">restartProcessInstance</span>(processInstance.<span style="color:#a6e22e">getProcessDefinitionId</span>())
-</span></span><span style="display:flex;"><span>	.<span style="color:#a6e22e">startBeforeActivity</span>(<span style="color:#e6db74">&#34;receivePayment&#34;</span>)
-</span></span><span style="display:flex;"><span>	.<span style="color:#a6e22e">startBeforeActivity</span>(<span style="color:#e6db74">&#34;shipOrder&#34;</span>)
-</span></span><span style="display:flex;"><span>	.<span style="color:#a6e22e">processInstanceIds</span>(processInstance.<span style="color:#a6e22e">getId</span>())
-</span></span><span style="display:flex;"><span>	.<span style="color:#a6e22e">execute</span>();
-</span></span></code></pre></div><p>The process instance has been restarted with the last set of variables. However, only global variables are set in the restarted process instance.
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">ProcessInstance</span><span class="w"> </span><span class="n">processInstance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">runtimeService</span><span class="p">.</span><span class="na">createProcessInstanceQuery</span><span class="p">().</span><span class="na">singleResult</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">runtimeService</span><span class="p">.</span><span class="na">deleteProcessInstance</span><span class="p">(</span><span class="n">processInstance</span><span class="p">.</span><span class="na">getId</span><span class="p">(),</span><span class="w"> </span><span class="s">&#34;any reason&#34;</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><p>After that, the manager decides to restore the last state of that process instance.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">runtimeService</span><span class="p">.</span><span class="na">restartProcessInstance</span><span class="p">(</span><span class="n">processInstance</span><span class="p">.</span><span class="na">getProcessDefinitionId</span><span class="p">())</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="p">.</span><span class="na">startBeforeActivity</span><span class="p">(</span><span class="s">&#34;receivePayment&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="p">.</span><span class="na">startBeforeActivity</span><span class="p">(</span><span class="s">&#34;shipOrder&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="p">.</span><span class="na">processInstanceIds</span><span class="p">(</span><span class="n">processInstance</span><span class="p">.</span><span class="na">getId</span><span class="p">())</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="p">.</span><span class="na">execute</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><p>The process instance has been restarted with the last set of variables. However, only global variables are set in the restarted process instance.
 Local variables can be set manually, for example by calling <code>RuntimeService.setVariableLocal(...)</code>.</p>
 
 <div class="note bg-info docs-info">
@@ -3215,72 +3215,72 @@ The process instances to be restarted will then be the union of the resulting se
 <h3 id="list-of-process-instances">List of Process Instances</h3>
 <p>The process instances which should be restarted can either
 be specified as a list of the process instance ids:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Java" data-lang="Java"><span style="display:flex;"><span>ProcessDefinition processDefinition <span style="color:#f92672">=</span> ...;
-</span></span><span style="display:flex;"><span>List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> processInstanceIds <span style="color:#f92672">=</span> ...;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>runtimeService.<span style="color:#a6e22e">restartProcessInstances</span>(processDefinition.<span style="color:#a6e22e">getId</span>())
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">startBeforeActivity</span>(<span style="color:#e6db74">&#34;activity&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">processInstanceIds</span>(processInstanceIds)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">execute</span>();
-</span></span></code></pre></div><p>or, for a static number of process instances, there is a convenience varargs method:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Java" data-lang="Java"><span style="display:flex;"><span>ProcessDefinition processDefinition <span style="color:#f92672">=</span> ...;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>HistoricProcessInstance instance1 <span style="color:#f92672">=</span> ...;
-</span></span><span style="display:flex;"><span>HistoricProcessInstance instance2 <span style="color:#f92672">=</span> ...;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>runtimeService.<span style="color:#a6e22e">restartProcessInstances</span>(processDefinition.<span style="color:#a6e22e">getId</span>())
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">startBeforeActivity</span>(<span style="color:#e6db74">&#34;activity&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">processInstanceIds</span>(instance1.<span style="color:#a6e22e">getId</span>(), instance2.<span style="color:#a6e22e">getId</span>())
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">execute</span>();
-</span></span></code></pre></div><h3 id="historic-process-instance-query">Historic Process Instance Query</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="n">ProcessDefinition</span><span class="w"> </span><span class="n">processDefinition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">processInstanceIds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">runtimeService</span><span class="p">.</span><span class="na">restartProcessInstances</span><span class="p">(</span><span class="n">processDefinition</span><span class="p">.</span><span class="na">getId</span><span class="p">())</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">startBeforeActivity</span><span class="p">(</span><span class="s">&#34;activity&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">processInstanceIds</span><span class="p">(</span><span class="n">processInstanceIds</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">execute</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><p>or, for a static number of process instances, there is a convenience varargs method:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="n">ProcessDefinition</span><span class="w"> </span><span class="n">processDefinition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">HistoricProcessInstance</span><span class="w"> </span><span class="n">instance1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">HistoricProcessInstance</span><span class="w"> </span><span class="n">instance2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">runtimeService</span><span class="p">.</span><span class="na">restartProcessInstances</span><span class="p">(</span><span class="n">processDefinition</span><span class="p">.</span><span class="na">getId</span><span class="p">())</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">startBeforeActivity</span><span class="p">(</span><span class="s">&#34;activity&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">processInstanceIds</span><span class="p">(</span><span class="n">instance1</span><span class="p">.</span><span class="na">getId</span><span class="p">(),</span><span class="w"> </span><span class="n">instance2</span><span class="p">.</span><span class="na">getId</span><span class="p">())</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">execute</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><h3 id="historic-process-instance-query">Historic Process Instance Query</h3>
 <p>If the instances are not known beforehand, the process instances can be selected by a historic process instance query:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Java" data-lang="Java"><span style="display:flex;"><span>HistoricProcessInstanceQuery historicProcessInstanceQuery <span style="color:#f92672">=</span> historyService
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">createHistoricProcessInstanceQuery</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">processDefinitionId</span>(processDefinition.<span style="color:#a6e22e">getId</span>())
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">finished</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>runtimeService.<span style="color:#a6e22e">restartProcessInstances</span>(processDefinition.<span style="color:#a6e22e">getId</span>())
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">startBeforeActivity</span>(<span style="color:#e6db74">&#34;activity&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">historicProcessInstanceQuery</span>(historicProcessInstanceQuery)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">execute</span>();
-</span></span></code></pre></div><h2 id="skipping-listeners-and-inputoutput-mappings">Skipping Listeners and Input/Output Mappings</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="n">HistoricProcessInstanceQuery</span><span class="w"> </span><span class="n">historicProcessInstanceQuery</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">historyService</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">createHistoricProcessInstanceQuery</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">processDefinitionId</span><span class="p">(</span><span class="n">processDefinition</span><span class="p">.</span><span class="na">getId</span><span class="p">())</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">finished</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">runtimeService</span><span class="p">.</span><span class="na">restartProcessInstances</span><span class="p">(</span><span class="n">processDefinition</span><span class="p">.</span><span class="na">getId</span><span class="p">())</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">startBeforeActivity</span><span class="p">(</span><span class="s">&#34;activity&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">historicProcessInstanceQuery</span><span class="p">(</span><span class="n">historicProcessInstanceQuery</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">execute</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><h2 id="skipping-listeners-and-inputoutput-mappings">Skipping Listeners and Input/Output Mappings</h2>
 <p>It is possible to skip invocations of execution and task listeners as well as input/output mappings for the transaction that performs the restart. This can be useful when the restart is executed on a system that has no access to the involved process application deployments and their contained classes.</p>
 <p>In the API, the two methods <code>#skipCustomListeners</code> and <code>#skipIoMappings</code>
 can be used for this purpose:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Java" data-lang="Java"><span style="display:flex;"><span>ProcessDefinition processDefinition <span style="color:#f92672">=</span> ...;
-</span></span><span style="display:flex;"><span>List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> processInstanceIds <span style="color:#f92672">=</span> ...;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>runtimeService.<span style="color:#a6e22e">restartProcessInstances</span>(processDefinition.<span style="color:#a6e22e">getId</span>())
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">startBeforeActivity</span>(<span style="color:#e6db74">&#34;activity&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">processInstanceIds</span>(processInstanceIds)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">skipCustomListeners</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">skipIoMappings</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">execute</span>();
-</span></span></code></pre></div><h2 id="restarting-a-process-instance-with-the-initial-set-of-variables">Restarting a Process Instance With the Initial Set of Variables</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="n">ProcessDefinition</span><span class="w"> </span><span class="n">processDefinition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">processInstanceIds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">runtimeService</span><span class="p">.</span><span class="na">restartProcessInstances</span><span class="p">(</span><span class="n">processDefinition</span><span class="p">.</span><span class="na">getId</span><span class="p">())</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">startBeforeActivity</span><span class="p">(</span><span class="s">&#34;activity&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">processInstanceIds</span><span class="p">(</span><span class="n">processInstanceIds</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">skipCustomListeners</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">skipIoMappings</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">execute</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><h2 id="restarting-a-process-instance-with-the-initial-set-of-variables">Restarting a Process Instance With the Initial Set of Variables</h2>
 <p>By default, a process instance is restarted with the last set of variables.
 To alternatively choose the initial set of variables, the <code>initialSetOfVariables</code> method is used.</p>
 <p>This feature does not only copy the start variables, but will copy the first version of all process variables that have been set in the start activity of the old process instance.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Java" data-lang="Java"><span style="display:flex;"><span>ProcessDefinition processDefinition <span style="color:#f92672">=</span> ...;
-</span></span><span style="display:flex;"><span>List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> processInstanceIds <span style="color:#f92672">=</span> ...;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>runtimeService.<span style="color:#a6e22e">restartProcessInstances</span>(processDefinition.<span style="color:#a6e22e">getId</span>())
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">startBeforeActivity</span>(<span style="color:#e6db74">&#34;activity&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">processInstanceIds</span>(processInstanceIds)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">initialSetOfVariables</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">execute</span>();
-</span></span></code></pre></div><p>The initial set of variables can not be set if the historic process instance has no unique start activity. In that case, no variables are taken over.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="n">ProcessDefinition</span><span class="w"> </span><span class="n">processDefinition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">processInstanceIds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">runtimeService</span><span class="p">.</span><span class="na">restartProcessInstances</span><span class="p">(</span><span class="n">processDefinition</span><span class="p">.</span><span class="na">getId</span><span class="p">())</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">startBeforeActivity</span><span class="p">(</span><span class="s">&#34;activity&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">processInstanceIds</span><span class="p">(</span><span class="n">processInstanceIds</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">initialSetOfVariables</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">execute</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><p>The initial set of variables can not be set if the historic process instance has no unique start activity. In that case, no variables are taken over.</p>
 <h2 id="omitting-the-business-key-of-a-historic-process-instance">Omitting the Business Key of a Historic Process Instance</h2>
 <p>By default, a process instance is restarted with the same business key as the historic process instance.
 By using the method <code>withoutBusinessKey</code>, the business key of the restarted process instance is not set.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Java" data-lang="Java"><span style="display:flex;"><span>ProcessDefinition processDefinition <span style="color:#f92672">=</span> ...;
-</span></span><span style="display:flex;"><span>List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> processInstanceIds <span style="color:#f92672">=</span> ...;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>runtimeService.<span style="color:#a6e22e">restartProcessInstances</span>(processDefinition.<span style="color:#a6e22e">getId</span>())
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">startBeforeActivity</span>(<span style="color:#e6db74">&#34;activity&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">processInstanceIds</span>(processInstanceIds)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">withoutBusinessKey</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">execute</span>();
-</span></span></code></pre></div><h2 id="execution">Execution</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="n">ProcessDefinition</span><span class="w"> </span><span class="n">processDefinition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">processInstanceIds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">runtimeService</span><span class="p">.</span><span class="na">restartProcessInstances</span><span class="p">(</span><span class="n">processDefinition</span><span class="p">.</span><span class="na">getId</span><span class="p">())</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">startBeforeActivity</span><span class="p">(</span><span class="s">&#34;activity&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">processInstanceIds</span><span class="p">(</span><span class="n">processInstanceIds</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">withoutBusinessKey</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">execute</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><h2 id="execution">Execution</h2>
 <p>The restart can either be executed synchronously (blocking) or asynchronously
 (non-blocking) by using a <a href="/manual/1.0/user-guide/process-engine/batch/">batch</a> .</p>
 <p>The following are some reasons to prefer either one or the other:</p>
@@ -3308,25 +3308,25 @@ executor should handle the execution</li>
 <h3 id="synchronous-execution">Synchronous execution</h3>
 <p>To execute the restart synchronously, the <code>execute</code> method is used. It will
 block until the restart is completed.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Java" data-lang="Java"><span style="display:flex;"><span>ProcessDefinition processDefinition <span style="color:#f92672">=</span> ...;
-</span></span><span style="display:flex;"><span>List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> processInstanceIds <span style="color:#f92672">=</span> ...;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>runtimeService.<span style="color:#a6e22e">restartProcessInstances</span>(processDefinition.<span style="color:#a6e22e">getId</span>())
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">startBeforeActivity</span>(<span style="color:#e6db74">&#34;activity&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">processInstanceIds</span>(processInstanceIds)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">execute</span>();
-</span></span></code></pre></div><p>Restart is successful if all process instances can be restarted.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="n">ProcessDefinition</span><span class="w"> </span><span class="n">processDefinition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">processInstanceIds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">runtimeService</span><span class="p">.</span><span class="na">restartProcessInstances</span><span class="p">(</span><span class="n">processDefinition</span><span class="p">.</span><span class="na">getId</span><span class="p">())</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">startBeforeActivity</span><span class="p">(</span><span class="s">&#34;activity&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">processInstanceIds</span><span class="p">(</span><span class="n">processInstanceIds</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">execute</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><p>Restart is successful if all process instances can be restarted.</p>
 <h3 id="asynchronous-batch-execution">Asynchronous batch execution</h3>
 <p>To execute the restart asynchronously, the <code>executeAsync</code> method is used. It will
 return immediately with a reference to the batch that executes the restart.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Java" data-lang="Java"><span style="display:flex;"><span>ProcessDefinition processDefinition <span style="color:#f92672">=</span> ...;
-</span></span><span style="display:flex;"><span>List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> processInstanceIds <span style="color:#f92672">=</span> ...;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Batch batch <span style="color:#f92672">=</span> runtimeService.<span style="color:#a6e22e">restartProcessInstances</span>(processDefinition.<span style="color:#a6e22e">getId</span>())
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">startBeforeActivity</span>(<span style="color:#e6db74">&#34;activity&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">processInstanceIds</span>(processInstanceIds)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">executeAsync</span>();
-</span></span></code></pre></div><p>Using a batch, the process instance restart is split into several jobs which
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="n">ProcessDefinition</span><span class="w"> </span><span class="n">processDefinition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">processInstanceIds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Batch</span><span class="w"> </span><span class="n">batch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">runtimeService</span><span class="p">.</span><span class="na">restartProcessInstances</span><span class="p">(</span><span class="n">processDefinition</span><span class="p">.</span><span class="na">getId</span><span class="p">())</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">startBeforeActivity</span><span class="p">(</span><span class="s">&#34;activity&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">processInstanceIds</span><span class="p">(</span><span class="n">processInstanceIds</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">executeAsync</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><p>Using a batch, the process instance restart is split into several jobs which
 are executed asynchronously. These batch jobs are executed by the job executor.
 See the <a href="/manual/1.0/user-guide/process-engine/batch/">batch</a> section for more
 information. A batch is completed if all batch execution jobs are successfully

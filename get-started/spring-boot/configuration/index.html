@@ -21,7 +21,7 @@
 
   
 
-  <link rel="stylesheet" href="/get-started/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/get-started/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="/get-started/spring-boot/configuration/" />
 </head>
 <body class="">
@@ -240,194 +240,6 @@
     
   <li>
     
-      <a href="/get-started/archive/" >Archive</a>
-      <ul>
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/spring/" >Spring Framework</a>
-      <ul>
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/spring/project-setup/" >Project Setup</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/spring/embedded-process-engine/" >Embedded Process Engine Configuration</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/spring/service-task/" >Spring Bean Service Task</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/spring/shared-process-engine/" >Shared Process Engine</a>
-    
-  </li>
-
-        
-      </ul>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/javaee7/" >Java EE 7</a>
-      <ul>
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/javaee7/install/" >Download and Installation</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/javaee7/project-setup/" >Project Setup</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/javaee7/model/" >Model a Process</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/javaee7/deploy/" >Deploy</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/javaee7/start-form/" >JSF Start Form</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/javaee7/service-task/" >EJB Service Task</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/javaee7/task-form/" >JSF Task Form</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/javaee7/complete-process/" >Complete Process</a>
-    
-  </li>
-
-        
-      </ul>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/java-process-app/" >Java Process Application</a>
-      <ul>
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/java-process-app/install/" >Download and Installation</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/java-process-app/project-setup/" >Project Setup</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/java-process-app/model/" >Model a Process</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/java-process-app/deploy/" >Deploy and Test</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/java-process-app/forms/" >Forms</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/java-process-app/service-task/" >Java Service Task</a>
-    
-  </li>
-
-        
-      </ul>
-    
-  </li>
-
-        
-      </ul>
-    
-  </li>
-
-  
-    
-  <li>
-    
       <a href="/get-started/apache-maven/" >Maven Coordinates</a>
     
   </li>
@@ -475,14 +287,14 @@ There are several ways to customize or override the configuration. The easiest i
 The full list of supported configuration parameters can be found <a href="/manual/latest/user-guide/spring-boot-integration/configuration/#cib-seven-engine-properties">here</a>.</p>
 <h2 id="customize-configuration">Customize Configuration</h2>
 <p>Let&rsquo;s create an <code>application.yaml</code> file in the <code>src/main/resources</code> folder with the following content:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">camunda.bpm</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">admin-user</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">id</span>: <span style="color:#ae81ff">demo</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">password</span>: <span style="color:#ae81ff">demo</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">firstName</span>: <span style="color:#ae81ff">Demo</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">filter</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">create</span>: <span style="color:#ae81ff">All tasks</span>
-</span></span></code></pre></div><p>This configuration will result in the following:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">camunda.bpm</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">admin-user</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l">demo</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l">demo</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">firstName</span><span class="p">:</span><span class="w"> </span><span class="l">Demo</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">filter</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">create</span><span class="p">:</span><span class="w"> </span><span class="l">All tasks</span><span class="w">
+</span></span></span></code></pre></div><p>This configuration will result in the following:</p>
 <ol>
 <li>Admin user &ldquo;demo&rdquo; with the provided password and first name will be created.</li>
 <li>Default filter with the name &ldquo;All tasks&rdquo; will be created for Tasklist.</li>

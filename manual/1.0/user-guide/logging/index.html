@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/1.0/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/1.0/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/user-guide/logging/" />
 </head>
 <body class="">
@@ -3175,46 +3175,46 @@ If you do not provide any backend, nothing will actually be logged.</p>
 <h3 id="example-using-java-util-logging">Example Using Java Util Logging</h3>
 <p>If you do not care for a specific logging backend, the simplest option is to direct logging to Java Util Logging by adding the following
 maven dependency:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;dependency&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;groupId&gt;</span>org.slf4j<span style="color:#f92672">&lt;/groupId&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;artifactId&gt;</span>slf4j-jdk14<span style="color:#f92672">&lt;/artifactId&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;version&gt;</span>1.7.26<span style="color:#f92672">&lt;/version&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/dependency&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependency&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;groupId&gt;</span>org.slf4j<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;artifactId&gt;</span>slf4j-jdk14<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;version&gt;</span>1.7.26<span class="nt">&lt;/version&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/dependency&gt;</span>
 </span></span></code></pre></div><h3 id="example-using-logback">Example Using Logback</h3>
 <p>For a more sophisticated logging setup we recommend using Logback. To do so, the following steps are necessary:</p>
 <p>Add the logback dependency</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;dependency&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;groupId&gt;</span>ch.qos.logback<span style="color:#f92672">&lt;/groupId&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;artifactId&gt;</span>logback-classic<span style="color:#f92672">&lt;/artifactId&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;version&gt;</span>1.1.2<span style="color:#f92672">&lt;/version&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/dependency&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependency&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;groupId&gt;</span>ch.qos.logback<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;artifactId&gt;</span>logback-classic<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;version&gt;</span>1.1.2<span class="nt">&lt;/version&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/dependency&gt;</span>
 </span></span></code></pre></div><p>Add a file named <code>logback.xml</code>. Example configuration:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;configuration&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;appender</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;STDOUT&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;ch.qos.logback.core.ConsoleAppender&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">&lt;!-- encoders are assigned the type
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">         ch.qos.logback.classic.encoder.PatternLayoutEncoder by default --&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;encoder&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;pattern&gt;</span>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n<span style="color:#f92672">&lt;/pattern&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/encoder&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/appender&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- camunda --&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;logger</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;org.camunda&#34;</span> <span style="color:#a6e22e">level=</span><span style="color:#e6db74">&#34;info&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- common dependencies --&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;logger</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;org.apache.ibatis&#34;</span> <span style="color:#a6e22e">level=</span><span style="color:#e6db74">&#34;info&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;logger</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;javax.activation&#34;</span> <span style="color:#a6e22e">level=</span><span style="color:#e6db74">&#34;info&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;logger</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;org.springframework&#34;</span> <span style="color:#a6e22e">level=</span><span style="color:#e6db74">&#34;info&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;root</span> <span style="color:#a6e22e">level=</span><span style="color:#e6db74">&#34;debug&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;appender-ref</span> <span style="color:#a6e22e">ref=</span><span style="color:#e6db74">&#34;STDOUT&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/root&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/configuration&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;configuration&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;appender</span> <span class="na">name=</span><span class="s">&#34;STDOUT&#34;</span> <span class="na">class=</span><span class="s">&#34;ch.qos.logback.core.ConsoleAppender&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="c">&lt;!-- encoders are assigned the type
+</span></span></span><span class="line"><span class="cl"><span class="c">         ch.qos.logback.classic.encoder.PatternLayoutEncoder by default --&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;encoder&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;pattern&gt;</span>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n<span class="nt">&lt;/pattern&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/encoder&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/appender&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c">&lt;!-- camunda --&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;logger</span> <span class="na">name=</span><span class="s">&#34;org.camunda&#34;</span> <span class="na">level=</span><span class="s">&#34;info&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c">&lt;!-- common dependencies --&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;logger</span> <span class="na">name=</span><span class="s">&#34;org.apache.ibatis&#34;</span> <span class="na">level=</span><span class="s">&#34;info&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;logger</span> <span class="na">name=</span><span class="s">&#34;javax.activation&#34;</span> <span class="na">level=</span><span class="s">&#34;info&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;logger</span> <span class="na">name=</span><span class="s">&#34;org.springframework&#34;</span> <span class="na">level=</span><span class="s">&#34;info&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;root</span> <span class="na">level=</span><span class="s">&#34;debug&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;appender-ref</span> <span class="na">ref=</span><span class="s">&#34;STDOUT&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/root&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/configuration&gt;</span>
 </span></span></code></pre></div><p>Also make sure to make mybatis use SLF4J as logger by adding</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>LogFactory.<span style="color:#a6e22e">useSlf4jLogging</span>();
-</span></span></code></pre></div><p>somewhere in your setup code.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">LogFactory</span><span class="p">.</span><span class="na">useSlf4jLogging</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><p>somewhere in your setup code.</p>
 <h2 id="process-data-context">Process Data Context</h2>
 <p>In order to provide details on the current execution context of log statements,
 we set process execution-specific data in the <a href="https://www.slf4j.org/manual.html#mdc">Mapped Diagnostic Context (MDC)</a>.</p>
@@ -3225,17 +3225,17 @@ i.e. the <a href="/manual/1.0/user-guide/process-engine/the-job-executor/">JobEx
 <a href="/manual/1.0/reference/deployment-descriptors/tags/process-engine/#logging-context-parameters">process engine configuration</a>.</p>
 <p>In order to access the MDC data, you need to adjust the logging pattern of your logging configuration.
 An example using Logback could look as follows</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;configuration&gt;</span>
-</span></span><span style="display:flex;"><span>  ...
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;appender</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;STDOUT&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;ch.qos.logback.core.ConsoleAppender&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;encoder&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;pattern&gt;</span>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} context:[%X] - %msg%n<span style="color:#f92672">&lt;/pattern&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/encoder&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/appender&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  ...
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/configuration&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;configuration&gt;</span>
+</span></span><span class="line"><span class="cl">  ...
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;appender</span> <span class="na">name=</span><span class="s">&#34;STDOUT&#34;</span> <span class="na">class=</span><span class="s">&#34;ch.qos.logback.core.ConsoleAppender&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;encoder&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;pattern&gt;</span>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} context:[%X] - %msg%n<span class="nt">&lt;/pattern&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/encoder&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/appender&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  ...
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/configuration&gt;</span>
 </span></span></code></pre></div><p>By adding the <code>context:[%X]</code> to your configuration, all values that are present in the MDC at the time the log statement is created will be displayed.
 Please refer to the manual of your logging framework for further information on how to access the MDC, e.g. the <a href="http://logback.qos.ch/manual/layouts.html#mdc">Logback documentation</a>.</p>
 <h1 id="logging-categories">Logging Categories</h1>
@@ -3406,14 +3406,14 @@ On level <code>DEBUG</code>, they log all SQL statements with their parameters. 
 <li><code>org.camunda.bpm.engine.history</code></li>
 </ul>
 <p>Here is an example of how the server log will look like:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>25-Nov-2019 15:15:57.870 FINE [thread-1] o.c.c.l.BaseLogger.logDebug ENGINE-03006 Cache state after flush: [
-</span></span><span style="display:flex;"><span>  PERSISTENT GroupEntity[development]
-</span></span><span style="display:flex;"><span>]
-</span></span><span style="display:flex;"><span>25-Nov-2019 15:15:57.871 FINE [thread-1] o.c.c.l.BaseLogger.logDebug ENGINE-03009 SQL operation: &#39;INSERT&#39;; Entity: &#39;AuthorizationEntity[id=19ac0d96-0f8e-11ea-8b01-e4a7a094a9d6]&#39;
-</span></span><span style="display:flex;"><span>25-Nov-2019 15:15:57.871 FINE [thread-1] o.a.i.l.j.BaseJdbcLogger.debug ==&gt;  Preparing: insert into ACT_RU_AUTHORIZATION ( ID_, TYPE_, GROUP_ID_, USER_ID_, RESOURCE_TYPE_, RESOURCE_ID_, PERMS_, REV_ ) values ( ?, ?, ?, ?, ?, ?, ?, 1 )
-</span></span><span style="display:flex;"><span>25-Nov-2019 15:15:57.872 FINE [thread-1] o.a.i.l.j.BaseJdbcLogger.debug ==&gt; Parameters: 19ac0d96-0f8e-11ea-8b01-e4a7a094a9d6(String), 1(Integer), development(String), null, 2(Integer), development(String), 2(Integer)
-</span></span><span style="display:flex;"><span>25-Nov-2019 15:17:17.075 FINE [thread-2] o.a.i.l.j.BaseJdbcLogger.debug ==&gt;  Preparing: update ACT_ID_GROUP set REV_ = ?, NAME_ = ?, TYPE_ = ? where ID_ = ? and REV_ = ?
-</span></span><span style="display:flex;"><span>25-Nov-2019 15:17:17.076 FINE [thread-2] o.a.i.l.j.BaseJdbcLogger.debug ==&gt; Parameters: 2(Integer), Dev-Department(String), DEV(String), development(String), 1(Integer)
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext"><span class="line"><span class="cl">25-Nov-2019 15:15:57.870 FINE [thread-1] o.c.c.l.BaseLogger.logDebug ENGINE-03006 Cache state after flush: [
+</span></span><span class="line"><span class="cl">  PERSISTENT GroupEntity[development]
+</span></span><span class="line"><span class="cl">]
+</span></span><span class="line"><span class="cl">25-Nov-2019 15:15:57.871 FINE [thread-1] o.c.c.l.BaseLogger.logDebug ENGINE-03009 SQL operation: &#39;INSERT&#39;; Entity: &#39;AuthorizationEntity[id=19ac0d96-0f8e-11ea-8b01-e4a7a094a9d6]&#39;
+</span></span><span class="line"><span class="cl">25-Nov-2019 15:15:57.871 FINE [thread-1] o.a.i.l.j.BaseJdbcLogger.debug ==&gt;  Preparing: insert into ACT_RU_AUTHORIZATION ( ID_, TYPE_, GROUP_ID_, USER_ID_, RESOURCE_TYPE_, RESOURCE_ID_, PERMS_, REV_ ) values ( ?, ?, ?, ?, ?, ?, ?, 1 )
+</span></span><span class="line"><span class="cl">25-Nov-2019 15:15:57.872 FINE [thread-1] o.a.i.l.j.BaseJdbcLogger.debug ==&gt; Parameters: 19ac0d96-0f8e-11ea-8b01-e4a7a094a9d6(String), 1(Integer), development(String), null, 2(Integer), development(String), 2(Integer)
+</span></span><span class="line"><span class="cl">25-Nov-2019 15:17:17.075 FINE [thread-2] o.a.i.l.j.BaseJdbcLogger.debug ==&gt;  Preparing: update ACT_ID_GROUP set REV_ = ?, NAME_ = ?, TYPE_ = ? where ID_ = ? and REV_ = ?
+</span></span><span class="line"><span class="cl">25-Nov-2019 15:17:17.076 FINE [thread-2] o.a.i.l.j.BaseJdbcLogger.debug ==&gt; Parameters: 2(Integer), Dev-Department(String), DEV(String), development(String), 1(Integer)
 </span></span></code></pre></div><p>To enable the logging for a specific database entity, please provide the namespace of the MyBatis mapper (<a href="https://github.com/camunda/camunda-bpm-platform/tree/master/engine/src/main/resources/org/camunda/bpm/engine/impl/mapping/entity">all mappers</a>). Usually it is the full class name of that entity, e.g.:</p>
 <ul>
 <li><code>org.camunda.bpm.engine.impl.batch.BatchEntity</code></li>
@@ -3429,17 +3429,17 @@ On level <code>DEBUG</code>, they log all SQL statements with their parameters. 
 <li><code>org.camunda.bpm.engine.cmd</code> - the start/end of commands will help to determinate in which command the job is being executed</li>
 </ul>
 <p>The server log will contain logs similar to:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>25-Nov-2019 15:45:27.613 INFO [main] o.c.c.l.BaseLogger.logInfo ENGINE-14014 Starting up the JobExecutor[org.camunda.bpm.engine.impl.jobexecutor.RuntimeContainerJobExecutor].
-</span></span><span style="display:flex;"><span>25-Nov-2019 15:45:27.615 INFO [Thread-6] o.c.c.l.BaseLogger.logInfo ENGINE-14018 JobExecutor[org.camunda.bpm.engine.impl.jobexecutor.RuntimeContainerJobExecutor] starting to acquire jobs
-</span></span><span style="display:flex;"><span>25-Nov-2019 15:45:27.619 FINE [Thread-6] o.c.c.l.BaseLogger.logDebug ENGINE-13005 Starting command -------------------- AcquireJobsCmd ----------------------
-</span></span><span style="display:flex;"><span>25-Nov-2019 15:45:27.620 FINE [Thread-6] o.c.c.l.BaseLogger.logDebug ENGINE-13009 opening new command context
-</span></span><span style="display:flex;"><span>25-Nov-2019 15:45:27.689 FINE [Thread-6] o.a.i.l.j.BaseJdbcLogger.debug ==&gt;  Preparing: select RES.ID_, RES.REV_, RES.DUEDATE_, RES.PROCESS_INSTANCE_ID_, RES.EXCLUSIVE_ from ACT_RU_JOB RES where (RES.RETRIES_ &gt; 0) and ( RES.DUEDATE_ is null or RES.DUEDATE_ &lt;= ? ) and (RES.LOCK_OWNER_ is null or RES.LOCK_EXP_TIME_ &lt; ?) and RES.SUSPENSION_STATE_ = 1 and (RES.DEPLOYMENT_ID_ is null ) and ( ( RES.EXCLUSIVE_ = 1 and not exists( select J2.ID_ from ACT_RU_JOB J2 where J2.PROCESS_INSTANCE_ID_ = RES.PROCESS_INSTANCE_ID_ -- from the same proc. inst. and (J2.EXCLUSIVE_ = 1) -- also exclusive and (J2.LOCK_OWNER_ is not null and J2.LOCK_EXP_TIME_ &gt;= ?) -- in progress ) ) or RES.EXCLUSIVE_ = 0 ) LIMIT ? OFFSET ?
-</span></span><span style="display:flex;"><span>25-Nov-2019 15:45:27.692 FINE [Thread-6] o.a.i.l.j.BaseJdbcLogger.debug ==&gt; Parameters: 2019-11-25 15:45:27.621(Timestamp), 2019-11-25 15:45:27.621(Timestamp), 2019-11-25 15:45:27.621(Timestamp), 3(Integer), 0(Integer)
-</span></span><span style="display:flex;"><span>25-Nov-2019 15:45:27.693 FINE [Thread-6] o.a.i.l.j.BaseJdbcLogger.debug &lt;==      Total: 1
-</span></span><span style="display:flex;"><span>25-Nov-2019 15:45:27.695 FINE [Thread-6] o.c.c.l.BaseLogger.logDebug ENGINE-13011 closing existing command context
-</span></span><span style="display:flex;"><span>25-Nov-2019 15:45:27.699 FINE [Thread-6] o.a.i.l.j.BaseJdbcLogger.debug ==&gt;  Preparing: update ACT_RU_JOB SET REV_ = ?, LOCK_EXP_TIME_ = ?, LOCK_OWNER_ = ?, DUEDATE_ = ?, PROCESS_INSTANCE_ID_ = ?, EXCLUSIVE_ = ? where ID_= ? and REV_ = ?
-</span></span><span style="display:flex;"><span>25-Nov-2019 15:45:27.703 FINE [Thread-6] o.a.i.l.j.BaseJdbcLogger.debug ==&gt; Parameters: 90(Integer), 2019-11-25 15:50:27.695(Timestamp), 62eae13f-c636-4a21-a80e-c82fc028a959(String), 2019-11-25 00:01:00.0(Timestamp), null, true(Boolean), 9e1a4275-0c41-11ea-8035-e4a7a094a9d6(String), 89(Integer)
-</span></span><span style="display:flex;"><span>25-Nov-2019 15:45:27.706 FINE [Thread-6] o.c.c.l.BaseLogger.logDebug ENGINE-13006 Finishing command -------------------- AcquireJobsCmd ----------------------
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext"><span class="line"><span class="cl">25-Nov-2019 15:45:27.613 INFO [main] o.c.c.l.BaseLogger.logInfo ENGINE-14014 Starting up the JobExecutor[org.camunda.bpm.engine.impl.jobexecutor.RuntimeContainerJobExecutor].
+</span></span><span class="line"><span class="cl">25-Nov-2019 15:45:27.615 INFO [Thread-6] o.c.c.l.BaseLogger.logInfo ENGINE-14018 JobExecutor[org.camunda.bpm.engine.impl.jobexecutor.RuntimeContainerJobExecutor] starting to acquire jobs
+</span></span><span class="line"><span class="cl">25-Nov-2019 15:45:27.619 FINE [Thread-6] o.c.c.l.BaseLogger.logDebug ENGINE-13005 Starting command -------------------- AcquireJobsCmd ----------------------
+</span></span><span class="line"><span class="cl">25-Nov-2019 15:45:27.620 FINE [Thread-6] o.c.c.l.BaseLogger.logDebug ENGINE-13009 opening new command context
+</span></span><span class="line"><span class="cl">25-Nov-2019 15:45:27.689 FINE [Thread-6] o.a.i.l.j.BaseJdbcLogger.debug ==&gt;  Preparing: select RES.ID_, RES.REV_, RES.DUEDATE_, RES.PROCESS_INSTANCE_ID_, RES.EXCLUSIVE_ from ACT_RU_JOB RES where (RES.RETRIES_ &gt; 0) and ( RES.DUEDATE_ is null or RES.DUEDATE_ &lt;= ? ) and (RES.LOCK_OWNER_ is null or RES.LOCK_EXP_TIME_ &lt; ?) and RES.SUSPENSION_STATE_ = 1 and (RES.DEPLOYMENT_ID_ is null ) and ( ( RES.EXCLUSIVE_ = 1 and not exists( select J2.ID_ from ACT_RU_JOB J2 where J2.PROCESS_INSTANCE_ID_ = RES.PROCESS_INSTANCE_ID_ -- from the same proc. inst. and (J2.EXCLUSIVE_ = 1) -- also exclusive and (J2.LOCK_OWNER_ is not null and J2.LOCK_EXP_TIME_ &gt;= ?) -- in progress ) ) or RES.EXCLUSIVE_ = 0 ) LIMIT ? OFFSET ?
+</span></span><span class="line"><span class="cl">25-Nov-2019 15:45:27.692 FINE [Thread-6] o.a.i.l.j.BaseJdbcLogger.debug ==&gt; Parameters: 2019-11-25 15:45:27.621(Timestamp), 2019-11-25 15:45:27.621(Timestamp), 2019-11-25 15:45:27.621(Timestamp), 3(Integer), 0(Integer)
+</span></span><span class="line"><span class="cl">25-Nov-2019 15:45:27.693 FINE [Thread-6] o.a.i.l.j.BaseJdbcLogger.debug &lt;==      Total: 1
+</span></span><span class="line"><span class="cl">25-Nov-2019 15:45:27.695 FINE [Thread-6] o.c.c.l.BaseLogger.logDebug ENGINE-13011 closing existing command context
+</span></span><span class="line"><span class="cl">25-Nov-2019 15:45:27.699 FINE [Thread-6] o.a.i.l.j.BaseJdbcLogger.debug ==&gt;  Preparing: update ACT_RU_JOB SET REV_ = ?, LOCK_EXP_TIME_ = ?, LOCK_OWNER_ = ?, DUEDATE_ = ?, PROCESS_INSTANCE_ID_ = ?, EXCLUSIVE_ = ? where ID_= ? and REV_ = ?
+</span></span><span class="line"><span class="cl">25-Nov-2019 15:45:27.703 FINE [Thread-6] o.a.i.l.j.BaseJdbcLogger.debug ==&gt; Parameters: 90(Integer), 2019-11-25 15:50:27.695(Timestamp), 62eae13f-c636-4a21-a80e-c82fc028a959(String), 2019-11-25 00:01:00.0(Timestamp), null, true(Boolean), 9e1a4275-0c41-11ea-8035-e4a7a094a9d6(String), 89(Integer)
+</span></span><span class="line"><span class="cl">25-Nov-2019 15:45:27.706 FINE [Thread-6] o.c.c.l.BaseLogger.logDebug ENGINE-13006 Finishing command -------------------- AcquireJobsCmd ----------------------
 </span></span></code></pre></div><p>Find more information for Diagnosing the Job Executor in this blog post - <a href="https://blog.camunda.com/post/2019/10/job-executor-what-is-going-on-in-my-process-engine/">The Job Executor: What Is Going on in My Process Engine?</a>.</p>
 <h4 id="diagnosing-deadlocks">Diagnosing Deadlocks</h4>
 <p>The engine logging will provide further insights in case of deadlock issues by increasing the level of the command and the persistence loggers.
@@ -3451,28 +3451,28 @@ First, determine the resource involved in the deadlock, then try to narrow down,
 <p>When the issue occurs for a specific entity (e.g. <code>VariableInstance</code>), consider enabling the logger of that entity as well (<code>org.camunda.bpm.engine.impl.persistence.entity.VariableInstanceEntity</code>).
 Then the output will include the statements of these entities to observe the changes which are performed.
 Here is a sample of what traces the server log file will contain when increasing the level of these loggers.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>25-Nov-2019 16:00:50.675 FINE [thread-1] o.c.c.l.BaseLogger.logDebug ENGINE-13005 Starting command -------------------- RemoveExecutionVariablesCmd ----------------------
-</span></span><span style="display:flex;"><span>25-Nov-2019 16:00:50.676 FINE [thread-1] o.c.c.l.BaseLogger.logDebug ENGINE-13009 opening new command context
-</span></span><span style="display:flex;"><span>25-Nov-2019 16:00:50.718 FINE [thread-1] o.c.c.l.BaseLogger.logDebug ENGINE-03006 Cache state after flush: [
-</span></span><span style="display:flex;"><span>  PERSISTENT VariableInstanceEntity[0ec1ab1d-0f8d-11ea-8b01-e4a7a094a9d6]
-</span></span><span style="display:flex;"><span>  PERSISTENT ProcessDefinitionEntity[invoice:2:ae69d3b4-0c41-11ea-a8eb-e4a7a094a9d6]
-</span></span><span style="display:flex;"><span>  PERSISTENT HistoricVariableUpdateEventEntity[5eba854e-0f94-11ea-92d9-e4a7a094a9d6]
-</span></span><span style="display:flex;"><span>  PERSISTENT ExecutionEntity[0ec04b8b-0f8d-11ea-8b01-e4a7a094a9d6]
-</span></span><span style="display:flex;"><span>  PERSISTENT UserOperationLogEntryEventEntity[5ebb6faf-0f94-11ea-92d9-e4a7a094a9d6]
-</span></span><span style="display:flex;"><span>  PERSISTENT HistoricVariableInstanceEntity[ddea4bef-0f93-11ea-b2ca-e4a7a094a9d6]
-</span></span><span style="display:flex;"><span>]
-</span></span><span style="display:flex;"><span>25-Nov-2019 16:00:50.722 FINE [thread-1] o.c.c.l.BaseLogger.logDebug ENGINE-03008 Flush Summary: [
-</span></span><span style="display:flex;"><span>  INSERT UserOperationLogEntryEventEntity[5ebb6faf-0f94-11ea-92d9-e4a7a094a9d6]
-</span></span><span style="display:flex;"><span>  INSERT HistoricVariableUpdateEventEntity[5eba854e-0f94-11ea-92d9-e4a7a094a9d6]
-</span></span><span style="display:flex;"><span>  DELETE VariableInstanceEntity[ddea4bef-0f93-11ea-b2ca-e4a7a094a9d6]
-</span></span><span style="display:flex;"><span>  UPDATE HistoricVariableInstanceEntity[ddea4bef-0f93-11ea-b2ca-e4a7a094a9d6]
-</span></span><span style="display:flex;"><span>]
-</span></span><span style="display:flex;"><span>25-Nov-2019 16:00:50.725 FINE [thread-1] o.c.c.l.BaseLogger.logDebug ENGINE-03009 SQL operation: &#39;INSERT&#39;; Entity: &#39;HistoricVariableUpdateEventEntity[id=5eba854e-0f94-11ea-92d9-e4a7a094a9d6]&#39;
-</span></span><span style="display:flex;"><span>25-Nov-2019 16:00:50.726 FINE [thread-1] o.c.c.l.BaseLogger.logDebug ENGINE-03009 SQL operation: &#39;DELETE&#39;; Entity: &#39;VariableInstanceEntity[id=ddea4bef-0f93-11ea-b2ca-e4a7a094a9d6]&#39;
-</span></span><span style="display:flex;"><span>25-Nov-2019 16:00:50.727 FINE [thread-1] o.a.i.l.j.BaseJdbcLogger.debug ==&gt;  Preparing: delete from ACT_RU_VARIABLE where ID_ = ? and REV_ = ?
-</span></span><span style="display:flex;"><span>25-Nov-2019 16:00:50.728 FINE [thread-1] o.a.i.l.j.BaseJdbcLogger.debug ==&gt; Parameters: ddea4bef-0f93-11ea-b2ca-e4a7a094a9d6(String), 2(Integer)
-</span></span><span style="display:flex;"><span>25-Nov-2019 16:00:50.730 FINE [thread-1] o.c.c.l.BaseLogger.logDebug ENGINE-03009 SQL operation: &#39;UPDATE&#39;; Entity: &#39;HistoricVariableInstanceEntity[id=ddea4bef-0f93-11ea-b2ca-e4a7a094a9d6]&#39;
-</span></span><span style="display:flex;"><span>25-Nov-2019 16:00:50.737 FINE [thread-1] o.c.c.l.BaseLogger.logDebug ENGINE-13006 Finishing command -------------------- RemoveExecutionVariablesCmd ----------------------
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext"><span class="line"><span class="cl">25-Nov-2019 16:00:50.675 FINE [thread-1] o.c.c.l.BaseLogger.logDebug ENGINE-13005 Starting command -------------------- RemoveExecutionVariablesCmd ----------------------
+</span></span><span class="line"><span class="cl">25-Nov-2019 16:00:50.676 FINE [thread-1] o.c.c.l.BaseLogger.logDebug ENGINE-13009 opening new command context
+</span></span><span class="line"><span class="cl">25-Nov-2019 16:00:50.718 FINE [thread-1] o.c.c.l.BaseLogger.logDebug ENGINE-03006 Cache state after flush: [
+</span></span><span class="line"><span class="cl">  PERSISTENT VariableInstanceEntity[0ec1ab1d-0f8d-11ea-8b01-e4a7a094a9d6]
+</span></span><span class="line"><span class="cl">  PERSISTENT ProcessDefinitionEntity[invoice:2:ae69d3b4-0c41-11ea-a8eb-e4a7a094a9d6]
+</span></span><span class="line"><span class="cl">  PERSISTENT HistoricVariableUpdateEventEntity[5eba854e-0f94-11ea-92d9-e4a7a094a9d6]
+</span></span><span class="line"><span class="cl">  PERSISTENT ExecutionEntity[0ec04b8b-0f8d-11ea-8b01-e4a7a094a9d6]
+</span></span><span class="line"><span class="cl">  PERSISTENT UserOperationLogEntryEventEntity[5ebb6faf-0f94-11ea-92d9-e4a7a094a9d6]
+</span></span><span class="line"><span class="cl">  PERSISTENT HistoricVariableInstanceEntity[ddea4bef-0f93-11ea-b2ca-e4a7a094a9d6]
+</span></span><span class="line"><span class="cl">]
+</span></span><span class="line"><span class="cl">25-Nov-2019 16:00:50.722 FINE [thread-1] o.c.c.l.BaseLogger.logDebug ENGINE-03008 Flush Summary: [
+</span></span><span class="line"><span class="cl">  INSERT UserOperationLogEntryEventEntity[5ebb6faf-0f94-11ea-92d9-e4a7a094a9d6]
+</span></span><span class="line"><span class="cl">  INSERT HistoricVariableUpdateEventEntity[5eba854e-0f94-11ea-92d9-e4a7a094a9d6]
+</span></span><span class="line"><span class="cl">  DELETE VariableInstanceEntity[ddea4bef-0f93-11ea-b2ca-e4a7a094a9d6]
+</span></span><span class="line"><span class="cl">  UPDATE HistoricVariableInstanceEntity[ddea4bef-0f93-11ea-b2ca-e4a7a094a9d6]
+</span></span><span class="line"><span class="cl">]
+</span></span><span class="line"><span class="cl">25-Nov-2019 16:00:50.725 FINE [thread-1] o.c.c.l.BaseLogger.logDebug ENGINE-03009 SQL operation: &#39;INSERT&#39;; Entity: &#39;HistoricVariableUpdateEventEntity[id=5eba854e-0f94-11ea-92d9-e4a7a094a9d6]&#39;
+</span></span><span class="line"><span class="cl">25-Nov-2019 16:00:50.726 FINE [thread-1] o.c.c.l.BaseLogger.logDebug ENGINE-03009 SQL operation: &#39;DELETE&#39;; Entity: &#39;VariableInstanceEntity[id=ddea4bef-0f93-11ea-b2ca-e4a7a094a9d6]&#39;
+</span></span><span class="line"><span class="cl">25-Nov-2019 16:00:50.727 FINE [thread-1] o.a.i.l.j.BaseJdbcLogger.debug ==&gt;  Preparing: delete from ACT_RU_VARIABLE where ID_ = ? and REV_ = ?
+</span></span><span class="line"><span class="cl">25-Nov-2019 16:00:50.728 FINE [thread-1] o.a.i.l.j.BaseJdbcLogger.debug ==&gt; Parameters: ddea4bef-0f93-11ea-b2ca-e4a7a094a9d6(String), 2(Integer)
+</span></span><span class="line"><span class="cl">25-Nov-2019 16:00:50.730 FINE [thread-1] o.c.c.l.BaseLogger.logDebug ENGINE-03009 SQL operation: &#39;UPDATE&#39;; Entity: &#39;HistoricVariableInstanceEntity[id=ddea4bef-0f93-11ea-b2ca-e4a7a094a9d6]&#39;
+</span></span><span class="line"><span class="cl">25-Nov-2019 16:00:50.737 FINE [thread-1] o.c.c.l.BaseLogger.logDebug ENGINE-13006 Finishing command -------------------- RemoveExecutionVariablesCmd ----------------------
 </span></span></code></pre></div><p>The snippet contains the start and of <code>RemoveExecutionVariablesCmd</code>, the flush summary of the operation, and the database statements of the variable instance.</p>
 <h1 id="legacy-java-util-logging">Legacy: Java Util Logging</h1>
 <p>Some Camunda modules still use Java Util Logging directly.

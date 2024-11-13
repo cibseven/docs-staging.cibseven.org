@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/1.0/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/1.0/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/reference/bpmn20/gateways/sequence-flow/" />
 </head>
 <body class="">
@@ -3182,29 +3182,29 @@
 <p>A sequence flow can have a condition defined on it. When a BPMN 2.0 activity is left, the default behavior is to evaluate the conditions on the outgoing sequence flows. When a condition evaluates to &rsquo;true&rsquo;, that outgoing sequence flow is selected. When multiple sequence flows are selected that way, multiple executions will be generated and the process is continued in a parallel way. Note: This is different for gateways. Gateways will handle sequence flows with conditions in specific ways, depending on the gateway type.</p>
 <div data-bpmn-diagram="../bpmn/sequence-flow-conditional"></div>
 <p>A conditional sequence flow is represented in XML as a regular sequence flow, containing a conditionExpression sub-element. Note that at the moment only tFormalExpressions are supported. Omitting the xsi:type=&quot;&quot; definition will simply default to this type of expression.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;sequenceFlow</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;flow&#34;</span> <span style="color:#a6e22e">sourceRef=</span><span style="color:#e6db74">&#34;theStart&#34;</span> <span style="color:#a6e22e">targetRef=</span><span style="color:#e6db74">&#34;theTask&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;conditionExpression</span> <span style="color:#a6e22e">xsi:type=</span><span style="color:#e6db74">&#34;tFormalExpression&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">&lt;![CDATA[${order.price &gt; 100 &amp;&amp; order.price &lt; 250}]]&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/conditionExpression&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/sequenceFlow&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;sequenceFlow</span> <span class="na">id=</span><span class="s">&#34;flow&#34;</span> <span class="na">sourceRef=</span><span class="s">&#34;theStart&#34;</span> <span class="na">targetRef=</span><span class="s">&#34;theTask&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;conditionExpression</span> <span class="na">xsi:type=</span><span class="s">&#34;tFormalExpression&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="cp">&lt;![CDATA[${order.price &gt; 100 &amp;&amp; order.price &lt; 250}]]&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/conditionExpression&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/sequenceFlow&gt;</span>
 </span></span></code></pre></div><p>Currently, conditionalExpressions can be used with UEL and scripts. The expression or script used
 should resolve to a boolean value, otherwise an exception is thrown while evaluating the condition.</p>
 <p>The example below references data of a process variable, in the typical JavaBean style through getters.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;conditionExpression</span> <span style="color:#a6e22e">xsi:type=</span><span style="color:#e6db74">&#34;tFormalExpression&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;![CDATA[${order.price &gt; 100 &amp;&amp; order.price &lt; 250}]]&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/conditionExpression&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;conditionExpression</span> <span class="na">xsi:type=</span><span class="s">&#34;tFormalExpression&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="cp">&lt;![CDATA[${order.price &gt; 100 &amp;&amp; order.price &lt; 250}]]&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/conditionExpression&gt;</span>
 </span></span></code></pre></div><p>This example invokes a method that resolves to a boolean value.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;conditionExpression</span> <span style="color:#a6e22e">xsi:type=</span><span style="color:#e6db74">&#34;tFormalExpression&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;![CDATA[${order.isStandardOrder()}]]&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/conditionExpression&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;conditionExpression</span> <span class="na">xsi:type=</span><span class="s">&#34;tFormalExpression&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="cp">&lt;![CDATA[${order.isStandardOrder()}]]&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/conditionExpression&gt;</span>
 </span></span></code></pre></div><p>In this example a simple groovy script is used to evaluate a process variable <code>status</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;conditionExpression</span> <span style="color:#a6e22e">xsi:type=</span><span style="color:#e6db74">&#34;tFormalExpression&#34;</span> <span style="color:#a6e22e">language=</span><span style="color:#e6db74">&#34;groovy&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;![CDATA[status == &#39;complete&#39;]]&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/conditionExpression&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;conditionExpression</span> <span class="na">xsi:type=</span><span class="s">&#34;tFormalExpression&#34;</span> <span class="na">language=</span><span class="s">&#34;groovy&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="cp">&lt;![CDATA[status == &#39;complete&#39;]]&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/conditionExpression&gt;</span>
 </span></span></code></pre></div><p>Similar to a script task, an external script resource can also be specified (see the documentation
 on <a href="/manual/1.0/user-guide/process-engine/scripting/#script-source">script source</a> for more information).</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;conditionExpression</span> <span style="color:#a6e22e">xsi:type=</span><span style="color:#e6db74">&#34;tFormalExpression&#34;</span> <span style="color:#a6e22e">language=</span><span style="color:#e6db74">&#34;groovy&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">camunda:resource=</span><span style="color:#e6db74">&#34;org/camunda/bpm/exampe/condition.groovy&#34;</span> <span style="color:#f92672">/&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;conditionExpression</span> <span class="na">xsi:type=</span><span class="s">&#34;tFormalExpression&#34;</span> <span class="na">language=</span><span class="s">&#34;groovy&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">camunda:resource=</span><span class="s">&#34;org/camunda/bpm/exampe/condition.groovy&#34;</span> <span class="nt">/&gt;</span>
 </span></span></code></pre></div><h1 id="extensions-for-conditionexpression">Extensions for conditionExpression</h1>
 <table class="table table-striped">
   <tr>
@@ -3227,18 +3227,18 @@ on <a href="/manual/1.0/user-guide/process-engine/scripting/#script-source">scri
 <p>A default sequence flow for a certain activity is defined by the default attribute on that activity. The following example shows an exclusive gateway with a default sequence flow. Only when x is neither 1 nor 2 it will be selected as outgoing sequence flow for the gateway.</p>
 <div data-bpmn-diagram="../bpmn/exclusive-gateway"></div>
 <p>Note the &lsquo;slash&rsquo; marker at the beginning of the default sequence flow. The corresponding XML snippet shows how flow4 is configured as a default sequence flow.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;exclusiveGateway</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;exclusiveGw&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Exclusive Gateway&#34;</span> <span style="color:#a6e22e">default=</span><span style="color:#e6db74">&#34;flow4&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;sequenceFlow</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;flow2&#34;</span> <span style="color:#a6e22e">sourceRef=</span><span style="color:#e6db74">&#34;exclusiveGw&#34;</span> <span style="color:#a6e22e">targetRef=</span><span style="color:#e6db74">&#34;theTask1&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;${x==1}&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;conditionExpression</span> <span style="color:#a6e22e">xsi:type=</span><span style="color:#e6db74">&#34;tFormalExpression&#34;</span><span style="color:#f92672">&gt;</span>${x == 1}<span style="color:#f92672">&lt;/conditionExpression&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/sequenceFlow&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;sequenceFlow</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;flow3&#34;</span> <span style="color:#a6e22e">sourceRef=</span><span style="color:#e6db74">&#34;exclusiveGw&#34;</span> <span style="color:#a6e22e">targetRef=</span><span style="color:#e6db74">&#34;theTask2&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;${x==2}&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;conditionExpression</span> <span style="color:#a6e22e">xsi:type=</span><span style="color:#e6db74">&#34;tFormalExpression&#34;</span><span style="color:#f92672">&gt;</span>${x == 2}<span style="color:#f92672">&lt;/conditionExpression&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/sequenceFlow&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;sequenceFlow</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;flow4&#34;</span> <span style="color:#a6e22e">sourceRef=</span><span style="color:#e6db74">&#34;exclusiveGw&#34;</span> <span style="color:#a6e22e">targetRef=</span><span style="color:#e6db74">&#34;theTask3&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;else&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/sequenceFlow&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;exclusiveGateway</span> <span class="na">id=</span><span class="s">&#34;exclusiveGw&#34;</span> <span class="na">name=</span><span class="s">&#34;Exclusive Gateway&#34;</span> <span class="na">default=</span><span class="s">&#34;flow4&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;sequenceFlow</span> <span class="na">id=</span><span class="s">&#34;flow2&#34;</span> <span class="na">sourceRef=</span><span class="s">&#34;exclusiveGw&#34;</span> <span class="na">targetRef=</span><span class="s">&#34;theTask1&#34;</span> <span class="na">name=</span><span class="s">&#34;${x==1}&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;conditionExpression</span> <span class="na">xsi:type=</span><span class="s">&#34;tFormalExpression&#34;</span><span class="nt">&gt;</span>${x == 1}<span class="nt">&lt;/conditionExpression&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/sequenceFlow&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;sequenceFlow</span> <span class="na">id=</span><span class="s">&#34;flow3&#34;</span> <span class="na">sourceRef=</span><span class="s">&#34;exclusiveGw&#34;</span> <span class="na">targetRef=</span><span class="s">&#34;theTask2&#34;</span> <span class="na">name=</span><span class="s">&#34;${x==2}&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;conditionExpression</span> <span class="na">xsi:type=</span><span class="s">&#34;tFormalExpression&#34;</span><span class="nt">&gt;</span>${x == 2}<span class="nt">&lt;/conditionExpression&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/sequenceFlow&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;sequenceFlow</span> <span class="na">id=</span><span class="s">&#34;flow4&#34;</span> <span class="na">sourceRef=</span><span class="s">&#34;exclusiveGw&#34;</span> <span class="na">targetRef=</span><span class="s">&#34;theTask3&#34;</span> <span class="na">name=</span><span class="s">&#34;else&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/sequenceFlow&gt;</span>
 </span></span></code></pre></div>
     </div>
   </div>

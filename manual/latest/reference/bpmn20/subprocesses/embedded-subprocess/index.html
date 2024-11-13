@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/latest/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/latest/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/reference/bpmn20/subprocesses/embedded-subprocess/" />
 </head>
 <body class="">
@@ -3177,13 +3177,13 @@
 <p>One of the main reasons to use a subprocess is to define a scope for an event. The following process model shows this: If we are spontaneously invited to dinner, we will cancel our cooking process. However, if we are already eating, we will not react to an invitation anymore. In more technical terms, the scope of the message event is the subprocess, so the message can only be received while the subprocess is active.</p>
 <div data-bpmn-diagram="../bpmn/subprocess_attached"></div>
 <p>A subprocess is defined by the subprocess element. All activities, gateways, events, etc. that are part of the subprocess need to be enclosed within this element.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;startEvent</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;outerStartEvent&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">&lt;!-- ... other elements ... --&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;subProcess</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;subProcess&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>   <span style="color:#f92672">&lt;startEvent</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;subProcessStart&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>   <span style="color:#75715e">&lt;!-- ... other subprocess elements ... --&gt;</span>
-</span></span><span style="display:flex;"><span>   <span style="color:#f92672">&lt;endEvent</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;subProcessEnd&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/subProcess&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;startEvent</span> <span class="na">id=</span><span class="s">&#34;outerStartEvent&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- ... other elements ... --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;subProcess</span> <span class="na">id=</span><span class="s">&#34;subProcess&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">   <span class="nt">&lt;startEvent</span> <span class="na">id=</span><span class="s">&#34;subProcessStart&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">   <span class="c">&lt;!-- ... other subprocess elements ... --&gt;</span>
+</span></span><span class="line"><span class="cl">   <span class="nt">&lt;endEvent</span> <span class="na">id=</span><span class="s">&#34;subProcessEnd&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/subProcess&gt;</span>
 </span></span></code></pre></div><h1 id="camunda-extensions">Camunda Extensions</h1>
 <table class="table table-striped">
   <tr>

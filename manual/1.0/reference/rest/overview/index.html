@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/1.0/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/1.0/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/reference/rest/overview/" />
 </head>
 <body class="">
@@ -3176,23 +3176,23 @@
 <h1 id="error-handling">Error Handling</h1>
 <p>For every method this documentation gives possible HTTP status codes. The error explanations do not cover all possible error causes that may arise when the request is served, for example, most of the requests will not work properly if there are problems with database access. Any of these undocumented errors will be translated to a HTTP 500 error.</p>
 <p>All errors also provide a JSON response body of the form:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>  {
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;type&#34;</span> : <span style="color:#e6db74">&#34;SomeExceptionClass&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;message&#34;</span> : <span style="color:#e6db74">&#34;a detailed message&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;code&#34;</span> : <span style="color:#ae81ff">10000</span>
-</span></span><span style="display:flex;"><span>  }
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-JSON" data-lang="JSON"><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;type&#34;</span> <span class="p">:</span> <span class="s2">&#34;SomeExceptionClass&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;message&#34;</span> <span class="p">:</span> <span class="s2">&#34;a detailed message&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;code&#34;</span> <span class="p">:</span> <span class="mi">10000</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
 </span></span></code></pre></div><h2 id="authorization-exceptions">Authorization Exceptions</h2>
 <p>If an already authenticated user interacts with a resource in an unauthorized way, the status code of the response will be set to <code>403 Forbidden</code>. Details about the unauthorized interaction are provided in the response body.</p>
 <h4 id="type">Type</h4>
 <p><code>AuthorizationException</code></p>
 <h4 id="response-body">Response Body</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{<span style="color:#f92672">&#34;type&#34;</span> : <span style="color:#e6db74">&#34;AuthorizationException&#34;</span>,
-</span></span><span style="display:flex;"><span> <span style="color:#f92672">&#34;message&#34;</span> : <span style="color:#e6db74">&#34;The user with id &#39;jonny&#39; does not have &#39;DELETE&#39; permission on resource &#39;Mary&#39; of type &#39;User&#39;.&#34;</span>,
-</span></span><span style="display:flex;"><span> <span style="color:#f92672">&#34;code&#34;</span> : <span style="color:#ae81ff">0</span>,
-</span></span><span style="display:flex;"><span> <span style="color:#f92672">&#34;userId&#34;</span> : <span style="color:#e6db74">&#34;jonny&#34;</span>,
-</span></span><span style="display:flex;"><span> <span style="color:#f92672">&#34;permissionName&#34;</span> : <span style="color:#e6db74">&#34;DELETE&#34;</span>,
-</span></span><span style="display:flex;"><span> <span style="color:#f92672">&#34;resourceName&#34;</span> : <span style="color:#e6db74">&#34;User&#34;</span>,
-</span></span><span style="display:flex;"><span> <span style="color:#f92672">&#34;resourceId&#34;</span> : <span style="color:#e6db74">&#34;Mary&#34;</span>}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-JSON" data-lang="JSON"><span class="line"><span class="cl"><span class="p">{</span><span class="nt">&#34;type&#34;</span> <span class="p">:</span> <span class="s2">&#34;AuthorizationException&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"> <span class="nt">&#34;message&#34;</span> <span class="p">:</span> <span class="s2">&#34;The user with id &#39;jonny&#39; does not have &#39;DELETE&#39; permission on resource &#39;Mary&#39; of type &#39;User&#39;.&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"> <span class="nt">&#34;code&#34;</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"> <span class="nt">&#34;userId&#34;</span> <span class="p">:</span> <span class="s2">&#34;jonny&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"> <span class="nt">&#34;permissionName&#34;</span> <span class="p">:</span> <span class="s2">&#34;DELETE&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"> <span class="nt">&#34;resourceName&#34;</span> <span class="p">:</span> <span class="s2">&#34;User&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"> <span class="nt">&#34;resourceId&#34;</span> <span class="p">:</span> <span class="s2">&#34;Mary&#34;</span><span class="p">}</span>
 </span></span></code></pre></div><h2 id="migration-validation-exceptions">Migration Validation Exceptions</h2>
 <p>If a migration plan from one process definition version to another is not
 valid, a migration exception is thrown. It can be a <em>migration plan validation
@@ -3258,29 +3258,29 @@ activity was not mapped by the migration plan.</p>
   </tr>
 </table>
 <h4 id="example">Example</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;MigrationPlanValidationException&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;message&#34;</span>: <span style="color:#e6db74">&#34;ENGINE-23001 Migration plan for process definition &#39;invoice:1:8aa1533c-23e5-11e6-abb7-f6aefe19b687&#39; to &#39;invoice:2:8accd012-23e5-11e6-abb7-f6aefe19b687&#39; is not valid:\n\t Migration instruction MigrationInstructionImpl{sourceActivityId=&#39;approveInvoice&#39;, targetActivityId=&#39;assignApprover&#39;, updateEventTrigger=&#39;false&#39;} is not valid:\n\t\tActivities have incompatible types (UserTaskActivityBehavior is not compatible with DmnBusinessRuleTaskActivityBehavior)\n&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;code&#34;</span> : <span style="color:#ae81ff">0</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;validationReport&#34;</span>: {
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;instructionReports&#34;</span>: [
-</span></span><span style="display:flex;"><span>      {
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;instruction&#34;</span>: {
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;sourceActivityIds&#34;</span>: [
-</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;approveInvoice&#34;</span>
-</span></span><span style="display:flex;"><span>          ],
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;targetActivityIds&#34;</span>: [
-</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;assignApprover&#34;</span>
-</span></span><span style="display:flex;"><span>          ],
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;updateEventTrigger&#34;</span>: <span style="color:#66d9ef">false</span>
-</span></span><span style="display:flex;"><span>        },
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;failures&#34;</span>: [
-</span></span><span style="display:flex;"><span>          <span style="color:#e6db74">&#34;Activities have incompatible types (UserTaskActivityBehavior is not compatible with DmnBusinessRuleTaskActivityBehavior)&#34;</span>
-</span></span><span style="display:flex;"><span>        ]
-</span></span><span style="display:flex;"><span>      }
-</span></span><span style="display:flex;"><span>    ]
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-JSON" data-lang="JSON"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;MigrationPlanValidationException&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;message&#34;</span><span class="p">:</span> <span class="s2">&#34;ENGINE-23001 Migration plan for process definition &#39;invoice:1:8aa1533c-23e5-11e6-abb7-f6aefe19b687&#39; to &#39;invoice:2:8accd012-23e5-11e6-abb7-f6aefe19b687&#39; is not valid:\n\t Migration instruction MigrationInstructionImpl{sourceActivityId=&#39;approveInvoice&#39;, targetActivityId=&#39;assignApprover&#39;, updateEventTrigger=&#39;false&#39;} is not valid:\n\t\tActivities have incompatible types (UserTaskActivityBehavior is not compatible with DmnBusinessRuleTaskActivityBehavior)\n&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;code&#34;</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;validationReport&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;instructionReports&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;instruction&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;sourceActivityIds&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;approveInvoice&#34;</span>
+</span></span><span class="line"><span class="cl">          <span class="p">],</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;targetActivityIds&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;assignApprover&#34;</span>
+</span></span><span class="line"><span class="cl">          <span class="p">],</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;updateEventTrigger&#34;</span><span class="p">:</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;failures&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">          <span class="s2">&#34;Activities have incompatible types (UserTaskActivityBehavior is not compatible with DmnBusinessRuleTaskActivityBehavior)&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">]</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h3 id="migrating-process-instance-validation-exceptions">Migrating Process Instance Validation Exceptions</h3>
 <h4 id="type-2">Type</h4>
 <p><code>MigratingProcessInstanceValidationException</code></p>
@@ -3370,71 +3370,71 @@ activity was not mapped by the migration plan.</p>
   </tr>
 </table>
 <h4 id="example-1">Example</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;MigratingProcessInstanceValidationException&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;message&#34;</span>: <span style="color:#e6db74">&#34;ENGINE-23004 Cannot migrate process instance &#39;96dc383f-23eb-11e6-8e4a-f6aefe19b687&#39;:\n\tCannot migrate activity instance &#39;approveInvoice:f59925bc-23eb-11e6-8e4a-f6aefe19b687&#39;:\n\t\tThere is no migration instruction for this instance&#39;s activity\n\tCannot migrate transition instance &#39;f598897a-23eb-11e6-8e4a-f6aefe19b687&#39;:\n\t\tThere is no migration instruction for this instance&#39;s activity\n&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;code&#34;</span>: <span style="color:#ae81ff">0</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;validationReport&#34;</span>: {
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;processInstanceId&#34;</span>: <span style="color:#e6db74">&#34;96dc383f-23eb-11e6-8e4a-f6aefe19b687&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;failures&#34;</span>: [],
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;activityInstanceValidationReports&#34;</span>: [
-</span></span><span style="display:flex;"><span>      {
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;migrationInstruction&#34;</span>: <span style="color:#66d9ef">null</span>,
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;activityInstanceId&#34;</span>: <span style="color:#e6db74">&#34;approveInvoice:f59925bc-23eb-11e6-8e4a-f6aefe19b687&#34;</span>,
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;sourceScopeId&#34;</span>: <span style="color:#e6db74">&#34;approveInvoice&#34;</span>,
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;failures&#34;</span>: [
-</span></span><span style="display:flex;"><span>          <span style="color:#e6db74">&#34;There is no migration instruction for this instance&#39;s activity&#34;</span>
-</span></span><span style="display:flex;"><span>        ]
-</span></span><span style="display:flex;"><span>      }
-</span></span><span style="display:flex;"><span>    ],
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;transitionInstanceValidationReports&#34;</span>: [
-</span></span><span style="display:flex;"><span>      {
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;migrationInstruction&#34;</span>: <span style="color:#66d9ef">null</span>,
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;transitionInstanceId&#34;</span>: <span style="color:#e6db74">&#34;f598897a-23eb-11e6-8e4a-f6aefe19b687&#34;</span>,
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;sourceScopeId&#34;</span>: <span style="color:#e6db74">&#34;ServiceTask_1&#34;</span>,
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;failures&#34;</span>: [
-</span></span><span style="display:flex;"><span>          <span style="color:#e6db74">&#34;There is no migration instruction for this instance&#39;s activity&#34;</span>
-</span></span><span style="display:flex;"><span>        ]
-</span></span><span style="display:flex;"><span>      }
-</span></span><span style="display:flex;"><span>    ]
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-JSON" data-lang="JSON"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;MigratingProcessInstanceValidationException&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;message&#34;</span><span class="p">:</span> <span class="s2">&#34;ENGINE-23004 Cannot migrate process instance &#39;96dc383f-23eb-11e6-8e4a-f6aefe19b687&#39;:\n\tCannot migrate activity instance &#39;approveInvoice:f59925bc-23eb-11e6-8e4a-f6aefe19b687&#39;:\n\t\tThere is no migration instruction for this instance&#39;s activity\n\tCannot migrate transition instance &#39;f598897a-23eb-11e6-8e4a-f6aefe19b687&#39;:\n\t\tThere is no migration instruction for this instance&#39;s activity\n&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;code&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;validationReport&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;processInstanceId&#34;</span><span class="p">:</span> <span class="s2">&#34;96dc383f-23eb-11e6-8e4a-f6aefe19b687&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;failures&#34;</span><span class="p">:</span> <span class="p">[],</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;activityInstanceValidationReports&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;migrationInstruction&#34;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;activityInstanceId&#34;</span><span class="p">:</span> <span class="s2">&#34;approveInvoice:f59925bc-23eb-11e6-8e4a-f6aefe19b687&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;sourceScopeId&#34;</span><span class="p">:</span> <span class="s2">&#34;approveInvoice&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;failures&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">          <span class="s2">&#34;There is no migration instruction for this instance&#39;s activity&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">]</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;transitionInstanceValidationReports&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;migrationInstruction&#34;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;transitionInstanceId&#34;</span><span class="p">:</span> <span class="s2">&#34;f598897a-23eb-11e6-8e4a-f6aefe19b687&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;sourceScopeId&#34;</span><span class="p">:</span> <span class="s2">&#34;ServiceTask_1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;failures&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">          <span class="s2">&#34;There is no migration instruction for this instance&#39;s activity&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">]</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h2 id="parse-exceptions">Parse Exceptions</h2>
 <p>If the process bpmn resource cannot be parsed during deployment, the deployment of it will fail and the status code of the response will be set to <code>400 Bad Request</code>. Details about the parsing problems are provided in the response body.</p>
 <h4 id="type-3">Type</h4>
 <p><code>ParseException</code></p>
 <h4 id="response-body-3">Response Body</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>	<span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;ParseException&#34;</span>,
-</span></span><span style="display:flex;"><span>	<span style="color:#f92672">&#34;message&#34;</span>: <span style="color:#e6db74">&#34;ENGINE-09005 Could not parse BPMN process. Errors: Exclusive Gateway &#39;ExclusiveGateway_1&#39; has outgoing sequence flow &#39;SequenceFlow_0&#39; without condition which is not the default flow.&#34;</span>,
-</span></span><span style="display:flex;"><span>	<span style="color:#f92672">&#34;code&#34;</span> : <span style="color:#ae81ff">0</span>,
-</span></span><span style="display:flex;"><span>	<span style="color:#f92672">&#34;details&#34;</span>: {
-</span></span><span style="display:flex;"><span>		<span style="color:#f92672">&#34;invoice.bpmn&#34;</span>: {
-</span></span><span style="display:flex;"><span>			<span style="color:#f92672">&#34;errors&#34;</span>: [
-</span></span><span style="display:flex;"><span>				{
-</span></span><span style="display:flex;"><span>					<span style="color:#f92672">&#34;message&#34;</span>: <span style="color:#e6db74">&#34;Exclusive Gateway &#39;ExclusiveGateway_1&#39; has outgoing sequence flow &#39;SequenceFlow_0&#39; without condition which is not the default flow.&#34;</span>,
-</span></span><span style="display:flex;"><span>					<span style="color:#f92672">&#34;line&#34;</span>: <span style="color:#ae81ff">77</span>,
-</span></span><span style="display:flex;"><span>					<span style="color:#f92672">&#34;column&#34;</span>: <span style="color:#ae81ff">15</span>,
-</span></span><span style="display:flex;"><span>					<span style="color:#f92672">&#34;mainBpmnElementId&#34;</span>: <span style="color:#e6db74">&#34;ExclusiveGateway_1&#34;</span>,
-</span></span><span style="display:flex;"><span>					<span style="color:#f92672">&#34;bpmnElementIds&#34;</span>: [
-</span></span><span style="display:flex;"><span>						<span style="color:#e6db74">&#34;ExclusiveGateway_1&#34;</span>,
-</span></span><span style="display:flex;"><span>						<span style="color:#e6db74">&#34;SequenceFlow_0&#34;</span>
-</span></span><span style="display:flex;"><span>					]
-</span></span><span style="display:flex;"><span>				}
-</span></span><span style="display:flex;"><span>			],
-</span></span><span style="display:flex;"><span>			<span style="color:#f92672">&#34;warnings&#34;</span>: [
-</span></span><span style="display:flex;"><span>				{
-</span></span><span style="display:flex;"><span>					<span style="color:#f92672">&#34;message&#34;</span>: <span style="color:#e6db74">&#34;It is not recommended to use a cancelling boundary timer event with a time cycle.&#34;</span>,
-</span></span><span style="display:flex;"><span>					<span style="color:#f92672">&#34;line&#34;</span>: <span style="color:#ae81ff">87</span>,
-</span></span><span style="display:flex;"><span>					<span style="color:#f92672">&#34;column&#34;</span>: <span style="color:#ae81ff">20</span>,
-</span></span><span style="display:flex;"><span>					<span style="color:#f92672">&#34;mainBpmnElementId&#34;</span>: <span style="color:#e6db74">&#34;BoundaryEvent_1&#34;</span>,
-</span></span><span style="display:flex;"><span>					<span style="color:#f92672">&#34;bpmnElementIds&#34;</span>: [
-</span></span><span style="display:flex;"><span>						<span style="color:#e6db74">&#34;BoundaryEvent_1&#34;</span>
-</span></span><span style="display:flex;"><span>					]
-</span></span><span style="display:flex;"><span>				}
-</span></span><span style="display:flex;"><span>			]
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>	}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;ParseException&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="nt">&#34;message&#34;</span><span class="p">:</span> <span class="s2">&#34;ENGINE-09005 Could not parse BPMN process. Errors: Exclusive Gateway &#39;ExclusiveGateway_1&#39; has outgoing sequence flow &#39;SequenceFlow_0&#39; without condition which is not the default flow.&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="nt">&#34;code&#34;</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="nt">&#34;details&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nt">&#34;invoice.bpmn&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nt">&#34;errors&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">				<span class="p">{</span>
+</span></span><span class="line"><span class="cl">					<span class="nt">&#34;message&#34;</span><span class="p">:</span> <span class="s2">&#34;Exclusive Gateway &#39;ExclusiveGateway_1&#39; has outgoing sequence flow &#39;SequenceFlow_0&#39; without condition which is not the default flow.&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">					<span class="nt">&#34;line&#34;</span><span class="p">:</span> <span class="mi">77</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">					<span class="nt">&#34;column&#34;</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">					<span class="nt">&#34;mainBpmnElementId&#34;</span><span class="p">:</span> <span class="s2">&#34;ExclusiveGateway_1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">					<span class="nt">&#34;bpmnElementIds&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">						<span class="s2">&#34;ExclusiveGateway_1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">						<span class="s2">&#34;SequenceFlow_0&#34;</span>
+</span></span><span class="line"><span class="cl">					<span class="p">]</span>
+</span></span><span class="line"><span class="cl">				<span class="p">}</span>
+</span></span><span class="line"><span class="cl">			<span class="p">],</span>
+</span></span><span class="line"><span class="cl">			<span class="nt">&#34;warnings&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">				<span class="p">{</span>
+</span></span><span class="line"><span class="cl">					<span class="nt">&#34;message&#34;</span><span class="p">:</span> <span class="s2">&#34;It is not recommended to use a cancelling boundary timer event with a time cycle.&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">					<span class="nt">&#34;line&#34;</span><span class="p">:</span> <span class="mi">87</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">					<span class="nt">&#34;column&#34;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">					<span class="nt">&#34;mainBpmnElementId&#34;</span><span class="p">:</span> <span class="s2">&#34;BoundaryEvent_1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">					<span class="nt">&#34;bpmnElementIds&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">						<span class="s2">&#34;BoundaryEvent_1&#34;</span>
+</span></span><span class="line"><span class="cl">					<span class="p">]</span>
+</span></span><span class="line"><span class="cl">				<span class="p">}</span>
+</span></span><span class="line"><span class="cl">			<span class="p">]</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
 </span></span></code></pre></div><h2 id="query-maximum-results-limit-exceptions">Query Maximum Results Limit Exceptions</h2>
 <p>When the <a href="/manual/1.0/user-guide/process-engine/process-engine-api/#query-maximum-results-limit">maximum results limit of a query</a>
 is exceeded, an exception is thrown which results in an HTTP status code 400.</p>

@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/1.0/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/1.0/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/user-guide/spring-boot-integration/configuration/" />
 </head>
 <body class="">
@@ -3181,32 +3181,32 @@
 <p>If you want to <a href="http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#howto-two-datasources">configure more than one datasource</a>
 and don&rsquo;t want to use the <code>@Primary</code> one for the process engine, then you can create a separate
 data source with name <code>camundaBpmDataSource</code> that will be automatically wired with Camunda instead.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Bean</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Primary</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@ConfigurationProperties</span>(prefix<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;datasource.primary&#34;</span>)
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> DataSource <span style="color:#a6e22e">primaryDataSource</span>() {
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> DataSourceBuilder.<span style="color:#a6e22e">create</span>().<span style="color:#a6e22e">build</span>();
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Bean</span>(name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;camundaBpmDataSource&#34;</span>)
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@ConfigurationProperties</span>(prefix<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;datasource.secondary&#34;</span>)
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> DataSource <span style="color:#a6e22e">secondaryDataSource</span>() {
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> DataSourceBuilder.<span style="color:#a6e22e">create</span>().<span style="color:#a6e22e">build</span>();
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>If you don&rsquo;t want to use the <code>@Primary</code> transaction manager, it is possible to create a separate
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Bean</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@Primary</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@ConfigurationProperties</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="s">&#34;datasource.primary&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="n">DataSource</span><span class="w"> </span><span class="nf">primaryDataSource</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">DataSourceBuilder</span><span class="p">.</span><span class="na">create</span><span class="p">().</span><span class="na">build</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@Bean</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&#34;camundaBpmDataSource&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@ConfigurationProperties</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="s">&#34;datasource.secondary&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="n">DataSource</span><span class="w"> </span><span class="nf">secondaryDataSource</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">DataSourceBuilder</span><span class="p">.</span><span class="na">create</span><span class="p">().</span><span class="na">build</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>If you don&rsquo;t want to use the <code>@Primary</code> transaction manager, it is possible to create a separate
 transaction manager with the name <code>camundaBpmTransactionManager</code> that will be wired with the data
 source used for Camunda (either <code>@Primary</code> or <code>camundaBpmDataSource</code>):</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Bean</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Primary</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> PlatformTransactionManager <span style="color:#a6e22e">primaryTransactionManager</span>() {
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> JpaTransactionManager();
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Bean</span>(name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;camundaBpmTransactionManager&#34;</span>)
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> PlatformTransactionManager <span style="color:#a6e22e">camundaTransactionManager</span>(<span style="color:#a6e22e">@Qualifier</span>(<span style="color:#e6db74">&#34;camundaBpmDataSource&#34;</span>) DataSource dataSource) {
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> DataSourceTransactionManager(dataSource);
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Bean</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@Primary</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="n">PlatformTransactionManager</span><span class="w"> </span><span class="nf">primaryTransactionManager</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">JpaTransactionManager</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@Bean</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&#34;camundaBpmTransactionManager&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="n">PlatformTransactionManager</span><span class="w"> </span><span class="nf">camundaTransactionManager</span><span class="p">(</span><span class="nd">@Qualifier</span><span class="p">(</span><span class="s">&#34;camundaBpmDataSource&#34;</span><span class="p">)</span><span class="w"> </span><span class="n">DataSource</span><span class="w"> </span><span class="n">dataSource</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DataSourceTransactionManager</span><span class="p">(</span><span class="n">dataSource</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div>
 <div class="note bg-warning docs-warning">
   <h3></h3>
   <p>The wired data source and transaction manager beans must match, i.e. make sure that the transaction manager actually manages the Camunda data source. If that is not the case, the process engine will use auto-commit mode for the data source connection, potentially leading to inconsistencies in the database.</p>
@@ -3215,11 +3215,11 @@ source used for Camunda (either <code>@Primary</code> or <code>camundaBpmDataSou
 <h3 id="defaulthistoryconfiguration"><code>DefaultHistoryConfiguration</code></h3>
 <p>Applies the history configuration to the process engine. If not configured, the history level <a href="/manual/1.0/user-guide/process-engine/history/history-configuration/#choose-a-history-level">FULL</a> is used.
 If you want to use a custom <code>HistoryEventHandler</code>, you just have to provide a bean implementing the interface.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Bean</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> HistoryEventHandler <span style="color:#a6e22e">customHistoryEventHandler</span>() {
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> CustomHistoryEventHanlder();
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h3 id="defaulthistorylevelautohandlingconfiguration"><code>DefaultHistoryLevelAutoHandlingConfiguration</code></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Bean</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="n">HistoryEventHandler</span><span class="w"> </span><span class="nf">customHistoryEventHandler</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">CustomHistoryEventHanlder</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h3 id="defaulthistorylevelautohandlingconfiguration"><code>DefaultHistoryLevelAutoHandlingConfiguration</code></h3>
 <p>As camunda version &gt;= 7.4 supports <code>history-level auto</code>, this configuration adds support for versions &lt;= 7.3.</p>
 <p>To have more control over the handling, you can provide your own</p>
 <ul>
@@ -3243,59 +3243,59 @@ The resource pattern can be changed using properties (see <a href="#camunda-engi
 <p>Applies the authorization configuration to the process engine. If not configured, the <code>camunda</code> default values are used (see <a href="#camunda-engine-properties">properties</a>).</p>
 <h2 id="overriding-the-default-configuration">Overriding the Default Configuration</h2>
 <p>Provide a bean implementing one of the marker interfaces. For example to customize the datasource configuration:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Configuration</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyCamundaConfiguration</span> {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">@Bean</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> CamundaDatasourceConfiguration <span style="color:#a6e22e">camundaDatasourceConfiguration</span>() {
-</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> MyCamundaDatasourceConfiguration();
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h2 id="adding-additional-configurations">Adding Additional Configurations</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Configuration</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyCamundaConfiguration</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nd">@Bean</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">CamundaDatasourceConfiguration</span><span class="w"> </span><span class="nf">camundaDatasourceConfiguration</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MyCamundaDatasourceConfiguration</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h2 id="adding-additional-configurations">Adding Additional Configurations</h2>
 <p>You just have to provide one or more beans implementing the <code>org.camunda.bpm.engine.impl.cfg.ProcessEnginePlugin</code> interface
 (or extend from <code>org.camunda.bpm.spring.boot.starter.configuration.impl.AbstractCamundaConfiguration</code>).
 The configurations are applied ordered using the spring ordering mechanism (<code>@Order</code> annotation and <code>Ordered</code> interface).
 So if you want your configuration to be applied before the default configurations, add a <code>@Order(Ordering.DEFAULT_ORDER - 1)</code> annotation to your class.
 If you want your configuration to be applied after the default configurations, add a <code>@Order(Ordering.DEFAULT_ORDER + 1)</code> annotation to your class.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Configuration</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyCamundaConfiguration</span> {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">@Bean</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">@Order</span>(Ordering.<span style="color:#a6e22e">DEFAULT_ORDER</span> <span style="color:#f92672">+</span> 1)
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> ProcessEnginePlugin <span style="color:#a6e22e">myCustomConfiguration</span>() {
-</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> MyCustomConfiguration();
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>Or, if you have component scan enabled:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Component</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Order</span>(Ordering.<span style="color:#a6e22e">DEFAULT_ORDER</span> <span style="color:#f92672">+</span> 1)
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyCustomConfiguration</span> <span style="color:#66d9ef">implements</span> ProcessEnginePlugin {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">@Override</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">preInit</span>(ProcessEngineConfigurationImpl processEngineConfiguration) {
-</span></span><span style="display:flex;"><span>		<span style="color:#75715e">//...</span>
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	...
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>or</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Component</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Order</span>(Ordering.<span style="color:#a6e22e">DEFAULT_ORDER</span> <span style="color:#f92672">+</span> 1)
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyCustomConfiguration</span> <span style="color:#66d9ef">extends</span> AbstractCamundaConfiguration {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">@Override</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">preInit</span>(SpringProcessEngineConfiguration springProcessEngineConfiguration) {
-</span></span><span style="display:flex;"><span>		<span style="color:#75715e">//...</span>
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	...
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h2 id="cib-seven-engine-properties">CIB seven engine Properties</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Configuration</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyCamundaConfiguration</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nd">@Bean</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nd">@Order</span><span class="p">(</span><span class="n">Ordering</span><span class="p">.</span><span class="na">DEFAULT_ORDER</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">1</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">ProcessEnginePlugin</span><span class="w"> </span><span class="nf">myCustomConfiguration</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MyCustomConfiguration</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>Or, if you have component scan enabled:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Component</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@Order</span><span class="p">(</span><span class="n">Ordering</span><span class="p">.</span><span class="na">DEFAULT_ORDER</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">1</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyCustomConfiguration</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">ProcessEnginePlugin</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nd">@Override</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">preInit</span><span class="p">(</span><span class="n">ProcessEngineConfigurationImpl</span><span class="w"> </span><span class="n">processEngineConfiguration</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="c1">//...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="p">...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>or</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@Component</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@Order</span><span class="p">(</span><span class="n">Ordering</span><span class="p">.</span><span class="na">DEFAULT_ORDER</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">1</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyCustomConfiguration</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">AbstractCamundaConfiguration</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nd">@Override</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">preInit</span><span class="p">(</span><span class="n">SpringProcessEngineConfiguration</span><span class="w"> </span><span class="n">springProcessEngineConfiguration</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="c1">//...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="p">...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h2 id="cib-seven-engine-properties">CIB seven engine Properties</h2>
 <p>In addition to the bean-based way of overriding process engine configuration properties, it is also possible
 to set those properties via an <code>application.yaml</code> configuration file. Instructions on how to use it
 can be found in the <a href="/get-started/spring-boot/configuration/">Spring Boot Starter Guide</a>.</p>
@@ -3899,12 +3899,12 @@ When setting to <code>/</code>, the legacy behavior of Camunda Spring Boot Start
 <h3 id="generic-properties">Generic Properties</h3>
 <p>The method of configuration described above does not cover all process engine properties available. To override any process engine configuration
 property that is not exposed (i.e. listed above) you can use generic-properties.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">camunda</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">bpm</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">generic-properties</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">properties</span>:
-</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">...</span>
-</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">camunda</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">bpm</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">generic-properties</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">properties</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">...</span><span class="w">
+</span></span></span></code></pre></div>
 <div class="note bg-info docs-info">
   <h3>Note:</h3>
   <p>Overriding an already exposed property using the <code>generic-properties</code>
@@ -3914,35 +3914,35 @@ can only be overridden with their exposed identifier.</p>
 
 <h3 id="examples">Examples</h3>
 <p>Override configuration using exposed properties:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">camunda.bpm</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">admin-user</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">id</span>: <span style="color:#ae81ff">kermit</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">password</span>: <span style="color:#ae81ff">superSecret</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">firstName</span>: <span style="color:#ae81ff">Kermit</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">filter</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">create</span>: <span style="color:#ae81ff">All tasks</span>
-</span></span></code></pre></div><p>Override configuration using generic properties:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">camunda</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">bpm</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">generic-properties</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">properties</span>:
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">enable-password-policy</span>: <span style="color:#66d9ef">true</span>
-</span></span></code></pre></div><h2 id="session-cookie">Session Cookie</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">camunda.bpm</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">admin-user</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l">kermit</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l">superSecret</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">firstName</span><span class="p">:</span><span class="w"> </span><span class="l">Kermit</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">filter</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">create</span><span class="p">:</span><span class="w"> </span><span class="l">All tasks</span><span class="w">
+</span></span></span></code></pre></div><p>Override configuration using generic properties:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">camunda</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">bpm</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">generic-properties</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">properties</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">enable-password-policy</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span></code></pre></div><h2 id="session-cookie">Session Cookie</h2>
 <p>You can configure the <strong>Session Cookie</strong> for the Spring Boot application via the <code>application.yaml</code> configuration file.</p>
 <p>Camunda Spring Boot Starter versions &lt;= 2.3 (Spring Boot version 1.x)</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">server</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">session</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">cookie</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">secure</span>: <span style="color:#66d9ef">true</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">http-only</span>: <span style="color:#66d9ef">true</span> <span style="color:#75715e"># Not possible for versions before 1.5.14</span>
-</span></span></code></pre></div><p>Camunda Spring Boot Starter versions &gt;= 3.0 (Spring Boot version 2.x)</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">server</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">servlet</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">session</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">cookie</span>:
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">secure</span>: <span style="color:#66d9ef">true</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">http-only</span>: <span style="color:#66d9ef">true</span> <span style="color:#75715e"># Not possible for versions before 2.0.3</span>
-</span></span></code></pre></div><p>Further details of the session cookie like the <code>SameSite</code> flag can be configured via
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">server</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">session</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">cookie</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">secure</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">http-only</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="c"># Not possible for versions before 1.5.14</span><span class="w">
+</span></span></span></code></pre></div><p>Camunda Spring Boot Starter versions &gt;= 3.0 (Spring Boot version 2.x)</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">server</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">servlet</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">session</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">cookie</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">secure</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">http-only</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="c"># Not possible for versions before 2.0.3</span><span class="w">
+</span></span></span></code></pre></div><p>Further details of the session cookie like the <code>SameSite</code> flag can be configured via
 <a href="/manual/1.0/user-guide/spring-boot-integration/configuration/#session-cookie">camunda.bpm.webapp.session-cookie</a> in the <code>application.yaml</code>.</p>
 <h1 id="configuring-spin-dataformats">Configuring Spin DataFormats</h1>
 <p>The Camunda Spring Boot Starter auto-configures the Spin Jackson Json DataFormat when the
@@ -3969,20 +3969,20 @@ Jackson libraries, which breaks compatibility with the regular Jackson modules. 
 <p>For example, to provide support for Java 8 Date/time types in Spin, the following dependencies, with their
 appropriate version tags, will need to be added in the Spring Boot Application&rsquo;s
 <code>pom.xml</code> file:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;dependencies&gt;</span>
-</span></span><span style="display:flex;"><span>   <span style="color:#f92672">&lt;dependency&gt;</span>
-</span></span><span style="display:flex;"><span>     <span style="color:#f92672">&lt;groupId&gt;</span>org.camunda.bpm<span style="color:#f92672">&lt;/groupId&gt;</span>
-</span></span><span style="display:flex;"><span>     <span style="color:#f92672">&lt;artifactId&gt;</span>camunda-engine-plugin-spin<span style="color:#f92672">&lt;/artifactId&gt;</span>
-</span></span><span style="display:flex;"><span>   <span style="color:#f92672">&lt;/dependency&gt;</span>
-</span></span><span style="display:flex;"><span>   <span style="color:#f92672">&lt;dependency&gt;</span>
-</span></span><span style="display:flex;"><span>     <span style="color:#f92672">&lt;groupId&gt;</span>org.camunda.spin<span style="color:#f92672">&lt;/groupId&gt;</span>
-</span></span><span style="display:flex;"><span>     <span style="color:#f92672">&lt;artifactId&gt;</span>camunda-spin-dataformat-json-jackson<span style="color:#f92672">&lt;/artifactId&gt;</span>
-</span></span><span style="display:flex;"><span>   <span style="color:#f92672">&lt;/dependency&gt;</span>
-</span></span><span style="display:flex;"><span>   <span style="color:#f92672">&lt;dependency&gt;</span>
-</span></span><span style="display:flex;"><span>     <span style="color:#f92672">&lt;groupId&gt;</span>com.fasterxml.jackson.datatype<span style="color:#f92672">&lt;/groupId&gt;</span>
-</span></span><span style="display:flex;"><span>     <span style="color:#f92672">&lt;artifactId&gt;</span>jackson-datatype-jdk8<span style="color:#f92672">&lt;/artifactId&gt;</span>
-</span></span><span style="display:flex;"><span>   <span style="color:#f92672">&lt;/dependency&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/dependencies&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependencies&gt;</span>
+</span></span><span class="line"><span class="cl">   <span class="nt">&lt;dependency&gt;</span>
+</span></span><span class="line"><span class="cl">     <span class="nt">&lt;groupId&gt;</span>org.camunda.bpm<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">     <span class="nt">&lt;artifactId&gt;</span>camunda-engine-plugin-spin<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">   <span class="nt">&lt;/dependency&gt;</span>
+</span></span><span class="line"><span class="cl">   <span class="nt">&lt;dependency&gt;</span>
+</span></span><span class="line"><span class="cl">     <span class="nt">&lt;groupId&gt;</span>org.camunda.spin<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">     <span class="nt">&lt;artifactId&gt;</span>camunda-spin-dataformat-json-jackson<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">   <span class="nt">&lt;/dependency&gt;</span>
+</span></span><span class="line"><span class="cl">   <span class="nt">&lt;dependency&gt;</span>
+</span></span><span class="line"><span class="cl">     <span class="nt">&lt;groupId&gt;</span>com.fasterxml.jackson.datatype<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">     <span class="nt">&lt;artifactId&gt;</span>jackson-datatype-jdk8<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">   <span class="nt">&lt;/dependency&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/dependencies&gt;</span>
 </span></span></code></pre></div><p>Spring Boot also provides some nice configuration properties, to further
 configure the Jackson <code>ObjectMapper</code>. They can be found <a href="https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#howto-customize-the-jackson-objectmapper">here</a>.</p>
 <p>To provide additional configurations, the following actions need to be performed:</p>

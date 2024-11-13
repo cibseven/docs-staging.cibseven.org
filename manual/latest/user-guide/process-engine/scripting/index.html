@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/latest/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/latest/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/user-guide/process-engine/scripting/" />
 </head>
 <body class="">
@@ -3219,34 +3219,34 @@ scripts.</p>
 <p>With a BPMN 2.0 script task you can add a script to your BPM process (for more information see the
 <a href="/manual/latest/reference/bpmn20/tasks/script-task/">BPMN 2.0 reference</a>.</p>
 <p>The following process is a simple example with a Groovy script task that sums up the elements of an array.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;definitions</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://www.omg.org/spec/BPMN/20100524/MODEL&#34;</span>
-</span></span><span style="display:flex;"><span>                   <span style="color:#a6e22e">targetNamespace=</span><span style="color:#e6db74">&#34;http://camunda.org/example&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;process</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;process&#34;</span> <span style="color:#a6e22e">isExecutable=</span><span style="color:#e6db74">&#34;true&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;startEvent</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;start&#34;</span><span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;sequenceFlow</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;sequenceFlow1&#34;</span> <span style="color:#a6e22e">sourceRef=</span><span style="color:#e6db74">&#34;start&#34;</span> <span style="color:#a6e22e">targetRef=</span><span style="color:#e6db74">&#34;task&#34;</span><span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;scriptTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;task&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Groovy Script&#34;</span> <span style="color:#a6e22e">scriptFormat=</span><span style="color:#e6db74">&#34;groovy&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;script&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">&lt;![CDATA[
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">        sum = 0
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">        for ( i in inputArray ) {
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">          sum += i
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">        }
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">        println &#34;Sum: &#34; + sum
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">        ]]&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/script&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/scriptTask&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;sequenceFlow</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;sequenceFlow2&#34;</span> <span style="color:#a6e22e">sourceRef=</span><span style="color:#e6db74">&#34;task&#34;</span> <span style="color:#a6e22e">targetRef=</span><span style="color:#e6db74">&#34;end&#34;</span><span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;endEvent</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;end&#34;</span><span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/process&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/definitions&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;definitions</span> <span class="na">xmlns=</span><span class="s">&#34;http://www.omg.org/spec/BPMN/20100524/MODEL&#34;</span>
+</span></span><span class="line"><span class="cl">                   <span class="na">targetNamespace=</span><span class="s">&#34;http://camunda.org/example&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;process</span> <span class="na">id=</span><span class="s">&#34;process&#34;</span> <span class="na">isExecutable=</span><span class="s">&#34;true&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;startEvent</span> <span class="na">id=</span><span class="s">&#34;start&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;sequenceFlow</span> <span class="na">id=</span><span class="s">&#34;sequenceFlow1&#34;</span> <span class="na">sourceRef=</span><span class="s">&#34;start&#34;</span> <span class="na">targetRef=</span><span class="s">&#34;task&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;scriptTask</span> <span class="na">id=</span><span class="s">&#34;task&#34;</span> <span class="na">name=</span><span class="s">&#34;Groovy Script&#34;</span> <span class="na">scriptFormat=</span><span class="s">&#34;groovy&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;script&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="cp">&lt;![CDATA[
+</span></span></span><span class="line"><span class="cl"><span class="cp">        sum = 0
+</span></span></span><span class="line"><span class="cl"><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">        for ( i in inputArray ) {
+</span></span></span><span class="line"><span class="cl"><span class="cp">          sum += i
+</span></span></span><span class="line"><span class="cl"><span class="cp">        }
+</span></span></span><span class="line"><span class="cl"><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">        println &#34;Sum: &#34; + sum
+</span></span></span><span class="line"><span class="cl"><span class="cp">        ]]&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/script&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/scriptTask&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;sequenceFlow</span> <span class="na">id=</span><span class="s">&#34;sequenceFlow2&#34;</span> <span class="na">sourceRef=</span><span class="s">&#34;task&#34;</span> <span class="na">targetRef=</span><span class="s">&#34;end&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;endEvent</span> <span class="na">id=</span><span class="s">&#34;end&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/process&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/definitions&gt;</span>
 </span></span></code></pre></div><p>To start the process, a variable <code>inputArray</code> is necessary.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Map<span style="color:#f92672">&lt;</span>String, Object<span style="color:#f92672">&gt;</span> variables <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HashMap<span style="color:#f92672">&lt;</span>String, Object<span style="color:#f92672">&gt;</span>();
-</span></span><span style="display:flex;"><span>variables.<span style="color:#a6e22e">put</span>(<span style="color:#e6db74">&#34;inputArray&#34;</span>, <span style="color:#66d9ef">new</span> Integer<span style="color:#f92672">[]</span>{5, 23, 42});
-</span></span><span style="display:flex;"><span>runtimeService.<span style="color:#a6e22e">startProcessInstanceByKey</span>(<span style="color:#e6db74">&#34;process&#34;</span>, variables);
-</span></span></code></pre></div><h1 id="use-scripts-as-execution-listeners">Use Scripts as Execution Listeners</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="n">variables</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="o">&gt;</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">variables</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&#34;inputArray&#34;</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Integer</span><span class="o">[]</span><span class="p">{</span><span class="n">5</span><span class="p">,</span><span class="w"> </span><span class="n">23</span><span class="p">,</span><span class="w"> </span><span class="n">42</span><span class="p">});</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">runtimeService</span><span class="p">.</span><span class="na">startProcessInstanceByKey</span><span class="p">(</span><span class="s">&#34;process&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">variables</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><h1 id="use-scripts-as-execution-listeners">Use Scripts as Execution Listeners</h1>
 <p>Besides Java code and expression language, CIB seven also supports the execution of a script
 as an execution listener. For general information about execution listeners see the corresponding
 <a href="/manual/latest/user-guide/process-engine/delegation-code/#execution-listener">section</a>.</p>
@@ -3254,36 +3254,36 @@ as an execution listener. For general information about execution listeners see 
 element of the <code>camunda:executionListener</code> element. During script evaluation, the variable <code>execution</code> is
 available, which corresponds to the <code>DelegateExecution</code> interface.</p>
 <p>The following example shows usage of scripts as execution listeners.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;process</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;process&#34;</span> <span style="color:#a6e22e">isExecutable=</span><span style="color:#e6db74">&#34;true&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;camunda:executionListener</span> <span style="color:#a6e22e">event=</span><span style="color:#e6db74">&#34;start&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;camunda:script</span> <span style="color:#a6e22e">scriptFormat=</span><span style="color:#e6db74">&#34;groovy&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>        println &#34;Process &#34; + execution.eventName + &#34;ed&#34;
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/camunda:script&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/camunda:executionListener&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;startEvent</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;start&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;camunda:executionListener</span> <span style="color:#a6e22e">event=</span><span style="color:#e6db74">&#34;end&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;camunda:script</span> <span style="color:#a6e22e">scriptFormat=</span><span style="color:#e6db74">&#34;groovy&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>          println execution.activityId + &#34; &#34; + execution.eventName + &#34;ed&#34;
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/camunda:script&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/camunda:executionListener&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/startEvent&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;sequenceFlow</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;flow1&#34;</span> <span style="color:#a6e22e">startRef=</span><span style="color:#e6db74">&#34;start&#34;</span> <span style="color:#a6e22e">targetRef=</span><span style="color:#e6db74">&#34;task&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;camunda:executionListener&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;camunda:script</span> <span style="color:#a6e22e">scriptFormat=</span><span style="color:#e6db74">&#34;groovy&#34;</span> <span style="color:#a6e22e">resource=</span><span style="color:#e6db74">&#34;org/camunda/bpm/transition.groovy&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/camunda:executionListener&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/sequenceFlow&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!--
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">    ... remaining process omitted
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">  --&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/process&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;process</span> <span class="na">id=</span><span class="s">&#34;process&#34;</span> <span class="na">isExecutable=</span><span class="s">&#34;true&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;camunda:executionListener</span> <span class="na">event=</span><span class="s">&#34;start&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;camunda:script</span> <span class="na">scriptFormat=</span><span class="s">&#34;groovy&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">        println &#34;Process &#34; + execution.eventName + &#34;ed&#34;
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/camunda:script&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/camunda:executionListener&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;startEvent</span> <span class="na">id=</span><span class="s">&#34;start&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;camunda:executionListener</span> <span class="na">event=</span><span class="s">&#34;end&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;camunda:script</span> <span class="na">scriptFormat=</span><span class="s">&#34;groovy&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">          println execution.activityId + &#34; &#34; + execution.eventName + &#34;ed&#34;
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/camunda:script&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/camunda:executionListener&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/startEvent&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;sequenceFlow</span> <span class="na">id=</span><span class="s">&#34;flow1&#34;</span> <span class="na">startRef=</span><span class="s">&#34;start&#34;</span> <span class="na">targetRef=</span><span class="s">&#34;task&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;camunda:executionListener&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;camunda:script</span> <span class="na">scriptFormat=</span><span class="s">&#34;groovy&#34;</span> <span class="na">resource=</span><span class="s">&#34;org/camunda/bpm/transition.groovy&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/camunda:executionListener&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/sequenceFlow&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c">&lt;!--
+</span></span></span><span class="line"><span class="cl"><span class="c">    ... remaining process omitted
+</span></span></span><span class="line"><span class="cl"><span class="c">  --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/process&gt;</span>
 </span></span></code></pre></div><h1 id="use-scripts-as-task-listeners">Use Scripts as Task Listeners</h1>
 <p>Similar to execution listeners, task listeners can also be implemented as scripts. For general
 information about task listeners see the corresponding
@@ -3292,16 +3292,16 @@ information about task listeners see the corresponding
 the <code>camunda:taskListener</code> element. Inside the script, the variable <code>task</code> is available, which corresponds to
 the <code>DelegateTask</code> interface.</p>
 <p>The following example shows usage of scripts as task listeners.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;userTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;userTask&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;camunda:taskListener</span> <span style="color:#a6e22e">event=</span><span style="color:#e6db74">&#34;create&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;camunda:script</span> <span style="color:#a6e22e">scriptFormat=</span><span style="color:#e6db74">&#34;groovy&#34;</span><span style="color:#f92672">&gt;</span>println task.eventName<span style="color:#f92672">&lt;/camunda:script&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/camunda:taskListener&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;camunda:taskListener</span> <span style="color:#a6e22e">event=</span><span style="color:#e6db74">&#34;assignment&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;camunda:script</span> <span style="color:#a6e22e">scriptFormat=</span><span style="color:#e6db74">&#34;groovy&#34;</span> <span style="color:#a6e22e">resource=</span><span style="color:#e6db74">&#34;org/camunda/bpm/assignemnt.groovy&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/camunda:taskListener&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/userTask&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;userTask</span> <span class="na">id=</span><span class="s">&#34;userTask&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;camunda:taskListener</span> <span class="na">event=</span><span class="s">&#34;create&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;camunda:script</span> <span class="na">scriptFormat=</span><span class="s">&#34;groovy&#34;</span><span class="nt">&gt;</span>println task.eventName<span class="nt">&lt;/camunda:script&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/camunda:taskListener&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;camunda:taskListener</span> <span class="na">event=</span><span class="s">&#34;assignment&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;camunda:script</span> <span class="na">scriptFormat=</span><span class="s">&#34;groovy&#34;</span> <span class="na">resource=</span><span class="s">&#34;org/camunda/bpm/assignemnt.groovy&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/camunda:taskListener&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/userTask&gt;</span>
 </span></span></code></pre></div><h1 id="use-scripts-as-conditions">Use Scripts as Conditions</h1>
 <p>As an alternative to expression language, CIB seven allows you to use scripts as
 <code>conditionExpression</code> of conditional sequence flows. To do that, the <code>language</code> attribute of the
@@ -3310,16 +3310,16 @@ is the text content of the element, as with expression language. Another way to 
 source code is to define an external source as described in the <a href="#script-source">script source section</a>.</p>
 <p>The following example shows usage of scripts as conditions. The Groovy variable <code>status</code> is a
 process variable which is available inside the script.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;sequenceFlow&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;conditionExpression</span> <span style="color:#a6e22e">xsi:type=</span><span style="color:#e6db74">&#34;tFormalExpression&#34;</span> <span style="color:#a6e22e">language=</span><span style="color:#e6db74">&#34;groovy&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    status == &#39;closed&#39;
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/conditionExpression&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/sequenceFlow&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;sequenceFlow&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;conditionExpression</span> <span style="color:#a6e22e">xsi:type=</span><span style="color:#e6db74">&#34;tFormalExpression&#34;</span> <span style="color:#a6e22e">language=</span><span style="color:#e6db74">&#34;groovy&#34;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">camunda:resource=</span><span style="color:#e6db74">&#34;org/camunda/bpm/condition.groovy&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/sequenceFlow&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;sequenceFlow&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;conditionExpression</span> <span class="na">xsi:type=</span><span class="s">&#34;tFormalExpression&#34;</span> <span class="na">language=</span><span class="s">&#34;groovy&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    status == &#39;closed&#39;
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/conditionExpression&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/sequenceFlow&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;sequenceFlow&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;conditionExpression</span> <span class="na">xsi:type=</span><span class="s">&#34;tFormalExpression&#34;</span> <span class="na">language=</span><span class="s">&#34;groovy&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="na">camunda:resource=</span><span class="s">&#34;org/camunda/bpm/condition.groovy&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/sequenceFlow&gt;</span>
 </span></span></code></pre></div><h1 id="use-scripts-as-inputoutput-parameters">Use Scripts as inputOutput Parameters</h1>
 <p>With the Camunda <code>inputOutput</code> extension element you can map an <code>inputParameter</code> or <code>outputParameter</code>
 with a script. The following example process uses the Groovy script from the previous example to assign
@@ -3333,55 +3333,55 @@ single expression like <code>a + b</code> or <code>a &gt; b</code> where <code>a
 <code>b</code> are already process variables. Otherwise, the Jython scripting engine will not return a value.</p>
 </div>
 
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;definitions</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://www.omg.org/spec/BPMN/20100524/MODEL&#34;</span>
-</span></span><span style="display:flex;"><span>                   <span style="color:#a6e22e">xmlns:camunda=</span><span style="color:#e6db74">&#34;http://activiti.org/bpmn&#34;</span>
-</span></span><span style="display:flex;"><span>                   <span style="color:#a6e22e">targetNamespace=</span><span style="color:#e6db74">&#34;http://camunda.org/example&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;process</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;process&#34;</span> <span style="color:#a6e22e">isExecutable=</span><span style="color:#e6db74">&#34;true&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;startEvent</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;start&#34;</span><span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;sequenceFlow</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;sequenceFlow1&#34;</span> <span style="color:#a6e22e">sourceRef=</span><span style="color:#e6db74">&#34;start&#34;</span> <span style="color:#a6e22e">targetRef=</span><span style="color:#e6db74">&#34;task&#34;</span><span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;serviceTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;task&#34;</span> <span style="color:#a6e22e">camunda:class=</span><span style="color:#e6db74">&#34;org.camunda.bpm.example.SumDelegate&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;camunda:inputOutput&gt;</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;camunda:inputParameter</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;x&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>             <span style="color:#f92672">&lt;camunda:script</span> <span style="color:#a6e22e">scriptFormat=</span><span style="color:#e6db74">&#34;groovy&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#75715e">&lt;![CDATA[
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">              sum = 0
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">              for ( i in inputArray ) {
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">                sum += i
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">              }
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">              sum
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">              ]]&gt;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;/camunda:script&gt;</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;/camunda:inputParameter&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/camunda:inputOutput&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/serviceTask&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;sequenceFlow</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;sequenceFlow2&#34;</span> <span style="color:#a6e22e">sourceRef=</span><span style="color:#e6db74">&#34;task&#34;</span> <span style="color:#a6e22e">targetRef=</span><span style="color:#e6db74">&#34;end&#34;</span><span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;endEvent</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;end&#34;</span><span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/process&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/definitions&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;definitions</span> <span class="na">xmlns=</span><span class="s">&#34;http://www.omg.org/spec/BPMN/20100524/MODEL&#34;</span>
+</span></span><span class="line"><span class="cl">                   <span class="na">xmlns:camunda=</span><span class="s">&#34;http://activiti.org/bpmn&#34;</span>
+</span></span><span class="line"><span class="cl">                   <span class="na">targetNamespace=</span><span class="s">&#34;http://camunda.org/example&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;process</span> <span class="na">id=</span><span class="s">&#34;process&#34;</span> <span class="na">isExecutable=</span><span class="s">&#34;true&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;startEvent</span> <span class="na">id=</span><span class="s">&#34;start&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;sequenceFlow</span> <span class="na">id=</span><span class="s">&#34;sequenceFlow1&#34;</span> <span class="na">sourceRef=</span><span class="s">&#34;start&#34;</span> <span class="na">targetRef=</span><span class="s">&#34;task&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;serviceTask</span> <span class="na">id=</span><span class="s">&#34;task&#34;</span> <span class="na">camunda:class=</span><span class="s">&#34;org.camunda.bpm.example.SumDelegate&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;camunda:inputOutput&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&lt;camunda:inputParameter</span> <span class="na">name=</span><span class="s">&#34;x&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">             <span class="nt">&lt;camunda:script</span> <span class="na">scriptFormat=</span><span class="s">&#34;groovy&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">              <span class="cp">&lt;![CDATA[
+</span></span></span><span class="line"><span class="cl"><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">              sum = 0
+</span></span></span><span class="line"><span class="cl"><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">              for ( i in inputArray ) {
+</span></span></span><span class="line"><span class="cl"><span class="cp">                sum += i
+</span></span></span><span class="line"><span class="cl"><span class="cp">              }
+</span></span></span><span class="line"><span class="cl"><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">              sum
+</span></span></span><span class="line"><span class="cl"><span class="cp">              ]]&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;/camunda:script&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&lt;/camunda:inputParameter&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/camunda:inputOutput&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/serviceTask&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;sequenceFlow</span> <span class="na">id=</span><span class="s">&#34;sequenceFlow2&#34;</span> <span class="na">sourceRef=</span><span class="s">&#34;task&#34;</span> <span class="na">targetRef=</span><span class="s">&#34;end&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;endEvent</span> <span class="na">id=</span><span class="s">&#34;end&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/process&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/definitions&gt;</span>
 </span></span></code></pre></div><p>After the script has assigned a value to the <code>sum</code> variable, <code>x</code> can be used inside the Java delegate
 code.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SumDelegate</span> <span style="color:#66d9ef">implements</span> JavaDelegate {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">execute</span>(DelegateExecution execution) <span style="color:#66d9ef">throws</span> Exception {
-</span></span><span style="display:flex;"><span>    Integer x <span style="color:#f92672">=</span> (Integer) execution.<span style="color:#a6e22e">getVariable</span>(<span style="color:#e6db74">&#34;x&#34;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// do something</span>
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>The script source code can also be loaded from an external resource in the same way as described
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">SumDelegate</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">JavaDelegate</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">execute</span><span class="p">(</span><span class="n">DelegateExecution</span><span class="w"> </span><span class="n">execution</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">Integer</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Integer</span><span class="p">)</span><span class="w"> </span><span class="n">execution</span><span class="p">.</span><span class="na">getVariable</span><span class="p">(</span><span class="s">&#34;x&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// do something</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>The script source code can also be loaded from an external resource in the same way as described
 for <a href="#script-source">script tasks</a>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;camunda:inputOutput&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;camunda:inputParameter</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;x&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>     <span style="color:#f92672">&lt;camunda:script</span> <span style="color:#a6e22e">scriptFormat=</span><span style="color:#e6db74">&#34;groovy&#34;</span> <span style="color:#a6e22e">resource=</span><span style="color:#e6db74">&#34;org/camunda/bpm/example/sum.groovy&#34;</span><span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/camunda:inputParameter&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/camunda:inputOutput&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;camunda:inputOutput&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;camunda:inputParameter</span> <span class="na">name=</span><span class="s">&#34;x&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">     <span class="nt">&lt;camunda:script</span> <span class="na">scriptFormat=</span><span class="s">&#34;groovy&#34;</span> <span class="na">resource=</span><span class="s">&#34;org/camunda/bpm/example/sum.groovy&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/camunda:inputParameter&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/camunda:inputOutput&gt;</span>
 </span></span></code></pre></div><h1 id="script-engine-caching">Script Engine Caching</h1>
 <p>Whenever the process engine reaches a point where a script has to be executed, the process engine looks for a Script Engine by a language name. The default behavior is that if it is the first request, a new Script Engine is created. If the Script Engine declares to be thread safe, it is also cached. The caching prevents the process engine from creating a new Script Engine for each request for the same script language.</p>
 <p>By default the caching of Script Engines happens at process application level. Each process application holds an own instance of a Script Engine for a given language. This behavior can be disabled by setting the process engine configuration flag named <code>enableFetchScriptEngineFromProcessApplication</code> to false. Consequently, the Script Engines are cached globally at process engine level and they are shared between each process application. For further details about the process engine configuration flag <code>enableFetchScriptEngineFromProcessApplication</code>, please read the section about <a href="/manual/latest/user-guide/process-engine/scripting/#reference-process-application-provided-classes">referencing process application classes</a>.</p>
@@ -3395,15 +3395,15 @@ process engine is to check if a Script Engine supports the compile feature. If t
 <h1 id="load-script-engine">Load Script Engine</h1>
 <p>If the process engine configuration flag named <code>enableFetchScriptEngineFromProcessApplication</code> is set to true, it is also possible to load Script Engines from the classpath of the process application. For that, the Script Engine can be packaged as a library within the process application. It is also possible to install the Script Engine globally.</p>
 <p>In case the Script Engine module should be installed globally and Wildfly is used, it is necessary to add a module dependency to the Script Engine. This can be done by adding a <code>jboss-deployment-structure.xml</code> to the process application, e.g.,:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;jboss-deployment-structure&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;deployment&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;dependencies&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;module</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;org.apache.groovy.groovy-all&#34;</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#a6e22e">services=</span><span style="color:#e6db74">&#34;import&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/dependencies&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/deployment&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/jboss-deployment-structure&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;jboss-deployment-structure&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;deployment&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;dependencies&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;module</span> <span class="na">name=</span><span class="s">&#34;org.apache.groovy.groovy-all&#34;</span>
+</span></span><span class="line"><span class="cl">              <span class="na">services=</span><span class="s">&#34;import&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/dependencies&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/deployment&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/jboss-deployment-structure&gt;</span>
 </span></span></code></pre></div><h1 id="configure-script-engine">Configure Script Engine</h1>
 <p>Most script engines offer configuration options to adjust their script execution semantics.
 We provide the following default configurations for supported script engines before executing code on them:</p>
@@ -3458,52 +3458,52 @@ with the <code>#setScriptEngineResolver(ScriptEngineResolver)</code> method.</p>
 <p>You can inherit from the <code>org.camunda.bpm.engine.impl.scripting.engine.DefaultScriptEngineResolver</code> for starters in case configuring an existing
 script engine instance is sufficient for you. By overriding the <code>#configureScriptEngines(String, ScriptEngine)</code> method of the <code>DefaultScriptEngineResolver</code>,
 you can change settings on the script engine instance provided to that method as shown in the following example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CustomScriptEngineResolver</span> <span style="color:#66d9ef">extends</span> DefaultScriptEngineResolver {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">CustomScriptEngineResolver</span>(ScriptEngineManager scriptEngineManager) {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">super</span>(scriptEngineManager);
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">configureScriptEngines</span>(String language, ScriptEngine scriptEngine) {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">super</span>.<span style="color:#a6e22e">configureScriptEngines</span>(language, scriptEngine);
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (ScriptingEngines.<span style="color:#a6e22e">GROOVY_SCRIPTING_LANGUAGE</span>.<span style="color:#a6e22e">equals</span>(language)) {
-</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// make sure Groovy compiled scripts only hold weak references to java methods</span>
-</span></span><span style="display:flex;"><span>      scriptEngine.<span style="color:#a6e22e">getContext</span>().<span style="color:#a6e22e">setAttribute</span>(<span style="color:#e6db74">&#34;#jsr223.groovy.engine.keep.globals&#34;</span>, <span style="color:#e6db74">&#34;soft&#34;</span>, ScriptContext.<span style="color:#a6e22e">ENGINE_SCOPE</span>);
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>If you need more flexibility in configuring a script engine, you can override a method further up the chain in the script engine creation
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CustomScriptEngineResolver</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">DefaultScriptEngineResolver</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="nf">CustomScriptEngineResolver</span><span class="p">(</span><span class="n">ScriptEngineManager</span><span class="w"> </span><span class="n">scriptEngineManager</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">super</span><span class="p">(</span><span class="n">scriptEngineManager</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">protected</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">configureScriptEngines</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">language</span><span class="p">,</span><span class="w"> </span><span class="n">ScriptEngine</span><span class="w"> </span><span class="n">scriptEngine</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">super</span><span class="p">.</span><span class="na">configureScriptEngines</span><span class="p">(</span><span class="n">language</span><span class="p">,</span><span class="w"> </span><span class="n">scriptEngine</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ScriptingEngines</span><span class="p">.</span><span class="na">GROOVY_SCRIPTING_LANGUAGE</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">language</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c1">// make sure Groovy compiled scripts only hold weak references to java methods</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="n">scriptEngine</span><span class="p">.</span><span class="na">getContext</span><span class="p">().</span><span class="na">setAttribute</span><span class="p">(</span><span class="s">&#34;#jsr223.groovy.engine.keep.globals&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;soft&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">ScriptContext</span><span class="p">.</span><span class="na">ENGINE_SCOPE</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>If you need more flexibility in configuring a script engine, you can override a method further up the chain in the script engine creation
 or provide your own plain implementation of the interface. Have a look at the following example that provides a custom <strong>GraalVM JavaScript</strong>
 instance with Nashorn Compatibility Mode enabled:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CustomScriptEngineResolver</span> <span style="color:#66d9ef">extends</span> DefaultScriptEngineResolver {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">CustomScriptEngineResolver</span>(ScriptEngineManager scriptEngineManager) {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">super</span>(scriptEngineManager);
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Override</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">configureGraalJsScriptEngine</span>(ScriptEngine scriptEngine) {
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// do nothing</span>
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Override</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">protected</span> ScriptEngine <span style="color:#a6e22e">getJavaScriptScriptEngine</span>(String language) {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> com.<span style="color:#a6e22e">oracle</span>.<span style="color:#a6e22e">truffle</span>.<span style="color:#a6e22e">js</span>.<span style="color:#a6e22e">scriptengine</span>.<span style="color:#a6e22e">GraalJSScriptEngine</span>.<span style="color:#a6e22e">create</span>(<span style="color:#66d9ef">null</span>,
-</span></span><span style="display:flex;"><span>        org.<span style="color:#a6e22e">graalvm</span>.<span style="color:#a6e22e">polyglot</span>.<span style="color:#a6e22e">Context</span>.<span style="color:#a6e22e">newBuilder</span>(<span style="color:#e6db74">&#34;js&#34;</span>)
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// make sure GraalVM JS can provide access to the host and can lookup classes</span>
-</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">allowHostClassLookup</span>(s <span style="color:#f92672">-&gt;</span> <span style="color:#66d9ef">true</span>)
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// enable Nashorn Compatibility Mode</span>
-</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">allowExperimentalOptions</span>(<span style="color:#66d9ef">true</span>)
-</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">option</span>(<span style="color:#e6db74">&#34;js.nashorn-compat&#34;</span>, <span style="color:#e6db74">&#34;true&#34;</span>));
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h1 id="reference-process-application-provided-classes">Reference Process Application Provided Classes</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CustomScriptEngineResolver</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">DefaultScriptEngineResolver</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="nf">CustomScriptEngineResolver</span><span class="p">(</span><span class="n">ScriptEngineManager</span><span class="w"> </span><span class="n">scriptEngineManager</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">super</span><span class="p">(</span><span class="n">scriptEngineManager</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@Override</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">protected</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">configureGraalJsScriptEngine</span><span class="p">(</span><span class="n">ScriptEngine</span><span class="w"> </span><span class="n">scriptEngine</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// do nothing</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@Override</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">protected</span><span class="w"> </span><span class="n">ScriptEngine</span><span class="w"> </span><span class="nf">getJavaScriptScriptEngine</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">language</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">com</span><span class="p">.</span><span class="na">oracle</span><span class="p">.</span><span class="na">truffle</span><span class="p">.</span><span class="na">js</span><span class="p">.</span><span class="na">scriptengine</span><span class="p">.</span><span class="na">GraalJSScriptEngine</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">org</span><span class="p">.</span><span class="na">graalvm</span><span class="p">.</span><span class="na">polyglot</span><span class="p">.</span><span class="na">Context</span><span class="p">.</span><span class="na">newBuilder</span><span class="p">(</span><span class="s">&#34;js&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// make sure GraalVM JS can provide access to the host and can lookup classes</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="na">allowHostClassLookup</span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kc">true</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// enable Nashorn Compatibility Mode</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="na">allowExperimentalOptions</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="na">option</span><span class="p">(</span><span class="s">&#34;js.nashorn-compat&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;true&#34;</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h1 id="reference-process-application-provided-classes">Reference Process Application Provided Classes</h1>
 <p>The script can reference to process application provided classes by importing them like in the following groovy script example.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> my.process.application.CustomClass
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>sum <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> CustomClass().<span style="color:#a6e22e">calculate</span>()
-</span></span><span style="display:flex;"><span>execution.<span style="color:#a6e22e">setVariable</span>(<span style="color:#960050;background-color:#1e0010">&#39;</span>sum<span style="color:#960050;background-color:#1e0010">&#39;</span>, sum)
-</span></span></code></pre></div><p>To avoid possible class loading problems during the script execution, it is recommended to set the process engine configuration flag name <code>enableFetchScriptEngineFromProcessApplication</code> to true.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">my.process.application.CustomClass</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">CustomClass</span><span class="p">().</span><span class="na">calculate</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">execution</span><span class="p">.</span><span class="na">setVariable</span><span class="p">(</span><span class="err">&#39;</span><span class="n">sum</span><span class="err">&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">sum</span><span class="p">)</span><span class="w">
+</span></span></span></code></pre></div><p>To avoid possible class loading problems during the script execution, it is recommended to set the process engine configuration flag name <code>enableFetchScriptEngineFromProcessApplication</code> to true.</p>
 <p>Be aware that the process engine flag <code>enableFetchScriptEngineFromProcessApplication</code> is only relevant in a shared engine scenario.</p>
 <h1 id="variables-available-during-script-execution">Variables Available During Script Execution</h1>
 <p>During the execution of scripts, all process variables visible in the current scope are available.
@@ -3521,38 +3521,38 @@ i.e., <code>$sum</code>)</p>
 </ol>
 <p>These variables correspond to the <code>DelegateExecution</code>, <code>DelegateTask</code> or resp. <code>ConnectorVariableScope</code>
 interface which means that it can be used to get and set variables or access process engine services.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// get process variable</span>
-</span></span><span style="display:flex;"><span>sum <span style="color:#f92672">=</span> execution.<span style="color:#a6e22e">getVariable</span>(<span style="color:#e6db74">&#39;x&#39;</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// set process variable</span>
-</span></span><span style="display:flex;"><span>execution.<span style="color:#a6e22e">setVariable</span>(<span style="color:#e6db74">&#39;y&#39;</span>, x <span style="color:#f92672">+</span> 15)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// get task service and query for task</span>
-</span></span><span style="display:flex;"><span>task <span style="color:#f92672">=</span> execution.<span style="color:#a6e22e">getProcessEngineServices</span>().<span style="color:#a6e22e">getTaskService</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">createTaskQuery</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">taskDefinitionKey</span>(<span style="color:#e6db74">&#34;task&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">singleResult</span>()
-</span></span></code></pre></div><h1 id="accessing-process-engine-services-using-scripts">Accessing Process Engine Services using Scripts</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// get process variable</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">execution</span><span class="p">.</span><span class="na">getVariable</span><span class="p">(</span><span class="sc">&#39;x&#39;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// set process variable</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">execution</span><span class="p">.</span><span class="na">setVariable</span><span class="p">(</span><span class="sc">&#39;y&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">15</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// get task service and query for task</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">task</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">execution</span><span class="p">.</span><span class="na">getProcessEngineServices</span><span class="p">().</span><span class="na">getTaskService</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">createTaskQuery</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">taskDefinitionKey</span><span class="p">(</span><span class="s">&#34;task&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">singleResult</span><span class="p">()</span><span class="w">
+</span></span></span></code></pre></div><h1 id="accessing-process-engine-services-using-scripts">Accessing Process Engine Services using Scripts</h1>
 <p>Camunda&rsquo;s Java API provides access to Camunda&rsquo;s process engine services; these services can be accessed using Scripts:</p>
 <p><a href="/javadoc/cibseven/1.0/org/camunda/bpm/engine/ProcessEngineServices.html">Process Engine Services</a>
  \</p>
 <a href="/javadoc/cibseven/1.0/org/camunda/bpm/engine/package-summary.html">Public Java API of CIB seven Engine</a>
 
 <p>Example of creating a BPMN Message that correlates with the message key &ldquo;work&rdquo;:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">execution</span>.<span style="color:#a6e22e">getProcessEngineServices</span>().<span style="color:#a6e22e">getRuntimeService</span>().<span style="color:#a6e22e">createMessageCorrelation</span>(<span style="color:#e6db74">&#34;work&#34;</span>).<span style="color:#a6e22e">correlateWithResult</span>();
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="nx">execution</span><span class="p">.</span><span class="nx">getProcessEngineServices</span><span class="p">().</span><span class="nx">getRuntimeService</span><span class="p">().</span><span class="nx">createMessageCorrelation</span><span class="p">(</span><span class="s2">&#34;work&#34;</span><span class="p">).</span><span class="nx">correlateWithResult</span><span class="p">();</span>
 </span></span></code></pre></div><h1 id="printing-to-console-using-scripts">Printing to Console using Scripts</h1>
 <p>During the execution of scripts, it might be desired to print to the console due to logging and debugging reasons.</p>
 <p>Here are examples on how this can be accomplished in the respective language:</p>
 <ul>
 <li>Groovy:</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-groovy" data-lang="groovy"><span style="display:flex;"><span>println <span style="color:#e6db74">&#39;This prints to the console&#39;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-groovy" data-lang="groovy"><span class="line"><span class="cl"><span class="n">println</span> <span class="s1">&#39;This prints to the console&#39;</span>
 </span></span></code></pre></div><ul>
 <li>Java:</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> system <span style="color:#f92672">=</span> java.<span style="color:#a6e22e">lang</span>.<span style="color:#a6e22e">System</span>;
-</span></span><span style="display:flex;"><span>system.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#960050;background-color:#1e0010">&#39;</span>This prints to the console<span style="color:#960050;background-color:#1e0010">&#39;</span>);
-</span></span></code></pre></div><h1 id="script-source">Script Source</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">var</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">System</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">system</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="err">&#39;</span><span class="n">This</span><span class="w"> </span><span class="n">prints</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">console</span><span class="err">&#39;</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><h1 id="script-source">Script Source</h1>
 <p>The standard way to specify the script source code in the BPMN XML model is to add it directly to
 the XML file. Nonetheless, CIB seven provides additional ways to specify the script source.</p>
 <p>If you use another scripting language than Expression Language, you can also specify the script
@@ -3560,56 +3560,56 @@ source as an expression which returns the source code to be executed. This way, 
 for example, be contained in a process variable.</p>
 <p>In the following example snippet the process engine will evaluate the expression <code>${sourceCode}</code> in
 the current context every time the element is executed.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;!-- inside a script task --&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;scriptTask</span> <span style="color:#a6e22e">scriptFormat=</span><span style="color:#e6db74">&#34;groovy&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;script&gt;</span>${sourceCode}<span style="color:#f92672">&lt;/script&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/scriptTask&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">&lt;!-- as an execution listener --&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;camunda:executionListener&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;camunda:script</span> <span style="color:#a6e22e">scriptFormat=</span><span style="color:#e6db74">&#34;groovy&#34;</span><span style="color:#f92672">&gt;</span>${sourceCode}<span style="color:#f92672">&lt;/camunda:script&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/camunda:executionListener&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">&lt;!-- as a condition expression --&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;sequenceFlow</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;flow&#34;</span> <span style="color:#a6e22e">sourceRef=</span><span style="color:#e6db74">&#34;theStart&#34;</span> <span style="color:#a6e22e">targetRef=</span><span style="color:#e6db74">&#34;theTask&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;conditionExpression</span> <span style="color:#a6e22e">xsi:type=</span><span style="color:#e6db74">&#34;tFormalExpression&#34;</span> <span style="color:#a6e22e">language=</span><span style="color:#e6db74">&#34;groovy&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    ${sourceCode}
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/conditionExpression&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/sequenceFlow&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">&lt;!-- as an inputOutput mapping --&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;camunda:inputOutput&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;camunda:inputParameter</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;x&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;camunda:script</span> <span style="color:#a6e22e">scriptFormat=</span><span style="color:#e6db74">&#34;groovy&#34;</span><span style="color:#f92672">&gt;</span>${sourceCode}<span style="color:#f92672">&lt;/camunda:script&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/camunda:inputParameter&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/camunda:inputOutput&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="c">&lt;!-- inside a script task --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;scriptTask</span> <span class="na">scriptFormat=</span><span class="s">&#34;groovy&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;script&gt;</span>${sourceCode}<span class="nt">&lt;/script&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/scriptTask&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- as an execution listener --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;camunda:executionListener&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;camunda:script</span> <span class="na">scriptFormat=</span><span class="s">&#34;groovy&#34;</span><span class="nt">&gt;</span>${sourceCode}<span class="nt">&lt;/camunda:script&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/camunda:executionListener&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- as a condition expression --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;sequenceFlow</span> <span class="na">id=</span><span class="s">&#34;flow&#34;</span> <span class="na">sourceRef=</span><span class="s">&#34;theStart&#34;</span> <span class="na">targetRef=</span><span class="s">&#34;theTask&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;conditionExpression</span> <span class="na">xsi:type=</span><span class="s">&#34;tFormalExpression&#34;</span> <span class="na">language=</span><span class="s">&#34;groovy&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    ${sourceCode}
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/conditionExpression&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/sequenceFlow&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- as an inputOutput mapping --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;camunda:inputOutput&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;camunda:inputParameter</span> <span class="na">name=</span><span class="s">&#34;x&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;camunda:script</span> <span class="na">scriptFormat=</span><span class="s">&#34;groovy&#34;</span><span class="nt">&gt;</span>${sourceCode}<span class="nt">&lt;/camunda:script&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/camunda:inputParameter&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/camunda:inputOutput&gt;</span>
 </span></span></code></pre></div><p>You can also specify the attribute <code>camunda:resource</code> on the <code>scriptTask</code> and <code>conditionExpression</code>
 element, respectively the <code>resource</code> attribute on the <code>camunda:script</code> element. This extension
 attribute specifies the location of an external resource which should be used as script source code.
 Optionally, the resource path can be prefixed with an URL-like scheme to specify if the resource is
 contained in the deployment or classpath. The default behaviour is that the resource is part of the
 classpath. This means that the first two script task elements in the following examples are equal.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;!-- on a script task --&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;scriptTask</span> <span style="color:#a6e22e">scriptFormat=</span><span style="color:#e6db74">&#34;groovy&#34;</span> <span style="color:#a6e22e">camunda:resource=</span><span style="color:#e6db74">&#34;org/camunda/bpm/task.groovy&#34;</span><span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;scriptTask</span> <span style="color:#a6e22e">scriptFormat=</span><span style="color:#e6db74">&#34;groovy&#34;</span> <span style="color:#a6e22e">camunda:resource=</span><span style="color:#e6db74">&#34;classpath://org/camunda/bpm/task.groovy&#34;</span><span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;scriptTask</span> <span style="color:#a6e22e">scriptFormat=</span><span style="color:#e6db74">&#34;groovy&#34;</span> <span style="color:#a6e22e">camunda:resource=</span><span style="color:#e6db74">&#34;deployment://org/camunda/bpm/task.groovy&#34;</span><span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">&lt;!-- in an execution listener --&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;camunda:executionListener&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;camunda:script</span> <span style="color:#a6e22e">scriptFormat=</span><span style="color:#e6db74">&#34;groovy&#34;</span> <span style="color:#a6e22e">resource=</span><span style="color:#e6db74">&#34;deployment://org/camunda/bpm/listener.groovy&#34;</span><span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/camunda:executionListener&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">&lt;!-- on a conditionExpression --&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;conditionExpression</span> <span style="color:#a6e22e">xsi:type=</span><span style="color:#e6db74">&#34;tFormalExpression&#34;</span> <span style="color:#a6e22e">language=</span><span style="color:#e6db74">&#34;groovy&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">camunda:resource=</span><span style="color:#e6db74">&#34;org/camunda/bpm/condition.groovy&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">&lt;!-- in an inputParameter --&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;camunda:inputParameter</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;x&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;camunda:script</span> <span style="color:#a6e22e">scriptFormat=</span><span style="color:#e6db74">&#34;groovy&#34;</span> <span style="color:#a6e22e">resource=</span><span style="color:#e6db74">&#34;org/camunda/bpm/mapX.groovy&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/camunda:inputParameter&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="c">&lt;!-- on a script task --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;scriptTask</span> <span class="na">scriptFormat=</span><span class="s">&#34;groovy&#34;</span> <span class="na">camunda:resource=</span><span class="s">&#34;org/camunda/bpm/task.groovy&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;scriptTask</span> <span class="na">scriptFormat=</span><span class="s">&#34;groovy&#34;</span> <span class="na">camunda:resource=</span><span class="s">&#34;classpath://org/camunda/bpm/task.groovy&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;scriptTask</span> <span class="na">scriptFormat=</span><span class="s">&#34;groovy&#34;</span> <span class="na">camunda:resource=</span><span class="s">&#34;deployment://org/camunda/bpm/task.groovy&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- in an execution listener --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;camunda:executionListener&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;camunda:script</span> <span class="na">scriptFormat=</span><span class="s">&#34;groovy&#34;</span> <span class="na">resource=</span><span class="s">&#34;deployment://org/camunda/bpm/listener.groovy&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/camunda:executionListener&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- on a conditionExpression --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;conditionExpression</span> <span class="na">xsi:type=</span><span class="s">&#34;tFormalExpression&#34;</span> <span class="na">language=</span><span class="s">&#34;groovy&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="na">camunda:resource=</span><span class="s">&#34;org/camunda/bpm/condition.groovy&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- in an inputParameter --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;camunda:inputParameter</span> <span class="na">name=</span><span class="s">&#34;x&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;camunda:script</span> <span class="na">scriptFormat=</span><span class="s">&#34;groovy&#34;</span> <span class="na">resource=</span><span class="s">&#34;org/camunda/bpm/mapX.groovy&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/camunda:inputParameter&gt;</span>
 </span></span></code></pre></div><p>The resource path can also be specified as an expression which is evaluated on the invocation of the
 script task.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;scriptTask</span> <span style="color:#a6e22e">scriptFormat=</span><span style="color:#e6db74">&#34;groovy&#34;</span> <span style="color:#a6e22e">camunda:resource=</span><span style="color:#e6db74">&#34;${scriptPath}&#34;</span><span style="color:#f92672">/&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;scriptTask</span> <span class="na">scriptFormat=</span><span class="s">&#34;groovy&#34;</span> <span class="na">camunda:resource=</span><span class="s">&#34;${scriptPath}&#34;</span><span class="nt">/&gt;</span>
 </span></span></code></pre></div><p>For more information, see the
 <a href="/manual/latest/reference/bpmn20/custom-extensions/extension-attributes/#resource">camunda:resource</a>
 section of the <a href="/manual/latest/reference/bpmn20/custom-extensions/">Custom Extensions</a> chapter.</p>

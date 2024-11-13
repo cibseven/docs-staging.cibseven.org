@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/latest/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/latest/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/user-guide/cdi-java-ee-integration/contextual-programming-model/" />
 </head>
 <body class="">
@@ -3179,28 +3179,28 @@ The Camunda CDI integration provides the <code>org.camunda.bpm.engine.cdi.Busine
 This signals the engine that the current task is completed and makes the process instance proceed.</p>
 <p>Note that the <code>BusinessProcess</code>-bean is a <code>@Named</code> bean, which means that the exposed methods can be invoked using expression language, for example from a JSF page.
 The following JSF2 snippet begins a new conversation and associates it with a user task instance, the Id of which is passed as a request parameter (e.g., <code>pageName.jsf?taskId=XX</code>):</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;f:metadata&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;f:viewParam</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;taskId&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;f:event</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;preRenderView&#34;</span> <span style="color:#a6e22e">listener=</span><span style="color:#e6db74">&#34;#{businessProcess.startTask(taskId, true)}&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/f:metadata&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;f:metadata&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;f:viewParam</span> <span class="na">name=</span><span class="s">&#34;taskId&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;f:event</span> <span class="na">type=</span><span class="s">&#34;preRenderView&#34;</span> <span class="na">listener=</span><span class="s">&#34;#{businessProcess.startTask(taskId, true)}&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/f:metadata&gt;</span>
 </span></span></code></pre></div><h1 id="declaratively-controlling-the-process">Declaratively controlling the process</h1>
 <p>Camunda CDI allows declaratively starting process instances and completing tasks using annotations.
 The <code>@org.camunda.bpm.engine.cdi.annotation.StartProcess</code> annotation allows to start a process instance either by &ldquo;key&rdquo; or by &ldquo;name&rdquo;.
 Note that the process instance is started after the annotated method returns. Example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@StartProcess</span>(<span style="color:#e6db74">&#34;authorizeBusinessTripRequest&#34;</span>)
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">submitRequest</span>(BusinessTripRequest request) {
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// do some work</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;success&#34;</span>;
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>Depending on the configuration of the Camunda engine, the code of the annotated method and the starting of the process
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@StartProcess</span><span class="p">(</span><span class="s">&#34;authorizeBusinessTripRequest&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">submitRequest</span><span class="p">(</span><span class="n">BusinessTripRequest</span><span class="w"> </span><span class="n">request</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c1">// do some work</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="s">&#34;success&#34;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>Depending on the configuration of the Camunda engine, the code of the annotated method and the starting of the process
 instance will be combined in the same transaction. The <code>@org.camunda.bpm.engine.cdi.annotation.CompleteTask</code>-annotation
 works in the same way:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@CompleteTask</span>(endConversation<span style="color:#f92672">=</span><span style="color:#66d9ef">false</span>)
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">authorizeBusinessTrip</span>() {
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// do some work</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;success&#34;</span>;
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>The <code>@CompleteTask</code> annotation offers the possibility to end the current conversation. The default behavior is to end the conversation
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@CompleteTask</span><span class="p">(</span><span class="n">endConversation</span><span class="o">=</span><span class="kc">false</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">authorizeBusinessTrip</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// do some work</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s">&#34;success&#34;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>The <code>@CompleteTask</code> annotation offers the possibility to end the current conversation. The default behavior is to end the conversation
 after the call to the engine returns. Ending the conversation can be disabled, as shown in the example above.</p>
 <h1 id="work-with-businessprocessscoped-beans">Work with @BusinessProcessScoped beans</h1>
 <p>Using Camunda CDI, the lifecycle of a bean can be bound to a process instance. To this extent, a custom context implementation is provided,
@@ -3209,15 +3209,15 @@ On deployment, beans annotated with <code>BusinessProcessScoped</code> are valid
 the <code>Serializable</code> interface, and their references (dependencies) must be &ldquo;passivation capable&rdquo; as well. You can read more about the
 &ldquo;passivation capable&rdquo; criteria in the <a href="https://docs.jboss.org/cdi/spec/1.0/html_single/#passivatingscope">CDI specification</a>.</p>
 <p>The following is an example of a &ldquo;passivation capable&rdquo; process scoped bean:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Named</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@BusinessProcessScoped</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BusinessTripRequest</span> <span style="color:#66d9ef">implements</span> Serializable {
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">long</span> serialVersionUID <span style="color:#f92672">=</span> 1L;
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">private</span> String startDate;
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">private</span> String endDate;
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// ...</span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>Sometimes, we want to work with process scoped beans, in the absence of an association with a process instance,
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Named</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@BusinessProcessScoped</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">BusinessTripRequest</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Serializable</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">serialVersionUID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">1L</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">startDate</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">endDate</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// ...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>Sometimes, we want to work with process scoped beans, in the absence of an association with a process instance,
 for example before starting a process. If no process instance is currently active, instances of <code>BusinessProcessScoped</code>
 beans are temporarily stored in a local scope (i.e., the Conversation or the Request, depending on the context).
 If this scope is later associated with a business process instance, the bean instances are flushed to the process instance.</p>

@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/1.0/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/1.0/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/reference/bpmn20/tasks/user-task/" />
 </head>
 <body class="">
@@ -3163,25 +3163,25 @@
 <div class="bpmn-symbol"><img src="/manual/1.0//img/short-codes/bpmn-user-task.png" /></div>
 
 <p>A User Task is defined in XML as follows. The id attribute is required, while the name attribute is optional.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;userTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;theTask&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Important task&#34;</span> <span style="color:#f92672">/&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;userTask</span> <span class="na">id=</span><span class="s">&#34;theTask&#34;</span> <span class="na">name=</span><span class="s">&#34;Important task&#34;</span> <span class="nt">/&gt;</span>
 </span></span></code></pre></div><h1 id="description">Description</h1>
 <p>A User Task can also have a description. In fact, any BPMN 2.0 element can have a description. A description is defined by adding the documentation element.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;userTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;theTask&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Schedule meeting&#34;</span> <span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;documentation&gt;</span>
-</span></span><span style="display:flex;"><span>      Schedule an engineering meeting for next week with the new hire.
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/documentation&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;userTask</span> <span class="na">id=</span><span class="s">&#34;theTask&#34;</span> <span class="na">name=</span><span class="s">&#34;Schedule meeting&#34;</span> <span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;documentation&gt;</span>
+</span></span><span class="line"><span class="cl">      Schedule an engineering meeting for next week with the new hire.
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/documentation&gt;</span>
 </span></span></code></pre></div><p>The description text can be retrieved from the task in the standard Java way:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>task.<span style="color:#a6e22e">getDescription</span>();
-</span></span></code></pre></div><h1 id="properties">Properties</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">task</span><span class="p">.</span><span class="na">getDescription</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><h1 id="properties">Properties</h1>
 <h2 id="due-date">Due Date</h2>
 <p>Each task has a field indicating the due date of that task. The Query API can be used to query for tasks that are due on, before or after a certain date.</p>
 <p>There is an activity extension which allows you to specify an expression in your task-definition to set the initial due date of a task when it is created. The expression should always resolve to a java.util.Date, java.util.String (<a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601</a> formatted) or null. When using ISO8601 formatted Strings, you may either specify an exact point in time or a time period relative to the time the task is created. For example, you could use a date that was entered in a previous form in the process or calculated in a previous Service Task.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;userTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;theTask&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Important task&#34;</span> <span style="color:#a6e22e">camunda:dueDate=</span><span style="color:#e6db74">&#34;${dateVariable}&#34;</span><span style="color:#f92672">/&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;userTask</span> <span class="na">id=</span><span class="s">&#34;theTask&#34;</span> <span class="na">name=</span><span class="s">&#34;Important task&#34;</span> <span class="na">camunda:dueDate=</span><span class="s">&#34;${dateVariable}&#34;</span><span class="nt">/&gt;</span>
 </span></span></code></pre></div><p>The due date of a task can also be altered using the TaskService or in TaskListeners using the passed DelegateTask.</p>
 <h2 id="follow-up-date">Follow Up Date</h2>
 <p>Each task has a field indicating the follow up date of that task. The Query API can be used to query for tasks that need to be followed up on, before or after a certain date.</p>
 <p>There is an activity extension which allows you to specify an expression in your task-definition to set the initial follow up date of a task when it is created. The expression should always resolve to a java.util.Date, java.util.String (<a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601</a> formatted) or null. When using ISO8601 formatted Strings, you may either specify an exact point in time or a time period relative to the time the task is created. For example, you could use a date that was entered in a previous form in the process or calculated in a previous Service Task.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;userTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;theTask&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Important task&#34;</span> <span style="color:#a6e22e">camunda:followUpDate=</span><span style="color:#e6db74">&#34;${dateVariable}&#34;</span><span style="color:#f92672">/&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;userTask</span> <span class="na">id=</span><span class="s">&#34;theTask&#34;</span> <span class="na">name=</span><span class="s">&#34;Important task&#34;</span> <span class="na">camunda:followUpDate=</span><span class="s">&#34;${dateVariable}&#34;</span><span class="nt">/&gt;</span>
 </span></span></code></pre></div><h1 id="user-assignment">User Assignment</h1>
 <p>A User Task can be directly assigned to a single user, a list of users or a list of groups.</p>
 <h2 id="assignment-using-bpmn-resource-assignments">Assignment using BPMN Resource Assignments</h2>
@@ -3189,48 +3189,48 @@
 As a more powerful alternative, Camunda also defines a set of custom extension elements (see below).</p>
 <h3 id="human-performer">Human Performer</h3>
 <p>This is done by defining a humanPerformer sub element. Such a humanPerformer definition needs a resourceAssignmentExpression that actually defines the user. Currently, only formalExpressions are supported.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;process</span> <span style="color:#960050;background-color:#1e0010">...</span> <span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  ...
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;userTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#39;theTask&#39;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#39;important task&#39;</span> <span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;humanPerformer&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;resourceAssignmentExpression&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;formalExpression&gt;</span>kermit<span style="color:#f92672">&lt;/formalExpression&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/resourceAssignmentExpression&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/humanPerformer&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/userTask&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;process</span> <span class="err">...</span> <span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  ...
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;userTask</span> <span class="na">id=</span><span class="s">&#39;theTask&#39;</span> <span class="na">name=</span><span class="s">&#39;important task&#39;</span> <span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;humanPerformer&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;resourceAssignmentExpression&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;formalExpression&gt;</span>kermit<span class="nt">&lt;/formalExpression&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/resourceAssignmentExpression&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/humanPerformer&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/userTask&gt;</span>
 </span></span></code></pre></div><p>Only one user can be assigned to the task as a human performer. In the engine terminology, this user is called the assignee. Tasks that have an assignee are not visible in the task lists of other users and can be found in the so-called personal task list of the assignee instead.</p>
 <p>Tasks directly assigned to users can be retrieved through the TaskService as follows:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>List<span style="color:#f92672">&lt;</span>Task<span style="color:#f92672">&gt;</span> tasks <span style="color:#f92672">=</span> taskService.<span style="color:#a6e22e">createTaskQuery</span>().<span style="color:#a6e22e">taskAssignee</span>(<span style="color:#e6db74">&#34;kermit&#34;</span>).<span style="color:#a6e22e">list</span>();
-</span></span></code></pre></div><h3 id="potential-owner">Potential Owner</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">List</span><span class="o">&lt;</span><span class="n">Task</span><span class="o">&gt;</span><span class="w"> </span><span class="n">tasks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">taskService</span><span class="p">.</span><span class="na">createTaskQuery</span><span class="p">().</span><span class="na">taskAssignee</span><span class="p">(</span><span class="s">&#34;kermit&#34;</span><span class="p">).</span><span class="na">list</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><h3 id="potential-owner">Potential Owner</h3>
 <p>Tasks can also be put in the so-called candidate task list of people. In that case, the potentialOwner construct must be used. The usage is similar to the humanPerformer construct. Please note that for each element in the formal expression it is required to specifically define if it is a user or a group (the engine cannot guess this).</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;process</span> <span style="color:#960050;background-color:#1e0010">...</span> <span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  ...
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;userTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#39;theTask&#39;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#39;important task&#39;</span> <span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;potentialOwner&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;resourceAssignmentExpression&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;formalExpression&gt;</span>user(kermit), group(management)<span style="color:#f92672">&lt;/formalExpression&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/resourceAssignmentExpression&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/potentialOwner&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/userTask&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;process</span> <span class="err">...</span> <span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  ...
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;userTask</span> <span class="na">id=</span><span class="s">&#39;theTask&#39;</span> <span class="na">name=</span><span class="s">&#39;important task&#39;</span> <span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;potentialOwner&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;resourceAssignmentExpression&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;formalExpression&gt;</span>user(kermit), group(management)<span class="nt">&lt;/formalExpression&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/resourceAssignmentExpression&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/potentialOwner&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/userTask&gt;</span>
 </span></span></code></pre></div><p>Tasks defined with the potential owner construct can be retrieved as follows (or a similar TaskQuery, such as for tasks which have an assignee, can be used):</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>List<span style="color:#f92672">&lt;</span>Task<span style="color:#f92672">&gt;</span> tasks <span style="color:#f92672">=</span> taskService.<span style="color:#a6e22e">createTaskQuery</span>().<span style="color:#a6e22e">taskCandidateUser</span>(<span style="color:#e6db74">&#34;kermit&#34;</span>);
-</span></span></code></pre></div><p>This will retrieve all tasks where <code>kermit</code> is a candidate user, i.e., the formal expression contains the user <code>kermit</code>. This will also retrieve all tasks that are assigned to a group of which <code>kermit</code> is a member (e.g., <code>group(management)</code>, if kermit is a member of that group and the identity component is used). The groups of a user are resolved at runtime and these can be managed through the IdentityService.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">List</span><span class="o">&lt;</span><span class="n">Task</span><span class="o">&gt;</span><span class="w"> </span><span class="n">tasks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">taskService</span><span class="p">.</span><span class="na">createTaskQuery</span><span class="p">().</span><span class="na">taskCandidateUser</span><span class="p">(</span><span class="s">&#34;kermit&#34;</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><p>This will retrieve all tasks where <code>kermit</code> is a candidate user, i.e., the formal expression contains the user <code>kermit</code>. This will also retrieve all tasks that are assigned to a group of which <code>kermit</code> is a member (e.g., <code>group(management)</code>, if kermit is a member of that group and the identity component is used). The groups of a user are resolved at runtime and these can be managed through the IdentityService.</p>
 <p>If no specifics are given whether the given text string is a user or a group, the engine defaults to group. So the following two alternatives lead to the same result:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;formalExpression&gt;</span>accountancy<span style="color:#f92672">&lt;/formalExpression&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;formalExpression&gt;</span>group(accountancy)<span style="color:#f92672">&lt;/formalExpression&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;formalExpression&gt;</span>accountancy<span class="nt">&lt;/formalExpression&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;formalExpression&gt;</span>group(accountancy)<span class="nt">&lt;/formalExpression&gt;</span>
 </span></span></code></pre></div><h2 id="user-assignment-using-camunda-extensions">User Assignment using Camunda Extensions</h2>
 <p>It is clear that user and group assignments are quite cumbersome for use cases where the assignment is more complicated. To avoid these complexities, custom extensions on the User Task are possible.</p>
 <h3 id="assignee">Assignee</h3>
 <p>The <code>assignee</code> attribute: this custom extension allows direct assignment of a User Task to a given user.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;userTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;theTask&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;my task&#34;</span> <span style="color:#a6e22e">camunda:assignee=</span><span style="color:#e6db74">&#34;kermit&#34;</span> <span style="color:#f92672">/&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;userTask</span> <span class="na">id=</span><span class="s">&#34;theTask&#34;</span> <span class="na">name=</span><span class="s">&#34;my task&#34;</span> <span class="na">camunda:assignee=</span><span class="s">&#34;kermit&#34;</span> <span class="nt">/&gt;</span>
 </span></span></code></pre></div><p>This is exactly the same as using a humanPerformer construct as defined above.</p>
 <h3 id="candidate-users">Candidate Users</h3>
 <p>The <code>candidateUsers</code> attribute: this custom extension allows you to make a user a candidate for a task.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;userTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;theTask&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;my task&#34;</span> <span style="color:#a6e22e">camunda:candidateUsers=</span><span style="color:#e6db74">&#34;kermit, gonzo&#34;</span> <span style="color:#f92672">/&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;userTask</span> <span class="na">id=</span><span class="s">&#34;theTask&#34;</span> <span class="na">name=</span><span class="s">&#34;my task&#34;</span> <span class="na">camunda:candidateUsers=</span><span class="s">&#34;kermit, gonzo&#34;</span> <span class="nt">/&gt;</span>
 </span></span></code></pre></div><p>This is exactly the same as using a potentialOwner construct as defined above. Note that it is not required to use the <code>user(kermit)</code> declaration as is the case with the potential owner construct, since this attribute can only be used for users.</p>
 <h3 id="candidate-groups">Candidate Groups</h3>
 <p>The <code>candidateGroups</code> attribute: this custom extension allows you to make a group a candidate for a task.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;userTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;theTask&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;my task&#34;</span> <span style="color:#a6e22e">camunda:candidateGroups=</span><span style="color:#e6db74">&#34;management, accountancy&#34;</span> <span style="color:#f92672">/&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;userTask</span> <span class="na">id=</span><span class="s">&#34;theTask&#34;</span> <span class="na">name=</span><span class="s">&#34;my task&#34;</span> <span class="na">camunda:candidateGroups=</span><span class="s">&#34;management, accountancy&#34;</span> <span class="nt">/&gt;</span>
 </span></span></code></pre></div><p>This is exactly the same as using a potentialOwner construct as defined above. Note that it is not required to use the <code>group(management)</code> declaration as is the case with the potential owner construct, since this attribute can only be used for groups.</p>
 <h3 id="combining-candidate-users-and-groups">Combining Candidate Users and Groups</h3>
 <p><code>candidateUsers</code> and <code>candidateGroups</code> can both be defined for the same User Task.</p>
@@ -3242,48 +3242,48 @@ As a more powerful alternative, Camunda also defines a set of custom extension e
 <h4 id="using-process-variables">Using Process Variables</h4>
 <p>Process variables are useful for assignments based on data which has been collected or calculated up front.</p>
 <p>The following example shows how to assign a User Task to the person who started the process:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;startEvent</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;startEvent&#34;</span> <span style="color:#a6e22e">camunda:initiator=</span><span style="color:#e6db74">&#34;starter&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>...
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;userTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;task&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Clarify Invoice&#34;</span> <span style="color:#a6e22e">camunda:assignee=</span><span style="color:#e6db74">&#34;${ starter }&#34;</span><span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>...
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;startEvent</span> <span class="na">id=</span><span class="s">&#34;startEvent&#34;</span> <span class="na">camunda:initiator=</span><span class="s">&#34;starter&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;userTask</span> <span class="na">id=</span><span class="s">&#34;task&#34;</span> <span class="na">name=</span><span class="s">&#34;Clarify Invoice&#34;</span> <span class="na">camunda:assignee=</span><span class="s">&#34;${ starter }&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">...
 </span></span></code></pre></div><p>First, the <code>camunda:initiator</code> extension is used to bind the user id of the person who started (<em>&ldquo;initiated&rdquo;</em>) the process to the variable <code>starter</code>. Then the expression <code>${ starter }</code> retrieves that value and uses it as assignee for the task.</p>
 <p>It is possible to use all process variables <a href="/manual/1.0/user-guide/process-engine/variables/#variable-scopes-and-variable-visibility">visible</a> from the User Task in the expression.</p>
 <h4 id="invoking-a-service--bean">Invoking a Service / Bean</h4>
 <p>When using Spring or CDI, it is possible to delegate to a bean or service implementation. This way it is possible to call out to complex assignment logic without modeling it as an explicit service task in the process which would then produce a variable used in the assignment.</p>
 <p>In the following example, the assignee will be set by calling the <code>findManagerOfEmployee()</code> on the <code>ldapService</code> Spring/CDI bean. The <code>emp</code> parameter that is passed is a process variable.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;userTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;task&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;My Task&#34;</span> <span style="color:#a6e22e">camunda:assignee=</span><span style="color:#e6db74">&#34;${ldapService.findManagerForEmployee(emp)}&#34;</span><span style="color:#f92672">/&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;userTask</span> <span class="na">id=</span><span class="s">&#34;task&#34;</span> <span class="na">name=</span><span class="s">&#34;My Task&#34;</span> <span class="na">camunda:assignee=</span><span class="s">&#34;${ldapService.findManagerForEmployee(emp)}&#34;</span><span class="nt">/&gt;</span>
 </span></span></code></pre></div><p>This also works in a similar way for candidate users and groups:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;userTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;task&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;My Task&#34;</span> <span style="color:#a6e22e">camunda:candidateUsers=</span><span style="color:#e6db74">&#34;${ldapService.findAllSales()}&#34;</span><span style="color:#f92672">/&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;userTask</span> <span class="na">id=</span><span class="s">&#34;task&#34;</span> <span class="na">name=</span><span class="s">&#34;My Task&#34;</span> <span class="na">camunda:candidateUsers=</span><span class="s">&#34;${ldapService.findAllSales()}&#34;</span><span class="nt">/&gt;</span>
 </span></span></code></pre></div><p>Note that this will only work if the return type of the invoked methods is String or Collection&lt;String&gt; (for candidate users and groups):</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">FakeLdapService</span> {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">findManagerForEmployee</span>(String employee) {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Kermit The Frog&#34;</span>;
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">findAllSales</span>() {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> Arrays.<span style="color:#a6e22e">asList</span>(<span style="color:#e6db74">&#34;kermit&#34;</span>, <span style="color:#e6db74">&#34;gonzo&#34;</span>, <span style="color:#e6db74">&#34;fozzie&#34;</span>);
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h3 id="assignments-in-listeners">Assignments in Listeners</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">FakeLdapService</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">findManagerForEmployee</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">employee</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s">&#34;Kermit The Frog&#34;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">findAllSales</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="s">&#34;kermit&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;gonzo&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;fozzie&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h3 id="assignments-in-listeners">Assignments in Listeners</h3>
 <p>It is also possible to use <a href="/manual/1.0/user-guide/process-engine/delegation-code/#task-listener">task listeners</a> for handling assignments. The following example demonstrates a task listener on the <code>create</code> event:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;userTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;task1&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;My task&#34;</span> <span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;camunda:taskListener</span> <span style="color:#a6e22e">event=</span><span style="color:#e6db74">&#34;create&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;org.camunda.bpm.MyAssignmentHandler&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/userTask&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;userTask</span> <span class="na">id=</span><span class="s">&#34;task1&#34;</span> <span class="na">name=</span><span class="s">&#34;My task&#34;</span> <span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;camunda:taskListener</span> <span class="na">event=</span><span class="s">&#34;create&#34;</span> <span class="na">class=</span><span class="s">&#34;org.camunda.bpm.MyAssignmentHandler&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/userTask&gt;</span>
 </span></span></code></pre></div><p>The DelegateTask that is passed to the TaskListener implementation allows you to set the assignee and candidate-users/groups:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyAssignmentHandler</span> <span style="color:#66d9ef">implements</span> TaskListener {
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">notify</span>(DelegateTask delegateTask) {
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Execute custom identity lookups here</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// and then for example call following methods:</span>
-</span></span><span style="display:flex;"><span>    delegateTask.<span style="color:#a6e22e">setAssignee</span>(<span style="color:#e6db74">&#34;kermit&#34;</span>);
-</span></span><span style="display:flex;"><span>    delegateTask.<span style="color:#a6e22e">addCandidateUser</span>(<span style="color:#e6db74">&#34;fozzie&#34;</span>);
-</span></span><span style="display:flex;"><span>    delegateTask.<span style="color:#a6e22e">addCandidateGroup</span>(<span style="color:#e6db74">&#34;management&#34;</span>);
-</span></span><span style="display:flex;"><span>    ...
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyAssignmentHandler</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">TaskListener</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">notify</span><span class="p">(</span><span class="n">DelegateTask</span><span class="w"> </span><span class="n">delegateTask</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// Execute custom identity lookups here</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// and then for example call following methods:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">delegateTask</span><span class="p">.</span><span class="na">setAssignee</span><span class="p">(</span><span class="s">&#34;kermit&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">delegateTask</span><span class="p">.</span><span class="na">addCandidateUser</span><span class="p">(</span><span class="s">&#34;fozzie&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">delegateTask</span><span class="p">.</span><span class="na">addCandidateGroup</span><span class="p">(</span><span class="s">&#34;management&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div>
 <div class="note bg-info docs-info">
   <h3>Note</h3>
   <p>Assigning a task, or setting any other property through a TaskListener, will not result in an
@@ -3295,57 +3295,57 @@ is intentional, in order to avoid creating event loops.</p>
 <p>Although the Camunda engine provides an identity management component, which is exposed through the IdentityService, it does not check whether a provided user is known by the identity component. This allows integration of the engine with existing identity management solutions when it is embedded into an application.</p>
 <p>However, note that you can use the identity service in a service / bean or listener to query your user repository if this is useful to you.</p>
 <p>You can query for users with the help of the identity service. See the following example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>ProcessEngine processEngine <span style="color:#f92672">=</span> delegateTask.<span style="color:#a6e22e">getProcessEngine</span>();
-</span></span><span style="display:flex;"><span>IdentityService identityService <span style="color:#f92672">=</span> processEngine.<span style="color:#a6e22e">getIdentityService</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>List<span style="color:#f92672">&lt;</span>User<span style="color:#f92672">&gt;</span> managementUsers <span style="color:#f92672">=</span> identityService.<span style="color:#a6e22e">createUserQuery</span>()
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">memberOfGroup</span>(<span style="color:#e6db74">&#34;management&#34;</span>)
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">list</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>User kermit <span style="color:#f92672">=</span> identityService.<span style="color:#a6e22e">createUserQuery</span>()
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">userFirstName</span>(<span style="color:#e6db74">&#34;kermit&#34;</span>)
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">singleResult</span>();
-</span></span></code></pre></div><h1 id="reporting-bpmn-error">Reporting Bpmn Error</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">ProcessEngine</span><span class="w"> </span><span class="n">processEngine</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">delegateTask</span><span class="p">.</span><span class="na">getProcessEngine</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">IdentityService</span><span class="w"> </span><span class="n">identityService</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">processEngine</span><span class="p">.</span><span class="na">getIdentityService</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span><span class="w"> </span><span class="n">managementUsers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">identityService</span><span class="p">.</span><span class="na">createUserQuery</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">memberOfGroup</span><span class="p">(</span><span class="s">&#34;management&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">list</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">User</span><span class="w"> </span><span class="n">kermit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">identityService</span><span class="p">.</span><span class="na">createUserQuery</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">userFirstName</span><span class="p">(</span><span class="s">&#34;kermit&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">singleResult</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><h1 id="reporting-bpmn-error">Reporting Bpmn Error</h1>
 <p>See the documentation for <a href="/manual/1.0/reference/bpmn20/events/error-events/#error-boundary-event">Error Boundary Events</a>.</p>
 <p>To report a business error during user task operation, use <code>TaskService#handleBpmnError</code>. It can be invoked only when the task is active.
 The <code>#handleBpmnError</code> method requires a mandatory argument: <code>errorCode</code>.
 The error code identifies a predefined error. If the given <code>errorCode</code> does not exist or there is no boundary event defined,
 the current activity instance simply ends and the error is not handled.</p>
 <p>See the following example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Task task <span style="color:#f92672">=</span> taskService.<span style="color:#a6e22e">createTaskQuery</span>().<span style="color:#a6e22e">taskName</span>(<span style="color:#e6db74">&#34;Perform check&#34;</span>).<span style="color:#a6e22e">singleResult</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// ... business error appears</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>taskService.<span style="color:#a6e22e">handleBpmnError</span>(
-</span></span><span style="display:flex;"><span>  task.<span style="color:#a6e22e">getId</span>(),
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;bpmn-error-543&#34;</span>, <span style="color:#75715e">// errorCode</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;Thrown BPMN Error during...&#34;</span>, <span style="color:#75715e">// errorMessage</span>
-</span></span><span style="display:flex;"><span>  variables);
-</span></span></code></pre></div><p>A BPMN error with the error code <code>bpmn-error-543</code> is propagated. If a boundary event with this error code exists, the BPMN error will be caught and handled.
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Task</span><span class="w"> </span><span class="n">task</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">taskService</span><span class="p">.</span><span class="na">createTaskQuery</span><span class="p">().</span><span class="na">taskName</span><span class="p">(</span><span class="s">&#34;Perform check&#34;</span><span class="p">).</span><span class="na">singleResult</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// ... business error appears</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">taskService</span><span class="p">.</span><span class="na">handleBpmnError</span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">task</span><span class="p">.</span><span class="na">getId</span><span class="p">(),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="s">&#34;bpmn-error-543&#34;</span><span class="p">,</span><span class="w"> </span><span class="c1">// errorCode</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="s">&#34;Thrown BPMN Error during...&#34;</span><span class="p">,</span><span class="w"> </span><span class="c1">// errorMessage</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">variables</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><p>A BPMN error with the error code <code>bpmn-error-543</code> is propagated. If a boundary event with this error code exists, the BPMN error will be caught and handled.
 The error message and variables are optional. They can provide additional information for the error. The variables will be passed to the execution if the BPMN error is caught.</p>
 <h1 id="reporting-bpmn-escalation">Reporting Bpmn Escalation</h1>
 <p>See the documentation for <a href="/manual/1.0/reference/bpmn20/events/escalation-events/#catching-escalation-events">Catching Escalation Events</a>.</p>
 <p>Reporting an escalation during user task execution can be achieved via <code>TaskService#handleEscalation</code>. The user task should be active to do so. The <code>escalationCode</code> is compulsory to invoke the escalation, this code identifies a predefined escalation. If the given <code>escalationCode</code> does not exist an Process Engine Exception will be thrown. See the following example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>taskService.<span style="color:#a6e22e">handleEscalation</span>(
-</span></span><span style="display:flex;"><span>  taskId,
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;escalation-432&#34;</span>, <span style="color:#75715e">// escalationCode</span>
-</span></span><span style="display:flex;"><span>  variables);
-</span></span></code></pre></div><p>Here an escalation is propagated with escalation code <code>escalation-432</code>. If a boundary event with this escalation code exists, the escalation will be caught and handled.
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">taskService</span><span class="p">.</span><span class="na">handleEscalation</span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">taskId</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="s">&#34;escalation-432&#34;</span><span class="p">,</span><span class="w"> </span><span class="c1">// escalationCode</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">variables</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><p>Here an escalation is propagated with escalation code <code>escalation-432</code>. If a boundary event with this escalation code exists, the escalation will be caught and handled.
 The variables are optional. They will be passed to the execution if the escalation is caught.</p>
 <h1 id="completion">Completion</h1>
 <p>Complete is part of the <a href="/manual/1.0/webapps/tasklist/task-lifecycle/">task lifecycle</a> operation along with create, set candidate, assign, etc. (allow available via Java API). Complete a task by passing variables, optionally the process variables can be retrieved::</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>taskService.<span style="color:#a6e22e">complete</span>(taskId, variables);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// or complete and retrieve the process variables</span>
-</span></span><span style="display:flex;"><span>VariableMap processVariables <span style="color:#f92672">=</span> taskService
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">completeWithVariablesInReturn</span>(taskId, variables, shouldDeserializeValues);
-</span></span></code></pre></div><h1 id="forms">Forms</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">taskService</span><span class="p">.</span><span class="na">complete</span><span class="p">(</span><span class="n">taskId</span><span class="p">,</span><span class="w"> </span><span class="n">variables</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// or complete and retrieve the process variables</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">VariableMap</span><span class="w"> </span><span class="n">processVariables</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">taskService</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">completeWithVariablesInReturn</span><span class="p">(</span><span class="n">taskId</span><span class="p">,</span><span class="w"> </span><span class="n">variables</span><span class="p">,</span><span class="w"> </span><span class="n">shouldDeserializeValues</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><h1 id="forms">Forms</h1>
 <p>It is possible to provide information to render a User Task form by using the <code>camunda:formKey</code>
 attribute:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;userTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;someTask&#34;</span> <span style="color:#a6e22e">camunda:formKey=</span><span style="color:#e6db74">&#34;someForm.html&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  ...
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/userTask&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;userTask</span> <span class="na">id=</span><span class="s">&#34;someTask&#34;</span> <span class="na">camunda:formKey=</span><span class="s">&#34;someForm.html&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  ...
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/userTask&gt;</span>
 </span></span></code></pre></div><p>The form key is a symbolic value which can be set in the BPMN XML file by using the extension attribute
 <code>formKey</code> and retrieved at runtime using the process engine API.</p>
 <p>If the User Task form is displayed inside the Camunda Tasklist, the format of the formKey must follow
@@ -3353,28 +3353,28 @@ special rules. <a href="/manual/1.0/user-guide/task-forms/">See the correspondin
 <p>In custom applications, the value of the form key attribute can be interpreted freely. Based on the specific UI technology used,
 it can reference the name of an HTML file, a JSF / Facelets template, a Vaadin / GWT view, &hellip;</p>
 <h2 id="retrieving-the-form-key-using-the-form-service">Retrieving the Form Key using the Form Service.</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>String formKey <span style="color:#f92672">=</span> formService.<span style="color:#a6e22e">getTaskFormData</span>(someTaskId).<span style="color:#a6e22e">getFormKey</span>();
-</span></span></code></pre></div><h2 id="retrieving-the-form-using-the-task-service">Retrieving the Form using the Task Service</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">String</span><span class="w"> </span><span class="n">formKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">formService</span><span class="p">.</span><span class="na">getTaskFormData</span><span class="p">(</span><span class="n">someTaskId</span><span class="p">).</span><span class="na">getFormKey</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><h2 id="retrieving-the-form-using-the-task-service">Retrieving the Form using the Task Service</h2>
 <p>When performing a task query, it is possible to retrieve the form key as well. This is most useful
 if the form keys need to be retrieved for a complete list of tasks:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>List<span style="color:#f92672">&lt;</span>Task<span style="color:#f92672">&gt;</span> tasks <span style="color:#f92672">=</span> TaskService.<span style="color:#a6e22e">createTaskQuery</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">assignee</span>(<span style="color:#e6db74">&#34;jonny&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">initializeFormKeys</span>() <span style="color:#75715e">// must be invoked</span>
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">list</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span>(Task task : tasks) {
-</span></span><span style="display:flex;"><span>  String formKey <span style="color:#f92672">=</span> task.<span style="color:#a6e22e">getFormKey</span>();
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>Note that it is required to call the <code>.initializeFormKeys()</code> method on the <code>TaskQuery</code> object to
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">List</span><span class="o">&lt;</span><span class="n">Task</span><span class="o">&gt;</span><span class="w"> </span><span class="n">tasks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TaskService</span><span class="p">.</span><span class="na">createTaskQuery</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">assignee</span><span class="p">(</span><span class="s">&#34;jonny&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">initializeFormKeys</span><span class="p">()</span><span class="w"> </span><span class="c1">// must be invoked</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">list</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">for</span><span class="p">(</span><span class="n">Task</span><span class="w"> </span><span class="n">task</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">tasks</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">String</span><span class="w"> </span><span class="n">formKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">task</span><span class="p">.</span><span class="na">getFormKey</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>Note that it is required to call the <code>.initializeFormKeys()</code> method on the <code>TaskQuery</code> object to
 make sure the form keys are initialized.</p>
 <h2 id="form-submission">Form submission</h2>
 <p>When a form is submitted, it is possible to fetch the process variables in return:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>VariableMap processVariables <span style="color:#f92672">=</span> formService
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">submitTaskFormWithVariablesInReturn</span>(taskId, properties, shouldDeserializeValues);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// or avoid unnecessary variable access</span>
-</span></span><span style="display:flex;"><span>formService.<span style="color:#a6e22e">submitTaskForm</span>(taskId, properties);
-</span></span></code></pre></div><h1 id="camunda-extensions">Camunda Extensions</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">VariableMap</span><span class="w"> </span><span class="n">processVariables</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">formService</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">submitTaskFormWithVariablesInReturn</span><span class="p">(</span><span class="n">taskId</span><span class="p">,</span><span class="w"> </span><span class="n">properties</span><span class="p">,</span><span class="w"> </span><span class="n">shouldDeserializeValues</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// or avoid unnecessary variable access</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">formService</span><span class="p">.</span><span class="na">submitTaskForm</span><span class="p">(</span><span class="n">taskId</span><span class="p">,</span><span class="w"> </span><span class="n">properties</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><h1 id="camunda-extensions">Camunda Extensions</h1>
 <table class="table table-striped">
   <tr>
     <th>Attributes</th>

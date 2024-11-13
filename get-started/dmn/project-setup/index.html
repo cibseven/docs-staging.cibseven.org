@@ -21,7 +21,7 @@
 
   
 
-  <link rel="stylesheet" href="/get-started/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/get-started/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="/get-started/dmn/project-setup/" />
 </head>
 <body class="">
@@ -240,194 +240,6 @@
     
   <li>
     
-      <a href="/get-started/archive/" >Archive</a>
-      <ul>
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/spring/" >Spring Framework</a>
-      <ul>
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/spring/project-setup/" >Project Setup</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/spring/embedded-process-engine/" >Embedded Process Engine Configuration</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/spring/service-task/" >Spring Bean Service Task</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/spring/shared-process-engine/" >Shared Process Engine</a>
-    
-  </li>
-
-        
-      </ul>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/javaee7/" >Java EE 7</a>
-      <ul>
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/javaee7/install/" >Download and Installation</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/javaee7/project-setup/" >Project Setup</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/javaee7/model/" >Model a Process</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/javaee7/deploy/" >Deploy</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/javaee7/start-form/" >JSF Start Form</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/javaee7/service-task/" >EJB Service Task</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/javaee7/task-form/" >JSF Task Form</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/javaee7/complete-process/" >Complete Process</a>
-    
-  </li>
-
-        
-      </ul>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/java-process-app/" >Java Process Application</a>
-      <ul>
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/java-process-app/install/" >Download and Installation</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/java-process-app/project-setup/" >Project Setup</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/java-process-app/model/" >Model a Process</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/java-process-app/deploy/" >Deploy and Test</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/java-process-app/forms/" >Forms</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/java-process-app/service-task/" >Java Service Task</a>
-    
-  </li>
-
-        
-      </ul>
-    
-  </li>
-
-        
-      </ul>
-    
-  </li>
-
-  
-    
-  <li>
-    
       <a href="/get-started/apache-maven/" >Maven Coordinates</a>
     
   </li>
@@ -496,65 +308,65 @@
 <p>When you are done, click Finish. Eclipse sets up a new Maven project. The project appears in the <em>Project Explorer</em> View.</p>
 <h1 id="add-camunda-maven-dependencies">Add Camunda Maven Dependencies</h1>
 <p>The next step consists of setting up the Maven dependencies for your new process application. Add the following dependencies to the <code>pom.xml</code> file of your project:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;project</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://maven.apache.org/POM/4.0.0&#34;</span> <span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span> <span style="color:#a6e22e">xsi:schemaLocation=</span><span style="color:#e6db74">&#34;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;modelVersion&gt;</span>4.0.0<span style="color:#f92672">&lt;/modelVersion&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;groupId&gt;</span>org.camunda.bpm.getstarted<span style="color:#f92672">&lt;/groupId&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;artifactId&gt;</span>dinner-dmn<span style="color:#f92672">&lt;/artifactId&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;version&gt;</span>0.1.0-SNAPSHOT<span style="color:#f92672">&lt;/version&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;packaging&gt;</span>war<span style="color:#f92672">&lt;/packaging&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;properties&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;camunda.version&gt;</span>7.22.0<span style="color:#f92672">&lt;/camunda.version&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;maven.compiler.release&gt;</span>11<span style="color:#f92672">&lt;/maven.compiler.release&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/properties&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;dependencyManagement&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;dependencies&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;dependency&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;groupId&gt;</span>org.camunda.bpm<span style="color:#f92672">&lt;/groupId&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;artifactId&gt;</span>camunda-bom<span style="color:#f92672">&lt;/artifactId&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;version&gt;</span>${camunda.version}<span style="color:#f92672">&lt;/version&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;scope&gt;</span>import<span style="color:#f92672">&lt;/scope&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;type&gt;</span>pom<span style="color:#f92672">&lt;/type&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/dependency&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/dependencies&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/dependencyManagement&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;dependencies&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;dependency&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;groupId&gt;</span>org.camunda.bpm<span style="color:#f92672">&lt;/groupId&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;artifactId&gt;</span>camunda-engine<span style="color:#f92672">&lt;/artifactId&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;scope&gt;</span>provided<span style="color:#f92672">&lt;/scope&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/dependency&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;dependency&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;groupId&gt;</span>javax.servlet<span style="color:#f92672">&lt;/groupId&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;artifactId&gt;</span>javax.servlet-api<span style="color:#f92672">&lt;/artifactId&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;version&gt;</span>3.0.1<span style="color:#f92672">&lt;/version&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;scope&gt;</span>provided<span style="color:#f92672">&lt;/scope&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/dependency&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/dependencies&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;build&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;plugins&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;plugin&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;groupId&gt;</span>org.apache.maven.plugins<span style="color:#f92672">&lt;/groupId&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;artifactId&gt;</span>maven-compiler-plugin<span style="color:#f92672">&lt;/artifactId&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;version&gt;</span>3.11.0<span style="color:#f92672">&lt;/version&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/plugin&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;plugin&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;groupId&gt;</span>org.apache.maven.plugins<span style="color:#f92672">&lt;/groupId&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;artifactId&gt;</span>maven-war-plugin<span style="color:#f92672">&lt;/artifactId&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;version&gt;</span>3.3.2<span style="color:#f92672">&lt;/version&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;configuration&gt;</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;failOnMissingWebXml&gt;</span>false<span style="color:#f92672">&lt;/failOnMissingWebXml&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/configuration&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/plugin&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/plugins&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/build&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/project&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&#34;http://maven.apache.org/POM/4.0.0&#34;</span> <span class="na">xmlns:xsi=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span> <span class="na">xsi:schemaLocation=</span><span class="s">&#34;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;groupId&gt;</span>org.camunda.bpm.getstarted<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;artifactId&gt;</span>dinner-dmn<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;version&gt;</span>0.1.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;packaging&gt;</span>war<span class="nt">&lt;/packaging&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;properties&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;camunda.version&gt;</span>7.22.0<span class="nt">&lt;/camunda.version&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;maven.compiler.release&gt;</span>11<span class="nt">&lt;/maven.compiler.release&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/properties&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;dependencyManagement&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;dependencies&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;dependency&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;groupId&gt;</span>org.camunda.bpm<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;artifactId&gt;</span>camunda-bom<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;version&gt;</span>${camunda.version}<span class="nt">&lt;/version&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;scope&gt;</span>import<span class="nt">&lt;/scope&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;type&gt;</span>pom<span class="nt">&lt;/type&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/dependency&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/dependencies&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/dependencyManagement&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;dependencies&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;dependency&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;groupId&gt;</span>org.camunda.bpm<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;artifactId&gt;</span>camunda-engine<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;scope&gt;</span>provided<span class="nt">&lt;/scope&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/dependency&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;dependency&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;groupId&gt;</span>javax.servlet<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;artifactId&gt;</span>javax.servlet-api<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;version&gt;</span>3.0.1<span class="nt">&lt;/version&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;scope&gt;</span>provided<span class="nt">&lt;/scope&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/dependency&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/dependencies&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;build&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;plugins&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;plugin&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;artifactId&gt;</span>maven-compiler-plugin<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;version&gt;</span>3.11.0<span class="nt">&lt;/version&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/plugin&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;plugin&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;artifactId&gt;</span>maven-war-plugin<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;version&gt;</span>3.3.2<span class="nt">&lt;/version&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;configuration&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&lt;failOnMissingWebXml&gt;</span>false<span class="nt">&lt;/failOnMissingWebXml&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/configuration&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/plugin&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/plugins&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/build&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/project&gt;</span>
 </span></span></code></pre></div><p>Now you can perform the first build. Select the <code>pom.xml</code> in the Package Explorer, perform a right-click and select <code>Run As / Maven Install</code>.</p>
 
 <div class="panel-group gs-download-step-panel" id="gitStep-1">
@@ -588,35 +400,35 @@
 
 <h1 id="add-a-process-application-class">Add a Process Application Class</h1>
 <p>Next, you need to create a package, e.g., <code>org.camunda.bpm.getstarted.dmn</code> and add a Process Application class to it. The Process Application class constitutes the interface between your application and the process engine.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> org.camunda.bpm.getstarted.dmn;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.camunda.bpm.application.ProcessApplication;
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.camunda.bpm.application.impl.ServletProcessApplication;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@ProcessApplication</span>(<span style="color:#e6db74">&#34;Dinner App DMN&#34;</span>)
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DinnerApplication</span> <span style="color:#66d9ef">extends</span> ServletProcessApplication
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">//empty implementation</span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h1 id="add-a-meta-infprocessesxml-deployment-descriptor">Add a META-INF/processes.xml Deployment Descriptor</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nn">org.camunda.bpm.getstarted.dmn</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.camunda.bpm.application.ProcessApplication</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.camunda.bpm.application.impl.ServletProcessApplication</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@ProcessApplication</span><span class="p">(</span><span class="s">&#34;Dinner App DMN&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">DinnerApplication</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">ServletProcessApplication</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c1">//empty implementation</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h1 id="add-a-meta-infprocessesxml-deployment-descriptor">Add a META-INF/processes.xml Deployment Descriptor</h1>
 <p>The last step to set up the process application is to add the <code>META-INF/processes.xml</code> deployment descriptor file. This file allows us to provide a declarative configuration of the deployment(s) this process application makes to the process engine.</p>
 <p>This file needs to be added to the <code>src/main/resources/META-INF</code> folder of the Maven project.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34; ?&gt;</span>
-</span></span><span style="display:flex;"><span>     
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;process-application</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://www.camunda.org/schema/1.0/ProcessApplication&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>     
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;process-archive</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;dinner-dmn&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;process-engine&gt;</span>default<span style="color:#f92672">&lt;/process-engine&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;properties&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;isDeleteUponUndeploy&#34;</span><span style="color:#f92672">&gt;</span>false<span style="color:#f92672">&lt;/property&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;isScanForProcessDefinitions&#34;</span><span style="color:#f92672">&gt;</span>true<span style="color:#f92672">&lt;/property&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/properties&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/process-archive&gt;</span>
-</span></span><span style="display:flex;"><span> 
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/process-application&gt;</span>  
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34; ?&gt;</span>
+</span></span><span class="line"><span class="cl">     
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;process-application</span>
+</span></span><span class="line"><span class="cl">    <span class="na">xmlns=</span><span class="s">&#34;http://www.camunda.org/schema/1.0/ProcessApplication&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="na">xmlns:xsi=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">     
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;process-archive</span> <span class="na">name=</span><span class="s">&#34;dinner-dmn&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;process-engine&gt;</span>default<span class="nt">&lt;/process-engine&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;properties&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;isDeleteUponUndeploy&#34;</span><span class="nt">&gt;</span>false<span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;isScanForProcessDefinitions&#34;</span><span class="nt">&gt;</span>true<span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/properties&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/process-archive&gt;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/process-application&gt;</span>  
 </span></span></code></pre></div><p>At this point you have successfully set up the process application and you can start modeling your first decision table.</p>
 
 <div class="panel-group gs-download-step-panel" id="gitStep-2">

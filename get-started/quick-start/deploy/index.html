@@ -21,7 +21,7 @@
 
   
 
-  <link rel="stylesheet" href="/get-started/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/get-started/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="/get-started/quick-start/deploy/" />
 </head>
 <body class="">
@@ -240,194 +240,6 @@
     
   <li>
     
-      <a href="/get-started/archive/" >Archive</a>
-      <ul>
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/spring/" >Spring Framework</a>
-      <ul>
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/spring/project-setup/" >Project Setup</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/spring/embedded-process-engine/" >Embedded Process Engine Configuration</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/spring/service-task/" >Spring Bean Service Task</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/spring/shared-process-engine/" >Shared Process Engine</a>
-    
-  </li>
-
-        
-      </ul>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/javaee7/" >Java EE 7</a>
-      <ul>
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/javaee7/install/" >Download and Installation</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/javaee7/project-setup/" >Project Setup</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/javaee7/model/" >Model a Process</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/javaee7/deploy/" >Deploy</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/javaee7/start-form/" >JSF Start Form</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/javaee7/service-task/" >EJB Service Task</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/javaee7/task-form/" >JSF Task Form</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/javaee7/complete-process/" >Complete Process</a>
-    
-  </li>
-
-        
-      </ul>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/java-process-app/" >Java Process Application</a>
-      <ul>
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/java-process-app/install/" >Download and Installation</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/java-process-app/project-setup/" >Project Setup</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/java-process-app/model/" >Model a Process</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/java-process-app/deploy/" >Deploy and Test</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/java-process-app/forms/" >Forms</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/get-started/archive/java-process-app/service-task/" >Java Service Task</a>
-    
-  </li>
-
-        
-      </ul>
-    
-  </li>
-
-        
-      </ul>
-    
-  </li>
-
-  
-    
-  <li>
-    
       <a href="/get-started/apache-maven/" >Maven Coordinates</a>
     
   </li>
@@ -511,7 +323,7 @@ You should see a success message in the Camunda Modeler:
 <p>In Camunda, there are different ways to start a new process instance.
 You can leverage the Camunda REST API to start a new process instance by sending a POST Request.</p>
 <h2 id="a-curl">a) curl</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>curl -H <span style="color:#e6db74">&#34;Content-Type: application/json&#34;</span> -X POST -d <span style="color:#e6db74">&#39;{&#34;variables&#34;: {&#34;amount&#34;: {&#34;value&#34;:555,&#34;type&#34;:&#34;integer&#34;}, &#34;item&#34;: {&#34;value&#34;:&#34;item-xyz&#34;} } }&#39;</span> http://localhost:8080/engine-rest/process-definition/key/payment-retrieval/start
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">curl -H <span class="s2">&#34;Content-Type: application/json&#34;</span> -X POST -d <span class="s1">&#39;{&#34;variables&#34;: {&#34;amount&#34;: {&#34;value&#34;:555,&#34;type&#34;:&#34;integer&#34;}, &#34;item&#34;: {&#34;value&#34;:&#34;item-xyz&#34;} } }&#39;</span> http://localhost:8080/engine-rest/process-definition/key/payment-retrieval/start
 </span></span></code></pre></div><p>In your worker, you should now see the output in your console.
 This means you have successfully started and executed your first simple process.</p>
 <h2 id="b-rest-client">b) REST Client</h2>
@@ -519,17 +331,17 @@ This means you have successfully started and executed your first simple process.
 <p>Make a POST request to the following endpoint:
 <code>http://localhost:8080/engine-rest/process-definition/key/payment-retrieval/start</code></p>
 <p>The JSON Body should look like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-JSON" data-lang="JSON"><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>	<span style="color:#f92672">&#34;variables&#34;</span>: {
-</span></span><span style="display:flex;"><span>		<span style="color:#f92672">&#34;amount&#34;</span>: {
-</span></span><span style="display:flex;"><span>			<span style="color:#f92672">&#34;value&#34;</span>:<span style="color:#ae81ff">555</span>,
-</span></span><span style="display:flex;"><span>			<span style="color:#f92672">&#34;type&#34;</span>:<span style="color:#e6db74">&#34;integer&#34;</span>
-</span></span><span style="display:flex;"><span>		},
-</span></span><span style="display:flex;"><span>		<span style="color:#f92672">&#34;item&#34;</span>: {
-</span></span><span style="display:flex;"><span>			<span style="color:#f92672">&#34;value&#34;</span>: <span style="color:#e6db74">&#34;item-xyz&#34;</span>
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-JSON" data-lang="JSON"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nt">&#34;variables&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nt">&#34;amount&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nt">&#34;value&#34;</span><span class="p">:</span><span class="mi">555</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">			<span class="nt">&#34;type&#34;</span><span class="p">:</span><span class="s2">&#34;integer&#34;</span>
+</span></span><span class="line"><span class="cl">		<span class="p">},</span>
+</span></span><span class="line"><span class="cl">		<span class="nt">&#34;item&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nt">&#34;value&#34;</span><span class="p">:</span> <span class="s2">&#34;item-xyz&#34;</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p><em>Hint:</em> Make sure you are setting the headers correctly to <code>Content-Type: application/json</code></p>
 <p>Here&rsquo;s what the request might look like in Postman:
 <figure class="image">

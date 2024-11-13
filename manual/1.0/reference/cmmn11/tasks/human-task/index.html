@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/1.0/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/1.0/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/reference/cmmn11/tasks/human-task/" />
 </head>
 <body class="">
@@ -3163,56 +3163,56 @@
 <div class="cmmn-symbol"><img src="/manual/1.0//img/short-codes/cmmn-human-task.png" /></div>
 
 <p>A human task is defined in XML as follows:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;humanTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;theHumanTask&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;A Human Task&#34;</span> <span style="color:#f92672">/&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;humanTask</span> <span class="na">id=</span><span class="s">&#34;theHumanTask&#34;</span> <span class="na">name=</span><span class="s">&#34;A Human Task&#34;</span> <span class="nt">/&gt;</span>
 </span></span></code></pre></div><p>A human task in state <code>ENABLED</code> can be started manually using the <code>CaseService</code> as follows:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>caseService.<span style="color:#a6e22e">manuallyStartCaseExecution</span>(<span style="color:#e6db74">&#34;aCaseExecutionId&#34;</span>);
-</span></span></code></pre></div><p>When the human task becomes <code>ACTIVE</code>, a new task is created in the task list of the user(s) or group(s) assigned to that task.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">caseService</span><span class="p">.</span><span class="na">manuallyStartCaseExecution</span><span class="p">(</span><span class="s">&#34;aCaseExecutionId&#34;</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><p>When the human task becomes <code>ACTIVE</code>, a new task is created in the task list of the user(s) or group(s) assigned to that task.</p>
 <p>If the work associated with the human task is done, it is possible to complete the human task manually using the <code>CaseService</code> as follows:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>caseService.<span style="color:#a6e22e">completeCaseExecution</span>(<span style="color:#e6db74">&#34;aCaseExecutionId&#34;</span>);
-</span></span></code></pre></div><p>This completes the created task as well.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">caseService</span><span class="p">.</span><span class="na">completeCaseExecution</span><span class="p">(</span><span class="s">&#34;aCaseExecutionId&#34;</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><p>This completes the created task as well.</p>
 <p>Instead of using the <code>CaseService</code> it is also possible to use the <code>TaskService</code> to complete a human task:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>taskService.<span style="color:#a6e22e">complete</span>(<span style="color:#e6db74">&#34;aTaskId&#34;</span>);
-</span></span></code></pre></div><h1 id="properties">Properties</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">taskService</span><span class="p">.</span><span class="na">complete</span><span class="p">(</span><span class="s">&#34;aTaskId&#34;</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><h1 id="properties">Properties</h1>
 <p>In that case the associated human task is completed as well.</p>
 <h2 id="description">Description</h2>
 <p>A human task can have a description. In fact, any CMMN 1.1 element can have a description. A description is defined by adding the <code>description</code> attribute.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;humanTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;theTask&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Schedule meeting&#34;</span> <span style="color:#a6e22e">description=</span><span style="color:#e6db74">&#34;Schedule an engineering meeting for next week with the new hire&#34;</span> <span style="color:#f92672">/&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;humanTask</span> <span class="na">id=</span><span class="s">&#34;theTask&#34;</span> <span class="na">name=</span><span class="s">&#34;Schedule meeting&#34;</span> <span class="na">description=</span><span class="s">&#34;Schedule an engineering meeting for next week with the new hire&#34;</span> <span class="nt">/&gt;</span>
 </span></span></code></pre></div><p>The description text can be retrieved from the task in the standard Java way:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>task.<span style="color:#a6e22e">getDescription</span>();
-</span></span></code></pre></div><h2 id="due-date">Due Date</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">task</span><span class="p">.</span><span class="na">getDescription</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><h2 id="due-date">Due Date</h2>
 <p>Each task has a field indicating the due date of that task. The Query API can be used to query for tasks that are due on, before or after a certain date.</p>
 <p>There is an extension attribute that allows to specify an expression in a task definition to set the initial due date of a task when it is created. The expression should always resolve to a <code>java.util.Date</code>, <code>java.util.String</code> (<a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601</a> formatted) or <code>null</code>. When using ISO8601 formatted Strings, you may either specify an exact point in time or a time period relative to the time the task is created.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;humanTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;theTask&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Important task&#34;</span> <span style="color:#a6e22e">camunda:dueDate=</span><span style="color:#e6db74">&#34;${dateVariable}&#34;</span><span style="color:#f92672">/&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;humanTask</span> <span class="na">id=</span><span class="s">&#34;theTask&#34;</span> <span class="na">name=</span><span class="s">&#34;Important task&#34;</span> <span class="na">camunda:dueDate=</span><span class="s">&#34;${dateVariable}&#34;</span><span class="nt">/&gt;</span>
 </span></span></code></pre></div><p>The due date of a task can also be altered using the task service or in task listeners using the passed delegate task.</p>
 <h2 id="follow-up-date">Follow Up Date</h2>
 <p>Each task has a field indicating the follow up date of that task. The Query API can be used to query for tasks that need to be followed up on, before or after a certain date.</p>
 <p>There is an extension attribute that allows you to specify an expression in a task definition to set the initial follow up date of a task when it is created. The expression should always resolve to a <code>java.util.Date</code>, <code>java.util.String</code> (<a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601</a> formatted) or <code>null</code>. When using ISO8601 formatted Strings, you may either specify an exact point in time or a time period relative to the time the task is created.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;humanTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;theTask&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Important task&#34;</span> <span style="color:#a6e22e">camunda:followUpDate=</span><span style="color:#e6db74">&#34;${dateVariable}&#34;</span><span style="color:#f92672">/&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;humanTask</span> <span class="na">id=</span><span class="s">&#34;theTask&#34;</span> <span class="na">name=</span><span class="s">&#34;Important task&#34;</span> <span class="na">camunda:followUpDate=</span><span class="s">&#34;${dateVariable}&#34;</span><span class="nt">/&gt;</span>
 </span></span></code></pre></div><h1 id="user-assignment">User Assignment</h1>
 <p>A human task can be directly assigned to a single user, a list of users or a list of groups.</p>
 <h2 id="assignment-using-cmmn-case-role">Assignment using CMMN Case Role</h2>
 <p>CMMN defines some native assignment concepts which can be used in Camunda.
 As a more powerful alternative, Camunda also defines a set of custom extension elements (see below).</p>
 <p>The CMMN concept of <code>performerRef</code> can be used to assign a task to a single user. The <code>performerRef</code> attribute references an existing role. Such a role definition needs a name that defines the user.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;case</span> <span style="color:#960050;background-color:#1e0010">...</span> <span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  ...
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;humanTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;theTask&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#39;important task&#39;</span> <span style="color:#a6e22e">perfomerRef=</span><span style="color:#e6db74">&#34;aCaseRole&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;caseRoles</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;aCaseRole&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;kermit&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/case&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;case</span> <span class="err">...</span> <span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  ...
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;humanTask</span> <span class="na">id=</span><span class="s">&#34;theTask&#34;</span> <span class="na">name=</span><span class="s">&#39;important task&#39;</span> <span class="na">perfomerRef=</span><span class="s">&#34;aCaseRole&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;caseRoles</span> <span class="na">id=</span><span class="s">&#34;aCaseRole&#34;</span> <span class="na">name=</span><span class="s">&#34;kermit&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/case&gt;</span>
 </span></span></code></pre></div><p>Only one user can be assigned to the task as a performer. This user is called the assignee. Tasks that have an assignee are not visible in the task lists of other users and can only be found in the personal task list of the assignee.</p>
 <p>Tasks directly assigned to users can be retrieved through the task service as follows:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>List<span style="color:#f92672">&lt;</span>Task<span style="color:#f92672">&gt;</span> tasks <span style="color:#f92672">=</span> taskService.<span style="color:#a6e22e">createTaskQuery</span>().<span style="color:#a6e22e">taskAssignee</span>(<span style="color:#e6db74">&#34;kermit&#34;</span>).<span style="color:#a6e22e">list</span>();
-</span></span></code></pre></div><h2 id="user-assignment-using-camunda-extensions">User Assignment using Camunda Extensions</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">List</span><span class="o">&lt;</span><span class="n">Task</span><span class="o">&gt;</span><span class="w"> </span><span class="n">tasks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">taskService</span><span class="p">.</span><span class="na">createTaskQuery</span><span class="p">().</span><span class="na">taskAssignee</span><span class="p">(</span><span class="s">&#34;kermit&#34;</span><span class="p">).</span><span class="na">list</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><h2 id="user-assignment-using-camunda-extensions">User Assignment using Camunda Extensions</h2>
 <p>When strictly following the CMMN standard, user and group assignments can be quite cumbersome for use cases where the assignment is more complicated. To avoid these complexities, custom extensions on the human task element can be set.</p>
 <p>The CMMN Human task supports the same assignment extensions and concepts as the BPMN User Task.
 You can read up on these extensions in the <a href="/manual/1.0/reference/bpmn20/tasks/user-task/#user-assignment-using-camunda-extensions">BPMN User Task Section</a>. Same as for the BPMN User task, <a href="/manual/1.0/reference/bpmn20/tasks/user-task/#assignment-based-on-data-and-service-logic">assignment based on data and service logic</a> is supported for the CMMN Human Task as well.</p>
 <h1 id="forms">Forms</h1>
 <p>It is possible to provide information to render a human task form by using the <code>camunda:formKey</code>
 attribute:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;humanTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;someTask&#34;</span> <span style="color:#a6e22e">camunda:formKey=</span><span style="color:#e6db74">&#34;someForm.html&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  ...
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/humanTask&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;humanTask</span> <span class="na">id=</span><span class="s">&#34;someTask&#34;</span> <span class="na">camunda:formKey=</span><span class="s">&#34;someForm.html&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  ...
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/humanTask&gt;</span>
 </span></span></code></pre></div><p>The form key is a symbolic value which can be set in the CMMN XML file by using the extension
 attribute <code>formKey</code> and retrieved at runtime using the process engine API.</p>
 <p>If the user task form is displayed inside the Camunda Tasklist, the format of the formKey must follow
@@ -3221,19 +3221,19 @@ special rules. <a href="/manual/1.0/user-guide/task-forms/">See the correspondin
 value of the form key attribute can be interpreted freely. Based on the specific UI technology used,
 it can reference the name of an HTML file, a JSF / Facelets template, a Vaadin / GWT view, &hellip;</p>
 <h2 id="retrieving-the-form-key-using-the-form-service">Retrieving the form key using the form service.</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>String formKey <span style="color:#f92672">=</span> formService.<span style="color:#a6e22e">getTaskFormData</span>(someTaskId).<span style="color:#a6e22e">getFormKey</span>();
-</span></span></code></pre></div><h2 id="retrieving-the-form-using-the-task-service">Retrieving the form using the task service</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">String</span><span class="w"> </span><span class="n">formKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">formService</span><span class="p">.</span><span class="na">getTaskFormData</span><span class="p">(</span><span class="n">someTaskId</span><span class="p">).</span><span class="na">getFormKey</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><h2 id="retrieving-the-form-using-the-task-service">Retrieving the form using the task service</h2>
 <p>When performing a task query, it is possible to retrieve the form key as well. This is most useful
 if the form keys need to be retrieved for a complete list of tasks:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>List<span style="color:#f92672">&lt;</span>Task<span style="color:#f92672">&gt;</span> tasks <span style="color:#f92672">=</span> TaskService.<span style="color:#a6e22e">createTaskQuery</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">assignee</span>(<span style="color:#e6db74">&#34;jonny&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">initializeFormKeys</span>() <span style="color:#75715e">// must be invoked</span>
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">list</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span>(Task task : tasks) {
-</span></span><span style="display:flex;"><span>  String formKey <span style="color:#f92672">=</span> task.<span style="color:#a6e22e">getFormKey</span>();
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>Note that it is required to call the <code>.initializeFormKeys()</code> method on the <code>TaskQuery</code> object to
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">List</span><span class="o">&lt;</span><span class="n">Task</span><span class="o">&gt;</span><span class="w"> </span><span class="n">tasks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TaskService</span><span class="p">.</span><span class="na">createTaskQuery</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">assignee</span><span class="p">(</span><span class="s">&#34;jonny&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">initializeFormKeys</span><span class="p">()</span><span class="w"> </span><span class="c1">// must be invoked</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">list</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">for</span><span class="p">(</span><span class="n">Task</span><span class="w"> </span><span class="n">task</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">tasks</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">String</span><span class="w"> </span><span class="n">formKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">task</span><span class="p">.</span><span class="na">getFormKey</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>Note that it is required to call the <code>.initializeFormKeys()</code> method on the <code>TaskQuery</code> object to
 make sure the form keys are initialized.</p>
 <h1 id="camunda-extensions">Camunda Extensions</h1>
 <table class="table table-striped">

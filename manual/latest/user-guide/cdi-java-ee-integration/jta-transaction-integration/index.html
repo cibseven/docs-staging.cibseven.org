@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/latest/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/latest/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/user-guide/cdi-java-ee-integration/jta-transaction-integration/" />
 </head>
 <body class="">
@@ -3184,23 +3184,23 @@ This can lead to inconsistencies in the database, because transaction commits an
 provide JTA or Jakarta Transactions integration out of the box.</p>
 <h2 id="example">Example</h2>
 <p>The following example shows how to integrate your custom business logic into a transaction of the process engine:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Named</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Dependent</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyBean</span> {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Inject</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> RuntimeService runtimeService;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Transactional</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">doSomethingTransactional</span>() {
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Here you can do transactional stuff in your domain model and it will be </span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// combined in the same transaction as the the following RuntimeService API </span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// call to start a process instance:</span>
-</span></span><span style="display:flex;"><span>    runtimeService.<span style="color:#a6e22e">startProcessInstanceByKey</span>(<span style="color:#e6db74">&#34;my-process&#34;</span>);
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h2 id="using-jta-transaction-integration-with-websphere-liberty">Using JTA transaction integration with WebSphere Liberty</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Named</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@Dependent</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyBean</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@Inject</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">RuntimeService</span><span class="w"> </span><span class="n">runtimeService</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@Transactional</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">doSomethingTransactional</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// Here you can do transactional stuff in your domain model and it will be </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// combined in the same transaction as the the following RuntimeService API </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// call to start a process instance:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">runtimeService</span><span class="p">.</span><span class="na">startProcessInstanceByKey</span><span class="p">(</span><span class="s">&#34;my-process&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h2 id="using-jta-transaction-integration-with-websphere-liberty">Using JTA transaction integration with WebSphere Liberty</h2>
 <p>CIB seven allows to mark a transaction as &ldquo;rollback only&rdquo; by calling <code>UserTransaction#setRollbackOnly()</code>.
 If this code is executed within a CIB seven Job, the Job is marked as failed, and can be retried.</p>
 <p>WebSphere Liberty doesn&rsquo;t support this behavior of CIB seven. When calling <code>UserTransaction#setRollbackOnly()</code>

@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/latest/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/latest/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/user-guide/model-api/bpmn-model-api/fluent-builder-api/" />
 </head>
 <body class="">
@@ -3179,236 +3179,236 @@ demonstrate how to create a rather complex process with 5 tasks and 2 gateways w
 <p>To create an empty model instance with a new process the method <code>Bpmn.createProcess()</code> is used. After this,
 you can add as many tasks and gateways as you like. At the end you must call <code>done()</code> to return the generated
 model instance. For example, a simple process with one user task can be created like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>BpmnModelInstance modelInstance <span style="color:#f92672">=</span> Bpmn.<span style="color:#a6e22e">createProcess</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">startEvent</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">userTask</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">endEvent</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">done</span>();
-</span></span></code></pre></div><p>To add a new element you have to call a function which is named like the
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">BpmnModelInstance</span><span class="w"> </span><span class="n">modelInstance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Bpmn</span><span class="p">.</span><span class="na">createProcess</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">startEvent</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">userTask</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">endEvent</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">done</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><p>To add a new element you have to call a function which is named like the
 element to add. Additionally you can set attributes of the last created
 element.</p>
 <p>For example, let&rsquo;s set the name of the process and mark it as executable and also give the user task a name.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>BpmnModelInstance modelInstance <span style="color:#f92672">=</span> Bpmn.<span style="color:#a6e22e">createProcess</span>()
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">name</span>(<span style="color:#e6db74">&#34;Example process&#34;</span>)
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">executable</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">startEvent</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">userTask</span>()
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">name</span>(<span style="color:#e6db74">&#34;Some work to do&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">endEvent</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">done</span>();
-</span></span></code></pre></div><p>As you can see, a sequential process is really simple and straightforward to model, but often you want
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">BpmnModelInstance</span><span class="w"> </span><span class="n">modelInstance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Bpmn</span><span class="p">.</span><span class="na">createProcess</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">name</span><span class="p">(</span><span class="s">&#34;Example process&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">executable</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">startEvent</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">userTask</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">name</span><span class="p">(</span><span class="s">&#34;Some work to do&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">endEvent</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">done</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><p>As you can see, a sequential process is really simple and straightforward to model, but often you want
 branches and a parallel execution path, which is also possible with the fluent builder API. Just add
 a parallel or exclusive gateway and model the first path till an end event or another gateway. After that,
 call the <code>moveToLastGateway()</code> method and you return to the last gateway and can model the next path.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>BpmnModelInstance modelInstance <span style="color:#f92672">=</span> Bpmn.<span style="color:#a6e22e">createProcess</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">startEvent</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">userTask</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">parallelGateway</span>()
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">scriptTask</span>()
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">endEvent</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">moveToLastGateway</span>()
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">serviceTask</span>()
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">endEvent</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">done</span>();
-</span></span></code></pre></div><p>This example models a process with a user task after the start event followed by a parallel gateway
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">BpmnModelInstance</span><span class="w"> </span><span class="n">modelInstance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Bpmn</span><span class="p">.</span><span class="na">createProcess</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">startEvent</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">userTask</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">parallelGateway</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">scriptTask</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">endEvent</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">moveToLastGateway</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">serviceTask</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">endEvent</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">done</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><p>This example models a process with a user task after the start event followed by a parallel gateway
 with two parallel outgoing execution paths, each with a task and an end event.</p>
 <p>Normally you want to add conditions on outgoing flows of an exclusive gateway which is also simple with
 the fluent builder API. Just use the method <code>condition()</code> and give it a label and an expression.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>BpmnModelInstance modelInstance <span style="color:#f92672">=</span> Bpmn.<span style="color:#a6e22e">createProcess</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">startEvent</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">userTask</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">exclusiveGateway</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">name</span>(<span style="color:#e6db74">&#34;What to do next?&#34;</span>)
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">condition</span>(<span style="color:#e6db74">&#34;Call an agent&#34;</span>, <span style="color:#e6db74">&#34;#{action = &#39;call&#39;}&#34;</span>)
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">scriptTask</span>()
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">endEvent</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">moveToLastGateway</span>()
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">condition</span>(<span style="color:#e6db74">&#34;Create a task&#34;</span>, <span style="color:#e6db74">&#34;#{action = &#39;task&#39;}&#34;</span>)
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">serviceTask</span>()
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">endEvent</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">done</span>();
-</span></span></code></pre></div><p>If you want to use the <code>moveToLastGateway()</code> method but have multiple incoming
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">BpmnModelInstance</span><span class="w"> </span><span class="n">modelInstance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Bpmn</span><span class="p">.</span><span class="na">createProcess</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">startEvent</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">userTask</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">exclusiveGateway</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">name</span><span class="p">(</span><span class="s">&#34;What to do next?&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">condition</span><span class="p">(</span><span class="s">&#34;Call an agent&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;#{action = &#39;call&#39;}&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">scriptTask</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">endEvent</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">moveToLastGateway</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">condition</span><span class="p">(</span><span class="s">&#34;Create a task&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;#{action = &#39;task&#39;}&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">serviceTask</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">endEvent</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">done</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><p>If you want to use the <code>moveToLastGateway()</code> method but have multiple incoming
 sequence flows at your current position, you have to use the generic
 <code>moveToNode</code> method with the id of the gateway. This could for example happen
 if you add a join gateway to your process. For this purpose and for loops, we
 added the <code>connectTo(elementId)</code> method.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>BpmnModelInstance modelInstance <span style="color:#f92672">=</span> Bpmn.<span style="color:#a6e22e">createProcess</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">startEvent</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">userTask</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">parallelGateway</span>(<span style="color:#e6db74">&#34;fork&#34;</span>)
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">serviceTask</span>()
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">parallelGateway</span>(<span style="color:#e6db74">&#34;join&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">moveToNode</span>(<span style="color:#e6db74">&#34;fork&#34;</span>)
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">userTask</span>()
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">connectTo</span>(<span style="color:#e6db74">&#34;join&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">moveToNode</span>(<span style="color:#e6db74">&#34;fork&#34;</span>)
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">scriptTask</span>()
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">connectTo</span>(<span style="color:#e6db74">&#34;join&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">endEvent</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">done</span>()
-</span></span></code></pre></div><p>This example creates a process with three parallel execution paths which all
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">BpmnModelInstance</span><span class="w"> </span><span class="n">modelInstance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Bpmn</span><span class="p">.</span><span class="na">createProcess</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">startEvent</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">userTask</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">parallelGateway</span><span class="p">(</span><span class="s">&#34;fork&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">serviceTask</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">parallelGateway</span><span class="p">(</span><span class="s">&#34;join&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">moveToNode</span><span class="p">(</span><span class="s">&#34;fork&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">userTask</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">connectTo</span><span class="p">(</span><span class="s">&#34;join&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">moveToNode</span><span class="p">(</span><span class="s">&#34;fork&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">scriptTask</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">connectTo</span><span class="p">(</span><span class="s">&#34;join&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">endEvent</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">done</span><span class="p">()</span><span class="w">
+</span></span></span></code></pre></div><p>This example creates a process with three parallel execution paths which all
 join in the second gateway. Notice that the first call of <code>moveToNode</code> is not
 necessary, because at this point the joining gateway only has one incoming sequence
 flow, but was used for consistency.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>BpmnModelInstance modelInstance <span style="color:#f92672">=</span> Bpmn.<span style="color:#a6e22e">createProcess</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">startEvent</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">userTask</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">id</span>(<span style="color:#e6db74">&#34;question&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">exclusiveGateway</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">name</span>(<span style="color:#e6db74">&#34;Everything fine?&#34;</span>)
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">condition</span>(<span style="color:#e6db74">&#34;yes&#34;</span>, <span style="color:#e6db74">&#34;#{fine}&#34;</span>)
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">serviceTask</span>()
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">userTask</span>()
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">endEvent</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">moveToLastGateway</span>()
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">condition</span>(<span style="color:#e6db74">&#34;no&#34;</span>, <span style="color:#e6db74">&#34;#{!fine}&#34;</span>)
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">userTask</span>()
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">connectTo</span>(<span style="color:#e6db74">&#34;question&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">done</span>()
-</span></span></code></pre></div><p>This example creates a parallel gateway with a feedback loop in the second execution path.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">BpmnModelInstance</span><span class="w"> </span><span class="n">modelInstance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Bpmn</span><span class="p">.</span><span class="na">createProcess</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">startEvent</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">userTask</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">id</span><span class="p">(</span><span class="s">&#34;question&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">exclusiveGateway</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">name</span><span class="p">(</span><span class="s">&#34;Everything fine?&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">condition</span><span class="p">(</span><span class="s">&#34;yes&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;#{fine}&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">serviceTask</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">userTask</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">endEvent</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">moveToLastGateway</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">condition</span><span class="p">(</span><span class="s">&#34;no&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;#{!fine}&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">userTask</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">connectTo</span><span class="p">(</span><span class="s">&#34;question&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">done</span><span class="p">()</span><span class="w">
+</span></span></span></code></pre></div><p>This example creates a parallel gateway with a feedback loop in the second execution path.</p>
 <p>To create an embedded subprocess with the fluent builder API, you can directly add it to your
 process building or you can detach it and create flow elements of the subprocess later on.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// Directly define the subprocess</span>
-</span></span><span style="display:flex;"><span>BpmnModelInstance modelInstance <span style="color:#f92672">=</span> Bpmn.<span style="color:#a6e22e">createProcess</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">startEvent</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">subProcess</span>()
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">camundaAsync</span>()
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">embeddedSubProcess</span>()
-</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">startEvent</span>()
-</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">userTask</span>()
-</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">endEvent</span>()
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">subProcessDone</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">serviceTask</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">endEvent</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">done</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// Detach the subprocess building</span>
-</span></span><span style="display:flex;"><span>modelInstance <span style="color:#f92672">=</span> Bpmn.<span style="color:#a6e22e">createProcess</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">startEvent</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">subProcess</span>(<span style="color:#e6db74">&#34;subProcess&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">serviceTask</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">endEvent</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">done</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>SubProcess subProcess <span style="color:#f92672">=</span> (SubProcess) modelInstance.<span style="color:#a6e22e">getModelElementById</span>(<span style="color:#e6db74">&#34;subProcess&#34;</span>);
-</span></span><span style="display:flex;"><span>subProcess.<span style="color:#a6e22e">builder</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">camundaAsync</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">embeddedSubProcess</span>()
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">startEvent</span>()
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">userTask</span>()
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">endEvent</span>();
-</span></span></code></pre></div><p>The example below shows how to create a throwing signal event definition and define the payload that this signal will contain. By using the <code>camundaIn</code> methods, it is possible to define which process variables will be included in the signal payload, define an expression that will be resolved in the signal-catching process instances, or declare that all of the process variables in the signal-throwing process instance should be passed. It is also possible to define a business key that will be assigned to the signal-catching process instances.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>BpmnModelInstance modelInstance <span style="color:#f92672">=</span> Bpmn.<span style="color:#a6e22e">createProcess</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">startEvent</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">intermediateThrowEvent</span>(<span style="color:#e6db74">&#34;throw&#34;</span>)
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">signalEventDefinition</span>(<span style="color:#e6db74">&#34;signal&#34;</span>)
-</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">camundaInSourceTarget</span>(<span style="color:#e6db74">&#34;source&#34;</span>, <span style="color:#e6db74">&#34;target1&#34;</span>)
-</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">camundaInSourceExpressionTarget</span>(<span style="color:#e6db74">&#34;${&#39;sourceExpression&#39;}&#34;</span>, <span style="color:#e6db74">&#34;target2&#34;</span>)
-</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">camundaInAllVariables</span>(<span style="color:#e6db74">&#34;all&#34;</span>, <span style="color:#66d9ef">true</span>)
-</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">camundaInBusinessKey</span>(<span style="color:#e6db74">&#34;aBusinessKey&#34;</span>)
-</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">throwEventDefinitionDone</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">endEvent</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">done</span>();
-</span></span></code></pre></div><h1 id="extend-a-process-with-the-fluent-builder-api">Extend a Process With the Fluent Builder API</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// Directly define the subprocess</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">BpmnModelInstance</span><span class="w"> </span><span class="n">modelInstance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Bpmn</span><span class="p">.</span><span class="na">createProcess</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">startEvent</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">subProcess</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">camundaAsync</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">embeddedSubProcess</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="p">.</span><span class="na">startEvent</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="p">.</span><span class="na">userTask</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="p">.</span><span class="na">endEvent</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">subProcessDone</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">serviceTask</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">endEvent</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">done</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// Detach the subprocess building</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">modelInstance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Bpmn</span><span class="p">.</span><span class="na">createProcess</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">startEvent</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">subProcess</span><span class="p">(</span><span class="s">&#34;subProcess&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">serviceTask</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">endEvent</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">done</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">SubProcess</span><span class="w"> </span><span class="n">subProcess</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">SubProcess</span><span class="p">)</span><span class="w"> </span><span class="n">modelInstance</span><span class="p">.</span><span class="na">getModelElementById</span><span class="p">(</span><span class="s">&#34;subProcess&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">subProcess</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">camundaAsync</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">embeddedSubProcess</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">startEvent</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">userTask</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">endEvent</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><p>The example below shows how to create a throwing signal event definition and define the payload that this signal will contain. By using the <code>camundaIn</code> methods, it is possible to define which process variables will be included in the signal payload, define an expression that will be resolved in the signal-catching process instances, or declare that all of the process variables in the signal-throwing process instance should be passed. It is also possible to define a business key that will be assigned to the signal-catching process instances.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">BpmnModelInstance</span><span class="w"> </span><span class="n">modelInstance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Bpmn</span><span class="p">.</span><span class="na">createProcess</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">startEvent</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">intermediateThrowEvent</span><span class="p">(</span><span class="s">&#34;throw&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">signalEventDefinition</span><span class="p">(</span><span class="s">&#34;signal&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="p">.</span><span class="na">camundaInSourceTarget</span><span class="p">(</span><span class="s">&#34;source&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;target1&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="p">.</span><span class="na">camundaInSourceExpressionTarget</span><span class="p">(</span><span class="s">&#34;${&#39;sourceExpression&#39;}&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;target2&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="p">.</span><span class="na">camundaInAllVariables</span><span class="p">(</span><span class="s">&#34;all&#34;</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="p">.</span><span class="na">camundaInBusinessKey</span><span class="p">(</span><span class="s">&#34;aBusinessKey&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="p">.</span><span class="na">throwEventDefinitionDone</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">endEvent</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">done</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><h1 id="extend-a-process-with-the-fluent-builder-api">Extend a Process With the Fluent Builder API</h1>
 <p>With the fluent builder API you can not only create processes, you can also extend existing processes.</p>
 <p>For example, imagine a process containing a parallel gateway with the id <code>gateway</code>. You now want to
 add another execution path to it for a new service task which has to be executed every time.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>BpmnModelInstance modelInstance <span style="color:#f92672">=</span> Bpmn.<span style="color:#a6e22e">readModelFromFile</span>(<span style="color:#66d9ef">new</span> File(<span style="color:#e6db74">&#34;PATH/TO/MODEL.bpmn&#34;</span>));
-</span></span><span style="display:flex;"><span>ParallelGateway gateway <span style="color:#f92672">=</span> (ParallelGateway) modelInstance.<span style="color:#a6e22e">getModelElementById</span>(<span style="color:#e6db74">&#34;gateway&#34;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>gateway.<span style="color:#a6e22e">builder</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">serviceTask</span>()
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">name</span>(<span style="color:#e6db74">&#34;New task&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">endEvent</span>();
-</span></span></code></pre></div><p>Another use case is to insert new tasks between existing elements. Imagine a process
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">BpmnModelInstance</span><span class="w"> </span><span class="n">modelInstance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Bpmn</span><span class="p">.</span><span class="na">readModelFromFile</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="s">&#34;PATH/TO/MODEL.bpmn&#34;</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">ParallelGateway</span><span class="w"> </span><span class="n">gateway</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">ParallelGateway</span><span class="p">)</span><span class="w"> </span><span class="n">modelInstance</span><span class="p">.</span><span class="na">getModelElementById</span><span class="p">(</span><span class="s">&#34;gateway&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">gateway</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">serviceTask</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">name</span><span class="p">(</span><span class="s">&#34;New task&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">endEvent</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><p>Another use case is to insert new tasks between existing elements. Imagine a process
 containing a user task with the id <code>task1</code> which is followed by a service task. And now
 you want to add a script task and a user task between these two.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>BpmnModelInstance modelInstance <span style="color:#f92672">=</span> Bpmn.<span style="color:#a6e22e">readModelFromFile</span>(<span style="color:#66d9ef">new</span> File(<span style="color:#e6db74">&#34;PATH/TO/MODEL.bpmn&#34;</span>));
-</span></span><span style="display:flex;"><span>UserTask userTask <span style="color:#f92672">=</span> (UserTask) modelInstance.<span style="color:#a6e22e">getModelElementById</span>(<span style="color:#e6db74">&#34;task1&#34;</span>);
-</span></span><span style="display:flex;"><span>SequenceFlow outgoingSequenceFlow <span style="color:#f92672">=</span> userTask.<span style="color:#a6e22e">getOutgoing</span>().<span style="color:#a6e22e">iterator</span>().<span style="color:#a6e22e">next</span>();
-</span></span><span style="display:flex;"><span>FlowNode serviceTask <span style="color:#f92672">=</span> outgoingSequenceFlow.<span style="color:#a6e22e">getTarget</span>();
-</span></span><span style="display:flex;"><span>userTask.<span style="color:#a6e22e">getOutgoing</span>().<span style="color:#a6e22e">remove</span>(outgoingSequenceFlow);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>userTask.<span style="color:#a6e22e">builder</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">scriptTask</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">userTask</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">connectTo</span>(serviceTask.<span style="color:#a6e22e">getId</span>());
-</span></span></code></pre></div><h1 id="common-model-patterns">Common Model Patterns</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">BpmnModelInstance</span><span class="w"> </span><span class="n">modelInstance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Bpmn</span><span class="p">.</span><span class="na">readModelFromFile</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="s">&#34;PATH/TO/MODEL.bpmn&#34;</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">UserTask</span><span class="w"> </span><span class="n">userTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">UserTask</span><span class="p">)</span><span class="w"> </span><span class="n">modelInstance</span><span class="p">.</span><span class="na">getModelElementById</span><span class="p">(</span><span class="s">&#34;task1&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">SequenceFlow</span><span class="w"> </span><span class="n">outgoingSequenceFlow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">userTask</span><span class="p">.</span><span class="na">getOutgoing</span><span class="p">().</span><span class="na">iterator</span><span class="p">().</span><span class="na">next</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">FlowNode</span><span class="w"> </span><span class="n">serviceTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">outgoingSequenceFlow</span><span class="p">.</span><span class="na">getTarget</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">userTask</span><span class="p">.</span><span class="na">getOutgoing</span><span class="p">().</span><span class="na">remove</span><span class="p">(</span><span class="n">outgoingSequenceFlow</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">userTask</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">scriptTask</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">userTask</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">connectTo</span><span class="p">(</span><span class="n">serviceTask</span><span class="p">.</span><span class="na">getId</span><span class="p">());</span><span class="w">
+</span></span></span></code></pre></div><h1 id="common-model-patterns">Common Model Patterns</h1>
 <h2 id="controlling-transaction-boundaries">Controlling Transaction Boundaries</h2>
 <p>The transaction boundaries of a process created with the fluent builder API can be controlled using the <code>camundaAsyncBefore()</code> and <code>camundaAsyncAfter()</code> methods offered for various process constructs.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>BpmnModelInstance modelInstance <span style="color:#f92672">=</span> Bpmn.<span style="color:#a6e22e">createProcess</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">startEvent</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">serviceTask</span>(<span style="color:#e6db74">&#34;servicetask&#34;</span>)
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">camundaAsyncBefore</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">userTask</span>(<span style="color:#e6db74">&#34;task&#34;</span>)
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">camundaAsyncAfter</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">done</span>();
-</span></span></code></pre></div><p>The service task in the example above will have a transaction boundary before its execution and the user task will have a transaction boundary after its completion.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">BpmnModelInstance</span><span class="w"> </span><span class="n">modelInstance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Bpmn</span><span class="p">.</span><span class="na">createProcess</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">startEvent</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">serviceTask</span><span class="p">(</span><span class="s">&#34;servicetask&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">camundaAsyncBefore</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">userTask</span><span class="p">(</span><span class="s">&#34;task&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">camundaAsyncAfter</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">done</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><p>The service task in the example above will have a transaction boundary before its execution and the user task will have a transaction boundary after its completion.</p>
 <p>If an activity has <a href="../../../../reference/bpmn20/tasks/task-markers/#multiple-instance">multi-instance characteristics</a>, the  <code>camundaAsyncBefore()</code> and <code>camundaAsyncAfter()</code> methods apply to the multi-instance body as a whole. The transaction boundaries of the individual occurrences (instances) of the multi-instance can be controlled with similar methods, called from <strong>within</strong> the multi-instance builder.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>BpmnModelInstance modelInstance <span style="color:#f92672">=</span> Bpmn.<span style="color:#a6e22e">createProcess</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">startEvent</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">serviceTask</span>(<span style="color:#e6db74">&#34;servicetask&#34;</span>)
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">camundaAsyncBefore</span>() <span style="color:#75715e">// multi-instance body</span>
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">multiInstance</span>()
-</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">camundaAsyncBefore</span>() <span style="color:#75715e">// every instance</span>
-</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">parallel</span>()
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">multiInstanceDone</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">endEvent</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">done</span>();
-</span></span></code></pre></div><h1 id="generation-of-diagram-interchange">Generation of Diagram Interchange</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">BpmnModelInstance</span><span class="w"> </span><span class="n">modelInstance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Bpmn</span><span class="p">.</span><span class="na">createProcess</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">startEvent</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">serviceTask</span><span class="p">(</span><span class="s">&#34;servicetask&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">camundaAsyncBefore</span><span class="p">()</span><span class="w"> </span><span class="c1">// multi-instance body</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">multiInstance</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="p">.</span><span class="na">camundaAsyncBefore</span><span class="p">()</span><span class="w"> </span><span class="c1">// every instance</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="p">.</span><span class="na">parallel</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">multiInstanceDone</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">endEvent</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">done</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><h1 id="generation-of-diagram-interchange">Generation of Diagram Interchange</h1>
 <p>To render the process, BPMN diagram elements are necessary. The fluent builder generates
 BPMN Shapes and BPMN Edges and places them automatically for flow nodes and sequence flows.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">final</span> BpmnModelInstance myProcess <span style="color:#f92672">=</span> Bpmn.<span style="color:#a6e22e">createExecutableProcess</span>(<span style="color:#e6db74">&#34;process-payments&#34;</span>)
-</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">startEvent</span>()
-</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">serviceTask</span>()
-</span></span><span style="display:flex;"><span>          .<span style="color:#a6e22e">name</span>(<span style="color:#e6db74">&#34;Process Payment&#34;</span>)
-</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">endEvent</span>()
-</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">done</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(Bpmn.<span style="color:#a6e22e">convertToString</span>(myProcess));
-</span></span></code></pre></div><p>This example creates a BPMN containing both semantic elements (e.g., service task etc.) and diagram elements:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34; standalone=&#34;no&#34;?&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;definitions</span> <span style="color:#a6e22e">xmlns:bpmndi=</span><span style="color:#e6db74">&#34;http://www.omg.org/spec/BPMN/20100524/DI&#34;</span> <span style="color:#a6e22e">xmlns:camunda=</span><span style="color:#e6db74">&#34;http://camunda.org/schema/1.0/bpmn&#34;</span> <span style="color:#a6e22e">xmlns:dc=</span><span style="color:#e6db74">&#34;http://www.omg.org/spec/DD/20100524/DC&#34;</span> <span style="color:#a6e22e">xmlns:di=</span><span style="color:#e6db74">&#34;http://www.omg.org/spec/DD/20100524/DI&#34;</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;definitions_dfb1f18e-6034-448e-abae-0eb2f41469da&#34;</span> <span style="color:#a6e22e">targetNamespace=</span><span style="color:#e6db74">&#34;http://www.omg.org/spec/BPMN/20100524/MODEL&#34;</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://www.omg.org/spec/BPMN/20100524/MODEL&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- Generated BPMN Semantic Elements --&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;process</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;process-payments&#34;</span> <span style="color:#a6e22e">isExecutable=</span><span style="color:#e6db74">&#34;true&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;startEvent</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;startEvent_2b0abd37-75a9-47dd-9838-63f1390d7515&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;outgoing&gt;</span>sequenceFlow_b1eec5b5-889d-4e75-854d-59768fbdc8a2<span style="color:#f92672">&lt;/outgoing&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/startEvent&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;serviceTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;serviceTask_f4c2413f-5b26-49e8-b71c-2603e469ce09&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Process Payment&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;incoming&gt;</span>sequenceFlow_b1eec5b5-889d-4e75-854d-59768fbdc8a2<span style="color:#f92672">&lt;/incoming&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;outgoing&gt;</span>sequenceFlow_5839394a-c0c2-4a5b-aa81-9412f169cc35<span style="color:#f92672">&lt;/outgoing&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/serviceTask&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;sequenceFlow</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;sequenceFlow_b1eec5b5-889d-4e75-854d-59768fbdc8a2&#34;</span> <span style="color:#a6e22e">sourceRef=</span><span style="color:#e6db74">&#34;startEvent_2b0abd37-75a9-47dd-9838-63f1390d7515&#34;</span> <span style="color:#a6e22e">targetRef=</span><span style="color:#e6db74">&#34;serviceTask_f4c2413f-5b26-49e8-b71c-2603e469ce09&#34;</span><span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;endEvent</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;endEvent_8087f927-a53b-4126-95fc-c057736f3b73&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;incoming&gt;</span>sequenceFlow_5839394a-c0c2-4a5b-aa81-9412f169cc35<span style="color:#f92672">&lt;/incoming&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/endEvent&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;sequenceFlow</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;sequenceFlow_5839394a-c0c2-4a5b-aa81-9412f169cc35&#34;</span> <span style="color:#a6e22e">sourceRef=</span><span style="color:#e6db74">&#34;serviceTask_f4c2413f-5b26-49e8-b71c-2603e469ce09&#34;</span> <span style="color:#a6e22e">targetRef=</span><span style="color:#e6db74">&#34;endEvent_8087f927-a53b-4126-95fc-c057736f3b73&#34;</span><span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/process&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- Generated Diagram Elements --&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;bpmndi:BPMNDiagram</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;BPMNDiagram_5b66dfb7-097b-4610-9681-43abb3ff97da&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;bpmndi:BPMNPlane</span> <span style="color:#a6e22e">bpmnElement=</span><span style="color:#e6db74">&#34;process-payments&#34;</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;BPMNPlane_ad88b4cf-9d7a-4b86-8386-f8db23ff388d&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;bpmndi:BPMNShape</span> <span style="color:#a6e22e">bpmnElement=</span><span style="color:#e6db74">&#34;startEvent_2b0abd37-75a9-47dd-9838-63f1390d7515&#34;</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;BPMNShape_d6c4e3c5-150c-43f7-adf8-1d388f466a69&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;dc:Bounds</span> <span style="color:#a6e22e">height=</span><span style="color:#e6db74">&#34;36.0&#34;</span> <span style="color:#a6e22e">width=</span><span style="color:#e6db74">&#34;36.0&#34;</span> <span style="color:#a6e22e">x=</span><span style="color:#e6db74">&#34;100.0&#34;</span> <span style="color:#a6e22e">y=</span><span style="color:#e6db74">&#34;100.0&#34;</span><span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/bpmndi:BPMNShape&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;bpmndi:BPMNShape</span> <span style="color:#a6e22e">bpmnElement=</span><span style="color:#e6db74">&#34;serviceTask_f4c2413f-5b26-49e8-b71c-2603e469ce09&#34;</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;BPMNShape_51006773-13df-4327-a4cf-a5952c39e86a&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;dc:Bounds</span> <span style="color:#a6e22e">height=</span><span style="color:#e6db74">&#34;80.0&#34;</span> <span style="color:#a6e22e">width=</span><span style="color:#e6db74">&#34;100.0&#34;</span> <span style="color:#a6e22e">x=</span><span style="color:#e6db74">&#34;186.0&#34;</span> <span style="color:#a6e22e">y=</span><span style="color:#e6db74">&#34;78.0&#34;</span><span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/bpmndi:BPMNShape&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;bpmndi:BPMNEdge</span> <span style="color:#a6e22e">bpmnElement=</span><span style="color:#e6db74">&#34;sequenceFlow_b1eec5b5-889d-4e75-854d-59768fbdc8a2&#34;</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;BPMNEdge_fb360594-8863-4d5d-b515-49e02a88d55d&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;di:waypoint</span> <span style="color:#a6e22e">x=</span><span style="color:#e6db74">&#34;136.0&#34;</span> <span style="color:#a6e22e">y=</span><span style="color:#e6db74">&#34;118.0&#34;</span><span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;di:waypoint</span> <span style="color:#a6e22e">x=</span><span style="color:#e6db74">&#34;186.0&#34;</span> <span style="color:#a6e22e">y=</span><span style="color:#e6db74">&#34;118.0&#34;</span><span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/bpmndi:BPMNEdge&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;bpmndi:BPMNShape</span> <span style="color:#a6e22e">bpmnElement=</span><span style="color:#e6db74">&#34;endEvent_8087f927-a53b-4126-95fc-c057736f3b73&#34;</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;BPMNShape_23930820-5507-45a0-8630-b5e45ee8dd4d&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;dc:Bounds</span> <span style="color:#a6e22e">height=</span><span style="color:#e6db74">&#34;36.0&#34;</span> <span style="color:#a6e22e">width=</span><span style="color:#e6db74">&#34;36.0&#34;</span> <span style="color:#a6e22e">x=</span><span style="color:#e6db74">&#34;336.0&#34;</span> <span style="color:#a6e22e">y=</span><span style="color:#e6db74">&#34;100.0&#34;</span><span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/bpmndi:BPMNShape&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;bpmndi:BPMNEdge</span> <span style="color:#a6e22e">bpmnElement=</span><span style="color:#e6db74">&#34;sequenceFlow_5839394a-c0c2-4a5b-aa81-9412f169cc35&#34;</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;BPMNEdge_07ed502e-069f-42a0-bd1b-fed0d68efbda&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;di:waypoint</span> <span style="color:#a6e22e">x=</span><span style="color:#e6db74">&#34;286.0&#34;</span> <span style="color:#a6e22e">y=</span><span style="color:#e6db74">&#34;118.0&#34;</span><span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;di:waypoint</span> <span style="color:#a6e22e">x=</span><span style="color:#e6db74">&#34;336.0&#34;</span> <span style="color:#a6e22e">y=</span><span style="color:#e6db74">&#34;118.0&#34;</span><span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/bpmndi:BPMNEdge&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/bpmndi:BPMNPlane&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/bpmndi:BPMNDiagram&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/definitions&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">final</span><span class="w"> </span><span class="n">BpmnModelInstance</span><span class="w"> </span><span class="n">myProcess</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Bpmn</span><span class="p">.</span><span class="na">createExecutableProcess</span><span class="p">(</span><span class="s">&#34;process-payments&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="p">.</span><span class="na">startEvent</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="p">.</span><span class="na">serviceTask</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="p">.</span><span class="na">name</span><span class="p">(</span><span class="s">&#34;Process Payment&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="p">.</span><span class="na">endEvent</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="p">.</span><span class="na">done</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">Bpmn</span><span class="p">.</span><span class="na">convertToString</span><span class="p">(</span><span class="n">myProcess</span><span class="p">));</span><span class="w">
+</span></span></span></code></pre></div><p>This example creates a BPMN containing both semantic elements (e.g., service task etc.) and diagram elements:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34; standalone=&#34;no&#34;?&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;definitions</span> <span class="na">xmlns:bpmndi=</span><span class="s">&#34;http://www.omg.org/spec/BPMN/20100524/DI&#34;</span> <span class="na">xmlns:camunda=</span><span class="s">&#34;http://camunda.org/schema/1.0/bpmn&#34;</span> <span class="na">xmlns:dc=</span><span class="s">&#34;http://www.omg.org/spec/DD/20100524/DC&#34;</span> <span class="na">xmlns:di=</span><span class="s">&#34;http://www.omg.org/spec/DD/20100524/DI&#34;</span> <span class="na">id=</span><span class="s">&#34;definitions_dfb1f18e-6034-448e-abae-0eb2f41469da&#34;</span> <span class="na">targetNamespace=</span><span class="s">&#34;http://www.omg.org/spec/BPMN/20100524/MODEL&#34;</span> <span class="na">xmlns=</span><span class="s">&#34;http://www.omg.org/spec/BPMN/20100524/MODEL&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c">&lt;!-- Generated BPMN Semantic Elements --&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;process</span> <span class="na">id=</span><span class="s">&#34;process-payments&#34;</span> <span class="na">isExecutable=</span><span class="s">&#34;true&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;startEvent</span> <span class="na">id=</span><span class="s">&#34;startEvent_2b0abd37-75a9-47dd-9838-63f1390d7515&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;outgoing&gt;</span>sequenceFlow_b1eec5b5-889d-4e75-854d-59768fbdc8a2<span class="nt">&lt;/outgoing&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/startEvent&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;serviceTask</span> <span class="na">id=</span><span class="s">&#34;serviceTask_f4c2413f-5b26-49e8-b71c-2603e469ce09&#34;</span> <span class="na">name=</span><span class="s">&#34;Process Payment&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;incoming&gt;</span>sequenceFlow_b1eec5b5-889d-4e75-854d-59768fbdc8a2<span class="nt">&lt;/incoming&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;outgoing&gt;</span>sequenceFlow_5839394a-c0c2-4a5b-aa81-9412f169cc35<span class="nt">&lt;/outgoing&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/serviceTask&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;sequenceFlow</span> <span class="na">id=</span><span class="s">&#34;sequenceFlow_b1eec5b5-889d-4e75-854d-59768fbdc8a2&#34;</span> <span class="na">sourceRef=</span><span class="s">&#34;startEvent_2b0abd37-75a9-47dd-9838-63f1390d7515&#34;</span> <span class="na">targetRef=</span><span class="s">&#34;serviceTask_f4c2413f-5b26-49e8-b71c-2603e469ce09&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;endEvent</span> <span class="na">id=</span><span class="s">&#34;endEvent_8087f927-a53b-4126-95fc-c057736f3b73&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;incoming&gt;</span>sequenceFlow_5839394a-c0c2-4a5b-aa81-9412f169cc35<span class="nt">&lt;/incoming&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/endEvent&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;sequenceFlow</span> <span class="na">id=</span><span class="s">&#34;sequenceFlow_5839394a-c0c2-4a5b-aa81-9412f169cc35&#34;</span> <span class="na">sourceRef=</span><span class="s">&#34;serviceTask_f4c2413f-5b26-49e8-b71c-2603e469ce09&#34;</span> <span class="na">targetRef=</span><span class="s">&#34;endEvent_8087f927-a53b-4126-95fc-c057736f3b73&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/process&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c">&lt;!-- Generated Diagram Elements --&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;bpmndi:BPMNDiagram</span> <span class="na">id=</span><span class="s">&#34;BPMNDiagram_5b66dfb7-097b-4610-9681-43abb3ff97da&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;bpmndi:BPMNPlane</span> <span class="na">bpmnElement=</span><span class="s">&#34;process-payments&#34;</span> <span class="na">id=</span><span class="s">&#34;BPMNPlane_ad88b4cf-9d7a-4b86-8386-f8db23ff388d&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;bpmndi:BPMNShape</span> <span class="na">bpmnElement=</span><span class="s">&#34;startEvent_2b0abd37-75a9-47dd-9838-63f1390d7515&#34;</span> <span class="na">id=</span><span class="s">&#34;BPMNShape_d6c4e3c5-150c-43f7-adf8-1d388f466a69&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;dc:Bounds</span> <span class="na">height=</span><span class="s">&#34;36.0&#34;</span> <span class="na">width=</span><span class="s">&#34;36.0&#34;</span> <span class="na">x=</span><span class="s">&#34;100.0&#34;</span> <span class="na">y=</span><span class="s">&#34;100.0&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/bpmndi:BPMNShape&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;bpmndi:BPMNShape</span> <span class="na">bpmnElement=</span><span class="s">&#34;serviceTask_f4c2413f-5b26-49e8-b71c-2603e469ce09&#34;</span> <span class="na">id=</span><span class="s">&#34;BPMNShape_51006773-13df-4327-a4cf-a5952c39e86a&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;dc:Bounds</span> <span class="na">height=</span><span class="s">&#34;80.0&#34;</span> <span class="na">width=</span><span class="s">&#34;100.0&#34;</span> <span class="na">x=</span><span class="s">&#34;186.0&#34;</span> <span class="na">y=</span><span class="s">&#34;78.0&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/bpmndi:BPMNShape&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;bpmndi:BPMNEdge</span> <span class="na">bpmnElement=</span><span class="s">&#34;sequenceFlow_b1eec5b5-889d-4e75-854d-59768fbdc8a2&#34;</span> <span class="na">id=</span><span class="s">&#34;BPMNEdge_fb360594-8863-4d5d-b515-49e02a88d55d&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;di:waypoint</span> <span class="na">x=</span><span class="s">&#34;136.0&#34;</span> <span class="na">y=</span><span class="s">&#34;118.0&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;di:waypoint</span> <span class="na">x=</span><span class="s">&#34;186.0&#34;</span> <span class="na">y=</span><span class="s">&#34;118.0&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/bpmndi:BPMNEdge&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;bpmndi:BPMNShape</span> <span class="na">bpmnElement=</span><span class="s">&#34;endEvent_8087f927-a53b-4126-95fc-c057736f3b73&#34;</span> <span class="na">id=</span><span class="s">&#34;BPMNShape_23930820-5507-45a0-8630-b5e45ee8dd4d&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;dc:Bounds</span> <span class="na">height=</span><span class="s">&#34;36.0&#34;</span> <span class="na">width=</span><span class="s">&#34;36.0&#34;</span> <span class="na">x=</span><span class="s">&#34;336.0&#34;</span> <span class="na">y=</span><span class="s">&#34;100.0&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/bpmndi:BPMNShape&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;bpmndi:BPMNEdge</span> <span class="na">bpmnElement=</span><span class="s">&#34;sequenceFlow_5839394a-c0c2-4a5b-aa81-9412f169cc35&#34;</span> <span class="na">id=</span><span class="s">&#34;BPMNEdge_07ed502e-069f-42a0-bd1b-fed0d68efbda&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;di:waypoint</span> <span class="na">x=</span><span class="s">&#34;286.0&#34;</span> <span class="na">y=</span><span class="s">&#34;118.0&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;di:waypoint</span> <span class="na">x=</span><span class="s">&#34;336.0&#34;</span> <span class="na">y=</span><span class="s">&#34;118.0&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/bpmndi:BPMNEdge&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/bpmndi:BPMNPlane&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/bpmndi:BPMNDiagram&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/definitions&gt;</span>
 </span></span></code></pre></div><p>The default behavior is that each newly added flow element will be placed next to the previous flow element.</p>
 <p>When flow elements are added to an embedded subprocess, then the subprocess is resized when the subprocess border is reached. Therefore,
 it is recommended to first add all new elements to the subprocess and to then create the following elements. Otherwise it could lead to

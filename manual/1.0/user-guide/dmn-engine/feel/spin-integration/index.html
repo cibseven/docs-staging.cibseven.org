@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/1.0/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/1.0/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/user-guide/dmn-engine/feel/spin-integration/" />
 </head>
 <body class="">
@@ -3171,11 +3171,11 @@ supports its usage.</p>
 as a dependency as well, and the DMN Engine will pick up the necessary classes to enable the Spin
 FEEL Engine integration.</p>
 <p>The Maven coordinates for the Spin Process Engine Plugin can be found below:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;dependency&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;groupId&gt;</span>org.camunda.bpm<span style="color:#f92672">&lt;/groupId&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;artifactId&gt;</span>camunda-engine-plugin-spin<span style="color:#f92672">&lt;/artifactId&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;version&gt;</span>${camunda.version}<span style="color:#f92672">&lt;/version&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/dependency&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependency&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;groupId&gt;</span>org.camunda.bpm<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;artifactId&gt;</span>camunda-engine-plugin-spin<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;version&gt;</span>${camunda.version}<span class="nt">&lt;/version&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/dependency&gt;</span>
 </span></span></code></pre></div><h2 id="how-does-the-spin-integration-work">How does the Spin integration work</h2>
 <p>The Spin integration consists of a Spin &ldquo;Data Types&rdquo;-dedicated implementation of the FEEL Engine
 <code>ValueMapper</code> interface. The <code>SpinValueMapper</code> implementation intercepts any objects of types:</p>
@@ -3185,15 +3185,15 @@ FEEL Engine integration.</p>
 </ul>
 <p>An object of these types, passed as a variable to the FEEL Engine will be converted to the
 appropriate FEEL data type. Below, you can find an example of how this can be done:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>  <span style="color:#75715e">// define a JSON variable</span>
-</span></span><span style="display:flex;"><span>  SpinJsonNode json <span style="color:#f92672">=</span> Spin.<span style="color:#a6e22e">JSON</span>(<span style="color:#e6db74">&#34;{\&#34;customer\&#34;: \&#34;Kermit\&#34;, \&#34;language\&#34;: \&#34;en\&#34;}&#34;</span>);
-</span></span><span style="display:flex;"><span>  
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// create a variable map and store the JSON variable</span>
-</span></span><span style="display:flex;"><span>  VariableMap variables <span style="color:#f92672">=</span> Variables.<span style="color:#a6e22e">createVariables</span>().<span style="color:#a6e22e">putValue</span>(<span style="color:#e6db74">&#34;jsonVariable&#34;</span>, json);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// evaluate a decision containing a FEEL expression that uses the JSON variable</span>
-</span></span><span style="display:flex;"><span>  dmnEngine.<span style="color:#a6e22e">evaluateDecision</span>(decisionWithFEEL, variables);
-</span></span></code></pre></div><h2 id="what-is-the-feel-data-type-mapping-of-jsonxml-variables">What is the FEEL data type mapping of JSON/XML variables</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">  </span><span class="c1">// define a JSON variable</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">SpinJsonNode</span><span class="w"> </span><span class="n">json</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Spin</span><span class="p">.</span><span class="na">JSON</span><span class="p">(</span><span class="s">&#34;{\&#34;customer\&#34;: \&#34;Kermit\&#34;, \&#34;language\&#34;: \&#34;en\&#34;}&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c1">// create a variable map and store the JSON variable</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">VariableMap</span><span class="w"> </span><span class="n">variables</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Variables</span><span class="p">.</span><span class="na">createVariables</span><span class="p">().</span><span class="na">putValue</span><span class="p">(</span><span class="s">&#34;jsonVariable&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">json</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c1">// evaluate a decision containing a FEEL expression that uses the JSON variable</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">dmnEngine</span><span class="p">.</span><span class="na">evaluateDecision</span><span class="p">(</span><span class="n">decisionWithFEEL</span><span class="p">,</span><span class="w"> </span><span class="n">variables</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><h2 id="what-is-the-feel-data-type-mapping-of-jsonxml-variables">What is the FEEL data type mapping of JSON/XML variables</h2>
 <p>When converting JSON/XML variables to a FEEL data type, the provided JSON/XML structure will be
 mapped to a <code>Context</code> FEEL type. The actual values contained in the data structure will be mapped
 to the supported FEEL data types documented in the external FEEL documentation <a href="https://camunda.github.io/feel-scala/1.11/feel-data-types">here</a>.</p>
@@ -3201,23 +3201,23 @@ to the supported FEEL data types documented in the external FEEL documentation <
 <p>Variables of type <code>SpinJsonNode</code> are transformed into an equal context, meaning that no
 transformation happens, it&rsquo;s basically the JSON structure.</p>
 <p>Spin JSON:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{ 
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;Kermit&#34;</span>, 
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;address&#34;</span>: 
-</span></span><span style="display:flex;"><span>  {
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;city&#34;</span>: <span style="color:#e6db74">&#34;Berlin&#34;</span>, 
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;zip-code&#34;</span>: <span style="color:#ae81ff">10961</span>
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-JSON" data-lang="JSON"><span class="line"><span class="cl"><span class="p">{</span> 
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;Kermit&#34;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;address&#34;</span><span class="p">:</span> 
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;city&#34;</span><span class="p">:</span> <span class="s2">&#34;Berlin&#34;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;zip-code&#34;</span><span class="p">:</span> <span class="mi">10961</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>FEEL context:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span>{ 
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">name</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Kermit&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">address</span> <span style="color:#f92672">:</span> 
-</span></span><span style="display:flex;"><span>  {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">city</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Berlin&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">zipCode</span> <span style="color:#f92672">:</span> <span style="color:#ae81ff">10961</span>
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="p">{</span> 
+</span></span><span class="line"><span class="cl">  <span class="nx">name</span> <span class="o">:</span> <span class="s2">&#34;Kermit&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">address</span> <span class="o">:</span> 
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">city</span> <span class="o">:</span> <span class="s2">&#34;Berlin&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">zipCode</span> <span class="o">:</span> <span class="mi">10961</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h3 id="spin-xml">Spin XML</h3>
 <p>Variables of type <code>SpinXmlElement</code> are transformed into context applying the following rules:</p>
 <ul>
@@ -3228,21 +3228,21 @@ transformation happens, it&rsquo;s basically the JSON structure.</p>
 <li>if the element or the attribute has a namespace then the context entry has the prefix <code>&lt;NAMESPACE&gt;$</code></li>
 </ul>
 <p>Spin XML:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;customer</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Kermit&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;address</span> <span style="color:#a6e22e">city=</span><span style="color:#e6db74">&#34;Berlin&#34;</span> <span style="color:#a6e22e">zipCode=</span><span style="color:#e6db74">&#34;10961&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/customer&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;customer</span> <span class="na">name=</span><span class="s">&#34;Kermit&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;address</span> <span class="na">city=</span><span class="s">&#34;Berlin&#34;</span> <span class="na">zipCode=</span><span class="s">&#34;10961&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/customer&gt;</span>
 </span></span></code></pre></div><p>FEEL context:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span>{ 
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">customer</span> <span style="color:#f92672">:</span> 
-</span></span><span style="display:flex;"><span>  {
-</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">name</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Kermit&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">address</span> <span style="color:#f92672">:</span> 
-</span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>      <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">city</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Berlin&#34;</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">zipCode</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;10961&#34;</span>
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="p">{</span> 
+</span></span><span class="line"><span class="cl">  <span class="nx">customer</span> <span class="o">:</span> 
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="err">@</span><span class="nx">name</span> <span class="o">:</span> <span class="s2">&#34;Kermit&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">address</span> <span class="o">:</span> 
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="err">@</span><span class="nx">city</span> <span class="o">:</span> <span class="s2">&#34;Berlin&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="err">@</span><span class="nx">zipCode</span> <span class="o">:</span> <span class="s2">&#34;10961&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div>
     </div>
   </div>

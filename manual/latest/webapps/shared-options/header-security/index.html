@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/latest/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/latest/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/webapps/shared-options/header-security/" />
 </head>
 <body class="">
@@ -3187,7 +3187,7 @@ object-src &#39;none&#39;;
 sandbox allow-forms allow-scripts allow-same-origin allow-popups allow-downloads;
 </code></pre><p>Where <code>$NONCE</code> is a placeholder that is replaced by a random generated secure string.
 This nonce can be then used to enable inline scripts in the <code>index.html</code> pages using another placeholder called <code>$CSP_NONCE</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;application/javascript&#34;</span> <span style="color:#a6e22e">nonce</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;$CSP_NONCE&#34;</span>&gt;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;application/javascript&#34;</span> <span class="na">nonce</span><span class="o">=</span><span class="s">&#34;$CSP_NONCE&#34;</span><span class="p">&gt;</span>
 </span></span></code></pre></div>
 <div class="note bg-info docs-info">
   <h3>Heads-up!</h3>

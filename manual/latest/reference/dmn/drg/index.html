@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/latest/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/latest/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/reference/dmn/drg/" />
 </head>
 <body class="">
@@ -3171,14 +3171,14 @@
 between them. The elements modeled are <a href="#decision">decisions</a>, <a href="#input-data">input data</a>, and <a href="#knowledge-source">knowledge sources</a>.</p>
 <p>The visual representation of a DRG is called Decision Requirements Diagram (DRD).</p>
 <p>In the XML a DRG is represented by the <code>definitions</code> element.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;definitions</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;https://www.omg.org/spec/DMN/20191111/MODEL/&#34;</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;dinnerDecisions&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Dinner Decisions&#34;</span> <span style="color:#a6e22e">namespace=</span><span style="color:#e6db74">&#34;http://camunda.org/schema/1.0/dmn&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;decision</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;dish&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Dish&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">&lt;!-- ... --&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/decision&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;decision</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;beverages&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Beverages&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">&lt;!-- ... --&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/decision&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/definitions&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;definitions</span> <span class="na">xmlns=</span><span class="s">&#34;https://www.omg.org/spec/DMN/20191111/MODEL/&#34;</span> <span class="na">id=</span><span class="s">&#34;dinnerDecisions&#34;</span> <span class="na">name=</span><span class="s">&#34;Dinner Decisions&#34;</span> <span class="na">namespace=</span><span class="s">&#34;http://camunda.org/schema/1.0/dmn&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;decision</span> <span class="na">id=</span><span class="s">&#34;dish&#34;</span> <span class="na">name=</span><span class="s">&#34;Dish&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="c">&lt;!-- ... --&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/decision&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;decision</span> <span class="na">id=</span><span class="s">&#34;beverages&#34;</span> <span class="na">name=</span><span class="s">&#34;Beverages&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="c">&lt;!-- ... --&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/decision&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/definitions&gt;</span>
 </span></span></code></pre></div><h1 id="decision-requirements-graph-name">Decision Requirements Graph Name</h1>
 <figure class="image no-lightbox">
   <span><img
@@ -3189,12 +3189,12 @@ between them. The elements modeled are <a href="#decision">decisions</a>, <a hre
 </figure>
 
 <p>The name describes the DRG. It is set as the <code>name</code> attribute on the <code>definitions</code> element.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;definitions</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;https://www.omg.org/spec/DMN/20191111/MODEL/&#34;</span> 
-</span></span><span style="display:flex;"><span>             <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;dinnerDecisions&#34;</span> 
-</span></span><span style="display:flex;"><span>             <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Dinner Decisions&#34;</span> 
-</span></span><span style="display:flex;"><span>             <span style="color:#a6e22e">namespace=</span><span style="color:#e6db74">&#34;http://camunda.org/schema/1.0/dmn&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- ... --&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/definitions&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;definitions</span> <span class="na">xmlns=</span><span class="s">&#34;https://www.omg.org/spec/DMN/20191111/MODEL/&#34;</span> 
+</span></span><span class="line"><span class="cl">             <span class="na">id=</span><span class="s">&#34;dinnerDecisions&#34;</span> 
+</span></span><span class="line"><span class="cl">             <span class="na">name=</span><span class="s">&#34;Dinner Decisions&#34;</span> 
+</span></span><span class="line"><span class="cl">             <span class="na">namespace=</span><span class="s">&#34;http://camunda.org/schema/1.0/dmn&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="c">&lt;!-- ... --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/definitions&gt;</span>
 </span></span></code></pre></div><h1 id="decision-requirements-graph-id">Decision Requirements Graph Id</h1>
 <figure class="image no-lightbox">
   <span><img
@@ -3208,12 +3208,12 @@ between them. The elements modeled are <a href="#decision">decisions</a>, <a hre
 <p>Each DRG should have an unique id when it is <a href="/manual/latest/user-guide/process-engine/decisions/repository/#deploying-a-decision">deployed</a> to CIB seven.
 The engine uses the id as the decision requirements definition key of the deployed
 <code>DecisionRequirementsDefinition</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;definitions</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;https://www.omg.org/spec/DMN/20191111/MODEL/&#34;</span> 
-</span></span><span style="display:flex;"><span>             <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;dinnerDecisions&#34;</span> 
-</span></span><span style="display:flex;"><span>             <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Dinner Decisions&#34;</span> 
-</span></span><span style="display:flex;"><span>             <span style="color:#a6e22e">namespace=</span><span style="color:#e6db74">&#34;http://camunda.org/schema/1.0/dmn&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- ... --&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/definitions&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;definitions</span> <span class="na">xmlns=</span><span class="s">&#34;https://www.omg.org/spec/DMN/20191111/MODEL/&#34;</span> 
+</span></span><span class="line"><span class="cl">             <span class="na">id=</span><span class="s">&#34;dinnerDecisions&#34;</span> 
+</span></span><span class="line"><span class="cl">             <span class="na">name=</span><span class="s">&#34;Dinner Decisions&#34;</span> 
+</span></span><span class="line"><span class="cl">             <span class="na">namespace=</span><span class="s">&#34;http://camunda.org/schema/1.0/dmn&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="c">&lt;!-- ... --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/definitions&gt;</span>
 </span></span></code></pre></div><h1 id="decision">Decision</h1>
 <figure class="image no-lightbox">
   <span><img
@@ -3225,13 +3225,13 @@ The engine uses the id as the decision requirements definition key of the deploy
 
 <p>A decision requirements graph can have one or more decisions. A decision has a <a href="/manual/latest/reference/dmn/decision-table/#decision-name">name</a> which is shown in the DRD and an <a href="/manual/latest/reference/dmn/decision-table/#decision-id">id</a>. The decision logic inside the decision must be either a <a href="/manual/latest/reference/dmn/decision-table/">decision table</a> or a <a href="/manual/latest/reference/dmn/decision-literal-expression/">decision literal expression</a>.</p>
 <p>A decision is represented by a <code>decision</code> element inside the <code>definitions</code> XML element.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;definitions</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;https://www.omg.org/spec/DMN/20191111/MODEL/&#34;</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;dish&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Desired Dish&#34;</span> <span style="color:#a6e22e">namespace=</span><span style="color:#e6db74">&#34;party&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;decision</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;beverages&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Beverages&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;decisionTable</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;decisionTable&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">&lt;!-- ... --&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/decisionTable&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/decision&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/definitions&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;definitions</span> <span class="na">xmlns=</span><span class="s">&#34;https://www.omg.org/spec/DMN/20191111/MODEL/&#34;</span> <span class="na">id=</span><span class="s">&#34;dish&#34;</span> <span class="na">name=</span><span class="s">&#34;Desired Dish&#34;</span> <span class="na">namespace=</span><span class="s">&#34;party&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;decision</span> <span class="na">id=</span><span class="s">&#34;beverages&#34;</span> <span class="na">name=</span><span class="s">&#34;Beverages&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;decisionTable</span> <span class="na">id=</span><span class="s">&#34;decisionTable&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="c">&lt;!-- ... --&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/decisionTable&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/decision&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/definitions&gt;</span>
 </span></span></code></pre></div><h2 id="required-decisions">Required Decisions</h2>
 <figure class="image no-lightbox">
   <span><img
@@ -3244,12 +3244,12 @@ The engine uses the id as the decision requirements definition key of the deploy
 <p>A decision can have one or more required decisions which it depends on.</p>
 <p>A required decision is represented by a <code>requiredDecision</code> element inside an <code>informationRequirement</code> XML element.
 It has a <code>href</code> attribute and the value starts with <code>#</code> followed by the <a href="/manual/latest/reference/dmn/decision-table/#decision-id">decision id</a> of the required decision.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;decision</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;beverages&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Beverages&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;informationRequirement&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;requiredDecision</span> <span style="color:#a6e22e">href=</span><span style="color:#e6db74">&#34;#dish&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/informationRequirement&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- ... --&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/decision&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;decision</span> <span class="na">id=</span><span class="s">&#34;beverages&#34;</span> <span class="na">name=</span><span class="s">&#34;Beverages&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;informationRequirement&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;requiredDecision</span> <span class="na">href=</span><span class="s">&#34;#dish&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/informationRequirement&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="c">&lt;!-- ... --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/decision&gt;</span>
 </span></span></code></pre></div><h1 id="input-data">Input Data</h1>
 <figure class="image no-lightbox">
   <span><img
@@ -3261,15 +3261,15 @@ It has a <code>href</code> attribute and the value starts with <code>#</code> fo
 
 <p>An input data denotes information used as an input by one or more decisions.</p>
 <p>It is represented by an <code>inputData</code> element inside the <code>definitions</code> element.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;definitions</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;https://www.omg.org/spec/DMN/20191111/MODEL/&#34;</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;dinnerDecisions&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Dinner Decisions&#34;</span> <span style="color:#a6e22e">namespace=</span><span style="color:#e6db74">&#34;http://camunda.org/schema/1.0/dmn&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;inputData</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;guestsWithChildren&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Guests with children?&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>  
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;decision</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;beverages&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Beverages&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;informationRequirement&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;requiredInput</span> <span style="color:#a6e22e">href=</span><span style="color:#e6db74">&#34;#guestsWithChildren&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/informationRequirement&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">&lt;!-- ... --&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/definitions&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;definitions</span> <span class="na">xmlns=</span><span class="s">&#34;https://www.omg.org/spec/DMN/20191111/MODEL/&#34;</span> <span class="na">id=</span><span class="s">&#34;dinnerDecisions&#34;</span> <span class="na">name=</span><span class="s">&#34;Dinner Decisions&#34;</span> <span class="na">namespace=</span><span class="s">&#34;http://camunda.org/schema/1.0/dmn&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;inputData</span> <span class="na">id=</span><span class="s">&#34;guestsWithChildren&#34;</span> <span class="na">name=</span><span class="s">&#34;Guests with children?&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;decision</span> <span class="na">id=</span><span class="s">&#34;beverages&#34;</span> <span class="na">name=</span><span class="s">&#34;Beverages&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;informationRequirement&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;requiredInput</span> <span class="na">href=</span><span class="s">&#34;#guestsWithChildren&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/informationRequirement&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="c">&lt;!-- ... --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/definitions&gt;</span>
 </span></span></code></pre></div><p>Note that an input data has no execution semantics and is ignored by the Camunda DMN engine.</p>
 <h1 id="knowledge-source">Knowledge Source</h1>
 <figure class="image no-lightbox">
@@ -3282,15 +3282,15 @@ It has a <code>href</code> attribute and the value starts with <code>#</code> fo
 
 <p>A knowledge source denotes an authority for a Decision.</p>
 <p>It is represented by a <code>knowledgeSource</code> element inside the <code>definitions</code> element.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;definitions</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;https://www.omg.org/spec/DMN/20191111/MODEL/&#34;</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;dinnerDecisions&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Dinner Decisions&#34;</span> <span style="color:#a6e22e">namespace=</span><span style="color:#e6db74">&#34;http://camunda.org/schema/1.0/dmn&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;knowledgeSource</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;cookbook&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Men&#39;s Cookbook&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>  
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;decision</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;dish&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Dish&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;authorityRequirement&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;requiredDecision</span> <span style="color:#a6e22e">href=</span><span style="color:#e6db74">&#34;#cookbook&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/authorityRequirement&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">&lt;!-- ... --&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/definitions&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;definitions</span> <span class="na">xmlns=</span><span class="s">&#34;https://www.omg.org/spec/DMN/20191111/MODEL/&#34;</span> <span class="na">id=</span><span class="s">&#34;dinnerDecisions&#34;</span> <span class="na">name=</span><span class="s">&#34;Dinner Decisions&#34;</span> <span class="na">namespace=</span><span class="s">&#34;http://camunda.org/schema/1.0/dmn&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;knowledgeSource</span> <span class="na">id=</span><span class="s">&#34;cookbook&#34;</span> <span class="na">name=</span><span class="s">&#34;Men&#39;s Cookbook&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;decision</span> <span class="na">id=</span><span class="s">&#34;dish&#34;</span> <span class="na">name=</span><span class="s">&#34;Dish&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;authorityRequirement&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;requiredDecision</span> <span class="na">href=</span><span class="s">&#34;#cookbook&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/authorityRequirement&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="c">&lt;!-- ... --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/definitions&gt;</span>
 </span></span></code></pre></div><p>Note that a knowledge source has no execution semantics and is ignored by the Camunda DMN engine.</p>
 
     </div>

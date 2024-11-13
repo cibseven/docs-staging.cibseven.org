@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/1.0/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/1.0/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/user-guide/spring-framework-integration/transactions/" />
 </head>
 <body class="">
@@ -3163,42 +3163,42 @@
 <p>The following explains the <a href="https://github.com/camunda/camunda-bpm-platform/blob/7.22.0-cibseven/engine-spring/core/src/test/java/org/camunda/bpm/engine/spring/test/transaction/SpringTransactionIntegrationTest.java">SpringTransactionIntegrationTest</a> of the core codebase step by step. Below is the Spring configuration file that we use in this example (you can find it in <a href="https://github.com/cibseven/cibseven/blob/7.22.0-cibseven/engine-spring/core/src/test/resources/org/camunda/bpm/engine/spring/test/transaction/SpringTransactionIntegrationTest-context.xml">SpringTransactionIntegrationTest-context.xml</a>). The section shown below contains the <code>dataSource</code>, <code>transactionManager</code>, <code>processEngine</code> and the process engine services.</p>
 <p>When passing the DataSource to the <code>SpringProcessEngineConfiguration</code> (using property &ldquo;dataSource&rdquo;), the Camunda engine uses a <code>org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy</code> internally, which wraps the passed DataSource. This is done to make sure the SQL connections retrieved from the DataSource and the Spring transactions play well together. This implies that it&rsquo;s no longer needed to proxy the dataSource yourself in Spring configuration, although it&rsquo;s still allowed to pass a <code>TransactionAwareDataSourceProxy</code> into the <code>SpringProcessEngineConfiguration</code>. In this case no additional wrapping will occur.</p>
 <p>Make sure when declaring a <code>TransactionAwareDataSourceProxy</code> in Spring configuration yourself, that you don&rsquo;t use it for resources that are already aware of Spring-transactions (e.g., <code>DataSourceTransactionManager</code> and <code>JPATransactionManager</code> need the un-proxied dataSource).</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;beans</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://www.springframework.org/schema/beans&#34;</span>
-</span></span><span style="display:flex;"><span>       <span style="color:#a6e22e">xmlns:context=</span><span style="color:#e6db74">&#34;http://www.springframework.org/schema/context&#34;</span>
-</span></span><span style="display:flex;"><span>       <span style="color:#a6e22e">xmlns:tx=</span><span style="color:#e6db74">&#34;http://www.springframework.org/schema/tx&#34;</span>
-</span></span><span style="display:flex;"><span>       <span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
-</span></span><span style="display:flex;"><span>       <span style="color:#a6e22e">xsi:schemaLocation=</span><span style="color:#e6db74">&#34;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;dataSource&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;org.springframework.jdbc.datasource.SimpleDriverDataSource&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;driverClass&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;org.h2.Driver&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;url&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;jdbc:h2:mem:camunda;DB_CLOSE_DELAY=1000&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;username&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;sa&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;password&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/bean&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;transactionManager&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;org.springframework.jdbc.datasource.DataSourceTransactionManager&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;dataSource&#34;</span> <span style="color:#a6e22e">ref=</span><span style="color:#e6db74">&#34;dataSource&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/bean&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;processEngineConfiguration&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;org.camunda.bpm.engine.spring.SpringProcessEngineConfiguration&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;dataSource&#34;</span> <span style="color:#a6e22e">ref=</span><span style="color:#e6db74">&#34;dataSource&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;transactionManager&#34;</span> <span style="color:#a6e22e">ref=</span><span style="color:#e6db74">&#34;transactionManager&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;databaseSchemaUpdate&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;true&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;jobExecutorActivate&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;false&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/bean&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;processEngine&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;org.camunda.bpm.engine.spring.ProcessEngineFactoryBean&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;processEngineConfiguration&#34;</span> <span style="color:#a6e22e">ref=</span><span style="color:#e6db74">&#34;processEngineConfiguration&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/bean&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;repositoryService&#34;</span> <span style="color:#a6e22e">factory-bean=</span><span style="color:#e6db74">&#34;processEngine&#34;</span> <span style="color:#a6e22e">factory-method=</span><span style="color:#e6db74">&#34;getRepositoryService&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;runtimeService&#34;</span> <span style="color:#a6e22e">factory-bean=</span><span style="color:#e6db74">&#34;processEngine&#34;</span> <span style="color:#a6e22e">factory-method=</span><span style="color:#e6db74">&#34;getRuntimeService&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;taskService&#34;</span> <span style="color:#a6e22e">factory-bean=</span><span style="color:#e6db74">&#34;processEngine&#34;</span> <span style="color:#a6e22e">factory-method=</span><span style="color:#e6db74">&#34;getTaskService&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;historyService&#34;</span> <span style="color:#a6e22e">factory-bean=</span><span style="color:#e6db74">&#34;processEngine&#34;</span> <span style="color:#a6e22e">factory-method=</span><span style="color:#e6db74">&#34;getHistoryService&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;managementService&#34;</span> <span style="color:#a6e22e">factory-bean=</span><span style="color:#e6db74">&#34;processEngine&#34;</span> <span style="color:#a6e22e">factory-method=</span><span style="color:#e6db74">&#34;getManagementService&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  ...
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/beans&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;beans</span> <span class="na">xmlns=</span><span class="s">&#34;http://www.springframework.org/schema/beans&#34;</span>
+</span></span><span class="line"><span class="cl">       <span class="na">xmlns:context=</span><span class="s">&#34;http://www.springframework.org/schema/context&#34;</span>
+</span></span><span class="line"><span class="cl">       <span class="na">xmlns:tx=</span><span class="s">&#34;http://www.springframework.org/schema/tx&#34;</span>
+</span></span><span class="line"><span class="cl">       <span class="na">xmlns:xsi=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+</span></span><span class="line"><span class="cl">       <span class="na">xsi:schemaLocation=</span><span class="s">&#34;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;dataSource&#34;</span> <span class="na">class=</span><span class="s">&#34;org.springframework.jdbc.datasource.SimpleDriverDataSource&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;driverClass&#34;</span> <span class="na">value=</span><span class="s">&#34;org.h2.Driver&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;url&#34;</span> <span class="na">value=</span><span class="s">&#34;jdbc:h2:mem:camunda;DB_CLOSE_DELAY=1000&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;username&#34;</span> <span class="na">value=</span><span class="s">&#34;sa&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;password&#34;</span> <span class="na">value=</span><span class="s">&#34;&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/bean&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;transactionManager&#34;</span> <span class="na">class=</span><span class="s">&#34;org.springframework.jdbc.datasource.DataSourceTransactionManager&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;dataSource&#34;</span> <span class="na">ref=</span><span class="s">&#34;dataSource&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/bean&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;processEngineConfiguration&#34;</span> <span class="na">class=</span><span class="s">&#34;org.camunda.bpm.engine.spring.SpringProcessEngineConfiguration&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;dataSource&#34;</span> <span class="na">ref=</span><span class="s">&#34;dataSource&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;transactionManager&#34;</span> <span class="na">ref=</span><span class="s">&#34;transactionManager&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;databaseSchemaUpdate&#34;</span> <span class="na">value=</span><span class="s">&#34;true&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;jobExecutorActivate&#34;</span> <span class="na">value=</span><span class="s">&#34;false&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/bean&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;processEngine&#34;</span> <span class="na">class=</span><span class="s">&#34;org.camunda.bpm.engine.spring.ProcessEngineFactoryBean&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;processEngineConfiguration&#34;</span> <span class="na">ref=</span><span class="s">&#34;processEngineConfiguration&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/bean&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;repositoryService&#34;</span> <span class="na">factory-bean=</span><span class="s">&#34;processEngine&#34;</span> <span class="na">factory-method=</span><span class="s">&#34;getRepositoryService&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;runtimeService&#34;</span> <span class="na">factory-bean=</span><span class="s">&#34;processEngine&#34;</span> <span class="na">factory-method=</span><span class="s">&#34;getRuntimeService&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;taskService&#34;</span> <span class="na">factory-bean=</span><span class="s">&#34;processEngine&#34;</span> <span class="na">factory-method=</span><span class="s">&#34;getTaskService&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;historyService&#34;</span> <span class="na">factory-bean=</span><span class="s">&#34;processEngine&#34;</span> <span class="na">factory-method=</span><span class="s">&#34;getHistoryService&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;managementService&#34;</span> <span class="na">factory-bean=</span><span class="s">&#34;processEngine&#34;</span> <span class="na">factory-method=</span><span class="s">&#34;getManagementService&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  ...
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/beans&gt;</span>
 </span></span></code></pre></div>
 <div class="note bg-warning docs-warning">
   <h3></h3>
@@ -3207,52 +3207,52 @@ i.e. the <code>transactionManager</code> bean must actually manage the data sour
 </div>
 
 <p>The remainder of that Spring configuration file contains the beans and configuration that we&rsquo;ll use in this particular example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;beans&gt;</span>
-</span></span><span style="display:flex;"><span>  ...
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;tx:annotation-driven</span> <span style="color:#a6e22e">transaction-manager=</span><span style="color:#e6db74">&#34;transactionManager&#34;</span><span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;userBean&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;org.camunda.bpm.engine.spring.test.UserBean&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;runtimeService&#34;</span> <span style="color:#a6e22e">ref=</span><span style="color:#e6db74">&#34;runtimeService&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/bean&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;printer&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;org.camunda.bpm.engine.spring.test.Printer&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/beans&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;beans&gt;</span>
+</span></span><span class="line"><span class="cl">  ...
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;tx:annotation-driven</span> <span class="na">transaction-manager=</span><span class="s">&#34;transactionManager&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;userBean&#34;</span> <span class="na">class=</span><span class="s">&#34;org.camunda.bpm.engine.spring.test.UserBean&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;runtimeService&#34;</span> <span class="na">ref=</span><span class="s">&#34;runtimeService&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/bean&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;printer&#34;</span> <span class="na">class=</span><span class="s">&#34;org.camunda.bpm.engine.spring.test.Printer&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/beans&gt;</span>
 </span></span></code></pre></div><p>First, the application context is created with any of the Spring ways to do that. In this example you could use a classpath XML resource to configure our Spring application context:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>ClassPathXmlApplicationContext applicationContext <span style="color:#f92672">=</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">new</span> ClassPathXmlApplicationContext(<span style="color:#e6db74">&#34;mytest/SpringTransactionIntegrationTest-context.xml&#34;</span>);
-</span></span></code></pre></div><p>or, since it is a test:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@ContextConfiguration</span>(<span style="color:#e6db74">&#34;classpath:mytest/SpringTransactionIntegrationTest-context.xml&#34;</span>)
-</span></span></code></pre></div><p>Then we can get the service beans and invoke methods on them. The ProcessEngineFactoryBean will have added an extra interceptor to the services that applies <code>Propagation.REQUIRED</code> transaction semantics on the engine service methods. So, for example, we can use the repositoryService to deploy a process like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>RepositoryService repositoryService <span style="color:#f92672">=</span> (RepositoryService) applicationContext.<span style="color:#a6e22e">getBean</span>(<span style="color:#e6db74">&#34;repositoryService&#34;</span>);
-</span></span><span style="display:flex;"><span>String deploymentId <span style="color:#f92672">=</span> repositoryService
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">createDeployment</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">addClasspathResource</span>(<span style="color:#e6db74">&#34;mytest/hello.bpmn20&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">addClasspathResource</span>(<span style="color:#e6db74">&#34;mytest/hello.png&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">deploy</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">getId</span>();
-</span></span></code></pre></div><p>The other way around also works. In this case, the Spring transaction will be around the <code>userBean.hello()</code> method and the engine service method invocation will join that same transaction.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>UserBean userBean <span style="color:#f92672">=</span> (UserBean) applicationContext.<span style="color:#a6e22e">getBean</span>(<span style="color:#e6db74">&#34;userBean&#34;</span>);
-</span></span><span style="display:flex;"><span>userBean.<span style="color:#a6e22e">hello</span>();
-</span></span></code></pre></div><p>The <code>UserBean</code> looks like this. Remember from above in the Spring bean configuration we injected the repositoryService into the userBean.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UserBean</span> {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// injected by Spring</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> RuntimeService runtimeService;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Transactional</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">hello</span>() {
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// here you can do transactional stuff in your domain model</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// and it will be combined in the same transaction as</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// the startProcessInstanceByKey to the RuntimeService</span>
-</span></span><span style="display:flex;"><span>    runtimeService.<span style="color:#a6e22e">startProcessInstanceByKey</span>(<span style="color:#e6db74">&#34;helloProcess&#34;</span>);
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setRuntimeService</span>(RuntimeService runtimeService) {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">runtimeService</span> <span style="color:#f92672">=</span> runtimeService;
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h1 id="using-inner-spring-transactions">Using Inner Spring Transactions</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">ClassPathXmlApplicationContext</span><span class="w"> </span><span class="n">applicationContext</span><span class="w"> </span><span class="o">=</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">new</span><span class="w"> </span><span class="n">ClassPathXmlApplicationContext</span><span class="p">(</span><span class="s">&#34;mytest/SpringTransactionIntegrationTest-context.xml&#34;</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><p>or, since it is a test:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@ContextConfiguration</span><span class="p">(</span><span class="s">&#34;classpath:mytest/SpringTransactionIntegrationTest-context.xml&#34;</span><span class="p">)</span><span class="w">
+</span></span></span></code></pre></div><p>Then we can get the service beans and invoke methods on them. The ProcessEngineFactoryBean will have added an extra interceptor to the services that applies <code>Propagation.REQUIRED</code> transaction semantics on the engine service methods. So, for example, we can use the repositoryService to deploy a process like this:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">RepositoryService</span><span class="w"> </span><span class="n">repositoryService</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">RepositoryService</span><span class="p">)</span><span class="w"> </span><span class="n">applicationContext</span><span class="p">.</span><span class="na">getBean</span><span class="p">(</span><span class="s">&#34;repositoryService&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">String</span><span class="w"> </span><span class="n">deploymentId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">repositoryService</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">createDeployment</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">addClasspathResource</span><span class="p">(</span><span class="s">&#34;mytest/hello.bpmn20&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">addClasspathResource</span><span class="p">(</span><span class="s">&#34;mytest/hello.png&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">deploy</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">getId</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><p>The other way around also works. In this case, the Spring transaction will be around the <code>userBean.hello()</code> method and the engine service method invocation will join that same transaction.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">UserBean</span><span class="w"> </span><span class="n">userBean</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">UserBean</span><span class="p">)</span><span class="w"> </span><span class="n">applicationContext</span><span class="p">.</span><span class="na">getBean</span><span class="p">(</span><span class="s">&#34;userBean&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">userBean</span><span class="p">.</span><span class="na">hello</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><p>The <code>UserBean</code> looks like this. Remember from above in the Spring bean configuration we injected the repositoryService into the userBean.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">UserBean</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c1">// injected by Spring</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="n">RuntimeService</span><span class="w"> </span><span class="n">runtimeService</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@Transactional</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">hello</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// here you can do transactional stuff in your domain model</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// and it will be combined in the same transaction as</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// the startProcessInstanceByKey to the RuntimeService</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">runtimeService</span><span class="p">.</span><span class="na">startProcessInstanceByKey</span><span class="p">(</span><span class="s">&#34;helloProcess&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setRuntimeService</span><span class="p">(</span><span class="n">RuntimeService</span><span class="w"> </span><span class="n">runtimeService</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">runtimeService</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">runtimeService</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h1 id="using-inner-spring-transactions">Using Inner Spring Transactions</h1>
 <p>When engine API calls are executed in the Spring context, Spring doesn&rsquo;t
 make it transparent to the Process Engine when nested API calls need to
 be executed in a separate transaction (the <code>Propagation.REQUIRES_NEW</code>
@@ -3277,32 +3277,32 @@ The <code>InnerProcessServiceImpl#startInnerProcess</code> method is called thro
 the <code>execute</code> method, resulting in an inner transaction.We can also assume
 that, in the <code>startProcessInstanceByKey</code> engine API call, some custom code
 continues to execute in the inner transaction, and throws an exception.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Transactional</span>(value <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;transactionManager&#34;</span>, propagation <span style="color:#f92672">=</span> Propagation.<span style="color:#a6e22e">REQUIRED</span>)
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">execute</span>(DelegateExecution execution) <span style="color:#66d9ef">throws</span> Exception {
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">try</span> {
-</span></span><span style="display:flex;"><span>    innerProcessService.<span style="color:#a6e22e">startInnerProcess</span>(execution);
-</span></span><span style="display:flex;"><span>  } <span style="color:#66d9ef">catch</span> (Exception ex) {
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// noop</span>
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">/* InnerProcessService implementation */</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Service</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">InnerProcessServiceImpl</span> <span style="color:#66d9ef">implements</span> InnerProcessService {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Override</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Transactional</span>(value <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;transactionManager&#34;</span>, propagation <span style="color:#f92672">=</span> Propagation.<span style="color:#a6e22e">REQUIRES_NEW</span>, rollbackFor <span style="color:#f92672">=</span> {Throwable.<span style="color:#a6e22e">class</span>})
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">startInnerProcess</span>(DelegateExecution execution) {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    execution.<span style="color:#a6e22e">getProcessEngineServices</span>()
-</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">getRuntimeService</span>()
-</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">startProcessInstanceByKey</span>(<span style="color:#e6db74">&#34;EXAMPLE_PROCESS&#34;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// custom code continues</span>
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>In a case like this one, since Spring doesn&rsquo;t make the Process Engine aware that the <code>startProcessInstanceByKey</code>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Transactional</span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;transactionManager&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">propagation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Propagation</span><span class="p">.</span><span class="na">REQUIRED</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">execute</span><span class="p">(</span><span class="n">DelegateExecution</span><span class="w"> </span><span class="n">execution</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">innerProcessService</span><span class="p">.</span><span class="na">startInnerProcess</span><span class="p">(</span><span class="n">execution</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">ex</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// noop</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="cm">/* InnerProcessService implementation */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@Service</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">InnerProcessServiceImpl</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">InnerProcessService</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@Override</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@Transactional</span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;transactionManager&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">propagation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Propagation</span><span class="p">.</span><span class="na">REQUIRES_NEW</span><span class="p">,</span><span class="w"> </span><span class="n">rollbackFor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">Throwable</span><span class="p">.</span><span class="na">class</span><span class="p">})</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">startInnerProcess</span><span class="p">(</span><span class="n">DelegateExecution</span><span class="w"> </span><span class="n">execution</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">execution</span><span class="p">.</span><span class="na">getProcessEngineServices</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="p">.</span><span class="na">getRuntimeService</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="p">.</span><span class="na">startProcessInstanceByKey</span><span class="p">(</span><span class="s">&#34;EXAMPLE_PROCESS&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// custom code continues</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>In a case like this one, since Spring doesn&rsquo;t make the Process Engine aware that the <code>startProcessInstanceByKey</code>
 engine API call is executed in a new, inner transaction, when the custom code
 fails, the Spring inner transaction will be rolled back, but the data
 from the started Process Instance data will be committed with the outer
@@ -3319,21 +3319,21 @@ is called.</p>
 static methods are called and cleared even in the presence of exceptions.
 Below, you can find the solution applied to the <code>startProcessInstanceByKey</code>
 engine API call of the example above:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">try</span> {
-</span></span><span style="display:flex;"><span>  
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// declare new Process Engine Context</span>
-</span></span><span style="display:flex;"><span>  ProcessEngineContext.<span style="color:#a6e22e">requiresNew</span>();
-</span></span><span style="display:flex;"><span>  
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// call engine APIs</span>
-</span></span><span style="display:flex;"><span>  execution.<span style="color:#a6e22e">getProcessEngineServices</span>()
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">getRuntimeService</span>()
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">startProcessInstanceByKey</span>(<span style="color:#e6db74">&#34;EXAMPLE_PROCESS&#34;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>} <span style="color:#66d9ef">finally</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// clear declaration for new Process Engine Context</span>
-</span></span><span style="display:flex;"><span>  ProcessEngineContext.<span style="color:#a6e22e">clear</span>();
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c1">// declare new Process Engine Context</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">ProcessEngineContext</span><span class="p">.</span><span class="na">requiresNew</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c1">// call engine APIs</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">execution</span><span class="p">.</span><span class="na">getProcessEngineServices</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">getRuntimeService</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">startProcessInstanceByKey</span><span class="p">(</span><span class="s">&#34;EXAMPLE_PROCESS&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c1">// clear declaration for new Process Engine Context</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">ProcessEngineContext</span><span class="p">.</span><span class="na">clear</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div>
     </div>
   </div>
 </div>

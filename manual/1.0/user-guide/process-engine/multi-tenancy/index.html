@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/1.0/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/1.0/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/user-guide/process-engine/multi-tenancy/" />
 </head>
 <body class="">
@@ -3190,37 +3190,37 @@
 <h3 id="specify-the-tenant-identifier-via-java-api">Specify the Tenant Identifier via Java API</h3>
 <p>When a deployment is created using the Repository Service, the tenant identifier can be set on the <a href="/javadoc/cibseven/1.0/org/camunda/bpm/engine/repository/DeploymentBuilder.html">DeploymentBuilder</a>
 .</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>repositoryService
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">createDeployment</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">tenantId</span>(<span style="color:#e6db74">&#34;tenant1&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">addZipInputStream</span>(inputStream)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">deploy</span>()
-</span></span></code></pre></div><h3 id="specify-the-tenant-identifier-via-deployment-descriptor">Specify the Tenant Identifier via Deployment Descriptor</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">repositoryService</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">createDeployment</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">tenantId</span><span class="p">(</span><span class="s">&#34;tenant1&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">addZipInputStream</span><span class="p">(</span><span class="n">inputStream</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">deploy</span><span class="p">()</span><span class="w">
+</span></span></span></code></pre></div><h3 id="specify-the-tenant-identifier-via-deployment-descriptor">Specify the Tenant Identifier via Deployment Descriptor</h3>
 <p>In case of a process application, the deployment is specified by a <a href="/manual/1.0/user-guide/process-applications/the-processes-xml-deployment-descriptor/">processes.xml</a> Deployment Descriptor. Since the descriptor can contain multiple process-archives (i.e., deployments), the tenant identifier can be set on each process-archive as <code>tenantId</code> attribute.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;process-application</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://www.camunda.org/schema/1.0/ProcessApplication&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;process-archive</span> <span style="color:#a6e22e">tenantId=</span><span style="color:#e6db74">&#34;tenant1&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;process-engine&gt;</span>default<span style="color:#f92672">&lt;/process-engine&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;properties&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;isDeleteUponUndeploy&#34;</span><span style="color:#f92672">&gt;</span>false<span style="color:#f92672">&lt;/property&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;isScanForProcessDefinitions&#34;</span><span style="color:#f92672">&gt;</span>true<span style="color:#f92672">&lt;/property&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/properties&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/process-archive&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/process-application&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;process-application</span>
+</span></span><span class="line"><span class="cl">  <span class="na">xmlns=</span><span class="s">&#34;http://www.camunda.org/schema/1.0/ProcessApplication&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">xmlns:xsi=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;process-archive</span> <span class="na">tenantId=</span><span class="s">&#34;tenant1&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;process-engine&gt;</span>default<span class="nt">&lt;/process-engine&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;properties&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;isDeleteUponUndeploy&#34;</span><span class="nt">&gt;</span>false<span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;isScanForProcessDefinitions&#34;</span><span class="nt">&gt;</span>true<span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/properties&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/process-archive&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/process-application&gt;</span>
 </span></span></code></pre></div><h3 id="specify-the-tenant-identifier-via-spring-configuration">Specify the Tenant Identifier via Spring Configuration</h3>
 <p>When the <a href="/manual/1.0/user-guide/spring-framework-integration/deployment/">Automatic Resource Deployment</a> of the Spring Framework Integration is used, the tenant identifier can be specified in the Process Engine Configuration as <code>deploymentTenantId</code> property.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;processEngineConfiguration&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;org.camunda.bpm.engine.spring.SpringProcessEngineConfiguration&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;deploymentResources&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;array&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;value&gt;</span>classpath*:/org/camunda/bpm/engine/spring/test/autodeployment/autodeploy.*.cmmn<span style="color:#f92672">&lt;/value&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;value&gt;</span>classpath*:/org/camunda/bpm/engine/spring/test/autodeployment/autodeploy.*.bpmn20.xml<span style="color:#f92672">&lt;/value&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/array&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/property&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;deploymentTenantId&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;tenant1&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/bean&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;processEngineConfiguration&#34;</span> <span class="na">class=</span><span class="s">&#34;org.camunda.bpm.engine.spring.SpringProcessEngineConfiguration&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;deploymentResources&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;array&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;value&gt;</span>classpath*:/org/camunda/bpm/engine/spring/test/autodeployment/autodeploy.*.cmmn<span class="nt">&lt;/value&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;value&gt;</span>classpath*:/org/camunda/bpm/engine/spring/test/autodeployment/autodeploy.*.bpmn20.xml<span class="nt">&lt;/value&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/array&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;deploymentTenantId&#34;</span> <span class="na">value=</span><span class="s">&#34;tenant1&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/bean&gt;</span>
 </span></span></code></pre></div><h3 id="versioning-of-tenant-specific-definitions">Versioning of Tenant-Specific Definitions</h3>
 <p>When a definition is deployed for a tenant then it is assigned a version which is independent from definitions of other tenants. For example, if a new process definition is deployed for two tenants then both definitions are assigned the version <code>1</code>. The versioning within one tenant works like the <a href="/manual/1.0/user-guide/process-engine/process-versioning/">versioning of definitions</a> that belong to no tenant.</p>
 <h2 id="query-data-of-a-tenant">Query Data of a Tenant</h2>
@@ -3228,136 +3228,136 @@
 <p>Note that the <a href="#transparent-access-restrictions-for-tenants">transparent access restrictions</a> of tenants can influence the result of a query if a user is not allowed to see the data of a tenant.</p>
 <h3 id="query-deployments-of-a-tenant">Query Deployments of a Tenant</h3>
 <p>To find the deployments of specific tenants, the tenant identifiers have to be passed to <code>tenantIdIn</code> on the <code>DeploymentQuery</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>List<span style="color:#f92672">&lt;</span>Deployment<span style="color:#f92672">&gt;</span> deployments <span style="color:#f92672">=</span> repositoryService
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">createDeploymentQuery</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">tenantIdIn</span>(<span style="color:#e6db74">&#34;tenant1&#34;</span>, <span style="color:#e6db74">&#34;tenant2&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">orderByTenantId</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">asc</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">list</span>();
-</span></span></code></pre></div><p>In case of <a href="#shared-definitions-for-all-tenants">shared definitions</a>, it can be useful to filter by deployments which belong to no tenant by calling <code>withoutTenantId()</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>List<span style="color:#f92672">&lt;</span>Deployment<span style="color:#f92672">&gt;</span> deployments <span style="color:#f92672">=</span> repositoryService
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">createDeploymentQuery</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">withoutTenantId</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">list</span>();
-</span></span></code></pre></div><p>It is also possible to filter by deployments which belong to a specific tenant or no tenant by calling <code>includeDeploymentsWithoutTenantId()</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>List<span style="color:#f92672">&lt;</span>Deployment<span style="color:#f92672">&gt;</span> deployments <span style="color:#f92672">=</span> repositoryService
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">createDeploymentQuery</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">tenantIdIn</span>(<span style="color:#e6db74">&#34;tenant1&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">includeDeploymentsWithoutTenantId</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">list</span>();
-</span></span></code></pre></div><h3 id="query-definitions-of-a-tenant">Query Definitions of a Tenant</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">List</span><span class="o">&lt;</span><span class="n">Deployment</span><span class="o">&gt;</span><span class="w"> </span><span class="n">deployments</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">repositoryService</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">createDeploymentQuery</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">tenantIdIn</span><span class="p">(</span><span class="s">&#34;tenant1&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;tenant2&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">orderByTenantId</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">asc</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">list</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><p>In case of <a href="#shared-definitions-for-all-tenants">shared definitions</a>, it can be useful to filter by deployments which belong to no tenant by calling <code>withoutTenantId()</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">List</span><span class="o">&lt;</span><span class="n">Deployment</span><span class="o">&gt;</span><span class="w"> </span><span class="n">deployments</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">repositoryService</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">createDeploymentQuery</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">withoutTenantId</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">list</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><p>It is also possible to filter by deployments which belong to a specific tenant or no tenant by calling <code>includeDeploymentsWithoutTenantId()</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">List</span><span class="o">&lt;</span><span class="n">Deployment</span><span class="o">&gt;</span><span class="w"> </span><span class="n">deployments</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">repositoryService</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">createDeploymentQuery</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">tenantIdIn</span><span class="p">(</span><span class="s">&#34;tenant1&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">includeDeploymentsWithoutTenantId</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">list</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><h3 id="query-definitions-of-a-tenant">Query Definitions of a Tenant</h3>
 <p>Similar to the <code>DeploymentQuery</code>, the definition queries allow to filter by one or more tenants and by definitions which belong to no tenant.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>List<span style="color:#f92672">&lt;</span>ProcessDefinition<span style="color:#f92672">&gt;</span> processDefinitions <span style="color:#f92672">=</span> repositoryService
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">createProcessDefinitionQuery</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">tenantIdIn</span>(<span style="color:#e6db74">&#34;tenant1&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">includeProcessDefinitionsWithoutTenantId</span>();
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">list</span>();
-</span></span></code></pre></div><h2 id="run-commands-for-a-tenant">Run Commands for a Tenant</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">List</span><span class="o">&lt;</span><span class="n">ProcessDefinition</span><span class="o">&gt;</span><span class="w"> </span><span class="n">processDefinitions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">repositoryService</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">createProcessDefinitionQuery</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">tenantIdIn</span><span class="p">(</span><span class="s">&#34;tenant1&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">includeProcessDefinitionsWithoutTenantId</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">list</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><h2 id="run-commands-for-a-tenant">Run Commands for a Tenant</h2>
 <p>When a definition is deployed for multiple tenants, a command can be ambiguous (e.g., start a process instance by key). If such a command is executed, a <code>ProcessEngineException</code> is thrown. To run the command successfully, the tenant identifier has to be passed to the command.</p>
 <p>Note that the <a href="#transparent-access-restrictions-for-tenants">transparent access restrictions</a> of tenants can omit the tenant identifier if a user is only allowed to see one of the definitions.</p>
 <h3 id="create-a-process-instance">Create a Process Instance</h3>
 <p>To create an instance by key of a process definition which is deployed for multiple tenants, the tenant identifier has to be passed to the <a href="/javadoc/cibseven/1.0/org/camunda/bpm/engine/runtime/ProcessInstantiationBuilder.html">ProcessInstantiationBuilder</a>
 .</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>runtimeService
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">createProcessInstanceByKey</span>(<span style="color:#e6db74">&#34;key&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">processDefinitionTenantId</span>(<span style="color:#e6db74">&#34;tenant1&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">execute</span>();
-</span></span></code></pre></div><h3 id="correlate-a-message">Correlate a Message</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">runtimeService</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">createProcessInstanceByKey</span><span class="p">(</span><span class="s">&#34;key&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">processDefinitionTenantId</span><span class="p">(</span><span class="s">&#34;tenant1&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">execute</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><h3 id="correlate-a-message">Correlate a Message</h3>
 <p>The <a href="/manual/1.0/reference/bpmn20/events/message-events/#message-api">Message API</a> can be used to correlate a message to one or all tenants. In case a message can correlate to definitions or executions of multiple tenants, the tenant identifier has to be passed to the <a href="/javadoc/cibseven/1.0/org/camunda/bpm/engine/runtime/MessageCorrelationBuilder.html">MessageCorrelationBuilder</a>
 . Otherwise, a <code>MismatchingMessageCorrelationException</code> is thrown.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>runtimeService
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">createMessageCorrelation</span>(<span style="color:#e6db74">&#34;messageName&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">tenantId</span>(<span style="color:#e6db74">&#34;tenant1&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">correlate</span>();
-</span></span></code></pre></div><p>To correlate a message to all tenants, pass no tenant identifier to the builder and call <code>correlateAll()</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>runtimeService
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">createMessageCorrelation</span>(<span style="color:#e6db74">&#34;messageName&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">correlateAll</span>();
-</span></span></code></pre></div><h3 id="send-a-signal">Send a Signal</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">runtimeService</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">createMessageCorrelation</span><span class="p">(</span><span class="s">&#34;messageName&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">tenantId</span><span class="p">(</span><span class="s">&#34;tenant1&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">correlate</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><p>To correlate a message to all tenants, pass no tenant identifier to the builder and call <code>correlateAll()</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">runtimeService</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">createMessageCorrelation</span><span class="p">(</span><span class="s">&#34;messageName&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">correlateAll</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><h3 id="send-a-signal">Send a Signal</h3>
 <p>The <a href="/manual/1.0/reference/bpmn20/events/signal-events/#signal-api">Signal API</a> can be used to deliver a signal to one or all tenants. Pass the tenant identifier to the <a href="/javadoc/cibseven/1.0/org/camunda/bpm/engine/runtime/SignalEventReceivedBuilder.html">SignalEventReceivedBuilder</a>
  to deliver the signal to a specific tenant. If no identifier is passed then the signal is delivered to all tenants.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>runtimeService
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">createSignalEvent</span>(<span style="color:#e6db74">&#34;signalName&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">tenantId</span>(<span style="color:#e6db74">&#34;tenant1&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">send</span>();
-</span></span></code></pre></div><p>When a signal is thrown within a process (i.e., intermediate signal event or signal end event) then the signal is delivered to definitions and executions which belong to the same tenant as the calling execution or no tenant.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">runtimeService</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">createSignalEvent</span><span class="p">(</span><span class="s">&#34;signalName&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">tenantId</span><span class="p">(</span><span class="s">&#34;tenant1&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">send</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><p>When a signal is thrown within a process (i.e., intermediate signal event or signal end event) then the signal is delivered to definitions and executions which belong to the same tenant as the calling execution or no tenant.</p>
 <h3 id="create-a-case-instance">Create a Case Instance</h3>
 <p>To create an instance by key of a case definition which is deployed for multiple tenants, the tenant identifier has to be passed to the <a href="/javadoc/cibseven/1.0/org/camunda/bpm/engine/runtime/CaseInstanceBuilder.html">CaseInstanceBuilder</a>
 .</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>caseService
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">withCaseDefinitionByKey</span>(<span style="color:#e6db74">&#34;key&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">caseDefinitionTenantId</span>(<span style="color:#e6db74">&#34;tenant1&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">execute</span>();
-</span></span></code></pre></div><h3 id="evaluate-a-decision-table">Evaluate a Decision Table</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">caseService</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">withCaseDefinitionByKey</span><span class="p">(</span><span class="s">&#34;key&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">caseDefinitionTenantId</span><span class="p">(</span><span class="s">&#34;tenant1&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">execute</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><h3 id="evaluate-a-decision-table">Evaluate a Decision Table</h3>
 <p>To evaluate a decision table by key which is deployed for multiple tenants, the tenant identifier has to be passed to the <a href="/javadoc/cibseven/1.0/org/camunda/bpm/engine/dmn/DecisionEvaluationBuilder.html">DecisionEvaluationBuilder</a>
 .</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>decisionService
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">evaluateDecisionTableByKey</span>(<span style="color:#e6db74">&#34;key&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">decisionDefinitionTenantId</span>(<span style="color:#e6db74">&#34;tenant1&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">evaluate</span>();
-</span></span></code></pre></div><h2 id="transparent-access-restrictions-for-tenants">Transparent Access Restrictions for Tenants</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">decisionService</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">evaluateDecisionTableByKey</span><span class="p">(</span><span class="s">&#34;key&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">decisionDefinitionTenantId</span><span class="p">(</span><span class="s">&#34;tenant1&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">evaluate</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><h2 id="transparent-access-restrictions-for-tenants">Transparent Access Restrictions for Tenants</h2>
 <p>When integrating Camunda into an application, it can be cumbersome to pass the tenant Id to each camunda API call. Since such an application usually also has a concept of an &ldquo;authenticated user&rdquo;, it is possible to set the list of tenant ids when setting the authentication:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">try</span> {
-</span></span><span style="display:flex;"><span>  identityService.<span style="color:#a6e22e">setAuthentication</span>(<span style="color:#e6db74">&#34;mary&#34;</span>, asList(<span style="color:#e6db74">&#34;accounting&#34;</span>), asList(<span style="color:#e6db74">&#34;tenant1&#34;</span>));
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// All API calls executed here have &#34;tenant1&#34; transparently set as tenantId</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">finally</span> {
-</span></span><span style="display:flex;"><span>  identityService.<span style="color:#a6e22e">clearAuthentication</span>();
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>In the above example, all API calls executed between <code>setAuthentication(...)</code> and <code>clearAuthentication()</code> are transparently executed with the list
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">identityService</span><span class="p">.</span><span class="na">setAuthentication</span><span class="p">(</span><span class="s">&#34;mary&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">asList</span><span class="p">(</span><span class="s">&#34;accounting&#34;</span><span class="p">),</span><span class="w"> </span><span class="n">asList</span><span class="p">(</span><span class="s">&#34;tenant1&#34;</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c1">// All API calls executed here have &#34;tenant1&#34; transparently set as tenantId</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">finally</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">identityService</span><span class="p">.</span><span class="na">clearAuthentication</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>In the above example, all API calls executed between <code>setAuthentication(...)</code> and <code>clearAuthentication()</code> are transparently executed with the list
 of provided tenant Ids.</p>
 <h3 id="query-example">Query Example</h3>
 <p>The following query</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">try</span> {
-</span></span><span style="display:flex;"><span>  identityService.<span style="color:#a6e22e">setAuthentication</span>(<span style="color:#e6db74">&#34;mary&#34;</span>, asList(<span style="color:#e6db74">&#34;accounting&#34;</span>), asList(<span style="color:#e6db74">&#34;tenant1&#34;</span>));
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  repositoryService.<span style="color:#a6e22e">createProcessDefinitionQuery</span>().<span style="color:#a6e22e">list</span>();
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">finally</span> {
-</span></span><span style="display:flex;"><span>  identityService.<span style="color:#a6e22e">clearAuthentication</span>();
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>Is equivalent to</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>repositoryService.<span style="color:#a6e22e">createProcessDefinitionQuery</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">tenantIdIn</span>(<span style="color:#e6db74">&#34;tenant1&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">includeProcessDefinitionsWithoutTenantId</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">list</span>();
-</span></span></code></pre></div><h3 id="task-access-example">Task Access Example</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">identityService</span><span class="p">.</span><span class="na">setAuthentication</span><span class="p">(</span><span class="s">&#34;mary&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">asList</span><span class="p">(</span><span class="s">&#34;accounting&#34;</span><span class="p">),</span><span class="w"> </span><span class="n">asList</span><span class="p">(</span><span class="s">&#34;tenant1&#34;</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">repositoryService</span><span class="p">.</span><span class="na">createProcessDefinitionQuery</span><span class="p">().</span><span class="na">list</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">finally</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">identityService</span><span class="p">.</span><span class="na">clearAuthentication</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>Is equivalent to</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">repositoryService</span><span class="p">.</span><span class="na">createProcessDefinitionQuery</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">tenantIdIn</span><span class="p">(</span><span class="s">&#34;tenant1&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">includeProcessDefinitionsWithoutTenantId</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">list</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><h3 id="task-access-example">Task Access Example</h3>
 <p>For other commands like <code>complete()</code>, the transparent access check ensures that the authenticated user does not access
 resources by other tenants:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">try</span> {
-</span></span><span style="display:flex;"><span>  identityService.<span style="color:#a6e22e">setAuthentication</span>(<span style="color:#e6db74">&#34;mary&#34;</span>, asList(<span style="color:#e6db74">&#34;accounting&#34;</span>), asList(<span style="color:#e6db74">&#34;tenant1&#34;</span>));
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// throws an exception if task has tenant id other than &#34;tenant1&#34;</span>
-</span></span><span style="display:flex;"><span>  taskService.<span style="color:#a6e22e">complete</span>(<span style="color:#e6db74">&#34;someTaskId&#34;</span>);
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">finally</span> {
-</span></span><span style="display:flex;"><span>  identityService.<span style="color:#a6e22e">clearAuthentication</span>();
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h3 id="getting-a-users-tenant-ids-from-the-identity-service">Getting a user&rsquo;s Tenant Ids from the Identity Service</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">identityService</span><span class="p">.</span><span class="na">setAuthentication</span><span class="p">(</span><span class="s">&#34;mary&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">asList</span><span class="p">(</span><span class="s">&#34;accounting&#34;</span><span class="p">),</span><span class="w"> </span><span class="n">asList</span><span class="p">(</span><span class="s">&#34;tenant1&#34;</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c1">// throws an exception if task has tenant id other than &#34;tenant1&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">taskService</span><span class="p">.</span><span class="na">complete</span><span class="p">(</span><span class="s">&#34;someTaskId&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">finally</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">identityService</span><span class="p">.</span><span class="na">clearAuthentication</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h3 id="getting-a-users-tenant-ids-from-the-identity-service">Getting a user&rsquo;s Tenant Ids from the Identity Service</h3>
 <p>The process engine&rsquo;s Identity Service can be used to manage users, groups and tenants as well as their relationships.
 The following example shows how to retrieve the lists of groups and tenants for a given user and then use these lists when setting the authentication:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>List<span style="color:#f92672">&lt;</span>Tenant<span style="color:#f92672">&gt;</span> groups <span style="color:#f92672">=</span> identityService.<span style="color:#a6e22e">createGroupQuery</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">userMember</span>(userId)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">list</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>List<span style="color:#f92672">&lt;</span>Tenant<span style="color:#f92672">&gt;</span> tenants <span style="color:#f92672">=</span> identityService.<span style="color:#a6e22e">createTenantQuery</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">userMember</span>(userId)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">includingGroupsOfUser</span>(<span style="color:#66d9ef">true</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">list</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">try</span> {
-</span></span><span style="display:flex;"><span>  identityService.<span style="color:#a6e22e">setAuthentication</span>(userId, groups, tenants);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// get all tasks visible to user.</span>
-</span></span><span style="display:flex;"><span>  taskService.<span style="color:#a6e22e">createTaskQuery</span>().<span style="color:#a6e22e">list</span>();
-</span></span><span style="display:flex;"><span>  
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">finally</span> {
-</span></span><span style="display:flex;"><span>  identityService.<span style="color:#a6e22e">clearAuthentication</span>();
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">List</span><span class="o">&lt;</span><span class="n">Tenant</span><span class="o">&gt;</span><span class="w"> </span><span class="n">groups</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">identityService</span><span class="p">.</span><span class="na">createGroupQuery</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">userMember</span><span class="p">(</span><span class="n">userId</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">list</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">List</span><span class="o">&lt;</span><span class="n">Tenant</span><span class="o">&gt;</span><span class="w"> </span><span class="n">tenants</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">identityService</span><span class="p">.</span><span class="na">createTenantQuery</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">userMember</span><span class="p">(</span><span class="n">userId</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">includingGroupsOfUser</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">list</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">identityService</span><span class="p">.</span><span class="na">setAuthentication</span><span class="p">(</span><span class="n">userId</span><span class="p">,</span><span class="w"> </span><span class="n">groups</span><span class="p">,</span><span class="w"> </span><span class="n">tenants</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c1">// get all tasks visible to user.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">taskService</span><span class="p">.</span><span class="na">createTaskQuery</span><span class="p">().</span><span class="na">list</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">finally</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">identityService</span><span class="p">.</span><span class="na">clearAuthentication</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div>
 <div class="note bg-info docs-info">
   <h3>LDAP Identity Service</h3>
   <p>The above example only works with the <a href="/manual/1.0/user-guide/process-engine/identity-service/#the-database-identity-service">Database Identity Service</a> (i.e., the default implementation). The <a href="/manual/1.0/user-guide/process-engine/identity-service/#the-ldap-identity-service">LDAP Identity Service</a> doesn&rsquo;t support tenants.</p>
@@ -3369,12 +3369,12 @@ The following example shows how to retrieve the lists of groups and tenants for 
 <h3 id="disable-the-transparent-access-restrictions">Disable the Transparent Access Restrictions</h3>
 <p>The transparent access restrictions are enabled by default. To disable the restrictions, set the <code>tenantCheckEnabled</code> property in the <a href="/manual/1.0/user-guide/process-engine/process-engine-bootstrapping/#processengineconfiguration-bean">ProcessEngineConfiguration</a> to <code>false</code>.</p>
 <p>Additionally, it is also possible to disable the restrictions for a single command (e.g., for a maintenance task). Use the <code>CommandContext</code> to disable and enable the restrictions for the current command.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>commandContext.<span style="color:#a6e22e">disableTenantCheck</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// e.g., do maintenance tasks over all tenants</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>commandContext.<span style="color:#a6e22e">enableTenantCheck</span>();
-</span></span></code></pre></div><p>Note that the restrictions can&rsquo;t be enabled for a command if they are disabled in the <code>ProcessEngineConfiguration</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">commandContext</span><span class="p">.</span><span class="na">disableTenantCheck</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// e.g., do maintenance tasks over all tenants</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">commandContext</span><span class="p">.</span><span class="na">enableTenantCheck</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><p>Note that the restrictions can&rsquo;t be enabled for a command if they are disabled in the <code>ProcessEngineConfiguration</code>.</p>
 <h3 id="access-all-tenants-as-administrator">Access all Tenants as Administrator</h3>
 <p>The admin user or users who are a member of the admin group can access the data of all tenants, even if they don&rsquo;t belong to the tenants. This is useful for an administrator of a multi-tenancy application as they must manage the data of all tenants.</p>
 <p>Define admin users by making them a member of the group <code>camunda-admin</code> or with the help of the <a href="/manual/1.0/user-guide/process-engine/authorization-service/#the-administrator-authorization-plugin">Admin Authorization Plugin</a>. The Admin Authorization Plugin allows granting admin privileges to a custom user or group.</p>
@@ -3391,12 +3391,12 @@ By the term <em>usage pattern</em> we mean that it is not a feature of Camunda p
 
 <h3 id="deploy-a-shared-definition">Deploy a Shared Definition</h3>
 <p>Deploying a shared definition is just a &ldquo;regular&rdquo; deployment not assigning a Tenant Id to the deployment:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>repositoryService
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">createDeployment</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">addClasspathResource</span>(<span style="color:#e6db74">&#34;processes/default/mainProcess.bpmn&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">addClasspathResource</span>(<span style="color:#e6db74">&#34;processes/default/subProcess.bpmn&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">deploy</span>();
-</span></span></code></pre></div><h3 id="include-shared-definitions-in-a-query">Include Shared Definitions in a Query</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">repositoryService</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">createDeployment</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">addClasspathResource</span><span class="p">(</span><span class="s">&#34;processes/default/mainProcess.bpmn&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">addClasspathResource</span><span class="p">(</span><span class="s">&#34;processes/default/subProcess.bpmn&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">deploy</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><h3 id="include-shared-definitions-in-a-query">Include Shared Definitions in a Query</h3>
 <p>Often in an application, we want to present a list of &ldquo;available&rdquo; process definitions to the user.
 In a multi tenancy context with shared resources we want the list to include definitions with the following properties:</p>
 <ul>
@@ -3405,67 +3405,67 @@ In a multi tenancy context with shared resources we want the list to include def
 </ul>
 <p>To achieve this with a query, the query needs to restrict on the list of the user&rsquo;s tenant ids (by calling <code>tenantIdIn(...)</code>) and include definitions without a tenant id (<code>includeProcessDefinitionsWithoutTenantId()</code>). Or, looking at it the other way around: exclude all definitions which have a tenant id which is different from the current user&rsquo;s tenant id(s).</p>
 <p>Example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>repositoryService.<span style="color:#a6e22e">createProcessDefinitionQuery</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">tenantIdIn</span>(<span style="color:#e6db74">&#34;someTenantId&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">includeProcessDefinitionsWithoutTenantId</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">list</span>();
-</span></span></code></pre></div><h3 id="instantiate-a-shared-definition">Instantiate a Shared Definition</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">repositoryService</span><span class="p">.</span><span class="na">createProcessDefinitionQuery</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">tenantIdIn</span><span class="p">(</span><span class="s">&#34;someTenantId&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">includeProcessDefinitionsWithoutTenantId</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">list</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><h3 id="instantiate-a-shared-definition">Instantiate a Shared Definition</h3>
 <p>When creating (starting) a new process instance, the tenant id of the process definition is propagated to the process instance.
 Shared resources  do not have a tenant id which means that no tenant id is propagated automatically. To have the tenant id of the user who starts the process instances assigned  to the process instance, an implementation of the <a href="/javadoc/cibseven/1.0/org/camunda/bpm/engine/impl/cfg/multitenancy/TenantIdProvider.html">TenantIdProvider</a>
  SPI needs to be provided.</p>
 <p>The <code>TenantIdProvider</code> receives a callback when an instance of a process definition, case definition or decision definition is created. It can then assign a tenant id to the newly created instance (or not).</p>
 <p>The following example shows how to assign a tenant id to an instance based on the current authentication:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CustomTenantIdProvider</span> <span style="color:#66d9ef">implements</span> TenantIdProvider {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Override</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">provideTenantIdForProcessInstance</span>(TenantIdProviderProcessInstanceContext ctx) {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> getTenantIdOfCurrentAuthentication();
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Override</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">provideTenantIdForCaseInstance</span>(TenantIdProviderCaseInstanceContext ctx) {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> getTenantIdOfCurrentAuthentication();
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Override</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">provideTenantIdForHistoricDecisionInstance</span>(TenantIdProviderHistoricDecisionInstanceContext ctx) {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> getTenantIdOfCurrentAuthentication();
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">protected</span> String <span style="color:#a6e22e">getTenantIdOfCurrentAuthentication</span>() {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    IdentityService identityService <span style="color:#f92672">=</span> Context.<span style="color:#a6e22e">getProcessEngineConfiguration</span>().<span style="color:#a6e22e">getIdentityService</span>();
-</span></span><span style="display:flex;"><span>    Authentication currentAuthentication <span style="color:#f92672">=</span> identityService.<span style="color:#a6e22e">getCurrentAuthentication</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (currentAuthentication <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span>) {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> tenantIds <span style="color:#f92672">=</span> currentAuthentication.<span style="color:#a6e22e">getTenantIds</span>();
-</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (tenantIds.<span style="color:#a6e22e">size</span>() <span style="color:#f92672">==</span> 1) {
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> tenantIds.<span style="color:#a6e22e">get</span>(0);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (tenantIds.<span style="color:#a6e22e">isEmpty</span>()) {
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> IllegalStateException(<span style="color:#e6db74">&#34;no authenticated tenant&#34;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      } <span style="color:#66d9ef">else</span> {
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> IllegalStateException(<span style="color:#e6db74">&#34;more than one authenticated tenant&#34;</span>);
-</span></span><span style="display:flex;"><span>      }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">else</span> {
-</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> IllegalStateException(<span style="color:#e6db74">&#34;no authentication&#34;</span>);
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>To use the <code>TenantIdProvider</code>, it must be set in the Process Engine Configuration, for example using the <code>camunda.cfg.xml</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;beans&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;processEngineConfiguration&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;org.camunda.bpm.engine.impl.cfg.StandaloneProcessEngineConfiguration&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">&lt;!-- ... --&gt;</span>
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;tenantIdProvider&#34;</span> <span style="color:#a6e22e">ref=</span><span style="color:#e6db74">&#34;tenantIdProvider&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/bean&gt;</span>
-</span></span><span style="display:flex;"><span>  
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;tenantIdProvider&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;org.camunda.bpm.CustomTenantIdProvider&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/beans&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CustomTenantIdProvider</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">TenantIdProvider</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@Override</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">provideTenantIdForProcessInstance</span><span class="p">(</span><span class="n">TenantIdProviderProcessInstanceContext</span><span class="w"> </span><span class="n">ctx</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">getTenantIdOfCurrentAuthentication</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@Override</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">provideTenantIdForCaseInstance</span><span class="p">(</span><span class="n">TenantIdProviderCaseInstanceContext</span><span class="w"> </span><span class="n">ctx</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">getTenantIdOfCurrentAuthentication</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@Override</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">provideTenantIdForHistoricDecisionInstance</span><span class="p">(</span><span class="n">TenantIdProviderHistoricDecisionInstanceContext</span><span class="w"> </span><span class="n">ctx</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">getTenantIdOfCurrentAuthentication</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">protected</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getTenantIdOfCurrentAuthentication</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">IdentityService</span><span class="w"> </span><span class="n">identityService</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Context</span><span class="p">.</span><span class="na">getProcessEngineConfiguration</span><span class="p">().</span><span class="na">getIdentityService</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">Authentication</span><span class="w"> </span><span class="n">currentAuthentication</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">identityService</span><span class="p">.</span><span class="na">getCurrentAuthentication</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">currentAuthentication</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">tenantIds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">currentAuthentication</span><span class="p">.</span><span class="na">getTenantIds</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">tenantIds</span><span class="p">.</span><span class="na">size</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">tenantIds</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">0</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">tenantIds</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalStateException</span><span class="p">(</span><span class="s">&#34;no authenticated tenant&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalStateException</span><span class="p">(</span><span class="s">&#34;more than one authenticated tenant&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalStateException</span><span class="p">(</span><span class="s">&#34;no authentication&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>To use the <code>TenantIdProvider</code>, it must be set in the Process Engine Configuration, for example using the <code>camunda.cfg.xml</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;beans&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;processEngineConfiguration&#34;</span> <span class="na">class=</span><span class="s">&#34;org.camunda.bpm.engine.impl.cfg.StandaloneProcessEngineConfiguration&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="c">&lt;!-- ... --&gt;</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;tenantIdProvider&#34;</span> <span class="na">ref=</span><span class="s">&#34;tenantIdProvider&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/bean&gt;</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;tenantIdProvider&#34;</span> <span class="na">class=</span><span class="s">&#34;org.camunda.bpm.CustomTenantIdProvider&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/beans&gt;</span>
 </span></span></code></pre></div><p>In case of a shared process engine, the provider can be set via <a href="/manual/1.0/user-guide/process-engine/process-engine-plugins/">Process Engine Plugin</a>.</p>
 <h3 id="tenant-specific-behavior-with-call-activities">Tenant-specific behavior with Call Activities</h3>
 <p>So far, we have seen that shared resources are a useful pattern if tenants have the same process definition. The advantage is that we do not have to deploy the same process definitions once per tenant. Yet, in many real world applications, the situation is somewhat in between: tenants share <em>mostly</em> the same process definitions, but there are some tenant specific variations.</p>
@@ -3516,81 +3516,81 @@ When using this configuration setting, you need to be aware that</p>
 <li>the reference in the field, once set, is never cleared. This is usually not a problem but if it is, users must clear the field
 manually by setting it to null explicitly via</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>ProcessEngineConfigurationImpl.<span style="color:#a6e22e">cachedSqlSessionFactory</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>
-</span></span></code></pre></div></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">ProcessEngineConfigurationImpl</span><span class="p">.</span><span class="na">cachedSqlSessionFactory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span></span></span></code></pre></div></p>
 </div>
 
 <h3 id="job-executor-for-multiple-process-engines">Job Executor for Multiple Process Engines</h3>
 <p>For background execution of processes and tasks, the process engine has a component called <a href="/manual/1.0/user-guide/process-engine/the-job-executor/">job executor</a>. The job executor periodically acquires jobs from the database and submits them to a thread pool for execution. For all process applications on one server, one thread pool is used for job execution. Furthermore, it is possible to share the acquisition thread between multiple engines. This way, resources are still manageable even when a large amount of process engines are used. See the section <a href="/manual/1.0/user-guide/process-engine/the-job-executor/#the-job-executor-and-multiple-process-engines">The Job Executor and Multiple Process Engines</a> for details.</p>
 <h3 id="example-configuration-for-schema-isolation">Example Configuration for Schema Isolation</h3>
 <p>Multi-Tenancy settings can be applied in the various ways of configuring a process engine. The following is an example of a <a href="/manual/1.0/user-guide/process-engine/process-engine-bootstrapping/#configure-process-engine-in-bpm-platformxml">bpm-platform.xml</a> file that specifies engines for two tenants that share the same database but work on different schemas:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;bpm-platform</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://www.camunda.org/schema/1.0/BpmPlatform&#34;</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#a6e22e">xsi:schemaLocation=</span><span style="color:#e6db74">&#34;http://www.camunda.org/schema/1.0/BpmPlatform http://www.camunda.org/schema/1.0/BpmPlatform&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;job-executor&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;job-acquisition</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;default&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/job-executor&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;process-engine</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;tenant1&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;job-acquisition&gt;</span>default<span style="color:#f92672">&lt;/job-acquisition&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;configuration&gt;</span>org.camunda.bpm.engine.impl.cfg.StandaloneProcessEngineConfiguration<span style="color:#f92672">&lt;/configuration&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;datasource&gt;</span>java:jdbc/ProcessEngine<span style="color:#f92672">&lt;/datasource&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;properties&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;databaseTablePrefix&#34;</span><span style="color:#f92672">&gt;</span>TENANT_1.<span style="color:#f92672">&lt;/property&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;history&#34;</span><span style="color:#f92672">&gt;</span>full<span style="color:#f92672">&lt;/property&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;databaseSchemaUpdate&#34;</span><span style="color:#f92672">&gt;</span>true<span style="color:#f92672">&lt;/property&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;authorizationEnabled&#34;</span><span style="color:#f92672">&gt;</span>true<span style="color:#f92672">&lt;/property&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;useSharedSqlSessionFactory&#34;</span><span style="color:#f92672">&gt;</span>true<span style="color:#f92672">&lt;/property&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/properties&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/process-engine&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;process-engine</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;tenant2&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;job-acquisition&gt;</span>default<span style="color:#f92672">&lt;/job-acquisition&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;configuration&gt;</span>org.camunda.bpm.engine.impl.cfg.StandaloneProcessEngineConfiguration<span style="color:#f92672">&lt;/configuration&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;datasource&gt;</span>java:jdbc/ProcessEngine<span style="color:#f92672">&lt;/datasource&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;properties&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;databaseTablePrefix&#34;</span><span style="color:#f92672">&gt;</span>TENANT_2.<span style="color:#f92672">&lt;/property&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;history&#34;</span><span style="color:#f92672">&gt;</span>full<span style="color:#f92672">&lt;/property&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;databaseSchemaUpdate&#34;</span><span style="color:#f92672">&gt;</span>true<span style="color:#f92672">&lt;/property&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;authorizationEnabled&#34;</span><span style="color:#f92672">&gt;</span>true<span style="color:#f92672">&lt;/property&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;useSharedSqlSessionFactory&#34;</span><span style="color:#f92672">&gt;</span>true<span style="color:#f92672">&lt;/property&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/properties&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/process-engine&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/bpm-platform&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;bpm-platform</span> <span class="na">xmlns=</span><span class="s">&#34;http://www.camunda.org/schema/1.0/BpmPlatform&#34;</span>
+</span></span><span class="line"><span class="cl">              <span class="na">xmlns:xsi=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+</span></span><span class="line"><span class="cl">              <span class="na">xsi:schemaLocation=</span><span class="s">&#34;http://www.camunda.org/schema/1.0/BpmPlatform http://www.camunda.org/schema/1.0/BpmPlatform&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;job-executor&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;job-acquisition</span> <span class="na">name=</span><span class="s">&#34;default&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/job-executor&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;process-engine</span> <span class="na">name=</span><span class="s">&#34;tenant1&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;job-acquisition&gt;</span>default<span class="nt">&lt;/job-acquisition&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;configuration&gt;</span>org.camunda.bpm.engine.impl.cfg.StandaloneProcessEngineConfiguration<span class="nt">&lt;/configuration&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;datasource&gt;</span>java:jdbc/ProcessEngine<span class="nt">&lt;/datasource&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;properties&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;databaseTablePrefix&#34;</span><span class="nt">&gt;</span>TENANT_1.<span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;history&#34;</span><span class="nt">&gt;</span>full<span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;databaseSchemaUpdate&#34;</span><span class="nt">&gt;</span>true<span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;authorizationEnabled&#34;</span><span class="nt">&gt;</span>true<span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;useSharedSqlSessionFactory&#34;</span><span class="nt">&gt;</span>true<span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/properties&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/process-engine&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;process-engine</span> <span class="na">name=</span><span class="s">&#34;tenant2&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;job-acquisition&gt;</span>default<span class="nt">&lt;/job-acquisition&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;configuration&gt;</span>org.camunda.bpm.engine.impl.cfg.StandaloneProcessEngineConfiguration<span class="nt">&lt;/configuration&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;datasource&gt;</span>java:jdbc/ProcessEngine<span class="nt">&lt;/datasource&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;properties&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;databaseTablePrefix&#34;</span><span class="nt">&gt;</span>TENANT_2.<span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;history&#34;</span><span class="nt">&gt;</span>full<span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;databaseSchemaUpdate&#34;</span><span class="nt">&gt;</span>true<span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;authorizationEnabled&#34;</span><span class="nt">&gt;</span>true<span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;useSharedSqlSessionFactory&#34;</span><span class="nt">&gt;</span>true<span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/properties&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/process-engine&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/bpm-platform&gt;</span>
 </span></span></code></pre></div><h2 id="deploy-definitions-for-a-tenant-1">Deploy Definitions for a Tenant</h2>
 <p>When developing process applications, i.e., process definitions and supplementary code, some processes may be deployed to every tenant&rsquo;s engine while others are tenant-specific. The processes.xml deployment descriptor that is part of every process application offers this kind of flexibility by the concept of <em>process archives</em>. One application can contain any number of process archive deployments, each of which can be deployed to a different process engine with different resources. See the section on the <a href="/manual/1.0/user-guide/process-applications/the-processes-xml-deployment-descriptor/">processes.xml deployment descriptor</a> for details.</p>
 <p>The following is an example that deploys different process definitions for two tenants. It uses the configuration property <code>resourceRootPath</code> that specifies a path in the deployment that contains process definitions to deploy. Accordingly, all the processes under <code>processes/tenant1</code> on the application&rsquo;s classpath are deployed to engine <code>tenant1</code>, while all the processes under <code>processes/tenant2</code> are deployed to engine <code>tenant2</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;process-application</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://www.camunda.org/schema/1.0/ProcessApplication&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;process-archive</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;tenant1-archive&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;process-engine&gt;</span>tenant1<span style="color:#f92672">&lt;/process-engine&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;properties&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;resourceRootPath&#34;</span><span style="color:#f92672">&gt;</span>classpath:processes/tenant1/<span style="color:#f92672">&lt;/property&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;isDeleteUponUndeploy&#34;</span><span style="color:#f92672">&gt;</span>false<span style="color:#f92672">&lt;/property&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;isScanForProcessDefinitions&#34;</span><span style="color:#f92672">&gt;</span>true<span style="color:#f92672">&lt;/property&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/properties&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/process-archive&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;process-archive</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;tenant2-archive&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;process-engine&gt;</span>tenant2<span style="color:#f92672">&lt;/process-engine&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;properties&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;resourceRootPath&#34;</span><span style="color:#f92672">&gt;</span>classpath:processes/tenant2/<span style="color:#f92672">&lt;/property&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;isDeleteUponUndeploy&#34;</span><span style="color:#f92672">&gt;</span>false<span style="color:#f92672">&lt;/property&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;isScanForProcessDefinitions&#34;</span><span style="color:#f92672">&gt;</span>true<span style="color:#f92672">&lt;/property&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/properties&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/process-archive&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/process-application&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;process-application</span>
+</span></span><span class="line"><span class="cl">  <span class="na">xmlns=</span><span class="s">&#34;http://www.camunda.org/schema/1.0/ProcessApplication&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">xmlns:xsi=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;process-archive</span> <span class="na">name=</span><span class="s">&#34;tenant1-archive&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;process-engine&gt;</span>tenant1<span class="nt">&lt;/process-engine&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;properties&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;resourceRootPath&#34;</span><span class="nt">&gt;</span>classpath:processes/tenant1/<span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;isDeleteUponUndeploy&#34;</span><span class="nt">&gt;</span>false<span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;isScanForProcessDefinitions&#34;</span><span class="nt">&gt;</span>true<span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/properties&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/process-archive&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;process-archive</span> <span class="na">name=</span><span class="s">&#34;tenant2-archive&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;process-engine&gt;</span>tenant2<span class="nt">&lt;/process-engine&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;properties&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;resourceRootPath&#34;</span><span class="nt">&gt;</span>classpath:processes/tenant2/<span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;isDeleteUponUndeploy&#34;</span><span class="nt">&gt;</span>false<span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;isScanForProcessDefinitions&#34;</span><span class="nt">&gt;</span>true<span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/properties&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/process-archive&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/process-application&gt;</span>
 </span></span></code></pre></div><h2 id="access-the-process-engine-of-a-tenant">Access the Process Engine of a Tenant</h2>
 <p>To access a specific tenant&rsquo;s process engine at runtime, it has to be identified by its name. The Camunda engine offers access to named engines in various programming models:</p>
 <ul>

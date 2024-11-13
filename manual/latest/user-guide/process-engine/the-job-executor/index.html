@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/latest/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/latest/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/user-guide/process-engine/the-job-executor/" />
 </head>
 <body class="">
@@ -3176,10 +3176,10 @@
 
 <h1 id="job-executor-activation">Job Executor Activation</h1>
 <p>When using an <strong>embedded process engine</strong>, by default, the Job Executor is not activated when the process engine boots. Specify</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;jobExecutorActivate&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;true&#34;</span> <span style="color:#f92672">/&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;jobExecutorActivate&#34;</span> <span class="na">value=</span><span class="s">&#34;true&#34;</span> <span class="nt">/&gt;</span>
 </span></span></code></pre></div><p>in the process engine configuration when you want the JobExecutor to be activated upon booting the process engine.</p>
 <p>When using a <strong>shared process engine</strong>, the default is reversed: if you do not specify the <code>jobExecutorActivate</code> property on the process engine configuration, the job executor is automatically started. In order to turn it off, you have to explicitly set the property to false:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;jobExecutorActivate&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;false&#34;</span> <span style="color:#f92672">/&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;jobExecutorActivate&#34;</span> <span class="na">value=</span><span class="s">&#34;false&#34;</span> <span class="nt">/&gt;</span>
 </span></span></code></pre></div><h1 id="job-executor-in-a-unit-test">Job Executor in a Unit Test</h1>
 <p>For unit testing scenarios it is cumbersome to work with this background component. Therefore the Java API offers to query for (<code>ManagementService.createJobQuery</code>) and execute jobs (<code>ManagementService.executeJob</code>) <em>by hand</em>, which allows to control job execution from within a unit test.</p>
 <h1 id="job-creation">Job Creation</h1>
@@ -3231,30 +3231,30 @@ For details on how to specify job priorities and how the process engine assigns 
 The concrete value can be the result of a complex calculation and be based on user-provided data (resulting from a task form or other sources).</p>
 <h4 id="priorities-at-the-process-level">Priorities at the Process Level</h4>
 <p>When configuring job priorities at the process instance level, the <code>camunda:jobPriority</code> attribute needs to be applied to the bpmn <code>&lt;process ...&gt;</code> element:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;bpmn:process</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;Process_1&#34;</span> <span style="color:#a6e22e">isExecutable=</span><span style="color:#e6db74">&#34;true&#34;</span> <span style="color:#a6e22e">camunda:jobPriority=</span><span style="color:#e6db74">&#34;8&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  ...
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/bpmn:process&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;bpmn:process</span> <span class="na">id=</span><span class="s">&#34;Process_1&#34;</span> <span class="na">isExecutable=</span><span class="s">&#34;true&#34;</span> <span class="na">camunda:jobPriority=</span><span class="s">&#34;8&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  ...
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/bpmn:process&gt;</span>
 </span></span></code></pre></div><p>The effect is that all activities inside the process inherit the same priority (unless it is overridden locally).
 See also: <a href="#job-priority-precedence-schema">Job Priority Precedence Schema</a>.</p>
 <p>The above example shows how a constant value can be used for setting the priority. This way the same priority is applied to all instances of the process. If different process instances need to be executed with different priorities, an expression can be used:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;bpmn:process</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;Process_1&#34;</span> <span style="color:#a6e22e">isExecutable=</span><span style="color:#e6db74">&#34;true&#34;</span> <span style="color:#a6e22e">camunda:jobPriority=</span><span style="color:#e6db74">&#34;${order.priority}&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  ...
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/bpmn:process&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;bpmn:process</span> <span class="na">id=</span><span class="s">&#34;Process_1&#34;</span> <span class="na">isExecutable=</span><span class="s">&#34;true&#34;</span> <span class="na">camunda:jobPriority=</span><span class="s">&#34;${order.priority}&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  ...
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/bpmn:process&gt;</span>
 </span></span></code></pre></div><p>In the above example the priority is determined based on the property <code>priority</code> of the variable <code>order</code>.</p>
 <h4 id="priorities-at-the-activity-level">Priorities at the Activity Level</h4>
 <p>When configuring job priorities at the activity level, the <code>camunda:jobPriority</code> attribute needs to be applied
 to the corresponding bpmn element:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;bpmn:serviceTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;ServiceTask_1&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Prepare Payment&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">camunda:asyncBefore=</span><span style="color:#e6db74">&#34;true&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">camunda:jobPriority=</span><span style="color:#e6db74">&#34;100&#34;</span> <span style="color:#f92672">/&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;bpmn:serviceTask</span> <span class="na">id=</span><span class="s">&#34;ServiceTask_1&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">name=</span><span class="s">&#34;Prepare Payment&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">camunda:asyncBefore=</span><span class="s">&#34;true&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">camunda:jobPriority=</span><span class="s">&#34;100&#34;</span> <span class="nt">/&gt;</span>
 </span></span></code></pre></div><p>The effect is that the priority is applied to all instances of the given service task.
 The priority overrides a process level priority. See also: <a href="#job-priority-precedence-schema">Job Priority Precedence Schema</a>.</p>
 <p>When using a constant value, as shown in the above example, the same priority is applied to all instances of the service task. It is also possible to use an expression:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;bpmn:serviceTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;ServiceTask_1&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Schedule Delivery&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">camunda:asyncBefore=</span><span style="color:#e6db74">&#34;true&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">camunda:jobPriority=</span><span style="color:#e6db74">&#34;${customer.status == &#39;VIP&#39; ? 10 : 0}&#34;</span> <span style="color:#f92672">/&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;bpmn:serviceTask</span> <span class="na">id=</span><span class="s">&#34;ServiceTask_1&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">name=</span><span class="s">&#34;Schedule Delivery&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">camunda:asyncBefore=</span><span class="s">&#34;true&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">camunda:jobPriority=</span><span class="s">&#34;${customer.status == &#39;VIP&#39; ? 10 : 0}&#34;</span> <span class="nt">/&gt;</span>
 </span></span></code></pre></div><p>In the above example the priority is determined based on the property <code>status</code> of the current customer.</p>
 <h4 id="resolution-context-of-priority-expressions">Resolution Context of Priority Expressions</h4>
 <p>This section explains which context variables and functions are available when evaluating priority expressions.
@@ -3274,22 +3274,22 @@ See also <a href="/manual/latest/reference/bpmn20/subprocesses/call-activity/#pa
 <p>Sometimes job priorities need to be changed at runtime to deal with unforeseen circumstances. For example: consider the service task <em>Process Payment</em> of an order process: the service task invokes some external payment service which may be overloaded and thus respond slowly. The job executor is therefore blocked waiting for responses. Other concurrent jobs with the same or lower priorities cannot proceed, although this is desirable in this exceptional situation.</p>
 <h4 id="override-priority-by-job-definition">Override Priority by Job Definition</h4>
 <p>While expressions may help in these cases to a certain extent, it is cumbersome to change process data for all involved process instances and to make sure to restore it when the exceptional condition is over. Thus the ManagementService API allows to temporarily set an overriding priority for a job definition. The following operation can be performed to downgrade the priority for all future jobs of a given job definition:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// find the job definition</span>
-</span></span><span style="display:flex;"><span>JobDefinition jobDefinition <span style="color:#f92672">=</span> managementService
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">createJobDefinitionQuery</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">activityIdIn</span>(<span style="color:#e6db74">&#34;ServiceTask_1&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">singleResult</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// set an overriding priority</span>
-</span></span><span style="display:flex;"><span>managementService.<span style="color:#a6e22e">setOverridingJobPriorityForJobDefinition</span>(jobDefinition.<span style="color:#a6e22e">getId</span>(), 0L);
-</span></span></code></pre></div><p>Setting an overriding priority makes sure that every new job that is created based on this definition receives the given priority. This setting overrides any priority specified in the BPMN XML.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// find the job definition</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">JobDefinition</span><span class="w"> </span><span class="n">jobDefinition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">managementService</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">createJobDefinitionQuery</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">activityIdIn</span><span class="p">(</span><span class="s">&#34;ServiceTask_1&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">singleResult</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// set an overriding priority</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">managementService</span><span class="p">.</span><span class="na">setOverridingJobPriorityForJobDefinition</span><span class="p">(</span><span class="n">jobDefinition</span><span class="p">.</span><span class="na">getId</span><span class="p">(),</span><span class="w"> </span><span class="n">0L</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><p>Setting an overriding priority makes sure that every new job that is created based on this definition receives the given priority. This setting overrides any priority specified in the BPMN XML.</p>
 <p>Optionally, the overriding priority can be applied to all the existing jobs of that definition by using the <code>cascade</code> parameter:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>managementService.<span style="color:#a6e22e">setOverridingJobPriorityForJobDefinition</span>(jobDefinition.<span style="color:#a6e22e">getId</span>(), 0L, <span style="color:#66d9ef">true</span>);
-</span></span></code></pre></div><p>Note that this will not lead to preemption of jobs that are currently executed.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">managementService</span><span class="p">.</span><span class="na">setOverridingJobPriorityForJobDefinition</span><span class="p">(</span><span class="n">jobDefinition</span><span class="p">.</span><span class="na">getId</span><span class="p">(),</span><span class="w"> </span><span class="n">0L</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><p>Note that this will not lead to preemption of jobs that are currently executed.</p>
 <h4 id="reset-priority-by-job-definition">Reset Priority by Job Definition</h4>
 <p>When the service has recovered from the overload situation, overriding priority can be cleared again as follows:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>managementService.<span style="color:#a6e22e">clearOverridingJobPriorityForJobDefinition</span>(jobDefinition.<span style="color:#a6e22e">getId</span>());
-</span></span></code></pre></div><p>From now on, all new jobs receive the priorities specified in the BPMN XML again.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">managementService</span><span class="p">.</span><span class="na">clearOverridingJobPriorityForJobDefinition</span><span class="p">(</span><span class="n">jobDefinition</span><span class="p">.</span><span class="na">getId</span><span class="p">());</span><span class="w">
+</span></span></span></code></pre></div><p>From now on, all new jobs receive the priorities specified in the BPMN XML again.</p>
 <h3 id="job-priority-precedence-schema">Job Priority Precedence Schema</h3>
 <p>The following diagram sums up the precedence of priority sources when a job&rsquo;s priority is determined:</p>
 <figure class="image">
@@ -3447,20 +3447,20 @@ is exhausted (the value of the RETRIES_ column equals 0), the job is not execute
 
 <p>If incident creation is enabled for jobs, then once job retries are depleted, an incident is created (see <a href="/manual/latest/user-guide/process-engine/incidents/#de-activate-incidents">(De-)Activate Incidents</a>).
 Incidents and historic incidents related to the job can be requested via Java API like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>List<span style="color:#f92672">&lt;</span>Incident<span style="color:#f92672">&gt;</span> incidents <span style="color:#f92672">=</span> engineRule.<span style="color:#a6e22e">getRuntimeService</span>()
-</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">createIncidentQuery</span>().<span style="color:#a6e22e">configuration</span>(jobId).<span style="color:#a6e22e">list</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>List<span style="color:#f92672">&lt;</span>HistoricIncident<span style="color:#f92672">&gt;</span> historicIncidents <span style="color:#f92672">=</span> engineRule.<span style="color:#a6e22e">getHistoryService</span>()
-</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">createHistoricIncidentQuery</span>().<span style="color:#a6e22e">configuration</span>(jobId).<span style="color:#a6e22e">list</span>();
-</span></span></code></pre></div><h3 id="retry-time-cycle-configuration">Retry Time Cycle Configuration</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">List</span><span class="o">&lt;</span><span class="n">Incident</span><span class="o">&gt;</span><span class="w"> </span><span class="n">incidents</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">engineRule</span><span class="p">.</span><span class="na">getRuntimeService</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="na">createIncidentQuery</span><span class="p">().</span><span class="na">configuration</span><span class="p">(</span><span class="n">jobId</span><span class="p">).</span><span class="na">list</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">List</span><span class="o">&lt;</span><span class="n">HistoricIncident</span><span class="o">&gt;</span><span class="w"> </span><span class="n">historicIncidents</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">engineRule</span><span class="p">.</span><span class="na">getHistoryService</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="na">createHistoricIncidentQuery</span><span class="p">().</span><span class="na">configuration</span><span class="p">(</span><span class="n">jobId</span><span class="p">).</span><span class="na">list</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><h3 id="retry-time-cycle-configuration">Retry Time Cycle Configuration</h3>
 <p>By default, a failed job will be retried three times and the retries are performed immediately after the failure. In daily business it might be useful to configure a retry strategy, i.e., by setting how often a job is retried and how long the engine should wait until it tries to execute a job again. This configuration can be specified globally in the process engine configuration.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;process-engine</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;default&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  ...
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;properties&gt;</span>
-</span></span><span style="display:flex;"><span>    ...
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;failedJobRetryTimeCycle&#34;</span><span style="color:#f92672">&gt;</span>R5/PT5M<span style="color:#f92672">&lt;/property&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/properties&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/process-engine&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;process-engine</span> <span class="na">name=</span><span class="s">&#34;default&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  ...
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;properties&gt;</span>
+</span></span><span class="line"><span class="cl">    ...
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;failedJobRetryTimeCycle&#34;</span><span class="nt">&gt;</span>R5/PT5M<span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/properties&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/process-engine&gt;</span>
 </span></span></code></pre></div><p>The configuration follows the <a href="http://en.wikipedia.org/wiki/ISO_8601#Repeating_intervals">ISO_8601 standard for repeating time intervals</a>. In the example, <code>R5/PT5M</code> means that the maximum number of retries is 5 (<code>R5</code>) and the delay of retry is 5 minutes (<code>PT5M</code>).</p>
 <p>The Camunda engine allows you to configure this setting for the following specific elements:</p>
 <ul>
@@ -3470,17 +3470,17 @@ Incidents and historic incidents related to the job can be requested via Java AP
 </ul>
 <h4 id="use-a-custom-job-retry-configuration-for-activities">Use a Custom Job Retry Configuration for Activities</h4>
 <p>As soon as the retry configuration is enabled, it can be applied to tasks, call activities, embedded subprocesses and transactions subprocesses. For instance, the job retry in a task can be configured in the Camunda engine in the BPMN 2.0 XML as follows:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;definitions</span> <span style="color:#a6e22e">xmlns:camunda=</span><span style="color:#e6db74">&#34;http://camunda.org/schema/1.0/bpmn&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  ...
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;serviceTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;failingServiceTask&#34;</span> <span style="color:#a6e22e">camunda:asyncBefore=</span><span style="color:#e6db74">&#34;true&#34;</span> <span style="color:#a6e22e">camunda:class=</span><span style="color:#e6db74">&#34;org.mycompany.FailingDelegate&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;camunda:failedJobRetryTimeCycle&gt;</span>R5/PT5M<span style="color:#f92672">&lt;/camunda:failedJobRetryTimeCycle&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/serviceTask&gt;</span>
-</span></span><span style="display:flex;"><span>  ...
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/definitions&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;definitions</span> <span class="na">xmlns:camunda=</span><span class="s">&#34;http://camunda.org/schema/1.0/bpmn&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  ...
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;serviceTask</span> <span class="na">id=</span><span class="s">&#34;failingServiceTask&#34;</span> <span class="na">camunda:asyncBefore=</span><span class="s">&#34;true&#34;</span> <span class="na">camunda:class=</span><span class="s">&#34;org.mycompany.FailingDelegate&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;camunda:failedJobRetryTimeCycle&gt;</span>R5/PT5M<span class="nt">&lt;/camunda:failedJobRetryTimeCycle&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/serviceTask&gt;</span>
+</span></span><span class="line"><span class="cl">  ...
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/definitions&gt;</span>
 </span></span></code></pre></div><p>You can also set an expression as in the retry configuration. For example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>  <span style="color:#f92672">&lt;camunda:failedJobRetryTimeCycle&gt;</span>${retryCycle}<span style="color:#f92672">&lt;/camunda:failedJobRetryTimeCycle&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">  <span class="nt">&lt;camunda:failedJobRetryTimeCycle&gt;</span>${retryCycle}<span class="nt">&lt;/camunda:failedJobRetryTimeCycle&gt;</span>
 </span></span></code></pre></div><p>The LOCK_EXP_TIME_ is used to define when the job can be executed again, meaning the failed job will automatically be retried once the LOCK_EXP_TIME_ date is expired.</p>
 <h4 id="use-a-custom-job-retry-configuration-for-events">Use a Custom Job Retry Configuration for Events</h4>
 <p>The job retries can also be configured for the following events:</p>
@@ -3491,50 +3491,50 @@ Incidents and historic incidents related to the job can be requested via Java AP
 <li>Intermediate Throw Event</li>
 </ul>
 <p>Similar to tasks, the retries can be configured as an extension element of the event. The following example defines three retries after 5 seconds each for a boundary timer event:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;definitions</span> <span style="color:#a6e22e">xmlns:camunda=</span><span style="color:#e6db74">&#34;http://camunda.org/schema/1.0/bpmn&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  ...
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;boundaryEvent</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;BoundaryEvent&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;BoundaryName&#34;</span> <span style="color:#a6e22e">attachedToRef=</span><span style="color:#e6db74">&#34;MyActivity&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;camunda:failedJobRetryTimeCycle&gt;</span>R3/PT5S<span style="color:#f92672">&lt;/camunda:failedJobRetryTimeCycle&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;outgoing&gt;</span>SequenceFlow_3<span style="color:#f92672">&lt;/outgoing&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;timerEventDefinition&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;timeDuration&gt;</span>PT10S<span style="color:#f92672">&lt;/timeDuration&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/timerEventDefinition&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/boundaryEvent&gt;</span>
-</span></span><span style="display:flex;"><span>  ...
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/definitions&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;definitions</span> <span class="na">xmlns:camunda=</span><span class="s">&#34;http://camunda.org/schema/1.0/bpmn&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  ...
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;boundaryEvent</span> <span class="na">id=</span><span class="s">&#34;BoundaryEvent&#34;</span> <span class="na">name=</span><span class="s">&#34;BoundaryName&#34;</span> <span class="na">attachedToRef=</span><span class="s">&#34;MyActivity&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;camunda:failedJobRetryTimeCycle&gt;</span>R3/PT5S<span class="nt">&lt;/camunda:failedJobRetryTimeCycle&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;outgoing&gt;</span>SequenceFlow_3<span class="nt">&lt;/outgoing&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;timerEventDefinition&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;timeDuration&gt;</span>PT10S<span class="nt">&lt;/timeDuration&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/timerEventDefinition&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/boundaryEvent&gt;</span>
+</span></span><span class="line"><span class="cl">  ...
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/definitions&gt;</span>
 </span></span></code></pre></div><p>Reminder: a retry may be required if there are any failures during the transaction which follows the timer.</p>
 <h4 id="use-a-custom-job-retry-configuration-for-multi-instance-activities">Use a Custom Job Retry Configuration for Multi-Instance Activities</h4>
 <p>If the retry configuration is set for a multi-instance activity then the configuration is applied to the <a href="/manual/latest/user-guide/process-engine/transactions-in-processes/#asynchronous-continuations-of-multi-instance-activities">multi-instance body</a>. Additionally, the retries of the inner activities can also be configured using the extension element as child of the <code>multiInstanceLoopCharacteristics</code> element.</p>
 <p>The following example defines the retries of a multi-instance service task with asynchronous continuation of the multi-instance body and the inner activity. If a failure occur during one of the five parallel instances then the job of the failed instance will be retried up to 3 times with a delay of 5 seconds. In case all instances ended successful and a failure occur during the transaction which follows the task, the job will be retried up to 5 times with a delay of 5 minutes.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;definitions</span> <span style="color:#a6e22e">xmlns:camunda=</span><span style="color:#e6db74">&#34;http://camunda.org/schema/1.0/bpmn&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  ...
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;serviceTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;failingServiceTask&#34;</span> <span style="color:#a6e22e">camunda:asyncAfter=</span><span style="color:#e6db74">&#34;true&#34;</span> <span style="color:#a6e22e">camunda:class=</span><span style="color:#e6db74">&#34;org.mycompany.FailingDelegate&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#75715e">&lt;!-- configuration for multi-instance body, e.g. after task ended --&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;camunda:failedJobRetryTimeCycle&gt;</span>R5/PT5M<span style="color:#f92672">&lt;/camunda:failedJobRetryTimeCycle&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;multiInstanceLoopCharacteristics</span> <span style="color:#a6e22e">isSequential=</span><span style="color:#e6db74">&#34;false&#34;</span> <span style="color:#a6e22e">camunda:asyncBefore=</span><span style="color:#e6db74">&#34;true&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">&lt;!-- configuration for inner activities, e.g. before each instance started --&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;camunda:failedJobRetryTimeCycle&gt;</span>R3/PT5S<span style="color:#f92672">&lt;/camunda:failedJobRetryTimeCycle&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;loopCardinality&gt;</span>5<span style="color:#f92672">&lt;/loopCardinality&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/multiInstanceLoopCharacteristics&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/serviceTask&gt;</span>
-</span></span><span style="display:flex;"><span>  ...
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/definitions&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;definitions</span> <span class="na">xmlns:camunda=</span><span class="s">&#34;http://camunda.org/schema/1.0/bpmn&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  ...
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;serviceTask</span> <span class="na">id=</span><span class="s">&#34;failingServiceTask&#34;</span> <span class="na">camunda:asyncAfter=</span><span class="s">&#34;true&#34;</span> <span class="na">camunda:class=</span><span class="s">&#34;org.mycompany.FailingDelegate&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="c">&lt;!-- configuration for multi-instance body, e.g. after task ended --&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;camunda:failedJobRetryTimeCycle&gt;</span>R5/PT5M<span class="nt">&lt;/camunda:failedJobRetryTimeCycle&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;multiInstanceLoopCharacteristics</span> <span class="na">isSequential=</span><span class="s">&#34;false&#34;</span> <span class="na">camunda:asyncBefore=</span><span class="s">&#34;true&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="c">&lt;!-- configuration for inner activities, e.g. before each instance started --&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;camunda:failedJobRetryTimeCycle&gt;</span>R3/PT5S<span class="nt">&lt;/camunda:failedJobRetryTimeCycle&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;loopCardinality&gt;</span>5<span class="nt">&lt;/loopCardinality&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/multiInstanceLoopCharacteristics&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/serviceTask&gt;</span>
+</span></span><span class="line"><span class="cl">  ...
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/definitions&gt;</span>
 </span></span></code></pre></div><h3 id="retry-intervals">Retry Intervals</h3>
 <p>The retry time cycle (e.g. R5/PT5M) allows to define the number of retries and an interval when the failed job should be retried. Regardless of the values, the interval is always (at least) 5 minutes. You can configure the list of retry intervals (separated by comma) on a global level or for a specific job configuration. The local configuration takes precedence.
 Here is an example of a global process engine configuration:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;process-engine</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;default&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  ...
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;properties&gt;</span>
-</span></span><span style="display:flex;"><span>    ...
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;failedJobRetryTimeCycle&#34;</span><span style="color:#f92672">&gt;</span>PT10M,PT17M,PT20M<span style="color:#f92672">&lt;/property&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/properties&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/process-engine&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;process-engine</span> <span class="na">name=</span><span class="s">&#34;default&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  ...
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;properties&gt;</span>
+</span></span><span class="line"><span class="cl">    ...
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;failedJobRetryTimeCycle&#34;</span><span class="nt">&gt;</span>PT10M,PT17M,PT20M<span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/properties&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/process-engine&gt;</span>
 </span></span></code></pre></div><p>The retry times would be three and the behaviour for this example would be the following:</p>
 <ul>
 <li>A job fails for the first time: the job will be retried in 10 minutes (PT10M is applied).</li>
@@ -3545,16 +3545,16 @@ Here is an example of a global process engine configuration:</p>
 <p>If the user decides to increase the retry number during retries, the last interval of the list would be applied within the difference between the new value and the size of the list. After that, it would continue with the normal flow as above. The API to increase the number of retries also supports passing a new due date for the job which will determine when the job will be picked up again. This is useful in cases where you want to control when a failed job should be tried again. For example, an incident has been resolved and the job should run as soon as possible instead of waiting for the next retry cycle. In this case, setting the job due date to the current date or a date in the past would make the job executor pick up the job immediately.</p>
 <h3 id="custom-retry-configuration">Custom Retry Configuration</h3>
 <p>You can configure an custom retry configuration by adding the <code>customPostBPMNParseListeners</code> property and specify your custom <code>FailedJobParseListener</code> to the process engine configuration:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;processEngineConfiguration&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;org.camunda.bpm.engine.impl.cfg.StandaloneInMemProcessEngineConfiguration&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- Your defined properties! --&gt;</span>
-</span></span><span style="display:flex;"><span>  ...
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;customPostBPMNParseListeners&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;list&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;com.company.impl.bpmn.parser.CustomFailedJobParseListener&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/list&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/property&gt;</span>
-</span></span><span style="display:flex;"><span>  ...
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/bean&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;processEngineConfiguration&#34;</span> <span class="na">class=</span><span class="s">&#34;org.camunda.bpm.engine.impl.cfg.StandaloneInMemProcessEngineConfiguration&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="c">&lt;!-- Your defined properties! --&gt;</span>
+</span></span><span class="line"><span class="cl">  ...
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;customPostBPMNParseListeners&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;list&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;bean</span> <span class="na">class=</span><span class="s">&#34;com.company.impl.bpmn.parser.CustomFailedJobParseListener&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/list&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">  ...
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/bean&gt;</span>
 </span></span></code></pre></div><h1 id="concurrent-job-execution">Concurrent Job Execution</h1>
 <p>The Job Executor makes sure that <strong>jobs from a single process instance are never executed concurrently</strong>. Why is this? Consider the following process definition:</p>
 <figure class="image">
@@ -3572,7 +3572,7 @@ Here is an example of a global process engine configuration:</p>
 <h2 id="exclusive-jobs">Exclusive Jobs</h2>
 <p>An exclusive job cannot be performed at the same time as another exclusive job from the same process instance. Consider the process shown in the section above: if the jobs corresponding to the service tasks are treated as exclusive, the job executor will try to avoid that they are executed in parallel. Instead, it will ensure that whenever it acquires an exclusive job from a certain process instance, it also acquires all other exclusive jobs from the same process instance and delegates them to the same worker thread. This enforces sequential execution of these jobs and in most cases avoids optimistic locking exceptions. However, this behavior is a heuristic, meaning that the job executor can only enforce sequential execution of the jobs that are available during <strong>lookup time</strong>. If a potentially conflicting job is created after that, is currently running or is already scheduled for execution, the job may be processed by another job execution thread in parallel.</p>
 <p><strong>Exclusive Jobs are the default configuration</strong>. All asynchronous continuations and timer events are thus exclusive by default. In addition, if you want a job to be non-exclusive, you can configure it as such using <code>camunda:exclusive=&quot;false&quot;</code>. For example, the following service task would be asynchronous but non-exclusive.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;serviceTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;service&#34;</span> <span style="color:#a6e22e">camunda:expression=</span><span style="color:#e6db74">&#34;${myService.performBooking(hotel, dates)}&#34;</span> <span style="color:#a6e22e">camunda:asyncBefore=</span><span style="color:#e6db74">&#34;true&#34;</span> <span style="color:#a6e22e">camunda:exclusive=</span><span style="color:#e6db74">&#34;false&#34;</span> <span style="color:#f92672">/&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;serviceTask</span> <span class="na">id=</span><span class="s">&#34;service&#34;</span> <span class="na">camunda:expression=</span><span class="s">&#34;${myService.performBooking(hotel, dates)}&#34;</span> <span class="na">camunda:asyncBefore=</span><span class="s">&#34;true&#34;</span> <span class="na">camunda:exclusive=</span><span class="s">&#34;false&#34;</span> <span class="nt">/&gt;</span>
 </span></span></code></pre></div><p>Is this a good solution? We had some people asking whether it was. Their concern was that it would prevent you from <em>doing things in parallel</em> and would thus be a performance problem. Again, two things have to be taken into consideration:</p>
 <ul>
 <li>It can be turned off if you are an expert and know what you are doing (and have understood this section). Other than that, it is more intuitive for most users if things like asynchronous continuations and timers just work. Note: one strategy to deal with OptimisticLockingExceptions at a parallel gateway is to configure the gateway to use asynchronous continuations. This way the job executor can be used to retry the gateway until the exception resolves.</li>
@@ -3591,14 +3591,14 @@ Here is an example of a global process engine configuration:</p>
 </figure>
 
 <p>If there is a use case where the subprocess-jobs <strong>should not be performed in parallel across each single process instance</strong>, the following configuration can be used:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">&lt;</span>process<span style="color:#f92672">-</span>engine name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;default&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  ...
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;</span>properties<span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span>property name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;jobExecutorAcquireExclusiveOverProcessHierarchies&#34;</span><span style="color:#f92672">&gt;</span><span style="color:#66d9ef">true</span><span style="color:#f92672">&lt;/</span>property<span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>        ...
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/</span>properties<span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/</span>process<span style="color:#f92672">-</span>engine<span style="color:#f92672">&gt;</span>
-</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">process</span><span class="o">-</span><span class="n">engine</span><span class="w"> </span><span class="n">name</span><span class="o">=</span><span class="s">&#34;default&#34;</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="o">&lt;</span><span class="n">properties</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">&lt;</span><span class="n">property</span><span class="w"> </span><span class="n">name</span><span class="o">=</span><span class="s">&#34;jobExecutorAcquireExclusiveOverProcessHierarchies&#34;</span><span class="o">&gt;</span><span class="kc">true</span><span class="o">&lt;/</span><span class="n">property</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="o">&lt;/</span><span class="n">properties</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">&lt;/</span><span class="n">process</span><span class="o">-</span><span class="n">engine</span><span class="o">&gt;</span><span class="w">
+</span></span></span></code></pre></div>
 <div class="note bg-warning docs-warning">
   <h3></h3>
   <p><p>The property <code>jobExecutorAcquireExclusiveOverProcessHierarchies</code> is by default set to <code>false</code>. See the <a href="/manual/latest/reference/deployment-descriptors/tags/process-engine/#jobExecutorAcquireExclusiveOverProcessHierarchies">property</a> under the <code>Configuration Properties</code> section.</p>
@@ -3631,10 +3631,10 @@ Here is an example of a global process engine configuration:</p>
 See the platform-specific information in the <a href="/manual/latest/user-guide/runtime-container-integration/">Runtime Container Integration</a> section on how the thread pooling is implemented on the different platforms.</p>
 <p>Different job acquisitions can also be configured differently, e.g. to meet business requirements like SLAs. For example, the acquisition&rsquo;s timeout when no more executable jobs are present can be configured differently per acquisition.</p>
 <p>To which job acquisition a process engine is assigned can be specified in the declaration of the engine, so either in the <code>processes.xml</code> deployment descriptor of a process application or in the CIB seven descriptor. The following is an example configuration that declares a new engine and assigns it to the job acquisition named <code>default</code>, which is created when the platform is bootstrapped.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;process-engine</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;newEngine&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;job-acquisition&gt;</span>default<span style="color:#f92672">&lt;/job-acquisition&gt;</span>
-</span></span><span style="display:flex;"><span>  ...
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/process-engine&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;process-engine</span> <span class="na">name=</span><span class="s">&#34;newEngine&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;job-acquisition&gt;</span>default<span class="nt">&lt;/job-acquisition&gt;</span>
+</span></span><span class="line"><span class="cl">  ...
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/process-engine&gt;</span>
 </span></span></code></pre></div><p>Job acquisitions have to be declared in CIB seven&rsquo;s deployment descriptor, see <a href="/manual/latest/user-guide/runtime-container-integration/">the container-specific configuration options</a>.</p>
 <h1 id="cluster-setups">Cluster Setups</h1>
 <p>When running CIB seven in a cluster, there is a distinction between <em>homogeneous</em> and <em>heterogeneous</em> setups. We define a cluster as a set of network nodes that all run CIB seven against the same database (at least for one engine on each node). In the <em>homogeneous</em> case, the same process applications (and thus custom classes like JavaDelegates) are deployed to all of the nodes, as depicted below.</p>
@@ -3658,13 +3658,13 @@ See the platform-specific information in the <a href="/manual/latest/user-guide/
 <h2 id="job-execution-in-heterogeneous-clusters">Job Execution in Heterogeneous Clusters</h2>
 <p>A heterogeneous cluster setup as described above poses additional challenges to the job executor. Both platforms declare the same engine, i.e. they run against the same database. This means that jobs will be inserted into the same table. However, in the default configuration the job acquisition thread of node 1 will lock any executable jobs of that table and submit them to the local job execution pool. This means that jobs created in the context of process application B (so on node 2) may be executed on node 1 and vice versa. As the job execution may involve classes that are part of B&rsquo;s deployment, you are likely going to see a <code>ClassNotFoundExeception</code> or any of the likes.</p>
 <p>To prevent the job acquisition on node 1 from picking jobs that <em>belong</em> to node 2, the process engine can be configured as <em>deployment aware</em>, by the setting following property in the process engine configuration:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;process-engine</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;default&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  ...
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;properties&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;jobExecutorDeploymentAware&#34;</span><span style="color:#f92672">&gt;</span>true<span style="color:#f92672">&lt;/property&gt;</span>
-</span></span><span style="display:flex;"><span>    ...
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/properties&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/process-engine&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;process-engine</span> <span class="na">name=</span><span class="s">&#34;default&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  ...
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;properties&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;jobExecutorDeploymentAware&#34;</span><span class="nt">&gt;</span>true<span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">    ...
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/properties&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/process-engine&gt;</span>
 </span></span></code></pre></div><p>Now, the job acquisition thread on node 1 will only pick up jobs that belong to deployments made on that node, which solves the problem. Digging a little deeper, the acquisition will only pick up those jobs that belong to deployments that were <em>registered</em> with the engines it serves. Every deployment gets automatically registered. Additionally, one can explicitly register and unregister single deployments with an engine by using the <code>ManagementService</code> methods <code>registerDeploymentForJobExecutor(deploymentId)</code> and <code>unregisterDeploymentForJobExecutor(deploymentId)</code>. It also offers a method <code>getRegisteredDeployments()</code> to inspect the currently registered deployments.</p>
 <p>As this is configurable on engine level, you can also work in a <em>mixed</em> setup, when some deployments are shared between all nodes and some are not. You can assign the globally shared process applications to an engine that is not deployment aware and the others to a deployment aware engine, probably both running against the same database. This way, jobs created in the context of the shared process applications will get executed on any cluster node, while the others only get executed on their respective nodes.</p>
 

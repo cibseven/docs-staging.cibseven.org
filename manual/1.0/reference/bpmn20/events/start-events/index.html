@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/1.0/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/1.0/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/reference/bpmn20/events/start-events/" />
 </head>
 <body class="">
@@ -3171,7 +3171,7 @@
 <p>The engine requires at least one start event to instantiate a process. There can be a maximum of one blank or timer start event per process definition. There can be multiple message or signal start events.</p>
 <h1 id="asynchronous-instantiation">Asynchronous Instantiation</h1>
 <p>A start event may be declared as asynchronous with <code>camunda:asyncBefore=&quot;true&quot;</code></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;startEvent</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;startEvent&#34;</span> <span style="color:#a6e22e">camunda:asyncBefore=</span><span style="color:#e6db74">&#34;true&#34;</span> <span style="color:#f92672">/&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;startEvent</span> <span class="na">id=</span><span class="s">&#34;startEvent&#34;</span> <span class="na">camunda:asyncBefore=</span><span class="s">&#34;true&#34;</span> <span class="nt">/&gt;</span>
 </span></span></code></pre></div><p>This will ensure that the process engine creates a process instance when the process is instantiated, but the execution of the initial activities is not done synchronously. Instead, a job is created and asynchronously processed by the <a href="/manual/1.0/user-guide/process-engine/the-job-executor/">job executor</a>. See the <a href="/manual/1.0/user-guide/process-engine/transactions-in-processes/#asynchronous-continuations">Asynchronous Continuations</a> section of the <a href="/manual/1.0/user-guide/">User Guide</a> for some background information.</p>
 <h1 id="camunda-extensions">Camunda Extensions</h1>
 <table class="table table-striped">

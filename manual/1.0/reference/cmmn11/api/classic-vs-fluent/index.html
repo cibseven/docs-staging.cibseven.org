@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/1.0/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/1.0/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/reference/cmmn11/api/classic-vs-fluent/" />
 </head>
 <body class="">
@@ -3164,34 +3164,34 @@
 <p>The <code>CaseService</code> offers two API variants. One is in the following referred to as the <em>classic</em> API, since it is very similar to the API offered by the <code>RuntimeService</code> for BPMN processes. The <em>fluent</em> API follows a different concept in that it allows composition of case service commands by method chaining.</p>
 <h1 id="classic-and-fluent-api-by-example">Classic and Fluent API by Example</h1>
 <p>As an example, the <code>CaseService</code> offers two classic methods to manually start a task:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>caseService.<span style="color:#a6e22e">manuallyStartCaseExecution</span>(caseExecutionId);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Map<span style="color:#f92672">&lt;</span>String, Object<span style="color:#f92672">&gt;</span> variables <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HashMap<span style="color:#f92672">&lt;</span>String, Object<span style="color:#f92672">&gt;</span>();
-</span></span><span style="display:flex;"><span>variables.<span style="color:#a6e22e">put</span>(<span style="color:#e6db74">&#34;aVariableToSet&#34;</span>, <span style="color:#e6db74">&#34;aValueToSet&#34;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>caseService.<span style="color:#a6e22e">manuallyStartCaseExecution</span>(caseExecutionId, variables);
-</span></span></code></pre></div><p>The same can be expressed using the fluent API as follows:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>caseService
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">withCaseExecution</span>(caseExecutionId)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">manualStart</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Map<span style="color:#f92672">&lt;</span>String, Object<span style="color:#f92672">&gt;</span> variables <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HashMap<span style="color:#f92672">&lt;</span>String, Object<span style="color:#f92672">&gt;</span>();
-</span></span><span style="display:flex;"><span>variables.<span style="color:#a6e22e">put</span>(<span style="color:#e6db74">&#34;aVariableToSet&#34;</span>, <span style="color:#e6db74">&#34;aValueToSet&#34;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>caseService
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">withCaseExecution</span>(caseExecutionId)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">setVariables</span>(variables)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">manualStart</span>();
-</span></span></code></pre></div><p>In this way, the fluent API is another, fluently readable way of expressing the same functionality. On top, the fluent API, due to its flexibility, allows expression of very specific interactions that the classic API does not offer. For example, the following snippet manually starts a case execution, sets variables and removes another variable in one command (and therefore transaction):</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Map<span style="color:#f92672">&lt;</span>String, Object<span style="color:#f92672">&gt;</span> variables <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HashMap<span style="color:#f92672">&lt;</span>String, Object<span style="color:#f92672">&gt;</span>();
-</span></span><span style="display:flex;"><span>variables.<span style="color:#a6e22e">put</span>(<span style="color:#e6db74">&#34;aVariableToSet&#34;</span>, <span style="color:#e6db74">&#34;aValueToSet&#34;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>caseService
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">withCaseExecution</span>(caseExecutionId)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">setVariables</span>(variables)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">removeVariable</span>(<span style="color:#e6db74">&#34;aVariableToRemove&#34;</span>)
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">manualStart</span>();
-</span></span></code></pre></div><h1 id="entry-points-to-the-fluent-api">Entry Points to the Fluent API</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">caseService</span><span class="p">.</span><span class="na">manuallyStartCaseExecution</span><span class="p">(</span><span class="n">caseExecutionId</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="n">variables</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="o">&gt;</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">variables</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&#34;aVariableToSet&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;aValueToSet&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">caseService</span><span class="p">.</span><span class="na">manuallyStartCaseExecution</span><span class="p">(</span><span class="n">caseExecutionId</span><span class="p">,</span><span class="w"> </span><span class="n">variables</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><p>The same can be expressed using the fluent API as follows:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">caseService</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">withCaseExecution</span><span class="p">(</span><span class="n">caseExecutionId</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">manualStart</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="n">variables</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="o">&gt;</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">variables</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&#34;aVariableToSet&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;aValueToSet&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">caseService</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">withCaseExecution</span><span class="p">(</span><span class="n">caseExecutionId</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">setVariables</span><span class="p">(</span><span class="n">variables</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">manualStart</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><p>In this way, the fluent API is another, fluently readable way of expressing the same functionality. On top, the fluent API, due to its flexibility, allows expression of very specific interactions that the classic API does not offer. For example, the following snippet manually starts a case execution, sets variables and removes another variable in one command (and therefore transaction):</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="n">variables</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="o">&gt;</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">variables</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&#34;aVariableToSet&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;aValueToSet&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">caseService</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">withCaseExecution</span><span class="p">(</span><span class="n">caseExecutionId</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">setVariables</span><span class="p">(</span><span class="n">variables</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">removeVariable</span><span class="p">(</span><span class="s">&#34;aVariableToRemove&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">manualStart</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><h1 id="entry-points-to-the-fluent-api">Entry Points to the Fluent API</h1>
 <p>The fluent API can be used to work with case definitions and case executions. The entry points are as follows:</p>
 <ul>
 <li><code>caseService.withCaseDefinition(caseDefinitionId)</code>: Offers interactions on the case definition that has the provided id, such as creating a new case instance.</li>

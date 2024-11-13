@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/latest/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/latest/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/user-guide/cdi-java-ee-integration/the-cdi-event-bridge/" />
 </head>
 <body class="">
@@ -3162,11 +3162,11 @@
       <p>The process engine can be hooked-up to the CDI event bus. We call this the &ldquo;CDI Event Bridge&rdquo;. This allows us to be
 notified of process events using standard CDI event mechanisms. In order to enable CDI event support for an embedded
 process engine, enable the corresponding parse listener in the configuration:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;postParseListeners&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;list&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;org.camunda.bpm.engine.cdi.impl.event.CdiEventSupportBpmnParseListener&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/list&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/property&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;postParseListeners&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;list&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;bean</span> <span class="na">class=</span><span class="s">&#34;org.camunda.bpm.engine.cdi.impl.event.CdiEventSupportBpmnParseListener&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/list&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/property&gt;</span>
 </span></span></code></pre></div><p>Now the engine is configured for publishing events using the CDI event bus.</p>
 
 <div class="note bg-info docs-info">
@@ -3179,73 +3179,73 @@ as process application event listener. <a href="#the-cdi-event-bridge-in-a-proce
 <p>The following gives an overview of how process events can be received in CDI beans. In CDI, we can declaratively specify event
 observers using the <code>@Observes</code>-annotation. Event notification is type-safe. The type of process events is <code>org.camunda.bpm.engine.cdi.BusinessProcessEvent</code>.
 The following is an example of a simple event observer method:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onProcessEvent</span>(<span style="color:#a6e22e">@Observes</span> BusinessProcessEvent businessProcessEvent) {
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// handle event</span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>This observer would be notified of all events. If we want to restrict the set of events the observer receives, we can add qualifier annotations:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onProcessEvent</span><span class="p">(</span><span class="nd">@Observes</span><span class="w"> </span><span class="n">BusinessProcessEvent</span><span class="w"> </span><span class="n">businessProcessEvent</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// handle event</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>This observer would be notified of all events. If we want to restrict the set of events the observer receives, we can add qualifier annotations:</p>
 <ul>
 <li>
 <p><code>@BusinessProcessDefinition</code>: restricts the set of events to a certain process definition. Example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onProcessEvent</span>(<span style="color:#a6e22e">@Observes</span> <span style="color:#a6e22e">@BusinessProcessDefinition</span>(<span style="color:#e6db74">&#34;billingProcess&#34;</span>) BusinessProcessEvent businessProcessEvent) {
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// handle event</span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div></li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onProcessEvent</span><span class="p">(</span><span class="nd">@Observes</span><span class="w"> </span><span class="nd">@BusinessProcessDefinition</span><span class="p">(</span><span class="s">&#34;billingProcess&#34;</span><span class="p">)</span><span class="w"> </span><span class="n">BusinessProcessEvent</span><span class="w"> </span><span class="n">businessProcessEvent</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// handle event</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div></li>
 <li>
 <p><code>@StartActivity</code>: restricts the set of events by a certain activity. For example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onActivityEvent</span>(<span style="color:#a6e22e">@Observes</span> <span style="color:#a6e22e">@StartActivity</span>(<span style="color:#e6db74">&#34;shipGoods&#34;</span>) BusinessProcessEvent businessProcessEvent) {
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// handle event</span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>is invoked whenever an activity with the id &ldquo;shipGoods&rdquo; is entered.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onActivityEvent</span><span class="p">(</span><span class="nd">@Observes</span><span class="w"> </span><span class="nd">@StartActivity</span><span class="p">(</span><span class="s">&#34;shipGoods&#34;</span><span class="p">)</span><span class="w"> </span><span class="n">BusinessProcessEvent</span><span class="w"> </span><span class="n">businessProcessEvent</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// handle event</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>is invoked whenever an activity with the id &ldquo;shipGoods&rdquo; is entered.</p>
 </li>
 <li>
 <p><code>@EndActivity</code>: restricts the set of events by a certain activity. The following method is invoked whenever an activity with the id &ldquo;shipGoods&rdquo; is left:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onActivityEvent</span>(<span style="color:#a6e22e">@Observes</span> <span style="color:#a6e22e">@EndActivity</span>(<span style="color:#e6db74">&#34;shipGoods&#34;</span>) BusinessProcessEvent businessProcessEvent) {
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// handle event</span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div></li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onActivityEvent</span><span class="p">(</span><span class="nd">@Observes</span><span class="w"> </span><span class="nd">@EndActivity</span><span class="p">(</span><span class="s">&#34;shipGoods&#34;</span><span class="p">)</span><span class="w"> </span><span class="n">BusinessProcessEvent</span><span class="w"> </span><span class="n">businessProcessEvent</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// handle event</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div></li>
 <li>
 <p><code>@TakeTransition</code>: restricts the set of events by a certain transition.</p>
 </li>
 <li>
 <p><code>@CreateTask</code>: restricts the set of events by a certain task. The following is invoked whenever a task with the definition key (id in BPMN XML) &ldquo;approveRegistration&rdquo; is created:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onTaskEvent</span>(<span style="color:#a6e22e">@Observes</span> <span style="color:#a6e22e">@CreateTask</span>(<span style="color:#e6db74">&#34;approveRegistration&#34;</span>) BusinessProcessEvent businessProcessEvent) {
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// handle event</span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div></li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onTaskEvent</span><span class="p">(</span><span class="nd">@Observes</span><span class="w"> </span><span class="nd">@CreateTask</span><span class="p">(</span><span class="s">&#34;approveRegistration&#34;</span><span class="p">)</span><span class="w"> </span><span class="n">BusinessProcessEvent</span><span class="w"> </span><span class="n">businessProcessEvent</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// handle event</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div></li>
 <li>
 <p><code>@AssignTask</code>: restricts the set of events by a certain task. The following is invoked whenever a task with the definition key (id in BPMN XML) &ldquo;approveRegistration&rdquo; is assigned:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onTaskEvent</span>(<span style="color:#a6e22e">@Observes</span> <span style="color:#a6e22e">@AssignTask</span>(<span style="color:#e6db74">&#34;approveRegistration&#34;</span>) BusinessProcessEvent businessProcessEvent) {
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// handle event</span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div></li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onTaskEvent</span><span class="p">(</span><span class="nd">@Observes</span><span class="w"> </span><span class="nd">@AssignTask</span><span class="p">(</span><span class="s">&#34;approveRegistration&#34;</span><span class="p">)</span><span class="w"> </span><span class="n">BusinessProcessEvent</span><span class="w"> </span><span class="n">businessProcessEvent</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// handle event</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div></li>
 <li>
 <p><code>@CompleteTask</code>: restricts the set of events by a certain task. The following is invoked whenever a task with the definition key (id in BPMN XML) &ldquo;approveRegistration&rdquo; is completed:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onTaskEvent</span>(<span style="color:#a6e22e">@Observes</span> <span style="color:#a6e22e">@CompleteTask</span>(<span style="color:#e6db74">&#34;approveRegistration&#34;</span>) BusinessProcessEvent businessProcessEvent) {
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// handle event</span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div></li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onTaskEvent</span><span class="p">(</span><span class="nd">@Observes</span><span class="w"> </span><span class="nd">@CompleteTask</span><span class="p">(</span><span class="s">&#34;approveRegistration&#34;</span><span class="p">)</span><span class="w"> </span><span class="n">BusinessProcessEvent</span><span class="w"> </span><span class="n">businessProcessEvent</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// handle event</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div></li>
 <li>
 <p><code>@DeleteTask</code>: restricts the set of events by a certain task. The following is invoked whenever a task with the definition key (id in BPMN XML) &ldquo;approveRegistration&rdquo; is deleted:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onTaskEvent</span>(<span style="color:#a6e22e">@Observes</span> <span style="color:#a6e22e">@DeleteTask</span>(<span style="color:#e6db74">&#34;approveRegistration&#34;</span>) BusinessProcessEvent businessProcessEvent) {
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// handle event</span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div></li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onTaskEvent</span><span class="p">(</span><span class="nd">@Observes</span><span class="w"> </span><span class="nd">@DeleteTask</span><span class="p">(</span><span class="s">&#34;approveRegistration&#34;</span><span class="p">)</span><span class="w"> </span><span class="n">BusinessProcessEvent</span><span class="w"> </span><span class="n">businessProcessEvent</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// handle event</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div></li>
 </ul>
 <p>The qualifiers named above can be combined freely. For example, to receive all events generated when leaving the &ldquo;shipGoods&rdquo;
 activity in the &ldquo;shipmentProcess&rdquo;, we could write the following observer method:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">beforeShippingGoods</span>(<span style="color:#a6e22e">@Observes</span> <span style="color:#a6e22e">@BusinessProcessDefinition</span>(<span style="color:#e6db74">&#34;shippingProcess&#34;</span>) <span style="color:#a6e22e">@EndActivity</span>(<span style="color:#e6db74">&#34;shipGoods&#34;</span>) BusinessProcessEvent evt) {
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// handle event</span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>In the default configuration, event listeners are invoked synchronously and in the context of the same transaction.
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">beforeShippingGoods</span><span class="p">(</span><span class="nd">@Observes</span><span class="w"> </span><span class="nd">@BusinessProcessDefinition</span><span class="p">(</span><span class="s">&#34;shippingProcess&#34;</span><span class="p">)</span><span class="w"> </span><span class="nd">@EndActivity</span><span class="p">(</span><span class="s">&#34;shipGoods&#34;</span><span class="p">)</span><span class="w"> </span><span class="n">BusinessProcessEvent</span><span class="w"> </span><span class="n">evt</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c1">// handle event</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>In the default configuration, event listeners are invoked synchronously and in the context of the same transaction.
 CDI transactional observers (only available in combination with JakartaEE / JavaEE / EJB), allow to control when the
 event is handed to the observer method. Using transactional observers, we can for example assure that an observer is
 only notified if the transaction in which the event is fired succeeds:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onShipmentSuceeded</span>(
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Observes</span>(during<span style="color:#f92672">=</span>TransactionPhase.<span style="color:#a6e22e">AFTER_SUCCESS</span>) <span style="color:#a6e22e">@BusinessProcessDefinition</span>(<span style="color:#e6db74">&#34;shippingProcess&#34;</span>) <span style="color:#a6e22e">@EndActivity</span>(<span style="color:#e6db74">&#34;shipGoods&#34;</span>) BusinessProcessEvent evt) {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// send email to customer</span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>Note: <code>BusinessProcessEvent.getTask</code> will return an instance of <code>DelegateTask</code> (in case the event is a task event).
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onShipmentSuceeded</span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@Observes</span><span class="p">(</span><span class="n">during</span><span class="o">=</span><span class="n">TransactionPhase</span><span class="p">.</span><span class="na">AFTER_SUCCESS</span><span class="p">)</span><span class="w"> </span><span class="nd">@BusinessProcessDefinition</span><span class="p">(</span><span class="s">&#34;shippingProcess&#34;</span><span class="p">)</span><span class="w"> </span><span class="nd">@EndActivity</span><span class="p">(</span><span class="s">&#34;shipGoods&#34;</span><span class="p">)</span><span class="w"> </span><span class="n">BusinessProcessEvent</span><span class="w"> </span><span class="n">evt</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c1">// send email to customer</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>Note: <code>BusinessProcessEvent.getTask</code> will return an instance of <code>DelegateTask</code> (in case the event is a task event).
 If the listener is invoked after the transaction has completed, the <code>DelegateTask</code> object cannot be used for modifying variables.</p>
 <h1 id="the-cdi-event-bridge-in-a-process-application">The CDI Event Bridge in a process application</h1>
 <p>To use the CDI Event Bridge in combination with a multi application deployment and the shared process engine, the
@@ -3253,49 +3253,49 @@ If the listener is invoked after the transaction has completed, the <code>Delega
  needs to be added as a
 <a href="/manual/latest/user-guide/process-applications/process-application-event-listeners/">Process Application Execution Event Listener</a>.</p>
 <p>Example configuration for <a href="/manual/latest/user-guide/process-applications/the-process-application-class/#the-servletprocessapplication">Servlet Process Application</a>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@ProcessApplication</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">InvoiceProcessApplication</span> <span style="color:#66d9ef">extends</span> ServletProcessApplication {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">protected</span> CdiEventListener cdiEventListener <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> CdiEventListener();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> ExecutionListener <span style="color:#a6e22e">getExecutionListener</span>() {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> cdiEventListener;
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> TaskListener <span style="color:#a6e22e">getTaskListener</span>() {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> cdiEventListener;
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>Example configuration for <a href="/manual/latest/user-guide/process-applications/the-process-application-class/#the-ejbprocessapplication">EJB Process Application</a>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Singleton</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Startup</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@ConcurrencyManagement</span>(ConcurrencyManagementType.<span style="color:#a6e22e">BEAN</span>)
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@TransactionAttribute</span>(TransactionAttributeType.<span style="color:#a6e22e">REQUIRED</span>)
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@ProcessApplication</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Local</span>(ProcessApplicationInterface.<span style="color:#a6e22e">class</span>)
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyEjbProcessApplication</span> <span style="color:#66d9ef">extends</span> EjbProcessApplication {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">protected</span> CdiEventListener cdiEventListener <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> CdiEventListener();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@PostConstruct</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">start</span>() {
-</span></span><span style="display:flex;"><span>    deploy();
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@PreDestroy</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">stop</span>() {
-</span></span><span style="display:flex;"><span>    undeploy();
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> ExecutionListener <span style="color:#a6e22e">getExecutionListener</span>() {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> cdiEventListener;
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> TaskListener <span style="color:#a6e22e">getTaskListener</span>() {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> cdiEventListener;
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@ProcessApplication</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">InvoiceProcessApplication</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">ServletProcessApplication</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">protected</span><span class="w"> </span><span class="n">CdiEventListener</span><span class="w"> </span><span class="n">cdiEventListener</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">CdiEventListener</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">ExecutionListener</span><span class="w"> </span><span class="nf">getExecutionListener</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">cdiEventListener</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">TaskListener</span><span class="w"> </span><span class="nf">getTaskListener</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">cdiEventListener</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>Example configuration for <a href="/manual/latest/user-guide/process-applications/the-process-application-class/#the-ejbprocessapplication">EJB Process Application</a>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Singleton</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@Startup</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@ConcurrencyManagement</span><span class="p">(</span><span class="n">ConcurrencyManagementType</span><span class="p">.</span><span class="na">BEAN</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@TransactionAttribute</span><span class="p">(</span><span class="n">TransactionAttributeType</span><span class="p">.</span><span class="na">REQUIRED</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@ProcessApplication</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@Local</span><span class="p">(</span><span class="n">ProcessApplicationInterface</span><span class="p">.</span><span class="na">class</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyEjbProcessApplication</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">EjbProcessApplication</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">protected</span><span class="w"> </span><span class="n">CdiEventListener</span><span class="w"> </span><span class="n">cdiEventListener</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">CdiEventListener</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@PostConstruct</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">start</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">deploy</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@PreDestroy</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">stop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">undeploy</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">ExecutionListener</span><span class="w"> </span><span class="nf">getExecutionListener</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">cdiEventListener</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">TaskListener</span><span class="w"> </span><span class="nf">getTaskListener</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">cdiEventListener</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div>
     </div>
   </div>
 </div>

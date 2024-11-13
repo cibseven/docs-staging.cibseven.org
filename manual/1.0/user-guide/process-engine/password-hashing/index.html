@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/1.0/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/1.0/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/user-guide/process-engine/password-hashing/" />
 </head>
 <body class="">
@@ -3165,25 +3165,25 @@
 <h1 id="customize-the-hashing-algorithm">Customize the Hashing Algorithm</h1>
 <p>If it is necessary to use a more secure hash algorithm, you can provide your own implementation.</p>
 <p>You can do this by implementing the <code>PasswordEncryptor</code> interface from the <code>org.camunda.bpm.engine.impl.digest</code> package. The interface ensures that all necessary functions for password hashing are implemented. You can have a look at the classes <code>Base64EncodedHashDigest</code> and <code>ShaHashDigest</code> from the <code>org.camunda.bpm.engine.impl.digest</code> package to see how this is done in Camunda. A template for your own implementation could look as follows:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyPasswordEncryptor</span> <span style="color:#66d9ef">implements</span> PasswordEncryptor {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Override</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">encrypt</span>(String password) {
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// do something</span>
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Override</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">check</span>(String password, String encrypted) {
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// do something</span>
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>  
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Override</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">hashAlgorithmName</span>() {
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// This name is used to resolve the algorithm used for the encryption of a password.</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;NAME_OF_THE_ALGORITHM&#34;</span>;
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>Once this is done, you can use the process engine configuration to plug in the custom implementation by the setting the <code>passwordEncryptor</code> property to your custom implementation, e.g., <code>MyPasswordEncryptor</code>. See <a href="../process-engine-bootstrapping">Process Engine Bootstrapping</a> on where you have to set the property for your Camunda environment.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyPasswordEncryptor</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">PasswordEncryptor</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@Override</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">encrypt</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">password</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// do something</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@Override</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">check</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">password</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">encrypted</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// do something</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@Override</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">hashAlgorithmName</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="c1">// This name is used to resolve the algorithm used for the encryption of a password.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="s">&#34;NAME_OF_THE_ALGORITHM&#34;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>Once this is done, you can use the process engine configuration to plug in the custom implementation by the setting the <code>passwordEncryptor</code> property to your custom implementation, e.g., <code>MyPasswordEncryptor</code>. See <a href="../process-engine-bootstrapping">Process Engine Bootstrapping</a> on where you have to set the property for your Camunda environment.</p>
 <p>Note that, even if you have already users created with passwords hashed by other algorithms, e.g., old custom algorithms or the Camunda default hash algorithm <code>SHA-512</code>, they can still automatically be resolved by the engine although you have added your custom algorithm afterwards. The property <code>customPasswordChecker</code> is a list of hashing algorithms to be used to check (older) passwords. The Camunda default hashing algorithms are automatically added, so please only add your previous custom <code>passwordEncryptor</code> implementation to that list.</p>
 
 <div class="note bg-info docs-info">
@@ -3193,14 +3193,14 @@
 
 <h1 id="customize-the-salt-generation">Customize the Salt generation</h1>
 <p>Similar to the hashing algorithm, the salt generation can be adjusted. First, implement the <code>SaltGenerator</code> interface from the <code>org.camunda.bpm.engine.impl.digest</code>. This ensures that all necessary functions are implemented. You can have a look at the classes <code>Base64EncodedSaltGenerator</code> and <code>Default16ByteSaltGenerator</code> from the <code>org.camunda.bpm.engine.impl.digest</code> package to see how this is done in Camunda. A template for your own implementation could look as follows:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyCustomSaltGenerator</span> <span style="color:#66d9ef">implements</span> SaltGenerator {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Override</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">generateSalt</span>() {
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// do something</span>
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>Once this is done, you can use the process engine configuration to plug in the custom implementation by the setting the <code>saltGenerator</code> property to your custom implementation, e.g., <code>MyCustomSaltGenerator</code>. See <a href="../process-engine-bootstrapping">Process Engine Bootstrapping</a> on where you have to set the property for your Camunda environment.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyCustomSaltGenerator</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">SaltGenerator</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@Override</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">generateSalt</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// do something</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>Once this is done, you can use the process engine configuration to plug in the custom implementation by the setting the <code>saltGenerator</code> property to your custom implementation, e.g., <code>MyCustomSaltGenerator</code>. See <a href="../process-engine-bootstrapping">Process Engine Bootstrapping</a> on where you have to set the property for your Camunda environment.</p>
 
     </div>
   </div>

@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/latest/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/latest/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/reference/bpmn20/tasks/task-markers/" />
 </head>
 <body class="">
@@ -3190,39 +3190,39 @@
 <li><strong>loopCounter</strong>: indicates the index in the <code>for each</code> loop of that particular instance</li>
 </ul>
 <p>To make an activity multi-instance, the activity xml element must have a <code>multiInstanceLoopCharacteristics</code> child element.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;multiInstanceLoopCharacteristics</span> <span style="color:#a6e22e">isSequential=</span><span style="color:#e6db74">&#34;false|true&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span> ...
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/multiInstanceLoopCharacteristics&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;multiInstanceLoopCharacteristics</span> <span class="na">isSequential=</span><span class="s">&#34;false|true&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl"> ...
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/multiInstanceLoopCharacteristics&gt;</span>
 </span></span></code></pre></div><p>The isSequential attribute indicates if the instances of that activity are executed sequentially or in parallel.</p>
 <p>The number of instances are calculated once, when entering the activity. There are a few ways of configuring this. One way is directly specifying a number by using the <code>loopCardinality</code> child element.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;multiInstanceLoopCharacteristics</span> <span style="color:#a6e22e">isSequential=</span><span style="color:#e6db74">&#34;false|true&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;loopCardinality&gt;</span>5<span style="color:#f92672">&lt;/loopCardinality&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/multiInstanceLoopCharacteristics&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;multiInstanceLoopCharacteristics</span> <span class="na">isSequential=</span><span class="s">&#34;false|true&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;loopCardinality&gt;</span>5<span class="nt">&lt;/loopCardinality&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/multiInstanceLoopCharacteristics&gt;</span>
 </span></span></code></pre></div><p>Expressions that resolve to a positive number are also possible:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;multiInstanceLoopCharacteristics</span> <span style="color:#a6e22e">isSequential=</span><span style="color:#e6db74">&#34;false|true&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;loopCardinality&gt;</span>${nrOfOrders-nrOfCancellations}<span style="color:#f92672">&lt;/loopCardinality&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/multiInstanceLoopCharacteristics&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;multiInstanceLoopCharacteristics</span> <span class="na">isSequential=</span><span class="s">&#34;false|true&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;loopCardinality&gt;</span>${nrOfOrders-nrOfCancellations}<span class="nt">&lt;/loopCardinality&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/multiInstanceLoopCharacteristics&gt;</span>
 </span></span></code></pre></div><p>Another way to define the number of instances is to specify the name of a process variable which is a collection using the <code>loopDataInputRef</code> child element. For each item in the collection, an instance will be created. Optionally, it is possible to set that specific item of the collection for the instance using the inputDataItem child element. This is shown in the following XML example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;userTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;miTasks&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;My Task ${loopCounter}&#34;</span> <span style="color:#a6e22e">camunda:assignee=</span><span style="color:#e6db74">&#34;${assignee}&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;multiInstanceLoopCharacteristics</span> <span style="color:#a6e22e">isSequential=</span><span style="color:#e6db74">&#34;false&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;loopDataInputRef&gt;</span>assigneeList<span style="color:#f92672">&lt;/loopDataInputRef&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;inputDataItem</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;assignee&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/multiInstanceLoopCharacteristics&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/userTask&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;userTask</span> <span class="na">id=</span><span class="s">&#34;miTasks&#34;</span> <span class="na">name=</span><span class="s">&#34;My Task ${loopCounter}&#34;</span> <span class="na">camunda:assignee=</span><span class="s">&#34;${assignee}&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;multiInstanceLoopCharacteristics</span> <span class="na">isSequential=</span><span class="s">&#34;false&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;loopDataInputRef&gt;</span>assigneeList<span class="nt">&lt;/loopDataInputRef&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;inputDataItem</span> <span class="na">name=</span><span class="s">&#34;assignee&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/multiInstanceLoopCharacteristics&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/userTask&gt;</span>
 </span></span></code></pre></div><p>Suppose the variable assigneeList contains the values [kermit, gonzo, foziee]. In the snippet above, three user tasks will be created in parallel. Each of the executions will have a process variable named assignee containing one value of the collection, which is used to assign the user task in this example.</p>
 <p>The downside of the <code>loopDataInputRef</code> and <code>inputDataItem</code> is that 1) the names are pretty hard to remember and 2) due to the BPMN 2.0 schema restrictions they can&rsquo;t contain expressions. We solve this by offering the collection and elementVariable attributes on the multiInstanceCharacteristics:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;userTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;miTasks&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;My Task&#34;</span> <span style="color:#a6e22e">camunda:assignee=</span><span style="color:#e6db74">&#34;${assignee}&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;multiInstanceLoopCharacteristics</span> <span style="color:#a6e22e">isSequential=</span><span style="color:#e6db74">&#34;true&#34;</span>
-</span></span><span style="display:flex;"><span>     <span style="color:#a6e22e">camunda:collection=</span><span style="color:#e6db74">&#34;${myService.resolveUsersForTask()}&#34;</span> <span style="color:#a6e22e">camunda:elementVariable=</span><span style="color:#e6db74">&#34;assignee&#34;</span> <span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/multiInstanceLoopCharacteristics&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/userTask&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;userTask</span> <span class="na">id=</span><span class="s">&#34;miTasks&#34;</span> <span class="na">name=</span><span class="s">&#34;My Task&#34;</span> <span class="na">camunda:assignee=</span><span class="s">&#34;${assignee}&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;multiInstanceLoopCharacteristics</span> <span class="na">isSequential=</span><span class="s">&#34;true&#34;</span>
+</span></span><span class="line"><span class="cl">     <span class="na">camunda:collection=</span><span class="s">&#34;${myService.resolveUsersForTask()}&#34;</span> <span class="na">camunda:elementVariable=</span><span class="s">&#34;assignee&#34;</span> <span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/multiInstanceLoopCharacteristics&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/userTask&gt;</span>
 </span></span></code></pre></div><p>A multi-instance activity ends when all instances are finished. However, it is possible to specify an expression that is evaluated every time one instance ends. When this expression evaluates to true, all remaining instances are destroyed and the multi-instance activity ends, continuing the process. Such an expression must be defined in the completionCondition child element.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;userTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;miTasks&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;My Task&#34;</span> <span style="color:#a6e22e">camunda:assignee=</span><span style="color:#e6db74">&#34;${assignee}&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;multiInstanceLoopCharacteristics</span> <span style="color:#a6e22e">isSequential=</span><span style="color:#e6db74">&#34;false&#34;</span>
-</span></span><span style="display:flex;"><span>     <span style="color:#a6e22e">camunda:collection=</span><span style="color:#e6db74">&#34;assigneeList&#34;</span> <span style="color:#a6e22e">camunda:elementVariable=</span><span style="color:#e6db74">&#34;assignee&#34;</span> <span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;completionCondition&gt;</span>${nrOfCompletedInstances/nrOfInstances &gt;= 0.6 }<span style="color:#f92672">&lt;/completionCondition&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/multiInstanceLoopCharacteristics&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/userTask&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;userTask</span> <span class="na">id=</span><span class="s">&#34;miTasks&#34;</span> <span class="na">name=</span><span class="s">&#34;My Task&#34;</span> <span class="na">camunda:assignee=</span><span class="s">&#34;${assignee}&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;multiInstanceLoopCharacteristics</span> <span class="na">isSequential=</span><span class="s">&#34;false&#34;</span>
+</span></span><span class="line"><span class="cl">     <span class="na">camunda:collection=</span><span class="s">&#34;assigneeList&#34;</span> <span class="na">camunda:elementVariable=</span><span class="s">&#34;assignee&#34;</span> <span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;completionCondition&gt;</span>${nrOfCompletedInstances/nrOfInstances &gt;= 0.6 }<span class="nt">&lt;/completionCondition&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/multiInstanceLoopCharacteristics&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/userTask&gt;</span>
 </span></span></code></pre></div><p>In this example, parallel instances will be created for each element of the assigneeList collection. However, when 60% of the tasks are completed, the other tasks are deleted and the process continues.</p>
 <h2 id="camunda-extensions">Camunda Extensions</h2>
 <table class="table table-striped">
@@ -3261,13 +3261,13 @@
 <h2 id="json-collections-with-multi-instance-collections">JSON Collections with Multi-Instance Collections</h2>
 <p>JSON Arrays created with <a href="/manual/latest/reference/spin/">Camunda SPIN</a> can be used as a collection for multi-instance activities.
 Consider the following JavaScript example that initializes execution variable <code>collection</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">collection</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">S</span>(<span style="color:#e6db74">&#39;{ &#34;collection&#34; : [&#34;System 1&#34;, &#34;System 3&#34;] }&#39;</span>);
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">execution</span>.<span style="color:#a6e22e">setVariable</span>(<span style="color:#e6db74">&#34;collection&#34;</span>, <span style="color:#a6e22e">collection</span>);
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">collection</span> <span class="o">=</span> <span class="nx">S</span><span class="p">(</span><span class="s1">&#39;{ &#34;collection&#34; : [&#34;System 1&#34;, &#34;System 3&#34;] }&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">execution</span><span class="p">.</span><span class="nx">setVariable</span><span class="p">(</span><span class="s2">&#34;collection&#34;</span><span class="p">,</span> <span class="nx">collection</span><span class="p">);</span>
 </span></span></code></pre></div><p>This script can be injected in the model in several ways, e.g. using [Script task] (/manual/latest/reference/bpmn20/tasks/script-task/).</p>
 <p>We can now use <code>collection</code> variable in multi-instance activity&rsquo;s <code>camunda:collection</code> extension element.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;multiInstanceLoopCharacteristics</span> 
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">camunda:collection=</span><span style="color:#e6db74">&#34;${collection.prop(&#39;collection&#39;).elements()}&#34;</span> 
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">camunda:elementVariable=</span><span style="color:#e6db74">&#34;collectionElem&#34;</span> <span style="color:#f92672">/&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;multiInstanceLoopCharacteristics</span> 
+</span></span><span class="line"><span class="cl">  <span class="na">camunda:collection=</span><span class="s">&#34;${collection.prop(&#39;collection&#39;).elements()}&#34;</span> 
+</span></span><span class="line"><span class="cl">  <span class="na">camunda:elementVariable=</span><span class="s">&#34;collectionElem&#34;</span> <span class="nt">/&gt;</span>
 </span></span></code></pre></div><p>This uses the SPIN&rsquo;s JSON <code>.prop()</code> and <code>.elements()</code> to return the JSON array.  Set the multi-instance activity&rsquo;s <code>elementVariable</code> to a variable name that
 will contain the array item. To access the value of the element, you can use <code>.value()</code> in your element variable.</p>
 <h1 id="compensation">Compensation</h1>
@@ -3277,7 +3277,7 @@ will contain the array item. To access the value of the element, you can use <co
 <p>Compensation handlers may not have incoming or outgoing sequence flows.</p>
 <p>A compensation handler must be associated with a compensation boundary event using a directed association.</p>
 <p>To declare an activity to be a compensation handler, we need to set the attribute isForCompensation to true:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;serviceTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;undoBookHotel&#34;</span> <span style="color:#a6e22e">isForCompensation=</span><span style="color:#e6db74">&#34;true&#34;</span> <span style="color:#a6e22e">camunda:class=</span><span style="color:#e6db74">&#34;...&#34;</span> <span style="color:#f92672">/&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;serviceTask</span> <span class="na">id=</span><span class="s">&#34;undoBookHotel&#34;</span> <span class="na">isForCompensation=</span><span class="s">&#34;true&#34;</span> <span class="na">camunda:class=</span><span class="s">&#34;...&#34;</span> <span class="nt">/&gt;</span>
 </span></span></code></pre></div><h1 id="additional-resources">Additional Resources</h1>
 <ul>
 <li><a href="http://camunda.org/bpmn/reference.html#activities-task">Tasks</a> in the <a href="http://camunda.org/bpmn/reference.html">BPMN 2.0 Modeling Reference</a></li>

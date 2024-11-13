@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/latest/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/latest/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/user-guide/process-applications/the-process-application-class/" />
 </head>
 <body class="">
@@ -3181,16 +3181,16 @@ The mechanisms described herein for the <code>ServletProcessApplication</code> a
 <p><strong>Packaging</strong>: WAR (or embedded WAR inside EAR)</p>
 <p>The <code>ServletProcessApplication</code> class is the base class for developing process applications based on the Servlet Specification (Java Web Applications). The servlet process application implements the Java EE <code>javax.servlet.ServletContextListener</code> interface which allows it to participate in the deployment lifecycle of your Web application</p>
 <p>The following is an example of a Servlet Process Application:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> org.camunda.bpm.example.loanapproval;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.camunda.bpm.application.ProcessApplication;
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.camunda.bpm.application.impl.ServletProcessApplication;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@ProcessApplication</span>(<span style="color:#e6db74">&#34;Loan Approval App&#34;</span>)
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LoanApprovalApplication</span> <span style="color:#66d9ef">extends</span> ServletProcessApplication {
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// empty implementation</span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>Notice the <code>@ProcessApplication</code> annotation. This annotation fulfills two purposes:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nn">org.camunda.bpm.example.loanapproval</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.camunda.bpm.application.ProcessApplication</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.camunda.bpm.application.impl.ServletProcessApplication</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@ProcessApplication</span><span class="p">(</span><span class="s">&#34;Loan Approval App&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">LoanApprovalApplication</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">ServletProcessApplication</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c1">// empty implementation</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>Notice the <code>@ProcessApplication</code> annotation. This annotation fulfills two purposes:</p>
 <ul>
 <li><strong>provide the name of the ProcessApplication</strong>: You can provide a custom name for your process application using the annotation: <code>@ProcessApplication(&quot;Loan Approval App&quot;)</code>. If no name is provided, a name is automatically detected. In case of a servlet process application, the name of the <code>ServletContext</code> is used.</li>
 <li><strong>trigger auto-deployment</strong>. In a Servlet 3.0 container, the annotation is sufficient for making sure that the process application is automatically picked up by the servlet container and automatically added as a ServletContextListener to the Servlet Container deployment. This functionality is realized by a <code>javax.servlet.ServletContainerInitializer</code> implementation named <code>org.camunda.bpm.application.impl.ServletProcessApplicationDeployer</code> which is located in the camunda-engine module. The implementation works for both embedded deployment of the camunda-engine.jar as a web application library in the <code>WEB-INF/lib</code> folder of your WAR file, or for the deployment of the camunda-engine.jar as a shared library in the shared library (e.g., Apache Tomcat global <code>lib/</code> folder) directory of your application server. The Servlet 3.0 Specification foresees both deployment scenarios. In case of embedded deployment, the <code>ServletProcessApplicationDeployer</code> is notified once, when the web application is deployed. In case of deployment as a shared library, the <code>ServletProcessApplicationDeployer</code> is notified for each WAR file containing a class annotated with <code>@ProcessApplication</code> (as required by the Servlet 3.0 Specification).</li>
@@ -3252,15 +3252,15 @@ or <code>JakartaEjbProcessApplication</code>, you can write a custom subclass of
   <p>Please import the <a href="/get-started/apache-maven/">Camunda BOM</a> to ensure correct versions for every Camunda project.</p>
 </div>
 
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;dependency&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;groupId&gt;</span>org.camunda.bpm.javaee<span style="color:#f92672">&lt;/groupId&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;artifactId&gt;</span>camunda-ejb-client<span style="color:#f92672">&lt;/artifactId&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/dependency&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependency&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;groupId&gt;</span>org.camunda.bpm.javaee<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;artifactId&gt;</span>camunda-ejb-client<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/dependency&gt;</span>
 </span></span></code></pre></div><p>For Jakarta EE 9+ EJB containers, use the following dependency instead:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;dependency&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;groupId&gt;</span>org.camunda.bpm.javaee<span style="color:#f92672">&lt;/groupId&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;artifactId&gt;</span>camunda-ejb-client-jakarta<span style="color:#f92672">&lt;/artifactId&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/dependency&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependency&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;groupId&gt;</span>org.camunda.bpm.javaee<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;artifactId&gt;</span>camunda-ejb-client-jakarta<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/dependency&gt;</span>
 </span></span></code></pre></div><p>The Camunda EJB Client contains a reusable default implementation of the respective EJB process application as a Singleton Session Bean with auto-activation.</p>
 <p>This deployment option requires that your project is a composite deployment (such as a WAR or EAR) since you need to add a library JAR file.
 You could of course use something like the maven shade plugin for adding the class contained in the Camunda EJB Client artifact to a JAR-based deployment.</p>
@@ -3274,90 +3274,90 @@ You could of course use something like the maven shade plugin for adding the cla
 
 <h2 id="deploying-a-custom-ejbprocessapplication-class">Deploying a Custom <code>EjbProcessApplication</code> Class</h2>
 <p>If you want to customize the behavior of the <code>EjbProcessApplication</code> class you have the option of writing a custom <code>EjbProcessApplication</code> class. The following is an example of such an implementation:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Singleton</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Startup</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@ConcurrencyManagement</span>(ConcurrencyManagementType.<span style="color:#a6e22e">BEAN</span>)
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@TransactionAttribute</span>(TransactionAttributeType.<span style="color:#a6e22e">REQUIRED</span>)
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@ProcessApplication</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Local</span>(ProcessApplicationInterface.<span style="color:#a6e22e">class</span>)
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyEjbProcessApplication</span> <span style="color:#66d9ef">extends</span> EjbProcessApplication {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@PostConstruct</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">start</span>() {
-</span></span><span style="display:flex;"><span>    deploy();
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@PreDestroy</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">stop</span>() {
-</span></span><span style="display:flex;"><span>    undeploy();
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h2 id="expose-servlet-context-path-using-a-custom-ejb-process-application">Expose Servlet Context Path Using a Custom EJB process application</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Singleton</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@Startup</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@ConcurrencyManagement</span><span class="p">(</span><span class="n">ConcurrencyManagementType</span><span class="p">.</span><span class="na">BEAN</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@TransactionAttribute</span><span class="p">(</span><span class="n">TransactionAttributeType</span><span class="p">.</span><span class="na">REQUIRED</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@ProcessApplication</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@Local</span><span class="p">(</span><span class="n">ProcessApplicationInterface</span><span class="p">.</span><span class="na">class</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyEjbProcessApplication</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">EjbProcessApplication</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@PostConstruct</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">start</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">deploy</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@PreDestroy</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">stop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">undeploy</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h2 id="expose-servlet-context-path-using-a-custom-ejb-process-application">Expose Servlet Context Path Using a Custom EJB process application</h2>
 <p>If your application is a <code>WAR</code> (or a <code>WAR</code> inside an <code>EAR</code>) and you want to use <a href="/manual/latest/user-guide/task-forms/#embedded-task-forms">embedded forms</a> or <a href="/manual/latest/user-guide/task-forms/#external-task-forms">external task forms</a> inside the <a href="/manual/latest/webapps/tasklist/">Tasklist</a> application, then your custom EJB process application must expose the servlet context path of your application as a property. This enables the Tasklist to resolve the path to the embedded or external task forms.</p>
 <p>Therefore, your custom EJB process application must be extended by a <code>Map</code> and a getter-method for that <code>Map</code> as follows:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Singleton</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Startup</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@ConcurrencyManagement</span>(ConcurrencyManagementType.<span style="color:#a6e22e">BEAN</span>)
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@TransactionAttribute</span>(TransactionAttributeType.<span style="color:#a6e22e">REQUIRED</span>)
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@ProcessApplication</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Local</span>(ProcessApplicationInterface.<span style="color:#a6e22e">class</span>)
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyEjbProcessApplication</span> <span style="color:#66d9ef">extends</span> EjbProcessApplication {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">protected</span> Map<span style="color:#f92672">&lt;</span>String, String<span style="color:#f92672">&gt;</span> properties <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HashMap<span style="color:#f92672">&lt;</span>String, String<span style="color:#f92672">&gt;</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@PostConstruct</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">start</span>() {
-</span></span><span style="display:flex;"><span>    deploy();
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@PreDestroy</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">stop</span>() {
-</span></span><span style="display:flex;"><span>    undeploy();
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> Map<span style="color:#f92672">&lt;</span>String, String<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getProperties</span>() {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> properties;
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>Furthermore, to provide the servlet context path a custom Java EE <code>javax.servlet.ServletContextListener</code> must be added to your application. Inside your custom implementation of the <code>ServletContextListener</code> you have to</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Singleton</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@Startup</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@ConcurrencyManagement</span><span class="p">(</span><span class="n">ConcurrencyManagementType</span><span class="p">.</span><span class="na">BEAN</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@TransactionAttribute</span><span class="p">(</span><span class="n">TransactionAttributeType</span><span class="p">.</span><span class="na">REQUIRED</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@ProcessApplication</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@Local</span><span class="p">(</span><span class="n">ProcessApplicationInterface</span><span class="p">.</span><span class="na">class</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyEjbProcessApplication</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">EjbProcessApplication</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">protected</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">properties</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@PostConstruct</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">start</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">deploy</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@PreDestroy</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">stop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">undeploy</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getProperties</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">properties</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>Furthermore, to provide the servlet context path a custom Java EE <code>javax.servlet.ServletContextListener</code> must be added to your application. Inside your custom implementation of the <code>ServletContextListener</code> you have to</p>
 <ul>
 <li>inject your custom EJB process application using the <code>@EJB</code> annotation,</li>
 <li>resolve the servlet context path and</li>
 <li>expose the servlet context path through the <code>ProcessApplicationInfo#PROP_SERVLET_CONTEXT_PATH</code> property inside your custom EJB process application.</li>
 </ul>
 <p>This can be done as follows:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ProcessArchiveServletContextListener</span> <span style="color:#66d9ef">implements</span> ServletContextListener {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@EJB</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> ProcessApplicationInterface processApplication;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">contextInitialized</span>(ServletContextEvent contextEvent) {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    String contextPath <span style="color:#f92672">=</span> contextEvent.<span style="color:#a6e22e">getServletContext</span>().<span style="color:#a6e22e">getContextPath</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    Map<span style="color:#f92672">&lt;</span>String, String<span style="color:#f92672">&gt;</span> properties <span style="color:#f92672">=</span> processApplication.<span style="color:#a6e22e">getProperties</span>();
-</span></span><span style="display:flex;"><span>    properties.<span style="color:#a6e22e">put</span>(ProcessApplicationInfo.<span style="color:#a6e22e">PROP_SERVLET_CONTEXT_PATH</span>, contextPath);
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">contextDestroyed</span>(ServletContextEvent arg0) {
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>Finally, the custom <code>ProcessArchiveServletContextListener</code> has to be added to your <code>WEB-INF/web.xml</code> file:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;web-app</span> <span style="color:#a6e22e">version=</span><span style="color:#e6db74">&#34;2.5&#34;</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://java.sun.com/xml/ns/javaee&#34;</span>
-</span></span><span style="display:flex;"><span>         <span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
-</span></span><span style="display:flex;"><span>         <span style="color:#a6e22e">xsi:schemaLocation=</span><span style="color:#e6db74">&#34;http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;listener&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;listener-class&gt;</span>org.my.project.ProcessArchiveServletContextListener<span style="color:#f92672">&lt;/listener-class&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/listener&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  ...
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/web-app&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ProcessArchiveServletContextListener</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">ServletContextListener</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@EJB</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="n">ProcessApplicationInterface</span><span class="w"> </span><span class="n">processApplication</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">contextInitialized</span><span class="p">(</span><span class="n">ServletContextEvent</span><span class="w"> </span><span class="n">contextEvent</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">contextPath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">contextEvent</span><span class="p">.</span><span class="na">getServletContext</span><span class="p">().</span><span class="na">getContextPath</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">properties</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">processApplication</span><span class="p">.</span><span class="na">getProperties</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">properties</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">ProcessApplicationInfo</span><span class="p">.</span><span class="na">PROP_SERVLET_CONTEXT_PATH</span><span class="p">,</span><span class="w"> </span><span class="n">contextPath</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">contextDestroyed</span><span class="p">(</span><span class="n">ServletContextEvent</span><span class="w"> </span><span class="n">arg0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>Finally, the custom <code>ProcessArchiveServletContextListener</code> has to be added to your <code>WEB-INF/web.xml</code> file:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;web-app</span> <span class="na">version=</span><span class="s">&#34;2.5&#34;</span> <span class="na">xmlns=</span><span class="s">&#34;http://java.sun.com/xml/ns/javaee&#34;</span>
+</span></span><span class="line"><span class="cl">         <span class="na">xmlns:xsi=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+</span></span><span class="line"><span class="cl">         <span class="na">xsi:schemaLocation=</span><span class="s">&#34;http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;listener&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;listener-class&gt;</span>org.my.project.ProcessArchiveServletContextListener<span class="nt">&lt;/listener-class&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/listener&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  ...
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/web-app&gt;</span>
 </span></span></code></pre></div><h2 id="invocation-semantics-of-the-ejb-process-application">Invocation Semantics of the EJB process application</h2>
 <p>The fact that the EJB process application exposes itself as a Session Bean Component inside the EJB container determines</p>
 <ul>
@@ -3381,48 +3381,48 @@ You could of course use something like the maven shade plugin for adding the cla
                                    +--------------------+
 </pre>
 <p>The EJB process application allows to hook into the invocation by overriding the <code>execute(Callable callable, InvocationContext invocationContext)</code> method. It provides the context of the current invocation (e.g., the execution) and can be used to execute custom code, for example initialize the security context before a service task is invoked.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyEjbProcessApplication</span> <span style="color:#66d9ef">extends</span> EjbProcessApplication {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Override</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;</span> T <span style="color:#a6e22e">execute</span>(Callable<span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;</span> callable, InvocationContext invocationContext) {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(invocationContext <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span>) {
-</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// execute custom code (e.g. initialize the security context)</span>
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> execute(callable);
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>When the EJB process application registers with a process engine (see <code>ManagementService#registerProcessApplication(String, ProcessApplicationReference)</code>, the process application passes a reference to itself to the process engine. This reference allows the process engine to reference the process application. The EJB process application takes advantage of the EJB Containers naming context and passes a reference containing the EJB process application&rsquo;s Component Name to the process engine. Whenever the process engine needs access to process application, the actual component instance is looked up and invoked.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyEjbProcessApplication</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">EjbProcessApplication</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@Override</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="nf">execute</span><span class="p">(</span><span class="n">Callable</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">callable</span><span class="p">,</span><span class="w"> </span><span class="n">InvocationContext</span><span class="w"> </span><span class="n">invocationContext</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">invocationContext</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c1">// execute custom code (e.g. initialize the security context)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">execute</span><span class="p">(</span><span class="n">callable</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>When the EJB process application registers with a process engine (see <code>ManagementService#registerProcessApplication(String, ProcessApplicationReference)</code>, the process application passes a reference to itself to the process engine. This reference allows the process engine to reference the process application. The EJB process application takes advantage of the EJB Containers naming context and passes a reference containing the EJB process application&rsquo;s Component Name to the process engine. Whenever the process engine needs access to process application, the actual component instance is looked up and invoked.</p>
 <h1 id="the-embeddedprocessapplication">The EmbeddedProcessApplication</h1>
 <p><strong>Supported on:</strong> JVM, Apache Tomcat, Wildfly</p>
 <p><strong>Packaging:</strong> JAR, WAR, EAR</p>
 <p>The <code>org.camunda.bpm.application.impl.EmbeddedProcessApplication</code> can only be used in combination with an embedded process engine. Usage in combination with a Shared Process Engine is not supported as the class performs no process application context switching at runtime.</p>
 <p>The embedded process application also does not provide auto-startup. You need to manually call the <code>#deploy</code> method of your process application:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// instantiate the process application</span>
-</span></span><span style="display:flex;"><span>MyProcessApplication processApplication <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> MyProcessApplication();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// deploy the process application</span>
-</span></span><span style="display:flex;"><span>processApplication.<span style="color:#a6e22e">deploy</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// interact with the process engine</span>
-</span></span><span style="display:flex;"><span>ProcessEngine processEngine <span style="color:#f92672">=</span> BpmPlatform.<span style="color:#a6e22e">getDefaultProcessEngine</span>();
-</span></span><span style="display:flex;"><span>processEngine.<span style="color:#a6e22e">getRuntimeService</span>().<span style="color:#a6e22e">startProcessInstanceByKey</span>(...);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// undeploy the process application</span>
-</span></span><span style="display:flex;"><span>processApplication.<span style="color:#a6e22e">undeploy</span>();
-</span></span></code></pre></div><p>Where the class <code>MyProcessApplication</code> could look like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@ProcessApplication</span>(
-</span></span><span style="display:flex;"><span>    name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;my-app&#34;</span>,
-</span></span><span style="display:flex;"><span>    deploymentDescriptors<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;path/to/my/processes.xml&#34;</span>}
-</span></span><span style="display:flex;"><span>)
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyProcessApplication</span> <span style="color:#66d9ef">extends</span> EmbeddedProcessApplication {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>Remember that to make a manually managed EmbeddedProcessApplication work, you will have to register your ProcessEngine on the RuntimeContainer:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>RuntimeContainerDelegate runtimeContainerDelegate <span style="color:#f92672">=</span> RuntimeContainerDelegate.<span style="color:#a6e22e">INSTANCE</span>.<span style="color:#a6e22e">get</span>();
-</span></span><span style="display:flex;"><span>runtimeContainerDelegate.<span style="color:#a6e22e">registerProcessEngine</span>(processEngine);
-</span></span></code></pre></div><h1 id="the-springprocessapplication">The SpringProcessApplication</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// instantiate the process application</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">MyProcessApplication</span><span class="w"> </span><span class="n">processApplication</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MyProcessApplication</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// deploy the process application</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">processApplication</span><span class="p">.</span><span class="na">deploy</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// interact with the process engine</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">ProcessEngine</span><span class="w"> </span><span class="n">processEngine</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BpmPlatform</span><span class="p">.</span><span class="na">getDefaultProcessEngine</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">processEngine</span><span class="p">.</span><span class="na">getRuntimeService</span><span class="p">().</span><span class="na">startProcessInstanceByKey</span><span class="p">(...);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// undeploy the process application</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">processApplication</span><span class="p">.</span><span class="na">undeploy</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><p>Where the class <code>MyProcessApplication</code> could look like this:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@ProcessApplication</span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">name</span><span class="o">=</span><span class="s">&#34;my-app&#34;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">deploymentDescriptors</span><span class="o">=</span><span class="p">{</span><span class="s">&#34;path/to/my/processes.xml&#34;</span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyProcessApplication</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">EmbeddedProcessApplication</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>Remember that to make a manually managed EmbeddedProcessApplication work, you will have to register your ProcessEngine on the RuntimeContainer:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">RuntimeContainerDelegate</span><span class="w"> </span><span class="n">runtimeContainerDelegate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RuntimeContainerDelegate</span><span class="p">.</span><span class="na">INSTANCE</span><span class="p">.</span><span class="na">get</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">runtimeContainerDelegate</span><span class="p">.</span><span class="na">registerProcessEngine</span><span class="p">(</span><span class="n">processEngine</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><h1 id="the-springprocessapplication">The SpringProcessApplication</h1>
 <p><strong>Supported on:</strong> JVM, Apache Tomcat.</p>
 <p><strong>Packaging:</strong> JAR, WAR, EAR</p>
 <p>The <code>org.camunda.bpm.engine.spring.application.SpringProcessApplication</code> class allows bootstrapping a process application through a Spring Application Context. You can either reference the SpringProcessApplication class from an XML-based application context configuration file or use an annotation-based setup.</p>
@@ -3430,14 +3430,14 @@ You could of course use something like the maven shade plugin for adding the cla
 <p>We recommend to always use <code>SpringServletProcessApplication</code> unless the deployment is not a web application. Using this class requires the <code>org.springframework:spring-web</code> module to be on the classpath.</p>
 <h2 id="configuring-a-spring-process-application">Configuring a Spring Process Application</h2>
 <p>The following shows an example of how to bootstrap a SpringProcessApplication inside a Spring application context XML file:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;beans</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://www.springframework.org/schema/beans&#34;</span>
-</span></span><span style="display:flex;"><span>       <span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
-</span></span><span style="display:flex;"><span>       <span style="color:#a6e22e">xsi:schemaLocation=</span><span style="color:#e6db74">&#34;http://www.springframework.org/schema/beans
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                           http://www.springframework.org/schema/beans/spring-beans.xsd&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;invoicePa&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;org.camunda.bpm.engine.spring.application.SpringServletProcessApplication&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/beans&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;beans</span> <span class="na">xmlns=</span><span class="s">&#34;http://www.springframework.org/schema/beans&#34;</span>
+</span></span><span class="line"><span class="cl">       <span class="na">xmlns:xsi=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+</span></span><span class="line"><span class="cl">       <span class="na">xsi:schemaLocation=</span><span class="s">&#34;http://www.springframework.org/schema/beans
+</span></span></span><span class="line"><span class="cl"><span class="s">                           http://www.springframework.org/schema/beans/spring-beans.xsd&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;invoicePa&#34;</span> <span class="na">class=</span><span class="s">&#34;org.camunda.bpm.engine.spring.application.SpringServletProcessApplication&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/beans&gt;</span>
 </span></span></code></pre></div><p>Remember to additionally add a <code>META-INF/processes.xml</code> file.</p>
 <blockquote>
 <p>If you are manually managing your processEngine, you will have to register it on the RuntimeContainerDelegate as described in the EmbeddedProcessEngine section.</p>
@@ -3446,46 +3446,46 @@ You could of course use something like the maven shade plugin for adding the cla
 <p>The <code>SpringProcessApplication</code> will use the bean name (<code>id=&quot;invoicePa&quot;</code> in the example above) as auto-detected name for the process application. Make sure to provide a unique process application name here (unique across all process applications deployed on a single application server instance). As an alternative, you can provide a custom subclass of <code>SpringProcessApplication</code> (or <code>SpringServletProcessApplication</code>) and override the <code>getName()</code> method.</p>
 <h2 id="configure-a-managed-process-engine-using-spring">Configure a Managed Process Engine Using Spring</h2>
 <p>If you use a Spring process application, you may want to configure your process engine inside the Spring application context Xml file (as opposed to the processes.xml file). In this case, you must use the <code>org.camunda.bpm.engine.spring.container.ManagedProcessEngineFactoryBean</code> class for creating the process engine object instance. In addition to creating the process engine object, this implementation registers the process engine with the CIB seven infrastructure so that the process engine is returned by the <code>ProcessEngineService</code>. The following is an example of how to configure a managed process engine using Spring.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;beans</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://www.springframework.org/schema/beans&#34;</span>
-</span></span><span style="display:flex;"><span>       <span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
-</span></span><span style="display:flex;"><span>       <span style="color:#a6e22e">xsi:schemaLocation=</span><span style="color:#e6db74">&#34;http://www.springframework.org/schema/beans
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                           http://www.springframework.org/schema/beans/spring-beans.xsd&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;dataSource&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;targetDataSource&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;org.springframework.jdbc.datasource.SimpleDriverDataSource&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;driverClass&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;org.h2.Driver&#34;</span><span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;url&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;jdbc:h2:mem:camunda;DB_CLOSE_DELAY=1000&#34;</span><span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;username&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;sa&#34;</span><span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;password&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;/bean&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/property&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/bean&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;transactionManager&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;org.springframework.jdbc.datasource.DataSourceTransactionManager&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;dataSource&#34;</span> <span style="color:#a6e22e">ref=</span><span style="color:#e6db74">&#34;dataSource&#34;</span><span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/bean&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;processEngineConfiguration&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;org.camunda.bpm.engine.spring.SpringProcessEngineConfiguration&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;processEngineName&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;default&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;dataSource&#34;</span> <span style="color:#a6e22e">ref=</span><span style="color:#e6db74">&#34;dataSource&#34;</span><span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;transactionManager&#34;</span> <span style="color:#a6e22e">ref=</span><span style="color:#e6db74">&#34;transactionManager&#34;</span><span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;databaseSchemaUpdate&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;true&#34;</span><span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;jobExecutorActivate&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;false&#34;</span><span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/bean&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">&lt;!-- using ManagedProcessEngineFactoryBean allows registering the ProcessEngine with the BpmPlatform --&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;processEngine&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;org.camunda.bpm.engine.spring.container.ManagedProcessEngineFactoryBean&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;processEngineConfiguration&#34;</span> <span style="color:#a6e22e">ref=</span><span style="color:#e6db74">&#34;processEngineConfiguration&#34;</span><span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/bean&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;repositoryService&#34;</span> <span style="color:#a6e22e">factory-bean=</span><span style="color:#e6db74">&#34;processEngine&#34;</span> <span style="color:#a6e22e">factory-method=</span><span style="color:#e6db74">&#34;getRepositoryService&#34;</span><span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;runtimeService&#34;</span> <span style="color:#a6e22e">factory-bean=</span><span style="color:#e6db74">&#34;processEngine&#34;</span> <span style="color:#a6e22e">factory-method=</span><span style="color:#e6db74">&#34;getRuntimeService&#34;</span><span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;taskService&#34;</span> <span style="color:#a6e22e">factory-bean=</span><span style="color:#e6db74">&#34;processEngine&#34;</span> <span style="color:#a6e22e">factory-method=</span><span style="color:#e6db74">&#34;getTaskService&#34;</span><span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;historyService&#34;</span> <span style="color:#a6e22e">factory-bean=</span><span style="color:#e6db74">&#34;processEngine&#34;</span> <span style="color:#a6e22e">factory-method=</span><span style="color:#e6db74">&#34;getHistoryService&#34;</span><span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;managementService&#34;</span> <span style="color:#a6e22e">factory-bean=</span><span style="color:#e6db74">&#34;processEngine&#34;</span> <span style="color:#a6e22e">factory-method=</span><span style="color:#e6db74">&#34;getManagementService&#34;</span><span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/beans&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;beans</span> <span class="na">xmlns=</span><span class="s">&#34;http://www.springframework.org/schema/beans&#34;</span>
+</span></span><span class="line"><span class="cl">       <span class="na">xmlns:xsi=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+</span></span><span class="line"><span class="cl">       <span class="na">xsi:schemaLocation=</span><span class="s">&#34;http://www.springframework.org/schema/beans
+</span></span></span><span class="line"><span class="cl"><span class="s">                           http://www.springframework.org/schema/beans/spring-beans.xsd&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;dataSource&#34;</span> <span class="na">class=</span><span class="s">&#34;org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;targetDataSource&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;bean</span> <span class="na">class=</span><span class="s">&#34;org.springframework.jdbc.datasource.SimpleDriverDataSource&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;driverClass&#34;</span> <span class="na">value=</span><span class="s">&#34;org.h2.Driver&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;url&#34;</span> <span class="na">value=</span><span class="s">&#34;jdbc:h2:mem:camunda;DB_CLOSE_DELAY=1000&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;username&#34;</span> <span class="na">value=</span><span class="s">&#34;sa&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;password&#34;</span> <span class="na">value=</span><span class="s">&#34;&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;/bean&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/bean&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;transactionManager&#34;</span> <span class="na">class=</span><span class="s">&#34;org.springframework.jdbc.datasource.DataSourceTransactionManager&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;dataSource&#34;</span> <span class="na">ref=</span><span class="s">&#34;dataSource&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/bean&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;processEngineConfiguration&#34;</span> <span class="na">class=</span><span class="s">&#34;org.camunda.bpm.engine.spring.SpringProcessEngineConfiguration&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;processEngineName&#34;</span> <span class="na">value=</span><span class="s">&#34;default&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;dataSource&#34;</span> <span class="na">ref=</span><span class="s">&#34;dataSource&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;transactionManager&#34;</span> <span class="na">ref=</span><span class="s">&#34;transactionManager&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;databaseSchemaUpdate&#34;</span> <span class="na">value=</span><span class="s">&#34;true&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;jobExecutorActivate&#34;</span> <span class="na">value=</span><span class="s">&#34;false&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/bean&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c">&lt;!-- using ManagedProcessEngineFactoryBean allows registering the ProcessEngine with the BpmPlatform --&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;processEngine&#34;</span> <span class="na">class=</span><span class="s">&#34;org.camunda.bpm.engine.spring.container.ManagedProcessEngineFactoryBean&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;processEngineConfiguration&#34;</span> <span class="na">ref=</span><span class="s">&#34;processEngineConfiguration&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/bean&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;repositoryService&#34;</span> <span class="na">factory-bean=</span><span class="s">&#34;processEngine&#34;</span> <span class="na">factory-method=</span><span class="s">&#34;getRepositoryService&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;runtimeService&#34;</span> <span class="na">factory-bean=</span><span class="s">&#34;processEngine&#34;</span> <span class="na">factory-method=</span><span class="s">&#34;getRuntimeService&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;taskService&#34;</span> <span class="na">factory-bean=</span><span class="s">&#34;processEngine&#34;</span> <span class="na">factory-method=</span><span class="s">&#34;getTaskService&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;historyService&#34;</span> <span class="na">factory-bean=</span><span class="s">&#34;processEngine&#34;</span> <span class="na">factory-method=</span><span class="s">&#34;getHistoryService&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;managementService&#34;</span> <span class="na">factory-bean=</span><span class="s">&#34;processEngine&#34;</span> <span class="na">factory-method=</span><span class="s">&#34;getManagementService&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/beans&gt;</span>
 </span></span></code></pre></div>
     </div>
   </div>

@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/1.0/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/1.0/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/reference/forms/embedded-forms/controls/inputs/" />
 </head>
 <body class="">
@@ -3164,9 +3164,9 @@ common input field and allow the user to provide values for different data types
 <h1 id="binding-text-input-to-a-process-variable">Binding Text Input to a Process Variable</h1>
 <p>A text input can be bound to a process variable using the <code>cam-variable-type</code> and
 <code>cam-variable-name</code> directives:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span>
-</span></span><span style="display:flex;"><span>       <span style="color:#a6e22e">cam-variable-name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;CUSTOMER_ID&#34;</span>
-</span></span><span style="display:flex;"><span>       <span style="color:#a6e22e">cam-variable-type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;String&#34;</span> /&gt;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span>
+</span></span><span class="line"><span class="cl">       <span class="na">cam-variable-name</span><span class="o">=</span><span class="s">&#34;CUSTOMER_ID&#34;</span>
+</span></span><span class="line"><span class="cl">       <span class="na">cam-variable-type</span><span class="o">=</span><span class="s">&#34;String&#34;</span> <span class="p">/&gt;</span>
 </span></span></code></pre></div><p>In the example above, the text input field is bound to the variable named <code>CUSTOMER_ID</code> of type
 <code>String</code>.</p>
 <h1 id="supported-variable-types-for-text-inputs">Supported Variable Types for Text Inputs</h1>
@@ -3183,9 +3183,9 @@ is not required.</p>
 <p>To bind the input field to a <code>String</code> variable, the directive <code>cam-variable-type=&quot;String&quot;</code>
 must be used.</p>
 <p>Example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span>
-</span></span><span style="display:flex;"><span>       <span style="color:#a6e22e">cam-variable-name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;CUSTOMER_ID&#34;</span>
-</span></span><span style="display:flex;"><span>       <span style="color:#a6e22e">cam-variable-type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;String&#34;</span> /&gt;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span>
+</span></span><span class="line"><span class="cl">       <span class="na">cam-variable-name</span><span class="o">=</span><span class="s">&#34;CUSTOMER_ID&#34;</span>
+</span></span><span class="line"><span class="cl">       <span class="na">cam-variable-type</span><span class="o">=</span><span class="s">&#34;String&#34;</span> <span class="p">/&gt;</span>
 </span></span></code></pre></div>
 <div class="note ">
   <h3></h3>
@@ -3197,30 +3197,30 @@ process engine: leading and trailing whitespace is removed.</p>
 <p>To bind the input field to a Java <code>Integer</code> variable, the directive
 <code>cam-variable-type=&quot;Integer&quot;</code> must be used.</p>
 <p>Example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span>
-</span></span><span style="display:flex;"><span>       <span style="color:#a6e22e">cam-variable-name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;CUSTOMER_AGE&#34;</span>
-</span></span><span style="display:flex;"><span>       <span style="color:#a6e22e">cam-variable-type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Integer&#34;</span> /&gt;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span>
+</span></span><span class="line"><span class="cl">       <span class="na">cam-variable-name</span><span class="o">=</span><span class="s">&#34;CUSTOMER_AGE&#34;</span>
+</span></span><span class="line"><span class="cl">       <span class="na">cam-variable-type</span><span class="o">=</span><span class="s">&#34;Integer&#34;</span> <span class="p">/&gt;</span>
 </span></span></code></pre></div><h2 id="long">Long</h2>
 <p>To bind the input field to a Java <code>Long</code> variable, the directive
 <code>cam-variable-type=&quot;Long&quot;</code> must be used.</p>
 <p>Example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span>
-</span></span><span style="display:flex;"><span>       <span style="color:#a6e22e">cam-variable-name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;CUSTOMER_REVENUE&#34;</span>
-</span></span><span style="display:flex;"><span>       <span style="color:#a6e22e">cam-variable-type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Long&#34;</span> /&gt;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span>
+</span></span><span class="line"><span class="cl">       <span class="na">cam-variable-name</span><span class="o">=</span><span class="s">&#34;CUSTOMER_REVENUE&#34;</span>
+</span></span><span class="line"><span class="cl">       <span class="na">cam-variable-type</span><span class="o">=</span><span class="s">&#34;Long&#34;</span> <span class="p">/&gt;</span>
 </span></span></code></pre></div><h2 id="short">Short</h2>
 <p>To bind the input field to a Java <code>Short</code> variable, the directive
 <code>cam-variable-type=&quot;Short&quot;</code> must be used.</p>
 <p>Example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">cam-variable-name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;CUSTOMER_REVENUE&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">cam-variable-type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Short&#34;</span> /&gt;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="na">cam-variable-name</span><span class="o">=</span><span class="s">&#34;CUSTOMER_REVENUE&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="na">cam-variable-type</span><span class="o">=</span><span class="s">&#34;Short&#34;</span> <span class="p">/&gt;</span>
 </span></span></code></pre></div><h2 id="double">Double</h2>
 <p>To bind the input field to a Java <code>Double</code> variable, the directive
 <code>cam-variable-type=&quot;Double&quot;</code> must be used.</p>
 <p>Example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">cam-variable-name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;CUSTOMER_REVENUE&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">cam-variable-type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Double&#34;</span> /&gt;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="na">cam-variable-name</span><span class="o">=</span><span class="s">&#34;CUSTOMER_REVENUE&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="na">cam-variable-type</span><span class="o">=</span><span class="s">&#34;Double&#34;</span> <span class="p">/&gt;</span>
 </span></span></code></pre></div>
     </div>
   </div>

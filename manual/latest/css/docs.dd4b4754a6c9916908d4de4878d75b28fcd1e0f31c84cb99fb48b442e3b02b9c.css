@@ -8028,3 +8028,406 @@ svg circle {
 .table-cmmn-events td:first-of-type {
   text-align: right;
 }
+/* 
+	GENERATED  WITH hugo gen chromastyles --style=monokailight
+
+ */
+/* Background */
+/* line 5, styles\_hugo_syntax.less */
+.bg {
+  color: #272822;
+  background-color: #fafafa;
+}
+/* PreWrapper */
+/* line 6, styles\_hugo_syntax.less */
+.chroma {
+  color: #272822;
+  background-color: #fafafa;
+}
+/* Other */
+/* Error */
+/* line 8, styles\_hugo_syntax.less */
+.chroma .err {
+  color: #960050;
+  /*background-color:#1e0010*/
+}
+/* CodeLine */
+/* LineLink */
+/* line 10, styles\_hugo_syntax.less */
+.chroma .lnlinks {
+  outline: none;
+  text-decoration: none;
+  color: inherit;
+}
+/* LineTableTD */
+/* line 11, styles\_hugo_syntax.less */
+.chroma .lntd {
+  vertical-align: top;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+/* LineTable */
+/* line 12, styles\_hugo_syntax.less */
+.chroma .lntable {
+  border-spacing: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+/* LineHighlight */
+/* line 13, styles\_hugo_syntax.less */
+.chroma .hl {
+  background-color: #e1e1e1;
+}
+/* LineNumbersTable */
+/* line 14, styles\_hugo_syntax.less */
+.chroma .lnt {
+  white-space: pre;
+  -webkit-user-select: none;
+  user-select: none;
+  margin-right: 0.4em;
+  padding: 0 0.4em 0 0.4em;
+  color: #7f7f7f;
+}
+/* LineNumbers */
+/* line 15, styles\_hugo_syntax.less */
+.chroma .ln {
+  white-space: pre;
+  -webkit-user-select: none;
+  user-select: none;
+  margin-right: 0.4em;
+  padding: 0 0.4em 0 0.4em;
+  color: #7f7f7f;
+}
+/* Line */
+/* line 16, styles\_hugo_syntax.less */
+.chroma .line {
+  display: flex;
+}
+/* Keyword */
+/* line 17, styles\_hugo_syntax.less */
+.chroma .k {
+  color: #00a8c8;
+}
+/* KeywordConstant */
+/* line 18, styles\_hugo_syntax.less */
+.chroma .kc {
+  color: #00a8c8;
+}
+/* KeywordDeclaration */
+/* line 19, styles\_hugo_syntax.less */
+.chroma .kd {
+  color: #00a8c8;
+}
+/* KeywordNamespace */
+/* line 20, styles\_hugo_syntax.less */
+.chroma .kn {
+  color: #f92672;
+}
+/* KeywordPseudo */
+/* line 21, styles\_hugo_syntax.less */
+.chroma .kp {
+  color: #00a8c8;
+}
+/* KeywordReserved */
+/* line 22, styles\_hugo_syntax.less */
+.chroma .kr {
+  color: #00a8c8;
+}
+/* KeywordType */
+/* line 23, styles\_hugo_syntax.less */
+.chroma .kt {
+  color: #00a8c8;
+}
+/* Name */
+/* line 24, styles\_hugo_syntax.less */
+.chroma .n {
+  color: #111;
+}
+/* NameAttribute */
+/* line 25, styles\_hugo_syntax.less */
+.chroma .na {
+  color: #75af00;
+}
+/* NameBuiltin */
+/* line 26, styles\_hugo_syntax.less */
+.chroma .nb {
+  color: #111;
+}
+/* NameBuiltinPseudo */
+/* line 27, styles\_hugo_syntax.less */
+.chroma .bp {
+  color: #111;
+}
+/* NameClass */
+/* line 28, styles\_hugo_syntax.less */
+.chroma .nc {
+  color: #75af00;
+}
+/* NameConstant */
+/* line 29, styles\_hugo_syntax.less */
+.chroma .no {
+  color: #00a8c8;
+}
+/* NameDecorator */
+/* line 30, styles\_hugo_syntax.less */
+.chroma .nd {
+  color: #75af00;
+}
+/* NameEntity */
+/* line 31, styles\_hugo_syntax.less */
+.chroma .ni {
+  color: #111;
+}
+/* NameException */
+/* line 32, styles\_hugo_syntax.less */
+.chroma .ne {
+  color: #75af00;
+}
+/* NameFunction */
+/* line 33, styles\_hugo_syntax.less */
+.chroma .nf {
+  color: #75af00;
+}
+/* NameFunctionMagic */
+/* line 34, styles\_hugo_syntax.less */
+.chroma .fm {
+  color: #111;
+}
+/* NameLabel */
+/* line 35, styles\_hugo_syntax.less */
+.chroma .nl {
+  color: #111;
+}
+/* NameNamespace */
+/* line 36, styles\_hugo_syntax.less */
+.chroma .nn {
+  color: #111;
+}
+/* NameOther */
+/* line 37, styles\_hugo_syntax.less */
+.chroma .nx {
+  color: #75af00;
+}
+/* NameProperty */
+/* line 38, styles\_hugo_syntax.less */
+.chroma .py {
+  color: #111;
+}
+/* NameTag */
+/* line 39, styles\_hugo_syntax.less */
+.chroma .nt {
+  color: #f92672;
+}
+/* NameVariable */
+/* line 40, styles\_hugo_syntax.less */
+.chroma .nv {
+  color: #111;
+}
+/* NameVariableClass */
+/* line 41, styles\_hugo_syntax.less */
+.chroma .vc {
+  color: #111;
+}
+/* NameVariableGlobal */
+/* line 42, styles\_hugo_syntax.less */
+.chroma .vg {
+  color: #111;
+}
+/* NameVariableInstance */
+/* line 43, styles\_hugo_syntax.less */
+.chroma .vi {
+  color: #111;
+}
+/* NameVariableMagic */
+/* line 44, styles\_hugo_syntax.less */
+.chroma .vm {
+  color: #111;
+}
+/* Literal */
+/* line 45, styles\_hugo_syntax.less */
+.chroma .l {
+  color: #ae81ff;
+}
+/* LiteralDate */
+/* line 46, styles\_hugo_syntax.less */
+.chroma .ld {
+  color: #d88200;
+}
+/* LiteralString */
+/* line 47, styles\_hugo_syntax.less */
+.chroma .s {
+  color: #d88200;
+}
+/* LiteralStringAffix */
+/* line 48, styles\_hugo_syntax.less */
+.chroma .sa {
+  color: #d88200;
+}
+/* LiteralStringBacktick */
+/* line 49, styles\_hugo_syntax.less */
+.chroma .sb {
+  color: #d88200;
+}
+/* LiteralStringChar */
+/* line 50, styles\_hugo_syntax.less */
+.chroma .sc {
+  color: #d88200;
+}
+/* LiteralStringDelimiter */
+/* line 51, styles\_hugo_syntax.less */
+.chroma .dl {
+  color: #d88200;
+}
+/* LiteralStringDoc */
+/* line 52, styles\_hugo_syntax.less */
+.chroma .sd {
+  color: #d88200;
+}
+/* LiteralStringDouble */
+/* line 53, styles\_hugo_syntax.less */
+.chroma .s2 {
+  color: #d88200;
+}
+/* LiteralStringEscape */
+/* line 54, styles\_hugo_syntax.less */
+.chroma .se {
+  color: #8045ff;
+}
+/* LiteralStringHeredoc */
+/* line 55, styles\_hugo_syntax.less */
+.chroma .sh {
+  color: #d88200;
+}
+/* LiteralStringInterpol */
+/* line 56, styles\_hugo_syntax.less */
+.chroma .si {
+  color: #d88200;
+}
+/* LiteralStringOther */
+/* line 57, styles\_hugo_syntax.less */
+.chroma .sx {
+  color: #d88200;
+}
+/* LiteralStringRegex */
+/* line 58, styles\_hugo_syntax.less */
+.chroma .sr {
+  color: #d88200;
+}
+/* LiteralStringSingle */
+/* line 59, styles\_hugo_syntax.less */
+.chroma .s1 {
+  color: #d88200;
+}
+/* LiteralStringSymbol */
+/* line 60, styles\_hugo_syntax.less */
+.chroma .ss {
+  color: #d88200;
+}
+/* LiteralNumber */
+/* line 61, styles\_hugo_syntax.less */
+.chroma .m {
+  color: #ae81ff;
+}
+/* LiteralNumberBin */
+/* line 62, styles\_hugo_syntax.less */
+.chroma .mb {
+  color: #ae81ff;
+}
+/* LiteralNumberFloat */
+/* line 63, styles\_hugo_syntax.less */
+.chroma .mf {
+  color: #ae81ff;
+}
+/* LiteralNumberHex */
+/* line 64, styles\_hugo_syntax.less */
+.chroma .mh {
+  color: #ae81ff;
+}
+/* LiteralNumberInteger */
+/* line 65, styles\_hugo_syntax.less */
+.chroma .mi {
+  color: #ae81ff;
+}
+/* LiteralNumberIntegerLong */
+/* line 66, styles\_hugo_syntax.less */
+.chroma .il {
+  color: #ae81ff;
+}
+/* LiteralNumberOct */
+/* line 67, styles\_hugo_syntax.less */
+.chroma .mo {
+  color: #ae81ff;
+}
+/* Operator */
+/* line 68, styles\_hugo_syntax.less */
+.chroma .o {
+  color: #f92672;
+}
+/* OperatorWord */
+/* line 69, styles\_hugo_syntax.less */
+.chroma .ow {
+  color: #f92672;
+}
+/* Punctuation */
+/* line 70, styles\_hugo_syntax.less */
+.chroma .p {
+  color: #111;
+}
+/* Comment */
+/* line 71, styles\_hugo_syntax.less */
+.chroma .c {
+  color: #75715e;
+}
+/* CommentHashbang */
+/* line 72, styles\_hugo_syntax.less */
+.chroma .ch {
+  color: #75715e;
+}
+/* CommentMultiline */
+/* line 73, styles\_hugo_syntax.less */
+.chroma .cm {
+  color: #75715e;
+}
+/* CommentSingle */
+/* line 74, styles\_hugo_syntax.less */
+.chroma .c1 {
+  color: #75715e;
+}
+/* CommentSpecial */
+/* line 75, styles\_hugo_syntax.less */
+.chroma .cs {
+  color: #75715e;
+}
+/* CommentPreproc */
+/* line 76, styles\_hugo_syntax.less */
+.chroma .cp {
+  color: #75715e;
+}
+/* CommentPreprocFile */
+/* line 77, styles\_hugo_syntax.less */
+.chroma .cpf {
+  color: #75715e;
+}
+/* Generic */
+/* GenericDeleted */
+/* GenericEmph */
+/* line 80, styles\_hugo_syntax.less */
+.chroma .ge {
+  font-style: italic;
+}
+/* GenericError */
+/* GenericHeading */
+/* GenericInserted */
+/* GenericOutput */
+/* GenericPrompt */
+/* GenericStrong */
+/* line 86, styles\_hugo_syntax.less */
+.chroma .gs {
+  font-weight: bold;
+}
+/* GenericSubheading */
+/* GenericTraceback */
+/* GenericUnderline */
+/* TextWhitespace */

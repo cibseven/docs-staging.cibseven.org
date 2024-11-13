@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/1.0/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/1.0/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/reference/cmmn11/markers/manual-activation-rule/" />
 </head>
 <body class="">
@@ -3169,28 +3169,28 @@
 </ul>
 <p>Automatic activation is the default behavior in which it is not required that a user manually activates a task. In camunda, manual activation can be done by using the <code>CaseService</code> API with <code>caseService.manuallyStartCaseExecution(caseExecutionId)</code>. By specifying a <em>manual activation rule</em>, it is possible to omit this step or make it depend on case variable payload. With manual activation, a user can decide to activate a task or instead disable it. A task that is automatically activated <em>must</em> be carried out.</p>
 <p>In XML, a manual activation rule can be specified for an individual plan item or for a plan item definition. For a plan item it looks as follows:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;planItem</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;PlanItem_HumanTask_1&#34;</span> <span style="color:#a6e22e">definitionRef=</span><span style="color:#e6db74">&#34;HumanTask_1&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;itemControl&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;manualActivationRule&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;condition&gt;</span>${true}<span style="color:#f92672">&lt;/condition&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/manualActivationRule&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/itemControl&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/planItem&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;humanTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;HumanTask_1&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/humanTask&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;planItem</span> <span class="na">id=</span><span class="s">&#34;PlanItem_HumanTask_1&#34;</span> <span class="na">definitionRef=</span><span class="s">&#34;HumanTask_1&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;itemControl&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;manualActivationRule&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;condition&gt;</span>${true}<span class="nt">&lt;/condition&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/manualActivationRule&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/itemControl&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/planItem&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;humanTask</span> <span class="na">id=</span><span class="s">&#34;HumanTask_1&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/humanTask&gt;</span>
 </span></span></code></pre></div><p>The specified expression <code>${true}</code> evaluates to the boolean value <code>true</code> and means that the plan item should become active in only through the human intervention.</p>
 <p>For a plan item definition, the following XML can be used:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;planItem</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;PlanItem_HumanTask_1&#34;</span> <span style="color:#a6e22e">definitionRef=</span><span style="color:#e6db74">&#34;HumanTask_1&#34;</span><span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;humanTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;HumanTask_1&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;defaultControl&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;manualActivationRule&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;condition&gt;</span>${true}<span style="color:#f92672">&lt;/condition&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/manualActivationRule&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/defaultControl&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/humanTask&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;planItem</span> <span class="na">id=</span><span class="s">&#34;PlanItem_HumanTask_1&#34;</span> <span class="na">definitionRef=</span><span class="s">&#34;HumanTask_1&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;humanTask</span> <span class="na">id=</span><span class="s">&#34;HumanTask_1&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;defaultControl&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;manualActivationRule&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;condition&gt;</span>${true}<span class="nt">&lt;/condition&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/manualActivationRule&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/defaultControl&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/humanTask&gt;</span>
 </span></span></code></pre></div><p>The rule specified in the <code>humanTask</code> element is valid for all plan items that reference it, here <code>PlanItem_HumanTask_1</code>.</p>
 
 <div class="note bg-warning docs-warning">
@@ -3199,9 +3199,9 @@
 </div>
 
 <p>As with any expression, you can use case variables to determine the result of a manual activation rule. The following snippet expresses that manual activation is required when a variable <code>var</code> has a value greater than 100:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;manualActivationRule&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;condition&gt;</span>${var &gt; 100}<span style="color:#f92672">&lt;/condition&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/manualActivationRule&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;manualActivationRule&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;condition&gt;</span>${var &gt; 100}<span class="nt">&lt;/condition&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/manualActivationRule&gt;</span>
 </span></span></code></pre></div><p>In terms of the <a href="/manual/1.0/reference/cmmn11/concepts/lifecycle/">task/stage lifecycle</a>, manual activation corresponds to the transition from <code>AVAILABLE</code> to <code>ENABLED</code> when an entry criterion occurs, and from <code>ENABLED</code> to <code>ACTIVE</code> when the task is manually activated. In contrast, automatic activation corresponds to the direct transition from <code>AVAILABLE</code> to <code>ACTIVE</code> that fires immediately when an entry criterion occurs.</p>
 
     </div>

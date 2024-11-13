@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/1.0/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/1.0/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/user-guide/process-engine/decisions/bpmn-cmmn/" />
 </head>
 <body class="">
@@ -3164,44 +3164,44 @@
 <h2 id="bpmn-business-rule-task">BPMN Business Rule Task</h2>
 <p>The BPMN business rule task can reference a <a href="/manual/1.0/user-guide/process-engine/decisions/repository/">deployed</a> decision
 definition. The decision definition is evaluated when the task is executed.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;definitions</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;taskAssigneeExample&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://www.omg.org/spec/BPMN/20100524/MODEL&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">xmlns:camunda=</span><span style="color:#e6db74">&#34;http://camunda.org/schema/1.0/bpmn&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">targetNamespace=</span><span style="color:#e6db74">&#34;Examples&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;process</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;process&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">&lt;!-- ... --&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;businessRuleTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;businessRuleTask&#34;</span>
-</span></span><span style="display:flex;"><span>                      <span style="color:#a6e22e">camunda:decisionRef=</span><span style="color:#e6db74">&#34;myDecision&#34;</span>
-</span></span><span style="display:flex;"><span>                      <span style="color:#a6e22e">camunda:mapDecisionResult=</span><span style="color:#e6db74">&#34;singleEntry&#34;</span>
-</span></span><span style="display:flex;"><span>                      <span style="color:#a6e22e">camunda:resultVariable=</span><span style="color:#e6db74">&#34;result&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">&lt;!-- ... --&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/process&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/definitions&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;definitions</span> <span class="na">id=</span><span class="s">&#34;taskAssigneeExample&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">xmlns=</span><span class="s">&#34;http://www.omg.org/spec/BPMN/20100524/MODEL&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">xmlns:camunda=</span><span class="s">&#34;http://camunda.org/schema/1.0/bpmn&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">targetNamespace=</span><span class="s">&#34;Examples&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;process</span> <span class="na">id=</span><span class="s">&#34;process&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c">&lt;!-- ... --&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;businessRuleTask</span> <span class="na">id=</span><span class="s">&#34;businessRuleTask&#34;</span>
+</span></span><span class="line"><span class="cl">                      <span class="na">camunda:decisionRef=</span><span class="s">&#34;myDecision&#34;</span>
+</span></span><span class="line"><span class="cl">                      <span class="na">camunda:mapDecisionResult=</span><span class="s">&#34;singleEntry&#34;</span>
+</span></span><span class="line"><span class="cl">                      <span class="na">camunda:resultVariable=</span><span class="s">&#34;result&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c">&lt;!-- ... --&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/process&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/definitions&gt;</span>
 </span></span></code></pre></div><p>For more information on how to reference a decision definition from a business
 rule task, please refer to the <a href="/manual/1.0/reference/bpmn20/tasks/business-rule-task/">BPMN 2.0 reference</a>.</p>
 <h2 id="dmn-decision-task">DMN Decision Task</h2>
 <p>The CMMN decision task references a <a href="/manual/1.0/user-guide/process-engine/decisions/repository/">deployed</a> decision definition.
 The decision definition is invoked when the task is activated.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;definitions</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;definitions&#34;</span>
-</span></span><span style="display:flex;"><span>                  <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://www.omg.org/spec/CMMN/20151109/MODEL&#34;</span>
-</span></span><span style="display:flex;"><span>                  <span style="color:#a6e22e">xmlns:camunda=</span><span style="color:#e6db74">&#34;http://camunda.org/schema/1.0/cmmn&#34;</span>
-</span></span><span style="display:flex;"><span>                  <span style="color:#a6e22e">targetNamespace=</span><span style="color:#e6db74">&#34;Examples&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;case</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;case&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;casePlanModel</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;CasePlanModel_1&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;planItem</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;PI_DecisionTask_1&#34;</span> <span style="color:#a6e22e">definitionRef=</span><span style="color:#e6db74">&#34;DecisionTask_1&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;decisionTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;DecisionTask_1&#34;</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#a6e22e">decisionRef=</span><span style="color:#e6db74">&#34;myDecision&#34;</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#a6e22e">camunda:mapDecisionResult=</span><span style="color:#e6db74">&#34;singleEntry&#34;</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#a6e22e">camunda:resultVariable=</span><span style="color:#e6db74">&#34;result&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/decisionTask&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/casePlanModel&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/case&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/definitions&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;definitions</span> <span class="na">id=</span><span class="s">&#34;definitions&#34;</span>
+</span></span><span class="line"><span class="cl">                  <span class="na">xmlns=</span><span class="s">&#34;http://www.omg.org/spec/CMMN/20151109/MODEL&#34;</span>
+</span></span><span class="line"><span class="cl">                  <span class="na">xmlns:camunda=</span><span class="s">&#34;http://camunda.org/schema/1.0/cmmn&#34;</span>
+</span></span><span class="line"><span class="cl">                  <span class="na">targetNamespace=</span><span class="s">&#34;Examples&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;case</span> <span class="na">id=</span><span class="s">&#34;case&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;casePlanModel</span> <span class="na">id=</span><span class="s">&#34;CasePlanModel_1&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;planItem</span> <span class="na">id=</span><span class="s">&#34;PI_DecisionTask_1&#34;</span> <span class="na">definitionRef=</span><span class="s">&#34;DecisionTask_1&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;decisionTask</span> <span class="na">id=</span><span class="s">&#34;DecisionTask_1&#34;</span>
+</span></span><span class="line"><span class="cl">                    <span class="na">decisionRef=</span><span class="s">&#34;myDecision&#34;</span>
+</span></span><span class="line"><span class="cl">                    <span class="na">camunda:mapDecisionResult=</span><span class="s">&#34;singleEntry&#34;</span>
+</span></span><span class="line"><span class="cl">                    <span class="na">camunda:resultVariable=</span><span class="s">&#34;result&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/decisionTask&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/casePlanModel&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/case&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/definitions&gt;</span>
 </span></span></code></pre></div><p>For more information on how to reference a decision definition from a decision
 task, please refer to the <a href="/manual/1.0/reference/cmmn11/tasks/decision-task/">CMMN 1.1 reference</a>.</p>
 <h1 id="the-decision-result">The Decision Result</h1>
@@ -3221,12 +3221,12 @@ the value can be retrieved from the result using the <code>getSingleEntry()</cod
 which combines <code>getSingleResult()</code> and <code>getSingleEntry()</code>.</p>
 <p>For example, the following code returns the output entry with name <code>result</code> of
 the only matched rule.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>DmnDecisionResult decisionResult <span style="color:#f92672">=</span> ...;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Object value <span style="color:#f92672">=</span> decisionResult
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">getSingleResult</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">getEntry</span>(<span style="color:#e6db74">&#34;result&#34;</span>);
-</span></span></code></pre></div><p>It also provides methods to get typed output entries like
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">DmnDecisionResult</span><span class="w"> </span><span class="n">decisionResult</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Object</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">decisionResult</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">getSingleResult</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">getEntry</span><span class="p">(</span><span class="s">&#34;result&#34;</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><p>It also provides methods to get typed output entries like
 <code>getSingleEntryTyped()</code>. Please refer to the <a href="/manual/1.0/user-guide/process-engine/variables/#typed-value-api">User Guide</a> for
 details about typed values. A complete list of all methods can be found in the
 <a href="/javadoc/cibseven/1.0/org/camunda/bpm/dmn/engine/DmnDecisionResult">Java Docs</a>
@@ -3284,15 +3284,15 @@ or <code>resultList</code> then you should consider the <a href="#limitations-of
 <p>To specify the name of the process/case variable to store the result of the
 mapping, the <code>camunda:resultVariable</code> attribute is used.</p>
 <p>BPMN:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;businessRuleTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;businessRuleTask&#34;</span>
-</span></span><span style="display:flex;"><span>                  <span style="color:#a6e22e">camunda:decisionRef=</span><span style="color:#e6db74">&#34;myDecision&#34;</span>
-</span></span><span style="display:flex;"><span>                  <span style="color:#a6e22e">camunda:mapDecisionResult=</span><span style="color:#e6db74">&#34;singleEntry&#34;</span>
-</span></span><span style="display:flex;"><span>                  <span style="color:#a6e22e">camunda:resultVariable=</span><span style="color:#e6db74">&#34;result&#34;</span> <span style="color:#f92672">/&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;businessRuleTask</span> <span class="na">id=</span><span class="s">&#34;businessRuleTask&#34;</span>
+</span></span><span class="line"><span class="cl">                  <span class="na">camunda:decisionRef=</span><span class="s">&#34;myDecision&#34;</span>
+</span></span><span class="line"><span class="cl">                  <span class="na">camunda:mapDecisionResult=</span><span class="s">&#34;singleEntry&#34;</span>
+</span></span><span class="line"><span class="cl">                  <span class="na">camunda:resultVariable=</span><span class="s">&#34;result&#34;</span> <span class="nt">/&gt;</span>
 </span></span></code></pre></div><p>CMMN:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;decisionTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;DecisionTask_1&#34;</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#a6e22e">decisionRef=</span><span style="color:#e6db74">&#34;myDecision&#34;</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#a6e22e">camunda:mapDecisionResult=</span><span style="color:#e6db74">&#34;singleEntry&#34;</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#a6e22e">camunda:resultVariable=</span><span style="color:#e6db74">&#34;result&#34;</span><span style="color:#f92672">&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;decisionTask</span> <span class="na">id=</span><span class="s">&#34;DecisionTask_1&#34;</span>
+</span></span><span class="line"><span class="cl">              <span class="na">decisionRef=</span><span class="s">&#34;myDecision&#34;</span>
+</span></span><span class="line"><span class="cl">              <span class="na">camunda:mapDecisionResult=</span><span class="s">&#34;singleEntry&#34;</span>
+</span></span><span class="line"><span class="cl">              <span class="na">camunda:resultVariable=</span><span class="s">&#34;result&#34;</span><span class="nt">&gt;</span>
 </span></span></code></pre></div>
 <div class="note bg-warning docs-warning">
   <h3>Name of the Result Variable</h3>
@@ -3318,62 +3318,62 @@ then the decision result can be passed into process variables by using an
 <p>For example, if the decision result has multiple output values which should be
 saved in separate process variables this can be done achieved by defining an
 output mapping on the business rule task.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;businessRuleTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;businessRuleTask&#34;</span> <span style="color:#a6e22e">camunda:decisionRef=</span><span style="color:#e6db74">&#34;myDecision&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;camunda:inputOutput&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;camunda:outputParameter</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;result&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>        ${decisionResult.getSingleResult().result}
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/camunda:outputParameter&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;camunda:outputParameter</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;reason&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>        ${decisionResult.getSingleResult().reason}
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/camunda:outputParameter&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/camunda:inputOutput&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/businessRuleTask&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;businessRuleTask</span> <span class="na">id=</span><span class="s">&#34;businessRuleTask&#34;</span> <span class="na">camunda:decisionRef=</span><span class="s">&#34;myDecision&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;camunda:inputOutput&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;camunda:outputParameter</span> <span class="na">name=</span><span class="s">&#34;result&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">        ${decisionResult.getSingleResult().result}
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/camunda:outputParameter&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;camunda:outputParameter</span> <span class="na">name=</span><span class="s">&#34;reason&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">        ${decisionResult.getSingleResult().reason}
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/camunda:outputParameter&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/camunda:inputOutput&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/businessRuleTask&gt;</span>
 </span></span></code></pre></div><p>In addition to an output variable mapping, the decision result can also be
 processed by an <a href="/manual/1.0/user-guide/process-engine/delegation-code/#execution-listener">execution listener</a>, which is attached to the business rule
 task.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;businessRuleTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;businessRuleTask&#34;</span> <span style="color:#a6e22e">camunda:decisionRef=</span><span style="color:#e6db74">&#34;myDecision&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;camunda:executionListener</span> <span style="color:#a6e22e">event=</span><span style="color:#e6db74">&#34;end&#34;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">delegateExpression=</span><span style="color:#e6db74">&#34;${myDecisionResultListener}&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/businessRuleTask&gt;</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyDecisionResultListener</span> <span style="color:#66d9ef">implements</span> ExecutionListener {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Override</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">notify</span>(DelegateExecution execution) <span style="color:#66d9ef">throws</span> Exception {
-</span></span><span style="display:flex;"><span>    DmnDecisionResult decisionResult <span style="color:#f92672">=</span> (DmnDecisionResult) execution.<span style="color:#a6e22e">getVariable</span>(<span style="color:#e6db74">&#34;decisionResult&#34;</span>);
-</span></span><span style="display:flex;"><span>    String result <span style="color:#f92672">=</span> decisionResult.<span style="color:#a6e22e">getSingleResult</span>().<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#34;result&#34;</span>);
-</span></span><span style="display:flex;"><span>    String reason <span style="color:#f92672">=</span> decisionResult.<span style="color:#a6e22e">getSingleResult</span>().<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#34;reason&#34;</span>);
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// ...</span>
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h3 id="custom-mapping-to-case-variables">Custom Mapping to Case Variables</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;businessRuleTask</span> <span class="na">id=</span><span class="s">&#34;businessRuleTask&#34;</span> <span class="na">camunda:decisionRef=</span><span class="s">&#34;myDecision&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;camunda:executionListener</span> <span class="na">event=</span><span class="s">&#34;end&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="na">delegateExpression=</span><span class="s">&#34;${myDecisionResultListener}&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/businessRuleTask&gt;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyDecisionResultListener</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">ExecutionListener</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@Override</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">notify</span><span class="p">(</span><span class="n">DelegateExecution</span><span class="w"> </span><span class="n">execution</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">DmnDecisionResult</span><span class="w"> </span><span class="n">decisionResult</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">DmnDecisionResult</span><span class="p">)</span><span class="w"> </span><span class="n">execution</span><span class="p">.</span><span class="na">getVariable</span><span class="p">(</span><span class="s">&#34;decisionResult&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">decisionResult</span><span class="p">.</span><span class="na">getSingleResult</span><span class="p">().</span><span class="na">get</span><span class="p">(</span><span class="s">&#34;result&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">reason</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">decisionResult</span><span class="p">.</span><span class="na">getSingleResult</span><span class="p">().</span><span class="na">get</span><span class="p">(</span><span class="s">&#34;reason&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// ...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h3 id="custom-mapping-to-case-variables">Custom Mapping to Case Variables</h3>
 <p>If a decision task is used to invoke a decision inside a CMMN case, the
 decision result can be passed to a case variable by using a case execution
 listener which is attached to the decision task.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;decisionTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;decisionTask&#34;</span> <span style="color:#a6e22e">decisionRef=</span><span style="color:#e6db74">&#34;myDecision&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;camunda:caseExecutionListener</span> <span style="color:#a6e22e">event=</span><span style="color:#e6db74">&#34;complete&#34;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;org.camunda.bpm.example.MyDecisionResultListener&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/extensionElements&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/decisionTask&gt;</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyDecisionResultListener</span> <span style="color:#66d9ef">implements</span> CaseExecutionListener {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Override</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">notify</span>(DelegateCaseExecution caseExecution) <span style="color:#66d9ef">throws</span> Exception;
-</span></span><span style="display:flex;"><span>    DmnDecisionResult decisionResult <span style="color:#f92672">=</span> (DmnDecisionResult) caseExecution.<span style="color:#a6e22e">getVariable</span>(<span style="color:#e6db74">&#34;decisionResult&#34;</span>);
-</span></span><span style="display:flex;"><span>    String result <span style="color:#f92672">=</span> decisionResult.<span style="color:#a6e22e">getSingleResult</span>().<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#34;result&#34;</span>);
-</span></span><span style="display:flex;"><span>    String reason <span style="color:#f92672">=</span> decisionResult.<span style="color:#a6e22e">getSingleResult</span>().<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#34;reason&#34;</span>);
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// ...</span>
-</span></span><span style="display:flex;"><span>    caseExecution.<span style="color:#a6e22e">setVariable</span>(<span style="color:#e6db74">&#34;result&#34;</span>, result);
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// ...</span>
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h2 id="limitations-of-the-serialization-of-the-mapping-result">Limitations of the Serialization of the Mapping Result</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;decisionTask</span> <span class="na">id=</span><span class="s">&#34;decisionTask&#34;</span> <span class="na">decisionRef=</span><span class="s">&#34;myDecision&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;camunda:caseExecutionListener</span> <span class="na">event=</span><span class="s">&#34;complete&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="na">class=</span><span class="s">&#34;org.camunda.bpm.example.MyDecisionResultListener&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/decisionTask&gt;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyDecisionResultListener</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">CaseExecutionListener</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@Override</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">notify</span><span class="p">(</span><span class="n">DelegateCaseExecution</span><span class="w"> </span><span class="n">caseExecution</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">DmnDecisionResult</span><span class="w"> </span><span class="n">decisionResult</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">DmnDecisionResult</span><span class="p">)</span><span class="w"> </span><span class="n">caseExecution</span><span class="p">.</span><span class="na">getVariable</span><span class="p">(</span><span class="s">&#34;decisionResult&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">decisionResult</span><span class="p">.</span><span class="na">getSingleResult</span><span class="p">().</span><span class="na">get</span><span class="p">(</span><span class="s">&#34;result&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">reason</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">decisionResult</span><span class="p">.</span><span class="na">getSingleResult</span><span class="p">().</span><span class="na">get</span><span class="p">(</span><span class="s">&#34;reason&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// ...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">caseExecution</span><span class="p">.</span><span class="na">setVariable</span><span class="p">(</span><span class="s">&#34;result&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// ...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h2 id="limitations-of-the-serialization-of-the-mapping-result">Limitations of the Serialization of the Mapping Result</h2>
 <p>The predefined mappings <code>singleResult</code>, <code>collectEntries</code> and <code>resultList</code> map
 the decision result to Java collections. The implementation of the collections
 depends on the used JDK and contains untyped values as Objects. When a collection
@@ -3405,32 +3405,32 @@ calling task. The variables are provided through a read-only variable context.</
 expressions. For example, if a process variable <code>foo</code> exists, then this
 variable can be used in an input expression, input entry and output entry of a decision table
 by its name.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;input</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;input&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!--
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">    this input expression will return the value
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">    of the process/case variable `foo`
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">  --&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;inputExpression&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;text&gt;</span>foo<span style="color:#f92672">&lt;/text&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/inputExpression&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/input&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">&#34;input&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="c">&lt;!--
+</span></span></span><span class="line"><span class="cl"><span class="c">    this input expression will return the value
+</span></span></span><span class="line"><span class="cl"><span class="c">    of the process/case variable `foo`
+</span></span></span><span class="line"><span class="cl"><span class="c">  --&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;inputExpression&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;text&gt;</span>foo<span class="nt">&lt;/text&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/inputExpression&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/input&gt;</span>
 </span></span></code></pre></div><p>The returned value of the process/case variable in the expression will
 be a normal object and not a <a href="/manual/1.0/user-guide/process-engine/variables/#typed-value-api">typed value</a>. If you want
 to use the typed value in your expression, you have to get the variable
 from the variable context. The following snippet does the same as the above
 example. It gets the variable <code>foo</code> from the variable context and returns
 its unwrapped value.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;input</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;input&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!--
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">    this input expression uses the variable context to
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">    get the typed value of the process/case variable `foo`
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">  --&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;inputExpression&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;text&gt;</span>
-</span></span><span style="display:flex;"><span>      variableContext.resolve(&#34;foo&#34;).getValue()
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/text&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/inputExpression&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/input&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">&#34;input&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="c">&lt;!--
+</span></span></span><span class="line"><span class="cl"><span class="c">    this input expression uses the variable context to
+</span></span></span><span class="line"><span class="cl"><span class="c">    get the typed value of the process/case variable `foo`
+</span></span></span><span class="line"><span class="cl"><span class="c">  --&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;inputExpression&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;text&gt;</span>
+</span></span><span class="line"><span class="cl">      variableContext.resolve(&#34;foo&#34;).getValue()
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/text&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/inputExpression&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/input&gt;</span>
 </span></span></code></pre></div><h1 id="expression-language-integration">Expression Language Integration</h1>
 <p>By default, the DMN engine uses <a href="/manual/1.0/reference/dmn/feel/">FEEL</a> as expression language for input
 expressions, input entries, output entries and literal expressions.
@@ -3460,13 +3460,13 @@ Therefore a new <a href="/javadoc/cibseven/1.0/?org/camunda/bpm/engine/impl/java
  has to be implemented. The function mapper than
 has to be added to the process engine configuration after it was
 initialized.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>ProcessEngineConfigurationImpl processEngineConfiguration <span style="color:#f92672">=</span> (ProcessEngineConfigurationImpl) processEngine
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">getProcessEngineConfiguration</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>processEngineConfiguration
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">getExpressionManager</span>()
-</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">addFunctionMapper</span>(<span style="color:#66d9ef">new</span> MyFunctionMapper());
-</span></span></code></pre></div><p>This can be done, for example, by creating a <a href="/manual/1.0/user-guide/process-engine/process-engine-plugins/">process engine plugin</a>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">ProcessEngineConfigurationImpl</span><span class="w"> </span><span class="n">processEngineConfiguration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">ProcessEngineConfigurationImpl</span><span class="p">)</span><span class="w"> </span><span class="n">processEngine</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">getProcessEngineConfiguration</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">processEngineConfiguration</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">getExpressionManager</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">addFunctionMapper</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">MyFunctionMapper</span><span class="p">());</span><span class="w">
+</span></span></span></code></pre></div><p>This can be done, for example, by creating a <a href="/manual/1.0/user-guide/process-engine/process-engine-plugins/">process engine plugin</a>.</p>
 <p>Please <strong>note</strong> that these functions are available in all JUEL expressions
 in the platform, not only in DMN decisions.</p>
 

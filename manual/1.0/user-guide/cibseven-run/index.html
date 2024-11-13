@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/1.0/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/1.0/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/user-guide/cibseven-run/" />
 </head>
 <body class="">
@@ -3533,9 +3533,9 @@ documentation section.</p>
 list items under the <code>process-engine-plugins</code> YAML property.</li>
 </ol>
 <p>Once complete, your YAML configuration file should look similar to the following:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>  <span style="color:#f92672">camunda.bpm.run.process-engine-plugins</span>:
-</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">plugin-class</span>: <span style="color:#ae81ff">canonical.name.of.the.PluginClass</span>
-</span></span></code></pre></div><h4 id="example-process-engine-plugin-registration">Example process engine plugin registration</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="w">  </span><span class="nt">camunda.bpm.run.process-engine-plugins</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">plugin-class</span><span class="p">:</span><span class="w"> </span><span class="l">canonical.name.of.the.PluginClass</span><span class="w">
+</span></span></span></code></pre></div><h4 id="example-process-engine-plugin-registration">Example process engine plugin registration</h4>
 <p>Let&rsquo;s say that you want to register a process engine plugin called <code>TestPlugin</code>. The following information is
 available:</p>
 <ul>
@@ -3559,19 +3559,19 @@ the <code>${RUN_HOME}/configuration/userlib/</code> directory.</p>
 <p>Add the following content to your CIB seven Run YAML configuration file.</p>
 </li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">camunda.bpm.run.process-engine-plugins</span>:
-</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">plugin-class</span>: <span style="color:#ae81ff">org.camunda.bpm.run.test.plugins.TestPlugin</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">plugin-parameters</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">parameterOne</span>: <span style="color:#ae81ff">valueOne</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">parameterTwo</span>: <span style="color:#66d9ef">true</span>
-</span></span></code></pre></div><p>In the example above, we use the <code>TestPlugin</code> canonical name as a YAML key. The YAML value consists of a
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">camunda.bpm.run.process-engine-plugins</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">plugin-class</span><span class="p">:</span><span class="w"> </span><span class="l">org.camunda.bpm.run.test.plugins.TestPlugin</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">plugin-parameters</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">parameterOne</span><span class="p">:</span><span class="w"> </span><span class="l">valueOne</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">parameterTwo</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span></code></pre></div><p>In the example above, we use the <code>TestPlugin</code> canonical name as a YAML key. The YAML value consists of a
 collection of key-value pairs that represent the configuration parameters for the <code>TestPlugin</code> and their values.
 Some process engine plugins don&rsquo;t have configuration parameters. For these, you only need to define the <code>plugin-class</code>
 YAML property, like so:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">camunda.bpm.run.process-engine-plugins</span>:
-</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">plugin-class</span>: <span style="color:#ae81ff">org.camunda.bpm.run.test.plugins.TestPlugin</span>
-</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">plugin-class</span>: <span style="color:#ae81ff">org.camunda.bpm.run.test.plugins.AnotherPlugin</span>
-</span></span></code></pre></div><ol start="3">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">camunda.bpm.run.process-engine-plugins</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">plugin-class</span><span class="p">:</span><span class="w"> </span><span class="l">org.camunda.bpm.run.test.plugins.TestPlugin</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">plugin-class</span><span class="p">:</span><span class="w"> </span><span class="l">org.camunda.bpm.run.test.plugins.AnotherPlugin</span><span class="w">
+</span></span></span></code></pre></div><ol start="3">
 <li>Start CIB seven Run. The <code>TestPlugin</code> will be read from the YAML configuration and registered with the
 process engine.</li>
 </ol>
@@ -3600,15 +3600,15 @@ are however still accessible on the classpath of CIB seven Run. Consult the <a h
 <h2 id="https">HTTPS</h2>
 <p>CIB seven Run supports HTTPS over SSL. To enable it, you will need a valid SSL certificate signed by a trusted provider and stored in a key store file (either .jks or .p12).
 For testing, we included a self-signed certificate. You should not use this in production. To enable it, add the following properties to your configuration file.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">server</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">ssl</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">key-store</span>: <span style="color:#ae81ff">classpath:keystore.p12</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">key-store-password</span>: <span style="color:#ae81ff">camunda</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">key-store-type</span>: <span style="color:#ae81ff">pkcs12</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">key-alias</span>: <span style="color:#ae81ff">camunda</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">key-password</span>: <span style="color:#ae81ff">camunda</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">port</span>: <span style="color:#ae81ff">8443</span>
-</span></span></code></pre></div><p>After starting CIB seven Run, you can access the webapps via https://localhost:8443/camunda/app/ and the REST API via https://localhost:8443/engine-rest/.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">server</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">ssl</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">key-store</span><span class="p">:</span><span class="w"> </span><span class="l">classpath:keystore.p12</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">key-store-password</span><span class="p">:</span><span class="w"> </span><span class="l">camunda</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">key-store-type</span><span class="p">:</span><span class="w"> </span><span class="l">pkcs12</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">key-alias</span><span class="p">:</span><span class="w"> </span><span class="l">camunda</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">key-password</span><span class="p">:</span><span class="w"> </span><span class="l">camunda</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">8443</span><span class="w">
+</span></span></span></code></pre></div><p>After starting CIB seven Run, you can access the webapps via https://localhost:8443/camunda/app/ and the REST API via https://localhost:8443/engine-rest/.</p>
 <table class="table desc-table">
   <tr>
       <th>Prefix</th>

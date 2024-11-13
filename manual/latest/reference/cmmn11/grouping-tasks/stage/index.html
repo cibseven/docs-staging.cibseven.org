@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/latest/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/latest/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/reference/cmmn11/grouping-tasks/stage/" />
 </head>
 <body class="">
@@ -3167,53 +3167,53 @@
 <div class="cmmn-symbol"><img src="/manual/latest//img/short-codes/cmmn-stage-expanded.png" /></div>
 
 <p>A stage is defined in XML as follows:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;stage</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;checkCredit&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- plan items --&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;planItem</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;PI_checkSolvency&#34;</span> <span style="color:#a6e22e">definitionRef=</span><span style="color:#e6db74">&#34;checkSolvency&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;planItem</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;PI_calculateCredit&#34;</span> <span style="color:#a6e22e">definitionRef=</span><span style="color:#e6db74">&#34;calculateCredit&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;planItem</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;PI_calculateHousekeepingBill&#34;</span> <span style="color:#a6e22e">definitionRef=</span><span style="color:#e6db74">&#34;calculateHousekeepingBill&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/stage&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;stage</span> <span class="na">id=</span><span class="s">&#34;checkCredit&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c">&lt;!-- plan items --&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;planItem</span> <span class="na">id=</span><span class="s">&#34;PI_checkSolvency&#34;</span> <span class="na">definitionRef=</span><span class="s">&#34;checkSolvency&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;planItem</span> <span class="na">id=</span><span class="s">&#34;PI_calculateCredit&#34;</span> <span class="na">definitionRef=</span><span class="s">&#34;calculateCredit&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;planItem</span> <span class="na">id=</span><span class="s">&#34;PI_calculateHousekeepingBill&#34;</span> <span class="na">definitionRef=</span><span class="s">&#34;calculateHousekeepingBill&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/stage&gt;</span>
 </span></span></code></pre></div><p>Furthermore, a case always refers to one stage as its <em>case plan model</em>. The case plan model defines the <em>outermost</em> stage of the case. This outermost stage also contains all plan item definitions that are used in the case.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;case&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;casePlanModel&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">&lt;!-- plan items --&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;planItem</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;PI_checkCredit&#34;</span> <span style="color:#a6e22e">definitionRef=</span><span style="color:#e6db74">&#34;checkCredit&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">&lt;!-- plan item definitions --&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;humanTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;checkSolvency&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Check Solvency&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;humanTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;calculateCredit&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Calculate Credit&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;humanTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;calculateHousekeepingBill&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Calculate Hausekeeping Bill&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;stage</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;checkCredit&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      <span style="color:#75715e">&lt;!-- plan items --&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;planItem</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;PI_checkSolvency&#34;</span> <span style="color:#a6e22e">definitionRef=</span><span style="color:#e6db74">&#34;checkSolvency&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;planItem</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;PI_calculateCredit&#34;</span> <span style="color:#a6e22e">definitionRef=</span><span style="color:#e6db74">&#34;calculateCredit&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;planItem</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;PI_calculateHousekeepingBill&#34;</span> <span style="color:#a6e22e">definitionRef=</span><span style="color:#e6db74">&#34;calculateHousekeepingBill&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/stage&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/casePlanModel&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/case&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;case&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;casePlanModel&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c">&lt;!-- plan items --&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;planItem</span> <span class="na">id=</span><span class="s">&#34;PI_checkCredit&#34;</span> <span class="na">definitionRef=</span><span class="s">&#34;checkCredit&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c">&lt;!-- plan item definitions --&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;humanTask</span> <span class="na">id=</span><span class="s">&#34;checkSolvency&#34;</span> <span class="na">name=</span><span class="s">&#34;Check Solvency&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;humanTask</span> <span class="na">id=</span><span class="s">&#34;calculateCredit&#34;</span> <span class="na">name=</span><span class="s">&#34;Calculate Credit&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;humanTask</span> <span class="na">id=</span><span class="s">&#34;calculateHousekeepingBill&#34;</span> <span class="na">name=</span><span class="s">&#34;Calculate Hausekeeping Bill&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;stage</span> <span class="na">id=</span><span class="s">&#34;checkCredit&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="c">&lt;!-- plan items --&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;planItem</span> <span class="na">id=</span><span class="s">&#34;PI_checkSolvency&#34;</span> <span class="na">definitionRef=</span><span class="s">&#34;checkSolvency&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;planItem</span> <span class="na">id=</span><span class="s">&#34;PI_calculateCredit&#34;</span> <span class="na">definitionRef=</span><span class="s">&#34;calculateCredit&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;planItem</span> <span class="na">id=</span><span class="s">&#34;PI_calculateHousekeepingBill&#34;</span> <span class="na">definitionRef=</span><span class="s">&#34;calculateHousekeepingBill&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/stage&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/casePlanModel&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/case&gt;</span>
 </span></span></code></pre></div><p>Note: The listed plan item definitions inside the <code>casePlanModel</code> are referenced by plan items in the case plan model itself (i.e., stage), as well as by plan items in nested stages. Plan item definitions must not be contained by any other stage than the case plan model.</p>
 <p>A stage in state <code>ENABLED</code> can be started manually using the <code>CaseService</code> as follows:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>caseService.<span style="color:#a6e22e">manuallyStartCaseExecution</span>(<span style="color:#e6db74">&#34;aCaseExecutionId&#34;</span>);
-</span></span></code></pre></div><p>When the stage becomes <code>ACTIVE</code>, the contained plan items are instantiated and reach the state <code>AVAILABLE</code>. A stage in this state always contains at least one stage or task instance in the state <code>AVAILABLE</code>, <code>ENABLED</code>, or <code>ACTIVE</code>. In other words, a stage completes automatically if a user has no option to do further work on its contained plan items. This means that if a contained plan item completes or is disabled, the stage is notified about that state transition and checks if it is able to complete. A stage instance can only complete if there are no contained plan items in the state <code>ACTIVE</code>, and all are either in state <code>DISABLED</code> or <code>COMPLETED</code>. In case the check succeeds, the stage instance completes.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">caseService</span><span class="p">.</span><span class="na">manuallyStartCaseExecution</span><span class="p">(</span><span class="s">&#34;aCaseExecutionId&#34;</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><p>When the stage becomes <code>ACTIVE</code>, the contained plan items are instantiated and reach the state <code>AVAILABLE</code>. A stage in this state always contains at least one stage or task instance in the state <code>AVAILABLE</code>, <code>ENABLED</code>, or <code>ACTIVE</code>. In other words, a stage completes automatically if a user has no option to do further work on its contained plan items. This means that if a contained plan item completes or is disabled, the stage is notified about that state transition and checks if it is able to complete. A stage instance can only complete if there are no contained plan items in the state <code>ACTIVE</code>, and all are either in state <code>DISABLED</code> or <code>COMPLETED</code>. In case the check succeeds, the stage instance completes.</p>
 <h1 id="camunda-extensions">Camunda Extensions</h1>
 <table class="table table-striped">
   <tr>

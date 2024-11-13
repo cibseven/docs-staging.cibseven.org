@@ -23,7 +23,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/1.0/css/docs.b3fedf4dfbf950a3c4bf2e26f0c445812357010c82caee6244f248eb4c57c20a.css" integrity="sha256-s/7fTfv5UKPEvy4m8MRFgSNXAQyCyu5iRPJI60xXwgo=">
+  <link rel="stylesheet" href="/manual/1.0/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
   <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/user-guide/dmn-engine/data-types/" />
 </head>
 <body class="">
@@ -3224,33 +3224,33 @@ implement a custom type and <a href="/manual/1.0/user-guide/dmn-engine/embed/#re
 <h1 id="setting-the-data-type-of-an-input">Setting the Data Type of an Input</h1>
 <p>The type of a decision table input is specified by the <code>typeRef</code> attribute on the
 <code>inputExpression</code> element.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;decision&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;decisionTable&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;input</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;orderSum&#34;</span> <span style="color:#a6e22e">label=</span><span style="color:#e6db74">&#34;Order sum&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;inputExpression</span> <span style="color:#a6e22e">typeRef=</span><span style="color:#e6db74">&#34;double&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;text&gt;</span>sum<span style="color:#f92672">&lt;/text&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/inputExpression&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/input&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">&lt;!-- ... --&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/decisionTable&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/decision&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;decision&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;decisionTable&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">&#34;orderSum&#34;</span> <span class="na">label=</span><span class="s">&#34;Order sum&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;inputExpression</span> <span class="na">typeRef=</span><span class="s">&#34;double&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;text&gt;</span>sum<span class="nt">&lt;/text&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/inputExpression&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/input&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="c">&lt;!-- ... --&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/decisionTable&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/decision&gt;</span>
 </span></span></code></pre></div><h1 id="setting-the-data-type-of-an-output">Setting the Data Type of an Output</h1>
 <p>The type of a decision table output is specified by the <code>typeRef</code> attribute on the <code>output</code>
 element.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;decision&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;decisionTable&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">&lt;!-- ... --&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;output</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;result&#34;</span> <span style="color:#a6e22e">label=</span><span style="color:#e6db74">&#34;Check Result&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;result&#34;</span> <span style="color:#a6e22e">typeRef=</span><span style="color:#e6db74">&#34;string&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">&lt;!-- ... --&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/decisionTable&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/decision&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;decision&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;decisionTable&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="c">&lt;!-- ... --&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;output</span> <span class="na">id=</span><span class="s">&#34;result&#34;</span> <span class="na">label=</span><span class="s">&#34;Check Result&#34;</span> <span class="na">name=</span><span class="s">&#34;result&#34;</span> <span class="na">typeRef=</span><span class="s">&#34;string&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="c">&lt;!-- ... --&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/decisionTable&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/decision&gt;</span>
 </span></span></code></pre></div><h1 id="setting-the-data-type-of-a-variable">Setting the Data Type of a Variable</h1>
 <p>The type of a decision literal expression result is specified by the <code>typeRef</code> attribute on the <code>variable</code>
 element.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;decision&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;variable</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;result&#34;</span> <span style="color:#a6e22e">typeRef=</span><span style="color:#e6db74">&#34;string&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- ... --&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/decision&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;decision&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;variable</span> <span class="na">name=</span><span class="s">&#34;result&#34;</span> <span class="na">typeRef=</span><span class="s">&#34;string&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="c">&lt;!-- ... --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/decision&gt;</span>
 </span></span></code></pre></div><h1 id="implement-a-custom-data-type">Implement a Custom Data Type</h1>
 
 <div class="note bg-warning docs-warning">
@@ -3266,14 +3266,14 @@ constants.</p>
 . The transformation is processed in the
 <code>transform()</code> method and returns a typed value. If it cannot successfully transform a value,
 it must throw an <code>IllegalArgumentException</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CustomDataTypeTransformer</span> <span style="color:#66d9ef">implements</span> DmnDataTypeTransformer {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> TypedValue <span style="color:#a6e22e">transform</span>(Object value) <span style="color:#66d9ef">throws</span> IllegalArgumentException {
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// transform the value into a typed value</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> typedValue;
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>To use this data type transformer in the DMN engine, add it to the
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CustomDataTypeTransformer</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">DmnDataTypeTransformer</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">TypedValue</span><span class="w"> </span><span class="nf">transform</span><span class="p">(</span><span class="n">Object</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">IllegalArgumentException</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// transform the value into a typed value</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">typedValue</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>To use this data type transformer in the DMN engine, add it to the
 <a href="/manual/1.0/user-guide/dmn-engine/embed/#register-dmn-data-type-transformers">DMN engine configuration</a>.</p>
 
     </div>
