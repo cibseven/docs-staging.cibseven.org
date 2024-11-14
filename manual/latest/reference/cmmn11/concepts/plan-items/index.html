@@ -3173,8 +3173,8 @@
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/defintions&gt;</span>
 </span></span></code></pre></div><p>This model contains one plan item definition, namely the <code>humanTask</code> element. This definition is referenced by two plan items, <code>PlanItem_HumanTask_1</code> and <code>PlanItem_HumanTask_2</code>. When a new case of this model is created, there will be two human task instances, one for each plan item. The plan item definition is the single point at which the human task is configured. Thus, the assignee specification by the attribute <code>camunda:assignee=&quot;kermit&quot;</code> is valid for both plan items.</p>
 <p>Accordingly, a case plan model that contains plan item definitions but no plan items will appear as a case with no tasks at runtime.</p>
-<p>Apart from reuse of configuration, plan item definitions can be instantiated at runtime, typically referred to as <em>planning</em>. Planning allows users to create plan items of a well-defined set of plan item definitions dynamically as needed. Note that planning is currently not supported by the Camunda engine.</p>
-<p>This reference describes, if not otherwise noted, the plan item definitions supported by the Camunda engine. Whenever there is a consideration of runtime state, it is assumed that a plan item referencing that definition exists.</p>
+<p>Apart from reuse of configuration, plan item definitions can be instantiated at runtime, typically referred to as <em>planning</em>. Planning allows users to create plan items of a well-defined set of plan item definitions dynamically as needed. Note that planning is currently not supported by the CIB seven engine.</p>
+<p>This reference describes, if not otherwise noted, the plan item definitions supported by the CIB seven engine. Whenever there is a consideration of runtime state, it is assumed that a plan item referencing that definition exists.</p>
 
     </div>
   </div>

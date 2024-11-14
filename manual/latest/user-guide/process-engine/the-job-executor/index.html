@@ -3462,14 +3462,14 @@ Incidents and historic incidents related to the job can be requested via Java AP
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;/properties&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/process-engine&gt;</span>
 </span></span></code></pre></div><p>The configuration follows the <a href="http://en.wikipedia.org/wiki/ISO_8601#Repeating_intervals">ISO_8601 standard for repeating time intervals</a>. In the example, <code>R5/PT5M</code> means that the maximum number of retries is 5 (<code>R5</code>) and the delay of retry is 5 minutes (<code>PT5M</code>).</p>
-<p>The Camunda engine allows you to configure this setting for the following specific elements:</p>
+<p>The CIB seven engine allows you to configure this setting for the following specific elements:</p>
 <ul>
 <li><a href="#use-a-custom-job-retry-configuration-for-activities">Activities (tasks, call activities, subprocesses)</a></li>
 <li><a href="#use-a-custom-job-retry-configuration-for-events">Events</a></li>
 <li><a href="#use-a-custom-job-retry-configuration-for-multi-instance-activities">Multi-Instance Activities </a></li>
 </ul>
 <h4 id="use-a-custom-job-retry-configuration-for-activities">Use a Custom Job Retry Configuration for Activities</h4>
-<p>As soon as the retry configuration is enabled, it can be applied to tasks, call activities, embedded subprocesses and transactions subprocesses. For instance, the job retry in a task can be configured in the Camunda engine in the BPMN 2.0 XML as follows:</p>
+<p>As soon as the retry configuration is enabled, it can be applied to tasks, call activities, embedded subprocesses and transactions subprocesses. For instance, the job retry in a task can be configured in the CIB seven engine in the BPMN 2.0 XML as follows:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;definitions</span> <span class="na">xmlns:camunda=</span><span class="s">&#34;http://camunda.org/schema/1.0/bpmn&#34;</span><span class="nt">&gt;</span>
 </span></span><span class="line"><span class="cl">  ...
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;serviceTask</span> <span class="na">id=</span><span class="s">&#34;failingServiceTask&#34;</span> <span class="na">camunda:asyncBefore=</span><span class="s">&#34;true&#34;</span> <span class="na">camunda:class=</span><span class="s">&#34;org.mycompany.FailingDelegate&#34;</span><span class="nt">&gt;</span>

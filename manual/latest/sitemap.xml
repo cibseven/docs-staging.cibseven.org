@@ -1011,10 +1011,6 @@
   </url>
   
   <url>
-    <loc>https://docs.cibseven.de/manual/1.0/reference/spin/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.cibseven.de/manual/1.0/user-guide/cdi-java-ee-integration/</loc>
   </url>
   
@@ -1092,6 +1088,10 @@
   
   <url>
     <loc>https://docs.cibseven.de/manual/1.0/reference/bpmn20/events/signal-events/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.cibseven.de/manual/1.0/reference/spin/</loc>
   </url>
   
   <url>

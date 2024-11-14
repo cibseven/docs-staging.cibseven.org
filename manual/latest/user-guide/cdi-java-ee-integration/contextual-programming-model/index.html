@@ -3192,7 +3192,7 @@ Note that the process instance is started after the annotated method returns. Ex
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c1">// do some work</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="s">&#34;success&#34;</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
-</span></span></span></code></pre></div><p>Depending on the configuration of the Camunda engine, the code of the annotated method and the starting of the process
+</span></span></span></code></pre></div><p>Depending on the configuration of the CIB seven engine, the code of the annotated method and the starting of the process
 instance will be combined in the same transaction. The <code>@org.camunda.bpm.engine.cdi.annotation.CompleteTask</code>-annotation
 works in the same way:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@CompleteTask</span><span class="p">(</span><span class="n">endConversation</span><span class="o">=</span><span class="kc">false</span><span class="p">)</span><span class="w">

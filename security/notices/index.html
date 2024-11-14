@@ -161,7 +161,7 @@
     </div>
 
     <div class="col-xs-12 content-text">
-      <p>On this page, Camunda publishes security notices <em>after</em> fixes are available.
+      <p>On this page, we publish security notices <em>after</em> fixes are available.
 Fixes are available as alpha or minor releases of the CIB seven platform.</p>
 <h1 id="notices">Notices</h1>
 <h2 id="notice-120">Notice 120</h2>
@@ -2735,7 +2735,7 @@ This fix updates the Apache Commons-Fileupload patch level version to a version 
 <p>Scenario 2:</p>
 <ul>
 <li>Installation has Groovy on the classpath</li>
-<li>AND Customer has embedded the Camunda Engine (Java Library) in their own application.</li>
+<li>AND Customer has embedded the CIB seven engine (Java Library) in their own application.</li>
 <li>AND the attacker has access to customer application and without prior checks is able to supply a serialized representation of a Java Object to the Customer&rsquo;s application which is passed directly to the process engine without prior inspection.</li>
 </ul>
 <p>Note that while this particular vulnerability affects Groovy, java serialization has security issues in general and different exploits are possible. Camunda has also provided a patch which allows users to configure the product such that it prevents submission of Java Objects in serialized form all together (see &ldquo;Solution&rdquo;).</p>

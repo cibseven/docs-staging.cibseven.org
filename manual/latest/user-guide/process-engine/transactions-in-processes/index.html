@@ -3397,8 +3397,8 @@ shows how the class can be used:</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">ProcessEngineContext</span><span class="p">.</span><span class="na">clear</span><span class="p">();</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
 </span></span></span></code></pre></div><h1 id="optimistic-locking">Optimistic Locking</h1>
-<p>The Camunda Engine can be used in multi threaded applications. In such a setting, when multiple threads interact with the process engine concurrently, it can happen that these threads attempt to do changes to the same data. For example: two threads attempt to complete the same User Task at the same time (concurrently). Such a situation is a conflict: the task can be completed only once.</p>
-<p>Camunda Engine uses a well known technique called &ldquo;Optimistic Locking&rdquo; (or Optimistic Concurrently Control) to detect and resolve such situations.</p>
+<p>The CIB seven engine can be used in multi threaded applications. In such a setting, when multiple threads interact with the process engine concurrently, it can happen that these threads attempt to do changes to the same data. For example: two threads attempt to complete the same User Task at the same time (concurrently). Such a situation is a conflict: the task can be completed only once.</p>
+<p>CIB seven engine uses a well known technique called &ldquo;Optimistic Locking&rdquo; (or Optimistic Concurrently Control) to detect and resolve such situations.</p>
 <p>This section is structured in two parts: The first part introduces Optimistic Locking as a concept. You can skip this section in case you are already familiar with Optimistic Locking as such. The second part explains the usage of Optimistic Locking in Camunda.</p>
 <h2 id="what-is-optimistic-locking">What is Optimistic Locking?</h2>
 <p>Optimistic Locking (also Optimistic Concurrency Control) is a method for concurrency control, which is used in
@@ -3452,8 +3452,8 @@ transaction based systems. Optimistic Locking is most efficient in situations in
 <li><a href="https://en.wikipedia.org/wiki/Optimistic_concurrency_control">[1] Wikipedia: Optimistic concurrency control</a></li>
 <li><a href="http://stackoverflow.com/questions/129329/optimistic-vs-pessimistic-locking">[2] Stackoverflow: Optimistic vs. Pessimistic Locking</a></li>
 </ul>
-<h2 id="optimistic-locking-in-camunda">Optimistic Locking in Camunda</h2>
-<p>Camunda uses Optimistic Locking for concurrency control. If a concurrency conflict is detected,
+<h2 id="optimistic-locking-in-cib-seven">Optimistic Locking in CIB seven</h2>
+<p>CIB seven uses Optimistic Locking for concurrency control. If a concurrency conflict is detected,
 an exception is thrown and the transaction is rolled back. Conflicts are detected when <em>UPDATE</em> or <em>DELETE</em> statements are executed.
 The execution of delete or update statements return an affected rows count.
 If this count is equal to zero, it indicates that the row was previously updated or deleted.
@@ -3466,7 +3466,7 @@ Consider the following invocation of the <code>completeTask(...)</code> method:<
 <p>Job execution can also cause an <code>OptimisticLockingException</code> to be thrown. Since this is expected, the execution will be retried.</p>
 <h4 id="handling-optimistic-locking-exceptions">Handling Optimistic Locking exceptions</h4>
 <p>In case the current Command is triggered by the Job Executor, <code>OptimisticLockingException</code>s are handled automatically using retries. Since this exception is expected to occur, it does not decrement the retry count.</p>
-<p>If the current Command is triggered by an external API call, the Camunda Engine rolls back the current transaction to the last save point (wait state). Now the user has to decide how the exception should be handled, if the transaction should be retried or not. Also consider that even if the transaction was rolled back, it may have had non-transactional side effects which have not been rolled back.</p>
+<p>If the current Command is triggered by an external API call, the CIB seven engine rolls back the current transaction to the last save point (wait state). Now the user has to decide how the exception should be handled, if the transaction should be retried or not. Also consider that even if the transaction was rolled back, it may have had non-transactional side effects which have not been rolled back.</p>
 <p>To control the scope of transactions, explicit save points can be added before and after activities using Asynchronous Continuations.</p>
 <h3 id="common-places-where-optimistic-locking-exceptions-are-thrown">Common Places Where Optimistic Locking Exceptions Are Thrown</h3>
 <p>There a some common places where an <code>OptimisticLockingException</code> can be thrown.
@@ -3494,7 +3494,7 @@ Both transactions try to update a row, which indicates that they are the first o
 Non-transactional work like creation of files or the effects of invoking non-transactional web services will not be undone. This can end in inconsistent state.</p>
 <p>There are several solutions to this problem, the most common one is eventual consolidation using retries.</p>
 <h3 id="internal-implementation-details">Internal Implementation Details</h3>
-<p>Most of the Camunda Engine database tables contain a column called <code>REV_</code>. This column represents the revision version.
+<p>Most of the CIB seven engine database tables contain a column called <code>REV_</code>. This column represents the revision version.
 When reading a row, data is read at a given &ldquo;revision&rdquo;. Modifications (UPDATEs and DELETEs) always attempt to update the revision which was read by the current command. Updates increment the revision. After executing a modification statement, the affected rows count is checked. If the count is <code>1</code> it is deduced that the version read was still current when executing the modification. In case the affected rows count is <code>0</code>, other transaction modified the same data while this transaction was running. This means that a concurrency conflict is detected and this transaction must not be allowed to commit. Subsequently, the transaction is rolled back (or marked rollback-only) and an <code>OptimisticLockingException</code> is thrown.</p>
 
     </div>
@@ -3525,7 +3525,7 @@ When reading a row, data is read at a given &ldquo;revision&rdquo;. Modification
         <li><a href="#further-reading">Further Reading</a></li>
       </ul>
     </li>
-    <li><a href="#optimistic-locking-in-camunda">Optimistic Locking in Camunda</a>
+    <li><a href="#optimistic-locking-in-cib-seven">Optimistic Locking in CIB seven</a>
       <ul>
         <li><a href="#the-optimisticlockingexception">The OptimisticLockingException</a></li>
         <li><a href="#common-places-where-optimistic-locking-exceptions-are-thrown">Common Places Where Optimistic Locking Exceptions Are Thrown</a></li>

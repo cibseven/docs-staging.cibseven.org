@@ -3292,7 +3292,7 @@ is intentional, in order to avoid creating event loops.</p>
 </div>
 
 <h2 id="assignments-and-identity-service">Assignments and Identity Service</h2>
-<p>Although the Camunda engine provides an identity management component, which is exposed through the IdentityService, it does not check whether a provided user is known by the identity component. This allows integration of the engine with existing identity management solutions when it is embedded into an application.</p>
+<p>Although the CIB seven engine provides an identity management component, which is exposed through the IdentityService, it does not check whether a provided user is known by the identity component. This allows integration of the engine with existing identity management solutions when it is embedded into an application.</p>
 <p>However, note that you can use the identity service in a service / bean or listener to query your user repository if this is useful to you.</p>
 <p>You can query for users with the help of the identity service. See the following example:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">ProcessEngine</span><span class="w"> </span><span class="n">processEngine</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">delegateTask</span><span class="p">.</span><span class="na">getProcessEngine</span><span class="p">();</span><span class="w">

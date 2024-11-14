@@ -3212,7 +3212,7 @@
   </tr>
 </table>
 <h1 id="message-api">Message Api</h1>
-<p>As an embeddable process engine, the Camunda engine is not concerned with the receiving part of the message. This would be environment dependent and entails platform-specific activities such as connecting to a JMS (Java Messaging Service) Queue/Topic or processing a Webservice or REST request. The reception of messages is therefore something you have to implement as part of the application or infrastructure into which the process engine is embedded.</p>
+<p>As an embeddable process engine, the CIB seven engine is not concerned with the receiving part of the message. This would be environment dependent and entails platform-specific activities such as connecting to a JMS (Java Messaging Service) Queue/Topic or processing a Webservice or REST request. The reception of messages is therefore something you have to implement as part of the application or infrastructure into which the process engine is embedded.</p>
 <p>After you have received a message, you can choose whether you employ the engine&rsquo;s built-in correlation or explicitly deliver the message to start a new process instance or trigger a waiting execution.</p>
 <h2 id="using-the-runtime-services-correlation-methods">Using the Runtime Service&rsquo;s Correlation Methods</h2>
 <p>The engine offers a basic correlation mechanism that will either signal an execution waiting for a specific message or instantiate a process with a matching message start event. The <code>RuntimeService</code> provides a fluent message correlation API:</p>

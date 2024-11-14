@@ -3419,7 +3419,7 @@ events. The reason is that the process engine can be run on multiple cluster nod
 <li>in a cluster, events happening in a single process instance may be generated on different nodes
 among which the clock may not be synced accurately down to nanoseconds.</li>
 </ul>
-<p>To work around this, the Camunda engine generates sequence numbers which can be used to <em>partially</em>
+<p>To work around this, the CIB seven engine generates sequence numbers which can be used to <em>partially</em>
 sort history events by their occurrence.</p>
 <p>At a BPMN level this means that instances of concurrent activities (example: activities on different
 parallel branches after a parallel gateway) cannot be compared to each other. Instances of
