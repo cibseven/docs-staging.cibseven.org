@@ -30,7 +30,7 @@
   <div class="navbar-container">
     <div class="navbar-header">
       <a href="/">
-      <img src="/get-started/img/logo.png" style="padding:0 5px 7px 0;">
+      <img src="/get-started/img/logo.png" style="padding:0 5px 7px 0;max-width:75%">
         <span class="site-name">Docs</span>
       </a>
     </div>
@@ -314,7 +314,7 @@ We also use <code>spring-boot-maven-plugin</code>, which does all the magic for 
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;properties&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;camunda.spring-boot.version&gt;</span>7.22.0-cibseven<span class="nt">&lt;/camunda.spring-boot.version&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&lt;spring-boot.version&gt;</span>3.3.3<span class="nt">&lt;/spring-boot.version&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;spring-boot.version&gt;</span>3.3.5<span class="nt">&lt;/spring-boot.version&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;maven.compiler.release&gt;</span>17<span class="nt">&lt;/maven.compiler.release&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;/properties&gt;</span>
 </span></span><span class="line"><span class="cl">  
@@ -384,8 +384,8 @@ We also use <code>spring-boot-maven-plugin</code>, which does all the magic for 
 </span></span></code></pre></div><h2 id="add-main-class-to-our-spring-boot-application">Add Main Class to our Spring Boot Application</h2>
 <p>Next, we add an application class with a main method that will be the entry point for launching the Spring Boot application. The class has the annotation <code>@SpringBootApplication</code> on it,
 which implicitly adds several convenient features (autoconfiguration, component scan, etc. - see Spring Boot docs).
-The class is added in the <code>src/main/java</code> folder in the <code>org.camunda.bpm.getstarted.loanapproval</code> package.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nn">org.camunda.bpm.getstarted.loanapproval</span><span class="p">;</span><span class="w">
+The class is added in the <code>src/main/java</code> folder in the <code>de.cibseven.getstarted.loanapproval</code> package.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nn">de.cibseven.getstarted.loanapproval</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.boot.SpringApplication</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.boot.autoconfigure.SpringBootApplication</span><span class="p">;</span><span class="w">

@@ -32,7 +32,7 @@
   <div class="navbar-container">
     <div class="navbar-header">
       <a href="/manual/latest/">
-      <img src="/manual/latest/img/logo.png" style="padding:0 5px 7px 0;">
+      <img src="/manual/latest/img/logo.png" style="padding:0 5px 7px 0;max-width:75%">
         <span class="site-name">Docs</span>
       </a>
     </div>
@@ -3159,8 +3159,8 @@
     </div>
 
     <div class="col-xs-12 content-text">
-      <p>The <strong>Camunda External Task Client</strong> allows you to set up remote service tasks for your workflow. There is a supported <a href="https://github.com/camunda/camunda-bpm-platform/tree/master/clients/java">Java</a>
-as well as <a href="https://github.com/camunda/camunda-external-task-client-js">JavaScript</a> implementation.</p>
+      <p>The <strong>CIB seven External Task Client</strong> allows you to set up remote service tasks for your workflow. There is a supported <a href="https://github.com/cibseven/cibseven/tree/master/clients/java">Java</a>
+as well as <a href="https://github.com/cibseven/cibseven-external-task-client-js">JavaScript</a> implementation.</p>
 <h2 id="features">Features</h2>
 <ul>
 <li>Complete External Tasks</li>
@@ -3179,12 +3179,12 @@ as well as <a href="https://github.com/camunda/camunda-external-task-client-js">
 </figure>
 
 <p>The client allows to handle service tasks of type &ldquo;external&rdquo;. In order to configure and instantiate the client, all supported implementations offer a convenient interface.
-The communication between the client and the Camunda Workflow Engine is HTTP. Hence, the respective URL of the REST API is a mandatory information.</p>
+The communication between the client and the CIB seven workflow engine is HTTP. Hence, the respective URL of the REST API is a mandatory information.</p>
 <h3 id="request-interceptors">Request Interceptors</h3>
 <p>To add additional HTTP headers to the performed REST API requests, the request interceptor method can be used. This becomes necessary,
 in the context of e.g. authentication.</p>
 <h4 id="basic-authentication">Basic Authentication</h4>
-<p>In some cases it is necessary to secure the REST API of the Camunda Workflow Engine via Basic Authentication. For such
+<p>In some cases it is necessary to secure the REST API of the CIB seven workflow engine via Basic Authentication. For such
 situations a Basic Authentication implementation is provided by the client. Once configured with user credentials, the basic authentication header is added to each REST API request.</p>
 <h4 id="custom-interceptor">Custom Interceptor</h4>
 <p>Custom interceptors can be added while bootstrapping the client. For more details regarding the implementation please check the documentation related to the client of interest.</p>
@@ -3293,8 +3293,8 @@ The method accepts a <code>Consumer</code> as parameter that gives you access to
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="p">.</span><span class="na">build</span><span class="p">()))</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w">
 </span></span></span></code></pre></div><h2 id="examples">Examples</h2>
-<p>Complete examples of how to set up the different External Task Clients can be found on GitHub (<a href="https://github.com/camunda/camunda-bpm-examples/tree/1.0/clients/java">Java</a>,
-<a href="https://github.com/camunda/camunda-external-task-client-js/tree/master/examples">JavaScript</a>).</p>
+<p>Complete examples of how to set up the different External Task Clients can be found on Camunda&rsquo;s GitHub (<a href="https://github.com/camunda/camunda-bpm-examples/tree/1.0/clients/java">Java</a>,
+<a href="https://github.com/cibseven/cibseven-external-task-client-js/tree/master/examples">JavaScript</a>).</p>
 <h2 id="external-task-throughput">External task throughput</h2>
 <p>For a high throughput of external tasks, you should balance between the number of external task instances, the number of clients and the duration of handling the work.</p>
 <p>A rule of thumb for long running tasks (maybe more than 30 secs) would be, to fetch-and-lock the tasks one by one (maskTasks = 1) and adjust the Long Polling interval to your needs (maybe 60 secs, asyncResponseTime = 60000).

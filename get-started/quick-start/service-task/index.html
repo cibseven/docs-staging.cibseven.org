@@ -30,7 +30,7 @@
   <div class="navbar-container">
     <div class="navbar-header">
       <a href="/">
-      <img src="/get-started/img/logo.png" style="padding:0 5px 7px 0;">
+      <img src="/get-started/img/logo.png" style="padding:0 5px 7px 0;max-width:75%">
         <span class="site-name">Docs</span>
       </a>
     </div>
@@ -284,7 +284,7 @@
     <div class="col-xs-12 content-text">
       <p>In this section, you&rsquo;ll learn how to create your first BPMN 2.0 process with the Camunda Modeler and how to execute automated steps. Start by opening up Camunda Modeler.</p>
 <h1 id="create-a-new-bpmn-diagram">Create a new BPMN Diagram</h1>
-<p>Create a new BPMN diagram by clicking <em>File &gt; New File &gt; BPMN Diagram (Camunda Platform)</em>.</p>
+<p>Create a new BPMN diagram by clicking <em>File &gt; New File &gt; BPMN Diagram (Camunda 7)</em>.</p>
 <figure class="image">
   <span><img
       src="../img/modeler-new-bpmn-diagram.png"
@@ -299,7 +299,7 @@
        /></span>
 </figure>
 
-<p>Double-click on the Start Event. A text box will open. Name the Start Event &ldquo;Payment Retrieval Requested&rdquo;.</p>
+<p>Double-click on the Start Event. A text box will open. Name the Start Event <em>Payment Retrieval Requested</em>.</p>
 
 <div class="note bg-info docs-info">
   <h3>Hint</h3>
@@ -321,7 +321,7 @@
 </figure>
 
 <h2 id="configure-the-service-task">Configure the Service Task</h2>
-<p>There are different ways to <a href="https://docs.camunda.org/manual/latest/reference/bpmn20/tasks/service-task/">execute service tasks</a> using Camunda Platform. In this guide, we&rsquo;ll use the external <a href="https://docs.camunda.org/manual/latest/user-guide/process-engine/external-tasks/">task pattern</a>.
+<p>There are different ways to <a href="/manual/latest/reference/bpmn20/tasks/service-task/">execute service tasks</a> using CIB seven. In this guide, we&rsquo;ll use the <a href="/manual/latest/user-guide/process-engine/external-tasks/">external task</a> pattern.
 Open the Properties Panel within the Camunda Modeler and click on the Service Task you just created. Change the Implementation to <code>External</code> and use <code>charge-card</code> as the Topic.</p>
 <figure class="image">
   <span><img
@@ -374,9 +374,9 @@ Open the Properties Panel within the Camunda Modeler and click on the Service Ta
 
 <h1 id="implement-an-external-task-worker">Implement an external task worker</h1>
 <p>After modeling the process, we want to execute some business logic.</p>
-<p>Camunda Platform is built so that your business logic can be implemented in different languages.
+<p>CIB seven platform is built so that your business logic can be implemented in different languages.
 You have the choice which language suits your project best.</p>
-<p>In this quick start, we&rsquo;ll show you how to use Camunda&rsquo;s ready-to-go task clients in:</p>
+<p>In this quick start, we&rsquo;ll show you how to use ready-to-go task clients for CIB seven in:</p>
 <ul>
 <li><a href="#a-using-java">Java</a></li>
 <li><a href="#b-using-javascript-nodejs">JavaScript (NodeJS)</a></li>
@@ -385,7 +385,7 @@ You have the choice which language suits your project best.</p>
 
 <div class="note bg-info docs-info">
   <h3>Hint</h3>
-  <p>If you prefer a different programming language, you can also use Camunda&rsquo;s <a href="/manual/latest/user-guide/process-engine/external-tasks/#rest-api">REST API</a> to access API operations via HTTP.</p>
+  <p>If you prefer a different programming language, you can also use <a href="/manual/latest/user-guide/process-engine/external-tasks/#rest-api">REST API</a> to access CIB seven API operations via HTTP.</p>
 </div>
 
 <h2 id="a-using-java">a) Using Java</h2>
@@ -408,28 +408,36 @@ You have the choice which language suits your project best.</p>
 </figure>
 
 <p>When you&rsquo;re done, click Finish. Eclipse will set up a new Maven project. The project appears in the Project Explorer View.</p>
-<h3 id="add-camunda-external-task-client-dependency">Add Camunda External Task Client Dependency</h3>
+<h3 id="add-cib-seven-external-task-client-dependency">Add CIB seven External Task Client Dependency</h3>
 <p>The next step consists of setting up the Maven dependency to the external task client for your new process application.
 Your pom.xml file of your project should look like this:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&#34;http://maven.apache.org/POM/4.0.0&#34;</span> <span class="na">xmlns:xsi=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
 </span></span><span class="line"><span class="cl">	<span class="na">xsi:schemaLocation=</span><span class="s">&#34;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&#34;</span><span class="nt">&gt;</span>
 </span></span><span class="line"><span class="cl">	<span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="nt">&lt;groupId&gt;</span>org.camunda.bpm.getstarted<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">	<span class="nt">&lt;groupId&gt;</span>de.cibseven.getstarted<span class="nt">&lt;/groupId&gt;</span>
 </span></span><span class="line"><span class="cl">	<span class="nt">&lt;artifactId&gt;</span>charge-card-worker<span class="nt">&lt;/artifactId&gt;</span>
 </span></span><span class="line"><span class="cl">	<span class="nt">&lt;version&gt;</span>0.0.1-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">	<span class="nt">&lt;properties&gt;</span>
-</span></span><span class="line"><span class="cl">		<span class="nt">&lt;camunda.external-task-client.version&gt;</span>7.22.0<span class="nt">&lt;/camunda.external-task-client.version&gt;</span>
+</span></span><span class="line"><span class="cl">		<span class="nt">&lt;external-task-client.version&gt;</span>7.22.0-cibseven<span class="nt">&lt;/external-task-client.version&gt;</span>
 </span></span><span class="line"><span class="cl">		<span class="nt">&lt;maven.compiler.source&gt;</span>11<span class="nt">&lt;/maven.compiler.source&gt;</span>
 </span></span><span class="line"><span class="cl">		<span class="nt">&lt;maven.compiler.target&gt;</span>11<span class="nt">&lt;/maven.compiler.target&gt;</span>
 </span></span><span class="line"><span class="cl">	<span class="nt">&lt;/properties&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;repositories&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;repository&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;id&gt;</span>mvn-cibseven-public<span class="nt">&lt;/id&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;name&gt;</span>CIB seven Public Repository<span class="nt">&lt;/name&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;url&gt;</span>https://artifacts.cibseven.de/repository/public<span class="nt">&lt;/url&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/repository&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/repositories&gt;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">	<span class="nt">&lt;dependencies&gt;</span>
 </span></span><span class="line"><span class="cl">		<span class="nt">&lt;dependency&gt;</span>
 </span></span><span class="line"><span class="cl">			<span class="nt">&lt;groupId&gt;</span>org.camunda.bpm<span class="nt">&lt;/groupId&gt;</span>
 </span></span><span class="line"><span class="cl">			<span class="nt">&lt;artifactId&gt;</span>camunda-external-task-client<span class="nt">&lt;/artifactId&gt;</span>
-</span></span><span class="line"><span class="cl">			<span class="nt">&lt;version&gt;</span>${camunda.external-task-client.version}<span class="nt">&lt;/version&gt;</span>
+</span></span><span class="line"><span class="cl">			<span class="nt">&lt;version&gt;</span>${external-task-client.version}<span class="nt">&lt;/version&gt;</span>
 </span></span><span class="line"><span class="cl">		<span class="nt">&lt;/dependency&gt;</span>
 </span></span><span class="line"><span class="cl">		<span class="nt">&lt;dependency&gt;</span>
 </span></span><span class="line"><span class="cl">			<span class="nt">&lt;groupId&gt;</span>org.slf4j<span class="nt">&lt;/groupId&gt;</span>
@@ -446,9 +454,9 @@ Your pom.xml file of your project should look like this:</p>
 </span></span></code></pre></div><h3 id="add-the-java-class">Add the Java class</h3>
 <p>Next, we will create a new ExternalTaskClient which subscribes to the <code>charge-card</code> topic.</p>
 <p>When the process engine encounters a service task that is configured to be externally handled, it creates an external task instance on which our handler will react.
-We are using <a href="https://docs.camunda.org/manual/latest/user-guide/process-engine/external-tasks/#long-polling-to-fetch-and-lock-external-tasks">Long Polling</a> in the ExternalTaskClient to make the communication more efficient.</p>
-<p>Next, you need to create a package, e.g., <em>org.camunda.bpm.getstarted.chargecard</em> and add a Java class, e.g. <em>ChargeCardWorker</em>, to it.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nn">org.camunda.bpm.getstarted.chargecard</span><span class="p">;</span><span class="w">
+We are using <a href="/manual/latest/user-guide/process-engine/external-tasks/#long-polling-to-fetch-and-lock-external-tasks">Long Polling</a> in the ExternalTaskClient to make the communication more efficient.</p>
+<p>Next, you need to create a package, e.g., <em>de.cibseven.getstarted.chargecard</em> and add a Java class, e.g. <em>ChargeCardWorker</em>, to it.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nn">de.cibseven.getstarted.chargecard</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.logging.Logger</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.awt.Desktop</span><span class="p">;</span><span class="w">
@@ -478,7 +486,7 @@ We are using <a href="https://docs.camunda.org/manual/latest/user-guide/process-
 </span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="n">LOGGER</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&#34;Charging credit card with an amount of &#39;&#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">amount</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&#34;&#39;€ for the item &#39;&#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&#34;&#39;...&#34;</span><span class="p">);</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="n">Desktop</span><span class="p">.</span><span class="na">getDesktop</span><span class="p">().</span><span class="na">browse</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">URI</span><span class="p">(</span><span class="s">&#34;https://docs.camunda.org/get-started/quick-start/complete&#34;</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="n">Desktop</span><span class="p">.</span><span class="na">getDesktop</span><span class="p">().</span><span class="na">browse</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">URI</span><span class="p">(</span><span class="s">&#34;https://docs.cibseven.de/get-started/quick-start/complete&#34;</span><span class="p">));</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="p">}</span><span class="w">
@@ -533,7 +541,7 @@ We are using <a href="https://docs.camunda.org/manual/latest/user-guide/process-
 <h3 id="prerequisites-1">Prerequisites</h3>
 <p>Make sure you have the following tools installed:</p>
 <ul>
-<li>NodeJS &gt;= v16 (<a href="https://nodejs.org/en/download/">Download available here</a>)</li>
+<li>NodeJS &gt;= v16 (<a href="https://nodejs.org/en/download/prebuilt-installer">Download available here</a>)</li>
 <li>Editor for JavaScript files (e.g. <a href="https://atom.io/">Atom</a>)</li>
 </ul>
 <h3 id="create-a-new-nodejs-project">Create a new NodeJS project</h3>
@@ -646,7 +654,7 @@ We use <a href="https://docs.camunda.org/manual/latest/user-guide/process-engine
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#create-a-new-maven-project">Create a new Maven project</a></li>
-        <li><a href="#add-camunda-external-task-client-dependency">Add Camunda External Task Client Dependency</a></li>
+        <li><a href="#add-cib-seven-external-task-client-dependency">Add CIB seven External Task Client Dependency</a></li>
         <li><a href="#add-the-java-class">Add the Java class</a></li>
         <li><a href="#run-the-worker">Run the worker</a></li>
       </ul>
