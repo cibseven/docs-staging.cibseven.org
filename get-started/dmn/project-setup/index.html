@@ -286,7 +286,7 @@
 
 <div class="note bg-info docs-info">
   <h3>Terminology - Process vs. Decisions</h3>
-  <p>DMN is a modeling language for <em>decisions</em>, whereas BPMN is a language for <em>processes</em>. This tutorial is about decisions. However, due to Camunda&rsquo;s BPMN-focused heritage, the Java project contains classes and files with names like <code>ProcessApplication</code> and <code>processes.xml</code>. These are in fact generally applicable and can be used with both processes and decisions.</p>
+  <p>DMN is a modeling language for <em>decisions</em>, whereas BPMN is a language for <em>processes</em>. This tutorial is about decisions. However, due to BPMN-focused heritage of CIB seven, the Java project contains classes and files with names like <code>ProcessApplication</code> and <code>processes.xml</code>. These are in fact generally applicable and can be used with both processes and decisions.</p>
 </div>
 
 <h1 id="create-a-new-maven-project">Create a new Maven Project</h1>
@@ -306,27 +306,35 @@
 <p>On the first page of the <em>New Maven Project Wizard</em> select <em>Create a simple project (skip archetype selection)</em>. Click Next.</p>
 <p>On the second page (see screenshot), configure the Maven coordinates for the project. Since we are setting up a WAR Project, make sure to select <code>Packaging: war</code>.</p>
 <p>When you are done, click Finish. Eclipse sets up a new Maven project. The project appears in the <em>Project Explorer</em> View.</p>
-<h1 id="add-camunda-maven-dependencies">Add Camunda Maven Dependencies</h1>
+<h1 id="add-cib-seven-maven-dependencies">Add CIB seven Maven Dependencies</h1>
 <p>The next step consists of setting up the Maven dependencies for your new process application. Add the following dependencies to the <code>pom.xml</code> file of your project:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&#34;http://maven.apache.org/POM/4.0.0&#34;</span> <span class="na">xmlns:xsi=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span> <span class="na">xsi:schemaLocation=</span><span class="s">&#34;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&#34;</span><span class="nt">&gt;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&lt;groupId&gt;</span>org.camunda.bpm.getstarted<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;groupId&gt;</span>de.cibseven.getstarted<span class="nt">&lt;/groupId&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;artifactId&gt;</span>dinner-dmn<span class="nt">&lt;/artifactId&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;version&gt;</span>0.1.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;packaging&gt;</span>war<span class="nt">&lt;/packaging&gt;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;properties&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&lt;camunda.version&gt;</span>7.22.0<span class="nt">&lt;/camunda.version&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;cibseven.version&gt;</span>7.22.0-cibseven<span class="nt">&lt;/cibseven.version&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;maven.compiler.release&gt;</span>11<span class="nt">&lt;/maven.compiler.release&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;/properties&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;repositories&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;repository&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;id&gt;</span>mvn-cibseven-public<span class="nt">&lt;/id&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;name&gt;</span>CIB seven Public Repository<span class="nt">&lt;/name&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;url&gt;</span>https://artifacts.cibseven.de/repository/public<span class="nt">&lt;/url&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/repository&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/repositories&gt;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;dependencyManagement&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;dependencies&gt;</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&lt;dependency&gt;</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&lt;groupId&gt;</span>org.camunda.bpm<span class="nt">&lt;/groupId&gt;</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&lt;artifactId&gt;</span>camunda-bom<span class="nt">&lt;/artifactId&gt;</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&lt;version&gt;</span>${camunda.version}<span class="nt">&lt;/version&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;version&gt;</span>${cibseven.version}<span class="nt">&lt;/version&gt;</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&lt;scope&gt;</span>import<span class="nt">&lt;/scope&gt;</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&lt;type&gt;</span>pom<span class="nt">&lt;/type&gt;</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&lt;/dependency&gt;</span>
@@ -341,10 +349,9 @@
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;/dependency&gt;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;dependency&gt;</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&lt;groupId&gt;</span>javax.servlet<span class="nt">&lt;/groupId&gt;</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&lt;artifactId&gt;</span>javax.servlet-api<span class="nt">&lt;/artifactId&gt;</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&lt;version&gt;</span>3.0.1<span class="nt">&lt;/version&gt;</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&lt;scope&gt;</span>provided<span class="nt">&lt;/scope&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;groupId&gt;</span>jakarta.servlet<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;artifactId&gt;</span>jakarta.servlet-api<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;version&gt;</span>5.0.0<span class="nt">&lt;/version&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;/dependency&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;/dependencies&gt;</span>
 </span></span><span class="line"><span class="cl">
@@ -373,34 +380,34 @@
   <div class="panel panel-success">
     <div class="panel-heading">
       <div class="pull-right">
-        <a class="btn btn-success gs-download-step-btn" href="https://github.com/cibseven/camunda-get-started-dmn/archive/Step-1.zip">
+        <a class="btn btn-success gs-download-step-btn" href="https://github.com/cibseven/cibseven-get-started-dmn/archive/Step-1.zip">
           <span i class="glyphicon glyphicon-download-alt"></span>
           Source Code Step-1
         </a>
       </div>
       <h4>Catch up: Get the Sources of Step-1.</h4>
       <p class="text-muted">
-        <a href="https://github.com/cibseven/camunda-get-started-dmn/archive/Step-1.zip">Download as .zip</a>
+        <a href="https://github.com/cibseven/cibseven-get-started-dmn/archive/Step-1.zip">Download as .zip</a>
         or checkout the corresponding tag with <a class="toggle-instructions">Git</a>.
       </p>
     </div>
     <div class="panel-body">
-      <p>You can checkout the current state from the <a href="https://github.com/cibseven/camunda-get-started-dmn">GitHub repository</a>.</p>
+      <p>You can checkout the current state from the <a href="https://github.com/cibseven/cibseven-get-started-dmn">GitHub repository</a>.</p>
       <p>If you have not cloned the repository yet, please execute the following command:
-      <pre class="console">git clone https://github.com/cibseven/camunda-get-started-dmn.git</pre>
+      <pre class="console">git clone https://github.com/cibseven/cibseven-get-started-dmn.git</pre>
       </p>
       <p>
       To checkout the current state of the process application please execute the following command:
       <pre class="console">git checkout -f Step-1</pre>
-      Or download as archive from <a href="https://github.com/cibseven/camunda-get-started-dmn/releases/tag/Step-1">here</a>.
+      Or download as archive from <a href="https://github.com/cibseven/cibseven-get-started-dmn/releases/tag/Step-1">here</a>.
       </p>
     </div>
   </div>
 </div>
 
 <h1 id="add-a-process-application-class">Add a Process Application Class</h1>
-<p>Next, you need to create a package, e.g., <code>org.camunda.bpm.getstarted.dmn</code> and add a Process Application class to it. The Process Application class constitutes the interface between your application and the process engine.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nn">org.camunda.bpm.getstarted.dmn</span><span class="p">;</span><span class="w">
+<p>Next, you need to create a package, e.g., <code>de.cibseven.getstarted.dmn</code> and add a Process Application class to it. The Process Application class constitutes the interface between your application and the process engine.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nn">de.cibseven.getstarted.dmn</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.camunda.bpm.application.ProcessApplication</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.camunda.bpm.application.impl.ServletProcessApplication</span><span class="p">;</span><span class="w">
@@ -435,26 +442,26 @@
   <div class="panel panel-success">
     <div class="panel-heading">
       <div class="pull-right">
-        <a class="btn btn-success gs-download-step-btn" href="https://github.com/cibseven/camunda-get-started-dmn/archive/Step-2.zip">
+        <a class="btn btn-success gs-download-step-btn" href="https://github.com/cibseven/cibseven-get-started-dmn/archive/Step-2.zip">
           <span i class="glyphicon glyphicon-download-alt"></span>
           Source Code Step-2
         </a>
       </div>
       <h4>Catch up: Get the Sources of Step-2.</h4>
       <p class="text-muted">
-        <a href="https://github.com/cibseven/camunda-get-started-dmn/archive/Step-2.zip">Download as .zip</a>
+        <a href="https://github.com/cibseven/cibseven-get-started-dmn/archive/Step-2.zip">Download as .zip</a>
         or checkout the corresponding tag with <a class="toggle-instructions">Git</a>.
       </p>
     </div>
     <div class="panel-body">
-      <p>You can checkout the current state from the <a href="https://github.com/cibseven/camunda-get-started-dmn">GitHub repository</a>.</p>
+      <p>You can checkout the current state from the <a href="https://github.com/cibseven/cibseven-get-started-dmn">GitHub repository</a>.</p>
       <p>If you have not cloned the repository yet, please execute the following command:
-      <pre class="console">git clone https://github.com/cibseven/camunda-get-started-dmn.git</pre>
+      <pre class="console">git clone https://github.com/cibseven/cibseven-get-started-dmn.git</pre>
       </p>
       <p>
       To checkout the current state of the process application please execute the following command:
       <pre class="console">git checkout -f Step-2</pre>
-      Or download as archive from <a href="https://github.com/cibseven/camunda-get-started-dmn/releases/tag/Step-2">here</a>.
+      Or download as archive from <a href="https://github.com/cibseven/cibseven-get-started-dmn/releases/tag/Step-2">here</a>.
       </p>
     </div>
   </div>
