@@ -3168,7 +3168,7 @@ This section explains how to write unit tests and integration tests with Camunda
 <h1 id="unit-tests">Unit Tests</h1>
 <p>CIB seven provides helper classes to write unit tests for JUnit versions 3, 4 and 5.</p>
 <h2 id="junit-5">JUnit 5</h2>
-<p>CIB seven 1.0+ (7.22.0-cibseven +) ships with a <a href="/javadoc/cibseven/1.1/org/camunda/bpm/engine/test/junit5/ProcessEngineExtension.html">JUnit 5 extension</a>
+<p>CIB seven since 1.0 (also includin 7.22.0-cibseven versions) ships with a <a href="/javadoc/cibseven/1.1/org/camunda/bpm/engine/test/junit5/ProcessEngineExtension.html">JUnit 5 extension</a>
  that provides access to the process engine and services through getter methods.</p>
 <p>The extensions process engine is configured by the default configuration file called <code>camunda.cfg.xml</code>, which needs to be placed on the classpath. A custom configuration file can be passed to the extension when creating the <code>ProcessEngineExtension</code> object.</p>
 <p>If you want to use the JUnit 5  <code>ProcessEngineExtension</code>, you need to add the following dependency to your <code>pom.xml</code> file:</p>
