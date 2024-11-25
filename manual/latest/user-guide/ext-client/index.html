@@ -14,17 +14,19 @@
   <meta name="author" content="CIB software, CIB seven community" />
   
     
+      <meta name="robots" content="noindex" />
+    
   
 
-  <title>External Task Client | docs.cibseven.de</title>
+  <title>External Task Client | docs.cibseven.org</title>
 
   <meta name="generator" content="Hugo 0.136.4">
   <link rel="shortcut icon" href="/manual/latest/img/favicon.ico" type="image/x-icon" />
 
   
 
-  <link rel="stylesheet" href="/manual/latest/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
-  <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/user-guide/ext-client/" />
+  <link rel="stylesheet" href="/manual/latest/css/docs.a0bf87f89ba6cd63bc3d1a03b993b29d1ecf1457adbd68dc6b9634195e1673c1.css" integrity="sha256-oL&#43;H&#43;JumzWO8PRoDuZOynR7PFFetvWjca5Y0GV4Wc8E=">
+  <link rel="canonical" href="https://docs.cibseven.org/manual/1.0/user-guide/ext-client/" />
 </head>
 <body class="">
 
@@ -58,7 +60,7 @@
     </div>
 
     <ul class="external-menu">
-      <li class="external"><a href="https://cibseven.de">cibseven.de</a></li>
+      <li class="external"><a href="https://cibseven.org">cibseven.org</a></li>
     </ul>
   </div>
 </nav>
@@ -98,9 +100,9 @@
       
     
 
-    <span class="number"><a>1.0</a>
+    <span class="number"><a>1.1</a>
       
-        (1.0)
+        (1.1)
       
     </span>
   
@@ -3133,7 +3135,9 @@
       
         <option >latest</option>
       
-        <option  selected >1.0</option>
+        <option >1.0</option>
+      
+        <option  selected >1.1</option>
       
     </select>
   </div>
@@ -3282,7 +3286,7 @@ Hence situations like the following can be reported:</p>
 <p>For more details, please check the documentation related to the client of interest.</p>
 <h3 id="accessing-the-internal-apache-httpclientbuilder">Accessing the internal Apache HttpClientBuilder</h3>
 <p>If there is a need to even further customize the communication of the client, you can get access to
-the Apache <code>HttpClientBuilder</code> using the <code><a href="/javadoc/cibseven/1.0/org/camunda/bpm/client/ExternalTaskClientBuilder.html">ExternalTaskClientBuilder</a>
+the Apache <code>HttpClientBuilder</code> using the <code><a href="/javadoc/cibseven/1.1/org/camunda/bpm/client/ExternalTaskClientBuilder.html">ExternalTaskClientBuilder</a>
 </code>&rsquo;s <code>customizeHttpClient</code> method.
 The method accepts a <code>Consumer</code> as parameter that gives you access to the internal Apache <code>HttpClientBuilder</code>:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">ExternalTaskClient</span><span class="p">.</span><span class="na">create</span><span class="p">()</span><span class="w">
@@ -3293,7 +3297,7 @@ The method accepts a <code>Consumer</code> as parameter that gives you access to
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="p">.</span><span class="na">build</span><span class="p">()))</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w">
 </span></span></span></code></pre></div><h2 id="examples">Examples</h2>
-<p>Complete examples of how to set up the different External Task Clients can be found on Camunda&rsquo;s GitHub (<a href="https://github.com/camunda/camunda-bpm-examples/tree/1.0/clients/java">Java</a>,
+<p>Complete examples of how to set up the different External Task Clients can be found on Camunda&rsquo;s GitHub (<a href="https://github.com/camunda/camunda-bpm-examples/tree/1.1/clients/java">Java</a>,
 <a href="https://github.com/cibseven/cibseven-external-task-client-js/tree/master/examples">JavaScript</a>).</p>
 <h2 id="external-task-throughput">External task throughput</h2>
 <p>For a high throughput of external tasks, you should balance between the number of external task instances, the number of clients and the duration of handling the work.</p>
@@ -3346,7 +3350,7 @@ The Java client supports exponential backoff, default by 500 ms with factor 2, l
           </p>
 
           <p>
-            <a href="http://cibseven.de">cibseven.de</a> and <a href="http://docs.cibseven.de">docs.cibseven.de</a> are part of CIB seven project — <a href="https://www.cib.de/en/privacy-policy/">Privacy Statement</a> – <a href="https://www.cib.de/en/legal-advice/">CIB software GmbH</a>
+            <a href="http://cibseven.org">cibseven.org</a> and <a href="http://docs.cibseven.org">docs.cibseven.org</a> are part of CIB seven project — <a href="https://www.cib.de/en/privacy-policy/">Privacy Statement</a> – <a href="https://www.cib.de/en/legal-advice/">CIB software GmbH</a>
             <br/>The CIB seven documentation is based on <a href="https://docs.camunda.org/">Camunda 7 Docs</a> from Camunda. Some redesign & naming adoptation was made.
           </p>
           <p>

@@ -14,14 +14,14 @@
   <meta name="author" content="CIB software, CIB seven community" />
   
 
-  <title>Apache Maven Coordinates | docs.cibseven.de</title>
+  <title>Apache Maven Coordinates | docs.cibseven.org</title>
 
   <meta name="generator" content="Hugo 0.136.4">
   <link rel="shortcut icon" href="/get-started/img/favicon.ico" type="image/x-icon" />
 
   
 
-  <link rel="stylesheet" href="/get-started/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
+  <link rel="stylesheet" href="/get-started/css/docs.a0bf87f89ba6cd63bc3d1a03b993b29d1ecf1457adbd68dc6b9634195e1673c1.css" integrity="sha256-oL&#43;H&#43;JumzWO8PRoDuZOynR7PFFetvWjca5Y0GV4Wc8E=">
   <link rel="canonical" href="/get-started/apache-maven/" />
 </head>
 <body class="">
@@ -56,7 +56,7 @@
     </div>
 
     <ul class="external-menu">
-      <li class="external"><a href="https://cibseven.de">cibseven.de</a></li>
+      <li class="external"><a href="https://cibseven.org">cibseven.org</a></li>
     </ul>
   </div>
 </nav>
@@ -297,9 +297,9 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependencyManagement&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;dependencies&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;dependency&gt;</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&lt;groupId&gt;</span>org.camunda.bpm<span class="nt">&lt;/groupId&gt;</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&lt;artifactId&gt;</span>camunda-bom<span class="nt">&lt;/artifactId&gt;</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&lt;version&gt;</span>7.22.0-cibseven<span class="nt">&lt;/version&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;groupId&gt;</span>org.cibseven.bpm<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;artifactId&gt;</span>cibseven-bom<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;version&gt;</span>1.1.0<span class="nt">&lt;/version&gt;</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&lt;scope&gt;</span>import<span class="nt">&lt;/scope&gt;</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&lt;type&gt;</span>pom<span class="nt">&lt;/type&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;/dependency&gt;</span>
@@ -313,47 +313,47 @@
 
 <h1 id="cib-seven-engine">CIB seven Engine</h1>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependency&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&lt;groupId&gt;</span>org.camunda.bpm<span class="nt">&lt;/groupId&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&lt;artifactId&gt;</span>camunda-engine<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;groupId&gt;</span>org.cibseven.bpm<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;artifactId&gt;</span>cibseven-engine<span class="nt">&lt;/artifactId&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/dependency&gt;</span>
 </span></span></code></pre></div><h1 id="cib-seven-engine-spring-integration">CIB seven Engine Spring Integration</h1>
-<p>The <code>camunda-engine</code> Spring integration for Spring Framework 5:</p>
+<p>The <code>cibseven-engine</code> Spring integration for Spring Framework 5:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependency&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&lt;groupId&gt;</span>org.camunda.bpm<span class="nt">&lt;/groupId&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&lt;artifactId&gt;</span>camunda-engine-spring<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;groupId&gt;</span>org.cibseven.bpm<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;artifactId&gt;</span>cibseven-engine-spring<span class="nt">&lt;/artifactId&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/dependency&gt;</span>
-</span></span></code></pre></div><p>The <code>camunda-engine</code> Spring integration for Spring Framework 6:</p>
+</span></span></code></pre></div><p>The <code>cibseven-engine</code> Spring integration for Spring Framework 6:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependency&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&lt;groupId&gt;</span>org.camunda.bpm<span class="nt">&lt;/groupId&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&lt;artifactId&gt;</span>camunda-engine-spring-6<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;groupId&gt;</span>org.cibseven.bpm<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;artifactId&gt;</span>cibseven-engine-spring-6<span class="nt">&lt;/artifactId&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/dependency&gt;</span>
 </span></span></code></pre></div><h1 id="cib-seven-engine-cdi-integration">CIB seven Engine CDI Integration</h1>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependency&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&lt;groupId&gt;</span>org.camunda.bpm<span class="nt">&lt;/groupId&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&lt;artifactId&gt;</span>camunda-engine-cdi<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;groupId&gt;</span>org.cibseven.bpm<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;artifactId&gt;</span>cibseven-engine-cdi<span class="nt">&lt;/artifactId&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/dependency&gt;</span>
 </span></span></code></pre></div><h1 id="cib-seven-dmn-engine-bom-bill-of-materials">CIB seven DMN Engine BOM (Bill of Materials)</h1>
-<p>This BOM allows to use the DMN engine standalone without the BPMN engine and the rest of the Camunda Platform.</p>
+<p>This BOM allows to use the DMN engine standalone without the BPMN engine and the rest of the CIB seven platform.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependencyManagement&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;dependency&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&lt;groupId&gt;</span>org.camunda.bpm.dmn<span class="nt">&lt;/groupId&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&lt;artifactId&gt;</span>camunda-engine-dmn-bom<span class="nt">&lt;/artifactId&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&lt;version&gt;</span>7.22.0-cibseven<span class="nt">&lt;/version&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;groupId&gt;</span>org.cibseven.bpm.dmn<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;artifactId&gt;</span>cibseven-engine-dmn-bom<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;version&gt;</span>1.1.0<span class="nt">&lt;/version&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;type&gt;</span>pom<span class="nt">&lt;/type&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;scope&gt;</span>import<span class="nt">&lt;/scope&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;/dependency&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/dependencyManagement&gt;</span>
 </span></span></code></pre></div><h1 id="cib-seven-dmn">CIB seven DMN</h1>
-<p>This dependency allows to use DMN engine standalone without the BPMN engine and the rest of the Camunda Platform.
-It is not needed when using <code>camunda-engine</code> because that already contains the DMN engine.</p>
+<p>This dependency allows to use DMN engine standalone without the BPMN engine and the rest of the CIB seven platform.
+It is not needed when using <code>cibseven-engine</code> because that already contains the DMN engine.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependency&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&lt;groupId&gt;</span>org.camunda.bpm.dmn<span class="nt">&lt;/groupId&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&lt;artifactId&gt;</span>camunda-engine-dmn<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;groupId&gt;</span>org.cibseven.bpm.dmn<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;artifactId&gt;</span>cibseven-engine-dmn<span class="nt">&lt;/artifactId&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/dependency&gt;</span>
 </span></span></code></pre></div><h1 id="process-application-ejb-client">Process Application EJB Client</h1>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependency&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&lt;groupId&gt;</span>org.camunda.bpm.javaee<span class="nt">&lt;/groupId&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&lt;artifactId&gt;</span>camunda-ejb-client<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;groupId&gt;</span>org.cibseven.bpm.javaee<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;artifactId&gt;</span>cibseven-ejb-client<span class="nt">&lt;/artifactId&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/dependency&gt;</span>
 </span></span></code></pre></div><h1 id="browse-cib-seven-artifact-storage">Browse CIB seven Artifact Storage</h1>
 <p>In order to browse the CIB seven artifacts, here are the link you can use.</p>
@@ -361,8 +361,8 @@ It is not needed when using <code>camunda-engine</code> because that already con
 <h1 id="other-cib-seven-modules">Other CIB seven Modules:</h1>
 <ul>
 <li><a href="/manual/latest/user-guide/dmn-engine/embed/#maven-coordinates">DMN Engine</a></li>
-<li><a href="/manual/latest/reference/spin">Camunda Spin</a></li>
-<li><a href="/manual/latest/reference/connect/#maven-coordinates">Camunda Connect</a></li>
+<li><a href="/manual/latest/reference/spin">Spin</a></li>
+<li><a href="/manual/latest/reference/connect/#maven-coordinates">Connect</a></li>
 <li><a href="/manual/latest/user-guide/process-engine/templating/#install-a-template-engine-for-an-embedded-process-engine">Templating Engines</a></li>
 <li><a href="/manual/latest/user-guide/spring-boot-integration/">Spring Boot Integration</a></li>
 </ul>
@@ -391,7 +391,7 @@ It is not needed when using <code>camunda-engine</code> because that already con
           </p>
 
           <p>
-            <a href="http://cibseven.de">cibseven.de</a> and <a href="http://docs.cibseven.de">docs.cibseven.de</a> are part of CIB seven project — <a href="https://www.cib.de/en/privacy-policy/">Privacy Statement</a> – <a href="https://www.cib.de/en/legal-advice/">CIB software GmbH</a>
+            <a href="http://cibseven.org">cibseven.org</a> and <a href="http://docs.cibseven.org">docs.cibseven.org</a> are part of CIB seven project — <a href="https://www.cib.de/en/privacy-policy/">Privacy Statement</a> – <a href="https://www.cib.de/en/legal-advice/">CIB software GmbH</a>
             <br/>The CIB seven documentation is based on <a href="https://docs.camunda.org/">Camunda 7 Docs</a> from Camunda. Some redesign & naming adoptation was made.
           </p>
           <p>

@@ -14,17 +14,19 @@
   <meta name="author" content="CIB software, CIB seven community" />
   
     
+      <meta name="robots" content="noindex" />
+    
   
 
-  <title>Spring Security OAuth2 Integration | docs.cibseven.de</title>
+  <title>Spring Security OAuth2 Integration | docs.cibseven.org</title>
 
   <meta name="generator" content="Hugo 0.136.4">
   <link rel="shortcut icon" href="/manual/latest/img/favicon.ico" type="image/x-icon" />
 
   
 
-  <link rel="stylesheet" href="/manual/latest/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
-  <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/user-guide/spring-boot-integration/spring-security/" />
+  <link rel="stylesheet" href="/manual/latest/css/docs.a0bf87f89ba6cd63bc3d1a03b993b29d1ecf1457adbd68dc6b9634195e1673c1.css" integrity="sha256-oL&#43;H&#43;JumzWO8PRoDuZOynR7PFFetvWjca5Y0GV4Wc8E=">
+  <link rel="canonical" href="https://docs.cibseven.org/manual/1.0/user-guide/spring-boot-integration/spring-security/" />
 </head>
 <body class="">
 
@@ -58,7 +60,7 @@
     </div>
 
     <ul class="external-menu">
-      <li class="external"><a href="https://cibseven.de">cibseven.de</a></li>
+      <li class="external"><a href="https://cibseven.org">cibseven.org</a></li>
     </ul>
   </div>
 </nav>
@@ -98,9 +100,9 @@
       
     
 
-    <span class="number"><a>1.0</a>
+    <span class="number"><a>1.1</a>
       
-        (1.0)
+        (1.1)
       
     </span>
   
@@ -3133,7 +3135,9 @@
       
         <option >latest</option>
       
-        <option  selected >1.0</option>
+        <option >1.0</option>
+      
+        <option  selected >1.1</option>
       
     </select>
   </div>
@@ -3182,12 +3186,12 @@ registration in the application properties (<code>spring.security.oauth2.client.
 <h2 id="oauth2-enabled-configuration">OAuth2 Enabled Configuration</h2>
 <p>Configuration activates if there is OAuth2 client registration configured. This class configures the Spring
 Security filter chain to secure the Camunda Webapps.</p>
-<p>Spring auto configuration class: <a href="/javadoc/cibseven/1.0/org/camunda/bpm/spring/boot/starter/security/oauth2/impl/CamundaSpringSecurityOAuth2AutoConfiguration.html">CamundaSpringSecurityOAuth2AutoConfiguration</a>
+<p>Spring auto configuration class: <a href="/javadoc/cibseven/1.1/org/camunda/bpm/spring/boot/starter/security/oauth2/impl/CamundaSpringSecurityOAuth2AutoConfiguration.html">CamundaSpringSecurityOAuth2AutoConfiguration</a>
 </p>
 <h2 id="spring-security-disabled-auto-configuration">Spring Security Disabled Auto Configuration</h2>
 <p>Configuration activates if there is <strong>no</strong> OAuth2 client registration configured. This class configures the Spring
 Security filter chain to a permit all mode.</p>
-<p>Spring auto configuration class: <a href="/javadoc/cibseven/1.0/org/camunda/bpm/spring/boot/starter/security/oauth2/impl/CamundaBpmSpringSecurityDisableAutoConfiguration.html">CamundaBpmSpringSecurityDisableAutoConfiguration</a>
+<p>Spring auto configuration class: <a href="/javadoc/cibseven/1.1/org/camunda/bpm/spring/boot/starter/security/oauth2/impl/CamundaBpmSpringSecurityDisableAutoConfiguration.html">CamundaBpmSpringSecurityDisableAutoConfiguration</a>
 </p>
 <h1 id="oauth2-client-registration">OAuth2 Client Registration</h1>
 <p>For the client registration, please refer to the official Spring
@@ -3231,7 +3235,7 @@ to grant administrator authorizations for a particular OAuth2 user or group.</li
 </ol>
 <h1 id="oauth2-identity-provider">OAuth2 Identity Provider</h1>
 <p>Additionally to the OAuth2 login, Camunda also provides support to use groups from OAuth2.
-This is achieved with a custom <a href="/manual/latest/user-guide/process-engine/identity-service/">identity service</a>, called <a href="/javadoc/cibseven/1.0/org/camunda/bpm/spring/boot/starter/security/oauth2/impl/OAuth2IdentityProvider.html">OAuth2IdentityProvider</a>
+This is achieved with a custom <a href="/manual/latest/user-guide/process-engine/identity-service/">identity service</a>, called <a href="/javadoc/cibseven/1.1/org/camunda/bpm/spring/boot/starter/security/oauth2/impl/OAuth2IdentityProvider.html">OAuth2IdentityProvider</a>
 .</p>
 <p>This is a read-only identity provider that configures user&rsquo;s groups from the <a href="https://docs.spring.io/spring-security/reference/servlet/authorization/architecture.html">Spring Security&rsquo;s granted authorities</a>.
 This identity provider also supports the default Camunda Database Identity Service as a fallback for authentications for the REST API.</p>
@@ -3470,7 +3474,7 @@ excluding the two auto configuration classes:</p>
           </p>
 
           <p>
-            <a href="http://cibseven.de">cibseven.de</a> and <a href="http://docs.cibseven.de">docs.cibseven.de</a> are part of CIB seven project — <a href="https://www.cib.de/en/privacy-policy/">Privacy Statement</a> – <a href="https://www.cib.de/en/legal-advice/">CIB software GmbH</a>
+            <a href="http://cibseven.org">cibseven.org</a> and <a href="http://docs.cibseven.org">docs.cibseven.org</a> are part of CIB seven project — <a href="https://www.cib.de/en/privacy-policy/">Privacy Statement</a> – <a href="https://www.cib.de/en/legal-advice/">CIB software GmbH</a>
             <br/>The CIB seven documentation is based on <a href="https://docs.camunda.org/">Camunda 7 Docs</a> from Camunda. Some redesign & naming adoptation was made.
           </p>
           <p>

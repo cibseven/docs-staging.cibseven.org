@@ -14,17 +14,19 @@
   <meta name="author" content="CIB software, CIB seven community" />
   
     
+      <meta name="robots" content="noindex" />
+    
   
 
-  <title>Multi-Tenancy | docs.cibseven.de</title>
+  <title>Multi-Tenancy | docs.cibseven.org</title>
 
   <meta name="generator" content="Hugo 0.136.4">
   <link rel="shortcut icon" href="/manual/latest/img/favicon.ico" type="image/x-icon" />
 
   
 
-  <link rel="stylesheet" href="/manual/latest/css/docs.dd4b4754a6c9916908d4de4878d75b28fcd1e0f31c84cb99fb48b442e3b02b9c.css" integrity="sha256-3UtHVKbJkWkI1N5IeNdbKPzR4PMchMuZ&#43;0i0QuOwK5w=">
-  <link rel="canonical" href="https://docs.cibseven.de/manual/1.0/user-guide/process-engine/multi-tenancy/" />
+  <link rel="stylesheet" href="/manual/latest/css/docs.a0bf87f89ba6cd63bc3d1a03b993b29d1ecf1457adbd68dc6b9634195e1673c1.css" integrity="sha256-oL&#43;H&#43;JumzWO8PRoDuZOynR7PFFetvWjca5Y0GV4Wc8E=">
+  <link rel="canonical" href="https://docs.cibseven.org/manual/1.0/user-guide/process-engine/multi-tenancy/" />
 </head>
 <body class="">
 
@@ -58,7 +60,7 @@
     </div>
 
     <ul class="external-menu">
-      <li class="external"><a href="https://cibseven.de">cibseven.de</a></li>
+      <li class="external"><a href="https://cibseven.org">cibseven.org</a></li>
     </ul>
   </div>
 </nav>
@@ -98,9 +100,9 @@
       
     
 
-    <span class="number"><a>1.0</a>
+    <span class="number"><a>1.1</a>
       
-        (1.0)
+        (1.1)
       
     </span>
   
@@ -3133,7 +3135,9 @@
       
         <option >latest</option>
       
-        <option  selected >1.0</option>
+        <option >1.0</option>
+      
+        <option  selected >1.1</option>
       
     </select>
   </div>
@@ -3188,7 +3192,7 @@
 <p>To deploy definitions for a single tenant, the tenant identifier has to be set on the deployment. The given identifier is propagated to all definitions of the deployment so that they belong to the tenant.</p>
 <p>If no tenant identifier is set then the deployment and its definitions belong to all tenants. In this case, all tenants can access the deployment and the definitions. See <a href="#shared-definitions-for-all-tenants">this section</a> to read more about how to use shared definitions.</p>
 <h3 id="specify-the-tenant-identifier-via-java-api">Specify the Tenant Identifier via Java API</h3>
-<p>When a deployment is created using the Repository Service, the tenant identifier can be set on the <a href="/javadoc/cibseven/1.0/org/camunda/bpm/engine/repository/DeploymentBuilder.html">DeploymentBuilder</a>
+<p>When a deployment is created using the Repository Service, the tenant identifier can be set on the <a href="/javadoc/cibseven/1.1/org/camunda/bpm/engine/repository/DeploymentBuilder.html">DeploymentBuilder</a>
 .</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">repositoryService</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">createDeployment</span><span class="p">()</span><span class="w">
@@ -3256,14 +3260,14 @@
 <p>When a definition is deployed for multiple tenants, a command can be ambiguous (e.g., start a process instance by key). If such a command is executed, a <code>ProcessEngineException</code> is thrown. To run the command successfully, the tenant identifier has to be passed to the command.</p>
 <p>Note that the <a href="#transparent-access-restrictions-for-tenants">transparent access restrictions</a> of tenants can omit the tenant identifier if a user is only allowed to see one of the definitions.</p>
 <h3 id="create-a-process-instance">Create a Process Instance</h3>
-<p>To create an instance by key of a process definition which is deployed for multiple tenants, the tenant identifier has to be passed to the <a href="/javadoc/cibseven/1.0/org/camunda/bpm/engine/runtime/ProcessInstantiationBuilder.html">ProcessInstantiationBuilder</a>
+<p>To create an instance by key of a process definition which is deployed for multiple tenants, the tenant identifier has to be passed to the <a href="/javadoc/cibseven/1.1/org/camunda/bpm/engine/runtime/ProcessInstantiationBuilder.html">ProcessInstantiationBuilder</a>
 .</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">runtimeService</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">createProcessInstanceByKey</span><span class="p">(</span><span class="s">&#34;key&#34;</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">processDefinitionTenantId</span><span class="p">(</span><span class="s">&#34;tenant1&#34;</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">execute</span><span class="p">();</span><span class="w">
 </span></span></span></code></pre></div><h3 id="correlate-a-message">Correlate a Message</h3>
-<p>The <a href="/manual/latest/reference/bpmn20/events/message-events/#message-api">Message API</a> can be used to correlate a message to one or all tenants. In case a message can correlate to definitions or executions of multiple tenants, the tenant identifier has to be passed to the <a href="/javadoc/cibseven/1.0/org/camunda/bpm/engine/runtime/MessageCorrelationBuilder.html">MessageCorrelationBuilder</a>
+<p>The <a href="/manual/latest/reference/bpmn20/events/message-events/#message-api">Message API</a> can be used to correlate a message to one or all tenants. In case a message can correlate to definitions or executions of multiple tenants, the tenant identifier has to be passed to the <a href="/javadoc/cibseven/1.1/org/camunda/bpm/engine/runtime/MessageCorrelationBuilder.html">MessageCorrelationBuilder</a>
 . Otherwise, a <code>MismatchingMessageCorrelationException</code> is thrown.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">runtimeService</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">createMessageCorrelation</span><span class="p">(</span><span class="s">&#34;messageName&#34;</span><span class="p">)</span><span class="w">
@@ -3274,7 +3278,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">createMessageCorrelation</span><span class="p">(</span><span class="s">&#34;messageName&#34;</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">correlateAll</span><span class="p">();</span><span class="w">
 </span></span></span></code></pre></div><h3 id="send-a-signal">Send a Signal</h3>
-<p>The <a href="/manual/latest/reference/bpmn20/events/signal-events/#signal-api">Signal API</a> can be used to deliver a signal to one or all tenants. Pass the tenant identifier to the <a href="/javadoc/cibseven/1.0/org/camunda/bpm/engine/runtime/SignalEventReceivedBuilder.html">SignalEventReceivedBuilder</a>
+<p>The <a href="/manual/latest/reference/bpmn20/events/signal-events/#signal-api">Signal API</a> can be used to deliver a signal to one or all tenants. Pass the tenant identifier to the <a href="/javadoc/cibseven/1.1/org/camunda/bpm/engine/runtime/SignalEventReceivedBuilder.html">SignalEventReceivedBuilder</a>
  to deliver the signal to a specific tenant. If no identifier is passed then the signal is delivered to all tenants.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">runtimeService</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">createSignalEvent</span><span class="p">(</span><span class="s">&#34;signalName&#34;</span><span class="p">)</span><span class="w">
@@ -3282,14 +3286,14 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">send</span><span class="p">();</span><span class="w">
 </span></span></span></code></pre></div><p>When a signal is thrown within a process (i.e., intermediate signal event or signal end event) then the signal is delivered to definitions and executions which belong to the same tenant as the calling execution or no tenant.</p>
 <h3 id="create-a-case-instance">Create a Case Instance</h3>
-<p>To create an instance by key of a case definition which is deployed for multiple tenants, the tenant identifier has to be passed to the <a href="/javadoc/cibseven/1.0/org/camunda/bpm/engine/runtime/CaseInstanceBuilder.html">CaseInstanceBuilder</a>
+<p>To create an instance by key of a case definition which is deployed for multiple tenants, the tenant identifier has to be passed to the <a href="/javadoc/cibseven/1.1/org/camunda/bpm/engine/runtime/CaseInstanceBuilder.html">CaseInstanceBuilder</a>
 .</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">caseService</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">withCaseDefinitionByKey</span><span class="p">(</span><span class="s">&#34;key&#34;</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">caseDefinitionTenantId</span><span class="p">(</span><span class="s">&#34;tenant1&#34;</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">execute</span><span class="p">();</span><span class="w">
 </span></span></span></code></pre></div><h3 id="evaluate-a-decision-table">Evaluate a Decision Table</h3>
-<p>To evaluate a decision table by key which is deployed for multiple tenants, the tenant identifier has to be passed to the <a href="/javadoc/cibseven/1.0/org/camunda/bpm/engine/dmn/DecisionEvaluationBuilder.html">DecisionEvaluationBuilder</a>
+<p>To evaluate a decision table by key which is deployed for multiple tenants, the tenant identifier has to be passed to the <a href="/javadoc/cibseven/1.1/org/camunda/bpm/engine/dmn/DecisionEvaluationBuilder.html">DecisionEvaluationBuilder</a>
 .</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">decisionService</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">evaluateDecisionTableByKey</span><span class="p">(</span><span class="s">&#34;key&#34;</span><span class="p">)</span><span class="w">
@@ -3411,7 +3415,7 @@ In a multi tenancy context with shared resources we want the list to include def
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">list</span><span class="p">();</span><span class="w">
 </span></span></span></code></pre></div><h3 id="instantiate-a-shared-definition">Instantiate a Shared Definition</h3>
 <p>When creating (starting) a new process instance, the tenant id of the process definition is propagated to the process instance.
-Shared resources  do not have a tenant id which means that no tenant id is propagated automatically. To have the tenant id of the user who starts the process instances assigned  to the process instance, an implementation of the <a href="/javadoc/cibseven/1.0/org/camunda/bpm/engine/impl/cfg/multitenancy/TenantIdProvider.html">TenantIdProvider</a>
+Shared resources  do not have a tenant id which means that no tenant id is propagated automatically. To have the tenant id of the user who starts the process instances assigned  to the process instance, an implementation of the <a href="/javadoc/cibseven/1.1/org/camunda/bpm/engine/impl/cfg/multitenancy/TenantIdProvider.html">TenantIdProvider</a>
  SPI needs to be provided.</p>
 <p>The <code>TenantIdProvider</code> receives a callback when an instance of a process definition, case definition or decision definition is created. It can then assign a tenant id to the newly created instance (or not).</p>
 <p>The following example shows how to assign a tenant id to an instance based on the current authentication:</p>
@@ -3681,7 +3685,7 @@ manually by setting it to null explicitly via</li>
           </p>
 
           <p>
-            <a href="http://cibseven.de">cibseven.de</a> and <a href="http://docs.cibseven.de">docs.cibseven.de</a> are part of CIB seven project — <a href="https://www.cib.de/en/privacy-policy/">Privacy Statement</a> – <a href="https://www.cib.de/en/legal-advice/">CIB software GmbH</a>
+            <a href="http://cibseven.org">cibseven.org</a> and <a href="http://docs.cibseven.org">docs.cibseven.org</a> are part of CIB seven project — <a href="https://www.cib.de/en/privacy-policy/">Privacy Statement</a> – <a href="https://www.cib.de/en/legal-advice/">CIB software GmbH</a>
             <br/>The CIB seven documentation is based on <a href="https://docs.camunda.org/">Camunda 7 Docs</a> from Camunda. Some redesign & naming adoptation was made.
           </p>
           <p>
