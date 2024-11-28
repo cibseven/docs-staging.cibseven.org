@@ -7536,83 +7536,29 @@ a:focus {
 .content-header {
   position: relative;
 }
-/* line 207, styles\_content.less */
-.edit-on-github,
-.social {
-  position: absolute;
-  top: 0;
-  background-color: #eeeeee;
-  font-size: 14px;
-  border-radius: 0 0 6px 6px;
-  padding: 1px 6px 0 6px;
-}
-/* line 217, styles\_content.less */
-.edit-on-github {
-  right: 15px;
-}
-/* line 220, styles\_content.less */
-.edit-on-github a {
-  color: #E11E19;
-}
-/* line 224, styles\_content.less */
-.edit-on-github a:after {
-  display: none;
-}
-/* line 228, styles\_content.less */
-.edit-on-github span,
-.edit-on-github i {
-  display: inline-block;
-  white-space: nowrap;
-  vertical-align: middle;
-}
-/* line 235, styles\_content.less */
-.edit-on-github i {
-  transition: max-width 0.218s ease, margin 0.218s ease;
-  display: inline-block;
-  max-width: 0;
-  overflow: hidden;
-  margin-left: -3px;
-}
-/* line 244, styles\_content.less */
-.edit-on-github:hover i {
-  margin-left: 3px;
-  max-width: 120px;
-}
-/* line 251, styles\_content.less */
-.social {
-  left: 15px;
-  list-style: none;
-  margin: 0;
-}
-/* line 256, styles\_content.less */
-.social li {
-  display: inline-block;
-  margin: 0;
-  padding: 0;
-}
-/* line 263, styles\_content.less */
+/* line 200, styles\_content.less */
 h1.page-title {
   padding-bottom: 10px;
   border-bottom: 1px solid currentColor;
   margin-bottom: 15px;
   margin-top: 45px;
 }
-/* line 271, styles\_content.less */
+/* line 207, styles\_content.less */
 dt {
   font-size: 110%;
 }
-/* line 274, styles\_content.less */
+/* line 210, styles\_content.less */
 dd {
   margin: 0.5em 0 1em 2em;
 }
-/* line 280, styles\_content.less */
+/* line 216, styles\_content.less */
 .gs-download-step-panel,
 .note,
 pre.console,
 figure.image {
   margin: 15px 30px;
 }
-/* line 288, styles\_content.less */
+/* line 224, styles\_content.less */
 pre.console {
   background-color: #333333;
   color: #11d511;
@@ -7620,11 +7566,11 @@ pre.console {
   border: 1px solid black;
   border-radius: 3px;
 }
-/* line 296, styles\_content.less */
+/* line 232, styles\_content.less */
 [data-bpmn-diagram] .bjs-powered-by {
   display: none;
 }
-/* line 301, styles\_content.less */
+/* line 237, styles\_content.less */
 .note {
   font-weight: 400;
   padding: 6px 12px;
@@ -7635,7 +7581,7 @@ pre.console {
   font-size: 15px;
   line-height: 25px;
 }
-/* line 311, styles\_content.less */
+/* line 247, styles\_content.less */
 .note:before {
   content: '';
   display: block;
@@ -7647,78 +7593,78 @@ pre.console {
   height: 30px;
   transform: rotateZ(45deg);
 }
-/* line 324, styles\_content.less */
+/* line 260, styles\_content.less */
 .note > h3 {
   margin-top: 6px;
   font-size: 16px;
   font-weight: 400;
 }
-/* line 330, styles\_content.less */
+/* line 266, styles\_content.less */
 .note p:last-child {
   margin-bottom: 0;
 }
-/* line 334, styles\_content.less */
+/* line 270, styles\_content.less */
 .note.docs-primary,
 .note.enterprise-feature {
   border-color: #A7A9AC;
 }
-/* line 337, styles\_content.less */
+/* line 273, styles\_content.less */
 .note.docs-primary:before,
 .note.enterprise-feature:before {
   background-color: #A7A9AC;
 }
-/* line 341, styles\_content.less */
+/* line 277, styles\_content.less */
 .note.docs-success {
   border-color: #5cb85c;
 }
-/* line 343, styles\_content.less */
+/* line 279, styles\_content.less */
 .note.docs-success:before {
   background-color: #5cb85c;
 }
-/* line 347, styles\_content.less */
+/* line 283, styles\_content.less */
 .note.docs-info {
   border-color: #E11E19;
 }
-/* line 349, styles\_content.less */
+/* line 285, styles\_content.less */
 .note.docs-info:before {
   background-color: #E11E19;
 }
-/* line 353, styles\_content.less */
+/* line 289, styles\_content.less */
 .note.docs-warning {
   border-color: #f0ad4e;
 }
-/* line 355, styles\_content.less */
+/* line 291, styles\_content.less */
 .note.docs-warning:before {
   background-color: #f0ad4e;
 }
-/* line 359, styles\_content.less */
+/* line 295, styles\_content.less */
 .note.docs-danger {
   border-color: #d9534f;
 }
-/* line 361, styles\_content.less */
+/* line 297, styles\_content.less */
 .note.docs-danger:before {
   background-color: #d9534f;
 }
-/* line 368, styles\_content.less */
+/* line 304, styles\_content.less */
 .gs-download-step-panel {
   border-left: 5px solid #5cb85c;
 }
-/* line 372, styles\_content.less */
+/* line 308, styles\_content.less */
 .gs-download-step-panel .panel-heading h4 {
   margin-top: 0;
   margin-bottom: 20px;
 }
-/* line 376, styles\_content.less */
+/* line 312, styles\_content.less */
 .gs-download-step-panel .panel-heading p {
   margin-bottom: 0;
 }
-/* line 379, styles\_content.less */
+/* line 315, styles\_content.less */
 .gs-download-step-panel .panel-heading a:hover,
 .gs-download-step-panel .panel-heading a:focus {
   text-shadow: none;
   box-shadow: none;
 }
-/* line 386, styles\_content.less */
+/* line 322, styles\_content.less */
 .gs-download-step-panel .panel-body {
   padding-top: 0;
   padding-bottom: 0;
@@ -7726,17 +7672,17 @@ pre.console {
   overflow: hidden;
   transition: max-height 0.218s ease, padding 0.218s ease;
 }
-/* line 394, styles\_content.less */
+/* line 330, styles\_content.less */
 .gs-download-step-panel .toggle-instructions {
   cursor: pointer;
 }
-/* line 398, styles\_content.less */
+/* line 334, styles\_content.less */
 .gs-download-step-panel.open .panel-body {
   padding-top: 15px;
   padding-bottom: 15px;
   max-height: 600px;
 }
-/* line 406, styles\_content.less */
+/* line 342, styles\_content.less */
 .lightbox {
   position: fixed;
   overflow: hidden;
@@ -7749,7 +7695,7 @@ pre.console {
   z-index: 1039;
   cursor: pointer;
 }
-/* line 418, styles\_content.less */
+/* line 354, styles\_content.less */
 .lightbox .content {
   max-width: 100%;
   max-height: 100%;
@@ -7762,30 +7708,30 @@ pre.console {
   background-color: #fff;
   box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.5);
 }
-/* line 431, styles\_content.less */
+/* line 367, styles\_content.less */
 .lightbox img {
   display: block;
   max-width: 100%;
   background-color: #fff;
 }
-/* line 437, styles\_content.less */
+/* line 373, styles\_content.less */
 .lightbox.open {
   bottom: 0;
 }
-/* line 442, styles\_content.less */
+/* line 378, styles\_content.less */
 code {
   padding: 0;
 }
-/* line 446, styles\_content.less */
+/* line 382, styles\_content.less */
 .docs-intro {
   padding: 0 15px;
   font-size: 120%;
 }
-/* line 452, styles\_content.less */
+/* line 388, styles\_content.less */
 .table-cmmn-events > tbody > tr > td {
   vertical-align: middle;
 }
-/* line 455, styles\_content.less */
+/* line 391, styles\_content.less */
 .table-cmmn-events .glyphicon-ok {
   color: #f0ad4e;
 }
