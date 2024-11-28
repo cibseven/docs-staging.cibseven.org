@@ -2685,14 +2685,6 @@
   </li>
 
         
-          
-  <li>
-    
-      <a href="/manual/latest/installation/karaf-osgi/" >Karaf / OSGi</a>
-    
-  </li>
-
-        
       </ul>
     
   </li>
@@ -3187,7 +3179,7 @@
 <p>Incidents can be <a href="/manual/latest/reference/rest/specification/#tag/Execution/operation/createIncident">created</a> and <a href="/manual/latest/reference/rest/specification/#tag/Incident/operation/resolveIncident">resolved</a> through the REST API as well.</p>
 <h1 id="de-activate-incidents">(De-)Activate Incidents</h1>
 <p>The process engine allows you to configure  whether certain incidents should be raised or not, based on the incident type.
-The following properties are available in the <code>org.camunda.bpm.engine.ProcessEngineConfiguration</code> class:</p>
+The following properties are available in the <code>org.cibseven.bpm.engine.ProcessEngineConfiguration</code> class:</p>
 <ul>
 <li><code>createIncidentOnFailedJobEnabled</code>: indicates whether Failed Job incidents should be raised or not.</li>
 </ul>
@@ -3206,7 +3198,7 @@ The following properties are available in the <code>org.camunda.bpm.engine.Proce
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
 </span></span></span></code></pre></div><p>The <code>handleIncident</code> method is called when a new incident is created. The <code>resolveIncident</code> method is called when an incident is resolved. If you want to provide a custom incident handler implementation you can replace one or multiple incident handlers using the following method:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">org</span><span class="p">.</span><span class="na">camunda</span><span class="p">.</span><span class="na">bpm</span><span class="p">.</span><span class="na">engine</span><span class="p">.</span><span class="na">impl</span><span class="p">.</span><span class="na">cfg</span><span class="p">.</span><span class="na">ProcessEngineConfigurationImpl</span><span class="p">.</span><span class="na">setCustomIncidentHandlers</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">IncidentHandler</span><span class="o">&gt;</span><span class="p">)</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">org</span><span class="p">.</span><span class="na">cibseven</span><span class="p">.</span><span class="na">bpm</span><span class="p">.</span><span class="na">engine</span><span class="p">.</span><span class="na">impl</span><span class="p">.</span><span class="na">cfg</span><span class="p">.</span><span class="na">ProcessEngineConfigurationImpl</span><span class="p">.</span><span class="na">setCustomIncidentHandlers</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">IncidentHandler</span><span class="o">&gt;</span><span class="p">)</span><span class="w">
 </span></span></span></code></pre></div><p>An example of a custom incident handler could be a handler which extends the default behavior by sending an email to an administrator whenever an incident of type <code>failedJob</code> occurs. However, just adding the custom incident handler overwrites the default behavior with the custom incident handlers behavior. As a consequence, the default incident handler is not executed anymore. If the default behavior should be executed as well, then the custom incident handler also needs to invoke the default incident handler, which includes using internal API.</p>
 
 <div class="note bg-warning docs-warning">
@@ -3220,11 +3212,11 @@ Composite incident handlers allow defining one main and multiple sub handlers. O
 <p>To enable composite incident handlers, configure the following property:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;compositeIncidentHandlersEnabled&#34;</span> <span class="na">value=</span><span class="s">&#34;true&#34;</span> <span class="nt">/&gt;</span>
 </span></span></code></pre></div><p>If you want to provide multiple incident handlers, you can add them using the following method:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">org</span><span class="p">.</span><span class="na">camunda</span><span class="p">.</span><span class="na">bpm</span><span class="p">.</span><span class="na">engine</span><span class="p">.</span><span class="na">impl</span><span class="p">.</span><span class="na">cfg</span><span class="p">.</span><span class="na">ProcessEngineConfigurationImpl</span><span class="p">.</span><span class="na">setCustomIncidentHandlers</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">IncidentHandler</span><span class="o">&gt;</span><span class="p">)</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">org</span><span class="p">.</span><span class="na">cibseven</span><span class="p">.</span><span class="na">bpm</span><span class="p">.</span><span class="na">engine</span><span class="p">.</span><span class="na">impl</span><span class="p">.</span><span class="na">cfg</span><span class="p">.</span><span class="na">ProcessEngineConfigurationImpl</span><span class="p">.</span><span class="na">setCustomIncidentHandlers</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">IncidentHandler</span><span class="o">&gt;</span><span class="p">)</span><span class="w">
 </span></span></span></code></pre></div><p>All additional incident handlers will be added as sub handlers to the <code>CompositeIncidentHandler</code> for the same handler type.</p>
 <p>By default, the main handler is <code>DefaultIncidentHandler</code>. To override the main handler, create a <code>CompositeIncidentHandler</code> with your own main <code>IncidentHandler</code> and initialize the incident handlers in the engine configuration before setting up the engine.</p>
 <p>See javadoc for more details
-<a href="/javadoc/cibseven/1.1/org/camunda/bpm/engine/impl/incident/CompositeIncidentHandler.html">Composite Incident Handler</a>
+<a href="/javadoc/cibseven/1.1/org/cibseven/bpm/engine/impl/incident/CompositeIncidentHandler.html">Composite Incident Handler</a>
 .</p>
 
     </div>

@@ -2685,14 +2685,6 @@
   </li>
 
         
-          
-  <li>
-    
-      <a href="/manual/latest/installation/karaf-osgi/" >Karaf / OSGi</a>
-    
-  </li>
-
-        
       </ul>
     
   </li>
@@ -3163,7 +3155,7 @@
     </div>
 
     <div class="col-xs-12 content-text">
-      <p>You can delegate the bootstrapping of the process engine and process deployment to a process application class. The basic ProcessApplication functionality is provided by the <code>org.camunda.bpm.application.AbstractProcessApplication</code> base class. Based on this class there is a set of environment-specific sub classes that realize integration within a specific environment:</p>
+      <p>You can delegate the bootstrapping of the process engine and process deployment to a process application class. The basic ProcessApplication functionality is provided by the <code>org.cibseven.bpm.application.AbstractProcessApplication</code> base class. Based on this class there is a set of environment-specific sub classes that realize integration within a specific environment:</p>
 <ul>
 <li><strong>ServletProcessApplication</strong>: To be used for process applications in a Servlet container like Apache Tomcat.</li>
 <li><strong>JakartaServletProcessApplication</strong>: To be used for process applications in a Jakarta Servlet 5.0+ container like WildFly 27 and above.</li>
@@ -3185,10 +3177,10 @@ The mechanisms described herein for the <code>ServletProcessApplication</code> a
 <p><strong>Packaging</strong>: WAR (or embedded WAR inside EAR)</p>
 <p>The <code>ServletProcessApplication</code> class is the base class for developing process applications based on the Servlet Specification (Java Web Applications). The servlet process application implements the Java EE <code>javax.servlet.ServletContextListener</code> interface which allows it to participate in the deployment lifecycle of your Web application</p>
 <p>The following is an example of a Servlet Process Application:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nn">org.camunda.bpm.example.loanapproval</span><span class="p">;</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nn">org.cibseven.bpm.example.loanapproval</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.camunda.bpm.application.ProcessApplication</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.camunda.bpm.application.impl.ServletProcessApplication</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.cibseven.bpm.application.ProcessApplication</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.cibseven.bpm.application.impl.ServletProcessApplication</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@ProcessApplication</span><span class="p">(</span><span class="s">&#34;Loan Approval App&#34;</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">LoanApprovalApplication</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">ServletProcessApplication</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -3197,7 +3189,7 @@ The mechanisms described herein for the <code>ServletProcessApplication</code> a
 </span></span></span></code></pre></div><p>Notice the <code>@ProcessApplication</code> annotation. This annotation fulfills two purposes:</p>
 <ul>
 <li><strong>provide the name of the ProcessApplication</strong>: You can provide a custom name for your process application using the annotation: <code>@ProcessApplication(&quot;Loan Approval App&quot;)</code>. If no name is provided, a name is automatically detected. In case of a servlet process application, the name of the <code>ServletContext</code> is used.</li>
-<li><strong>trigger auto-deployment</strong>. In a Servlet 3.0 container, the annotation is sufficient for making sure that the process application is automatically picked up by the servlet container and automatically added as a ServletContextListener to the Servlet Container deployment. This functionality is realized by a <code>javax.servlet.ServletContainerInitializer</code> implementation named <code>org.camunda.bpm.application.impl.ServletProcessApplicationDeployer</code> which is located in the camunda-engine module. The implementation works for both embedded deployment of the camunda-engine.jar as a web application library in the <code>WEB-INF/lib</code> folder of your WAR file, or for the deployment of the camunda-engine.jar as a shared library in the shared library (e.g., Apache Tomcat global <code>lib/</code> folder) directory of your application server. The Servlet 3.0 Specification foresees both deployment scenarios. In case of embedded deployment, the <code>ServletProcessApplicationDeployer</code> is notified once, when the web application is deployed. In case of deployment as a shared library, the <code>ServletProcessApplicationDeployer</code> is notified for each WAR file containing a class annotated with <code>@ProcessApplication</code> (as required by the Servlet 3.0 Specification).</li>
+<li><strong>trigger auto-deployment</strong>. In a Servlet 3.0 container, the annotation is sufficient for making sure that the process application is automatically picked up by the servlet container and automatically added as a ServletContextListener to the Servlet Container deployment. This functionality is realized by a <code>javax.servlet.ServletContainerInitializer</code> implementation named <code>org.cibseven.bpm.application.impl.ServletProcessApplicationDeployer</code> which is located in the camunda-engine module. The implementation works for both embedded deployment of the camunda-engine.jar as a web application library in the <code>WEB-INF/lib</code> folder of your WAR file, or for the deployment of the camunda-engine.jar as a shared library in the shared library (e.g., Apache Tomcat global <code>lib/</code> folder) directory of your application server. The Servlet 3.0 Specification foresees both deployment scenarios. In case of embedded deployment, the <code>ServletProcessApplicationDeployer</code> is notified once, when the web application is deployed. In case of deployment as a shared library, the <code>ServletProcessApplicationDeployer</code> is notified for each WAR file containing a class annotated with <code>@ProcessApplication</code> (as required by the Servlet 3.0 Specification).</li>
 </ul>
 <p>This means that in case you deploy to a Servlet 3.0 compliant container (such as Apache Tomcat) annotating your class with <code>@ProcessApplication</code> is sufficient.</p>
 
@@ -3241,7 +3233,7 @@ An EJB process application class itself must be deployed as an EJB.</p>
 <p>To add an EJB process application to your Java application, you have two options:</p>
 <ul>
 <li><strong>Bundle the Camunda EJB Client</strong>: we provide a generic, reusable EJB process application implementation (named
-<code>org.camunda.bpm.application.impl.ejb.DefaultEjbProcessApplication</code>) bundled as a maven artifact. You can add this
+<code>org.cibseven.bpm.application.impl.ejb.DefaultEjbProcessApplication</code>) bundled as a maven artifact. You can add this
 implementation to your application as a maven dependency. Use the <code>camunda-ejb-client</code> artifact for Java EE or
 the <code>camunda-ejb-client-jakarta</code> artifact for Jakarta EE 9+ applications.</li>
 <li><strong>Write a custom EJB process application</strong>: if you want to customize the behavior of the <code>EjbProcessApplication</code>
@@ -3257,13 +3249,13 @@ or <code>JakartaEjbProcessApplication</code>, you can write a custom subclass of
 </div>
 
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependency&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&lt;groupId&gt;</span>org.camunda.bpm.javaee<span class="nt">&lt;/groupId&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&lt;artifactId&gt;</span>camunda-ejb-client<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;groupId&gt;</span>org.cibseven.bpm.javaee<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;artifactId&gt;</span>cibseven-ejb-client<span class="nt">&lt;/artifactId&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/dependency&gt;</span>
 </span></span></code></pre></div><p>For Jakarta EE 9+ EJB containers, use the following dependency instead:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependency&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&lt;groupId&gt;</span>org.camunda.bpm.javaee<span class="nt">&lt;/groupId&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&lt;artifactId&gt;</span>camunda-ejb-client-jakarta<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;groupId&gt;</span>org.cibseven.bpm.javaee<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;artifactId&gt;</span>cibseven-ejb-client-jakarta<span class="nt">&lt;/artifactId&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/dependency&gt;</span>
 </span></span></code></pre></div><p>The Camunda EJB Client contains a reusable default implementation of the respective EJB process application as a Singleton Session Bean with auto-activation.</p>
 <p>This deployment option requires that your project is a composite deployment (such as a WAR or EAR) since you need to add a library JAR file.
@@ -3401,7 +3393,7 @@ You could of course use something like the maven shade plugin for adding the cla
 <h1 id="the-embeddedprocessapplication">The EmbeddedProcessApplication</h1>
 <p><strong>Supported on:</strong> JVM, Apache Tomcat, Wildfly</p>
 <p><strong>Packaging:</strong> JAR, WAR, EAR</p>
-<p>The <code>org.camunda.bpm.application.impl.EmbeddedProcessApplication</code> can only be used in combination with an embedded process engine. Usage in combination with a Shared Process Engine is not supported as the class performs no process application context switching at runtime.</p>
+<p>The <code>org.cibseven.bpm.application.impl.EmbeddedProcessApplication</code> can only be used in combination with an embedded process engine. Usage in combination with a Shared Process Engine is not supported as the class performs no process application context switching at runtime.</p>
 <p>The embedded process application also does not provide auto-startup. You need to manually call the <code>#deploy</code> method of your process application:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// instantiate the process application</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">MyProcessApplication</span><span class="w"> </span><span class="n">processApplication</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MyProcessApplication</span><span class="p">();</span><span class="w">
@@ -3429,8 +3421,8 @@ You could of course use something like the maven shade plugin for adding the cla
 </span></span></span></code></pre></div><h1 id="the-springprocessapplication">The SpringProcessApplication</h1>
 <p><strong>Supported on:</strong> JVM, Apache Tomcat.</p>
 <p><strong>Packaging:</strong> JAR, WAR, EAR</p>
-<p>The <code>org.camunda.bpm.engine.spring.application.SpringProcessApplication</code> class allows bootstrapping a process application through a Spring Application Context. You can either reference the SpringProcessApplication class from an XML-based application context configuration file or use an annotation-based setup.</p>
-<p>If your application is a web application you should use <code>org.camunda.bpm.engine.spring.application.SpringServletProcessApplication</code> as it provides support for exposing the servlet context path through the <code>ProcessApplicationInfo#PROP_SERVLET_CONTEXT_PATH</code> property.</p>
+<p>The <code>org.cibseven.bpm.engine.spring.application.SpringProcessApplication</code> class allows bootstrapping a process application through a Spring Application Context. You can either reference the SpringProcessApplication class from an XML-based application context configuration file or use an annotation-based setup.</p>
+<p>If your application is a web application you should use <code>org.cibseven.bpm.engine.spring.application.SpringServletProcessApplication</code> as it provides support for exposing the servlet context path through the <code>ProcessApplicationInfo#PROP_SERVLET_CONTEXT_PATH</code> property.</p>
 <p>We recommend to always use <code>SpringServletProcessApplication</code> unless the deployment is not a web application. Using this class requires the <code>org.springframework:spring-web</code> module to be on the classpath.</p>
 <h2 id="configuring-a-spring-process-application">Configuring a Spring Process Application</h2>
 <p>The following shows an example of how to bootstrap a SpringProcessApplication inside a Spring application context XML file:</p>
@@ -3439,7 +3431,7 @@ You could of course use something like the maven shade plugin for adding the cla
 </span></span><span class="line"><span class="cl">       <span class="na">xsi:schemaLocation=</span><span class="s">&#34;http://www.springframework.org/schema/beans
 </span></span></span><span class="line"><span class="cl"><span class="s">                           http://www.springframework.org/schema/beans/spring-beans.xsd&#34;</span><span class="nt">&gt;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;invoicePa&#34;</span> <span class="na">class=</span><span class="s">&#34;org.camunda.bpm.engine.spring.application.SpringServletProcessApplication&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;invoicePa&#34;</span> <span class="na">class=</span><span class="s">&#34;org.cibseven.bpm.engine.spring.application.SpringServletProcessApplication&#34;</span> <span class="nt">/&gt;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/beans&gt;</span>
 </span></span></code></pre></div><p>Remember to additionally add a <code>META-INF/processes.xml</code> file.</p>
@@ -3449,7 +3441,7 @@ You could of course use something like the maven shade plugin for adding the cla
 <h2 id="process-application-name">Process Application Name</h2>
 <p>The <code>SpringProcessApplication</code> will use the bean name (<code>id=&quot;invoicePa&quot;</code> in the example above) as auto-detected name for the process application. Make sure to provide a unique process application name here (unique across all process applications deployed on a single application server instance). As an alternative, you can provide a custom subclass of <code>SpringProcessApplication</code> (or <code>SpringServletProcessApplication</code>) and override the <code>getName()</code> method.</p>
 <h2 id="configure-a-managed-process-engine-using-spring">Configure a Managed Process Engine Using Spring</h2>
-<p>If you use a Spring process application, you may want to configure your process engine inside the Spring application context Xml file (as opposed to the processes.xml file). In this case, you must use the <code>org.camunda.bpm.engine.spring.container.ManagedProcessEngineFactoryBean</code> class for creating the process engine object instance. In addition to creating the process engine object, this implementation registers the process engine with the CIB seven infrastructure so that the process engine is returned by the <code>ProcessEngineService</code>. The following is an example of how to configure a managed process engine using Spring.</p>
+<p>If you use a Spring process application, you may want to configure your process engine inside the Spring application context Xml file (as opposed to the processes.xml file). In this case, you must use the <code>org.cibseven.bpm.engine.spring.container.ManagedProcessEngineFactoryBean</code> class for creating the process engine object instance. In addition to creating the process engine object, this implementation registers the process engine with the CIB seven infrastructure so that the process engine is returned by the <code>ProcessEngineService</code>. The following is an example of how to configure a managed process engine using Spring.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;beans</span> <span class="na">xmlns=</span><span class="s">&#34;http://www.springframework.org/schema/beans&#34;</span>
 </span></span><span class="line"><span class="cl">       <span class="na">xmlns:xsi=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
 </span></span><span class="line"><span class="cl">       <span class="na">xsi:schemaLocation=</span><span class="s">&#34;http://www.springframework.org/schema/beans
@@ -3470,7 +3462,7 @@ You could of course use something like the maven shade plugin for adding the cla
 </span></span><span class="line"><span class="cl">        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;dataSource&#34;</span> <span class="na">ref=</span><span class="s">&#34;dataSource&#34;</span><span class="nt">/&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;/bean&gt;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;processEngineConfiguration&#34;</span> <span class="na">class=</span><span class="s">&#34;org.camunda.bpm.engine.spring.SpringProcessEngineConfiguration&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;processEngineConfiguration&#34;</span> <span class="na">class=</span><span class="s">&#34;org.cibseven.bpm.engine.spring.SpringProcessEngineConfiguration&#34;</span><span class="nt">&gt;</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;processEngineName&#34;</span> <span class="na">value=</span><span class="s">&#34;default&#34;</span> <span class="nt">/&gt;</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;dataSource&#34;</span> <span class="na">ref=</span><span class="s">&#34;dataSource&#34;</span><span class="nt">/&gt;</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;transactionManager&#34;</span> <span class="na">ref=</span><span class="s">&#34;transactionManager&#34;</span><span class="nt">/&gt;</span>
@@ -3479,7 +3471,7 @@ You could of course use something like the maven shade plugin for adding the cla
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;/bean&gt;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="c">&lt;!-- using ManagedProcessEngineFactoryBean allows registering the ProcessEngine with the BpmPlatform --&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;processEngine&#34;</span> <span class="na">class=</span><span class="s">&#34;org.camunda.bpm.engine.spring.container.ManagedProcessEngineFactoryBean&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;processEngine&#34;</span> <span class="na">class=</span><span class="s">&#34;org.cibseven.bpm.engine.spring.container.ManagedProcessEngineFactoryBean&#34;</span><span class="nt">&gt;</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;processEngineConfiguration&#34;</span> <span class="na">ref=</span><span class="s">&#34;processEngineConfiguration&#34;</span><span class="nt">/&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;/bean&gt;</span>
 </span></span><span class="line"><span class="cl">

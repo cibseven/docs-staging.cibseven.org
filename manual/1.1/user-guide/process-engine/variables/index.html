@@ -2685,14 +2685,6 @@
   </li>
 
         
-          
-  <li>
-    
-      <a href="/manual/1.1/installation/karaf-osgi/" >Karaf / OSGi</a>
-    
-  </li>
-
-        
       </ul>
     
   </li>
@@ -3331,7 +3323,7 @@ it may be implemented separately and must happen before the Camunda API to set t
 </span></span></span></code></pre></div><p>Whenever a variable is set in its Java representation, the process engine automatically determines a suitable value serializer or raises an exception if the provided value cannot be serialized.</p>
 <h1 id="typed-value-api">Typed Value API</h1>
 <p>In cases in which it is important to access a variable&rsquo;s serialized representation or in which the engine has to be hinted to serialize a value in a certain format, the typed-value-based API can be used. In comparison to the Java-Object-based API, it wraps a variable value in a so-called <em>Typed Value</em>. Such a typed value allows richer representation of variable values.</p>
-<p>In order to easily construct typed values, CIB seven offers the class <code>org.camunda.bpm.engine.variable.Variables</code>. This class contains static methods that allow creation of single typed values as well as creation of a map of typed values in a fluent way.</p>
+<p>In order to easily construct typed values, CIB seven offers the class <code>org.cibseven.bpm.engine.variable.Variables</code>. This class contains static methods that allow creation of single typed values as well as creation of a map of typed values in a fluent way.</p>
 <h2 id="primitive-values">Primitive Values</h2>
 <p>The following code sets a single <code>String</code> variable by specifying it as a typed value:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">StringValue</span><span class="w"> </span><span class="n">typedStringValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Variables</span><span class="p">.</span><span class="na">stringValue</span><span class="p">(</span><span class="s">&#34;a string value&#34;</span><span class="p">);</span><span class="w">
@@ -3500,11 +3492,11 @@ delegation code or a script and be reused in every process, even though the proc
 An input mapping is used to map the different process variables to
 the required input parameters of the complex calculation activity. Accordingly, an output mapping allows to utilize the
 calculation result in the further process execution.</p>
-<p>In more detail, let us assume such a calculation is implemented by a Java Delegate class <code>org.camunda.bpm.example.ComplexCalculation</code>.
+<p>In more detail, let us assume such a calculation is implemented by a Java Delegate class <code>org.cibseven.bpm.example.ComplexCalculation</code>.
 This delegate requires a <code>userId</code> and a <code>costSum</code> variable as input
 parameters. It then calculates three values, <code>pessimisticForecast</code>, <code>realisticForecast</code> and <code>optimisticForecast</code>,
 which are different forecasts of the future costs a customer faces. In a first process, both input variables are available as process variables but with different names (<code>id</code>, <code>sum</code>). From the three results, the process only uses <code>realisticForecast</code> which it depends on by the name <code>forecast</code> in follow-up activities. A corresponding input/output mapping looks as follows:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;serviceTask</span> <span class="na">camunda:class=</span><span class="s">&#34;org.camunda.bpm.example.ComplexCalculation&#34;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;serviceTask</span> <span class="na">camunda:class=</span><span class="s">&#34;org.cibseven.bpm.example.ComplexCalculation&#34;</span><span class="nt">&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;extensionElements&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;camunda:inputOutput&gt;</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&lt;camunda:inputParameter</span> <span class="na">name=</span><span class="s">&#34;userId&#34;</span><span class="nt">&gt;</span>${id}<span class="nt">&lt;/camunda:inputParameter&gt;</span>
@@ -3515,7 +3507,7 @@ which are different forecasts of the future costs a customer faces. In a first p
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/serviceTask&gt;</span>
 </span></span></code></pre></div><p>In a second process, let us assume the <code>costSum</code> variable has to be calculated from properties of three different maps. Also, the process
 depends on a variable <code>avgForecast</code> as the average value of the three forecasts. In this case, the mapping looks as follows:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;serviceTask</span> <span class="na">camunda:class=</span><span class="s">&#34;org.camunda.bpm.example.ComplexCalculation&#34;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;serviceTask</span> <span class="na">camunda:class=</span><span class="s">&#34;org.cibseven.bpm.example.ComplexCalculation&#34;</span><span class="nt">&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;extensionElements&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;camunda:inputOutput&gt;</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&lt;camunda:inputParameter</span> <span class="na">name=</span><span class="s">&#34;userId&#34;</span><span class="nt">&gt;</span>${id}<span class="nt">&lt;/camunda:inputParameter&gt;</span>

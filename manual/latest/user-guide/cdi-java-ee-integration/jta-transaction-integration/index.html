@@ -2685,14 +2685,6 @@
   </li>
 
         
-          
-  <li>
-    
-      <a href="/manual/latest/installation/karaf-osgi/" >Karaf / OSGi</a>
-    
-  </li>
-
-        
       </ul>
     
   </li>
@@ -3167,9 +3159,9 @@
 <p>The process engine transaction management can integrate with JTA and Jakarta Transactions.
 To use transaction manager integration, you need to use the</p>
 <ul>
-<li><code>org.camunda.bpm.engine.impl.cfg.JtaProcessEngineConfiguration</code> for JTA integration only.</li>
-<li><code>org.camunda.bpm.engine.impl.cfg.JakartaTransactionProcessEngineConfiguration</code> for Jakarta Transactions integration only.</li>
-<li><code>org.camunda.bpm.engine.cdi.CdiJtaProcessEngineConfiguration</code> for additional CDI expression resolution support.</li>
+<li><code>org.cibseven.bpm.engine.impl.cfg.JtaProcessEngineConfiguration</code> for JTA integration only.</li>
+<li><code>org.cibseven.bpm.engine.impl.cfg.JakartaTransactionProcessEngineConfiguration</code> for Jakarta Transactions integration only.</li>
+<li><code>org.cibseven.bpm.engine.cdi.CdiJtaProcessEngineConfiguration</code> for additional CDI expression resolution support.</li>
 </ul>
 <p>The process engine requires access to an implementation of <code>javax.transaction.TransactionManager</code> or <code>jakarta.transaction.TransactionManager</code> respectively.
 Not all application servers provide such an implementation. Most notably, IBM WebSphere and Oracle WebLogic historically did not provide this  implementation.

@@ -2685,14 +2685,6 @@
   </li>
 
         
-          
-  <li>
-    
-      <a href="/manual/latest/installation/karaf-osgi/" >Karaf / OSGi</a>
-    
-  </li>
-
-        
       </ul>
     
   </li>
@@ -3167,8 +3159,8 @@
 the External Task Client to your Spring Boot application by adding the following Maven dependency to
 your <code>pom.xml</code> file:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependency&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&lt;groupId&gt;</span>org.camunda.bpm.springboot<span class="nt">&lt;/groupId&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&lt;artifactId&gt;</span>camunda-bpm-spring-boot-starter-external-task-client<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;groupId&gt;</span>org.cibseven.bpm.springboot<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;artifactId&gt;</span>cibseven-bpm-spring-boot-starter-external-task-client<span class="nt">&lt;/artifactId&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;version&gt;</span>1.1<span class="nt">&lt;/version&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/dependency&gt;</span>
 </span></span></code></pre></div><p>Please check Camunda <a href="https://github.com/camunda/camunda-bpm-examples/tree/7.22#external-task-client-spring-boot">External Task Client Spring Boot Starter Examples</a>.</p>
@@ -3202,7 +3194,7 @@ either referencing the topic name in your <code>application.yml</code> file:</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">variableNames</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;defaultScore&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w">
 </span></span></span></code></pre></div><p>Please find the complete list of attributes in the
-<a href="/javadoc/cibseven/1.1/org/camunda/bpm/client/spring/annotation/ExternalTaskSubscription.html">Javadocs</a>
+<a href="/javadoc/cibseven/1.1/org/cibseven/bpm/client/spring/annotation/ExternalTaskSubscription.html">Javadocs</a>
 .</p>
 <p><strong>Please Note:</strong> A property defined in the <code>application.yml</code> file always overrides the respective attribute defined programmatically via annotation.</p>
 <h3 id="handler-configuration-example">Handler Configuration Example</h3>
@@ -3568,10 +3560,10 @@ topic subscription can be opened or closed:</p>
   </tbody>
 </table>
 <h4 id="logging">Logging</h4>
-<p>To log the Client&rsquo;s internal workings, you can set the level of the logger <code>org.camunda.bpm.client.spring</code> to <code>DEBUG</code>.</p>
+<p>To log the Client&rsquo;s internal workings, you can set the level of the logger <code>org.cibseven.bpm.client.spring</code> to <code>DEBUG</code>.</p>
 <p>You can set the log level in your <code>application.yml</code> file as follows:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">logging.level.org.camunda.bpm.client.spring</span><span class="p">:</span><span class="w"> </span><span class="l">DEBUG</span><span class="w">
-</span></span></span></code></pre></div><p>For debugging, it might be helpful to increase the level of the logger <code>org.camunda.bpm.client</code> as well.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">logging.level.org.cibseven.bpm.client.spring</span><span class="p">:</span><span class="w"> </span><span class="l">DEBUG</span><span class="w">
+</span></span></span></code></pre></div><p>For debugging, it might be helpful to increase the level of the logger <code>org.cibseven.bpm.client</code> as well.</p>
 <h3 id="request-interceptor">Request Interceptor</h3>
 <p>A request interceptor is called whenever the Client performs an HTTP request. You can use this
 extension point, for example, to implement a custom authentication strategy like OAuth 2.0.</p>
@@ -3648,13 +3640,13 @@ However, these beans can be accessed via auto wiring.</p>
 <p>If you want to use Spring instead of Spring Boot, you can add the following Maven dependency
 to your <code>pom.xml</code> file:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependency&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&lt;groupId&gt;</span>org.camunda.bpm<span class="nt">&lt;/groupId&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&lt;artifactId&gt;</span>camunda-external-task-client-spring<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;groupId&gt;</span>org.cibseven.bpm<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;artifactId&gt;</span>cibseven-external-task-client-spring<span class="nt">&lt;/artifactId&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;version&gt;</span>1.1<span class="nt">&lt;/version&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/dependency&gt;</span>
 </span></span></code></pre></div><p>To bootstrap the Client, use the class annotation <code>@EnableExternalTaskClient</code>. You can find all
 configuration attributes in the
-<a href="/javadoc/cibseven/1.1/org/camunda/bpm/client/spring/annotation/EnableExternalTaskClient.html">Javadocs</a>
+<a href="/javadoc/cibseven/1.1/org/cibseven/bpm/client/spring/annotation/EnableExternalTaskClient.html">Javadocs</a>
 .</p>
 
     </div>

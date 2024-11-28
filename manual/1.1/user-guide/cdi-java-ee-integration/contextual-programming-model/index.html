@@ -2685,14 +2685,6 @@
   </li>
 
         
-          
-  <li>
-    
-      <a href="/manual/1.1/installation/karaf-osgi/" >Karaf / OSGi</a>
-    
-  </li>
-
-        
       </ul>
     
   </li>
@@ -3173,7 +3165,7 @@ process instances are associated with the &ldquo;broadest&rdquo; active scope, s
 if the conversation context is not active.</p>
 <h1 id="associate-a-conversation-with-a-process-instance">Associate a conversation with a process instance</h1>
 <p>When resolving <code>@BusinessProcessScoped</code> beans or injecting process variables, we rely on an existing association between an active CDI scope and a process instance.
-The Camunda CDI integration provides the <code>org.camunda.bpm.engine.cdi.BusinessProcess</code> bean for controlling the association, most prominently:</p>
+The Camunda CDI integration provides the <code>org.cibseven.bpm.engine.cdi.BusinessProcess</code> bean for controlling the association, most prominently:</p>
 <ul>
 <li>The <code>startProcessBy*(...)</code>-methods, mirroring the respective methods exposed by the <code>RuntimeService</code> allowing to start and subsequently associate a business process.</li>
 <li>The <code>resumeProcessById(String processInstanceId)</code>, allowing to associate the process instance with the provided Id.</li>
@@ -3189,7 +3181,7 @@ The following JSF2 snippet begins a new conversation and associates it with a us
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/f:metadata&gt;</span>
 </span></span></code></pre></div><h1 id="declaratively-controlling-the-process">Declaratively controlling the process</h1>
 <p>Camunda CDI allows declaratively starting process instances and completing tasks using annotations.
-The <code>@org.camunda.bpm.engine.cdi.annotation.StartProcess</code> annotation allows to start a process instance either by &ldquo;key&rdquo; or by &ldquo;name&rdquo;.
+The <code>@org.cibseven.bpm.engine.cdi.annotation.StartProcess</code> annotation allows to start a process instance either by &ldquo;key&rdquo; or by &ldquo;name&rdquo;.
 Note that the process instance is started after the annotated method returns. Example:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@StartProcess</span><span class="p">(</span><span class="s">&#34;authorizeBusinessTripRequest&#34;</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">submitRequest</span><span class="p">(</span><span class="n">BusinessTripRequest</span><span class="w"> </span><span class="n">request</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -3197,7 +3189,7 @@ Note that the process instance is started after the annotated method returns. Ex
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="s">&#34;success&#34;</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
 </span></span></span></code></pre></div><p>Depending on the configuration of the CIB seven engine, the code of the annotated method and the starting of the process
-instance will be combined in the same transaction. The <code>@org.camunda.bpm.engine.cdi.annotation.CompleteTask</code>-annotation
+instance will be combined in the same transaction. The <code>@org.cibseven.bpm.engine.cdi.annotation.CompleteTask</code>-annotation
 works in the same way:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@CompleteTask</span><span class="p">(</span><span class="n">endConversation</span><span class="o">=</span><span class="kc">false</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">authorizeBusinessTrip</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">

@@ -2685,14 +2685,6 @@
   </li>
 
         
-          
-  <li>
-    
-      <a href="/manual/latest/installation/karaf-osgi/" >Karaf / OSGi</a>
-    
-  </li>
-
-        
       </ul>
     
   </li>
@@ -3171,7 +3163,7 @@ box:</p>
 <li><a href="http://freemarker.org/">FreeMarker</a></li>
 </ul>
 <p>The script engine Freemarker wrapper implementation can be found in the
-<a href="https://github.com/camunda/camunda-bpm-platform/tree/master/freemarker-template-engine">camunda-bpmn-platform</a> repository.</p>
+<a href="https://github.com/cibseven/cibseven/tree/master/freemarker-template-engine">cibseven-bpmn-platform</a> repository.</p>
 <p>The following template engines are provided as optional community extensions:</p>
 <ul>
 <li><a href="http://velocity.apache.org/">Apache Velocity</a></li>
@@ -3290,7 +3282,7 @@ dependency must be added as dependencies to the maven <code>pom.xml</code> file:
 <p>The following is an example of a BPMN ScriptTask used to execute an XSLT Template:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;bpmn2:scriptTask</span> <span class="na">id=</span><span class="s">&#34;ScriptTask_1&#34;</span> <span class="na">name=</span><span class="s">&#34;convert input&#34;</span>
 </span></span><span class="line"><span class="cl">                  <span class="na">scriptFormat=</span><span class="s">&#34;xslt&#34;</span>
-</span></span><span class="line"><span class="cl">                  <span class="na">camunda:resource=</span><span class="s">&#34;org/camunda/bpm/example/xsltexample/example.xsl&#34;</span>
+</span></span><span class="line"><span class="cl">                  <span class="na">camunda:resource=</span><span class="s">&#34;org/cibseven/bpm/example/xsltexample/example.xsl&#34;</span>
 </span></span><span class="line"><span class="cl">                  <span class="na">camunda:resultVariable=</span><span class="s">&#34;xmlOutput&#34;</span><span class="nt">&gt;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;bpmn2:extensionElements&gt;</span>

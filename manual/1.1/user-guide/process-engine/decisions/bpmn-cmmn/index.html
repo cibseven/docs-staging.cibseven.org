@@ -2685,14 +2685,6 @@
   </li>
 
         
-          
-  <li>
-    
-      <a href="/manual/1.1/installation/karaf-osgi/" >Karaf / OSGi</a>
-    
-  </li>
-
-        
       </ul>
     
   </li>
@@ -3233,7 +3225,7 @@ the only matched rule.</p>
 </span></span></span></code></pre></div><p>It also provides methods to get typed output entries like
 <code>getSingleEntryTyped()</code>. Please refer to the <a href="/manual/1.1/user-guide/process-engine/variables/#typed-value-api">User Guide</a> for
 details about typed values. A complete list of all methods can be found in the
-<a href="/javadoc/cibseven/1.1/org/camunda/bpm/dmn/engine/DmnDecisionResult">Java Docs</a>
+<a href="/javadoc/cibseven/1.1/org/cibseven/bpm/dmn/engine/DmnDecisionResult">Java Docs</a>
 .</p>
 <p>The decision result is available in the local scope of the executing task as a
 transient variable named <code>decisionResult</code>. It can be passed into a variable by
@@ -3361,7 +3353,7 @@ listener which is attached to the decision task.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;decisionTask</span> <span class="na">id=</span><span class="s">&#34;decisionTask&#34;</span> <span class="na">decisionRef=</span><span class="s">&#34;myDecision&#34;</span><span class="nt">&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;extensionElements&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;camunda:caseExecutionListener</span> <span class="na">event=</span><span class="s">&#34;complete&#34;</span>
-</span></span><span class="line"><span class="cl">      <span class="na">class=</span><span class="s">&#34;org.camunda.bpm.example.MyDecisionResultListener&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="na">class=</span><span class="s">&#34;org.cibseven.bpm.example.MyDecisionResultListener&#34;</span> <span class="nt">/&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;/extensionElements&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/decisionTask&gt;</span>
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyDecisionResultListener</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">CaseExecutionListener</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -3460,7 +3452,7 @@ section in the <a href="/manual/1.1/user-guide/spring-framework-integration/#exp
 </div>
 
 <p>It is possible to add own functions which can be used inside JUEL expressions.
-Therefore a new <a href="/javadoc/cibseven/1.1/?org/camunda/bpm/engine/impl/javax/el/FunctionMapper.html">FunctionMapper</a>
+Therefore a new <a href="/javadoc/cibseven/1.1/?org/cibseven/bpm/engine/impl/javax/el/FunctionMapper.html">FunctionMapper</a>
  has to be implemented. The function mapper than
 has to be added to the process engine configuration after it was
 initialized.</p>

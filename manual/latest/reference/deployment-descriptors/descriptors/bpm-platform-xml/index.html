@@ -2685,14 +2685,6 @@
   </li>
 
         
-          
-  <li>
-    
-      <a href="/manual/latest/installation/karaf-osgi/" >Karaf / OSGi</a>
-    
-  </li>
-
-        
       </ul>
     
   </li>
@@ -3188,7 +3180,7 @@ It is used to configure CIB seven in the following distributions:</p>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;process-engine</span> <span class="na">name=</span><span class="s">&#34;default&#34;</span><span class="nt">&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;job-acquisition&gt;</span>default<span class="nt">&lt;/job-acquisition&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&lt;configuration&gt;</span>org.camunda.bpm.engine.impl.cfg.JtaProcessEngineConfiguration<span class="nt">&lt;/configuration&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;configuration&gt;</span>org.cibseven.bpm.engine.impl.cfg.JtaProcessEngineConfiguration<span class="nt">&lt;/configuration&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;datasource&gt;</span>jdbc/ProcessEngine<span class="nt">&lt;/datasource&gt;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;properties&gt;</span>
@@ -3251,7 +3243,7 @@ Complex operations are not supported, but you may combine more than one expressi
 <h2 id="example-1">Example</h2>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="c">&lt;!-- ... --&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;plugin&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&lt;class&gt;</span>org.camunda.bpm.engine.impl.plugin.AdministratorAuthorizationPlugin<span class="nt">&lt;/class&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;class&gt;</span>org.cibseven.bpm.engine.impl.plugin.AdministratorAuthorizationPlugin<span class="nt">&lt;/class&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;properties&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;administratorUserName&#34;</span><span class="nt">&gt;</span>${camunda.administratorUserName}<span class="nt">&lt;/property&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;/properties&gt;</span>

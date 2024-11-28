@@ -2685,14 +2685,6 @@
   </li>
 
         
-          
-  <li>
-    
-      <a href="/manual/latest/installation/karaf-osgi/" >Karaf / OSGi</a>
-    
-  </li>
-
-        
       </ul>
     
   </li>
@@ -3194,7 +3186,7 @@ so that you can set attributes or add child elements.</p>
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">CamundaExecutionListener</span><span class="w"> </span><span class="n">listener</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">extensionElements</span><span class="p">.</span><span class="na">addExtensionElement</span><span class="p">(</span><span class="n">CamundaExecutionListener</span><span class="p">.</span><span class="na">class</span><span class="p">);</span><span class="w">
 </span></span></span></code></pre></div><p>Another helper method exists for the fluent builder API which allows you to add prior defined extension elements.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">CamundaExecutionListener</span><span class="w"> </span><span class="n">camundaExecutionListener</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">modelInstance</span><span class="p">.</span><span class="na">newInstance</span><span class="p">(</span><span class="n">CamundaExecutionListener</span><span class="p">.</span><span class="na">class</span><span class="p">);</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">camundaExecutionListener</span><span class="p">.</span><span class="na">setCamundaClass</span><span class="p">(</span><span class="s">&#34;org.camunda.bpm.MyJavaDelegte&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">camundaExecutionListener</span><span class="p">.</span><span class="na">setCamundaClass</span><span class="p">(</span><span class="s">&#34;org.cibseven.bpm.MyJavaDelegte&#34;</span><span class="p">);</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">startEvent</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">addExtensionElement</span><span class="p">(</span><span class="n">camundaExecutionListener</span><span class="p">);</span><span class="w">
 </span></span></span></code></pre></div>

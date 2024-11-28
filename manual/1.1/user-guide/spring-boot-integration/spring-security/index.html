@@ -2685,14 +2685,6 @@
   </li>
 
         
-          
-  <li>
-    
-      <a href="/manual/1.1/installation/karaf-osgi/" >Karaf / OSGi</a>
-    
-  </li>
-
-        
       </ul>
     
   </li>
@@ -3172,8 +3164,8 @@ configuration classes that integrate Spring Security with Camunda Webapp&rsquo;s
 <h2 id="spring-boot">Spring Boot</h2>
 <p>In order to enable the Spring Security OAuth2 integration in Spring Boot, add the following dependency to your project:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependency&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&lt;groupId&gt;</span>org.camunda.bpm.springboot<span class="nt">&lt;/groupId&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&lt;artifactId&gt;</span>camunda-bpm-spring-boot-starter-security<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;groupId&gt;</span>org.cibseven.bpm.springboot<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;artifactId&gt;</span>cibseven-bpm-spring-boot-starter-security<span class="nt">&lt;/artifactId&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/dependency&gt;</span>
 </span></span></code></pre></div><h2 id="camunda-run">Camunda Run</h2>
 <p>Camunda Run already contains the required libraries, all you need to do is to activate them.
@@ -3186,12 +3178,12 @@ registration in the application properties (<code>spring.security.oauth2.client.
 <h2 id="oauth2-enabled-configuration">OAuth2 Enabled Configuration</h2>
 <p>Configuration activates if there is OAuth2 client registration configured. This class configures the Spring
 Security filter chain to secure the Camunda Webapps.</p>
-<p>Spring auto configuration class: <a href="/javadoc/cibseven/1.1/org/camunda/bpm/spring/boot/starter/security/oauth2/impl/CamundaSpringSecurityOAuth2AutoConfiguration.html">CamundaSpringSecurityOAuth2AutoConfiguration</a>
+<p>Spring auto configuration class: <a href="/javadoc/cibseven/1.1/org/cibseven/bpm/spring/boot/starter/security/oauth2/impl/CamundaSpringSecurityOAuth2AutoConfiguration.html">CamundaSpringSecurityOAuth2AutoConfiguration</a>
 </p>
 <h2 id="spring-security-disabled-auto-configuration">Spring Security Disabled Auto Configuration</h2>
 <p>Configuration activates if there is <strong>no</strong> OAuth2 client registration configured. This class configures the Spring
 Security filter chain to a permit all mode.</p>
-<p>Spring auto configuration class: <a href="/javadoc/cibseven/1.1/org/camunda/bpm/spring/boot/starter/security/oauth2/impl/CamundaBpmSpringSecurityDisableAutoConfiguration.html">CamundaBpmSpringSecurityDisableAutoConfiguration</a>
+<p>Spring auto configuration class: <a href="/javadoc/cibseven/1.1/org/cibseven/bpm/spring/boot/starter/security/oauth2/impl/CamundaBpmSpringSecurityDisableAutoConfiguration.html">CamundaBpmSpringSecurityDisableAutoConfiguration</a>
 </p>
 <h1 id="oauth2-client-registration">OAuth2 Client Registration</h1>
 <p>For the client registration, please refer to the official Spring
@@ -3235,7 +3227,7 @@ to grant administrator authorizations for a particular OAuth2 user or group.</li
 </ol>
 <h1 id="oauth2-identity-provider">OAuth2 Identity Provider</h1>
 <p>Additionally to the OAuth2 login, Camunda also provides support to use groups from OAuth2.
-This is achieved with a custom <a href="/manual/1.1/user-guide/process-engine/identity-service/">identity service</a>, called <a href="/javadoc/cibseven/1.1/org/camunda/bpm/spring/boot/starter/security/oauth2/impl/OAuth2IdentityProvider.html">OAuth2IdentityProvider</a>
+This is achieved with a custom <a href="/manual/1.1/user-guide/process-engine/identity-service/">identity service</a>, called <a href="/javadoc/cibseven/1.1/org/cibseven/bpm/spring/boot/starter/security/oauth2/impl/OAuth2IdentityProvider.html">OAuth2IdentityProvider</a>
 .</p>
 <p>This is a read-only identity provider that configures user&rsquo;s groups from the <a href="https://docs.spring.io/spring-security/reference/servlet/authorization/architecture.html">Spring Security&rsquo;s granted authorities</a>.
 This identity provider also supports the default Camunda Database Identity Service as a fallback for authentications for the REST API.</p>
@@ -3355,7 +3347,7 @@ which means the user session can be revalidated more frequently.</p>
 Logging can be enabled for the package via the following property:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">logging</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">level</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">org.camunda.bpm.spring.boot.starter.security.oauth2</span><span class="p">:</span><span class="w"> </span><span class="l">DEBUG</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">org.cibseven.bpm.spring.boot.starter.security.oauth2</span><span class="p">:</span><span class="w"> </span><span class="l">DEBUG</span><span class="w">
 </span></span></span></code></pre></div><h1 id="example">Example</h1>
 <p>In this section we provide an example configuration with OKTA as OIDC provider.
 Additionally, we also mark and explain a few lines:</p>
@@ -3411,8 +3403,8 @@ excluding the two auto configuration classes:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">spring</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">autoconfigure</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">exclude</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">org.camunda.bpm.spring.boot.starter.security.oauth2.CamundaSpringSecurityOAuth2AutoConfiguration</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">org.camunda.bpm.spring.boot.starter.security.oauth2.CamundaBpmSpringSecurityDisableAutoConfiguration</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">org.cibseven.bpm.spring.boot.starter.security.oauth2.CamundaSpringSecurityOAuth2AutoConfiguration</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">org.cibseven.bpm.spring.boot.starter.security.oauth2.CamundaBpmSpringSecurityDisableAutoConfiguration</span><span class="w">
 </span></span></span></code></pre></div><p>For more information, please refer to Spring&rsquo;s <a href="https://docs.spring.io/spring-boot/reference/using/auto-configuration.html#using.auto-configuration.disabling-specific">Disabling Specific Auto-configuration Classes</a> documentation.</p>
 
     </div>

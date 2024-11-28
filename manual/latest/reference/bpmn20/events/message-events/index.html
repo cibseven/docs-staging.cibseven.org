@@ -2685,14 +2685,6 @@
   </li>
 
         
-          
-  <li>
-    
-      <a href="/manual/latest/installation/karaf-osgi/" >Karaf / OSGi</a>
-    
-  </li>
-
-        
       </ul>
     
   </li>
@@ -3365,7 +3357,7 @@ If the type is set to <code>execution</code>, then the result contains an <code>
 <p>A Message Intermediate Throwing event sends a message to an external service. This event has the same behavior as a <a href="/manual/latest/reference/bpmn20/tasks/service-task/">Service Task</a>.</p>
 <div data-bpmn-diagram="../bpmn/event-message-throwing" > </div>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;intermediateThrowEvent</span> <span class="na">id=</span><span class="s">&#34;message&#34;</span><span class="nt">&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&lt;messageEventDefinition</span> <span class="na">camunda:class=</span><span class="s">&#34;org.camunda.bpm.MyMessageServiceDelegate&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;messageEventDefinition</span> <span class="na">camunda:class=</span><span class="s">&#34;org.cibseven.bpm.MyMessageServiceDelegate&#34;</span> <span class="nt">/&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/intermediateThrowEvent&gt;</span>
 </span></span></code></pre></div><h2 id="camunda-extensions-for-messageeventdefinition">Camunda Extensions for <code>messageEventDefinition</code></h2>
 <table class="table table-striped">
@@ -3422,7 +3414,7 @@ If the type is set to <code>execution</code>, then the result contains an <code>
 <h1 id="message-end-event">Message End Event</h1>
 <p>When process execution arrives at a Message End Event, the current path of execution is ended and a message is sent. The Message End Event has the same behavior as a <a href="/manual/latest/reference/bpmn20/tasks/service-task/">Service Task</a>.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;endEvent</span> <span class="na">id=</span><span class="s">&#34;end&#34;</span><span class="nt">&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&lt;messageEventDefinition</span> <span class="na">camunda:class=</span><span class="s">&#34;org.camunda.bpm.MyMessageServiceDelegate&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;messageEventDefinition</span> <span class="na">camunda:class=</span><span class="s">&#34;org.cibseven.bpm.MyMessageServiceDelegate&#34;</span> <span class="nt">/&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/endEvent&gt;</span>
 </span></span></code></pre></div><h2 id="camunda-extensions-for-messageeventdefinition-1">Camunda Extensions for <code>messageEventDefinition</code></h2>
 <table class="table table-striped">

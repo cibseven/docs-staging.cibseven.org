@@ -2685,14 +2685,6 @@
   </li>
 
         
-          
-  <li>
-    
-      <a href="/manual/latest/installation/karaf-osgi/" >Karaf / OSGi</a>
-    
-  </li>
-
-        
       </ul>
     
   </li>
@@ -3163,7 +3155,7 @@
     </div>
 
     <div class="col-xs-12 content-text">
-      <p>For working with JSON, the Spin functions <code>org.camunda.spin.Spin.S</code> and <code>org.camunda.spin.Spin.JSON</code> can be used as entry points. The latter offers strongly-typed access to Spin&rsquo;s JSON API and is preferable when writing Java code. In scripting environments, only the <code>S</code> function is available. The returned Spin wrapper offers methods for manipulating and writing JSON as well as mapping JSON to Java. Furthermore, the entry functions can be provided with Java objects that get implicitly converted to Spin&rsquo;s intermediary JSON format.</p>
+      <p>For working with JSON, the Spin functions <code>org.cibseven.spin.Spin.S</code> and <code>org.cibseven.spin.Spin.JSON</code> can be used as entry points. The latter offers strongly-typed access to Spin&rsquo;s JSON API and is preferable when writing Java code. In scripting environments, only the <code>S</code> function is available. The returned Spin wrapper offers methods for manipulating and writing JSON as well as mapping JSON to Java. Furthermore, the entry functions can be provided with Java objects that get implicitly converted to Spin&rsquo;s intermediary JSON format.</p>
 <p>The following provides examples on how Camunda Spin can be used in the process engine to work with JSON data. For illustration purposes, let us assume that a String process variable <code>customer</code> containing JSON exists. It has the following content:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-JSON" data-lang="JSON"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;name&#34;</span> <span class="p">:</span> <span class="s2">&#34;jonny&#34;</span><span class="p">,</span>

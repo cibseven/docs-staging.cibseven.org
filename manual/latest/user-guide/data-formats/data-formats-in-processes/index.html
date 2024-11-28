@@ -2685,14 +2685,6 @@
   </li>
 
         
-          
-  <li>
-    
-      <a href="/manual/latest/installation/karaf-osgi/" >Karaf / OSGi</a>
-    
-  </li>
-
-        
       </ul>
     
   </li>
@@ -3163,7 +3155,7 @@
     </div>
 
     <div class="col-xs-12 content-text">
-      <p>The main entry point to Spin&rsquo;s functionality is the static function <code>org.camunda.spin.Spin.S</code> that can be used to process documents or to map Java objects to a document format. The returned value of this function is a <em>Spin wrapper</em>, which is an intermediary representation of a document and that offers functions for manipulation of the underlying document. Additionally, the functions <code>org.camunda.spin.Spin.XML</code> and <code>org.camunda.spin.Spin.JSON</code> can be used that return a strongly-typed Spin wrapper of the provided documents which is useful when writing Java. Refer to the <a href="/manual/latest/reference/spin/">Spin reference documentation</a> on how these methods can be used and what API is offered by the Spin wrappers.</p>
+      <p>The main entry point to Spin&rsquo;s functionality is the static function <code>org.cibseven.spin.Spin.S</code> that can be used to process documents or to map Java objects to a document format. The returned value of this function is a <em>Spin wrapper</em>, which is an intermediary representation of a document and that offers functions for manipulation of the underlying document. Additionally, the functions <code>org.cibseven.spin.Spin.XML</code> and <code>org.cibseven.spin.Spin.JSON</code> can be used that return a strongly-typed Spin wrapper of the provided documents which is useful when writing Java. Refer to the <a href="/manual/latest/reference/spin/">Spin reference documentation</a> on how these methods can be used and what API is offered by the Spin wrappers.</p>
 <p>The following subsections describe the integration points of the process engine and Spin. For specific documentation on data formats like XML and JSON, please refer to the <a href="/manual/latest/user-guide/data-formats/xml/">XML section</a> and the <a href="/manual/latest/user-guide/data-formats/json/">JSON section</a>.</p>
 <h1 id="expression-language-integration">Expression Language Integration</h1>
 <p>The Spin engine plugin registers the Spin API entry functions in the context used for expression evaluation. It can therefore be used at all points where the engine allows expression language.</p>

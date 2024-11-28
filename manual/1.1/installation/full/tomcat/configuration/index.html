@@ -2685,14 +2685,6 @@
   </li>
 
         
-          
-  <li>
-    
-      <a href="/manual/1.1/installation/karaf-osgi/" >Karaf / OSGi</a>
-    
-  </li>
-
-        
       </ul>
     
   </li>
@@ -3186,7 +3178,7 @@
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;properties&gt;</span>...<span class="nt">&lt;/properties&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;plugins&gt;</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&lt;plugin&gt;</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&lt;class&gt;</span>org.camunda.bpm.identity.impl.ldap.plugin.LdapIdentityProviderPlugin<span class="nt">&lt;/class&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;class&gt;</span>org.cibseven.bpm.identity.impl.ldap.plugin.LdapIdentityProviderPlugin<span class="nt">&lt;/class&gt;</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&lt;properties&gt;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">          <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;serverUrl&#34;</span><span class="nt">&gt;</span>ldap://localhost:4334/<span class="nt">&lt;/property&gt;</span>
@@ -3214,7 +3206,7 @@
 </span></span><span class="line"><span class="cl">        <span class="nt">&lt;/properties&gt;</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&lt;/plugin&gt;</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&lt;plugin&gt;</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&lt;class&gt;</span>org.camunda.bpm.engine.impl.plugin.AdministratorAuthorizationPlugin<span class="nt">&lt;/class&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;class&gt;</span>org.cibseven.bpm.engine.impl.plugin.AdministratorAuthorizationPlugin<span class="nt">&lt;/class&gt;</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&lt;properties&gt;</span>
 </span></span><span class="line"><span class="cl">          <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;administratorUserName&#34;</span><span class="nt">&gt;</span>admin<span class="nt">&lt;/property&gt;</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&lt;/properties&gt;</span>
@@ -3237,20 +3229,20 @@ configuration to the <code>web.xml</code> file of Camunda webapplication
 </span></span><span class="line"><span class="cl">  <span class="c">&lt;!-- ... --&gt;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;listener&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&lt;listener-class&gt;</span>org.camunda.bpm.engine.rest.hal.cache.HalRelationCacheBootstrap<span class="nt">&lt;/listener-class&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;listener-class&gt;</span>org.cibseven.bpm.engine.rest.hal.cache.HalRelationCacheBootstrap<span class="nt">&lt;/listener-class&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;/listener&gt;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;context-param&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&lt;param-name&gt;</span>org.camunda.bpm.engine.rest.hal.cache.config<span class="nt">&lt;/param-name&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;param-name&gt;</span>org.cibseven.bpm.engine.rest.hal.cache.config<span class="nt">&lt;/param-name&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;param-value&gt;</span>
 </span></span><span class="line"><span class="cl">      {
-</span></span><span class="line"><span class="cl">        &#34;cacheImplementation&#34;: &#34;org.camunda.bpm.engine.rest.hal.cache.DefaultHalResourceCache&#34;,
+</span></span><span class="line"><span class="cl">        &#34;cacheImplementation&#34;: &#34;org.cibseven.bpm.engine.rest.hal.cache.DefaultHalResourceCache&#34;,
 </span></span><span class="line"><span class="cl">        &#34;caches&#34;: {
-</span></span><span class="line"><span class="cl">          &#34;org.camunda.bpm.engine.rest.hal.user.HalUser&#34;: {
+</span></span><span class="line"><span class="cl">          &#34;org.cibseven.bpm.engine.rest.hal.user.HalUser&#34;: {
 </span></span><span class="line"><span class="cl">            &#34;capacity&#34;: 100,
 </span></span><span class="line"><span class="cl">            &#34;secondsToLive&#34;: 900
 </span></span><span class="line"><span class="cl">          },
-</span></span><span class="line"><span class="cl">          &#34;org.camunda.bpm.engine.rest.hal.group.HalGroup&#34;: {
+</span></span><span class="line"><span class="cl">          &#34;org.cibseven.bpm.engine.rest.hal.group.HalGroup&#34;: {
 </span></span><span class="line"><span class="cl">            &#34;capacity&#34;: 100,
 </span></span><span class="line"><span class="cl">            &#34;secondsToLive&#34;: 900
 </span></span><span class="line"><span class="cl">          }
@@ -3279,7 +3271,7 @@ You can find it in the <code>WEB-INF/web.xml</code> as well in the following sec
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">...
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;filter&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;filter-name&gt;</span>SessionCookieFilter<span class="nt">&lt;/filter-name&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&lt;filter-class&gt;</span>org.camunda.bpm.webapp.impl.security.filter.SessionCookieFilter<span class="nt">&lt;/filter-class&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;filter-class&gt;</span>org.cibseven.bpm.webapp.impl.security.filter.SessionCookieFilter<span class="nt">&lt;/filter-class&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/filter&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;filter-mapping&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;filter-name&gt;</span>SessionCookieFilter<span class="nt">&lt;/filter-name&gt;</span>
@@ -3291,7 +3283,7 @@ You can change the default behavior by adding configuration parameters to the se
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">...
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;filter&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;filter-name&gt;</span>SessionCookieFilter<span class="nt">&lt;/filter-name&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&lt;filter-class&gt;</span>org.camunda.bpm.webapp.impl.security.filter.SessionCookieFilter<span class="nt">&lt;/filter-class&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;filter-class&gt;</span>org.cibseven.bpm.webapp.impl.security.filter.SessionCookieFilter<span class="nt">&lt;/filter-class&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;init-param&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;param-name&gt;</span>sameSiteCookieValue<span class="nt">&lt;/param-name&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;param-value&gt;</span>Strict<span class="nt">&lt;/param-value&gt;</span>
@@ -3368,7 +3360,7 @@ to be adjusted. You can find it under <code>WEB-INF/web.xml</code>.</p>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;filter&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;filter-name&gt;</span>HttpHeaderSecurity<span class="nt">&lt;/filter-name&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;filter-class&gt;</span>
-</span></span><span class="line"><span class="cl">    org.camunda.bpm.webapp.impl.security.filter.headersec.HttpHeaderSecurityFilter
+</span></span><span class="line"><span class="cl">    org.cibseven.bpm.webapp.impl.security.filter.headersec.HttpHeaderSecurityFilter
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;/filter-class&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/filter&gt;</span>
 </span></span><span class="line"><span class="cl">
@@ -3383,7 +3375,7 @@ to be adjusted. You can find it under <code>WEB-INF/web.xml</code>.</p>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;filter&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;filter-name&gt;</span>HttpHeaderSecurity<span class="nt">&lt;/filter-name&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;filter-class&gt;</span>
-</span></span><span class="line"><span class="cl">    org.camunda.bpm.webapp.impl.security.filter.headersec.HttpHeaderSecurityFilter
+</span></span><span class="line"><span class="cl">    org.cibseven.bpm.webapp.impl.security.filter.headersec.HttpHeaderSecurityFilter
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;/filter-class&gt;</span>
 </span></span><span class="line"><span class="cl">  
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;init-param&gt;</span>

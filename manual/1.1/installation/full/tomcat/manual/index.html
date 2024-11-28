@@ -2685,14 +2685,6 @@
   </li>
 
         
-          
-  <li>
-    
-      <a href="/manual/1.1/installation/karaf-osgi/" >Karaf / OSGi</a>
-    
-  </li>
-
-        
       </ul>
     
   </li>
@@ -3185,8 +3177,8 @@ To resolve this, move the weld library away from the war and place it into the <
 <p>The above workaround is not guaranteed to work for cases with bean references between WAR deployments (WAR A referencing a bean from WAR B).</p>
 <p>The following test scenarios fail on Tomcat 10:</p>
 <ul>
-<li><a href="https://github.com/cibseven/cibseven/blob/f37877b822dabcbf3cee5806bd5833d18cdcb543/qa/integration-tests-engine/src/test/java/org/camunda/bpm/integrationtest/functional/context/CallActivityContextSwitchTest.java">CallActivityContextSwitchTest</a></li>
-<li><a href="https://github.com/camunda/camunda-bpm-platform/blob/f37877b822dabcbf3cee5806bd5833d18cdcb543/qa/integration-tests-engine/src/test/java/org/camunda/bpm/integrationtest/functional/cdi/CdiBeanCallActivityResolutionTest.java">CdiBeanCallActivityResolutionTest</a></li>
+<li><a href="https://github.com/cibseven/cibseven/blob/f37877b822dabcbf3cee5806bd5833d18cdcb543/qa/integration-tests-engine/src/test/java/org/cibseven/bpm/integrationtest/functional/context/CallActivityContextSwitchTest.java">CallActivityContextSwitchTest</a></li>
+<li><a href="https://github.com/camunda/camunda-bpm-platform/blob/f37877b822dabcbf3cee5806bd5833d18cdcb543/qa/integration-tests-engine/src/test/java/org/cibseven/bpm/integrationtest/functional/cdi/CdiBeanCallActivityResolutionTest.java">CdiBeanCallActivityResolutionTest</a></li>
 </ul>
 </p>
 </div>
@@ -3201,10 +3193,10 @@ To resolve this, move the weld library away from the war and place it into the <
 </ul>
 <p>When you create the tables manually, then you have to configure the engine to <strong>not</strong> create tables at startup by setting the <code>databaseSchemaUpdate</code> property to <code>false</code> (or, in case you are using Oracle, to <code>noop</code>). In Tomcat, this is done in the <code>bpm-platform.xml</code>, located in the <code>$TOMCAT_DISTRIBUTION\server\apache-tomcat-$VERSION\conf\</code> folder.</p>
 <h2 id="add-bpm-bootstrap-server-listener">Add BPM Bootstrap Server Listener</h2>
-<p>Add the entry <code>org.camunda.bpm.container.impl.tomcat.TomcatBpmPlatformBootstrap</code> as Listener before the <code>GlobalResourcesLifecycleListener</code> in your <code>$TOMCAT_HOME/conf/server.xml</code>. This class is responsible for starting and stopping Camunda as Tomcat is started and stopped.</p>
+<p>Add the entry <code>org.cibseven.bpm.container.impl.tomcat.TomcatBpmPlatformBootstrap</code> as Listener before the <code>GlobalResourcesLifecycleListener</code> in your <code>$TOMCAT_HOME/conf/server.xml</code>. This class is responsible for starting and stopping Camunda as Tomcat is started and stopped.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;Server</span> <span class="na">port=</span><span class="s">&#34;8005&#34;</span> <span class="na">shutdown=</span><span class="s">&#34;SHUTDOWN&#34;</span><span class="nt">&gt;</span>
 </span></span><span class="line"><span class="cl">  ...
-</span></span><span class="line"><span class="cl">  <span class="nt">&lt;Listener</span> <span class="na">className=</span><span class="s">&#34;org.camunda.bpm.container.impl.tomcat.TomcatBpmPlatformBootstrap&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;Listener</span> <span class="na">className=</span><span class="s">&#34;org.cibseven.bpm.container.impl.tomcat.TomcatBpmPlatformBootstrap&#34;</span> <span class="nt">/&gt;</span>
 </span></span><span class="line"><span class="cl">  ...
 </span></span></code></pre></div><h2 id="configure-a-jdbc-resource">Configure a JDBC Resource</h2>
 <p>To configure a JDBC Resource you have to edit the file <code>$TOMCAT_HOME/conf/server.xml</code>. This could look like the following example for an H2 database:</p>
@@ -3232,15 +3224,15 @@ To resolve this, move the weld library away from the war and place it into the <
 <h2 id="add-camunda-services">Add Camunda Services</h2>
 <p>Copy the following blocks from <code>${TOMCAT_DISTRIBUTION}/server/apache-tomcat-${TOMCAT_VERSION}/conf/server.xml</code>
 into <code>${TOMCAT_HOME}/conf/server.xml</code>:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">     <span class="nt">&lt;Resource</span> <span class="na">name=</span><span class="s">&#34;global/camunda-bpm-platform/process-engine/ProcessEngineService!org.camunda.bpm.ProcessEngineService&#34;</span> <span class="na">auth=</span><span class="s">&#34;Container&#34;</span>
-</span></span><span class="line"><span class="cl">              <span class="na">type=</span><span class="s">&#34;org.camunda.bpm.ProcessEngineService&#34;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">     <span class="nt">&lt;Resource</span> <span class="na">name=</span><span class="s">&#34;global/camunda-bpm-platform/process-engine/ProcessEngineService!org.cibseven.bpm.ProcessEngineService&#34;</span> <span class="na">auth=</span><span class="s">&#34;Container&#34;</span>
+</span></span><span class="line"><span class="cl">              <span class="na">type=</span><span class="s">&#34;org.cibseven.bpm.ProcessEngineService&#34;</span>
 </span></span><span class="line"><span class="cl">              <span class="na">description=</span><span class="s">&#34;Camunda Platform Process Engine Service&#34;</span>
-</span></span><span class="line"><span class="cl">              <span class="na">factory=</span><span class="s">&#34;org.camunda.bpm.container.impl.jndi.ProcessEngineServiceObjectFactory&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">              <span class="na">factory=</span><span class="s">&#34;org.cibseven.bpm.container.impl.jndi.ProcessEngineServiceObjectFactory&#34;</span> <span class="nt">/&gt;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nt">&lt;Resource</span> <span class="na">name=</span><span class="s">&#34;global/camunda-bpm-platform/process-engine/ProcessApplicationService!org.camunda.bpm.ProcessApplicationService&#34;</span> <span class="na">auth=</span><span class="s">&#34;Container&#34;</span>
-</span></span><span class="line"><span class="cl">              <span class="na">type=</span><span class="s">&#34;org.camunda.bpm.ProcessApplicationService&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;Resource</span> <span class="na">name=</span><span class="s">&#34;global/camunda-bpm-platform/process-engine/ProcessApplicationService!org.cibseven.bpm.ProcessApplicationService&#34;</span> <span class="na">auth=</span><span class="s">&#34;Container&#34;</span>
+</span></span><span class="line"><span class="cl">              <span class="na">type=</span><span class="s">&#34;org.cibseven.bpm.ProcessApplicationService&#34;</span>
 </span></span><span class="line"><span class="cl">              <span class="na">description=</span><span class="s">&#34;Camunda Platform Process Application Service&#34;</span>
-</span></span><span class="line"><span class="cl">              <span class="na">factory=</span><span class="s">&#34;org.camunda.bpm.container.impl.jndi.ProcessApplicationServiceObjectFactory&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">              <span class="na">factory=</span><span class="s">&#34;org.cibseven.bpm.container.impl.jndi.ProcessApplicationServiceObjectFactory&#34;</span> <span class="nt">/&gt;</span>
 </span></span></code></pre></div><h2 id="add-required-libraries">Add Required Libraries</h2>
 <p>Copy all libraries from the <code>$TOMCAT_DISTRIBUTION/lib/</code> folder to the Tomcat library folder <code>$TOMCAT_HOME/lib</code>:</p>
 <p>Furthermore, you have to merge your corresponding JDBC driver into the folder <code>$TOMCAT_HOME/lib</code>.</p>
@@ -3257,7 +3249,7 @@ into <code>${TOMCAT_HOME}/conf/server.xml</code>:</p>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;process-engine</span> <span class="na">name=</span><span class="s">&#34;default&#34;</span><span class="nt">&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;job-acquisition&gt;</span>default<span class="nt">&lt;/job-acquisition&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&lt;configuration&gt;</span>org.camunda.bpm.engine.impl.cfg.StandaloneProcessEngineConfiguration<span class="nt">&lt;/configuration&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;configuration&gt;</span>org.cibseven.bpm.engine.impl.cfg.StandaloneProcessEngineConfiguration<span class="nt">&lt;/configuration&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;datasource&gt;</span>java:jdbc/ProcessEngine<span class="nt">&lt;/datasource&gt;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;properties&gt;</span>
@@ -3282,11 +3274,11 @@ into <code>${TOMCAT_HOME}/conf/server.xml</code>:</p>
 <p>The following steps are required to deploy the applications:</p>
 <ol>
 <li>
-<p>Download the CIB seven web application that contains both applications from our <a href="https://artifacts.cibseven.de/service/rest/repository/browse/public/org/camunda/bpm/webapp/camunda-webapp-tomcat/1.1/">Artifact Repository</a>.
+<p>Download the CIB seven web application that contains both applications from our <a href="https://artifacts.cibseven.de/service/rest/repository/browse/public/org/cibseven/bpm/webapp/camunda-webapp-tomcat/1.1/">Artifact Repository</a>.
 Choose the correct version named <code>camunda-engine-rest-1.1-tomcat.war</code>.</p>
 <ul>
-<li>For <a href="https://artifacts.cibseven.de/service/rest/repository/browse/public/org/camunda/bpm/camunda-engine-rest-jakarta/1.1/">Tomcat 10</a>, the name of the artifact is <code>camunda-engine-rest-jakarta-1.1-tomcat.war</code>.</li>
-<li>For <a href="https://artifacts.cibseven.de/service/rest/repository/browse/public/org/camunda/bpm/camunda-engine-rest/1.1/">Tomcat 9</a>, the name of the artifact is <code>camunda-engine-rest-1.1-tomcat.war</code>.</li>
+<li>For <a href="https://artifacts.cibseven.de/service/rest/repository/browse/public/org/cibseven/bpm/camunda-engine-rest-jakarta/1.1/">Tomcat 10</a>, the name of the artifact is <code>camunda-engine-rest-jakarta-1.1-tomcat.war</code>.</li>
+<li>For <a href="https://artifacts.cibseven.de/service/rest/repository/browse/public/org/cibseven/bpm/camunda-engine-rest/1.1/">Tomcat 9</a>, the name of the artifact is <code>camunda-engine-rest-1.1-tomcat.war</code>.</li>
 </ul>
 </li>
 <li>
@@ -3303,7 +3295,7 @@ Optionally you may name it differently or extract it to a folder to deploy it to
 <h2 id="rest-api">REST API</h2>
 <p>The following steps are required to deploy the REST API:</p>
 <ol>
-<li>Download the REST API web application archive from our <a href="https://artifacts.cibseven.de/service/rest/repository/browse/public/org/camunda/bpm/camunda-engine-rest/1.1/">Artifact Repository</a>.</li>
+<li>Download the REST API web application archive from our <a href="https://artifacts.cibseven.de/service/rest/repository/browse/public/org/cibseven/bpm/camunda-engine-rest/1.1/">Artifact Repository</a>.</li>
 <li>Copy the war file to <code>$TOMCAT_HOME/webapps</code>.
 Optionally you may rename it or extract it to a folder to deploy it to a specific context like <code>/engine-rest</code>.</li>
 <li>Startup Tomcat.</li>
@@ -3325,7 +3317,7 @@ For example, http://localhost:8080/engine-rest/engine should return the names of
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;plugins&gt;</span>
 </span></span><span class="line"><span class="cl">      ... existing plugins ...
 </span></span><span class="line"><span class="cl">      <span class="nt">&lt;plugin&gt;</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&lt;class&gt;</span>org.camunda.connect.plugin.impl.ConnectProcessEnginePlugin<span class="nt">&lt;/class&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;class&gt;</span>org.cibseven.connect.plugin.impl.ConnectProcessEnginePlugin<span class="nt">&lt;/class&gt;</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&lt;/plugin&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;/plugins&gt;</span>
 </span></span><span class="line"><span class="cl">    ...
@@ -3349,7 +3341,7 @@ For example, http://localhost:8080/engine-rest/engine should return the names of
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;plugins&gt;</span>
 </span></span><span class="line"><span class="cl">      ... existing plugins ...
 </span></span><span class="line"><span class="cl">      <span class="nt">&lt;plugin&gt;</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&lt;class&gt;</span>org.camunda.spin.plugin.impl.SpinProcessEnginePlugin<span class="nt">&lt;/class&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;class&gt;</span>org.cibseven.spin.plugin.impl.SpinProcessEnginePlugin<span class="nt">&lt;/class&gt;</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&lt;/plugin&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;/plugins&gt;</span>
 </span></span><span class="line"><span class="cl">    ...

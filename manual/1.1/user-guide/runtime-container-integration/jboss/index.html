@@ -18,7 +18,7 @@
     
   
 
-  <title>The Camunda WildFly Subsystem | docs.cibseven.org</title>
+  <title>The CIB seven WildFly Subsystem | docs.cibseven.org</title>
 
   <meta name="generator" content="Hugo 0.136.4">
   <link rel="shortcut icon" href="/manual/1.1/img/favicon.ico" type="image/x-icon" />
@@ -2685,14 +2685,6 @@
   </li>
 
         
-          
-  <li>
-    
-      <a href="/manual/1.1/installation/karaf-osgi/" >Karaf / OSGi</a>
-    
-  </li>
-
-        
       </ul>
     
   </li>
@@ -3159,15 +3151,15 @@
   <a target="_blank" href="https://github.com/cibseven/cibseven-docs-manual/tree/master/content/user-guide%5cruntime-container-integration%5cjboss.md"><i>Edit on Github</i> <span class="cam-docs-github"></span></a>
 </div>
 
-      <h1 class="page-title">The Camunda WildFly Subsystem</h1>
+      <h1 class="page-title">The CIB seven WildFly Subsystem</h1>
     </div>
 
     <div class="col-xs-12 content-text">
       
 <div class="note bg-info docs-info">
   <h3>Installation Guide</h3>
-  <p><p>If you <a href="http://camunda.org/download/">download a full distribution</a>, the Camunda Wildfly subsystem is readily installed into the application server.</p>
-<p><a href="/manual/1.1/installation/full/jboss/">Read the installation guide</a> to learn how to install the Camunda Wildfly subsystem into your Wildfly Server.</p>
+  <p><p>If you <a href="http://cibseven.org/download/">download a full distribution</a>, the CIB seven Wildfly subsystem is readily installed into the application server.</p>
+<p><a href="/manual/1.1/installation/full/jboss/">Read the installation guide</a> to learn how to install the CIB seven Wildfly subsystem into your Wildfly Server.</p>
 </p>
 </div>
 
@@ -3181,8 +3173,8 @@
 <li>Use a managed Thread Pool for the Job Executor configured through the CIB seven Subsystem.</li>
 </ul>
 <h1 id="configure-the-job-executor-in-standalonexmldomainxml">Configure the Job Executor in standalone.xml/domain.xml</h1>
-<p>Since CIB seven.5, the configuration of the thread pool used by the Job Executor is done in the Camunda subsystem, not in the JBoss Threads subsystem, as it was done before 7.5.<br>
-The thread pool creation and shutdown is now controlled through the Camunda subsystem.<br>
+<p>The configuration of the thread pool used by the Job Executor is done in the CIB seven subsystem, not in the JBoss Threads subsystem, as it was done before.
+The thread pool creation and shutdown is now controlled through the CIB seven subsystem.
 You are able to configure it through the following new configuration elements below the <code>job-executor</code> element of the subsystem XML configuration.</p>
 <p>Mandatory configuration elements are:</p>
 <ul>
@@ -3199,7 +3191,7 @@ You are able to configure it through the following new configuration elements be
 <p>For a complete list of all configuration options, please refer to the <a href="/manual/1.1/reference/deployment-descriptors/tags/job-executor/">Job Executor Configuration</a>.</p>
 <h1 id="configure-a-process-engine-in-standalonexmldomainxml">Configure a Process Engine in standalone.xml/domain.xml</h1>
 <p>Using the Camunda Wildfly subsystem, it is possible to configure and manage the process engine through the JBoss Management Model. The most straightforward way is to add the process engine configuration to the <code>standalone.xml</code> file of the Wildfly Server:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;subsystem</span> <span class="na">xmlns=</span><span class="s">&#34;urn:org.camunda.bpm.jboss:1.1&#34;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;subsystem</span> <span class="na">xmlns=</span><span class="s">&#34;urn:org.cibseven.bpm.jboss:1.1&#34;</span><span class="nt">&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;process-engines&gt;</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&lt;process-engine</span> <span class="na">name=</span><span class="s">&#34;default&#34;</span> <span class="na">default=</span><span class="s">&#34;true&#34;</span><span class="nt">&gt;</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&lt;datasource&gt;</span>java:jboss/datasources/ProcessEngine<span class="nt">&lt;/datasource&gt;</span>
@@ -3241,7 +3233,7 @@ You are able to configure it through the following new configuration elements be
 </span></span><span class="line"><span class="cl">        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;waitTimeInMillis&#34;</span><span class="nt">&gt;</span>5000<span class="nt">&lt;/property&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;/properties&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/process-engine&gt;</span>
-</span></span></code></pre></div><p>The class <code>org.my.custom.ProcessEngineConfiguration</code> must be a subclass of <code>org.camunda.bpm.engine.impl.cfg.JtaProcessEngineConfiguration</code>.</p>
+</span></span></code></pre></div><p>The class <code>org.my.custom.ProcessEngineConfiguration</code> must be a subclass of <code>org.cibseven.bpm.engine.impl.cfg.JtaProcessEngineConfiguration</code>.</p>
 <p>The properties map can be used for invoking primitive valued setters (Integer, String, Boolean) that follow the Java Bean conventions. In the case of the example above, the
 class would provide a method named</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setMyCustomProperty</span><span class="p">(</span><span class="kt">boolean</span><span class="w"> </span><span class="kt">boolean</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -3252,17 +3244,17 @@ class would provide a method named</p>
   <h3>Module dependency of custom configuration class</h3>
   <p><p>If you configure the process engine in <code>standalone.xml</code> and provide a custom configuration class packaged inside an own module, the camunda-wildfly-subsystem module needs to have a module dependency on the module providing the class.</p>
 <p>If you fail to do this, you will see the following error log:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">Caused by: org.camunda.bpm.engine.ProcessEngineException: Could not load &#39;foo.bar&#39;: the class must be visible from the camunda-wildfly-subsystem module.
-</span></span></span><span class="line"><span class="cl"><span class="go">    at org.camunda.bpm.container.impl.jboss.service.MscManagedProcessEngineController.createProcessEngineConfiguration(MscManagedProcessEngineController.java:187) [camunda-wildfly-subsystem-1.1.jar:]
-</span></span></span><span class="line"><span class="cl"><span class="go">    at org.camunda.bpm.container.impl.jboss.service.MscManagedProcessEngineController.startProcessEngine(MscManagedProcessEngineController.java:138) [camunda-wildfly-subsystem-1.1.jar:]
-</span></span></span><span class="line"><span class="cl"><span class="go">    at org.camunda.bpm.container.impl.jboss.service.MscManagedProcessEngineController$3.run(MscManagedProcessEngineController.java:126) [camunda-wildfly-subsystem-1.1.jar:]
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">Caused by: org.cibseven.bpm.engine.ProcessEngineException: Could not load &#39;foo.bar&#39;: the class must be visible from the camunda-wildfly-subsystem module.
+</span></span></span><span class="line"><span class="cl"><span class="go">    at org.cibseven.bpm.container.impl.jboss.service.MscManagedProcessEngineController.createProcessEngineConfiguration(MscManagedProcessEngineController.java:187) [camunda-wildfly-subsystem-1.1.jar:]
+</span></span></span><span class="line"><span class="cl"><span class="go">    at org.cibseven.bpm.container.impl.jboss.service.MscManagedProcessEngineController.startProcessEngine(MscManagedProcessEngineController.java:138) [camunda-wildfly-subsystem-1.1.jar:]
+</span></span></span><span class="line"><span class="cl"><span class="go">    at org.cibseven.bpm.container.impl.jboss.service.MscManagedProcessEngineController$3.run(MscManagedProcessEngineController.java:126) [camunda-wildfly-subsystem-1.1.jar:]
 </span></span></span></code></pre></div></p>
 </div>
 
 <h1 id="extend-a-process-engine-using-process-engine-plugins">Extend a Process Engine Using Process Engine Plugins</h1>
 <p>It is possible to extend a process engine using the process engine plugins concept.
 You specify the process engine plugins in <code>standalone.xml</code>/<code>domain.xml</code> for each process engine separately as shown below:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;subsystem</span> <span class="na">xmlns=</span><span class="s">&#34;urn:org.camunda.bpm.jboss:1.1&#34;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;subsystem</span> <span class="na">xmlns=</span><span class="s">&#34;urn:org.cibseven.bpm.jboss:1.1&#34;</span><span class="nt">&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;process-engines&gt;</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&lt;process-engine</span> <span class="na">name=</span><span class="s">&#34;default&#34;</span> <span class="na">default=</span><span class="s">&#34;true&#34;</span><span class="nt">&gt;</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&lt;datasource&gt;</span>java:jboss/datasources/ProcessEngine<span class="nt">&lt;/datasource&gt;</span>
@@ -3272,7 +3264,7 @@ You specify the process engine plugins in <code>standalone.xml</code>/<code>doma
 </span></span><span class="line"><span class="cl">            <span class="nt">&lt;/properties&gt;</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&lt;plugins&gt;</span>
 </span></span><span class="line"><span class="cl">                <span class="nt">&lt;plugin&gt;</span>
-</span></span><span class="line"><span class="cl">                    <span class="nt">&lt;class&gt;</span>org.camunda.bpm.engine.MyCustomProcessEnginePlugin<span class="nt">&lt;/class&gt;</span>
+</span></span><span class="line"><span class="cl">                    <span class="nt">&lt;class&gt;</span>org.cibseven.bpm.engine.MyCustomProcessEnginePlugin<span class="nt">&lt;/class&gt;</span>
 </span></span><span class="line"><span class="cl">                    <span class="nt">&lt;properties&gt;</span>
 </span></span><span class="line"><span class="cl">                        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;boost&#34;</span><span class="nt">&gt;</span>10<span class="nt">&lt;/property&gt;</span>
 </span></span><span class="line"><span class="cl">                        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;maxPerformance&#34;</span><span class="nt">&gt;</span>true<span class="nt">&lt;/property&gt;</span>
@@ -3297,7 +3289,7 @@ System properties may be set via command line (<code>-D</code>option). Read more
 <h2 id="example">Example</h2>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="c">&lt;!-- ... --&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;plugin&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&lt;class&gt;</span>org.camunda.bpm.engine.impl.plugin.AdministratorAuthorizationPlugin<span class="nt">&lt;/class&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;class&gt;</span>org.cibseven.bpm.engine.impl.plugin.AdministratorAuthorizationPlugin<span class="nt">&lt;/class&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;properties&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;administratorUserName&#34;</span><span class="nt">&gt;</span>${camunda.administratorUserName}<span class="nt">&lt;/property&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;/properties&gt;</span>
@@ -3341,7 +3333,7 @@ A declarative mechanism like <code>@Resource</code> could be</p>
 </span></span></span><span class="line"><span class="cl"><span class="go">            }}
 </span></span></span><span class="line"><span class="cl"><span class="go">        }},
 </span></span></span><span class="line"><span class="cl"><span class="go">        &#34;process-engines&#34; =&gt; {&#34;default&#34; =&gt; {
-</span></span></span><span class="line"><span class="cl"><span class="go">            &#34;configuration&#34; =&gt; &#34;org.camunda.bpm.container.impl.jboss.config.ManagedJtaProcessEngineConfiguration&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="go">            &#34;configuration&#34; =&gt; &#34;org.cibseven.bpm.container.impl.jboss.config.ManagedJtaProcessEngineConfiguration&#34;,
 </span></span></span><span class="line"><span class="cl"><span class="go">            &#34;datasource&#34; =&gt; &#34;java:jboss/datasources/ProcessEngine&#34;,
 </span></span></span><span class="line"><span class="cl"><span class="go">            &#34;default&#34; =&gt; true,
 </span></span></span><span class="line"><span class="cl"><span class="go">            &#34;history-level&#34; =&gt; &#34;full&#34;,
@@ -3393,7 +3385,7 @@ A declarative mechanism like <code>@Resource</code> could be</p>
 </div>
 
 <p>When using the Camunda Wildfly subsystem, the process engine classes are deployed as WildFly module. The module is named
-<code>org.camunda.bpm.camunda-engine</code> and is deployed in the folder <code>$WILDFLY_HOME/modules/org/camunda/bpm/camunda-engine</code>.</p>
+<code>org.cibseven.bpm.camunda-engine</code> and is deployed in the folder <code>$WILDFLY_HOME/modules/org/cibseven/bpm/camunda-engine</code>.</p>
 <p>By default, the application server will not add this module to the classpath of applications. If an application needs to interact with the process engine, we must declare a module dependency in the application. This can be achieved using either an implicit or an explicit module dependency.</p>
 <h2 id="implicit-module-dependencies-with-the-process-application-api">Implicit Module Dependencies with the Process Application API</h2>
 <p>When using the Process Application API (i.e., when deploying either a servlet process application or an EJB process application), the Camunda Wildfly subsystem will detect the <code>@ProcessApplication</code> class in the deployment and automatically add a module dependency between the application and the process engine module. As a result, we don&rsquo;t have to declare the dependency ourselves. It is called an <a href="https://docs.wildfly.org/23/Developer_Guide.html#Implicit_module_dependencies_for_deployments">implicit module dependency</a> because it is not explicitly declared but can be derived by inspecting the application and seeing that it provides a <code>@ProcessApplication</code> class.</p>
@@ -3409,7 +3401,7 @@ Wildfly offers multiple <a href="https://docs.wildfly.org/23/Developer_Guide.htm
 </span></span><span class="line"><span class="cl">       <span class="nt">&lt;configuration&gt;</span>
 </span></span><span class="line"><span class="cl">          <span class="nt">&lt;archive&gt;</span>
 </span></span><span class="line"><span class="cl">             <span class="nt">&lt;manifestEntries&gt;</span>
-</span></span><span class="line"><span class="cl">                <span class="nt">&lt;Dependencies&gt;</span>org.camunda.bpm.camunda-engine<span class="nt">&lt;/Dependencies&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&lt;Dependencies&gt;</span>org.cibseven.bpm.camunda-engine<span class="nt">&lt;/Dependencies&gt;</span>
 </span></span><span class="line"><span class="cl">             <span class="nt">&lt;/manifestEntries&gt;</span>
 </span></span><span class="line"><span class="cl">          <span class="nt">&lt;/archive&gt;</span>
 </span></span><span class="line"><span class="cl">       <span class="nt">&lt;/configuration&gt;</span>
@@ -3445,7 +3437,7 @@ Wildfly offers multiple <a href="https://docs.wildfly.org/23/Developer_Guide.htm
 <p>The simplest way to add an explicit dependency on the process engine is to bind the process engine in the application&rsquo;s local naming space. For instance, we can add the following resource reference to the <code>web.xml</code> file of a web application:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;resource-ref&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;res-ref-name&gt;</span>processEngine/default<span class="nt">&lt;/res-ref-name&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&lt;res-type&gt;</span>org.camunda.bpm.engine.ProcessEngine<span class="nt">&lt;/res-type&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;res-type&gt;</span>org.cibseven.bpm.engine.ProcessEngine<span class="nt">&lt;/res-type&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;mapped-name&gt;</span>java:global/camunda-bpm-platform/process-engine/default<span class="nt">&lt;/mapped-name&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/resource-ref&gt;</span>
 </span></span></code></pre></div><p>This way, the global process engine resource <code>java:global/camunda-bpm-platform/process-engine/default</code> is available locally under the name <code>processEngine/default</code>. Since the application server is aware of this dependency, it will make sure the Process Engine Service exists before starting the application and it will stop the application if the process engine is removed.</p>

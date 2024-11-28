@@ -2685,14 +2685,6 @@
   </li>
 
         
-          
-  <li>
-    
-      <a href="/manual/1.1/installation/karaf-osgi/" >Karaf / OSGi</a>
-    
-  </li>
-
-        
       </ul>
     
   </li>
@@ -3180,7 +3172,7 @@
   </tr>
   <tr>
     <td>FORM-TYPE</td>
-    <td>Can be <code>embedded</code> or <code>camunda-forms</code> depending on the form type. If no type is set, the form will be shown as an <a href="#external-task-forms">External Task Form</a>.</td>
+    <td>Can be <code>embedded</code> or <code>cibseven-forms</code> depending on the form type. If no type is set, the form will be shown as an <a href="#external-task-forms">External Task Form</a>.</td>
   </tr>
   <tr>
     <td>LOCATION</td>
@@ -3562,7 +3554,7 @@ Form fields can be used on top of the task completion API to render forms and va
   <p>The name attribute must be set to &ldquo;validator&rdquo; in order to use custom form field validator.</p>
 </div>
 
-<p>A custom validator implements the <code>org.camunda.bpm.engine.impl.form.validator.FormFieldValidator</code> interface:</p>
+<p>A custom validator implements the <code>org.cibseven.bpm.engine.impl.form.validator.FormFieldValidator</code> interface:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CustomValidator</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">FormFieldValidator</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">validate</span><span class="p">(</span><span class="n">Object</span><span class="w"> </span><span class="n">submittedValue</span><span class="p">,</span><span class="w"> </span><span class="n">FormFieldValidatorContext</span><span class="w"> </span><span class="n">validatorContext</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">

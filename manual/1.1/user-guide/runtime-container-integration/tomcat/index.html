@@ -2685,14 +2685,6 @@
   </li>
 
         
-          
-  <li>
-    
-      <a href="/manual/1.1/installation/karaf-osgi/" >Karaf / OSGi</a>
-    
-  </li>
-
-        
       </ul>
     
   </li>
@@ -3167,12 +3159,12 @@
 <p>To use the JNDI Bindings for CIB seven Services on Apache Tomcat you have to add the file <code>META-INF/context.xml</code> to your process application and add the following ResourceLinks (<a href="http://tomcat.apache.org/tomcat-9.0-doc/config/context.html#Resource_Links">Tomcat 9</a>, <a href="https://tomcat.apache.org/tomcat-10.1-doc/config/context.html#Resource_Links">Tomcat 10.1</a>):</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;Context&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;ResourceLink</span> <span class="na">name=</span><span class="s">&#34;ProcessEngineService&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="na">global=</span><span class="s">&#34;global/camunda-bpm-platform/process-engine/ProcessEngineService!org.camunda.bpm.ProcessEngineService&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="na">type=</span><span class="s">&#34;org.camunda.bpm.ProcessEngineService&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="na">global=</span><span class="s">&#34;global/camunda-bpm-platform/process-engine/ProcessEngineService!org.cibseven.bpm.ProcessEngineService&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="na">type=</span><span class="s">&#34;org.cibseven.bpm.ProcessEngineService&#34;</span> <span class="nt">/&gt;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;ResourceLink</span> <span class="na">name=</span><span class="s">&#34;ProcessApplicationService&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="na">global=</span><span class="s">&#34;global/camunda-bpm-platform/process-engine/ProcessApplicationService!org.camunda.bpm.ProcessApplicationService&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="na">type=</span><span class="s">&#34;org.camunda.bpm.ProcessApplicationService&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="na">global=</span><span class="s">&#34;global/camunda-bpm-platform/process-engine/ProcessApplicationService!org.cibseven.bpm.ProcessApplicationService&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="na">type=</span><span class="s">&#34;org.cibseven.bpm.ProcessApplicationService&#34;</span> <span class="nt">/&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/Context&gt;</span>
 </span></span></code></pre></div><p>These elements are used to create a link to the global JNDI Resources defined in <code>$TOMCAT_HOME/conf/server.xml</code>.</p>
 <p>Furthermore, declare the dependency on the JNDI binding inside the <code>WEB-INF/web.xml</code> deployment descriptor.</p>
@@ -3180,13 +3172,13 @@
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;resource-ref&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;description&gt;</span>Process Engine Service<span class="nt">&lt;/description&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;res-ref-name&gt;</span>ProcessEngineService<span class="nt">&lt;/res-ref-name&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&lt;res-type&gt;</span>org.camunda.bpm.ProcessEngineService<span class="nt">&lt;/res-type&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;res-type&gt;</span>org.cibseven.bpm.ProcessEngineService<span class="nt">&lt;/res-type&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;res-auth&gt;</span>Container<span class="nt">&lt;/res-auth&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;/resource-ref&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;resource-ref&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;description&gt;</span>Process Application Service<span class="nt">&lt;/description&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;res-ref-name&gt;</span>ProcessApplicationService<span class="nt">&lt;/res-ref-name&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&lt;res-type&gt;</span>org.camunda.bpm.ProcessApplicationService<span class="nt">&lt;/res-type&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;res-type&gt;</span>org.cibseven.bpm.ProcessApplicationService<span class="nt">&lt;/res-type&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;res-auth&gt;</span>Container<span class="nt">&lt;/res-auth&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;/resource-ref&gt;</span>
 </span></span><span class="line"><span class="cl">  ...

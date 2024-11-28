@@ -2685,14 +2685,6 @@
   </li>
 
         
-          
-  <li>
-    
-      <a href="/manual/latest/installation/karaf-osgi/" >Karaf / OSGi</a>
-    
-  </li>
-
-        
       </ul>
     
   </li>
@@ -3174,19 +3166,19 @@ certain events occur during process execution.</p>
 </ul>
 <p>You can create generic Delegation Code and configure this via the BPMN 2.0 XML using so called Field Injection.</p>
 <h1 id="java-delegate">Java Delegate</h1>
-<p>To implement a class that can be called during process execution, this class needs to implement the <code>org.camunda.bpm.engine.delegate.JavaDelegate</code>
+<p>To implement a class that can be called during process execution, this class needs to implement the <code>org.cibseven.bpm.engine.delegate.JavaDelegate</code>
 interface and provide the required logic in the <code>execute</code>
 method. When process execution arrives at this particular step, it
 will execute this logic defined in that method and leave the activity
 in the default BPMN 2.0 way.</p>
 <p>As an example let&rsquo;s create a Java class that can be used to change a
 process variable String to uppercase. This class needs to implement
-the <code>org.camunda.bpm.engine.delegate.JavaDelegate</code>
+the <code>org.cibseven.bpm.engine.delegate.JavaDelegate</code>
 interface, which requires us to implement the <code>execute(DelegateExecution)</code>
 method. It&rsquo;s this operation that will be called by the engine and
 which needs to contain the business logic. Process instance
 information such as process variables and other information can be accessed and
-manipulated through the <a href="/javadoc/cibseven/1.1/org/camunda/bpm/engine/delegate/DelegateExecution.html">DelegateExecution</a>
+manipulated through the <a href="/javadoc/cibseven/1.1/org/cibseven/bpm/engine/delegate/DelegateExecution.html">DelegateExecution</a>
  interface (click on the link for a detailed Javadoc of its operations).</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ToUppercase</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">JavaDelegate</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
@@ -3211,7 +3203,7 @@ a <code>ProcessEngineException</code> will be thrown. The reason for this is tha
 more specifically the classpath) when you are deploying is often different than the actual runtime
 environment.</p>
 <h1 id="activity-behavior">Activity Behavior</h1>
-<p>Instead of writing a Java Delegate, it is also possible to provide a class that implements the <code>org.camunda.bpm.engine.impl.pvm.delegate.ActivityBehavior</code>
+<p>Instead of writing a Java Delegate, it is also possible to provide a class that implements the <code>org.cibseven.bpm.engine.impl.pvm.delegate.ActivityBehavior</code>
 interface. Implementations then have access to the more powerful <code>ActivityExecution</code> that for example also allows to influence the control flow of the process. However, note that this is not a very good practice and should be avoided as much as possible. So, it is advised to only use the <code>ActivityBehavior</code> interface for advanced use cases and if you know exactly what you&rsquo;re doing.</p>
 <h1 id="field-injection">Field Injection</h1>
 <p>It is possible to inject values into the fields of the delegated classes. The following types of injection are supported:</p>
@@ -3225,7 +3217,7 @@ field <code>firstName</code> has setter <code>setFirstName(...)</code>).
 If no setter is available for that field, the value of private
 member will be set on the delegate (but using private fields is <strong>not</strong> recommended - see warning below).</p>
 <p><strong>Regardless of the type of value declared in the process-definition, the type of the
-setter/private field on the injection target should always be <code>org.camunda.bpm.engine.delegate.Expression</code></strong>.</p>
+setter/private field on the injection target should always be <code>org.cibseven.bpm.engine.delegate.Expression</code></strong>.</p>
 
 <div class="note bg-warning docs-warning">
   <h3></h3>
@@ -3240,20 +3232,20 @@ to declare a <code>extensionElements</code> XML element before the actual field 
 declarations, which is a requirement of the BPMN 2.0 XML Schema.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">  <span class="nt">&lt;serviceTask</span> <span class="na">id=</span><span class="s">&#34;javaService&#34;</span>
 </span></span><span class="line"><span class="cl">               <span class="na">name=</span><span class="s">&#34;Java service invocation&#34;</span>
-</span></span><span class="line"><span class="cl">               <span class="na">camunda:class=</span><span class="s">&#34;org.camunda.bpm.examples.bpmn.servicetask.ToUpperCaseFieldInjected&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">               <span class="na">camunda:class=</span><span class="s">&#34;org.cibseven.bpm.examples.bpmn.servicetask.ToUpperCaseFieldInjected&#34;</span><span class="nt">&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;extensionElements&gt;</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&lt;camunda:field</span> <span class="na">name=</span><span class="s">&#34;text&#34;</span> <span class="na">stringValue=</span><span class="s">&#34;Hello World&#34;</span> <span class="nt">/&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;/extensionElements&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;/serviceTask&gt;</span>
 </span></span></code></pre></div><p>The class <code>ToUpperCaseFieldInjected</code> has a field
-<code>text</code> which is of type <code>org.camunda.bpm.engine.delegate.Expression</code>.
+<code>text</code> which is of type <code>org.cibseven.bpm.engine.delegate.Expression</code>.
 When calling <code>text.getValue(execution)</code>, the configured string value
 <code>Hello World</code> will be returned.</p>
 <p>Alternatively, for longs texts (e.g., an inline e-mail) the <code>camunda:string</code> sub element can be
 used:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">  <span class="nt">&lt;serviceTask</span> <span class="na">id=</span><span class="s">&#34;javaService&#34;</span>
 </span></span><span class="line"><span class="cl">               <span class="na">name=</span><span class="s">&#34;Java service invocation&#34;</span>
-</span></span><span class="line"><span class="cl">               <span class="na">camunda:class=</span><span class="s">&#34;org.camunda.bpm.examples.bpmn.servicetask.ToUpperCaseFieldInjected&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">               <span class="na">camunda:class=</span><span class="s">&#34;org.cibseven.bpm.examples.bpmn.servicetask.ToUpperCaseFieldInjected&#34;</span><span class="nt">&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;extensionElements&gt;</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&lt;camunda:field</span> <span class="na">name=</span><span class="s">&#34;text&#34;</span><span class="nt">&gt;</span>
 </span></span><span class="line"><span class="cl">          <span class="nt">&lt;camunda:string&gt;</span>
@@ -3267,11 +3259,11 @@ can be used. Those expressions can use process variables, CDI or Spring
 beans. As already noted, a separate instance of the Java class will be created
 each time the service task is executed. To have dynamic injection of
 values in fields, you can inject value and method expressions in an
-<code>org.camunda.bpm.engine.delegate.Expression</code>
+<code>org.cibseven.bpm.engine.delegate.Expression</code>
 which can be evaluated/invoked using the <code>DelegateExecution</code>
 passed in the <code>execute</code> method.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">  <span class="nt">&lt;serviceTask</span> <span class="na">id=</span><span class="s">&#34;javaService&#34;</span> <span class="na">name=</span><span class="s">&#34;Java service invocation&#34;</span>
-</span></span><span class="line"><span class="cl">               <span class="na">camunda:class=</span><span class="s">&#34;org.camunda.bpm.examples.bpmn.servicetask.ReverseStringsFieldInjected&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">               <span class="na">camunda:class=</span><span class="s">&#34;org.cibseven.bpm.examples.bpmn.servicetask.ReverseStringsFieldInjected&#34;</span><span class="nt">&gt;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;extensionElements&gt;</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&lt;camunda:field</span> <span class="na">name=</span><span class="s">&#34;text1&#34;</span><span class="nt">&gt;</span>
@@ -3313,7 +3305,7 @@ them using the current <code>DelegateExecution</code>.</p>
 </div>
 
 <h1 id="delegate-variable-mapping">Delegate Variable Mapping</h1>
-<p>To implement a class that delegates the input and output variable mapping for a call activity, this class needs to implement the <code>org.camunda.bpm.engine.delegate.DelegateVariableMapping</code>
+<p>To implement a class that delegates the input and output variable mapping for a call activity, this class needs to implement the <code>org.cibseven.bpm.engine.delegate.DelegateVariableMapping</code>
 interface. The implementation must provide the methods <code>mapInputVariables(DelegateExecution, VariableMap)</code> and <code>mapOutputVariables(DelegateExecution, VariableScope)</code>.
 See the following example:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">DelegatedVarMapping</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">DelegateVariableMapping</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -3348,7 +3340,7 @@ The behavior of the class loading is similar to the class loading on <a href="/m
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;extensionElements&gt;</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&lt;camunda:executionListener</span>
 </span></span><span class="line"><span class="cl">          <span class="na">event=</span><span class="s">&#34;start&#34;</span>
-</span></span><span class="line"><span class="cl">          <span class="na">class=</span><span class="s">&#34;org.camunda.bpm.examples.bpmn.executionlistener.ExampleExecutionListenerOne&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="na">class=</span><span class="s">&#34;org.cibseven.bpm.examples.bpmn.executionlistener.ExampleExecutionListenerOne&#34;</span> <span class="nt">/&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;/extensionElements&gt;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;startEvent</span> <span class="na">id=</span><span class="s">&#34;theStart&#34;</span> <span class="nt">/&gt;</span>
@@ -3381,7 +3373,7 @@ The behavior of the class loading is similar to the class loading on <a href="/m
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;endEvent</span> <span class="na">id=</span><span class="s">&#34;theEnd&#34;</span> <span class="nt">/&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;/process&gt;</span>
-</span></span></code></pre></div><p>The first execution listener is notified when the process starts. The listener is an external Java-class (like ExampleExecutionListenerOne) and should implement the <code>org.camunda.bpm.engine.delegate.ExecutionListener</code> interface. When the event occurs (in this case end event) the method <code>notify(DelegateExecution execution)</code> is called.</p>
+</span></span></code></pre></div><p>The first execution listener is notified when the process starts. The listener is an external Java-class (like ExampleExecutionListenerOne) and should implement the <code>org.cibseven.bpm.engine.delegate.ExecutionListener</code> interface. When the event occurs (in this case end event) the method <code>notify(DelegateExecution execution)</code> is called.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ExampleExecutionListenerOne</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">ExecutionListener</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">notify</span><span class="p">(</span><span class="n">DelegateExecution</span><span class="w"> </span><span class="n">execution</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -3389,7 +3381,7 @@ The behavior of the class loading is similar to the class loading on <a href="/m
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="n">execution</span><span class="p">.</span><span class="na">setVariable</span><span class="p">(</span><span class="s">&#34;eventReceived&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">execution</span><span class="p">.</span><span class="na">getEventName</span><span class="p">());</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
-</span></span></span></code></pre></div><p>It is also possible to use a delegation class that implements the <code>org.camunda.bpm.engine.delegate.JavaDelegate</code> interface. These delegation classes can then be reused in other constructs, such as a delegation for a service task.</p>
+</span></span></span></code></pre></div><p>It is also possible to use a delegation class that implements the <code>org.cibseven.bpm.engine.delegate.JavaDelegate</code> interface. These delegation classes can then be reused in other constructs, such as a delegation for a service task.</p>
 <p>The second execution listener is called when the transition is taken. Note that the listener element
 doesn&rsquo;t define an event, since only take events are fired on transitions. Values in the event
 attribute are ignored when a listener is defined on a transition. Also it contains a
@@ -3412,7 +3404,7 @@ tasks).</p>
 <p>A task listener is used to execute custom Java logic or an expression upon the occurrence of a certain task-related event. It can only be added in the process definition as a child element of a user task. Note that this also must happen as a child of the BPMN 2.0 extensionElements and in the Camunda namespace, since a task listener is a construct specifically for the CIB seven engine.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">  <span class="nt">&lt;userTask</span> <span class="na">id=</span><span class="s">&#34;myTask&#34;</span> <span class="na">name=</span><span class="s">&#34;My Task&#34;</span> <span class="nt">&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;extensionElements&gt;</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&lt;camunda:taskListener</span> <span class="na">event=</span><span class="s">&#34;create&#34;</span> <span class="na">class=</span><span class="s">&#34;org.camunda.bpm.MyTaskCreateListener&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;camunda:taskListener</span> <span class="na">event=</span><span class="s">&#34;create&#34;</span> <span class="na">class=</span><span class="s">&#34;org.cibseven.bpm.MyTaskCreateListener&#34;</span> <span class="nt">/&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;/extensionElements&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;/userTask&gt;</span>
 </span></span></code></pre></div><h2 id="task-listener-event-lifecycle">Task Listener Event Lifecycle</h2>
@@ -3480,7 +3472,7 @@ Possible events are: <strong>create</strong>, <strong>assignment</strong>, <stro
 element in the task listener and will only be fired if the <a href="/manual/latest/user-guide/process-engine/the-job-executor/">Job Executor</a> is enabled.</p>
 </li>
 <li>
-<p><strong>class</strong>: the delegation class that must be called. This class must implement the <code>org.camunda.bpm.engine.impl.pvm.delegate.TaskListener</code> interface.</p>
+<p><strong>class</strong>: the delegation class that must be called. This class must implement the <code>org.cibseven.bpm.engine.impl.pvm.delegate.TaskListener</code> interface.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyTaskCreateListener</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">TaskListener</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">notify</span><span class="p">(</span><span class="n">DelegateTask</span><span class="w"> </span><span class="n">delegateTask</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -3534,7 +3526,7 @@ The execution of the user task will <strong>not</strong> be interrupted by this.
 <p>The fragment below shows a simple example process with an execution listener with fields injected:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">  <span class="nt">&lt;process</span> <span class="na">id=</span><span class="s">&#34;executionListenersProcess&#34;</span><span class="nt">&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;extensionElements&gt;</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&lt;camunda:executionListener</span> <span class="na">class=</span><span class="s">&#34;org.camunda.bpm.examples.bpmn.executionListener.ExampleFieldInjectedExecutionListener&#34;</span> <span class="na">event=</span><span class="s">&#34;start&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;camunda:executionListener</span> <span class="na">class=</span><span class="s">&#34;org.cibseven.bpm.examples.bpmn.executionListener.ExampleFieldInjectedExecutionListener&#34;</span> <span class="na">event=</span><span class="s">&#34;start&#34;</span><span class="nt">&gt;</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&lt;camunda:field</span> <span class="na">name=</span><span class="s">&#34;fixedValue&#34;</span> <span class="na">stringValue=</span><span class="s">&#34;Yes, I am &#34;</span> <span class="nt">/&gt;</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&lt;camunda:field</span> <span class="na">name=</span><span class="s">&#34;dynamicValue&#34;</span> <span class="na">expression=</span><span class="s">&#34;${myVar}&#34;</span> <span class="nt">/&gt;</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&lt;/camunda:executionListener&gt;</span>
@@ -3565,7 +3557,7 @@ The execution of the user task will <strong>not</strong> be interrupted by this.
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
 </span></span></span></code></pre></div><p>The class <code>ExampleFieldInjectedExecutionListener</code> concatenates the 2 injected fields (one fixed and the other dynamic) and stores this in the process variable <em>var</em>.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@Deployment</span><span class="p">(</span><span class="n">resources</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s">&#34;org/camunda/bpm/examples/bpmn/executionListener/ExecutionListenersFieldInjectionProcess.bpmn20.xml&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s">&#34;org/cibseven/bpm/examples/bpmn/executionListener/ExecutionListenersFieldInjectionProcess.bpmn20.xml&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">})</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">testExecutionListenerFieldInjection</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="n">variables</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="o">&gt;</span><span class="p">();</span><span class="w">
@@ -3642,7 +3634,7 @@ how to access the <code>TaskService</code> from a <code>JavaDelegate</code> impl
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
 </span></span></span></code></pre></div><h1 id="exception-codes">Exception codes</h1>
-<p>You can throw a <code><a href="/javadoc/cibseven/1.1/org/camunda/bpm/engine/ProcessEngineException.html">ProcessEngineException</a>
+<p>You can throw a <code><a href="/javadoc/cibseven/1.1/org/cibseven/bpm/engine/ProcessEngineException.html">ProcessEngineException</a>
 </code>
 from your delegation code and define your custom error code by passing it to the constructor or by
 calling <code>ProcessEngineException#setCode</code>.</p>

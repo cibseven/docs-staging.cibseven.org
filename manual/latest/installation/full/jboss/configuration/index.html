@@ -2685,14 +2685,6 @@
   </li>
 
         
-          
-  <li>
-    
-      <a href="/manual/latest/installation/karaf-osgi/" >Karaf / OSGi</a>
-    
-  </li>
-
-        
       </ul>
     
   </li>
@@ -3168,13 +3160,13 @@
 <p>In order to setup LDAP for the JBoss EAP/WildFly Application Server distribution, you have to perform the following steps:</p>
 <h3 id="adjust-the-process-engine-configuration">Adjust the Process Engine Configuration</h3>
 <p>Edit the file <code>standalone.xml</code> (or <code>domain.xml</code>) provided by the JBoss EAP/WildFly Application Server and add the <a href="/manual/latest/user-guide/process-engine/identity-service/#the-ldap-identity-service">LDAP Identity Provider Plugin</a> and the <a href="/manual/latest/user-guide/process-engine/authorization-service/#the-administrator-authorization-plugin">Administrator Authorization Plugin</a>.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;subsystem</span> <span class="na">xmlns=</span><span class="s">&#34;urn:org.camunda.bpm.jboss:1.1&#34;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;subsystem</span> <span class="na">xmlns=</span><span class="s">&#34;urn:org.cibseven.bpm.jboss:1.1&#34;</span><span class="nt">&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;process-engines&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;process-engine</span> <span class="na">name=</span><span class="s">&#34;default&#34;</span> <span class="na">default=</span><span class="s">&#34;true&#34;</span><span class="nt">&gt;</span> ...
 </span></span><span class="line"><span class="cl">      <span class="nt">&lt;properties&gt;</span>...<span class="nt">&lt;/properties&gt;</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&lt;plugins&gt;</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&lt;plugin&gt;</span>
-</span></span><span class="line"><span class="cl">          <span class="nt">&lt;class&gt;</span>org.camunda.bpm.identity.impl.ldap.plugin.LdapIdentityProviderPlugin<span class="nt">&lt;/class&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&lt;class&gt;</span>org.cibseven.bpm.identity.impl.ldap.plugin.LdapIdentityProviderPlugin<span class="nt">&lt;/class&gt;</span>
 </span></span><span class="line"><span class="cl">          <span class="nt">&lt;properties&gt;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">            <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;serverUrl&#34;</span><span class="nt">&gt;</span>ldap://localhost:4334/<span class="nt">&lt;/property&gt;</span>
@@ -3202,7 +3194,7 @@
 </span></span><span class="line"><span class="cl">          <span class="nt">&lt;/properties&gt;</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&lt;/plugin&gt;</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&lt;plugin&gt;</span>
-</span></span><span class="line"><span class="cl">          <span class="nt">&lt;class&gt;</span>org.camunda.bpm.engine.impl.plugin.AdministratorAuthorizationPlugin<span class="nt">&lt;/class&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&lt;class&gt;</span>org.cibseven.bpm.engine.impl.plugin.AdministratorAuthorizationPlugin<span class="nt">&lt;/class&gt;</span>
 </span></span><span class="line"><span class="cl">          <span class="nt">&lt;properties&gt;</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;administratorUserName&#34;</span><span class="nt">&gt;</span>admin<span class="nt">&lt;/property&gt;</span>
 </span></span><span class="line"><span class="cl">          <span class="nt">&lt;/properties&gt;</span>
@@ -3226,20 +3218,20 @@ configuration to the <code>web.xml</code> file of the CIB seven web application
 </span></span><span class="line"><span class="cl">  <span class="c">&lt;!-- ... --&gt;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;listener&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&lt;listener-class&gt;</span>org.camunda.bpm.engine.rest.hal.cache.HalRelationCacheBootstrap<span class="nt">&lt;/listener-class&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;listener-class&gt;</span>org.cibseven.bpm.engine.rest.hal.cache.HalRelationCacheBootstrap<span class="nt">&lt;/listener-class&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;/listener&gt;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;context-param&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&lt;param-name&gt;</span>org.camunda.bpm.engine.rest.hal.cache.config<span class="nt">&lt;/param-name&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;param-name&gt;</span>org.cibseven.bpm.engine.rest.hal.cache.config<span class="nt">&lt;/param-name&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;param-value&gt;</span>
 </span></span><span class="line"><span class="cl">      {
-</span></span><span class="line"><span class="cl">        &#34;cacheImplementation&#34;: &#34;org.camunda.bpm.engine.rest.hal.cache.DefaultHalResourceCache&#34;,
+</span></span><span class="line"><span class="cl">        &#34;cacheImplementation&#34;: &#34;org.cibseven.bpm.engine.rest.hal.cache.DefaultHalResourceCache&#34;,
 </span></span><span class="line"><span class="cl">        &#34;caches&#34;: {
-</span></span><span class="line"><span class="cl">          &#34;org.camunda.bpm.engine.rest.hal.user.HalUser&#34;: {
+</span></span><span class="line"><span class="cl">          &#34;org.cibseven.bpm.engine.rest.hal.user.HalUser&#34;: {
 </span></span><span class="line"><span class="cl">            &#34;capacity&#34;: 100,
 </span></span><span class="line"><span class="cl">            &#34;secondsToLive&#34;: 900
 </span></span><span class="line"><span class="cl">          },
-</span></span><span class="line"><span class="cl">          &#34;org.camunda.bpm.engine.rest.hal.group.HalGroup&#34;: {
+</span></span><span class="line"><span class="cl">          &#34;org.cibseven.bpm.engine.rest.hal.group.HalGroup&#34;: {
 </span></span><span class="line"><span class="cl">            &#34;capacity&#34;: 100,
 </span></span><span class="line"><span class="cl">            &#34;secondsToLive&#34;: 900
 </span></span><span class="line"><span class="cl">          }
@@ -3257,12 +3249,12 @@ configuration to the <code>web.xml</code> file of the CIB seven web application
 <p>Add an additional engine plugin as a module to the folder $WILDFLY_HOME/modules/</p>
 </li>
 <li>
-<p>Add the module dependency to the file <code>$WILDFLY_HOME/modules/org/camunda/bpm/camunda-engine-plugins/main/module.xml</code> and set the attribute <code>export=&quot;true&quot;</code> to make sure that the module is visible in the classpath of Camunda&rsquo;s subsystem</p>
+<p>Add the module dependency to the file <code>$WILDFLY_HOME/modules/org/cibseven/bpm/camunda-engine-plugins/main/module.xml</code> and set the attribute <code>export=&quot;true&quot;</code> to make sure that the module is visible in the classpath of Camunda&rsquo;s subsystem</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;module</span> <span class="na">xmlns=</span><span class="s">&#34;urn:jboss:module:1.0&#34;</span>
-</span></span><span class="line"><span class="cl">      <span class="na">name=</span><span class="s">&#34;org.camunda.bpm.camunda-engine-plugins&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="na">name=</span><span class="s">&#34;org.cibseven.bpm.camunda-engine-plugins&#34;</span><span class="nt">&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;dependencies&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="c">&lt;!-- ... --&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&lt;module</span> <span class="na">name=</span><span class="s">&#34;org.camunda.bpm.camunda-custom-engine-plugin&#34;</span> <span class="na">export=</span><span class="s">&#34;true&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;module</span> <span class="na">name=</span><span class="s">&#34;org.cibseven.bpm.camunda-custom-engine-plugin&#34;</span> <span class="na">export=</span><span class="s">&#34;true&#34;</span> <span class="nt">/&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/dependencies&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/module&gt;</span>
 </span></span></code></pre></div><p>The <code>module.xml</code> file is included in the CIB seven distribution. If you install CIB seven on a vanilla WildFly container, this file needs to be created manually.</p>
@@ -3293,7 +3285,7 @@ to be adjusted. You can find it under <code>WEB-INF/web.xml</code>.</p>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;filter&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;filter-name&gt;</span>HttpHeaderSecurity<span class="nt">&lt;/filter-name&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;filter-class&gt;</span>
-</span></span><span class="line"><span class="cl">    org.camunda.bpm.webapp.impl.security.filter.headersec.HttpHeaderSecurityFilter
+</span></span><span class="line"><span class="cl">    org.cibseven.bpm.webapp.impl.security.filter.headersec.HttpHeaderSecurityFilter
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;/filter-class&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/filter&gt;</span>
 </span></span><span class="line"><span class="cl">
@@ -3308,7 +3300,7 @@ to be adjusted. You can find it under <code>WEB-INF/web.xml</code>.</p>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;filter&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;filter-name&gt;</span>HttpHeaderSecurity<span class="nt">&lt;/filter-name&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;filter-class&gt;</span>
-</span></span><span class="line"><span class="cl">    org.camunda.bpm.webapp.impl.security.filter.headersec.HttpHeaderSecurityFilter
+</span></span><span class="line"><span class="cl">    org.cibseven.bpm.webapp.impl.security.filter.headersec.HttpHeaderSecurityFilter
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;/filter-class&gt;</span>
 </span></span><span class="line"><span class="cl">  
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;init-param&gt;</span>

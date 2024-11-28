@@ -2685,14 +2685,6 @@
   </li>
 
         
-          
-  <li>
-    
-      <a href="/manual/latest/installation/karaf-osgi/" >Karaf / OSGi</a>
-    
-  </li>
-
-        
       </ul>
     
   </li>
@@ -3168,7 +3160,7 @@
 <p>At salt generation, a random 16-byte per-user value is created, which is generated with <a href="http://docs.oracle.com/javase/6/docs/api/java/security/SecureRandom.html">SecureRandom</a>. It is also possible to <a href="#customize-the-salt-generation">customize the salt generation</a> if desired.</p>
 <h1 id="customize-the-hashing-algorithm">Customize the Hashing Algorithm</h1>
 <p>If it is necessary to use a more secure hash algorithm, you can provide your own implementation.</p>
-<p>You can do this by implementing the <code>PasswordEncryptor</code> interface from the <code>org.camunda.bpm.engine.impl.digest</code> package. The interface ensures that all necessary functions for password hashing are implemented. You can have a look at the classes <code>Base64EncodedHashDigest</code> and <code>ShaHashDigest</code> from the <code>org.camunda.bpm.engine.impl.digest</code> package to see how this is done in Camunda. A template for your own implementation could look as follows:</p>
+<p>You can do this by implementing the <code>PasswordEncryptor</code> interface from the <code>org.cibseven.bpm.engine.impl.digest</code> package. The interface ensures that all necessary functions for password hashing are implemented. You can have a look at the classes <code>Base64EncodedHashDigest</code> and <code>ShaHashDigest</code> from the <code>org.cibseven.bpm.engine.impl.digest</code> package to see how this is done in Camunda. A template for your own implementation could look as follows:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyPasswordEncryptor</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">PasswordEncryptor</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@Override</span><span class="w">
@@ -3196,7 +3188,7 @@
 </div>
 
 <h1 id="customize-the-salt-generation">Customize the Salt generation</h1>
-<p>Similar to the hashing algorithm, the salt generation can be adjusted. First, implement the <code>SaltGenerator</code> interface from the <code>org.camunda.bpm.engine.impl.digest</code>. This ensures that all necessary functions are implemented. You can have a look at the classes <code>Base64EncodedSaltGenerator</code> and <code>Default16ByteSaltGenerator</code> from the <code>org.camunda.bpm.engine.impl.digest</code> package to see how this is done in Camunda. A template for your own implementation could look as follows:</p>
+<p>Similar to the hashing algorithm, the salt generation can be adjusted. First, implement the <code>SaltGenerator</code> interface from the <code>org.cibseven.bpm.engine.impl.digest</code>. This ensures that all necessary functions are implemented. You can have a look at the classes <code>Base64EncodedSaltGenerator</code> and <code>Default16ByteSaltGenerator</code> from the <code>org.cibseven.bpm.engine.impl.digest</code> package to see how this is done in Camunda. A template for your own implementation could look as follows:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyCustomSaltGenerator</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">SaltGenerator</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@Override</span><span class="w">

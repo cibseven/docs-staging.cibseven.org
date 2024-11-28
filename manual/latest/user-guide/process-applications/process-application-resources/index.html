@@ -2685,14 +2685,6 @@
   </li>
 
         
-          
-  <li>
-    
-      <a href="/manual/latest/installation/karaf-osgi/" >Karaf / OSGi</a>
-    
-  </li>
-
-        
       </ul>
     
   </li>
@@ -3188,7 +3180,7 @@
 <p>A context switch is guaranteed in the following cases:</p>
 <ul>
 <li><strong>Delegation Code Invocation</strong>: Whenever delegation code like Java Delegates, execution/task listeners (Java code or scripts), etc. is called by the process engine</li>
-<li><strong>Explicit Process Application Context Declaration</strong>: For every engine API invocation, when a process application was declared using the utility class <code>org.camunda.bpm.application.ProcessApplicationContext</code></li>
+<li><strong>Explicit Process Application Context Declaration</strong>: For every engine API invocation, when a process application was declared using the utility class <code>org.cibseven.bpm.application.ProcessApplicationContext</code></li>
 </ul>
 <h1 id="declare-process-application-context">Declare Process Application Context</h1>
 <p>Process application context must be declared whenever custom code uses the engine API that is not part of delegation code and when a context switch is needed for proper function.</p>
@@ -3208,7 +3200,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
 </span></span></span></code></pre></div><p>Note that the engine API is not called from within delegation code but from a servlet instead. The process engine is therefore not aware of the process application context and cannot perform a context switch to use the correct JSON data format for variable serialization. In consequence, the process application-specific JSON configuration does not apply.</p>
-<p>In such a case, the process application context can be declared by using the static methods that the class <code>org.camunda.bpm.application.ProcessApplicationContext</code> provides. In particular, the method  <code>#setCurrentProcessApplication</code> declares the process application to switch into for following engine API invocations. The method <code>#clear</code> resets this declaration. In the example, we wrap the <code>#setVariable</code> invocation accordingly:</p>
+<p>In such a case, the process application context can be declared by using the static methods that the class <code>org.cibseven.bpm.application.ProcessApplicationContext</code> provides. In particular, the method  <code>#setCurrentProcessApplication</code> declares the process application to switch into for following engine API invocations. The method <code>#clear</code> resets this declaration. In the example, we wrap the <code>#setVariable</code> invocation accordingly:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">ProcessApplicationContext</span><span class="p">.</span><span class="na">setCurrentProcessApplication</span><span class="p">(</span><span class="s">&#34;nameOfTheProcessApplication&#34;</span><span class="p">);</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">runtimeService</span><span class="p">.</span><span class="na">setVariable</span><span class="p">(</span><span class="s">&#34;processInstanceId&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;variableName&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">jsonValue</span><span class="p">);</span><span class="w">

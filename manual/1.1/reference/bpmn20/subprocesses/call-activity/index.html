@@ -2685,14 +2685,6 @@
   </li>
 
         
-          
-  <li>
-    
-      <a href="/manual/1.1/installation/karaf-osgi/" >Karaf / OSGi</a>
-    
-  </li>
-
-        
       </ul>
     
   </li>
@@ -3291,7 +3283,7 @@ For this the <a href="/manual/1.1/user-guide/process-engine/delegation-code/#del
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;sequenceFlow</span> <span class="na">id=</span><span class="s">&#34;flow1&#34;</span> <span class="na">sourceRef=</span><span class="s">&#34;theStart&#34;</span> <span class="na">targetRef=</span><span class="s">&#34;callSubProcess&#34;</span> <span class="nt">/&gt;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nt">&lt;callActivity</span> <span class="na">id=</span><span class="s">&#34;callSubProcess&#34;</span> <span class="na">calledElement=</span><span class="s">&#34;simpleSubProcess&#34;</span> <span class="na">camunda:variableMappingClass=</span><span class="s">&#34;org.camunda.bpm.example.bpm.callactivity.DelegatedVarMapping&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;callActivity</span> <span class="na">id=</span><span class="s">&#34;callSubProcess&#34;</span> <span class="na">calledElement=</span><span class="s">&#34;simpleSubProcess&#34;</span> <span class="na">camunda:variableMappingClass=</span><span class="s">&#34;org.cibseven.bpm.example.bpm.callactivity.DelegatedVarMapping&#34;</span><span class="nt">/&gt;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;sequenceFlow</span> <span class="na">id=</span><span class="s">&#34;flow3&#34;</span> <span class="na">sourceRef=</span><span class="s">&#34;callSubProcess&#34;</span> <span class="na">targetRef=</span><span class="s">&#34;taskAfterSubProcess&#34;</span> <span class="nt">/&gt;</span>
 </span></span><span class="line"><span class="cl">

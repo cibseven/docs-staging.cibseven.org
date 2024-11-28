@@ -2685,14 +2685,6 @@
   </li>
 
         
-          
-  <li>
-    
-      <a href="/manual/latest/installation/karaf-osgi/" >Karaf / OSGi</a>
-    
-  </li>
-
-        
       </ul>
     
   </li>
@@ -3180,18 +3172,18 @@
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
 </span></span></span></code></pre></div><h2 id="mapping-json-to-java">Mapping JSON to Java:</h2>
 <p>We can map a JSON object <code>{&quot;name&quot; : &quot;Kermit&quot;}</code> to an instance of <code>Customer</code> as follows:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import static</span><span class="w"> </span><span class="nn">org.camunda.spin.Spin.JSON</span><span class="p">;</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import static</span><span class="w"> </span><span class="nn">org.cibseven.spin.Spin.JSON</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Customer</span><span class="w"> </span><span class="n">customer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JSON</span><span class="p">(</span><span class="s">&#34;{\&#34;customer\&#34;: \&#34;Kermit\&#34;}&#34;</span><span class="p">).</span><span class="na">mapTo</span><span class="p">(</span><span class="n">Customer</span><span class="p">.</span><span class="na">class</span><span class="p">);</span><span class="w">
 </span></span></span></code></pre></div><h2 id="mapping-java-to-json">Mapping Java to JSON:</h2>
 <p>We can map the <code>customer</code> back to JSON as follows:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import static</span><span class="w"> </span><span class="nn">org.camunda.spin.Spin.JSON</span><span class="p">;</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import static</span><span class="w"> </span><span class="nn">org.cibseven.spin.Spin.JSON</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">String</span><span class="w"> </span><span class="n">json</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JSON</span><span class="p">(</span><span class="n">customer</span><span class="p">).</span><span class="na">toString</span><span class="p">();</span><span class="w">
 </span></span></span></code></pre></div><p>You can also map Java primitives like boolean or number values to the corresponding JSON values. For example, <code>JSON(true)</code> maps to the JSON constant of the boolean value <code>true</code>. However, note that String values are not converted but are interpreted as JSON input (see <a href="/manual/latest/reference/spin/json/01-reading-json/">Reading JSON</a>. For example, <code>JSON(&quot;a String&quot;)</code> raises an exception because <code>&quot;a String&quot;</code> lacks additional escaped quotes and is no valid JSON. Nevertheless, a list of String values is properly converted to a JSON array of String values.</p>
 <h1 id="mapping-to-generic-types">Mapping to Generic Types:</h1>
 <p>Assume we have a list of customers that we would declare as <code>List&lt;Customer&gt;</code> in Java. For mapping a JSON array <code>[{&quot;name&quot; : &quot;Kermit&quot;}, {&quot;name&quot; : &quot;Hugo&quot;}]</code> to such a list, calling <code>mapTo(ArrayList.class)</code> is not sufficient as Jackson cannot tell of which type the array&rsquo;s elements are. This case can be handled by providing <code>mapTo</code> with a canonical type string, following Jackson&rsquo;s conventions:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import static</span><span class="w"> </span><span class="nn">org.camunda.spin.Spin.JSON</span><span class="p">;</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import static</span><span class="w"> </span><span class="nn">org.cibseven.spin.Spin.JSON</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">String</span><span class="w"> </span><span class="n">json</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;[{\&#34;customer\&#34;: \&#34;Kermit\&#34;}, {\&#34;customer\&#34;: \&#34;Kermit\&#34;}]&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">

@@ -2685,14 +2685,6 @@
   </li>
 
         
-          
-  <li>
-    
-      <a href="/manual/latest/installation/karaf-osgi/" >Karaf / OSGi</a>
-    
-  </li>
-
-        
       </ul>
     
   </li>
@@ -3163,18 +3155,18 @@
     </div>
 
     <div class="col-xs-12 content-text">
-      <p>The auto starter uses the  <code>org.camunda.bpm.engine.impl.cfg.ProcessEnginePlugin</code> mechanism to configure the engine.</p>
+      <p>The auto starter uses the  <code>org.cibseven.bpm.engine.impl.cfg.ProcessEnginePlugin</code> mechanism to configure the engine.</p>
 <p>The configuration is divided into <em>sections</em>. These <em>sections</em> are represented by the marker interfaces:</p>
 <ul>
-<li><code>org.camunda.bpm.spring.boot.starter.configuration.CamundaProcessEngineConfiguration</code></li>
-<li><code>org.camunda.bpm.spring.boot.starter.configuration.CamundaDatasourceConfiguration</code></li>
-<li><code>org.camunda.bpm.spring.boot.starter.configuration.CamundaHistoryConfiguration</code></li>
-<li><code>org.camunda.bpm.spring.boot.starter.configuration.CamundaHistoryLevelAutoHandlingConfiguration</code></li>
-<li><code>org.camunda.bpm.spring.boot.starter.configuration.CamundaJobConfiguration</code></li>
-<li><code>org.camunda.bpm.spring.boot.starter.configuration.CamundaDeploymentConfiguration</code></li>
-<li><code>org.camunda.bpm.spring.boot.starter.configuration.CamundaAuthorizationConfiguration</code></li>
-<li><code>org.camunda.bpm.spring.boot.starter.configuration.CamundaFailedJobConfiguration</code></li>
-<li><code>org.camunda.bpm.spring.boot.starter.configuration.CamundaMetricsConfiguration</code></li>
+<li><code>org.cibseven.bpm.spring.boot.starter.configuration.CamundaProcessEngineConfiguration</code></li>
+<li><code>org.cibseven.bpm.spring.boot.starter.configuration.CamundaDatasourceConfiguration</code></li>
+<li><code>org.cibseven.bpm.spring.boot.starter.configuration.CamundaHistoryConfiguration</code></li>
+<li><code>org.cibseven.bpm.spring.boot.starter.configuration.CamundaHistoryLevelAutoHandlingConfiguration</code></li>
+<li><code>org.cibseven.bpm.spring.boot.starter.configuration.CamundaJobConfiguration</code></li>
+<li><code>org.cibseven.bpm.spring.boot.starter.configuration.CamundaDeploymentConfiguration</code></li>
+<li><code>org.cibseven.bpm.spring.boot.starter.configuration.CamundaAuthorizationConfiguration</code></li>
+<li><code>org.cibseven.bpm.spring.boot.starter.configuration.CamundaFailedJobConfiguration</code></li>
+<li><code>org.cibseven.bpm.spring.boot.starter.configuration.CamundaMetricsConfiguration</code></li>
 </ul>
 <h2 id="default-configurations">Default Configurations</h2>
 <p>The following default and best practice configurations are provided by the starter and can be customized or overridden.</p>
@@ -3227,19 +3219,19 @@ If you want to use a custom <code>HistoryEventHandler</code>, you just have to p
 <p>As camunda version &gt;= 7.4 supports <code>history-level auto</code>, this configuration adds support for versions &lt;= 7.3.</p>
 <p>To have more control over the handling, you can provide your own</p>
 <ul>
-<li><code>org.camunda.bpm.spring.boot.starter.jdbc.HistoryLevelDeterminator</code> with name <code>historyLevelDeterminator</code></li>
+<li><code>org.cibseven.bpm.spring.boot.starter.jdbc.HistoryLevelDeterminator</code> with name <code>historyLevelDeterminator</code></li>
 </ul>
 <p>IMPORTANT: The default configuration is applied after all other default configurations using the ordering mechanism.</p>
 <h3 id="defaultjobconfiguration"><code>DefaultJobConfiguration</code></h3>
 <p>Applies the job execution properties to the process engine.</p>
 <p>To have more control over the execution itself, you can provide your own</p>
 <ul>
-<li><code>org.camunda.bpm.engine.impl.jobexecutor.JobExecutor</code></li>
+<li><code>org.cibseven.bpm.engine.impl.jobexecutor.JobExecutor</code></li>
 <li><code>org.springframework.core.task.TaskExecutor</code> named <code>camundaTaskExecutor</code></li>
 </ul>
 <p>beans.</p>
 <p>IMPORTANT: The job executor is not enabled in the configuration.
-This is done after the spring context successfully loaded (see <code>org.camunda.bpm.spring.boot.starter.runlistener</code>).</p>
+This is done after the spring context successfully loaded (see <code>org.cibseven.bpm.spring.boot.starter.runlistener</code>).</p>
 <h3 id="defaultdeploymentconfiguration"><code>DefaultDeploymentConfiguration</code></h3>
 <p>If auto deployment is enabled (this is the case by default), all processes found in the classpath are deployed.
 The resource pattern can be changed using properties (see <a href="#camunda-engine-properties">properties</a>).</p>
@@ -3257,8 +3249,8 @@ The resource pattern can be changed using properties (see <a href="#camunda-engi
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
 </span></span></span></code></pre></div><h2 id="adding-additional-configurations">Adding Additional Configurations</h2>
-<p>You just have to provide one or more beans implementing the <code>org.camunda.bpm.engine.impl.cfg.ProcessEnginePlugin</code> interface
-(or extend from <code>org.camunda.bpm.spring.boot.starter.configuration.impl.AbstractCamundaConfiguration</code>).
+<p>You just have to provide one or more beans implementing the <code>org.cibseven.bpm.engine.impl.cfg.ProcessEnginePlugin</code> interface
+(or extend from <code>org.cibseven.bpm.spring.boot.starter.configuration.impl.AbstractCamundaConfiguration</code>).
 The configurations are applied ordered using the spring ordering mechanism (<code>@Order</code> annotation and <code>Ordered</code> interface).
 So if you want your configuration to be applied before the default configurations, add a <code>@Order(Ordering.DEFAULT_ORDER - 1)</code> annotation to your class.
 If you want your configuration to be applied after the default configurations, add a <code>@Order(Ordering.DEFAULT_ORDER + 1)</code> annotation to your class.</p>
@@ -3975,12 +3967,12 @@ appropriate version tags, will need to be added in the Spring Boot Application&r
 <code>pom.xml</code> file:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependencies&gt;</span>
 </span></span><span class="line"><span class="cl">   <span class="nt">&lt;dependency&gt;</span>
-</span></span><span class="line"><span class="cl">     <span class="nt">&lt;groupId&gt;</span>org.camunda.bpm<span class="nt">&lt;/groupId&gt;</span>
-</span></span><span class="line"><span class="cl">     <span class="nt">&lt;artifactId&gt;</span>camunda-engine-plugin-spin<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">     <span class="nt">&lt;groupId&gt;</span>org.cibseven.bpm<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">     <span class="nt">&lt;artifactId&gt;</span>cibseven-engine-plugin-spin<span class="nt">&lt;/artifactId&gt;</span>
 </span></span><span class="line"><span class="cl">   <span class="nt">&lt;/dependency&gt;</span>
 </span></span><span class="line"><span class="cl">   <span class="nt">&lt;dependency&gt;</span>
-</span></span><span class="line"><span class="cl">     <span class="nt">&lt;groupId&gt;</span>org.camunda.spin<span class="nt">&lt;/groupId&gt;</span>
-</span></span><span class="line"><span class="cl">     <span class="nt">&lt;artifactId&gt;</span>camunda-spin-dataformat-json-jackson<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">     <span class="nt">&lt;groupId&gt;</span>org.cibseven.spin<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">     <span class="nt">&lt;artifactId&gt;</span>cibseven-spin-dataformat-json-jackson<span class="nt">&lt;/artifactId&gt;</span>
 </span></span><span class="line"><span class="cl">   <span class="nt">&lt;/dependency&gt;</span>
 </span></span><span class="line"><span class="cl">   <span class="nt">&lt;dependency&gt;</span>
 </span></span><span class="line"><span class="cl">     <span class="nt">&lt;groupId&gt;</span>com.fasterxml.jackson.datatype<span class="nt">&lt;/groupId&gt;</span>
@@ -3991,7 +3983,7 @@ appropriate version tags, will need to be added in the Spring Boot Application&r
 configure the Jackson <code>ObjectMapper</code>. They can be found <a href="https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#howto-customize-the-jackson-objectmapper">here</a>.</p>
 <p>To provide additional configurations, the following actions need to be performed:</p>
 <ol>
-<li>Provide a custom implementation of <code>org.camunda.spin.spi.DataFormatConfigurator</code>;</li>
+<li>Provide a custom implementation of <code>org.cibseven.spin.spi.DataFormatConfigurator</code>;</li>
 <li>Add the appropriate key-value pair of the fully qualified classnames of the interface and the
 implementation to the <code>META-INF/spring.factories</code> file;</li>
 <li>Ensure that the artifact containing the configurator is reachable from Spin’s classloader.</li>

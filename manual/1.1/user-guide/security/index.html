@@ -2685,14 +2685,6 @@
   </li>
 
         
-          
-  <li>
-    
-      <a href="/manual/1.1/installation/karaf-osgi/" >Karaf / OSGi</a>
-    
-  </li>
-
-        
       </ul>
     
   </li>
@@ -3221,7 +3213,7 @@ to querying for the authentication information on each REST API request.</li>
 
 <h4 id="enable-authentication-logging-in-the-cib-seven-web-apps">Enable authentication logging in the CIB seven web apps</h4>
 <p>It is generally recommended to enable logging of log in attempts (successful and failed) as well as log out events.
-In CIB seven, you can enable authentication logging in the CIB seven web apps by setting the <code>webappsAuthenticationLoggingEnabled</code> process engine <a href="/manual/1.1/reference/deployment-descriptors/tags/process-engine/#webappsAuthenticationLoggingEnabled">configuration flag</a> to true. All user-initiated log in and log out events will then be logged to the application log using the <code>org.camunda.bpm.webapp</code> <a href="/manual/1.1/user-guide/logging/#process-engine">logger</a>.</p>
+In CIB seven, you can enable authentication logging in the CIB seven web apps by setting the <code>webappsAuthenticationLoggingEnabled</code> process engine <a href="/manual/1.1/reference/deployment-descriptors/tags/process-engine/#webappsAuthenticationLoggingEnabled">configuration flag</a> to true. All user-initiated log in and log out events will then be logged to the application log using the <code>org.cibseven.bpm.webapp</code> <a href="/manual/1.1/user-guide/logging/#process-engine">logger</a>.</p>
 <p>The following events produce log statements:</p>
 <ul>
 <li>Successful log in with valid credentials</li>
@@ -3386,8 +3378,8 @@ However, please bear in mind that enabling the java serialization format might m
 <h3 id="jsonxml-serialized-objects-using-spin">JSON/XML serialized objects using Spin</h3>
 <p>Therefore, we recommend enabling the whitelisting of allowed Java classes by enabling the property <a href="/manual/1.1/reference/deployment-descriptors/tags/process-engine/#deserializationTypeValidationEnabled">deserializationTypeValidationEnabled</a> in the process engine configuration. With this, the process engine validates the class names of submitted variables against a whitelist of allowed Java class and package names. Any non-whitelisted content is rejected. The default values are safe, but may be too restrictive for your use case. You can use the engine properties <code>deserializationAllowedPackages</code> and <code>deserializationAllowedClasses</code> to extend the default whitelist with package and class names of Java types that you consider save to deserialize in your environment.</p>
 <p>In case this default behavior needs further adjustment, a custom validator can be implemented and registered in the engine with the engine property <code>deserializationTypeValidator</code>.
-The provided object needs to be a subtype of <code>org.camunda.bpm.engine.runtime.DeserializationTypeValidator</code> and offer an implementation of the <code>#validate</code> method.
-In case you want to rely on allowed package and class names from the engine configuration as well, you can provide a subtype of <code>org.camunda.bpm.engine.runtime.WhitelistingDeserializationTypeValidator</code>.
+The provided object needs to be a subtype of <code>org.cibseven.bpm.engine.runtime.DeserializationTypeValidator</code> and offer an implementation of the <code>#validate</code> method.
+In case you want to rely on allowed package and class names from the engine configuration as well, you can provide a subtype of <code>org.cibseven.bpm.engine.runtime.WhitelistingDeserializationTypeValidator</code>.
 An implementation of this interface registered as validator will be provided with the defined packages and classes from the engine configuration upon initialization of the engine via <code>#setAllowedClasses</code> and <code>#setAllowedPackages</code>.</p>
 
 <div class="note bg-info docs-info">

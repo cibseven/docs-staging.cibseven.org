@@ -2685,14 +2685,6 @@
   </li>
 
         
-          
-  <li>
-    
-      <a href="/manual/latest/installation/karaf-osgi/" >Karaf / OSGi</a>
-    
-  </li>
-
-        
       </ul>
     
   </li>
@@ -3256,9 +3248,9 @@ when trying to persist the beans as process variables.</p>
 Furthermore, Quarkus does not allow to set a different default scope for beans that are outside of the extension&rsquo;s control.
 As a result, the following conversational scoped beans are not available in a Quarkus application out of the box:</p>
 <ul>
-<li><code>org.camunda.bpm.engine.cdi.jsf.TaskForm</code></li>
-<li><code>org.camunda.bpm.engine.cdi.compat.FoxTaskForm</code></li>
-<li><code>org.camunda.bpm.engine.cdi.compat.CamundaTaskForm</code></li>
+<li><code>org.cibseven.bpm.engine.cdi.jsf.TaskForm</code></li>
+<li><code>org.cibseven.bpm.engine.cdi.compat.FoxTaskForm</code></li>
+<li><code>org.cibseven.bpm.engine.cdi.compat.CamundaTaskForm</code></li>
 </ul>
 <p>In general, you can use these beans in <a href="/manual/latest/user-guide/task-forms/jsf-task-forms/">custom JSF forms</a> to interact with the process engine, for example, to render and complete user tasks.
 To include such functionality in your Quarkus application, provide custom beans with appropriate scopes and functionality.

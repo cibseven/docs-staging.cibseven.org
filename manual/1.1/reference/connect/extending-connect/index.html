@@ -2685,14 +2685,6 @@
   </li>
 
         
-          
-  <li>
-    
-      <a href="/manual/1.1/installation/karaf-osgi/" >Karaf / OSGi</a>
-    
-  </li>
-
-        
       </ul>
     
   </li>
@@ -3167,7 +3159,7 @@
 <p>The connectors available to Connect may not always suit your needs. Sometimes,
 it is necessary to provide configuration.</p>
 <p>To configure a connector detected by Spin, the SPI
-<code>org.camunda.connect.spi.ConnectorConfigurator</code> can be implemented.  A
+<code>org.cibseven.connect.spi.ConnectorConfigurator</code> can be implemented.  A
 configurator specifies which classes it can configure. Connect discovers a
 configurator by employing Java&rsquo;s service loader mechanism and will then provide
 it with all connectors that match the specified class (or are a subclass
@@ -3176,26 +3168,26 @@ For example, the HTTP based connector can modify the Apache HTTP client
 that the connector uses.</p>
 <p>To provide a custom configurator, you have to</p>
 <ul>
-<li>Provide a custom implementation of <code>org.camunda.connect.spi.ConnectorConfigurator</code></li>
-<li>Add the configurator&rsquo;s fully qualified classname to a file named <code>META-INF/services/org.camunda.connect.spi.ConnectorConfigurator</code></li>
+<li>Provide a custom implementation of <code>org.cibseven.connect.spi.ConnectorConfigurator</code></li>
+<li>Add the configurator&rsquo;s fully qualified classname to a file named <code>META-INF/services/org.cibseven.connect.spi.ConnectorConfigurator</code></li>
 <li>Ensure that the artifact containing the configurator is reachable from Connect&rsquo;s classloader</li>
 </ul>
 <h1 id="custom-connector">Custom Connector</h1>
 <p>A connector is an implementation of the interface
-<code>org.camunda.connect.spi.Connector</code>. An implementation of this interface can be
-registered by implementing the SPI <code>org.camunda.connect.spi.ConnectorProvider</code>.
+<code>org.cibseven.connect.spi.Connector</code>. An implementation of this interface can be
+registered by implementing the SPI <code>org.cibseven.connect.spi.ConnectorProvider</code>.
 Connect uses the Java platform&rsquo;s service loader mechanism to lookup provider
 implementations at runtime.</p>
 <p>To provide a custom connector, you have to</p>
 <ul>
-<li>Provide a custom implementation of <code>org.camunda.connect.spi.Connector</code></li>
-<li>Provide a custom implementation of <code>org.camunda.connect.spi.ConnectorProvider</code></li>
-<li>Add the provider&rsquo;s fully qualified classname to a file named <code>META-INF/services/org.camunda.connect.spi.ConnectorProvider</code></li>
+<li>Provide a custom implementation of <code>org.cibseven.connect.spi.Connector</code></li>
+<li>Provide a custom implementation of <code>org.cibseven.connect.spi.ConnectorProvider</code></li>
+<li>Add the provider&rsquo;s fully qualified classname to a file named <code>META-INF/services/org.cibseven.connect.spi.ConnectorProvider</code></li>
 <li>Ensure that the artifact containing the provider is reachable from Connect&rsquo;s classloader</li>
 </ul>
-<p>If you now call <code>org.camunda.connect.Connectors.getAvailableConnectors()</code>, then
+<p>If you now call <code>org.cibseven.connect.Connectors.getAvailableConnectors()</code>, then
 the custom connector is returned along with the built-in connectors.
-Furthermore, <code>org.camunda.connect.Connectors.getConnector(String connectorId)</code>
+Furthermore, <code>org.cibseven.connect.Connectors.getConnector(String connectorId)</code>
 can be used to explicity retrieve the connector by a specific provider.</p>
 
     </div>

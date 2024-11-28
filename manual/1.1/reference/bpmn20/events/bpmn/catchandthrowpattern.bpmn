@@ -28,7 +28,7 @@
         <bpmn2:association id="Association_1d0s92n" sourceRef="StartEvent_2" targetRef="TextAnnotation_1hm7b00" />
         <bpmn2:association id="Association_0qhwefz" sourceRef="EndEvent_2" targetRef="TextAnnotation_1u0mrx9" />
       </bpmn2:subProcess>
-      <bpmn2:serviceTask id="ServiceTask_1" name="Call some Service" camunda:class="org.camunda.bpm.engine.test.bpmn.event.error.ThrowErrorInLoopDelegate">
+      <bpmn2:serviceTask id="ServiceTask_1" name="Call some Service" camunda:class="org.cibseven.bpm.engine.test.bpmn.event.error.ThrowErrorInLoopDelegate">
         <bpmn2:incoming>SequenceFlow_1dacouk</bpmn2:incoming>
         <bpmn2:outgoing>SequenceFlow_0zqri0n</bpmn2:outgoing>
       </bpmn2:serviceTask>

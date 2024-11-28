@@ -2685,14 +2685,6 @@
   </li>
 
         
-          
-  <li>
-    
-      <a href="/manual/latest/installation/karaf-osgi/" >Karaf / OSGi</a>
-    
-  </li>
-
-        
       </ul>
     
   </li>
@@ -3303,7 +3295,7 @@ context. To find more information about the available variables please see the <
 section</a>.</p>
 <p>The following example shows an <code>inputParameter</code> which uses expression language to call a method of
 a bean.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">  <span class="nt">&lt;serviceTask</span> <span class="na">id=</span><span class="s">&#34;task&#34;</span> <span class="na">camunda:class=</span><span class="s">&#34;org.camunda.bpm.example.SumDelegate&#34;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">  <span class="nt">&lt;serviceTask</span> <span class="na">id=</span><span class="s">&#34;task&#34;</span> <span class="na">camunda:class=</span><span class="s">&#34;org.cibseven.bpm.example.SumDelegate&#34;</span><span class="nt">&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;extensionElements&gt;</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&lt;camunda:inputOutput&gt;</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&lt;camunda:inputParameter</span> <span class="na">name=</span><span class="s">&#34;x&#34;</span><span class="nt">&gt;</span>
@@ -3318,7 +3310,7 @@ a bean.</p>
 elements which can be provided with a JUEL expression. The expression is evaluated on <code>ExternalTaskService#complete</code> and
 <code>ExternalTaskService#handleFailure</code>. If the expression evaluates to <code>true</code>, a BPMN error is thrown which can be caught by an
 <a href="/manual/latest/reference/bpmn20/events/error-events/#error-boundary-event">Error Boundary Event</a>.</p>
-<p>In the scope of an External Task, expressions have access to the <a href="/javadoc/cibseven/1.1/org/camunda/bpm/engine/externaltask/ExternalTask.html">ExternalTaskEntity</a>
+<p>In the scope of an External Task, expressions have access to the <a href="/javadoc/cibseven/1.1/org/cibseven/bpm/engine/externaltask/ExternalTask.html">ExternalTaskEntity</a>
  object via the key <code>externalTask</code> which provides getter methods for <code>errorMessage</code>, <code>errorDetails</code>, <code>workerId</code>, <code>retries</code> and more.</p>
 <p><strong>Examples:</strong></p>
 <p>How to access the External Task object:</p>
@@ -3361,7 +3353,7 @@ evaluating expressions:</p>
   <tbody>
     <tr>
       <td><code>execution</code></td>
-      <td><code><a href="/javadoc/cibseven/1.1/org/camunda/bpm/engine/delegate/DelegateExecution.html">DelegateExecution</a>
+      <td><code><a href="/javadoc/cibseven/1.1/org/cibseven/bpm/engine/delegate/DelegateExecution.html">DelegateExecution</a>
 </code></td>
       <td>
         Available in a BPMN execution context like a service task, execution listener or sequence
@@ -3370,19 +3362,19 @@ evaluating expressions:</p>
     </tr>
     <tr>
       <td><code>task</code></td>
-      <td><code><a href="/javadoc/cibseven/1.1/org/camunda/bpm/engine/delegate/DelegateTask.html">DelegateTask</a>
+      <td><code><a href="/javadoc/cibseven/1.1/org/cibseven/bpm/engine/delegate/DelegateTask.html">DelegateTask</a>
 </code></td>
       <td>Available in a task context like a task listener.</td>
     </tr>
     <tr>
       <td><code>externalTask</code></td>
-      <td><code><a href="/javadoc/cibseven/1.1/org/camunda/bpm/engine/externaltask/ExternalTask.html">ExternalTask</a>
+      <td><code><a href="/javadoc/cibseven/1.1/org/cibseven/bpm/engine/externaltask/ExternalTask.html">ExternalTask</a>
 </code></td>
       <td>Available during an external task context activity (e.g. in <a href="/manual/latest/reference/bpmn20/custom-extensions/extension-elements/#erroreventdefinition">camunda:errorEventDefinition</a> expressions).</td>
     </tr>
     <tr>
       <td><code>caseExecution</code></td>
-      <td><code><a href="/javadoc/cibseven/1.1/org/camunda/bpm/engine/delegate/DelegateCaseExecution.html">DelegateCaseExecution</a>
+      <td><code><a href="/javadoc/cibseven/1.1/org/cibseven/bpm/engine/delegate/DelegateCaseExecution.html">DelegateCaseExecution</a>
 </code></td>
       <td>Available in a CMMN execution context.</td>
     </tr>

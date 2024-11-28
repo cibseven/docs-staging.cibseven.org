@@ -2685,14 +2685,6 @@
   </li>
 
         
-          
-  <li>
-    
-      <a href="/manual/1.1/installation/karaf-osgi/" >Karaf / OSGi</a>
-    
-  </li>
-
-        
       </ul>
     
   </li>
@@ -3279,7 +3271,7 @@ available, which corresponds to the <code>DelegateExecution</code> interface.</p
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;sequenceFlow</span> <span class="na">id=</span><span class="s">&#34;flow1&#34;</span> <span class="na">startRef=</span><span class="s">&#34;start&#34;</span> <span class="na">targetRef=</span><span class="s">&#34;task&#34;</span><span class="nt">&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;extensionElements&gt;</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&lt;camunda:executionListener&gt;</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&lt;camunda:script</span> <span class="na">scriptFormat=</span><span class="s">&#34;groovy&#34;</span> <span class="na">resource=</span><span class="s">&#34;org/camunda/bpm/transition.groovy&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;camunda:script</span> <span class="na">scriptFormat=</span><span class="s">&#34;groovy&#34;</span> <span class="na">resource=</span><span class="s">&#34;org/cibseven/bpm/transition.groovy&#34;</span> <span class="nt">/&gt;</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&lt;/camunda:executionListener&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;/extensionElements&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;/sequenceFlow&gt;</span>
@@ -3302,7 +3294,7 @@ the <code>DelegateTask</code> interface.</p>
 </span></span><span class="line"><span class="cl">      <span class="nt">&lt;camunda:script</span> <span class="na">scriptFormat=</span><span class="s">&#34;groovy&#34;</span><span class="nt">&gt;</span>println task.eventName<span class="nt">&lt;/camunda:script&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;/camunda:taskListener&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;camunda:taskListener</span> <span class="na">event=</span><span class="s">&#34;assignment&#34;</span><span class="nt">&gt;</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&lt;camunda:script</span> <span class="na">scriptFormat=</span><span class="s">&#34;groovy&#34;</span> <span class="na">resource=</span><span class="s">&#34;org/camunda/bpm/assignemnt.groovy&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;camunda:script</span> <span class="na">scriptFormat=</span><span class="s">&#34;groovy&#34;</span> <span class="na">resource=</span><span class="s">&#34;org/cibseven/bpm/assignemnt.groovy&#34;</span> <span class="nt">/&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;/camunda:taskListener&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;/extensionElements&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/userTask&gt;</span>
@@ -3322,7 +3314,7 @@ process variable which is available inside the script.</p>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;sequenceFlow&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;conditionExpression</span> <span class="na">xsi:type=</span><span class="s">&#34;tFormalExpression&#34;</span> <span class="na">language=</span><span class="s">&#34;groovy&#34;</span>
-</span></span><span class="line"><span class="cl">      <span class="na">camunda:resource=</span><span class="s">&#34;org/camunda/bpm/condition.groovy&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="na">camunda:resource=</span><span class="s">&#34;org/cibseven/bpm/condition.groovy&#34;</span> <span class="nt">/&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/sequenceFlow&gt;</span>
 </span></span></code></pre></div><h1 id="use-scripts-as-inputoutput-parameters">Use Scripts as inputOutput Parameters</h1>
 <p>With the Camunda <code>inputOutput</code> extension element you can map an <code>inputParameter</code> or <code>outputParameter</code>
@@ -3344,7 +3336,7 @@ single expression like <code>a + b</code> or <code>a &gt; b</code> where <code>a
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;process</span> <span class="na">id=</span><span class="s">&#34;process&#34;</span> <span class="na">isExecutable=</span><span class="s">&#34;true&#34;</span><span class="nt">&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;startEvent</span> <span class="na">id=</span><span class="s">&#34;start&#34;</span><span class="nt">/&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;sequenceFlow</span> <span class="na">id=</span><span class="s">&#34;sequenceFlow1&#34;</span> <span class="na">sourceRef=</span><span class="s">&#34;start&#34;</span> <span class="na">targetRef=</span><span class="s">&#34;task&#34;</span><span class="nt">/&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&lt;serviceTask</span> <span class="na">id=</span><span class="s">&#34;task&#34;</span> <span class="na">camunda:class=</span><span class="s">&#34;org.camunda.bpm.example.SumDelegate&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;serviceTask</span> <span class="na">id=</span><span class="s">&#34;task&#34;</span> <span class="na">camunda:class=</span><span class="s">&#34;org.cibseven.bpm.example.SumDelegate&#34;</span><span class="nt">&gt;</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&lt;extensionElements&gt;</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&lt;camunda:inputOutput&gt;</span>
 </span></span><span class="line"><span class="cl">          <span class="nt">&lt;camunda:inputParameter</span> <span class="na">name=</span><span class="s">&#34;x&#34;</span><span class="nt">&gt;</span>
@@ -3383,7 +3375,7 @@ code.</p>
 for <a href="#script-source">script tasks</a>.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;camunda:inputOutput&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;camunda:inputParameter</span> <span class="na">name=</span><span class="s">&#34;x&#34;</span><span class="nt">&gt;</span>
-</span></span><span class="line"><span class="cl">     <span class="nt">&lt;camunda:script</span> <span class="na">scriptFormat=</span><span class="s">&#34;groovy&#34;</span> <span class="na">resource=</span><span class="s">&#34;org/camunda/bpm/example/sum.groovy&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">     <span class="nt">&lt;camunda:script</span> <span class="na">scriptFormat=</span><span class="s">&#34;groovy&#34;</span> <span class="na">resource=</span><span class="s">&#34;org/cibseven/bpm/example/sum.groovy&#34;</span><span class="nt">/&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;/camunda:inputParameter&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/camunda:inputOutput&gt;</span>
 </span></span></code></pre></div><h1 id="script-engine-caching">Script Engine Caching</h1>
@@ -3459,7 +3451,7 @@ JVM arguments via the <code>JAVA_OPTS</code> environment variable as well.</p>
 <p>You can provide a custom <code>ScriptEngineResolver</code> implementation to configure script engines. Depending on the specifc script engine to configure,
 you can gain more configuration options with this approach. You can add your custom script engine resolver to the engine configuration
 with the <code>#setScriptEngineResolver(ScriptEngineResolver)</code> method.</p>
-<p>You can inherit from the <code>org.camunda.bpm.engine.impl.scripting.engine.DefaultScriptEngineResolver</code> for starters in case configuring an existing
+<p>You can inherit from the <code>org.cibseven.bpm.engine.impl.scripting.engine.DefaultScriptEngineResolver</code> for starters in case configuring an existing
 script engine instance is sufficient for you. By overriding the <code>#configureScriptEngines(String, ScriptEngine)</code> method of the <code>DefaultScriptEngineResolver</code>,
 you can change settings on the script engine instance provided to that method as shown in the following example:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CustomScriptEngineResolver</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">DefaultScriptEngineResolver</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -3516,11 +3508,11 @@ JRuby where you have to access the variable as a ruby global variable (prepend w
 i.e., <code>$sum</code>)</p>
 <p>There are also special variables:</p>
 <ol>
-<li><code>execution</code>, which is always available if the script is executed in an execution scope (e.g., in a script task) (<a href="/javadoc/cibseven/1.1/org/camunda/bpm/engine/delegate/DelegateExecution.html">DelegateExecution</a>
+<li><code>execution</code>, which is always available if the script is executed in an execution scope (e.g., in a script task) (<a href="/javadoc/cibseven/1.1/org/cibseven/bpm/engine/delegate/DelegateExecution.html">DelegateExecution</a>
 ).</li>
-<li><code>task</code>, which is available if the script is executed in a task scope (e.g., a task listener) (<a href="/javadoc/cibseven/1.1/org/camunda/bpm/engine/delegate/DelegateTask.html">DelegateTask</a>
+<li><code>task</code>, which is available if the script is executed in a task scope (e.g., a task listener) (<a href="/javadoc/cibseven/1.1/org/cibseven/bpm/engine/delegate/DelegateTask.html">DelegateTask</a>
 ).</li>
-<li><code>connector</code>, which is available if the script is executed in a connector variable scope (e.g., outputParameter of a camunda:connector) (<a href="/javadoc/cibseven/1.1/org/camunda/connect/plugin/impl/ConnectorVariableScope.html">ConnectorVariableScope</a>
+<li><code>connector</code>, which is available if the script is executed in a connector variable scope (e.g., outputParameter of a camunda:connector) (<a href="/javadoc/cibseven/1.1/org/cibseven/connect/plugin/impl/ConnectorVariableScope.html">ConnectorVariableScope</a>
 ).</li>
 </ol>
 <p>These variables correspond to the <code>DelegateExecution</code>, <code>DelegateTask</code> or resp. <code>ConnectorVariableScope</code>
@@ -3538,9 +3530,9 @@ interface which means that it can be used to get and set variables or access pro
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">singleResult</span><span class="p">()</span><span class="w">
 </span></span></span></code></pre></div><h1 id="accessing-process-engine-services-using-scripts">Accessing Process Engine Services using Scripts</h1>
 <p>Camunda&rsquo;s Java API provides access to Camunda&rsquo;s process engine services; these services can be accessed using Scripts:</p>
-<p><a href="/javadoc/cibseven/1.1/org/camunda/bpm/engine/ProcessEngineServices.html">Process Engine Services</a>
+<p><a href="/javadoc/cibseven/1.1/org/cibseven/bpm/engine/ProcessEngineServices.html">Process Engine Services</a>
  \</p>
-<a href="/javadoc/cibseven/1.1/org/camunda/bpm/engine/package-summary.html">Public Java API of CIB seven Engine</a>
+<a href="/javadoc/cibseven/1.1/org/cibseven/bpm/engine/package-summary.html">Public Java API of CIB seven Engine</a>
 
 <p>Example of creating a BPMN Message that correlates with the message key &ldquo;work&rdquo;:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="nx">execution</span><span class="p">.</span><span class="nx">getProcessEngineServices</span><span class="p">().</span><span class="nx">getRuntimeService</span><span class="p">().</span><span class="nx">createMessageCorrelation</span><span class="p">(</span><span class="s2">&#34;work&#34;</span><span class="p">).</span><span class="nx">correlateWithResult</span><span class="p">();</span>
@@ -3594,22 +3586,22 @@ Optionally, the resource path can be prefixed with an URL-like scheme to specify
 contained in the deployment or classpath. The default behaviour is that the resource is part of the
 classpath. This means that the first two script task elements in the following examples are equal.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="c">&lt;!-- on a script task --&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="nt">&lt;scriptTask</span> <span class="na">scriptFormat=</span><span class="s">&#34;groovy&#34;</span> <span class="na">camunda:resource=</span><span class="s">&#34;org/camunda/bpm/task.groovy&#34;</span><span class="nt">/&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="nt">&lt;scriptTask</span> <span class="na">scriptFormat=</span><span class="s">&#34;groovy&#34;</span> <span class="na">camunda:resource=</span><span class="s">&#34;classpath://org/camunda/bpm/task.groovy&#34;</span><span class="nt">/&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="nt">&lt;scriptTask</span> <span class="na">scriptFormat=</span><span class="s">&#34;groovy&#34;</span> <span class="na">camunda:resource=</span><span class="s">&#34;deployment://org/camunda/bpm/task.groovy&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;scriptTask</span> <span class="na">scriptFormat=</span><span class="s">&#34;groovy&#34;</span> <span class="na">camunda:resource=</span><span class="s">&#34;org/cibseven/bpm/task.groovy&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;scriptTask</span> <span class="na">scriptFormat=</span><span class="s">&#34;groovy&#34;</span> <span class="na">camunda:resource=</span><span class="s">&#34;classpath://org/cibseven/bpm/task.groovy&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;scriptTask</span> <span class="na">scriptFormat=</span><span class="s">&#34;groovy&#34;</span> <span class="na">camunda:resource=</span><span class="s">&#34;deployment://org/cibseven/bpm/task.groovy&#34;</span><span class="nt">/&gt;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c">&lt;!-- in an execution listener --&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;camunda:executionListener&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&lt;camunda:script</span> <span class="na">scriptFormat=</span><span class="s">&#34;groovy&#34;</span> <span class="na">resource=</span><span class="s">&#34;deployment://org/camunda/bpm/listener.groovy&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;camunda:script</span> <span class="na">scriptFormat=</span><span class="s">&#34;groovy&#34;</span> <span class="na">resource=</span><span class="s">&#34;deployment://org/cibseven/bpm/listener.groovy&#34;</span><span class="nt">/&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/camunda:executionListener&gt;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c">&lt;!-- on a conditionExpression --&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;conditionExpression</span> <span class="na">xsi:type=</span><span class="s">&#34;tFormalExpression&#34;</span> <span class="na">language=</span><span class="s">&#34;groovy&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="na">camunda:resource=</span><span class="s">&#34;org/camunda/bpm/condition.groovy&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="na">camunda:resource=</span><span class="s">&#34;org/cibseven/bpm/condition.groovy&#34;</span> <span class="nt">/&gt;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c">&lt;!-- in an inputParameter --&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;camunda:inputParameter</span> <span class="na">name=</span><span class="s">&#34;x&#34;</span><span class="nt">&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&lt;camunda:script</span> <span class="na">scriptFormat=</span><span class="s">&#34;groovy&#34;</span> <span class="na">resource=</span><span class="s">&#34;org/camunda/bpm/mapX.groovy&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;camunda:script</span> <span class="na">scriptFormat=</span><span class="s">&#34;groovy&#34;</span> <span class="na">resource=</span><span class="s">&#34;org/cibseven/bpm/mapX.groovy&#34;</span> <span class="nt">/&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/camunda:inputParameter&gt;</span>
 </span></span></code></pre></div><p>The resource path can also be specified as an expression which is evaluated on the invocation of the
 script task.</p>

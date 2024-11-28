@@ -2685,14 +2685,6 @@
   </li>
 
         
-          
-  <li>
-    
-      <a href="/manual/latest/installation/karaf-osgi/" >Karaf / OSGi</a>
-    
-  </li>
-
-        
       </ul>
     
   </li>
@@ -3278,24 +3270,24 @@ case the REST API is embedded into the Camunda Web Application).</p>
 </span></span><span class="line"><span class="cl">  <span class="c">&lt;!-- ... --&gt;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;listener&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&lt;listener-class&gt;</span>org.camunda.bpm.engine.rest.hal.cache.HalRelationCacheBootstrap<span class="nt">&lt;/listener-class&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;listener-class&gt;</span>org.cibseven.bpm.engine.rest.hal.cache.HalRelationCacheBootstrap<span class="nt">&lt;/listener-class&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;/listener&gt;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;context-param&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&lt;param-name&gt;</span>org.camunda.bpm.engine.rest.hal.cache.config<span class="nt">&lt;/param-name&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;param-name&gt;</span>org.cibseven.bpm.engine.rest.hal.cache.config<span class="nt">&lt;/param-name&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;param-value&gt;</span>
 </span></span><span class="line"><span class="cl">      {
-</span></span><span class="line"><span class="cl">        &#34;cacheImplementation&#34;: &#34;org.camunda.bpm.engine.rest.hal.cache.DefaultHalResourceCache&#34;,
+</span></span><span class="line"><span class="cl">        &#34;cacheImplementation&#34;: &#34;org.cibseven.bpm.engine.rest.hal.cache.DefaultHalResourceCache&#34;,
 </span></span><span class="line"><span class="cl">        &#34;caches&#34;: {
-</span></span><span class="line"><span class="cl">          &#34;org.camunda.bpm.engine.rest.hal.user.HalUser&#34;: {
+</span></span><span class="line"><span class="cl">          &#34;org.cibseven.bpm.engine.rest.hal.user.HalUser&#34;: {
 </span></span><span class="line"><span class="cl">            &#34;capacity&#34;: 100,
 </span></span><span class="line"><span class="cl">            &#34;secondsToLive&#34;: 900
 </span></span><span class="line"><span class="cl">          },
-</span></span><span class="line"><span class="cl">          &#34;org.camunda.bpm.engine.rest.hal.group.HalGroup&#34;: {
+</span></span><span class="line"><span class="cl">          &#34;org.cibseven.bpm.engine.rest.hal.group.HalGroup&#34;: {
 </span></span><span class="line"><span class="cl">            &#34;capacity&#34;: 100,
 </span></span><span class="line"><span class="cl">            &#34;secondsToLive&#34;: 900
 </span></span><span class="line"><span class="cl">          },
-</span></span><span class="line"><span class="cl">          &#34;org.camunda.bpm.engine.rest.hal.processDefinition.HalProcessDefinition&#34;: {
+</span></span><span class="line"><span class="cl">          &#34;org.cibseven.bpm.engine.rest.hal.processDefinition.HalProcessDefinition&#34;: {
 </span></span><span class="line"><span class="cl">            &#34;capacity&#34;: 100,
 </span></span><span class="line"><span class="cl">            &#34;secondsToLive&#34;: 600
 </span></span><span class="line"><span class="cl">          }
@@ -3311,10 +3303,10 @@ case the REST API is embedded into the Camunda Web Application).</p>
 <p>To bootstrap the caching, the <code>HalRelationCacheBootstrap</code> context listener is
 used:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;listener&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&lt;listener-class&gt;</span>org.camunda.bpm.engine.rest.hal.cache.HalRelationCacheBootstrap<span class="nt">&lt;/listener-class&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;listener-class&gt;</span>org.cibseven.bpm.engine.rest.hal.cache.HalRelationCacheBootstrap<span class="nt">&lt;/listener-class&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/listener&gt;</span>
 </span></span></code></pre></div><p>It is configured by the context parameter
-<code>org.camunda.bpm.engine.rest.hal.cache.config</code>. The configuration is provided
+<code>org.cibseven.bpm.engine.rest.hal.cache.config</code>. The configuration is provided
 as JSON and consists of two properties:</p>
 <table class="table table-striped">
   <tr>
@@ -3325,9 +3317,9 @@ as JSON and consists of two properties:</p>
     <td>cacheImplementation</td>
     <td>
       The class which is used as cache. The class has to implement the
-      <code>org.camunda.bpm.engine.rest.cache.Cache</code> interface.
+      <code>org.cibseven.bpm.engine.rest.cache.Cache</code> interface.
       A simple default implementation is provided by the
-      <code>org.camunda.bpm.engine.rest.hal.cache.DefaultHalResourceCache</code> class.
+      <code>org.cibseven.bpm.engine.rest.hal.cache.DefaultHalResourceCache</code> class.
     </td>
   </tr>
   <tr>
@@ -3363,12 +3355,12 @@ options:</p>
 </table>
 <h2 id="list-of-resources-which-support-caching">List of Resources Which Support Caching</h2>
 <ul>
-<li>Case Definition: <code>org.camunda.bpm.engine.rest.hal.caseDefinition.HalCaseDefinition</code></li>
-<li>Group: <code>org.camunda.bpm.engine.rest.hal.group.HalGroup</code></li>
-<li>Identity Links (of a Task): <code>org.camunda.bpm.engine.rest.hal.identitylink.HalIdentityLink</code></li>
-<li>Process Definition: <code>org.camunda.bpm.engine.rest.hal.processDefinition.HalProcessDefinition</code></li>
-<li>Task: <code>org.camunda.bpm.engine.rest.hal.task.HalTask</code></li>
-<li>User: <code>org.camunda.bpm.engine.rest.hal.user.HalUser</code></li>
+<li>Case Definition: <code>org.cibseven.bpm.engine.rest.hal.caseDefinition.HalCaseDefinition</code></li>
+<li>Group: <code>org.cibseven.bpm.engine.rest.hal.group.HalGroup</code></li>
+<li>Identity Links (of a Task): <code>org.cibseven.bpm.engine.rest.hal.identitylink.HalIdentityLink</code></li>
+<li>Process Definition: <code>org.cibseven.bpm.engine.rest.hal.processDefinition.HalProcessDefinition</code></li>
+<li>Task: <code>org.cibseven.bpm.engine.rest.hal.task.HalTask</code></li>
+<li>User: <code>org.cibseven.bpm.engine.rest.hal.user.HalUser</code></li>
 </ul>
 
     </div>

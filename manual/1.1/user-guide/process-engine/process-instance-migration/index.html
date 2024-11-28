@@ -2685,14 +2685,6 @@
   </li>
 
         
-          
-  <li>
-    
-      <a href="/manual/1.1/installation/karaf-osgi/" >Karaf / OSGi</a>
-    
-  </li>
-
-        
       </ul>
     
   </li>
@@ -3467,7 +3459,7 @@ during migration.</p>
 <p>Depending on the type of the activities a process model contains, migration has varying effects.</p>
 <h2 id="tasks">Tasks</h2>
 <h3 id="user-task">User Task</h3>
-<p>When a user task is migrated, all properties of the task instance (i.e., <code>org.camunda.bpm.engine.task.Task</code>) are preserved apart
+<p>When a user task is migrated, all properties of the task instance (i.e., <code>org.cibseven.bpm.engine.task.Task</code>) are preserved apart
 from the process definition id and task definition key. The task is not reinitialized: Attributes like assignee or name do not change.</p>
 <h4 id="timeout-task-listeners">Timeout Task Listeners</h4>
 <p>User tasks with attached task listeners of event type <code>timeout</code> define persistent event triggers that can be updated or preserved during migration.
@@ -3482,7 +3474,7 @@ the following semantics are applied:</p>
 <p>A receive task defines a persistent event trigger that can be updated or preserved during migration.
 The considerations for <a href="#events">intermediate catch events</a> apply here as well.</p>
 <h3 id="external-task">External Task</h3>
-<p>When an active <a href="/manual/1.1/user-guide/process-engine/external-tasks/">external task</a> is migrated, all properties of the external task instance (i.e., <code>org.camunda.bpm.engine.externaltask.ExternalTask</code>) are preserved
+<p>When an active <a href="/manual/1.1/user-guide/process-engine/external-tasks/">external task</a> is migrated, all properties of the external task instance (i.e., <code>org.cibseven.bpm.engine.externaltask.ExternalTask</code>) are preserved
 apart from activity id, process definition key, and process definition id. In particular, this means that attributes like topic and lock state do not change.</p>
 <p>It is possible to map activities that are implemented as external tasks to each other even if they have different types. For example, an external send task can be mapped to an external service task.</p>
 <h2 id="gateways">Gateways</h2>

@@ -2685,14 +2685,6 @@
   </li>
 
         
-          
-  <li>
-    
-      <a href="/manual/latest/installation/karaf-osgi/" >Karaf / OSGi</a>
-    
-  </li>
-
-        
       </ul>
     
   </li>
@@ -3325,7 +3317,7 @@ or integrate with a platform transaction manager.</p>
 <p>If the process engine is configured to perform standalone transaction management, it always opens a
 new transaction for each command which is executed. To configure the process engine to use
 standalone transaction management, use the
-<code>org.camunda.bpm.engine.impl.cfg.StandaloneProcessEngineConfiguration</code>:</p>
+<code>org.cibseven.bpm.engine.impl.cfg.StandaloneProcessEngineConfiguration</code>:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">ProcessEngineConfiguration</span><span class="p">.</span><span class="na">createStandaloneProcessEngineConfiguration</span><span class="p">()</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">...</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">buildProcessEngine</span><span class="p">();</span><span class="w">

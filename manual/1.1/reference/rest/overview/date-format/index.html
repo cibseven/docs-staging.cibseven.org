@@ -2685,14 +2685,6 @@
   </li>
 
         
-          
-  <li>
-    
-      <a href="/manual/1.1/installation/karaf-osgi/" >Karaf / OSGi</a>
-    
-  </li>
-
-        
       </ul>
     
   </li>
@@ -3172,7 +3164,7 @@ represents a date with milliseconds and timezone information, e.g.,
 file of the REST API. To do so, the ServletContextListener
 <code>CustomJacksonDateFormatListener</code> has to be added. The custom date format
 can be specified by the context parameter
-<code>org.camunda.bpm.engine.rest.jackson.dateFormat</code>.</p>
+<code>org.cibseven.bpm.engine.rest.jackson.dateFormat</code>.</p>
 <p>For example, if the date format should not contain milliseconds and timezone
 information (<code>yyyy-MM-dd'T'HH:mm:ss</code>) the following configuration can be
 used.</p>
@@ -3186,12 +3178,12 @@ used.</p>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;listener&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;listener-class&gt;</span>
-</span></span><span class="line"><span class="cl">      org.camunda.bpm.engine.rest.CustomJacksonDateFormatListener
+</span></span><span class="line"><span class="cl">      org.cibseven.bpm.engine.rest.CustomJacksonDateFormatListener
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;/listener-class&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;/listener&gt;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;context-param&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&lt;param-name&gt;</span>org.camunda.bpm.engine.rest.jackson.dateFormat<span class="nt">&lt;/param-name&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;param-name&gt;</span>org.cibseven.bpm.engine.rest.jackson.dateFormat<span class="nt">&lt;/param-name&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;param-value&gt;</span>yyyy-MM-dd&#39;T&#39;HH:mm:ss<span class="nt">&lt;/param-value&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;/context-param&gt;</span>
 </span></span><span class="line"><span class="cl">

@@ -2685,14 +2685,6 @@
   </li>
 
         
-          
-  <li>
-    
-      <a href="/manual/latest/installation/karaf-osgi/" >Karaf / OSGi</a>
-    
-  </li>
-
-        
       </ul>
     
   </li>
@@ -3174,12 +3166,12 @@ instance by its connector ID, which is <code>http-connector</code>.</p>
 <h2 id="custom-configuration">Custom Configuration</h2>
 <p>If you want to reconfigure the client going beyond the default configuration options, e.g. you want to configure another connection manager, the easiest way is to register
 a new connector configurator.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nn">org.camunda.connect.example</span><span class="p">;</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nn">org.cibseven.connect.example</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.apache.http.impl.client.CloseableHttpClient</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.apache.http.impl.client.HttpClients</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.camunda.connect.httpclient.impl.AbstractHttpConnector</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.camunda.connect.spi.ConnectorConfigurator</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.cibseven.connect.httpclient.impl.AbstractHttpConnector</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.cibseven.connect.spi.ConnectorConfigurator</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">HttpConnectorConfigurator</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">ConnectorConfigurator</span><span class="o">&lt;</span><span class="n">HttpConnector</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
@@ -3197,10 +3189,10 @@ a new connector configurator.</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
 </span></span></span></code></pre></div><p>To enable auto detection of your new configurator please add a file called
-<code>org.camunda.connect.spi.ConnectorConfigurator</code> to your
+<code>org.cibseven.connect.spi.ConnectorConfigurator</code> to your
 <code>resources/META-INF/services</code> directory with class name as content. For more
 information see the <a href="/manual/latest/reference/connect/extending-connect/">extending Connect</a> section.</p>
-<pre tabindex="0"><code>org.camunda.connect.example.HttpConnectorConfigurator
+<pre tabindex="0"><code>org.cibseven.connect.example.HttpConnectorConfigurator
 </code></pre><h1 id="requests">Requests</h1>
 <h2 id="create-a-simple-http-request">Create a Simple HTTP Request</h2>
 <p>The HTTP connector can be used to create a new request, set a HTTP method, URL,

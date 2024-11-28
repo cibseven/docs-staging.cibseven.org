@@ -2685,14 +2685,6 @@
   </li>
 
         
-          
-  <li>
-    
-      <a href="/manual/latest/installation/karaf-osgi/" >Karaf / OSGi</a>
-    
-  </li>
-
-        
       </ul>
     
   </li>
@@ -3179,7 +3171,7 @@
 <h1 id="customize-the-password-policy">Customize the Password Policy</h1>
 <p>You can use the process engine configuration to enable / disable the password policy or plug in a custom policy. See <a href="../process-engine-bootstrapping">Process Engine Bootstrapping</a> on how to set properties for your Camunda environment.</p>
 <p>To enable or disable the password policy checks you need to set the <code>enablePasswordPolicy</code> property.</p>
-<p>If you want to use a custom password policy you can do this by implementing the <code>PasswordPolicy</code> and <code>PasswordPolicyRule</code> interfaces from the <code>org.camunda.bpm.engine.identity</code> package and provide your implementation to the process engine configuration by setting the <code>passwordPolicy</code> property.</p>
+<p>If you want to use a custom password policy you can do this by implementing the <code>PasswordPolicy</code> and <code>PasswordPolicyRule</code> interfaces from the <code>org.cibseven.bpm.engine.identity</code> package and provide your implementation to the process engine configuration by setting the <code>passwordPolicy</code> property.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyPasswordPolicy</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">PasswordPolicy</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@Override</span><span class="w">

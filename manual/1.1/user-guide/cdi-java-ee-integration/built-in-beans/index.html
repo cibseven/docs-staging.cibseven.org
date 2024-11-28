@@ -2685,14 +2685,6 @@
   </li>
 
         
-          
-  <li>
-    
-      <a href="/manual/1.1/installation/karaf-osgi/" >Karaf / OSGi</a>
-    
-  </li>
-
-        
       </ul>
     
   </li>
@@ -3196,7 +3188,7 @@ private Object account;
 this requires that it is known which process engine is used at design time. A more flexible approach is to resolve the
 process engine at runtime based on contextual information such as the logged in user. In this case, <code>@Inject</code> can be used
 without a <code>@ProcessEngineName</code> annotation.</p>
-<p>To implement resolution from contextual data, the producer bean <code>org.camunda.bpm.engine.cdi.impl.ProcessEngineServicesProducer</code>
+<p>To implement resolution from contextual data, the producer bean <code>org.cibseven.bpm.engine.cdi.impl.ProcessEngineServicesProducer</code>
 must be extended. The following code implements a contextual resolution of the engine by the currently authenticated user.
 Note that which contextual data is used and how it is accessed is entirely up to you.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Specializes</span><span class="w">

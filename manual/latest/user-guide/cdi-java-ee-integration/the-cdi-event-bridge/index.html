@@ -2685,14 +2685,6 @@
   </li>
 
         
-          
-  <li>
-    
-      <a href="/manual/latest/installation/karaf-osgi/" >Karaf / OSGi</a>
-    
-  </li>
-
-        
       </ul>
     
   </li>
@@ -3168,7 +3160,7 @@ notified of process events using standard CDI event mechanisms. In order to enab
 process engine, enable the corresponding parse listener in the configuration:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;postParseListeners&#34;</span><span class="nt">&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;list&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&lt;bean</span> <span class="na">class=</span><span class="s">&#34;org.camunda.bpm.engine.cdi.impl.event.CdiEventSupportBpmnParseListener&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;bean</span> <span class="na">class=</span><span class="s">&#34;org.cibseven.bpm.engine.cdi.impl.event.CdiEventSupportBpmnParseListener&#34;</span> <span class="nt">/&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;/list&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/property&gt;</span>
 </span></span></code></pre></div><p>Now the engine is configured for publishing events using the CDI event bus.</p>
@@ -3181,7 +3173,7 @@ as process application event listener. <a href="#the-cdi-event-bridge-in-a-proce
 </div>
 
 <p>The following gives an overview of how process events can be received in CDI beans. In CDI, we can declaratively specify event
-observers using the <code>@Observes</code>-annotation. Event notification is type-safe. The type of process events is <code>org.camunda.bpm.engine.cdi.BusinessProcessEvent</code>.
+observers using the <code>@Observes</code>-annotation. Event notification is type-safe. The type of process events is <code>org.cibseven.bpm.engine.cdi.BusinessProcessEvent</code>.
 The following is an example of a simple event observer method:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onProcessEvent</span><span class="p">(</span><span class="nd">@Observes</span><span class="w"> </span><span class="n">BusinessProcessEvent</span><span class="w"> </span><span class="n">businessProcessEvent</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// handle event</span><span class="w">
@@ -3253,7 +3245,7 @@ only notified if the transaction in which the event is fired succeeds:</p>
 If the listener is invoked after the transaction has completed, the <code>DelegateTask</code> object cannot be used for modifying variables.</p>
 <h1 id="the-cdi-event-bridge-in-a-process-application">The CDI Event Bridge in a process application</h1>
 <p>To use the CDI Event Bridge in combination with a multi application deployment and the shared process engine, the
-<a href="/javadoc/cibseven/1.1/org/camunda/bpm/engine/cdi/impl/event/CdiEventListener">CdiEventListener</a>
+<a href="/javadoc/cibseven/1.1/org/cibseven/bpm/engine/cdi/impl/event/CdiEventListener">CdiEventListener</a>
  needs to be added as a
 <a href="/manual/latest/user-guide/process-applications/process-application-event-listeners/">Process Application Execution Event Listener</a>.</p>
 <p>Example configuration for <a href="/manual/latest/user-guide/process-applications/the-process-application-class/#the-servletprocessapplication">Servlet Process Application</a>:</p>

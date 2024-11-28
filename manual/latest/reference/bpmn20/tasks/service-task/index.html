@@ -2685,14 +2685,6 @@
   </li>
 
         
-          
-  <li>
-    
-      <a href="/manual/latest/installation/karaf-osgi/" >Karaf / OSGi</a>
-    
-  </li>
-
-        
       </ul>
     
   </li>
@@ -3177,7 +3169,7 @@
 <p>To specify a class that is called during process execution, the fully qualified classname needs to be provided by the <code>camunda:class</code> attribute.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;serviceTask</span> <span class="na">id=</span><span class="s">&#34;javaService&#34;</span>
 </span></span><span class="line"><span class="cl">             <span class="na">name=</span><span class="s">&#34;My Java Service Task&#34;</span>
-</span></span><span class="line"><span class="cl">             <span class="na">camunda:class=</span><span class="s">&#34;org.camunda.bpm.MyJavaDelegate&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">             <span class="na">camunda:class=</span><span class="s">&#34;org.cibseven.bpm.MyJavaDelegate&#34;</span> <span class="nt">/&gt;</span>
 </span></span></code></pre></div><p>Please refer to the <a href="/manual/latest/user-guide/process-engine/delegation-code/#java-delegate">Java Delegate</a> section of the <a href="/manual/latest/user-guide/">User Guide</a> for details on how to implement a Java Delegate.</p>
 <p>It is also possible to use an expression that resolves to an object. This object must follow the
 same rules as objects that are created when the <code>camunda:class</code> attribute is used.</p>

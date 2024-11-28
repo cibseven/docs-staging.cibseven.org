@@ -2685,14 +2685,6 @@
   </li>
 
         
-          
-  <li>
-    
-      <a href="/manual/1.1/installation/karaf-osgi/" >Karaf / OSGi</a>
-    
-  </li>
-
-        
       </ul>
     
   </li>
@@ -3165,8 +3157,8 @@
     <div class="col-xs-12 content-text">
       <p>To enable the <a href="/manual/1.1/reference/rest/">REST API</a> you can use the following starter in your <code>pom.xml</code>:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependency&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&lt;groupId&gt;</span>org.camunda.bpm.springboot<span class="nt">&lt;/groupId&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&lt;artifactId&gt;</span>camunda-bpm-spring-boot-starter-rest<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;groupId&gt;</span>org.cibseven.bpm.springboot<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;artifactId&gt;</span>cibseven-bpm-spring-boot-starter-rest<span class="nt">&lt;/artifactId&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;version&gt;</span>1.1<span class="nt">&lt;/version&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/dependency&gt;</span>
 </span></span></code></pre></div><p>Do not forget, that extra repository should be added to <code>settings.xml</code> or to the POM file, since CIB seven is available yet only at <a href="https://artifacts.cibseven.de/">artifacts.cibseven.de</a>.</p>
@@ -3182,7 +3174,7 @@
 For example, to change the application path, use</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-properties" data-lang="properties"><span class="line"><span class="cl"><span class="na">spring.jersey.application-path</span><span class="o">=</span><span class="s">myapplicationpath</span>
 </span></span></code></pre></div><p>To modify the configuration or register additional resources, one can provide a bean which extends from
-<code>org.camunda.bpm.spring.boot.starter.rest.CamundaJerseyResourceConfig</code>:</p>
+<code>org.cibseven.bpm.spring.boot.starter.rest.CamundaJerseyResourceConfig</code>:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Component</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@ApplicationPath</span><span class="p">(</span><span class="s">&#34;/engine-rest&#34;</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">JerseyConfig</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">CamundaJerseyResourceConfig</span><span class="w"> </span><span class="p">{</span><span class="w">

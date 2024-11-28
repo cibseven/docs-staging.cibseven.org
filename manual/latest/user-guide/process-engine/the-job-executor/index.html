@@ -2685,14 +2685,6 @@
   </li>
 
         
-          
-  <li>
-    
-      <a href="/manual/latest/installation/karaf-osgi/" >Karaf / OSGi</a>
-    
-  </li>
-
-        
       </ul>
     
   </li>
@@ -3323,8 +3315,8 @@ See also <a href="/manual/latest/reference/bpmn20/subprocesses/call-activity/#pa
 <h3 id="job-acquisition-performance-optimization">Job Acquisition performance optimization</h3>
 <p>To optimize the acquisition of jobs that need to be executed immediately, the <code>DUEDATE_</code> column is not set (<code>null</code>) and a (positive) null check is added as a condition for acquisition.</p>
 <p>In case each job must have a <code>DUEDATE_</code> set, the optimization can be disabled. This can be done by setting the <code>ensureJobDueDateNotNull</code> <a href="/manual/latest/reference/deployment-descriptors/tags/process-engine/#ensureJobDueDateNotNull">process engine configuration flag</a> to <code>true</code>.</p>
-<p>However, any jobs created with a <code>null</code> value for <code>DUEDATE_</code> before disabling the optimization will not be picked up by the Job Acquisition phase, unless the jobs are explicitly updated with a due date through the <strong>Set Due Date</strong> <a href="/javadoc/cibseven/1.1/org/camunda/bpm/engine/ManagementService.html#setJobDuedate%28java.lang.String,java.util.Date%29">Java</a>
-/<a href="/manual/latest/reference/rest/specification/#tag/Job/operation/setJobDuedate">REST</a> or <strong>Set Retries</strong> <a href="/javadoc/cibseven/1.1/org/camunda/bpm/engine/ManagementService.html#setJobRetries%28int%29">Java</a>
+<p>However, any jobs created with a <code>null</code> value for <code>DUEDATE_</code> before disabling the optimization will not be picked up by the Job Acquisition phase, unless the jobs are explicitly updated with a due date through the <strong>Set Due Date</strong> <a href="/javadoc/cibseven/1.1/org/cibseven/bpm/engine/ManagementService.html#setJobDuedate%28java.lang.String,java.util.Date%29">Java</a>
+/<a href="/manual/latest/reference/rest/specification/#tag/Job/operation/setJobDuedate">REST</a> or <strong>Set Retries</strong> <a href="/javadoc/cibseven/1.1/org/cibseven/bpm/engine/ManagementService.html#setJobRetries%28int%29">Java</a>
 /<a href="/manual/latest/reference/rest/specification/#tag/Job/operation/setJobRetries">REST</a> APIs.</p>
 <h2 id="the-two-phases-of-job-acquisition">The Two Phases of Job Acquisition</h2>
 <p>Job acquisition has two phases. In the first phase the job executor queries for a configurable amount of acquirable jobs. If at least one job can be found, it enters the second phase, locking the jobs. Locking is necessary in order to ensure that jobs are executed exactly once. In a clustered scenario, it is customary to operate multiple job executor instances (one for each node) that all poll the same ACT_RU_JOB table. Locking a job ensures that it is only acquired by a single job executor instance. Locking a job means updating its values in the LOCK_EXP_TIME_ and LOCK_OWNER_ columns. The LOCK_EXP_TIME_ column is updated with a timestamp signifying a date that lies in the future. The intuition behind this is that we want to lock the job until that date is reached. The LOCK_OWNER_ column is updated with a value uniquely identifying the current job executor instance. In a clustered scenario this could be a node name uniquely identifying the current cluster node.</p>
@@ -3549,7 +3541,7 @@ Here is an example of a global process engine configuration:</p>
 <p>If the user decides to increase the retry number during retries, the last interval of the list would be applied within the difference between the new value and the size of the list. After that, it would continue with the normal flow as above. The API to increase the number of retries also supports passing a new due date for the job which will determine when the job will be picked up again. This is useful in cases where you want to control when a failed job should be tried again. For example, an incident has been resolved and the job should run as soon as possible instead of waiting for the next retry cycle. In this case, setting the job due date to the current date or a date in the past would make the job executor pick up the job immediately.</p>
 <h3 id="custom-retry-configuration">Custom Retry Configuration</h3>
 <p>You can configure an custom retry configuration by adding the <code>customPostBPMNParseListeners</code> property and specify your custom <code>FailedJobParseListener</code> to the process engine configuration:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;processEngineConfiguration&#34;</span> <span class="na">class=</span><span class="s">&#34;org.camunda.bpm.engine.impl.cfg.StandaloneInMemProcessEngineConfiguration&#34;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;processEngineConfiguration&#34;</span> <span class="na">class=</span><span class="s">&#34;org.cibseven.bpm.engine.impl.cfg.StandaloneInMemProcessEngineConfiguration&#34;</span><span class="nt">&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="c">&lt;!-- Your defined properties! --&gt;</span>
 </span></span><span class="line"><span class="cl">  ...
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;customPostBPMNParseListeners&#34;</span><span class="nt">&gt;</span>

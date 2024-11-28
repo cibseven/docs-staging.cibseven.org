@@ -2685,14 +2685,6 @@
   </li>
 
         
-          
-  <li>
-    
-      <a href="/manual/1.1/installation/karaf-osgi/" >Karaf / OSGi</a>
-    
-  </li>
-
-        
       </ul>
     
   </li>
@@ -3261,7 +3253,7 @@ maximum results (please use a <a href="/manual/1.1/user-guide/process-engine/bat
 </ul>
 <h3 id="allowed">Allowed</h3>
 <ul>
-<li>Performing a query using the <code><a href="/manual/1.1/reference/javadoc/org/camunda/bpm/engine/query/Query.html#unlimitedList--">Query#unlimitedList</a></code> method</li>
+<li>Performing a query using the <code><a href="/manual/1.1/reference/javadoc/org/cibseven/bpm/engine/query/Query.html#unlimitedList--">Query#unlimitedList</a></code> method</li>
 <li>Performing a <a href="#paginated-queries">Paginated Query</a> with a maximum number of results less or equal
 to the maximum results limit</li>
 <li>Performing a <a href="#native-queries">Native Query</a> since it is not accessible via REST API or Webapps
@@ -3278,7 +3270,7 @@ and therefore not likely to be exploited</li>
 <li>a custom identity provider implementation by implementing the interface <code>ReadOnlyIdentityProvider</code> or <code>WritableIdentityProvider</code></li>
 <li><strong>AND</strong> a dedicated implementation of Identity Service Queries (e. g. <code>GroupQuery</code>, <code>TenantQuery</code>, <code>UserQuery</code>)</li>
 </ol>
-<p>Make sure to return all results without any limitation when calling <code><a href="/manual/1.1/reference/javadoc/org/camunda/bpm/engine/query/Query.html#unlimitedList--">Query#unlimitedList</a></code>.
+<p>Make sure to return all results without any limitation when calling <code><a href="/manual/1.1/reference/javadoc/org/cibseven/bpm/engine/query/Query.html#unlimitedList--">Query#unlimitedList</a></code>.
 The possibility to retrieve an unlimited list is important to make sure that the REST API works appropriately since a few endpoints
 rely on retrieving unlimited results.</p>
 <h2 id="paginated-queries">Paginated Queries</h2>

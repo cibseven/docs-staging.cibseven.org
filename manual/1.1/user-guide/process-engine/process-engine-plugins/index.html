@@ -2685,14 +2685,6 @@
   </li>
 
         
-          
-  <li>
-    
-      <a href="/manual/1.1/installation/karaf-osgi/" >Karaf / OSGi</a>
-    
-  </li>
-
-        
       </ul>
     
   </li>
@@ -3166,7 +3158,7 @@
       <p>The process engine configuration can be extended through process engine plugins. A process engine plugin is an
 extension to the <a href="/manual/1.1/user-guide/process-engine/process-engine-bootstrapping/">process engine configuration</a>.</p>
 <p>A plugin must provide an implementation of the
-<a href="/javadoc/cibseven/1.1/org/camunda/bpm/engine/impl/cfg/ProcessEnginePlugin.html">ProcessEnginePlugin</a>
+<a href="/javadoc/cibseven/1.1/org/cibseven/bpm/engine/impl/cfg/ProcessEnginePlugin.html">ProcessEnginePlugin</a>
  interface.</p>
 <h1 id="configure-process-engine-plugins">Configure Process Engine Plugins</h1>
 <p>Process engine plugins can be configured</p>
@@ -3189,12 +3181,12 @@ extension to the <a href="/manual/1.1/user-guide/process-engine/process-engine-b
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;process-engine</span> <span class="na">name=</span><span class="s">&#34;default&#34;</span><span class="nt">&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;job-acquisition&gt;</span>default<span class="nt">&lt;/job-acquisition&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&lt;configuration&gt;</span>org.camunda.bpm.engine.impl.cfg.JtaProcessEngineConfiguration<span class="nt">&lt;/configuration&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;configuration&gt;</span>org.cibseven.bpm.engine.impl.cfg.JtaProcessEngineConfiguration<span class="nt">&lt;/configuration&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;datasource&gt;</span>jdbc/ProcessEngine<span class="nt">&lt;/datasource&gt;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;plugins&gt;</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&lt;plugin&gt;</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&lt;class&gt;</span>org.camunda.bpm.engine.MyCustomProcessEnginePlugin<span class="nt">&lt;/class&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;class&gt;</span>org.cibseven.bpm.engine.MyCustomProcessEnginePlugin<span class="nt">&lt;/class&gt;</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&lt;properties&gt;</span>
 </span></span><span class="line"><span class="cl">          <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;boost&#34;</span><span class="nt">&gt;</span>10<span class="nt">&lt;/property&gt;</span>
 </span></span><span class="line"><span class="cl">          <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;maxPerformance&#34;</span><span class="nt">&gt;</span>true<span class="nt">&lt;/property&gt;</span>

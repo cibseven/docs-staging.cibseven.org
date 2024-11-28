@@ -2685,14 +2685,6 @@
   </li>
 
         
-          
-  <li>
-    
-      <a href="/manual/1.1/installation/karaf-osgi/" >Karaf / OSGi</a>
-    
-  </li>
-
-        
       </ul>
     
   </li>
@@ -3273,7 +3265,7 @@ As a more powerful alternative, Camunda also defines a set of custom extension e
 <p>It is also possible to use <a href="/manual/1.1/user-guide/process-engine/delegation-code/#task-listener">task listeners</a> for handling assignments. The following example demonstrates a task listener on the <code>create</code> event:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;userTask</span> <span class="na">id=</span><span class="s">&#34;task1&#34;</span> <span class="na">name=</span><span class="s">&#34;My task&#34;</span> <span class="nt">&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;extensionElements&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&lt;camunda:taskListener</span> <span class="na">event=</span><span class="s">&#34;create&#34;</span> <span class="na">class=</span><span class="s">&#34;org.camunda.bpm.MyAssignmentHandler&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;camunda:taskListener</span> <span class="na">event=</span><span class="s">&#34;create&#34;</span> <span class="na">class=</span><span class="s">&#34;org.cibseven.bpm.MyAssignmentHandler&#34;</span> <span class="nt">/&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;/extensionElements&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/userTask&gt;</span>
 </span></span></code></pre></div><p>The DelegateTask that is passed to the TaskListener implementation allows you to set the assignee and candidate-users/groups:</p>

@@ -2685,14 +2685,6 @@
   </li>
 
         
-          
-  <li>
-    
-      <a href="/manual/1.1/installation/karaf-osgi/" >Karaf / OSGi</a>
-    
-  </li>
-
-        
       </ul>
     
   </li>
@@ -3187,14 +3179,14 @@
 </span></span><span class="line"><span class="cl"> <span class="nt">&lt;name&gt;</span>Kermit<span class="nt">&lt;/name&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/customer&gt;</span>
 </span></span></code></pre></div><p>to an instance of <code>Customer</code> in the following way:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import static</span><span class="w"> </span><span class="nn">org.camunda.spin.Spin.XML</span><span class="p">;</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import static</span><span class="w"> </span><span class="nn">org.cibseven.spin.Spin.XML</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">String</span><span class="w"> </span><span class="n">xmlInput</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;&lt;?xml version=\&#34;1.0\&#34; encoding=\&#34;UTF-8\&#34;?&gt;&lt;customer xmlns=\&#34;http://camunda.org/example\&#34;&gt;&lt;name&gt;Kermit&lt;/name&gt;&lt;/customer&gt;&#34;</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Customer</span><span class="w"> </span><span class="n">customer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">XML</span><span class="p">(</span><span class="n">xmlInput</span><span class="p">).</span><span class="na">mapTo</span><span class="p">(</span><span class="n">Customer</span><span class="p">.</span><span class="na">class</span><span class="p">);</span><span class="w">
 </span></span></span></code></pre></div><h2 id="mapping-java-to-xml">Mapping Java to XML:</h2>
 <p>We can map the <code>customer</code> back to XML as follows:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import static</span><span class="w"> </span><span class="nn">org.camunda.spin.Spin.XML</span><span class="p">;</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import static</span><span class="w"> </span><span class="nn">org.cibseven.spin.Spin.XML</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">String</span><span class="w"> </span><span class="n">xml</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">XML</span><span class="p">(</span><span class="n">customer</span><span class="p">).</span><span class="na">toString</span><span class="p">();</span><span class="w">
 </span></span></span></code></pre></div>

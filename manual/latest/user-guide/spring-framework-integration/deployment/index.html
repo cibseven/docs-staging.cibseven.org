@@ -2685,14 +2685,6 @@
   </li>
 
         
-          
-  <li>
-    
-      <a href="/manual/latest/installation/karaf-osgi/" >Karaf / OSGi</a>
-    
-  </li>
-
-        
       </ul>
     
   </li>
@@ -3166,7 +3158,7 @@
       <p>Spring integration also has a special feature for deploying resources. In the process engine configuration, you can specify a set of resources. When the process engine is created, all those resources will be scanned and deployed. There is filtering in place that prevents duplicate deployments. Only in case the resources have actually changed, new deployments will be deployed to the engine database. This makes sense in a lot of use cases, where the Spring container is rebooted often (e.g., testing).</p>
 <p>Here&rsquo;s an example:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;processEngineConfiguration&#34;</span>
-</span></span><span class="line"><span class="cl">      <span class="na">class=</span><span class="s">&#34;org.camunda.bpm.engine.spring.SpringProcessEngineConfiguration&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="na">class=</span><span class="s">&#34;org.cibseven.bpm.engine.spring.SpringProcessEngineConfiguration&#34;</span><span class="nt">&gt;</span>
 </span></span><span class="line"><span class="cl">  ...
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;deploymentResources&#34;</span>
 </span></span><span class="line"><span class="cl">            <span class="na">value=</span><span class="s">&#34;classpath*:/mytest/autodeploy.*.bpmn20&#34;</span> <span class="nt">/&gt;</span>
@@ -3179,7 +3171,7 @@
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/bean&gt;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;processEngine&#34;</span>
-</span></span><span class="line"><span class="cl">      <span class="na">class=</span><span class="s">&#34;org.camunda.bpm.engine.spring.ProcessEngineFactoryBean&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="na">class=</span><span class="s">&#34;org.cibseven.bpm.engine.spring.ProcessEngineFactoryBean&#34;</span><span class="nt">&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;processEngineConfiguration&#34;</span> <span class="na">ref=</span><span class="s">&#34;processEngineConfiguration&#34;</span> <span class="nt">/&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/bean&gt;</span>
 </span></span></code></pre></div>
