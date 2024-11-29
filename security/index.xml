@@ -15,11 +15,11 @@
       <description>&lt;p&gt;As a core infrastructure component of our customers, the security of CIB seven Platform (also referred to as the &amp;lsquo;software&amp;rsquo;) takes top priority and is maintained constantly.&lt;/p&gt;&#xA;&lt;p&gt;Since CIB seven is based on Camunda Engine, security test done there apply to CIB seven as well.&lt;/p&gt;&#xA;&lt;h2 id=&#34;penetration-testing&#34;&gt;Penetration Testing&lt;/h2&gt;&#xA;&lt;p&gt;Camunda has contracted an independent, external security advisor to regularly conduct penetration tests of the software. The advisor operates according to industry best practices recommended by the OWASP organization such as the &lt;a href=&#34;https://www.owasp.org/images/1/19/OTGv4.pdf&#34;&gt;OWASP Testing Guide&lt;/a&gt;. The tools used for testing include &lt;a href=&#34;https://portswigger.net/burp&#34;&gt;Burp Suite&lt;/a&gt; and &lt;a href=&#34;https://www.defensecode.com/thunderscan.php&#34;&gt;DefenseCode Thunderscan&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Operating Camunda Securely</title>
+      <title>Operating CIB seven Securely</title>
       <link>/security/operations/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/security/operations/</guid>
-      <description>&lt;p&gt;The instructions how to operate Camunda securely are located in our &lt;a href=&#34;/security/manual/latest/user-guide/security&#34;&gt;User Guide&lt;/a&gt;. Make sure to read the version of the user guide that matches the Camunda version you use.&lt;/p&gt;</description>
+      <description>&lt;p&gt;The instructions how to operate CIB seven securely are located in our &lt;a href=&#34;/security/manual/latest/user-guide/security&#34;&gt;User Guide&lt;/a&gt;. Make sure to read the version of the user guide that matches the CIB seven version you use.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Security Notices</title>
