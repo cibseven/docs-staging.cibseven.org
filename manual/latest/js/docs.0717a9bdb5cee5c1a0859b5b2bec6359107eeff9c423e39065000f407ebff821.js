@@ -36696,16 +36696,23 @@ if (location.hash) {
 }
 window.addEventListener('hashchange', shiftWindow);
 
+/********************************************************************\
+ * Code Copy Buttons in blocks                                      *
+\********************************************************************/
 
-
-
-
-
-
-
-
-
-
+queryAll('.highlight').forEach(function (pre) {
+	var btn = document.createElement("div");
+	btn.innerText = "⎘";
+	btn.className = "copybtn";
+	btn.addEventListener("click", function (event) { 
+		event.target.innerText = "✓";
+        setTimeout(function(btn) {
+			btn.innerText = "⎘";
+		}, 500, event.target);
+		navigator.clipboard.writeText(event.target.parentNode.children[0].innerText); 
+	}, false);
+ 	pre.appendChild(btn);
+});
 
 /********************************************************************\
  * Tutorial download boxes                                          *

@@ -535,10 +535,6 @@
   </url>
   
   <url>
-    <loc>https://docs.cibseven.org/manual/1.0/update/activiti/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.cibseven.org/manual/1.0/reference/forms/embedded-forms/integrate/angular-js/</loc>
   </url>
   
@@ -560,6 +556,10 @@
   
   <url>
     <loc>https://docs.cibseven.org/manual/1.0/user-guide/spring-framework-integration/deployment/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.cibseven.org/manual/1.0/update/camunda/</loc>
   </url>
   
   <url>
