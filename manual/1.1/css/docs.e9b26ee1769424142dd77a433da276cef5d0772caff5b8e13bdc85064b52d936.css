@@ -3986,30 +3986,30 @@ fieldset[disabled] .btn-success.focus {
 /* line 79, node_modules\bootstrap\less\buttons.less */
 .btn-info {
   color: #fff;
-  background-color: #5bc0de;
-  border-color: #46b8da;
+  background-color: #E11E19;
+  border-color: #ca1b16;
 }
 /* line 11, node_modules\bootstrap\less\mixins\buttons.less */
 .btn-info:focus,
 .btn-info.focus {
   color: #fff;
-  background-color: #31b0d5;
-  border-color: #1b6d85;
+  background-color: #b31814;
+  border-color: #570c0a;
 }
 /* line 17, node_modules\bootstrap\less\mixins\buttons.less */
 .btn-info:hover {
   color: #fff;
-  background-color: #31b0d5;
-  border-color: #269abc;
+  background-color: #b31814;
+  border-color: #931410;
 }
 /* line 22, node_modules\bootstrap\less\mixins\buttons.less */
 .btn-info:active,
 .btn-info.active,
 .open > .dropdown-toggle.btn-info {
   color: #fff;
-  background-color: #31b0d5;
+  background-color: #b31814;
   background-image: none;
-  border-color: #269abc;
+  border-color: #931410;
 }
 /* line 30, node_modules\bootstrap\less\mixins\buttons.less */
 .btn-info:active:hover,
@@ -4022,8 +4022,8 @@ fieldset[disabled] .btn-success.focus {
 .btn-info.active.focus,
 .open > .dropdown-toggle.btn-info.focus {
   color: #fff;
-  background-color: #269abc;
-  border-color: #1b6d85;
+  background-color: #931410;
+  border-color: #570c0a;
 }
 /* line 41, node_modules\bootstrap\less\mixins\buttons.less */
 .btn-info.disabled:hover,
@@ -4035,12 +4035,12 @@ fieldset[disabled] .btn-info:focus,
 .btn-info.disabled.focus,
 .btn-info[disabled].focus,
 fieldset[disabled] .btn-info.focus {
-  background-color: #5bc0de;
-  border-color: #46b8da;
+  background-color: #E11E19;
+  border-color: #ca1b16;
 }
 /* line 49, node_modules\bootstrap\less\mixins\buttons.less */
 .btn-info .badge {
-  color: #5bc0de;
+  color: #E11E19;
   background-color: #fff;
 }
 /* line 83, node_modules\bootstrap\less\buttons.less */
@@ -5130,12 +5130,12 @@ a.label:focus {
 }
 /* line 54, node_modules\bootstrap\less\labels.less */
 .label-info {
-  background-color: #5bc0de;
+  background-color: #E11E19;
 }
 /* line 7, node_modules\bootstrap\less\mixins\labels.less */
 .label-info[href]:hover,
 .label-info[href]:focus {
-  background-color: #31b0d5;
+  background-color: #b31814;
 }
 /* line 58, node_modules\bootstrap\less\labels.less */
 .label-warning {
@@ -7437,11 +7437,11 @@ pre.console {
 }
 /* line 283, styles\_content.less */
 .note.docs-info {
-  border-color: #5bc0de;
+  border-color: #E11E19;
 }
 /* line 285, styles\_content.less */
 .note.docs-info:before {
-  background-color: #5bc0de;
+  background-color: #E11E19;
 }
 /* line 289, styles\_content.less */
 .note.docs-warning {
