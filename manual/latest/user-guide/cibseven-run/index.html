@@ -3301,12 +3301,12 @@ All <a href="/manual/latest/user-guide/spring-boot-integration/configuration/#ci
       <td rowspan="15"><code>camunda.bpm.run.auth</code></td>
       <td><code>.enabled</code></td>
       <td>Switch to enable basic authentication for requests to the REST API.</td>
-      <td><code>true</code></td>
+      <td><code>false</code></td>
   </tr>
   <tr>
       <td><code>.authentication</code></td>
-      <td>Authentication method, basic and composite are supported.</td>
-      <td>composite</td>
+      <td>Authentication method, currently only basic is supported.</td>
+      <td>basic</td>
   </tr>
 </table>
 <h2 id="cross-origin-resource-sharing">Cross-Origin Resource Sharing</h2>
@@ -3624,7 +3624,188 @@ To configure the logging behavior in CIB seven Run, customize your configuration
       <td><code>-</code></td>
   </tr>
 </table>
-
+<h2 id="cib-seven-webclient-properties">CIB seven webclient properties</h2>
+<p>Below is a brief description of the properties for CIB seven webclient, which can by used with the <a href="#choose-between-default-and-production-configuration">configuration files</a></p>
+<table class="table desc-table">
+  <tr>
+      <th>Prefix</th>
+      <th>Property name</th>
+      <th>Description</th>
+  </tr>
+  <tr>
+      <td rowspan="21">cibseven.webclient</td>
+      <td>.api.common.title</td>
+      <td>API title for Swagger. <br />Example: CIB seven webclient API</td>
+  </tr>
+  <tr>
+      <td>.api.common.description</td>
+      <td>API description for Swagger</td>
+  </tr>
+  <tr>
+      <td>.api.common.license</td>
+      <td>License name</td>
+  </tr>
+  <tr>
+      <td>.api.common.contact</td>
+      <td>Contains a few sub-properties with the contact name, url and email</td>
+  </tr>
+  <tr>
+      <td>.authentication.jwtSecret</td>
+      <td>Secret used to sign JWT tokens</td>
+  </tr>
+  <tr>
+      <td>.authentication.tokenValidMinutes</td>
+      <td>Authentication token expiration in minutes</td>
+  </tr>
+  <tr>
+      <td>.authentication.tokenProlongMinutes</td>
+      <td>Authentication token extension time in minutes</td>
+  </tr> 
+  <tr>
+      <td>.bpm.provider</td>
+      <td>BPM provider implementation class. <br />Example: org.cibseven.webapp.providers.SevenProvider</td>
+  </tr>
+  <tr>
+      <td>.engineRest.url</td>
+      <td>Camunda engine REST API URL. <br />Example: http://localhost:8080</td>
+  </tr>  
+  <tr>
+      <td>.historyLevel</td>
+      <td>Camunda history tracking level. <br />Possible values: full/none</td>
+  </tr>
+  <tr>
+      <td>.cockpit.url</td>
+      <td>Camunda cockpit access path. <br />Example: /camunda/app/cockpit/default</td>
+  </tr>
+  <tr>
+      <td>.fetchInstances</td>
+      <td>Whether to fetch process instances. <br />Possible values: true/false</td>
+  </tr>
+  <tr>
+      <td>.fetchIncidents</td>
+      <td>Whether to fetch incidents. <br />Possible values: true/false</td>
+  </tr>
+  <tr>
+      <td>.theme</td>
+      <td>UI theme based on Bootstrap, currently only cib theme is supported. <br />Example: cib</td>
+  </tr>
+  <tr>
+      <td>.services.basePath</td>
+      <td>Base path for webclient REST services. <br />Example: /webapp/services/v1</td>
+  </tr>
+  <tr>
+      <td>.token.secret</td>
+      <td>Secret for external token validation</td>
+  </tr>
+  <tr>
+      <td>.token.deny.external.ip</td>
+      <td>Deny external IP token user creation. <br />Possible values: true/false</td>
+  </tr>
+  <tr>
+      <td>.datasource.fileValue.enabled</td>
+      <td>Enable/disable file value handling. <br />Possible values: true/false</td>
+  </tr>
+  <tr>
+      <td>.user.provider</td>
+      <td>User provider implementation class. <br />Example: org.cibseven.webapp.auth.SevenUserProvider</td>
+  </tr>
+  <tr>
+      <td>.userAnon.id</td>
+      <td>Anonymous user ID. <br />Example: demo</td>
+  </tr>  
+  <tr>
+      <td>.users.search.wildcard</td>
+      <td>Wildcard for user search (default "*")</td>
+  </tr>
+  <tr>
+      <td rowspan="6">cibseven.webclient.ldap</td>
+      <td>.url</td>
+      <td>LDAP server URL. <br />Example: ldap://ldap.cibseven.org </td>
+  </tr>
+  <tr>
+      <td>.folder</td>
+      <td>Base DN for LDAP searches. <br />Example: DC=cibseven,DC=org </td>
+  </tr>
+  <tr>
+      <td>.userNameAttribute</td>
+      <td>LDAP attribute for username. <br />Example: samAccountName</td>
+  </tr>
+  <tr>
+      <td>.userDisplayNameAttribute</td>
+      <td>LDAP attribute for display name. <br />Example: name</td>
+  </tr>
+  <tr>
+      <td>.modifiedDateFormat</td>
+      <td>Date format for modified timestamp. <br />Example: yyyyMMddHHmmss</td>
+  </tr>
+  <tr>
+      <td>.followReferrals</td>
+      <td>Whether to follow LDAP referrals. <br />Example: follow</td>
+  </tr>
+  <tr>
+      <td rowspan="9">management</td>
+      <td>.endpoints.enabled-by-default</td>
+      <td>Disable all actuator endpoints by default. <br />Possible values: true/false</td>
+  </tr>
+  <tr>
+      <td>.endpoints.web.exposure.include:</td>
+      <td>Expose only health and info endpoints. <br />Example: health,info</td>
+  </tr>
+  <tr>
+      <td>.endpoint.info.enabled</td>
+      <td>Enable actuator info. <br />Possible values: true/false</td>
+  </tr>
+  <tr>
+      <td>.endpoint.health.enabled</td>
+      <td>Enable actuator health. <br />Possible values: true/false</td>
+  </tr>
+  <tr>
+      <td>.endpoint.health.probes.enabled</td>
+      <td>Enable health probes. <br />Possible values: true/false</td>
+  </tr>
+  <tr>
+      <td>.info.build.enabled</td>
+      <td>Include build info in actuator info. <br />Possible values: true/false</td>
+  </tr>
+  <tr>
+      <td>.info.git.enabled</td>
+      <td>Include git info in actuator info. <br />Possible values: true/false</td>
+  </tr>
+  <tr>
+      <td>.info.git.mode:</td>
+      <td>Show full git information. <br />Possible values: full/none</td>
+  </tr>
+  <tr>
+      <td>.info.java.enabled</td>
+      <td>Include Java info in actuator info. <br />Possible values: true/false</td>
+  </tr>
+  <tr>
+      <td>spring</td>
+      <td>.config.import</td>
+      <td>List of optional config files to import if available. <br />Example:<br />- optional:classpath:cibseven-webclient.properties<br />- optional:classpath:cibseven-webclient.yaml</td>
+  </tr>
+  <tr>
+      <td rowspan="5">springdoc</td>
+      <td>.swagger-ui.path</td>
+      <td>Swagger UI path. <br />Example: /webapp/swagger-ui</td>
+  </tr>
+  <tr>
+      <td>.swagger-ui.operationsSorter</td>
+      <td>Sort operations alphabetically. <br />Possible values: alpha/none <br />Example: alpha</td>
+  </tr>
+  <tr>
+      <td>.swagger-ui.tagsSorter</td>
+      <td>Sort tags alphabetically. <br />Possible values: alpha/none <br />Example: alpha</td>
+  </tr>
+  <tr>
+      <td>.swagger-ui.doc-expansion</td>
+      <td>Swagger doc expansion setting. <br />Possible values: full/list/none <br />Example: full</td>
+  </tr>
+  <tr>
+      <td>.cibsevenWebclient.serverUrl</td>
+      <td>Server URL override for Swagger UI</td>
+  </tr>
+</table>
     </div>
   </div>
 </div>
@@ -3665,6 +3846,7 @@ To configure the logging behavior in CIB seven Run, customize your configuration
     <li><a href="#example-application-launch">Example application launch</a></li>
     <li><a href="#https">HTTPS</a></li>
     <li><a href="#logging">Logging</a></li>
+    <li><a href="#cib-seven-webclient-properties">CIB seven webclient properties</a></li>
   </ul>
 </nav>
   <div class="docs-banner" style="display:none">
