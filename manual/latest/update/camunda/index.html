@@ -3111,7 +3111,7 @@
     </div>
 
     <div class="col-xs-12 content-text">
-      <p>This page describes the process of migration of a custom project, which currently uses Camunda, to using CIB seven.</p>
+      <p>This page describes the process of migrating a custom project, which uses Camunda BPM, to using CIB seven.</p>
 <h2 id="migration-to-cib-seven-20">Migration to CIB seven 2.0</h2>
 <p>The backend of CIB seven 2.0.0 is based on Camunda 7.23.0, so before the migration, please check your Camunda version: it should be Camunda 7.23.0. If the version of Camunda is less than 7.23.0 then update it to 7.23.0, first.</p>
 
@@ -3127,6 +3127,14 @@ This script performs the following actions:</p>
 <li>Changes artifacts names from <code>camunda-*</code> to <code>cibseven-*</code>.</li>
 <li>Changes namespaces inside imports, used in your custom Java code from <code>org.camunda</code> to <code>org.cibseven</code>.</li>
 </ul>
+<h4 id="migration-to-cib-seven-webclient">Migration to CIB seven webclient</h4>
+<p>Among other things, CIB Seven 2.0.0 includes a new web client: CIB seven webclient (however, the option of using the old Camunda web application remains available).
+One of the features of the CIB seven webclient is a more secure connection to the CIB seven BPM engine, compared to the Camunda web application.
+The communication between the CIB seven webclient and the engine REST is additionally encrypted with a special JWT secret, which must be stored securely and be accessible to both, the engine REST and the webclient middleware.
+So, for migration to CIB seven webclient, you need to create cibseven-webclient.properties file on the classpath, ideally for both, the engine-REST and the webclient.
+This configuration file should contain a jwtSecret property:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="w">   </span><span class="l">cibseven.webclient.authentication.jwtSecret=...</span><span class="w">
+</span></span></span></code></pre></div><p>Place there your own 155-character alphanumeric secret.</p>
 <h2 id="migration-to-cib-seven-11">Migration to CIB seven 1.1</h2>
 
 <div class="note bg-info docs-info">
@@ -3171,7 +3179,11 @@ This script performs the following actions:</p>
   <h3>On this Page:</h3>
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#migration-to-cib-seven-20">Migration to CIB seven 2.0</a></li>
+    <li><a href="#migration-to-cib-seven-20">Migration to CIB seven 2.0</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
     <li><a href="#migration-to-cib-seven-11">Migration to CIB seven 1.1</a></li>
     <li><a href="#migration-to-cib-seven-10">Migration to CIB seven 1.0</a>
       <ul>
