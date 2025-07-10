@@ -2821,7 +2821,39 @@
           
   <li>
     
+      <a href="/manual/2.0/webapps/cockpit/bpmn/process-definition-history-view/" >Process Definition History View</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
       <a href="/manual/2.0/webapps/cockpit/bpmn/process-instance-view/" >Process Instance View</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
+      <a href="/manual/2.0/webapps/cockpit/bpmn/process-instance-history-view/" >Process Instance History View</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
+      <a href="/manual/2.0/webapps/cockpit/bpmn/modify/" >Process Instance Modification</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
+      <a href="/manual/2.0/webapps/cockpit/bpmn/process-instance-restart/" >Process Instance Restart</a>
     
   </li>
 
@@ -3180,19 +3212,6 @@ You can also switch to the preview tab which displays the rendered process model
 [failed-jobs]: /manual/2.0/webapps/cockpit/bpmn/failed-jobs/
 
 -->
-<h2 id="csv-export-for-process-instances">CSV Export for Process Instances</h2>
-<p>Sometimes incidents make it necessary for the Operations Engineer to intervene manually. However, these incidents might
-not always be solvable from Cockpit if other services or systems are involved. For this case, Cockpit provides a feature
-to export affected process instances and their process variable values as CSV spreadsheets. The export feature helps to
-communicate efficiently with other system owners. In the process instance view, you&rsquo;ll find a download icon in the upper-right corner. The icon is highlighted with an orange frame in the following screenshot.</p>
-<figure class="image">
-  <span><img
-      src="../../img/cockpit-export.png"
-      
-          title="CSV Export for Process Instances"
-       /></span>
-</figure>
-
 <!-- To trigger the CSV export, search for process instances and customize what properties you want to export by adding or removing columns. Suppose you are only interested in selecting
 specific process instances; you can checkmark the process instances of interest on the left side or select the whole page by checkmarking
 the box on the left side in the table header. You can select process instances across multiple pages. In the next step, you can choose a more coarse-grained process instance selection approach.
@@ -3235,29 +3254,6 @@ When clicking **Export CSV**, the backend crunches the requested data and create
 </figure>
 
 -->
-<p>When you click the button, the download of the CSV file starts and soon you should see a your CSV export in your browser.</p>
-<h3 id="export-result">Export Result</h3>
-<p>The format of the export result is a file of <a href="https://en.wikipedia.org/wiki/Comma-separated_values">Comma-separated values (CSV)</a> (opens an external link to Wikipedia). The structure of the CSV is displayed in the next screenshot where you will find an example of the CSV file opened in MS Excel. We find the columns state, business key, start time, end time, ID, user, definition name and definition version.</p>
-<figure class="image">
-  <span><img
-      src="../../img/cockpit-export-result.png"
-      
-          title="CSV Export for Process Instances: Export Result"
-       /></span>
-</figure>
-
-<h3 id="structure-of-the-spreadsheet">Structure of the Spreadsheet</h3>
-<ul>
-<li>Each row in the spreadsheet represents a process instance, while each property has its dedicated column.</li>
-<li>The spreadsheet has a dedicated column for each variable property and displays its value in the respective row that matches with the process instance.</li>
-<li>The spreadsheet displays:
-<ul>
-<li>A <code>null</code> value as <code>&lt;&lt;NULL&gt;&gt;</code></li>
-<li>An unsupported variable value type as <code>&lt;&lt;UNSUPPORTED TYPE&gt;&gt;</code></li>
-</ul>
-<!--* A non-existing variable as empty cell.-->
-</li>
-</ul>
 <!--#### Example
 
 In the next screenshot you find an example of the CSV file opened by MS Excel. We find the columns state, business key, start time, end time, ID, user, definition name and definition version.
@@ -3315,6 +3311,56 @@ start editing by clicking on the value. You can expand the value in a modal dial
 </figure>
 
 -->
+<h1 id="enterprise-features">Enterprise features</h1>
+<h2 id="process-instance-search">Process Instance Search</h2>
+<p>The <strong>Enterprise</strong> version of CIB seven introduces an advanced <strong>Process Instance Search</strong> feature. This functionality allows you to apply highly specific selection criteria to locate and display process instances, which can then be exported as a CSV file for further analysis.</p>
+<p>To begin, navigate to the <strong>Process Instance Search</strong> tab. Once there, you’ll find a search bar. Clicking on it will reveal a dropdown menu with several options, including <strong>&ldquo;Process Definition,&rdquo;</strong> <strong>&ldquo;State,&rdquo;</strong> <strong>&ldquo;Dates,&rdquo;</strong> and <strong>&ldquo;Variables.&rdquo;</strong> These options allow you to filter the search according to various parameters.</p>
+<figure class="image">
+  <span><img
+      src="../../img/process-instance-search-01.png"
+      
+          title="Process Instance Search"
+       /></span>
+</figure>
+
+<p>We recommend experimenting with these search options to familiarize yourself with the functionality. For example, you can select a specific <strong>process definition</strong> using its unique key. Let&rsquo;s walk through an example:</p>
+<figure class="image">
+  <span><img
+      src="../../img/process-instance-search-02.png"
+      
+          title="Process Instance Search - Select Definition Key"
+       /></span>
+</figure>
+
+<p>In this case, we’ve filtered the results to display all processes with the key <strong>&ldquo;lhm-call-with-files.&rdquo;</strong> The search results provide various pieces of information, including the current <strong>state</strong> of the instance, the <strong>start date</strong>, and the <strong>user</strong> who initiated the process.</p>
+<p>Take a look at the <strong>upper-right corner</strong> of the search bar. Here, you’ll see a <strong>number</strong> representing the total count of found instances that match your search criteria. You can reset the filters at any time by clicking on the <strong>cross symbol.</strong> Additionally, the <strong>link symbol</strong> allows you to share the search query with a colleague, and the <strong>save icon</strong> lets you save the current query by giving it a custom name for future reference.</p>
+<figure class="image">
+  <span><img
+      src="../../img/process-instance-search-03.png"
+      
+          title="Process Instance Search - Search Options"
+       /></span>
+</figure>
+
+<p>In some cases, you might want to display specific information, such as the <strong>tenant ID</strong> or the <strong>&ldquo;start user.&rdquo;</strong> To customize the table columns, click on the <strong>table icon</strong> in the lower-right corner, where you&rsquo;ll see a small <strong>plus symbol.</strong> In the dialog that appears, you can choose the columns you wish to display based on your needs.</p>
+<figure class="image">
+  <span><img
+      src="../../img/process-instance-search-04.png"
+      
+          title="Process Instance Search - Visibility of Columns"
+       /></span>
+</figure>
+
+<p>Finally, you can download the results as a CSV file for further analysis in programs such as <strong>Microsoft Excel</strong> or <strong>LibreOffice Calc.</strong> To do this, simply click on the <strong>download icon</strong> located above the search bar.</p>
+<figure class="image">
+  <span><img
+      src="../../img/process-instance-search-05.png"
+      
+          title="Process Instance Search - Download"
+       /></span>
+</figure>
+
+
     </div>
   </div>
 </div>
@@ -3323,14 +3369,10 @@ start editing by clicking on the value. You can expand the value in a modal dial
   <h3>On this Page:</h3>
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#deployed-processes">Deployed Processes</a>
+    <li><a href="#deployed-processes">Deployed Processes</a></li>
+    <li><a href="#enterprise-features">Enterprise features</a>
       <ul>
-        <li><a href="#csv-export-for-process-instances">CSV Export for Process Instances</a>
-          <ul>
-            <li><a href="#export-result">Export Result</a></li>
-            <li><a href="#structure-of-the-spreadsheet">Structure of the Spreadsheet</a></li>
-          </ul>
-        </li>
+        <li><a href="#process-instance-search">Process Instance Search</a></li>
       </ul>
     </li>
   </ul>

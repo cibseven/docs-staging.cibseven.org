@@ -2821,7 +2821,39 @@
           
   <li>
     
+      <a href="/manual/latest/webapps/cockpit/bpmn/process-definition-history-view/" >Process Definition History View</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
       <a href="/manual/latest/webapps/cockpit/bpmn/process-instance-view/" >Process Instance View</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
+      <a href="/manual/latest/webapps/cockpit/bpmn/process-instance-history-view/" >Process Instance History View</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
+      <a href="/manual/latest/webapps/cockpit/bpmn/modify/" >Process Instance Modification</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
+      <a href="/manual/latest/webapps/cockpit/bpmn/process-instance-restart/" >Process Instance Restart</a>
     
   </li>
 
@@ -3147,8 +3179,7 @@
        /></span>
 </figure>
 
-<p>This view allows you to drill down into a single process instance and explore its running activities as well as the variables, tasks, jobs, etc.
-Beside the diagram view the process will be displayed as an <a href="#activity-instance-tree">activity instance tree view</a>. Variables that belong to the instance will be listed in a variables table of the <a href="#detailed-information-panel">detailed information panel</a>.</p>
+<p>This view allows you to check single process instance and explore its running activities as well as the variables, tasks, jobs, etc. <!--Beside the diagram view the process will be displayed as an [activity instance tree view](#activity-instance-tree).--> Variables that belong to the instance will be listed in a variables table of the <a href="#detailed-information-panel">detailed information panel</a> in the lower part. This is marked with a orange frame in the next screenshot.</p>
 <figure class="image">
   <span><img
       src="../../img/cockpit-process-instances-view-variables.png"
@@ -3172,18 +3203,7 @@ Beside the diagram view the process will be displayed as an <a href="#activity-i
 
 The activity instance tree contains a node for each activity that is currently active in the process instance. It allows you to select activity instances to explore their details. Concurrently, the selected instance will be marked in the rendered process diagram and the corresponding variables will be listed in the detailed information panel.
 -->
-<h1 id="call-activity-drill-down">Call Activity Drill Down</h1>
-<p>Call activity instances that call at least one process instance have an overlay on the lower right corner that links to their called process instances (see next screenshot).</p>
-<figure class="image">
-  <span><img
-      src="../../img/cockpit-call-activity-instance-drill-down.png"
-      
-          title="Call Activity Drill Down"
-       /></span>
-</figure>
-
-<p>If the call activity instance calls exactly one process instance, then clicking the overlay redirects to the called process instance page. However, if the number of called process instances exceeds one, then clicking the overlay will show the called process instances tab containing only process instances called by the selected call activity instance.</p>
-<h1 id="detailed-information-panel">Detailed Information Panel</h1>
+<h2 id="detailed-information-panel">Detailed Information Panel</h2>
 <p>Use the detailed information panel to get an overview of the variables, incidents, called process instances, user tasks and external tasks that the process instance contains. In addition you can <a href="#edit-variables">edit variables</a> or change the assignees of user tasks.</p>
 <figure class="image">
   <span><img
@@ -3216,8 +3236,8 @@ The activity instance tree contains a node for each activity that is currently a
 </button>
  button respectively.-->
 <p>The <strong>called process instances tab</strong> gives you information about all the called activities in the process in case the process uses call activities.</p>
-<!--The external tasks tab displays various information about external tasks, such as the External Task Id, the activity, amount of retries, the Worker Id of the external task, lock expiration time, topic name and the set priority. See the [external tasks](/manual/latest/user-guide/process-engine/external-tasks/) section of the user guide for more information about external tasks.-->
-<h1 id="sorting-variables">Sorting Variables</h1>
+<p>Finally, the <strong>external tasks</strong> tab displays various information about external tasks, such as the External Task Id, the activity, amount of retries, the Worker Id of the external task, lock expiration time, topic name and the set priority. See the <a href="/manual/latest/user-guide/process-engine/external-tasks/">external tasks</a> section of the user guide for more information about external tasks.</p>
+<h2 id="sorting-variables">Sorting Variables</h2>
 <p>In the <strong>variables tab</strong>, you can sort variables by name, type, value, and scope. Click on the corresponding header titles to toggle between ascending and descending order. The header titles are highlighted in orange in the following screenshot.</p>
 <!--instance id and variable value by using search pills. You can filter variable values with the type `String`, `Number`, or `Boolean`. To do so, click in the empty search field and select a criterion. Next, fill in the respective values for the search pill. You can combine multiple search pills to narrow down the results.-->
 <figure class="image">
@@ -3229,7 +3249,7 @@ The activity instance tree contains a node for each activity that is currently a
 </figure>
 
 <!-- The total amount of results that suit the search query is displayed to the right. Furthermore, you can copy a link to the current search query to your clipboard by clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-link"></i></button> button and you can save search queries to your local browser storage by clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-floppy-disk"></i></button> button and inserting a name in the drop down menu that appears. You can then retrieve the search query by clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-floppy-disk"></i></button> button and selecting the chosen name in the drop down menu. -->
-<h1 id="add-variables">Add Variables</h1>
+<h2 id="add-variables">Add Variables</h2>
 <p>Hit the <button class="btn btn-xs">
   <i class="glyphicon glyphicon-plus" ></i>
 </button>
@@ -3242,7 +3262,7 @@ The activity instance tree contains a node for each activity that is currently a
        /></span>
 </figure>
 
-<h1 id="edit-variables">Edit Variables</h1>
+<h2 id="edit-variables">Edit Variables</h2>
 <p>Edit variables in the list of variables by using the <button class="btn btn-xs">
   <i class="glyphicon glyphicon-pencil" ></i>
 </button>
@@ -3255,7 +3275,7 @@ The activity instance tree contains a node for each activity that is currently a
        /></span>
 </figure>
 
-<h1 id="cancel-a-process-instance">Cancel a Process Instance</h1>
+<h2 id="cancel-a-process-instance">Cancel a Process Instance</h2>
 <p>In the process instance view, you can cancel a single process instance by clicking the trash icon on the right. A confirmation dialog will appear, and the runtime data of the canceled instance will be deleted when you click on the button &ldquo;Delete.&rdquo;</p>
 <!--In the dialog that appears, you can choose to skip custom listeners and to skip I/O mappings. After you have completed this step,-->
 <figure class="image">
@@ -3266,6 +3286,94 @@ The activity instance tree contains a node for each activity that is currently a
        /></span>
 </figure>
 
+<h2 id="call-activity-drill-down">Call Activity Drill Down</h2>
+<p>Call activity instances that call at least one process instance have an overlay on the lower right corner that links to their called process instances (see next screenshot).</p>
+<figure class="image">
+  <span><img
+      src="../../img/cockpit-call-activity-instance-drill-down.png"
+      
+          title="Call Activity Drill Down"
+       /></span>
+</figure>
+
+<p>If the call activity instance calls exactly one process instance, then clicking the overlay redirects to the called process instance page. However, if the number of called process instances exceeds one, then clicking the overlay will show the called process instances tab containing only process instances called by the selected call activity instance.</p>
+<h1 id="enterprise-functions">Enterprise Functions</h1>
+<p>In the enterprise version there are more features visible. The enterprise features are marked in orange.</p>
+<figure class="image">
+  <span><img
+      src="../../img/cockpit-process-instances-view-enterprise.png"
+      
+          title="Process Instance View Enterprise Versionscr"
+       /></span>
+</figure>
+
+<ul>
+<li><strong>Audit Log</strong>:</li>
+<li><strong>Executed decision instances</strong></li>
+<li><strong>User operations</strong></li>
+<li><strong>Job log</strong></li>
+<li><strong>External tasks log</strong></li>
+<li><strong>Modify</strong></li>
+<li><strong>Documentation</strong></li>
+</ul>
+<h2 id="audit-log">Audit log</h2>
+<p>In the Audit Log you can find a detailed overview of the activities that took place within the process instance. The columns from left to right are state, activity, start- and end time, activity instance ID.</p>
+<figure class="image">
+  <span><img
+      src="../../img/cockpit-process-instance-view-audit-log.png"
+      
+          title="Process Instance View Enterprise Versionscr"
+       /></span>
+</figure>
+
+<h2 id="executed-decision-instances">Executed decision instances</h2>
+<p>In the Executed Decision Instances tab you can find an overview of all decision instances which were evaluated in this process instance. From left to right you will find the columns ID, evaluation time, decision definition key, decision requirements definition and activity. Clicking on the id of the decision instance will take you to the decision instance view page of this instance. Clicking on the decision definition key will take you to the decision definition view page of the definition for this decision instance.</p>
+<figure class="image">
+  <span><img
+      src="../../img/cockpit-process-instance-view-executed-decision-instances.png"
+      
+          title="Process Instance View Enterprise Versionscr"
+       /></span>
+</figure>
+
+<h2 id="user-operations">User operations</h2>
+<p>In the User Operations tab you can see the operation, the process instance, the user, the change time, a property and the new value.</p>
+<figure class="image">
+  <span><img
+      src="../../img/cockpit-process-instance-view-user-operations.png"
+      
+          title="Process Instance View Enterprise Versionscr"
+       /></span>
+</figure>
+
+<h2 id="job-log">Job log</h2>
+<p>n the Job Log tab you can find an overview of all job related events of this process instance and the details of the specific jobs. From left to right you will find the columns state, message, timestamp, due date, activity, failed activity, job ID, type, configuration, retries, hostname, priority. If you click on the activity, the diagram will jump to this selected activity.</p>
+<figure class="image">
+  <span><img
+      src="../../img/cockpit-process-instance-view-job-log.png"
+      
+          title="Process Instance View Enterprise Versionscr"
+       /></span>
+</figure>
+
+<h2 id="external-tasks-log">External tasks log</h2>
+<p>In the external tasks log you can find an overview of all external tasks of this process instance. This includes information about the external task id, the state of the external task, the timestamp, the error message in case an external task has failed, the activity name, amount of retries, worked id, topic name and priority.</p>
+<figure class="image">
+  <span><img
+      src="../../img/cockpit-process-instance-view-external-task-log.png"
+      
+          title="Process Instance View Enterprise Versionscr"
+       /></span>
+</figure>
+
+<ul>
+<li><strong>Modify</strong></li>
+</ul>
+<p>For further details check out the chapter &ldquo;Process Modification&rdquo;.</p>
+<ul>
+<li><strong>Documentation</strong></li>
+</ul>
+<p>Tab displaying documentation.</p>
 
     </div>
   </div>
@@ -3275,12 +3383,25 @@ The activity instance tree contains a node for each activity that is currently a
   <h3>On this Page:</h3>
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#call-activity-drill-down">Call Activity Drill Down</a></li>
-    <li><a href="#detailed-information-panel">Detailed Information Panel</a></li>
-    <li><a href="#sorting-variables">Sorting Variables</a></li>
-    <li><a href="#add-variables">Add Variables</a></li>
-    <li><a href="#edit-variables">Edit Variables</a></li>
-    <li><a href="#cancel-a-process-instance">Cancel a Process Instance</a></li>
+    <li>
+      <ul>
+        <li><a href="#detailed-information-panel">Detailed Information Panel</a></li>
+        <li><a href="#sorting-variables">Sorting Variables</a></li>
+        <li><a href="#add-variables">Add Variables</a></li>
+        <li><a href="#edit-variables">Edit Variables</a></li>
+        <li><a href="#cancel-a-process-instance">Cancel a Process Instance</a></li>
+        <li><a href="#call-activity-drill-down">Call Activity Drill Down</a></li>
+      </ul>
+    </li>
+    <li><a href="#enterprise-functions">Enterprise Functions</a>
+      <ul>
+        <li><a href="#audit-log">Audit log</a></li>
+        <li><a href="#executed-decision-instances">Executed decision instances</a></li>
+        <li><a href="#user-operations">User operations</a></li>
+        <li><a href="#job-log">Job log</a></li>
+        <li><a href="#external-tasks-log">External tasks log</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
   <div class="docs-banner" style="display:none">
