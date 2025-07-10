@@ -3170,9 +3170,8 @@
     </div>
 
     <div class="col-xs-12 content-text">
-      <p>Some CIB seven features (e.g. enterprise plugins) require a license key. The license will be provided as a string by
-the CIB seven support team. The license mechanism has no impact on the engine or other runtime components. The following
-section explains the various methods by which a CIB seven license can be added to the Process Engine.</p>
+      <p>Some CIB seven features require a license key. The license will be provided as a string by
+the CIB seven support team. The following section explains the various methods by which a CIB seven license can be added to the Process Engine.</p>
 <h1 id="deployment-scenarios-and-the-license-key">Deployment Scenarios and the License Key</h1>
 <p>In a clustered scenario, CIB seven license key should be applied to all nodes. When activated, a license is valid until the expiration date. The license key is valid for an unlimited amount of engines.</p>
 <h1 id="license-key-pickup-methods">License Key Pickup Methods</h1>
@@ -3190,9 +3189,9 @@ automatically loaded in the database table unless a valid license key is already
 <p>CIB seven Run, and other Spring Boot applications that use the CIB seven Spring Boot Starter, can be provided with license  keys in two additional ways:</p>
 <ul>
 <li>provide a URL to a license file via a custom application property <code>cibseven.webclient.license.file.path</code> in your <code>application.yaml</code>.</li>
-<li>provide the license key in a file called <code>camunda-license.txt</code> and put it into <code>${user.home}/.cibseven/</code> directory.</li>
+<li>provide the license key in a file called <code>cibseven-license.txt</code> and put it into <code>${user.home}/.cibseven/</code> directory.</li>
 </ul>
-<p><strong>Note:</strong> For these two properties to be available, the CIB seven Run EE edition must be used, or the Spring Boot
+<p><strong>Note:</strong> For these two ways to be available, the CIB seven Run EE edition must be used, or the Spring Boot
 application must use the EE version of the starter, with <code>-ee</code> suffix.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependency&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;groupId&gt;</span>org.cibseven.bpm.springboot<span class="nt">&lt;/groupId&gt;</span>
@@ -3200,13 +3199,13 @@ application must use the EE version of the starter, with <code>-ee</code> suffix
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;version&gt;</span>${project-version}-ee<span class="nt">&lt;/version&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/dependency&gt;</span>
 </span></span></code></pre></div><h1 id="license-content">License content</h1>
-<p>This section defines what is a valid license key that will be accepted by the Process Engine. This description is
+<p>This section defines what is a valid license key that will be accepted by the CIB seven webclient. This description is
 valid for all <a href="#license-key-pickup-methods">License pickup methods</a>.</p>
 <p>A valid license key content is stored in a JSON format with the following items:</p>
 <pre tabindex="0"><code>{
-	&#34;Company&#34;: &#34;Test Solutions GmbH &amp; Co. KG&#34;,
-	&#34;Key&#34;: &#34;XXXX...&#34;,
-	&#34;Products&#34;: [ {&#34;Name&#34;: &#34;CIB seven&#34;}, ...]
+    &#34;customer&#34;:&#34;Test Solutions GmbH&#34;,
+	&#34;signature&#34;:&#34;XXXXXX...&#34;,
+    &#34;expires&#34;:&#34;2025-12-31&#34;}
 } 
 </code></pre><p>Note that omitting any part of the content will result in an error, and you will have to re-enter your
 license key in the correct format.</p>
