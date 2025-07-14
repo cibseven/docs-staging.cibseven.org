@@ -14,7 +14,7 @@
   <meta name="author" content="CIB software, CIB seven community" />
   
 
-  <title>Process Instance Restart | docs.cibseven.org</title>
+  <title>Process Restart | docs.cibseven.org</title>
 
   <meta name="generator" content="Hugo 0.136.4">
   <link rel="shortcut icon" href="/manual/latest/img/favicon.ico" type="image/x-icon" />
@@ -2821,14 +2821,6 @@
           
   <li>
     
-      <a href="/manual/latest/webapps/cockpit/bpmn/process-definition-history-view/" >Process Definition History View</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
       <a href="/manual/latest/webapps/cockpit/bpmn/process-instance-view/" >Process Instance View</a>
     
   </li>
@@ -2837,7 +2829,7 @@
           
   <li>
     
-      <a href="/manual/latest/webapps/cockpit/bpmn/process-instance-history-view/" >Process Instance History View</a>
+      <a href="/manual/latest/webapps/cockpit/bpmn/process-instance-history-view/" >Process History View</a>
     
   </li>
 
@@ -2845,7 +2837,7 @@
           
   <li>
     
-      <a href="/manual/latest/webapps/cockpit/bpmn/modify/" >Process Instance Modification</a>
+      <a href="/manual/latest/webapps/cockpit/bpmn/process-modification/" >Process Modification</a>
     
   </li>
 
@@ -2853,7 +2845,7 @@
           
   <li>
     
-      <a href="/manual/latest/webapps/cockpit/bpmn/process-instance-restart/" >Process Instance Restart</a>
+      <a href="/manual/latest/webapps/cockpit/bpmn/process-instance-restart/" >Process Restart</a>
     
   </li>
 
@@ -3166,76 +3158,78 @@
 <div class="page-content">
   <div class="container-fluid">
     <div class="col-xs-12 content-header">
-      <h1 class="page-title">Process Instance Restart</h1>
+      <h1 class="page-title">Process Restart</h1>
     </div>
 
     <div class="col-xs-12 content-text">
       
 <div class="note bg-info docs-info">
   <h3>Information</h3>
-  <p>Please note that this feature is only included in the enterprise edition of CIB 7.</p>
+  <p>Please note that this feature is only included in the enterprise edition of CIB seven.</p>
 </div>
 
-<p>The function described here is similar to the process instance modification [Process Instance Modification][user-guide-cockpit-modify].</p>
+<p>The function described here is similar to the process instance modification <a href="/manual/latest/webapps/cockpit/bpmn/process-modification/">Process Instance Modification</a>.</p>
 <h2 id="1-select-instance">1. Select Instance</h2>
-<p>In the <strong>process definition view</strong>, you can restart individual or multiple process instances. Navigate first to the tab &ldquo;restart&rdquo;.</p>
+<p>In the <strong>Process Definition View</strong>, you can restart individual or multiple process instances. First, navigate to the <code>'Restart Tab'</code>.</p>
 <figure class="image">
   <span><img
       src="../../img/cockpit-process-definition-restart-01.png"
       
-          title="Restart Tab"
+          title="Process Restart"
        /></span>
 </figure>
 
-<p>As in the <strong>process instance modification</strong> a restart of a terminated process instance includes instructions which are displayed in the bottom of the screen.</p>
+<p>As in the <strong>process instance modification</strong>, restarting a terminated process instance includes instructions, which are displayed at the bottom of the screen.</p>
 <p>To add an instruction, hover over and click on an activity in the process diagram. By using the modification button, you can select the instruction to be performed with this activity. There are two possibilities:</p>
 <ul>
-<li>start before: restart before the activity</li>
-<li>start after: restart after the activity</li>
+<li><strong>start before</strong>: restart before the activity</li>
+<li><strong>start after</strong>: restart after the activity</li>
 </ul>
-<p>The option &ldquo;start after&rdquo; is only possible if there is only one sequence flow going out of the activity.</p>
+<p>The option <code>'start after'</code> is only possible if there is only one sequence flow going out of the activity.</p>
 <figure class="image">
   <span><img
       src="../../img/cockpit-process-definition-restart-02.png"
       
-          title="Restart Tab"
+          title="Process Restart: Start after / start before"
        /></span>
 </figure>
 
-<p>At any point during the creation of the restart, you can show the payload by clicking the link &ldquo;show request payload&rdquo;. This will show the request payload that will be sent via the REST API.</p>
+<p>At any point during the creation of the restart, you can view the payload by clicking the link <code>'show request payload'</code>. This will display the request payload that will be sent via the REST API.</p>
 <figure class="image">
   <span><img
       src="../../img/cockpit-process-definition-restart-03.png"
       
-          title="Restart Tab"
+          title="Process Restart: Payload"
        /></span>
 </figure>
 
-<p>After clicking on select instances, a modal dialog is shown, where you can select your instances. Initially, all instances are displayed. You can use the filter bar above the list of instances to filter the displayed instances. You can select specific instances or click on the query button to select all instances matching the filter. In our example, there is only one instance which can be selected using the checkbox on the left.</p>
+<p>After clicking on <strong>select instances</strong>, a modal dialog is shown, where you can select your instances. Initially, all instances are displayed. You can use the filter bar above the list of instances to filter the displayed instances. You can select specific instances or click on the query button to select all instances matching the filter. In our example, there is only one instance, which can be selected using the checkbox on the left.</p>
 <figure class="image">
   <span><img
       src="../../img/cockpit-process-definition-restart-04.png"
       
-          title="Restart Selection"
+          title="Process Restart: Select Instances"
        /></span>
 </figure>
 
-<p>By clicking on the red button &ldquo;reset selected instances&rdquo;, the restart needs to be confirmed.</p>
+<p>By clicking on the red button <code>'reset selected instances'</code>, the restart needs to be confirmed.</p>
 <h2 id="2-confirm-restart">2. Confirm Restart</h2>
-<p>In this confirmation dialog you see two sections. The option section allows you to specify options related to the execution of the restart.</p>
+<p>In this confirmation dialog, you will see two sections. The options section allows you to specify settings related to the execution of the restart.</p>
 <figure class="image">
   <span><img
       src="../../img/cockpit-process-definition-restart-05.png"
       
-          title="Restart Confirmation"
+          title="Process Restart: Confirmation"
        /></span>
 </figure>
 
-<p>Asynchronous is recommended to keep ticked when you want to process a large number of instances. Otherwise, unchecking the box allows you to process the batch in a synchronous manner.</p>
-<p>Initial Variables allows you to set the initial set of variables. By default it is the last set of variables used.</p>
-<p>Without Business Key offers the option to avoid taking over the business key of the historic process instance to the new instance.</p>
-<p>Skip Custom Listeners and Skip IO Mappings make it possible to skip invocations of execution and task listeners as well as input/output mappings for the transaction that performs the restart. This can be useful when the restart is executed on a system that has no access to the involved process application deployments and their contained classes.</p>
-<p>The second section shows an summary over the operations and number of instances you have specified before.</p>
+<ul>
+<li><strong>Asynchronous</strong> is recommended to keep checked when you want to process a large number of instances. Otherwise, unchecking the box allows you to process the batch synchronously.</li>
+<li><strong>Skip Custom Listeners</strong> and <strong>Skip IO Mappings</strong> make it possible to skip invocations of execution and task listeners, as well as input/output mappings for the transaction that performs the restart. This can be useful when the restart is executed on a system that has no access to the involved process application deployments and their contained classes.</li>
+<li><strong>Initial variables</strong> allows you to set the initial set of variables. By default, it is the last set of variables used.</li>
+<li><strong>Without Business Key</strong> offers the option to avoid carrying over the business key of the historic process instance to the new instance.</li>
+</ul>
+<p>The part below shows a summary of the operations and number of instances you have specified earlier.</p>
 
     </div>
   </div>

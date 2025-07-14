@@ -2821,14 +2821,6 @@
           
   <li>
     
-      <a href="/manual/latest/webapps/cockpit/bpmn/process-definition-history-view/" >Process Definition History View</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
       <a href="/manual/latest/webapps/cockpit/bpmn/process-instance-view/" >Process Instance View</a>
     
   </li>
@@ -2837,7 +2829,7 @@
           
   <li>
     
-      <a href="/manual/latest/webapps/cockpit/bpmn/process-instance-history-view/" >Process Instance History View</a>
+      <a href="/manual/latest/webapps/cockpit/bpmn/process-instance-history-view/" >Process History View</a>
     
   </li>
 
@@ -2845,7 +2837,7 @@
           
   <li>
     
-      <a href="/manual/latest/webapps/cockpit/bpmn/modify/" >Process Instance Modification</a>
+      <a href="/manual/latest/webapps/cockpit/bpmn/process-modification/" >Process Modification</a>
     
   </li>
 
@@ -2853,7 +2845,7 @@
           
   <li>
     
-      <a href="/manual/latest/webapps/cockpit/bpmn/process-instance-restart/" >Process Instance Restart</a>
+      <a href="/manual/latest/webapps/cockpit/bpmn/process-instance-restart/" >Process Restart</a>
     
   </li>
 
@@ -3173,136 +3165,134 @@
       
 <div class="note bg-info docs-info">
   <h3>Information</h3>
-  <p>Please note that this feature is only included in the enterprise edition of CIB 7.</p>
+  <p>Please note that this feature is only included in the enterprise edition of CIB seven.</p>
 </div>
 
-<p>The Modify feature allows you to make changes to running process instances without stopping or interrupting their execution. It enables you to modify various aspects of a process, such as adding or removing user tasks, changing variables, or altering the process flow. This feature is particularly useful for correcting issues in a live process, adjusting workflows on the fly, or implementing emergency changes. It provides flexibility in managing long-running or critical processes, ensuring that process executions can continue smoothly while necessary updates are applied.</p>
-<p>In the detail view, you can modify the process instance’s execution state. A modification can be one or multiple of the following operations:</p>
+<p>The <strong>Modification</strong> feature allows you to make changes to running process instances without stopping or interrupting their execution. It enables you to modify various aspects of a process, such as adding or removing user tasks, changing variables, or altering the process flow. This feature is particularly useful for correcting issues in a live process, adjusting workflows on the fly, or implementing emergency changes. It provides flexibility in managing long-running or critical processes, ensuring that process executions continue smoothly while necessary updates are applied.</p>
+<p>In the detail view, you can modify the process instance’s execution state. A modification can include one or more of the following operations:</p>
 <ul>
 <li>Starting execution before an activity</li>
 <li>Starting execution after an activity on its single outgoing sequence flow</li>
-<li>Canceling an activity instance or all instances of an activity</li>
+<li>Canceling a running instance or all running instances of an activity</li>
 </ul>
 <h2 id="perform-a-modification">Perform a Modification</h2>
-<p>A modification consists of multiple instructions, which are displayed in the modification tab at the bottom half of the screen. It is possible to make a modification for</p>
+<p>A modification consists typically of multiple instructions, which are displayed in the modification tab at the bottom half of the screen. It is possible to make a modification for:</p>
 <ul>
-<li>one specific instance using the <strong>process instance view</strong></li>
-<li>multiple instances using the <strong>process definition view</strong> - we also speak about batch modification</li>
+<li>One specific instance using the <strong>Process Instance View</strong></li>
+<li>Multiple instances using the <strong>Process Definition View</strong> — this is also referred to as <strong>batch modification</strong></li>
 </ul>
 <figure class="image">
   <span><img
       src="../../img/cockpit-process-definition-modify-01.png"
       
-          title="Modify selection - instructions"
+          title="Process Modification: Instruction"
        /></span>
 </figure>
 
-<p>For both cases, first you need to select an task and then click on the modification icon in the upper-right corner. There a dropdown will be displayed where you can select the operations &ldquo;start before&rdquo;, &ldquo;start after&rdquo; or &ldquo;cancel&rdquo;. The operation &ldquo;cancle&rdquo; is only available, if there is actually a running instance. The operation &ldquo;start after&rdquo; is only possible if there is only one sequence flows going out of the task, not multiple.</p>
-<figure class="image">
-  <span><img
-      src="../../img/cockpit-process-definition-modify-02.png"
-      
-          title="Modify selection - operations"
-       /></span>
-</figure>
-
-<p>As soon as an operation is selected, a orange symbol will appear on the upper-left corner, indicating that there will be a modification be performed. A minus means that an activity or several will be canceled. A plus symbol means that it will be started.</p>
+<p>For both cases, first you need to navigate to the <code>'Modify Tab'</code> which is highlighted in the screenshot above. Additionally, you need to select a task and then click on the modification icon in the upper-right corner. A dropdown will be displayed where you can select the operations <code>'start before'</code>, <code>'start after'</code>, or <code>'cancel'</code>. The <code>'cancel'</code> operation is only available if there is a running instance. The <code>'start after'</code> operation is only possible if there is only one outgoing sequence flow from the task, not multiple.</p>
+<p>As soon as an operation is selected, an orange circle symbol will appear in the upper-left corner, indicating that a modification will be performed. A minus means that an activity or several will be canceled. A plus symbol means that it will be started. In the following screenshot we will make a modification for the activity <code>'Evaluate result'</code>.</p>
 <figure class="image">
   <span><img
       src="../../img/cockpit-process-definition-modify-03.png"
       
-          title="Modify selection - selection operation"
+          title="Process Modification: Selected Operation"
        /></span>
 </figure>
 
 <!--  You can also drag an instance badge (4) from one activity to another to create a “move token” operation which is represented by start and cancel operations.-->
-<p>When executing a modification, the instructions are applied in the specified order. You can change the order of the instructions by using the up and down arrows on the left. You can also remove an instruction from the modification. These options are highlighted with an orange frame in the next screenshot:</p>
+<p>When executing a modification, the instructions are applied in the specified order. You can change the order of the instructions by using the up and down arrows on the left. These options will be activated, if one or more instructions are added. You can also remove an instruction from the modification by clicking on the trash button. The mentioned options are highlighted with an orange frame in the next screenshot:</p>
 <figure class="image">
   <span><img
       src="../../img/cockpit-process-definition-modify-04.png"
       
-          title="Modify selection - moving operations"
+          title="Process Modification: Sorting Operations"
        /></span>
 </figure>
 
-<p>Next to this area, you will find a dropdown menu, where you can adjust the operation being performed. On the right, you will see the name of the selected task.</p>
-<p>To perform a so called batch operation meaning that multiple instances can be changed you need to do it via the <strong>process definition view</strong>, you first need to select the instances. In the following dialog, you can select the instances using the checkboxes on the left.</p>
+<p>Next to this area on the right, you will find a dropdown menu where you can adjust the operation being performed. Further on the right, you will see the name of the selected task.</p>
+<p>If you like to change multiple instances, you need to perform a so-called batch operation. This you need to do via the <strong>Process Definition View</strong>.</p>
 
 <div class="note bg-info docs-info">
-  <h3>Information</h3>
-  <p>Warning
-Selecting all instances might create a high load on the database and application runtime/server if the query has a high number of results.</p>
+  <h3>Warning</h3>
+  <p>Selecting all instances might create a high load on the database and application runtime/server if the query has a high number of results.</p>
 </div>
 
+<p>When performing a batch operation, you first need to select the instances. The following dialog shows how you can select them using the checkboxes on the left.</p>
 <figure class="image">
   <span><img
       src="../../img/cockpit-process-definition-modify-05.png"
       
-          title="Modify selection - select instances"
+          title="Process Modification: Select Instances"
        /></span>
 </figure>
 
-<p>You can also search for instances using a range of available selection criteria or create your own query, as shown in the following screenshot:</p>
+<p>You can also search for instances using a range of available selection criteria or by creating your own query. To use this feature, activate the <code>'Query'</code> radio button, as shown in the following screenshot.</p>
 <figure class="image">
   <span><img
       src="../../img/cockpit-process-definition-modify-06.png"
       
-          title="Modify selection - select instances"
+          title="Process Modification: Select Instances via Query"
        /></span>
 </figure>
 
-<p>Here you have two additional options to select - Asynchronous and Only Cancel Currently Active Activity Instances. By default both options are checked.</p>
-<p>It is recommended to keep Asynchronous ticked when you want to process a large number of instances. Otherwise, unchecking the box allows you to process the batch in a synchronous manner.</p>
-<p>The second option, Only Cancel Currently Active Activity Instances, only concerns modification operations which contain cancel instructions. This option prevents activity instances which are newly created during the modification operation to be instantly canceled by the same operation again.</p>
-<p>Let us discuss some cases in the following:</p>
+<p>As soon as you click on the button <code>'Apply modification'</code>, another dialog is shown (see below <a href="/manual/latest/webapps/cockpit/bpmn/process-modification/#review-modification-instructions">Review Modification Instructions</a>).</p>
+<p>Let us discuss some typical operations in the following:</p>
 <h3 id="cancel-running-active-instances">Cancel Running Active Instances</h3>
-<p>In this case we selected three instances and we want to perform the same operation for each of them. We cancle the different tasks:</p>
-<figure class="image">
-  <span><img
-      src="../../img/cockpit-process-definition-modify-cancle-01.png"
-      
-          title="Modify selection - select instances"
-       /></span>
-</figure>
-
-<p>To see the status of the batch you need to go to the batches area.</p>
-<p>When canceling all instances of an activity using the  button, all instances which exist at the moment this instruction is executed will be canceled. This will also cancel instances which were created in the same modification (e.g., using a startBefore instruction before the cancel instruction). In most cases, you probably want to explicitly state the instances to cancel.</p>
+<p>When canceling all instances of an activity, all instances that exist at the moment this instruction is executed will be canceled. This will also cancel instances created in the same modification (e.g., using a <code>startBefore</code> instruction before the cancel instruction). In most cases, you will probably want to explicitly state which instances to cancel.</p>
 <h3 id="start-new-activity-instances">Start New Activity Instances</h3>
-<p>Using a combination between cancle the running active instance and start the new instance, it allows you to move the token of an instance to another part in the process.</p>
-<p>When starting a new activity instance, you have the option to start before or start after the activity. In both cases you have the option to create new variables which are created or updated with the creation of the activity. Starting an activity instantiates all parent scopes (e.g., embedded sub process that contains the activity) that are not instantiated yet before the actual activity is executed.</p>
+<p>Using a combination of canceling the running active instance and starting a new instance allows you to <strong>move a process token of an instance</strong> to another part of the process.</p>
+<p>When starting a new activity instance, you have the option to start it before or after the activity. In both cases, you have the option to create new variables, which are created or updated with the creation of the activity. Starting an activity instantiates all parent scopes (e.g., embedded subprocesses that contain the activity) that are not yet instantiated before the actual activity is executed.</p>
 <!--
 ?? Funktioniert aktuell nicht?
 
 Additionally, you can specify the ancestor of the new activity instance if it is created in an embedded sub-process or as part of a multi-instance scenario. For every ancestor, the variables are displayed. When an activity is instantiated with a specific ancestor activity instance, all scopes between the ancestor’s activity and the target activity are instantiated. -->
-<p>When starting activities with a multi-instance, there is the option to either start a new multi-instance body of the activity, which executes the entire multi-instance construct and therefore creates the number of child activities specified in the multi-instance configuration for this task, or a new single instance of the activity in an already existing multi-instance body. The next screenshot shows the options marked with a orange fragem. Start before starts the the selected instance before the multi instance and Start before (Multi Instance) starts it in the body.</p>
+<p>When starting activities with a multi-instance, there is the option to either start a new multi-instance body for the activity, which executes the entire multi-instance construct and creates the number of child activities specified in the multi-instance configuration for this task, or start a new single instance of the activity in an already existing multi-instance body. The next screenshot shows the options marked with an orange frame. <strong>Start before</strong> starts the selected instance before the multi-instance, and <strong>Start before (Multi Instance)</strong> starts it within the body.</p>
 <figure class="image">
   <span><img
       src="../../img/cockpit-process-definition-modify-start-multi-01.png"
       
-          title="Start multi-instance"
+          title="Process Modification: Multi-Instances"
        /></span>
 </figure>
 
 <h2 id="review-modification-instructions">Review Modification Instructions</h2>
-<p>At any point during the creation of the modification, you can show the payload of the modification by clicking the link &ldquo;Show request payload&rdquo;. This will show the request payload that will be sent via the REST API.</p>
-
-<div class="note bg-info docs-info">
-  <h3>Information</h3>
-  <p>Semantics of Process Instance Modification
-The exact semantics of process instance modification as well as the underlying REST and Java API can be read about in the Process Instance Modification section of the user guide.</p>
-</div>
-
-<p>To perform the modification, you have to click on Apply modifications. Then you have a last chance to review the changes you are about to make and also review the request payload. You have an option to execute an Asynchronous modification and to add an annotation which will be added to the user operation log. After confirming the change, the modification is executed and the page is updated with the new execution state of the process instance.</p>
+<p>To perform the modification, you have to click on <strong>Apply Modifications</strong>.</p>
 <figure class="image">
   <span><img
-      src="../../img/cockpit-process-definition-modify-review-01.png"
+      src="../../img/cockpit-process-definition-modify-06.png"
       
-          title="Review "
+          title="Process Modification: Apply Modification"
+       /></span>
+</figure>
+
+<p>You will then have a final opportunity to review the changes you are about to apply, along with the request payload. In this dialog, several options are preselected by default. Some options are only visible if they are relevant to the specific use case.</p>
+<ul>
+<li><strong>Asynchronous</strong>: It is recommended to keep this checked if there is a significant number of instances to restart.</li>
+<li><strong>Skip Custom Listeners</strong>: Skips execution listener invocation for activities that are started or ended as part of this request.</li>
+<li><strong>Skip IO Mappings</strong>: Skips execution of input/output variable mappings for activities that are started or ended as part of this request.</li>
+<li><strong>Only Cancel Currently Active Activity Instances</strong>: Can only be used with cancel instructions. It prevents the deletion of all newly created activity instances.</li>
+</ul>
+<figure class="image">
+  <span><img
+      src="../../img/cockpit-process-definition-modify-07.png"
+      
+          title="Process Modification: Confirmation"
+       /></span>
+</figure>
+
+<p>Additionally, you can include an annotation, which will be logged in the user operation log.</p>
+<p>After confirming the change, the modification is executed, and the page is updated with the new execution state of the process instance.</p>
+<p>At any point during the creation of the modification, you can view the payload of the modification by clicking the link <code>'Show request payload'</code>. This will display the request payload that will be sent via the REST API.</p>
+<figure class="image">
+  <span><img
+      src="../../img/cockpit-process-definition-modify-payload-01.png"
+      
+          title="Process Modification: Review"
        /></span>
 </figure>
 
 <h2 id="perform-a-batch-modification">Perform a Batch Modification</h2>
-<p>When multiple process instances are required to be modified the batch modification feature can be used. To perform batch modifications, you need to click on the Modify tab in the <strong>process definition view</strong>.</p>
+<p>When multiple process instances need to be modified, the batch modification feature can be used. To perform batch modifications, you need to click on the <code>'Modify Tab'</code> in the <strong>Process Definition View</strong>.</p>
 
     </div>
   </div>

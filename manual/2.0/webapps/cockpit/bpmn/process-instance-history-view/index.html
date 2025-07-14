@@ -14,7 +14,7 @@
   <meta name="author" content="CIB software, CIB seven community" />
   
 
-  <title>Process Instance History View | docs.cibseven.org</title>
+  <title>Process History View | docs.cibseven.org</title>
 
   <meta name="generator" content="Hugo 0.136.4">
   <link rel="shortcut icon" href="/manual/2.0/img/favicon.ico" type="image/x-icon" />
@@ -2821,14 +2821,6 @@
           
   <li>
     
-      <a href="/manual/2.0/webapps/cockpit/bpmn/process-definition-history-view/" >Process Definition History View</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
       <a href="/manual/2.0/webapps/cockpit/bpmn/process-instance-view/" >Process Instance View</a>
     
   </li>
@@ -2837,7 +2829,7 @@
           
   <li>
     
-      <a href="/manual/2.0/webapps/cockpit/bpmn/process-instance-history-view/" >Process Instance History View</a>
+      <a href="/manual/2.0/webapps/cockpit/bpmn/process-instance-history-view/" >Process History View</a>
     
   </li>
 
@@ -2845,7 +2837,7 @@
           
   <li>
     
-      <a href="/manual/2.0/webapps/cockpit/bpmn/modify/" >Process Instance Modification</a>
+      <a href="/manual/2.0/webapps/cockpit/bpmn/process-modification/" >Process Modification</a>
     
   </li>
 
@@ -2853,7 +2845,7 @@
           
   <li>
     
-      <a href="/manual/2.0/webapps/cockpit/bpmn/process-instance-restart/" >Process Instance Restart</a>
+      <a href="/manual/2.0/webapps/cockpit/bpmn/process-instance-restart/" >Process Restart</a>
     
   </li>
 
@@ -3166,57 +3158,53 @@
 <div class="page-content">
   <div class="container-fluid">
     <div class="col-xs-12 content-header">
-      <h1 class="page-title">Process Instance History View</h1>
+      <h1 class="page-title">Process History View</h1>
     </div>
 
     <div class="col-xs-12 content-text">
       
 <div class="note bg-info docs-info">
   <h3>Information</h3>
-  <p>Please note that this feature is only included in the enterprise edition of CIB 7.</p>
+  <p>Please note that many of the mentioned tabs are features only included in the enterprise edition of CIB Seven. In the community version of CIB seven, historic process instances are also shown in the Process Instance View.</p>
 </div>
 
-<p>Also for historic process instance you see instance-specific information. First navigate to the <strong>process definition view</strong> and select a terminated or suspended instance using the eye-symbol on the lower-right corner.</p>
+<p>For historic process instances, you will also see instance-specific information. First, navigate to the <strong>process definition view</strong> and select a terminated or suspended instance using the eye symbol in the lower-right corner.</p>
 <figure class="image">
   <span><img
       src="../../img/cockpit-process-instance-view-01.png"
       
-          title="Process Definition View"
+          title="Process Definition View: Terminated or Suspended Instances"
        /></span>
 </figure>
 
 <!--On the left side of the screen, a filter can be applied and you have the option of selecting to only see process instances in specific states. Running, completed and canceled process instances can be viewed as well as task-specific activity states.-->
-<p>You can access various information regarding the specific instance by selecting the applicable tab at the bottom of the screen.</p>
+<p>You can access various information regarding the specific instance by selecting the applicable tab at the bottom of the screen. Check out the Section <a href="/manual/2.0/webapps/cockpit/bpmn/process-instance-view/">Process Instance View</a> for more details.</p>
 <ul>
-<li><strong>Variables</strong> In the Variables tab you can see an overview of the variables used within the process instance, including the name, type, value, scope as well as an action button for each variable, where the value can be changed.</li>
+<li><strong>Variables</strong>: In the <strong>Variables</strong> tab, you can see an overview of the variables used within the process instance, including the name, type, value, scope, as well as an action button for each variable where the value can be changed. For more information, see also <a href="/manual/2.0/webapps/cockpit/bpmn/process-instance-view/#variables-tab">Variable Tab</a>.</li>
+</ul>
+<ul>
+<li><strong>Incidents</strong>: In the <strong>Incidents</strong> tab, you can find a listing of all incidents related to this process instance and the details thereof. This includes the <code>'message type'</code>, the <code>'timestamp'</code> the incident was created, the <code>'current activity'</code>, the <code>'activity that caused the problem'</code>, the <code>'incident type'</code>, an <code>'annotation'</code>, and <code>'actions'</code>. For more information, see also <a href="/manual/2.0/webapps/cockpit/bpmn/process-definition-view/#incidents-tab">Incidents Tab</a>.</li>
+</ul>
+<ul>
+<li><strong>Called Process Instances</strong>: In the <strong>Called Process Instances</strong> tab, you can find an overview of other process instances that were called by this specific process instance. You can see the <code>'state'</code>, the <code>'called process instance ID'</code>, the <code>'name'</code>, and the <code>'activity'</code>. For more information, see also <a href="/manual/2.0/webapps/cockpit/bpmn/process-definition-view/#called-process-definitions">Called Process Definitions Tab</a>.</li>
 </ul>
 <!-- variable log, which shows the changes of the selected variable over time. Furthermore, you can filter for variables by variable name, activity instance id and variable value by using search pills. To do so, click in the empty search field and select a criterion. Next, fill in the respective values for the search pill. You can combine multiple search pills to narrow down the results. The total amount of results that suit the search query is displayed to the right. Furthermore, you can copy a link to the current search query to your clipboard by clicking on the  button and you can save search queries to your local browser storage by clicking on the  button and inserting a name in the drop down menu that appears. You can then retrieve the search query by clicking on the  button and selecting the chosen name in the drop down menu.
 You can delete historical variables by clicking on the  in the action column. To delete all historical variables, you can click the  button in the right sidebar.-->
 <ul>
-<li>
-<p><strong>Audit Log</strong> In the Audit Log you can find a detailed overview of the activities that took place within the process instance. The columns from left to right are state, activity, start- and end time, activity instance ID.</p>
-</li>
-<li>
-<p><strong>Called Process Instances</strong> In the Called Process Instances tab you can find an overview of other process instances which were called by this specific process instance. You can see the state, the called process instance ID, the name and the activity.</p>
-</li>
-<li>
-<p><strong>Executed Decision Instances</strong> In the Executed Decision Instances tab you can find an overview of all decision instances which were evaluated in this process instance. From left to right you will find the columns ID, evaluation time, decision definition key, decision requirements definition and activity. Clicking on the id of the decision instance will take you to the <strong>decision instance view</strong> page of this instance. Clicking on the decision definition key will take you to the <strong>decision definition view</strong> page of the definition for this decision instance.</p>
-</li>
-<li>
-<p><strong>Incidents</strong> In the Incidents tab you can find a listing of all incidents related to this process instance and the details thereof. This includes the message type, the timestamp the incident was created, the current activity, the activity that caused the problem, the incident type an annotation and actions.</p>
-</li>
+<li><strong>Audit Log</strong> (enterprise feature): In the <strong>Audit Log</strong>, you can find a detailed overview of the activities that took place within the process instance. The columns, from left to right, are <code>'state'</code>, <code>'activity'</code>, <code>'start time'</code>, <code>'end time'</code>, and <code>'activity instance ID'</code>. For more information, see also <a href="/manual/2.0/webapps/cockpit/bpmn/process-instance-view/#audit-log-tab">Audit Log Tab</a>.</li>
+</ul>
+<ul>
+<li><strong>Executed Decision Instances</strong> (enterprise feature): In the <strong>Executed Decision Instances</strong> tab, you can find an overview of all decision instances that were evaluated in this process instance. From left to right, you will find the columns <code>'ID'</code>, <code>'evaluation time'</code>, <code>'decision definition key'</code>, <code>'decision requirements definition'</code>, and <code>'activity'</code>. Clicking on the <code>'ID'</code> of the decision instance will take you to the <strong>decision instance view</strong> page for this instance. Clicking on the <code>'decision definition key'</code> will take you to the <strong>decision definition view</strong> page for the definition of this decision instance. For more information, see also <a href="/manual/2.0/webapps/cockpit/bpmn/process-instance-view/#executed-decision-instances-tab">Executed Decision Instances Tab</a>.</li>
 </ul>
 <!--- **User Tasks** In the User Tasks tab you can find an overview of all the user tasks related to this process instance and the details of the specific user tasks, such as the activity, the assignee, owner, start time, due date, the follow up date, and the unique task ID. -->
 <ul>
-<li>
-<p><strong>User operations</strong> In the User Operations tab you can see the operation, the user, the change time, a property and the new value.</p>
-</li>
-<li>
-<p><strong>Job Log</strong> In the Job Log tab you can find an overview of all job related events of this process instance and the details of the specific jobs, such as state, message, timestamp, due date, activity, failed activity, job ID, type, configuration, retries, hostname, priority. If you click on the activity, the diagram will jump to this selected activity.</p>
-</li>
-<li>
-<p><strong>External Tasks Log</strong> In the external tasks log you can find an overview of all external tasks of this process instance. This includes information about the external task id, the state of the external task, the timestamp, the error message in case an external task has failed, the activity name, amount of retries, worked id, topic name and priority.</p>
-</li>
+<li><strong>User Operations</strong> (enterprise feature): In the <strong>User Operations</strong> tab, you can see the <code>'operation'</code>, <code>'user'</code>, <code>'change time'</code>, <code>'property'</code>, and <code>'new value'</code>. For more information, see also <a href="/manual/2.0/webapps/cockpit/bpmn/process-instance-view/#user-operations-tab">User Operations Tab</a>.</li>
+</ul>
+<ul>
+<li><strong>Job Log</strong> (enterprise feature): In the <strong>Job Log</strong> tab, you can find an overview of all job-related events for this process instance and the details of the specific jobs, such as <code>'state'</code>, <code>'message'</code>, <code>'timestamp'</code>, <code>'due date'</code>, <code>'activity'</code>, <code>'failed activity'</code>, <code>'job ID'</code>, <code>'type'</code>, <code>'configuration'</code>, <code>'retries'</code>, <code>'hostname'</code>, and <code>'priority'</code>. If you click on the <code>'activity'</code>, the diagram will jump to this selected activity. For more information, see also <a href="/manual/2.0/webapps/cockpit/bpmn/process-instance-view/#job-log-tab">Job Log Tab</a>.</li>
+</ul>
+<ul>
+<li><strong>External Tasks Log</strong> (enterprise feature): In the <strong>External Tasks Log</strong>, you can find an overview of all external tasks for this process instance. This includes information about the <code>'external task ID'</code>, the <code>'state'</code> of the external task, the <code>'timestamp'</code>, the <code>'error message'</code> in case an external task has failed, the <code>'activity name'</code>, the <code>'amount of retries'</code>, the <code>'worker ID'</code>, the <code>'topic name'</code>, and the <code>'priority'</code>. For more information, see also <a href="/manual/2.0/webapps/cockpit/bpmn/process-instance-view/#external-tasks-log-tab">External Tasks Log</a>.</li>
 </ul>
 
     </div>
