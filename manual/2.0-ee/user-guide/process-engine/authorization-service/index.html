@@ -3423,6 +3423,14 @@ various other permission checks.</p>
 <p>Conditional UI Rendering: components, like <code>StartView.vue</code>, use these permission checks to conditionally render UI elements.</p>
 </li>
 </ul>
+
+<div class="note bg-info docs-info">
+  <h3>Important!</h3>
+  <p><p>Because of this mechanism, in order to use CIB seven webclient properly by ordinary users, it is mandatory to configure Authorization permissions as follows:</p>
+<p><code>type=GLOBAL, user=*, Permissions=READ, Resource ID=*</code></p>
+</p>
+</div>
+
 <h3 id="permission-configuration">Permission Configuration:</h3>
 <p>The required permissions for each features are defined in <code>config.json</code>.
 For example, to access authorization management, a user needs <code>ALL</code> permission on the <code>authorization</code> resource:
