@@ -3333,7 +3333,7 @@ All <a href="/manual/2.0-ee/user-guide/spring-boot-integration/configuration/#ci
 </div>
 
 <h2 id="migration-from-camunda">Migration from Camunda</h2>
-<p>If you are planning to migrate data from Camunda to CIB seven, you may need to activate the following properties in the configuration file: <code>production.yml</code> or <code>default.yml</code></p>
+<p>If you are planning to migrate data from Camunda to CIB seven, you may need to activate the following properties in the <a href="#choose-between-default-and-production-configuration">configuration file</a>: <code>production.yml</code> or <code>default.yml</code></p>
 <table class="table desc-table">
   <tr>
       <th>Prefix</th>
@@ -3357,7 +3357,7 @@ All <a href="/manual/2.0-ee/user-guide/spring-boot-integration/configuration/#ci
 
 <div class="note bg-info docs-info">
   <h3>Attention:</h3>
-  <p>Activation of these properties modifies names of the objects stored in the database, therefore, it is recommended to create a backup of the database beforehand.</p>
+  <p>Activation of <code>useCibSevenNamespaceInReflection</code> modifies names of the objects stored in the database, therefore, it is recommended to create a backup of the database beforehand.</p>
 </div>
 
 <p>For more information about the migration to CIB seven, see the following sections: <a href="/manual/2.0-ee/update/camunda/#migration-to-cib-seven-20">Migration to CIB seven</a> and <a href="/manual/2.0-ee/update/camunda/#migration-to-cib-seven-namespace">Migration to CIB seven namespace</a></p>
