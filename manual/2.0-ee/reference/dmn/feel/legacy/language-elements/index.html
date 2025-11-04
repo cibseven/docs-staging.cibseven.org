@@ -3204,10 +3204,7 @@ test an input value against an expression and return either <code>true</code> if
 is satisfied or <code>false</code> otherwise. The expression can contain different
 elements which are described in this sections.</p>
 
-<h2 id="comparison">
-  Comparison
-</h2>
-
+<h2 id="comparison">Comparison</h2>
 <p>FEEL simple unary tests support the following comparison operators. Please
 note that the equals operator is empty and <em>not</em> <code>=</code>. Also, a non equal operator such as <code>!=</code>
 does <em>not</em> exist. To express this, <a href="#negation">negation</a> has to be used.</p>
@@ -3250,10 +3247,7 @@ does <em>not</em> exist. To express this, <a href="#negation">negation</a> has t
   </tr>
 </table>
 
-<h2 id="range">
-  Range
-</h2>
-
+<h2 id="range">Range</h2>
 <p>Some <a href="/manual/2.0-ee/reference/dmn/feel/legacy/data-types/">FEEL data types</a>, such as numeric types and date types, can be tested against
 a range of values. These ranges consist of a start value and an end value. The
 range specifies if the start and end value is included in the range.</p>
@@ -3302,10 +3296,7 @@ range specifies if the start and end value is included in the range.</p>
   </tr>
 </table>
 
-<h2 id="disjunction">
-  Disjunction
-</h2>
-
+<h2 id="disjunction">Disjunction</h2>
 <p>A FEEL simple unary test can be specified as conjunction of expressions. These
 expressions have to either have <a href="#comparison">comparisons</a> or <a href="#range">ranges</a>. The test is <code>true</code> if
 at least one of conjunct expressions is <code>true</code>.</p>
@@ -3323,10 +3314,7 @@ December 1st, 2015 at 12:00:00 o&rsquo;clock</li>
 property of the variable <code>customer</code> or greater than 21</li>
 </ul>
 
-<h2 id="negation">
-  Negation
-</h2>
-
+<h2 id="negation">Negation</h2>
 <p>A FEEL simple unary test can be negated with the <code>not</code> function. This means if
 the containing expression returns <code>true</code>, the test will return <code>false</code>. Please
 <em>note</em> that only one negation as first operator is allowed but it can contain
@@ -3340,10 +3328,7 @@ than or equal to 10</li>
 <li><code>not([20..30])</code>: Test if the input is not between 20 and 30</li>
 </ul>
 
-<h2 id="qualified-names">
-  Qualified Names
-</h2>
-
+<h2 id="qualified-names">Qualified Names</h2>
 <p>FEEL simple unary tests can access variables and object properties by
 qualified names.</p>
 <p>Examples:</p>
@@ -3354,10 +3339,7 @@ qualified names.</p>
 variable <code>customer</code></li>
 </ul>
 
-<h2 id="date-functions">
-  Date Functions
-</h2>
-
+<h2 id="date-functions">Date Functions</h2>
 <p>FEEL simple unary tests provide functions to create <a href="/manual/2.0-ee/reference/dmn/feel/legacy/data-types/#date">date types</a>. The Camunda
 DMN engine supports the following date functions:</p>
 <ul>

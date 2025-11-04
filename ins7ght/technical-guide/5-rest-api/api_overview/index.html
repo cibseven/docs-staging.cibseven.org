@@ -428,12 +428,15 @@
     </div>
 
     <div class="col-xs-12 content-text">
-      <h1 id="rest-api-overview">REST API Overview</h1>
+      
+<h2 id="rest-api-overview">REST API Overview</h2>
 <p>CIB ins7ght exposes a REST API for accessing process analytics, statistics, and configuration data. All endpoints are accessible without authentication.</p>
 <p><strong>Base URL:</strong> <code>http://localhost:8899</code> (configurable via <code>server.port</code>)</p>
 <hr>
-<h2 id="api-categories">API Categories</h2>
-<h3 id="1-overview-statistics-api">1. Overview Statistics API</h3>
+
+<h3 id="api-categories">API Categories</h3>
+
+<h4 id="1-overview-statistics-api">1. Overview Statistics API</h4>
 <p><strong>Base Path:</strong> <code>/overview</code></p>
 <p>Provides aggregated metrics and time-series data for process instances.</p>
 <p><strong>Endpoints:</strong></p>
@@ -447,7 +450,8 @@
 </ul>
 <p><a href="./overview_statistics.md">View Details →</a></p>
 <hr>
-<h3 id="2-process-analysis-api">2. Process Analysis API</h3>
+
+<h4 id="2-process-analysis-api">2. Process Analysis API</h4>
 <p><strong>Base Path:</strong> <code>/process-analysis</code></p>
 <p>Provides detailed activity-level metrics, bottleneck detection, and outlier identification.</p>
 <p><strong>Endpoints:</strong></p>
@@ -461,7 +465,8 @@
 </ul>
 <p><a href="./process_analysis_bottleneck.md">View Details →</a></p>
 <hr>
-<h3 id="3-process-api">3. Process API</h3>
+
+<h4 id="3-process-api">3. Process API</h4>
 <p><strong>Base Path:</strong> <code>/process</code></p>
 <p>Provides access to process definitions, versions, and BPMN diagrams.</p>
 <p><strong>Endpoints:</strong></p>
@@ -472,7 +477,8 @@
 </ul>
 <p><a href="./process.md">View Details →</a></p>
 <hr>
-<h3 id="4-info-api">4. Info API</h3>
+
+<h4 id="4-info-api">4. Info API</h4>
 <p><strong>Base Path:</strong> <code>/info</code></p>
 <p>Provides application metadata and configuration.</p>
 <p><strong>Endpoints:</strong></p>
@@ -482,7 +488,8 @@
 </ul>
 <p><a href="./info.md">View Details →</a></p>
 <hr>
-<h3 id="5-polling-info-api">5. Polling Info API</h3>
+
+<h4 id="5-polling-info-api">5. Polling Info API</h4>
 <p><strong>Base Path:</strong> <code>/pollinfo</code></p>
 <p>Provides polling status and data synchronization information.</p>
 <p><strong>Endpoints:</strong></p>
@@ -491,19 +498,26 @@
 </ul>
 <p><a href="./pollinfo.md">View Details →</a></p>
 <hr>
-<h2 id="quick-start">Quick Start</h2>
-<h3 id="get-application-version">Get Application Version</h3>
+
+<h3 id="quick-start">Quick Start</h3>
+
+<h4 id="get-application-version">Get Application Version</h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X GET <span class="s2">&#34;http://localhost:8899/info&#34;</span>
-</span></span></code></pre></div><h3 id="get-all-processes">Get All Processes</h3>
+</span></span></code></pre></div>
+<h4 id="get-all-processes">Get All Processes</h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X GET <span class="s2">&#34;http://localhost:8899/process&#34;</span>
-</span></span></code></pre></div><h3 id="get-overview-statistics">Get Overview Statistics</h3>
+</span></span></code></pre></div>
+<h4 id="get-overview-statistics">Get Overview Statistics</h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X GET <span class="s2">&#34;http://localhost:8899/overview?processKey=invoice-process&amp;version=1&#34;</span>
-</span></span></code></pre></div><h3 id="get-activity-analysis">Get Activity Analysis</h3>
+</span></span></code></pre></div>
+<h4 id="get-activity-analysis">Get Activity Analysis</h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X GET <span class="s2">&#34;http://localhost:8899/process-analysis/activity?processKey=invoice-process&amp;version=1&#34;</span>
-</span></span></code></pre></div><h3 id="check-polling-status">Check Polling Status</h3>
+</span></span></code></pre></div>
+<h4 id="check-polling-status">Check Polling Status</h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X GET <span class="s2">&#34;http://localhost:8899/pollinfo&#34;</span>
 </span></span></code></pre></div><hr>
-<h2 id="common-parameters">Common Parameters</h2>
+
+<h3 id="common-parameters">Common Parameters</h3>
 <p>Most endpoints support the following query parameters for filtering:</p>
 <table>
   <thead>
@@ -537,51 +551,62 @@
   </tbody>
 </table>
 <hr>
-<h2 id="response-formats">Response Formats</h2>
-<h3 id="json">JSON</h3>
+
+<h3 id="response-formats">Response Formats</h3>
+
+<h4 id="json">JSON</h4>
 <p>Most endpoints return JSON data.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;field&#34;</span><span class="p">:</span> <span class="s2">&#34;value&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;numericField&#34;</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;arrayField&#34;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h3 id="plain-text">Plain Text</h3>
+</span></span></code></pre></div>
+<h4 id="plain-text">Plain Text</h4>
 <p>The <code>/info</code> endpoint returns plain text.</p>
 <pre tabindex="0"><code>0.0.2-SNAPSHOT 2025-01-29-1200
-</code></pre><h3 id="binary-xml">Binary (XML)</h3>
+</code></pre>
+<h4 id="binary-xml">Binary (XML)</h4>
 <p>The <code>/process/bpmn</code> endpoint returns BPMN XML as binary data.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;bpmn:definitions</span> <span class="err">...</span><span class="nt">&gt;</span>
 </span></span><span class="line"><span class="cl">  ...
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/bpmn:definitions&gt;</span>
 </span></span></code></pre></div><hr>
-<h2 id="data-types">Data Types</h2>
-<h3 id="timestamps">Timestamps</h3>
+
+<h3 id="data-types">Data Types</h3>
+
+<h4 id="timestamps">Timestamps</h4>
 <ul>
 <li><strong>Format:</strong> ISO 8601 with timezone (e.g., <code>2025-01-29T10:30:00Z</code>)</li>
 <li><strong>Unix Epoch:</strong> Long integers representing milliseconds since 1970-01-01 (e.g., <code>1704067200000</code>)</li>
 </ul>
-<h3 id="durations">Durations</h3>
+
+<h4 id="durations">Durations</h4>
 <ul>
 <li><strong>Format:</strong> Long integers representing milliseconds</li>
 <li><strong>Example:</strong> <code>3600000</code> (1 hour)</li>
 </ul>
-<h3 id="process-identifiers">Process Identifiers</h3>
+
+<h4 id="process-identifiers">Process Identifiers</h4>
 <ul>
 <li><strong>Process Key:</strong> String identifier for a process definition (e.g., <code>invoice-process</code>)</li>
 <li><strong>Version:</strong> String representing version number (e.g., <code>1</code>, <code>2</code>)</li>
 <li><strong>Process ID:</strong> Full process definition ID from CIB seven (e.g., <code>invoice-process:1:abc123</code>)</li>
 </ul>
 <hr>
-<h2 id="error-handling">Error Handling</h2>
-<h3 id="successful-response">Successful Response</h3>
+
+<h3 id="error-handling">Error Handling</h3>
+
+<h4 id="successful-response">Successful Response</h4>
 <pre tabindex="0"><code>HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
   &#34;data&#34;: &#34;...&#34;
 }
-</code></pre><h3 id="error-response">Error Response</h3>
+</code></pre>
+<h4 id="error-response">Error Response</h4>
 <pre tabindex="0"><code>HTTP/1.1 500 Internal Server Error
 Content-Type: application/json
 
@@ -599,10 +624,12 @@ Content-Type: application/json
 <li>Database connection issues → 500 error</li>
 </ul>
 <hr>
-<h2 id="cors">CORS</h2>
+
+<h3 id="cors">CORS</h3>
 <p>CIB ins7ght does not configure CORS headers. If cross-origin access is required, configure CORS at the reverse proxy level.</p>
 <hr>
-<h2 id="authentication">Authentication</h2>
+
+<h3 id="authentication">Authentication</h3>
 <p><strong>CIB ins7ght does not implement API authentication.</strong> All endpoints are publicly accessible.</p>
 <p>Access control must be implemented through:</p>
 <ul>
@@ -612,14 +639,18 @@ Content-Type: application/json
 </ul>
 <p>See <a href="../../2%20Setup%20CIB%20ins7ght/security_instructions.md">Security Instructions</a> for details.</p>
 <hr>
-<h2 id="rate-limiting">Rate Limiting</h2>
+
+<h3 id="rate-limiting">Rate Limiting</h3>
 <p>No rate limiting is implemented. Consider implementing rate limiting at the reverse proxy or infrastructure level if needed.</p>
 <hr>
-<h2 id="api-versioning">API Versioning</h2>
+
+<h3 id="api-versioning">API Versioning</h3>
 <p>The REST API is not versioned. Breaking changes will be documented in release notes.</p>
 <hr>
-<h2 id="testing-the-api">Testing the API</h2>
-<h3 id="using-curl">Using cURL</h3>
+
+<h3 id="testing-the-api">Testing the API</h3>
+
+<h4 id="using-curl">Using cURL</h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Simple GET request</span>
 </span></span><span class="line"><span class="cl">curl -X GET <span class="s2">&#34;http://localhost:8899/overview&#34;</span>
 </span></span><span class="line"><span class="cl">
@@ -628,13 +659,15 @@ Content-Type: application/json
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># Pretty print JSON response</span>
 </span></span><span class="line"><span class="cl">curl -X GET <span class="s2">&#34;http://localhost:8899/overview&#34;</span> <span class="p">|</span> jq .
-</span></span></code></pre></div><h3 id="using-browser">Using Browser</h3>
+</span></span></code></pre></div>
+<h4 id="using-browser">Using Browser</h4>
 <p>Most GET endpoints can be accessed directly in a browser:</p>
 <pre tabindex="0"><code>http://localhost:8899/process
 http://localhost:8899/pollinfo
 http://localhost:8899/info/properties
 </code></pre><hr>
-<h2 id="api-documentation-by-category">API Documentation by Category</h2>
+
+<h3 id="api-documentation-by-category">API Documentation by Category</h3>
 <ol>
 <li><a href="./overview_statistics.md">Overview Statistics API</a> - Aggregated metrics and time-series data</li>
 <li><a href="./process_analysis_bottleneck.md">Process Analysis API</a> - Activity analysis and bottleneck detection</li>
@@ -643,7 +676,8 @@ http://localhost:8899/info/properties
 <li><a href="./pollinfo.md">Polling Info API</a> - Polling status and synchronization</li>
 </ol>
 <hr>
-<h2 id="need-help">Need Help?</h2>
+
+<h3 id="need-help">Need Help?</h3>
 <ul>
 <li>Check individual API documentation pages for detailed endpoint information</li>
 <li>Review JSON examples for expected request/response formats</li>

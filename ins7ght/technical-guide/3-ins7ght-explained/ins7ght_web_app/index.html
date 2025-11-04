@@ -428,18 +428,22 @@
     </div>
 
     <div class="col-xs-12 content-text">
-      <h1 id="ins7ght-web-application">Ins7ght Web Application</h1>
+      
+<h2 id="ins7ght-web-application">Ins7ght Web Application</h2>
 <p>CIB ins7ght provides a web-based interface for process analytics and visualization. The application displays global statistics, process analysis, and bottleneck detection through interactive charts and BPMN diagrams.</p>
 <hr>
-<h2 id="architecture">Architecture</h2>
+
+<h3 id="architecture">Architecture</h3>
 <p>CIB ins7ght consists of three main layers:</p>
 <p><strong>Frontend:</strong> Web interface built with Vue 3 that displays visualizations and charts</p>
 <p><strong>Backend:</strong> Spring Boot application that processes data and exposes REST APIs</p>
 <p><strong>Database:</strong> Stores synchronized process data from CIB seven (PostgreSQL or H2)</p>
 <p>The backend continuously polls CIB seven via REST API to keep data synchronized.</p>
 <hr>
-<h2 id="technology-stack">Technology Stack</h2>
-<h3 id="backend">Backend</h3>
+
+<h3 id="technology-stack">Technology Stack</h3>
+
+<h4 id="backend">Backend</h4>
 <ul>
 <li><strong>Framework:</strong> Spring Boot 3.5.1</li>
 <li><strong>Language:</strong> Java 17</li>
@@ -447,7 +451,8 @@
 <li><strong>CIB Seven Integration:</strong> Camunda REST Client 7.22.0</li>
 <li><strong>Supported Databases:</strong> PostgreSQL 12+, H2 2.0.202+</li>
 </ul>
-<h3 id="frontend">Frontend</h3>
+
+<h4 id="frontend">Frontend</h4>
 <ul>
 <li><strong>Framework:</strong> Vue 3.5.13</li>
 <li><strong>Build Tool:</strong> Vite 6.2.3</li>
@@ -458,8 +463,10 @@
 <li><strong>Internationalization:</strong> Vue i18n (German, English, Spanish)</li>
 </ul>
 <hr>
-<h2 id="key-features">Key Features</h2>
-<h3 id="global-overview">Global Overview</h3>
+
+<h3 id="key-features">Key Features</h3>
+
+<h4 id="global-overview">Global Overview</h4>
 <p>Displays aggregated statistics across all processes:</p>
 <ul>
 <li>Total started and finalized instances</li>
@@ -467,7 +474,8 @@
 <li>Time series charts showing process execution over time</li>
 <li>Process-specific KPI cards</li>
 </ul>
-<h3 id="process-analysis">Process Analysis</h3>
+
+<h4 id="process-analysis">Process Analysis</h4>
 <p>Detailed analysis for individual processes:</p>
 <ul>
 <li>Activity-level performance metrics</li>
@@ -481,14 +489,16 @@
 </ul>
 </li>
 </ul>
-<h3 id="filtering">Filtering</h3>
+
+<h4 id="filtering">Filtering</h4>
 <p>All views support filtering by:</p>
 <ul>
 <li>Process definition</li>
 <li>Process version</li>
 <li>Time range</li>
 </ul>
-<h3 id="bpmn-visualization">BPMN Visualization</h3>
+
+<h4 id="bpmn-visualization">BPMN Visualization</h4>
 <p>Interactive BPMN diagram viewer with:</p>
 <ul>
 <li>Visual overlays for performance data</li>
@@ -498,15 +508,18 @@
 <li>Click-to-drill-down functionality</li>
 </ul>
 <hr>
-<h2 id="how-it-works">How It Works</h2>
-<h3 id="data-synchronization">Data Synchronization</h3>
+
+<h3 id="how-it-works">How It Works</h3>
+
+<h4 id="data-synchronization">Data Synchronization</h4>
 <ol>
 <li>The backend polling service connects to CIB seven REST API</li>
 <li>Process data is fetched incrementally (every 10 seconds by default)</li>
 <li>Data is transformed and stored in the CIB ins7ght database</li>
 <li>Historical data is available immediately for analysis</li>
 </ol>
-<h3 id="user-interaction">User Interaction</h3>
+
+<h4 id="user-interaction">User Interaction</h4>
 <ol>
 <li>User opens the web application in a browser</li>
 <li>User selects filters (process, time range, version)</li>
@@ -515,15 +528,18 @@
 <li>Results are displayed as charts and visualizations</li>
 </ol>
 <hr>
-<h2 id="deployment">Deployment</h2>
-<h3 id="application-structure">Application Structure</h3>
+
+<h3 id="deployment">Deployment</h3>
+
+<h4 id="application-structure">Application Structure</h4>
 <p>CIB ins7ght is packaged as a single WAR file that contains:</p>
 <ul>
 <li>Spring Boot backend application</li>
 <li>Vue frontend (compiled static assets)</li>
 <li>All required dependencies</li>
 </ul>
-<h3 id="deployment-options">Deployment Options</h3>
+
+<h4 id="deployment-options">Deployment Options</h4>
 <p><strong>Tomcat Deployment:</strong>
 Deploy the WAR file to Apache Tomcat 10 or higher. The frontend is served by the backend at the same URL.</p>
 <p><strong>Container Deployment:</strong>
@@ -531,8 +547,10 @@ The application can be deployed as a container using the pre-built images from <
 <p>Default port: <strong>8899</strong></p>
 <p>See <a href="../../2%20Setup%20CIB%20ins7ght/installation.md">Installation Guide</a> for deployment instructions.</p>
 <hr>
-<h2 id="configuration">Configuration</h2>
-<h3 id="backend-configuration">Backend Configuration</h3>
+
+<h3 id="configuration">Configuration</h3>
+
+<h4 id="backend-configuration">Backend Configuration</h4>
 <p>Key configuration options:</p>
 <ul>
 <li>Database connection settings</li>
@@ -540,7 +558,8 @@ The application can be deployed as a container using the pre-built images from <
 <li>Polling interval and batch sizes</li>
 <li>Authentication method for CIB seven</li>
 </ul>
-<h3 id="frontend-configuration">Frontend Configuration</h3>
+
+<h4 id="frontend-configuration">Frontend Configuration</h4>
 <p>The frontend reads API configuration from a <code>config.json</code> file:</p>
 <ul>
 <li>API base URL</li>
@@ -548,7 +567,8 @@ The application can be deployed as a container using the pre-built images from <
 </ul>
 <p>See <a href="../../2%20Setup%20CIB%20ins7ght/configuration.md">Configuration Guide</a> for details.</p>
 <hr>
-<h2 id="supported-languages">Supported Languages</h2>
+
+<h3 id="supported-languages">Supported Languages</h3>
 <p>The web interface supports multiple languages:</p>
 <ul>
 <li>German</li>
@@ -557,22 +577,26 @@ The application can be deployed as a container using the pre-built images from <
 </ul>
 <p>Language selection is available in the UI.</p>
 <hr>
-<h2 id="performance-considerations">Performance Considerations</h2>
-<h3 id="backend-1">Backend</h3>
+
+<h3 id="performance-considerations">Performance Considerations</h3>
+
+<h4 id="backend-1">Backend</h4>
 <ul>
 <li>Hibernate batch processing for efficient database operations</li>
 <li>Pagination for large data sets from CIB seven</li>
 <li>Database indexing for query performance</li>
 <li>Configurable polling intervals to balance freshness and load</li>
 </ul>
-<h3 id="frontend-1">Frontend</h3>
+
+<h4 id="frontend-1">Frontend</h4>
 <ul>
 <li>Optimized chart rendering for large datasets</li>
 <li>Vite build optimization for fast load times</li>
 <li>Asset minification and compression</li>
 </ul>
 <hr>
-<h2 id="browser-requirements">Browser Requirements</h2>
+
+<h3 id="browser-requirements">Browser Requirements</h3>
 <p>Modern web browsers with JavaScript enabled:</p>
 <ul>
 <li>Chrome 90+</li>
@@ -581,8 +605,10 @@ The application can be deployed as a container using the pre-built images from <
 <li>Safari 14+</li>
 </ul>
 <hr>
-<h2 id="troubleshooting">Troubleshooting</h2>
-<h3 id="backend-issues">Backend Issues</h3>
+
+<h3 id="troubleshooting">Troubleshooting</h3>
+
+<h4 id="backend-issues">Backend Issues</h4>
 <p><strong>Application not starting:</strong></p>
 <ul>
 <li>Check database connection configuration</li>
@@ -596,7 +622,8 @@ The application can be deployed as a container using the pre-built images from <
 <li>Ensure CIB seven REST API is accessible</li>
 <li>Review authentication configuration</li>
 </ul>
-<h3 id="frontend-issues">Frontend Issues</h3>
+
+<h4 id="frontend-issues">Frontend Issues</h4>
 <p><strong>Cannot connect to backend:</strong></p>
 <ul>
 <li>Verify <code>apiBaseUrl</code> in <code>config.json</code></li>
@@ -616,7 +643,8 @@ The application can be deployed as a container using the pre-built images from <
 <li>Check that process has been deployed to CIB seven</li>
 </ul>
 <hr>
-<h2 id="limitations">Limitations</h2>
+
+<h3 id="limitations">Limitations</h3>
 <ul>
 <li>
 <p><strong>No authentication:</strong> Access control must be implemented externally</p>
@@ -629,7 +657,8 @@ The application can be deployed as a container using the pre-built images from <
 </li>
 </ul>
 <hr>
-<h2 id="integration-with-cib-seven">Integration with CIB Seven</h2>
+
+<h3 id="integration-with-cib-seven">Integration with CIB Seven</h3>
 <p>CIB ins7ght connects to CIB seven as a read-only analytics tool:</p>
 <ul>
 <li>Accesses historical data via CIB seven REST API</li>

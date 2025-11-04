@@ -3252,10 +3252,7 @@ for processing. For more information on eventing, please consult the Spring manu
 </div>
 
 
-<h2 id="specifying-event-type">
-  Specifying event type
-</h2>
-
+<h2 id="specifying-event-type">Specifying event type</h2>
 <p>Spring allows to specify the event delivered to the listener by providing a SpEL condition in the
 <code>@EventListener</code> annotation. For example, you could register a listener for a task event fired by
 creating of the user task with a specific task definition key. Here is the code example:</p>
@@ -3268,10 +3265,7 @@ creating of the user task with a specific task definition key. Here is the code 
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
 </span></span></span></code></pre></div>
-<h2 id="ordering-event-listeners">
-  Ordering event listeners
-</h2>
-
+<h2 id="ordering-event-listeners">Ordering event listeners</h2>
 <p>Event listeners for the same event type can be executed in a specified order. To do so, provide an <code>Order</code> annotation
 to the event listener:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Component</span><span class="w">

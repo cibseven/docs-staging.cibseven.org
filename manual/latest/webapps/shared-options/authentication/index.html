@@ -3206,20 +3206,14 @@ in Tasklist or perform operations in Cockpit, for example.</p>
 what data the user can query for and which operations the user can perform.</p>
 <p>We implemented authentication with the help of a Java EE/Jakarta <code>ServletFilter</code>.</p>
 
-<h3 id="cache">
-  Cache
-</h3>
-
+<h3 id="cache">Cache</h3>
 <p>By default, after a successful login, the web apps keep a copy of the authentication information in memory for five minutes. This information is cached, and therefore we call this behavior <strong>authentication cache</strong>.</p>
 <p>The authentication cache is a performance optimization to prevent performing for each REST API request
 multiple database queries that potentially retrieve the same authentication information repeatedly
 given it didn&rsquo;t change.</p>
 <p>Read the security implications of the authentication cache in our <a href="/manual/latest/user-guide/security/#authentication-cache">Security Instructions</a>.</p>
 
-<h4 id="time-to-live">
-  Time to live
-</h4>
-
+<h4 id="time-to-live">Time to live</h4>
 <p>The time to live defines how long the cache is used for an HTTP session by the web apps before
 they recreate it and query for the authentication information again from the database.</p>
 <p>You can change the <code>cacheTimeToLive</code> configuration property with the following allowed values:</p>
@@ -3229,22 +3223,13 @@ they recreate it and query for the authentication information again from the dat
 <li>Remove the <code>&lt;init-param&gt;...&lt;/init-param&gt;</code> entirely or change the parameter value to <code>&lt;param-value/&gt;</code> to keep the cache for the lifetime of the HTTP session.</li>
 </ul>
 
-<h5 id="configuration">
-  Configuration
-</h5>
-
+<h5 id="configuration">Configuration</h5>
 <p>This section describes how to configure the authentication cache time to live.</p>
 
-<h6 id="spring-boot">
-  Spring Boot
-</h6>
-
+<h6 id="spring-boot">Spring Boot</h6>
 <p>You can find the configuration properties for the Spring Boot Starter in the <a href="/manual/latest/user-guide/spring-boot-integration/configuration/#auth-cache">User Guide</a>.</p>
 
-<h6 id="java-eejakarta-servlet-application-serversruntimes">
-  Java EE/Jakarta Servlet Application Servers/Runtimes
-</h6>
-
+<h6 id="java-eejakarta-servlet-application-serversruntimes">Java EE/Jakarta Servlet Application Servers/Runtimes</h6>
 <p>This is what the <code>web.xml</code>-based configuration looks like:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="c">&lt;!-- Authentication filter --&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;filter&gt;</span>
@@ -3261,10 +3246,7 @@ they recreate it and query for the authentication information again from the dat
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;dispatcher&gt;</span>REQUEST<span class="nt">&lt;/dispatcher&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/filter-mapping&gt;</span>
 </span></span></code></pre></div>
-<h3 id="container-based-authentication">
-  Container-Based Authentication
-</h3>
-
+<h3 id="container-based-authentication">Container-Based Authentication</h3>
 <p>CIB seven supports a broad range of containers, including Tomcat and Wildfly. Using Container-Based Authentication, it is possible to move the authentication action to the container level, which will then make the authentication result available to the CIB seven Web Applications.</p>
 
 <div class="note bg-info docs-info">
@@ -3273,10 +3255,7 @@ they recreate it and query for the authentication information again from the dat
 </div>
 
 
-<h4 id="enabling-container-based-authentication">
-  Enabling Container-Based Authentication
-</h4>
-
+<h4 id="enabling-container-based-authentication">Enabling Container-Based Authentication</h4>
 <p>The Container-Based Authentication implementation for the Web Applications is switched off by default, but can be activated by adding a servlet filter in the <code>web.xml</code> as follows:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">  <span class="c">&lt;!-- Container Based Authentication filter --&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;filter&gt;</span>
@@ -3293,10 +3272,7 @@ they recreate it and query for the authentication information again from the dat
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;dispatcher&gt;</span>REQUEST<span class="nt">&lt;/dispatcher&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;/filter-mapping&gt;</span>
 </span></span></code></pre></div>
-<h4 id="container-based-authentication-for-single-sign-on">
-  Container-Based Authentication for Single Sign-On
-</h4>
-
+<h4 id="container-based-authentication-for-single-sign-on">Container-Based Authentication for Single Sign-On</h4>
 <p>The CIB seven Web Applications can also integrate with a <a href="https://en.wikipedia.org/wiki/List_of_single_sign-on_implementations">Single Sign-On implementation</a> when the Container-Based Authentication servlet filter is enabled.</p>
 
     </div>

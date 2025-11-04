@@ -428,18 +428,22 @@
     </div>
 
     <div class="col-xs-12 content-text">
-      <h1 id="supported-environments">Supported Environments</h1>
+      
+<h2 id="supported-environments">Supported Environments</h2>
 <p>CIB ins7ght is designed to work seamlessly with specific database systems and runtime environments. This section outlines the supported configurations to ensure optimal performance and compatibility.</p>
 <hr>
-<h2 id="supported-databases">Supported Databases</h2>
+
+<h3 id="supported-databases">Supported Databases</h3>
 <p>CIB ins7ght requires access to a CIB seven database. The following database systems are supported:</p>
 <ul>
 <li><strong>PostgreSQL:</strong> Version 12 or higher (recommended)</li>
 <li><strong>H2 Database:</strong> Version 2.0.202 or higher</li>
 </ul>
 <hr>
-<h2 id="runtime-requirements">Runtime Requirements</h2>
-<h3 id="backend-requirements">Backend Requirements</h3>
+
+<h3 id="runtime-requirements">Runtime Requirements</h3>
+
+<h4 id="backend-requirements">Backend Requirements</h4>
 <ul>
 <li><strong>Java:</strong> Version 17 or higher (OpenJDK or Oracle JDK)</li>
 <li><strong>Spring Boot:</strong> Version 3.5.1</li>
@@ -448,7 +452,8 @@
 <li><strong>Minimum RAM:</strong> 1.5GB minimum, 3GB recommended (production)</li>
 <li><strong>Minimum CPU:</strong> 2 cores minimum, 4 cores recommended (production)</li>
 </ul>
-<h3 id="frontend-requirements">Frontend Requirements</h3>
+
+<h4 id="frontend-requirements">Frontend Requirements</h4>
 <ul>
 <li><strong>Node.js:</strong> Version 22.14.0 or higher</li>
 <li><strong>npm:</strong> Version 10.9.2 or higher</li>
@@ -462,7 +467,8 @@
 </li>
 </ul>
 <hr>
-<h2 id="network-requirements">Network Requirements</h2>
+
+<h3 id="network-requirements">Network Requirements</h3>
 <ul>
 <li>REST API access to CIB seven instance (engine-rest endpoint)</li>
 <li>HTTPS/TLS support for secure communication</li>
@@ -470,7 +476,8 @@
 <li>CIB seven engine-rest API accessibility</li>
 </ul>
 <hr>
-<h2 id="operating-system-support">Operating System Support</h2>
+
+<h3 id="operating-system-support">Operating System Support</h3>
 <ul>
 <li><strong>Linux:</strong> Ubuntu 20.04+, CentOS 8+, RHEL 8+, Debian 11+ (recommended for production)</li>
 <li><strong>Windows:</strong> Windows Server 2019+, Windows 10/11 (development and production)</li>
@@ -478,7 +485,8 @@
 <li><strong>Containerized:</strong> Docker, Kubernetes (using harbor.cib.de images)</li>
 </ul>
 <hr>
-<h2 id="cib-seven-compatibility">CIB seven Compatibility</h2>
+
+<h3 id="cib-seven-compatibility">CIB seven Compatibility</h3>
 <ul>
 <li><strong>CIB seven version:</strong> 7.22 or higher</li>
 <li><strong>Required CIB seven components:</strong>
@@ -491,7 +499,8 @@
 <li><strong>Camunda REST Client:</strong> Version 7.22.0</li>
 </ul>
 <hr>
-<h2 id="additional-notes">Additional Notes</h2>
+
+<h3 id="additional-notes">Additional Notes</h3>
 <ul>
 <li>Ensure adequate storage space for historical data retention (depends on process volume)</li>
 <li>Network latency between CIB ins7ght and CIB seven should be minimal for optimal polling performance (default polling interval: 10 seconds)</li>
@@ -499,7 +508,8 @@
 <li>The application can be deployed as a WAR file on Tomcat 10+ or as a containerized application</li>
 </ul>
 <hr>
-<h2 id="build-requirements">Build Requirements</h2>
+
+<h3 id="build-requirements">Build Requirements</h3>
 <p>For building from source:</p>
 <ul>
 <li><strong>Maven:</strong> Version 3.6 or higher</li>
@@ -508,7 +518,8 @@
 <li><strong>npm:</strong> Version 10.9.2 (for frontend build)</li>
 </ul>
 <hr>
-<h2 id="container-deployment">Container Deployment</h2>
+
+<h3 id="container-deployment">Container Deployment</h3>
 <ul>
 <li><strong>Base Image:</strong> Tomcat 10 (Bitnami)</li>
 <li><strong>Container Registry:</strong> harbor.cib.de</li>

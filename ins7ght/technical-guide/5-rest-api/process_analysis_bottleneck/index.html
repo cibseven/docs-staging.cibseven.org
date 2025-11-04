@@ -428,12 +428,15 @@
     </div>
 
     <div class="col-xs-12 content-text">
-      <h1 id="process-analysis-api">Process Analysis API</h1>
+      
+<h2 id="process-analysis-api">Process Analysis API</h2>
 <p>The Process Analysis API provides detailed activity-level metrics, bottleneck detection, outlier identification, and duration analysis for individual process definitions.</p>
 <p><strong>Base Path:</strong> <code>/process-analysis</code></p>
 <hr>
-<h2 id="endpoints">Endpoints</h2>
-<h3 id="get-process-analysisactivity">GET /process-analysis/activity</h3>
+
+<h3 id="endpoints">Endpoints</h3>
+
+<h4 id="get-process-analysisactivity">GET /process-analysis/activity</h4>
 <p>Returns activity-level statistics for a process.</p>
 <p><strong>Purpose:</strong> Get execution statistics for each activity in a process, including average duration, execution count, min/max durations.</p>
 <p><strong>Parameters:</strong></p>
@@ -547,7 +550,8 @@
   </tbody>
 </table>
 <hr>
-<h3 id="get-process-analysisactivity-duration">GET /process-analysis/activity-duration</h3>
+
+<h4 id="get-process-analysisactivity-duration">GET /process-analysis/activity-duration</h4>
 <p>Returns duration between two specific activities.</p>
 <p><strong>Purpose:</strong> Calculate the average time elapsed between a start activity and an end activity within process instances.</p>
 <p><strong>Parameters:</strong></p>
@@ -633,7 +637,8 @@
   </tbody>
 </table>
 <hr>
-<h3 id="get-process-analysisoutliers">GET /process-analysis/outliers</h3>
+
+<h4 id="get-process-analysisoutliers">GET /process-analysis/outliers</h4>
 <p>Returns outlier process instances based on duration thresholds.</p>
 <p><strong>Purpose:</strong> Identify process instances that took significantly longer or shorter than normal, useful for finding problem instances.</p>
 <p><strong>Parameters:</strong></p>
@@ -759,7 +764,8 @@
   </tbody>
 </table>
 <hr>
-<h3 id="get-process-analysisduration">GET /process-analysis/duration</h3>
+
+<h4 id="get-process-analysisduration">GET /process-analysis/duration</h4>
 <p>Returns duration distribution for process instances.</p>
 <p><strong>Purpose:</strong> Get histogram-style data showing the distribution of process instance durations.</p>
 <p><strong>Parameters:</strong></p>
@@ -841,7 +847,8 @@
   </tbody>
 </table>
 <hr>
-<h3 id="get-process-analysisthresholds">GET /process-analysis/thresholds</h3>
+
+<h4 id="get-process-analysisthresholds">GET /process-analysis/thresholds</h4>
 <p>Returns calculated threshold values for outlier detection.</p>
 <p><strong>Purpose:</strong> Get the lower and upper threshold values based on statistical analysis (typically using IQR method).</p>
 <p><strong>Parameters:</strong></p>
@@ -909,7 +916,8 @@
   </tbody>
 </table>
 <hr>
-<h3 id="get-process-analysisversion-duration">GET /process-analysis/version-duration</h3>
+
+<h4 id="get-process-analysisversion-duration">GET /process-analysis/version-duration</h4>
 <p>Returns duration statistics grouped by process version.</p>
 <p><strong>Purpose:</strong> Compare performance across different versions of the same process.</p>
 <p><strong>Parameters:</strong></p>
@@ -998,19 +1006,26 @@
   </tbody>
 </table>
 <hr>
-<h2 id="usage-examples">Usage Examples</h2>
-<h3 id="get-activity-statistics">Get Activity Statistics</h3>
+
+<h3 id="usage-examples">Usage Examples</h3>
+
+<h4 id="get-activity-statistics">Get Activity Statistics</h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X GET <span class="s2">&#34;http://localhost:8899/process-analysis/activity?processKey=invoice-process&amp;version=1&#34;</span>
-</span></span></code></pre></div><h3 id="get-duration-between-activities">Get Duration Between Activities</h3>
+</span></span></code></pre></div>
+<h4 id="get-duration-between-activities">Get Duration Between Activities</h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X GET <span class="s2">&#34;http://localhost:8899/process-analysis/activity-duration?processKey=invoice-process&amp;version=1&amp;startActivityId=Task_1&amp;endActivityId=Task_5&#34;</span>
-</span></span></code></pre></div><h3 id="get-outliers">Get Outliers</h3>
+</span></span></code></pre></div>
+<h4 id="get-outliers">Get Outliers</h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X GET <span class="s2">&#34;http://localhost:8899/process-analysis/outliers?processKey=invoice-process&amp;version=1&amp;lowerThresholdIqr=1000000&amp;upperThresholdIqr=5000000&amp;minResults=5&amp;maxResults=50&#34;</span>
-</span></span></code></pre></div><h3 id="get-duration-distribution">Get Duration Distribution</h3>
+</span></span></code></pre></div>
+<h4 id="get-duration-distribution">Get Duration Distribution</h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X GET <span class="s2">&#34;http://localhost:8899/process-analysis/duration?processKey=invoice-process&amp;version=1&amp;startDate=2025-01-01T00:00:00Z&amp;endDate=2025-01-31T23:59:59Z&#34;</span>
-</span></span></code></pre></div><h3 id="get-version-comparison">Get Version Comparison</h3>
+</span></span></code></pre></div>
+<h4 id="get-version-comparison">Get Version Comparison</h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X GET <span class="s2">&#34;http://localhost:8899/process-analysis/version-duration?processKey=invoice-process&amp;startDate=2025-01-01T00:00:00Z&amp;endDate=2025-01-31T23:59:59Z&#34;</span>
 </span></span></code></pre></div><hr>
-<h2 id="notes">Notes</h2>
+
+<h3 id="notes">Notes</h3>
 <ul>
 <li>All duration values are in milliseconds</li>
 <li>The <code>processKey</code> and <code>version</code> parameters are required for most endpoints</li>

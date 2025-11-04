@@ -3247,10 +3247,7 @@ scripts.</p>
   </tr>
 </table>
 
-<h2 id="use-script-tasks">
-  Use Script Tasks
-</h2>
-
+<h2 id="use-script-tasks">Use Script Tasks</h2>
 <p>With a BPMN 2.0 script task you can add a script to your BPM process (for more information see the
 <a href="/manual/latest/reference/bpmn20/tasks/script-task/">BPMN 2.0 reference</a>.</p>
 <p>The following process is a simple example with a Groovy script task that sums up the elements of an array.</p>
@@ -3282,10 +3279,7 @@ scripts.</p>
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">variables</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&#34;inputArray&#34;</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Integer</span><span class="o">[]</span><span class="p">{</span><span class="n">5</span><span class="p">,</span><span class="w"> </span><span class="n">23</span><span class="p">,</span><span class="w"> </span><span class="n">42</span><span class="p">});</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">runtimeService</span><span class="p">.</span><span class="na">startProcessInstanceByKey</span><span class="p">(</span><span class="s">&#34;process&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">variables</span><span class="p">);</span><span class="w">
 </span></span></span></code></pre></div>
-<h2 id="use-scripts-as-execution-listeners">
-  Use Scripts as Execution Listeners
-</h2>
-
+<h2 id="use-scripts-as-execution-listeners">Use Scripts as Execution Listeners</h2>
 <p>Besides Java code and expression language, CIB seven also supports the execution of a script
 as an execution listener. For general information about execution listeners see the corresponding
 <a href="/manual/latest/user-guide/process-engine/delegation-code/#execution-listener">section</a>.</p>
@@ -3324,10 +3318,7 @@ available, which corresponds to the <code>DelegateExecution</code> interface.</p
 </span></span></span><span class="line"><span class="cl"><span class="c">  --&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/process&gt;</span>
 </span></span></code></pre></div>
-<h2 id="use-scripts-as-task-listeners">
-  Use Scripts as Task Listeners
-</h2>
-
+<h2 id="use-scripts-as-task-listeners">Use Scripts as Task Listeners</h2>
 <p>Similar to execution listeners, task listeners can also be implemented as scripts. For general
 information about task listeners see the corresponding
 <a href="/manual/latest/user-guide/process-engine/delegation-code/#task-listener">section</a>.</p>
@@ -3346,10 +3337,7 @@ the <code>DelegateTask</code> interface.</p>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;/extensionElements&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/userTask&gt;</span>
 </span></span></code></pre></div>
-<h2 id="use-scripts-as-conditions">
-  Use Scripts as Conditions
-</h2>
-
+<h2 id="use-scripts-as-conditions">Use Scripts as Conditions</h2>
 <p>As an alternative to expression language, CIB seven allows you to use scripts as
 <code>conditionExpression</code> of conditional sequence flows. To do that, the <code>language</code> attribute of the
 <code>conditionExpression</code> element has to be set to the desired scripting language. The script source code
@@ -3368,10 +3356,7 @@ process variable which is available inside the script.</p>
 </span></span><span class="line"><span class="cl">      <span class="na">camunda:resource=</span><span class="s">&#34;org/cibseven/bpm/condition.groovy&#34;</span> <span class="nt">/&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/sequenceFlow&gt;</span>
 </span></span></code></pre></div>
-<h2 id="use-scripts-as-inputoutput-parameters">
-  Use Scripts as inputOutput Parameters
-</h2>
-
+<h2 id="use-scripts-as-inputoutput-parameters">Use Scripts as inputOutput Parameters</h2>
 <p>With the CIB seven <code>inputOutput</code> extension element you can map an <code>inputParameter</code> or <code>outputParameter</code>
 with a script. The following example process uses the Groovy script from the previous example to assign
 the Groovy variable <code>sum</code> to the process variable <code>x</code> for a Java delegate.</p>
@@ -3434,28 +3419,19 @@ for <a href="#script-source">script tasks</a>.</p>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;/camunda:inputParameter&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/camunda:inputOutput&gt;</span>
 </span></span></code></pre></div>
-<h2 id="script-engine-caching">
-  Script Engine Caching
-</h2>
-
+<h2 id="script-engine-caching">Script Engine Caching</h2>
 <p>Whenever the process engine reaches a point where a script has to be executed, the process engine looks for a Script Engine by a language name. The default behavior is that if it is the first request, a new Script Engine is created. If the Script Engine declares to be thread safe, it is also cached. The caching prevents the process engine from creating a new Script Engine for each request for the same script language.</p>
 <p>By default the caching of Script Engines happens at process application level. Each process application holds an own instance of a Script Engine for a given language. This behavior can be disabled by setting the process engine configuration flag named <code>enableFetchScriptEngineFromProcessApplication</code> to false. Consequently, the Script Engines are cached globally at process engine level and they are shared between each process application. For further details about the process engine configuration flag <code>enableFetchScriptEngineFromProcessApplication</code>, please read the section about <a href="/manual/latest/user-guide/process-engine/scripting/#reference-process-application-provided-classes">referencing process application classes</a>.</p>
 <p>If it is not desired to cache Script Engines in general, it can be disabled by setting the process engine configuration flag name <code>enableScriptEngineCaching</code> to false.</p>
 
-<h2 id="script-compilation">
-  Script Compilation
-</h2>
-
+<h2 id="script-compilation">Script Compilation</h2>
 <p>Most script engines compile script source code either to a Java class or to a different
 intermediary format prior to executing the script. Script engines implementing the Java <code>Compilable</code>
 interface allow programs to retrieve and cache the script compilation. The default setting of the
 process engine is to check if a Script Engine supports the compile feature. If true and the caching of Script Engines is enabled, the script engine compiles the script and then caches the compilation result. This prevents the process engine from compiling a script source each time the same script task is executed.</p>
 <p>By default, compilation of scripts is enabled. If you need to disable script compilation, you can set the process engine configuration flag named <code>enableScriptCompilation</code> to false.</p>
 
-<h2 id="load-script-engine">
-  Load Script Engine
-</h2>
-
+<h2 id="load-script-engine">Load Script Engine</h2>
 <p>If the process engine configuration flag named <code>enableFetchScriptEngineFromProcessApplication</code> is set to true, it is also possible to load Script Engines from the classpath of the process application. For that, the Script Engine can be packaged as a library within the process application. It is also possible to install the Script Engine globally.</p>
 <p>In case the Script Engine module should be installed globally and Wildfly is used, it is necessary to add a module dependency to the Script Engine. This can be done by adding a <code>jboss-deployment-structure.xml</code> to the process application, e.g.,:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
@@ -3468,10 +3444,7 @@ process engine is to check if a Script Engine supports the compile feature. If t
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;/deployment&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/jboss-deployment-structure&gt;</span>
 </span></span></code></pre></div>
-<h2 id="configure-script-engine">
-  Configure Script Engine
-</h2>
-
+<h2 id="configure-script-engine">Configure Script Engine</h2>
 <p>Most script engines offer configuration options to adjust their script execution semantics.
 We provide the following default configurations for supported script engines before executing code on them:</p>
 <table class="table desc-table">
@@ -3500,10 +3473,7 @@ We provide the following default configurations for supported script engines bef
 <p>Note that for JavaScript execution you might be able to choose the script engine to use depending on your setup. Consult
 <a href="#javascript-considerations">JavaScript Considerations</a> for further information.</p>
 
-<h3 id="process-engine-flags">
-  Process engine flags
-</h3>
-
+<h3 id="process-engine-flags">Process engine flags</h3>
 <p>You can use the following process engine configuration flags to influence the configuration of specific script engines:</p>
 <ul>
 <li><a href="/manual/latest/reference/deployment-descriptors/tags/process-engine/#configureScriptEngineHostAccess">configureScriptEngineHostAccess</a> -
@@ -3514,10 +3484,7 @@ Specifies whether external resources can be loaded from file system or not.</li>
 Specifies whether Nashorn compatibility mode is enabled or not.</li>
 </ul>
 
-<h3 id="system-properties">
-  System properties
-</h3>
-
+<h3 id="system-properties">System properties</h3>
 <p>Depending on the script engine, specific system properties can be used to influence the setup of the script engine.
 Consult the development guides of the script engine you want to configure for further information on available parameters.
 Note that the supported options can differ between versions of the script engine.</p>
@@ -3526,10 +3493,7 @@ for example upon application start on command line via <code>-Dparameter=value</
 Consult your application server&rsquo;s documentation to learn how to pass on JVM arguments. CIB seven Run supports setting
 JVM arguments via the <code>JAVA_OPTS</code> environment variable as well.</p>
 
-<h3 id="custom-scriptengineresolver">
-  Custom ScriptEngineResolver
-</h3>
-
+<h3 id="custom-scriptengineresolver">Custom ScriptEngineResolver</h3>
 <p>You can provide a custom <code>ScriptEngineResolver</code> implementation to configure script engines. Depending on the specifc script engine to configure,
 you can gain more configuration options with this approach. You can add your custom script engine resolver to the engine configuration
 with the <code>#setScriptEngineResolver(ScriptEngineResolver)</code> method.</p>
@@ -3576,10 +3540,7 @@ instance with Nashorn Compatibility Mode enabled:</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
 </span></span></span></code></pre></div>
-<h2 id="reference-process-application-provided-classes">
-  Reference Process Application Provided Classes
-</h2>
-
+<h2 id="reference-process-application-provided-classes">Reference Process Application Provided Classes</h2>
 <p>The script can reference to process application provided classes by importing them like in the following groovy script example.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">my.process.application.CustomClass</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
@@ -3588,10 +3549,7 @@ instance with Nashorn Compatibility Mode enabled:</p>
 </span></span></span></code></pre></div><p>To avoid possible class loading problems during the script execution, it is recommended to set the process engine configuration flag name <code>enableFetchScriptEngineFromProcessApplication</code> to true.</p>
 <p>Be aware that the process engine flag <code>enableFetchScriptEngineFromProcessApplication</code> is only relevant in a shared engine scenario.</p>
 
-<h2 id="variables-available-during-script-execution">
-  Variables Available During Script Execution
-</h2>
-
+<h2 id="variables-available-during-script-execution">Variables Available During Script Execution</h2>
 <p>During the execution of scripts, all process variables visible in the current scope are available.
 They can be accessed directly by the name of the variable (i.e., <code>sum</code>). This does not apply for
 JRuby where you have to access the variable as a ruby global variable (prepend with a dollar sign,
@@ -3619,10 +3577,7 @@ interface which means that it can be used to get and set variables or access pro
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">taskDefinitionKey</span><span class="p">(</span><span class="s">&#34;task&#34;</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">singleResult</span><span class="p">()</span><span class="w">
 </span></span></span></code></pre></div>
-<h2 id="accessing-process-engine-services-using-scripts">
-  Accessing Process Engine Services using Scripts
-</h2>
-
+<h2 id="accessing-process-engine-services-using-scripts">Accessing Process Engine Services using Scripts</h2>
 <p>CIB seven&rsquo;s Java API provides access to CIB seven&rsquo;s process engine services; these services can be accessed using Scripts:</p>
 <p><a href="/javadoc/cibseven/2.0-ee/org/cibseven/bpm/engine/ProcessEngineServices.html">Process Engine Services</a>
  \</p>
@@ -3631,10 +3586,7 @@ interface which means that it can be used to get and set variables or access pro
 <p>Example of creating a BPMN Message that correlates with the message key &ldquo;work&rdquo;:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="nx">execution</span><span class="p">.</span><span class="nx">getProcessEngineServices</span><span class="p">().</span><span class="nx">getRuntimeService</span><span class="p">().</span><span class="nx">createMessageCorrelation</span><span class="p">(</span><span class="s2">&#34;work&#34;</span><span class="p">).</span><span class="nx">correlateWithResult</span><span class="p">();</span>
 </span></span></code></pre></div>
-<h2 id="printing-to-console-using-scripts">
-  Printing to Console using Scripts
-</h2>
-
+<h2 id="printing-to-console-using-scripts">Printing to Console using Scripts</h2>
 <p>During the execution of scripts, it might be desired to print to the console due to logging and debugging reasons.</p>
 <p>Here are examples on how this can be accomplished in the respective language:</p>
 <ul>
@@ -3647,10 +3599,7 @@ interface which means that it can be used to get and set variables or access pro
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">var</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">System</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">system</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="err">&#39;</span><span class="n">This</span><span class="w"> </span><span class="n">prints</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">console</span><span class="err">&#39;</span><span class="p">);</span><span class="w">
 </span></span></span></code></pre></div>
-<h2 id="script-source">
-  Script Source
-</h2>
-
+<h2 id="script-source">Script Source</h2>
 <p>The standard way to specify the script source code in the BPMN XML model is to add it directly to
 the XML file. Nonetheless, CIB seven provides additional ways to specify the script source.</p>
 <p>If you use another scripting language than Expression Language, you can also specify the script
@@ -3712,10 +3661,7 @@ script task.</p>
 <a href="/manual/latest/reference/bpmn20/custom-extensions/extension-attributes/#resource">camunda:resource</a>
 section of the <a href="/manual/latest/reference/bpmn20/custom-extensions/">Custom Extensions</a> chapter.</p>
 
-<h2 id="javascript-considerations">
-  JavaScript Considerations
-</h2>
-
+<h2 id="javascript-considerations">JavaScript Considerations</h2>
 <p>JavaScript code execution is part of the Java Runtime (JRE) with the <strong>Nashorn</strong> script engine until Java 14 and thus only there available out of the box.
 We include <strong>GraalVM JavaScript</strong> in the pre-packaged CIB seven distributions as a replacement regardless of the JRE version.
 JavaScript code executes on GraalVM JavaScript with preference in the process engine context if this script engine is available.

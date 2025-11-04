@@ -3245,10 +3245,7 @@
 </span></span></span></code></pre></div><p>When this task is completed, the second inclusive gateway joins the two executions and, since there is only one outgoing sequence flow, no concurrent paths of execution are created and only the Archive Order task is active.</p>
 <p>Note that an inclusive gateway does not need to be &lsquo;balanced&rsquo; (i.e., a matching number of incoming/outgoing sequence flows for corresponding inclusive gateways). An inclusive gateway will simply wait for all incoming sequence flows and create a concurrent path of execution for each outgoing sequence flow, not influenced by other constructs in the process model.</p>
 
-<h2 id="camunda-specific-behavior">
-  Camunda-specific behavior
-</h2>
-
+<h2 id="camunda-specific-behavior">Camunda-specific behavior</h2>
 <p>Note that in Camunda&rsquo;s implementation of the inclusive gateway, the following holds:</p>
 <ul>
 <li>If the join waits for a token, but that token takes a different turn in the process
@@ -3303,10 +3300,7 @@ instead of the <code>Inclusive Gateway 1</code>.</p>
 </li>
 </ol>
 
-<h2 id="camunda-extensions">
-  Camunda Extensions
-</h2>
-
+<h2 id="camunda-extensions">Camunda Extensions</h2>
 <table class="table table-striped">
   <tr>
     <th>Attributes</th>
@@ -3333,10 +3327,7 @@ instead of the <code>Inclusive Gateway 1</code>.</p>
   </tr>
 </table>
 
-<h2 id="additional-resources">
-  Additional Resources
-</h2>
-
+<h2 id="additional-resources">Additional Resources</h2>
 <ul>
 <li><a href="http://camunda.org/bpmn/reference.html#gateways-data-based-inclusive-gateways">Inclusive Gateways</a> in the <a href="http://camunda.org/bpmn/reference.html">BPMN 2.0 Modeling Reference</a></li>
 <li><a href="/manual/latest/reference/bpmn20/gateways/sequence-flow/">Conditional and Default Sequence Flows</a></li>

@@ -3196,10 +3196,7 @@ value matches the specified type. If the types do not match, the engine
 tries to transform the value into the specified type or throws an exception.</p>
 <p>The DMN engine supports basic types which can be extended by custom types.</p>
 
-<h2 id="supported-data-types">
-  Supported Data Types
-</h2>
-
+<h2 id="supported-data-types">Supported Data Types</h2>
 <p>The following types are supported by the DMN engine:</p>
 <table class="table table-striped">
   <tr>
@@ -3246,10 +3243,7 @@ additional type informations.</p>
 <p>If the given type does not match one of the above types then the value is
 transformed into an untyped value by default.</p>
 
-<h3 id="working-with-dates">
-  Working with Dates
-</h3>
-
+<h3 id="working-with-dates">Working with Dates</h3>
 <p>The DMN engine supports a <code>date</code> type which is a combination of date and time.
 By default, the data type transformer accept objects of the types:</p>
 <ul>
@@ -3261,10 +3255,7 @@ By default, the data type transformer accept objects of the types:</p>
 <p>If you prefer another format or different representation of a date,
 implement a custom type and <a href="/manual/latest/user-guide/dmn-engine/embed/#register-dmn-data-type-transformers">replace the default transformer</a>.</p>
 
-<h2 id="setting-the-data-type-of-an-input">
-  Setting the Data Type of an Input
-</h2>
-
+<h2 id="setting-the-data-type-of-an-input">Setting the Data Type of an Input</h2>
 <p>The type of a decision table input is specified by the <code>typeRef</code> attribute on the
 <code>inputExpression</code> element.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;decision&gt;</span>
@@ -3278,10 +3269,7 @@ implement a custom type and <a href="/manual/latest/user-guide/dmn-engine/embed/
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;/decisionTable&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/decision&gt;</span>
 </span></span></code></pre></div>
-<h2 id="setting-the-data-type-of-an-output">
-  Setting the Data Type of an Output
-</h2>
-
+<h2 id="setting-the-data-type-of-an-output">Setting the Data Type of an Output</h2>
 <p>The type of a decision table output is specified by the <code>typeRef</code> attribute on the <code>output</code>
 element.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;decision&gt;</span>
@@ -3292,10 +3280,7 @@ element.</p>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;/decisionTable&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/decision&gt;</span>
 </span></span></code></pre></div>
-<h2 id="setting-the-data-type-of-a-variable">
-  Setting the Data Type of a Variable
-</h2>
-
+<h2 id="setting-the-data-type-of-a-variable">Setting the Data Type of a Variable</h2>
 <p>The type of a decision literal expression result is specified by the <code>typeRef</code> attribute on the <code>variable</code>
 element.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;decision&gt;</span>
@@ -3303,10 +3288,7 @@ element.</p>
 </span></span><span class="line"><span class="cl">  <span class="c">&lt;!-- ... --&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/decision&gt;</span>
 </span></span></code></pre></div>
-<h2 id="implement-a-custom-data-type">
-  Implement a Custom Data Type
-</h2>
-
+<h2 id="implement-a-custom-data-type">Implement a Custom Data Type</h2>
 
 <div class="note bg-warning docs-warning">
   <h3>Use of Internal API</h3>

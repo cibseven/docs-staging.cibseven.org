@@ -428,15 +428,18 @@
     </div>
 
     <div class="col-xs-12 content-text">
-      <h1 id="frequently-asked-questions-faq">Frequently Asked Questions (FAQ)</h1>
+      
+<h2 id="frequently-asked-questions-faq">Frequently Asked Questions (FAQ)</h2>
 <p>Below you’ll find answers to common questions about CIB ins7ght, its data handling, and how it complements existing CIB seven tools.</p>
 <hr>
-<h2 id="how-often-is-data-updated">How often is data updated?</h2>
+
+<h3 id="how-often-is-data-updated">How often is data updated?</h3>
 <p>CIB ins7ght includes a polling client that connects to the CIB seven database,via REST API, at regular intervals (configurable, e.g., every few seconds or minutes).<br>
 This ensures that data remains up to date with minimal delay between process execution and visualization.<br>
 During initial setup, a full data load is performed to import all historical process information — subsequent updates only fetch new or modified records.</p>
 <hr>
-<h2 id="is-data-secure">Is data secure?</h2>
+
+<h3 id="is-data-secure">Is data secure?</h3>
 <p>Yes. CIB ins7ght does <strong>not</strong> modify or write to the CIB seven database.<br>
 It only performs <strong>read-only</strong> operations to copy data into a dedicated analytics database.<br>
 All calculations and transformations are executed on a <strong>separate raw data layer</strong>, ensuring:</p>
@@ -445,7 +448,8 @@ All calculations and transformations are executed on a <strong>separate raw data
 <li>Access can be restricted via standard database permissions.</li>
 </ul>
 <hr>
-<h2 id="how-is-this-different-from-cib-seven-cockpit">How is this different from CIB seven Cockpit?</h2>
+
+<h3 id="how-is-this-different-from-cib-seven-cockpit">How is this different from CIB seven Cockpit?</h3>
 <p>CIB seven Cockpit is primarily an <strong>operational monitoring</strong> tool — it allows process owners to inspect individual process instances, troubleshoot incidents, and manage running workflows.</p>
 <p>CIB ins7ght, on the other hand, focuses on <strong>process intelligence and analytics</strong>:</p>
 <ul>
@@ -456,7 +460,8 @@ All calculations and transformations are executed on a <strong>separate raw data
 </ul>
 <p>In short, Cockpit is for <em>process monitoring on a higher level</em>, while CIB ins7ght is for <em>process analysis and optimization</em>.</p>
 <hr>
-<h2 id="what-data-does-cib-ins7ght-use">What data does CIB ins7ght use?</h2>
+
+<h3 id="what-data-does-cib-ins7ght-use">What data does CIB ins7ght use?</h3>
 <p>Only historical and definition data are extracted:</p>
 <ul>
 <li><code>act_hi_procinst</code></li>

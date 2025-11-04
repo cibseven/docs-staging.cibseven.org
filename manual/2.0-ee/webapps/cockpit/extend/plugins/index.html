@@ -3200,18 +3200,12 @@
 </figure>
 
 
-<h2 id="the-nature-of-a-cockpit-plugin">
-  The Nature of a Cockpit Plugin
-</h2>
-
+<h2 id="the-nature-of-a-cockpit-plugin">The Nature of a Cockpit Plugin</h2>
 <p>A Cockpit plugin is a maven jar project that is included in the Cockpit webapplication as a library dependency. It provides a server-side and a client-side extension to Cockpit.</p>
 <p>On the server-side, it can extend Cockpit with custom SQL queries and JAX-RS resource classes. Queries (defined via <a href="http://www.mybatis.org/">MyBatis</a>) may be used to squeeze additional intel out of an engine database or to execute custom engine operations. JAX-RS resources on the other hand extend the Cockpit API and expose data to the client-side part of the plugin.</p>
 <p>On the client-side a plugin may include Javascript modules to extend the Cockpit webapplication. Via those modules a plugin provides custom views.</p>
 
-<h3 id="file-structure">
-  File structure
-</h3>
-
+<h3 id="file-structure">File structure</h3>
 <p>The basic skeleton of a Cockpit plugin looks as follows:</p>
 <pre><code>cockpit-plugin/
 ├── src/
@@ -3271,10 +3265,7 @@ The default implementation contains two predefined assets: <code>app/plugin.js</
 </div>
 
 
-<h3 id="structure-of-a-frontend-module">
-  Structure of a Frontend Module
-</h3>
-
+<h3 id="structure-of-a-frontend-module">Structure of a Frontend Module</h3>
 <p>A frontend module always follows the same structure. This is how a sample <code>plugin.js</code> could look like:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Javascript" data-lang="Javascript"><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nx">id</span><span class="o">:</span> <span class="s2">&#34;customPlugin&#34;</span><span class="p">,</span>
@@ -3296,10 +3287,7 @@ The default implementation contains two predefined assets: <code>app/plugin.js</
 </div>
 
 
-<h4 id="attributes-in-detail">
-  Attributes in Detail
-</h4>
-
+<h4 id="attributes-in-detail">Attributes in Detail</h4>
 <ul>
 <li>
 <p><code>id</code>: A string which defines this plugin. Should be unique across the application. This can be used to exclude plugins, see <a href="#plugin-exclusion-client-side">Plugin exclusion</a>.</p>
@@ -3331,81 +3319,54 @@ The details of which data is passed into the plugin can be found at the <a href=
 </li>
 </ul>
 
-<h2 id="plugin-exclusion-client-side">
-  Plugin Exclusion (Client Side)
-</h2>
-
+<h2 id="plugin-exclusion-client-side">Plugin Exclusion (Client Side)</h2>
 <p>You can exclude some plugins from the interface by adding a <code>cam-exclude-plugins</code>
 attribute to the HTML <code>base</code> tag of the page loading the interface.
 The content of the attribute is a comma separated list formatted like: <code>&lt;plugin.key&gt;:&lt;feature.id&gt;</code>.
 If the feature ID is not provided, the whole plugin will be excluded.</p>
 
-<h3 id="excluding-a-complete-plugin">
-  Excluding a Complete Plugin
-</h3>
-
+<h3 id="excluding-a-complete-plugin">Excluding a Complete Plugin</h3>
 <p>This example will completely deactivate the action buttons on the right side of the process instance view.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">base</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;/&#34;</span>
 </span></span><span class="line"><span class="cl">      <span class="na">cam-exclude-plugins</span><span class="o">=</span><span class="s">&#34;cockpit.processInstance.runtime.action&#34;</span> <span class="p">/&gt;</span>
 </span></span></code></pre></div>
-<h3 id="excluding-a-plugin-feature">
-  Excluding a Plugin Feature
-</h3>
-
+<h3 id="excluding-a-plugin-feature">Excluding a Plugin Feature</h3>
 <p>In this example we deactivate the cancel action in the Cockpit process instance view and disable the job retry action button:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">base</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;/&#34;</span>
 </span></span><span class="line"><span class="cl">      <span class="na">cam-exclude-plugins</span><span class="o">=</span><span class="s">&#34;cockpit.processInstance.runtime.action:cancel-process-instance-action,
 </span></span></span><span class="line"><span class="cl"><span class="s">                           cockpit.processInstance.runtime.action:job-retry-action&#34;</span> <span class="p">/&gt;</span>
 </span></span></code></pre></div>
-<h2 id="legacy-plugins">
-  Legacy Plugins
-</h2>
-
+<h2 id="legacy-plugins">Legacy Plugins</h2>
 <p>Plugins created for Camunda 7.13 or earlier can be included for compatibility. To achieve this, simply prefix your Plugin ID with <code>legacy-</code>. The AngularJS module name for the entry module will be <code>cockpit.plugin.legacy-*</code>.</p>
 <p>Please note that all Plugins with this prefix will be included using the 7.13 plugin mechanism. You cannot create new Plugins with IDs starting with <code>legacy</code>.</p>
 <p>For more details about legacy Plugins, check out the legacy <a href="https://docs.camunda.org/manual/7.13/webapps/cockpit/extend/plugins/">Plugin documentation for Camunda</a>. Please note that this link will take you to the documentation of Camunda <strong>7.13</strong> .</p>
 
-<h2 id="plugin-points">
-  Plugin points
-</h2>
-
+<h2 id="plugin-points">Plugin points</h2>
 <p>In this section you will find all Cockpit plugin points.
 To configure where you place your plugin, enter the ID into the <code>pluginPoint</code> attribute of you frontend module.</p>
 <p>Plugin Points describe where a Plugin will be rendered and define which additional data is passed into the second argument of the render function.</p>
 <p>For more information on creating and configuring your own plugin, please see <a href="https://github.com/camunda/camunda-bpm-examples/tree/master/cockpit/cockpit-fullstack-count-processes">How to develop a Cockpit plugin</a>.</p>
 
-<h3 id="data">
-  Data
-</h3>
-
+<h3 id="data">Data</h3>
 <p><strong>Data Plugin Points</strong> have a <code>#result</code> function that gets the response data as a promise of a called REST endpoint passed.
 The <code>#result</code> function is called when the respective HTTP request is performed.
 The first argument of the <code>#result</code> function is a (<code>Promise</code>).</p>
 
-<h4 id="login-data">
-  Login Data
-</h4>
-
+<h4 id="login-data">Login Data</h4>
 <p><strong>Name:</strong> <code>cockit.login.data</code><br>
 <strong>REST Endpoint:</strong> <code>POST /camunda/api/admin/auth/user/default/login/cockpit</code></p>
 <p>When a user clicks on the <strong>Login</strong> button of the login form, the plugin points <code>#result</code> function is called.
 Your <a href="#login">Login Plugin</a> can react to the data that this data plugin will retrieve.</p>
 <p>This plugin point is available for all web apps. Just change the canonical app name for the respective webapp (<code>tasklist.login.data</code>, <code>admin.login.data</code>, <code>welcome.login.data</code>).</p>
 
-<h3 id="route">
-  Route
-</h3>
-
+<h3 id="route">Route</h3>
 <p><strong>Name:</strong> <code>cockpit.route</code></p>
 <p>This plugin points properties contain the attribute <code>path</code>, which stands for the hashRoute for this page. This will be rendered when the user navigates in the browser to the url, e.g. <code>#/my-path</code>.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Javascript" data-lang="Javascript"><span class="line"><span class="cl"><span class="nx">properties</span><span class="o">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nx">path</span><span class="o">:</span> <span class="s2">&#34;/my-path&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div>
-<h3 id="navigation">
-  Navigation
-</h3>
-
+<h3 id="navigation">Navigation</h3>
 <figure class="image">
   <span><img
       src="../../img/plugin-points/plugin-point-navigation.png"
@@ -3421,10 +3382,7 @@ Your <a href="#login">Login Plugin</a> can react to the data that this data plug
 </span></span><span class="line"><span class="cl">  <span class="nx">path</span><span class="o">:</span> <span class="s2">&#34;/my-path&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div>
-<h3 id="login">
-  Login
-</h3>
-
+<h3 id="login">Login</h3>
 <p><strong>Name:</strong> <code>cockpit.login</code></p>
 <figure class="image">
   <span><img
@@ -3437,10 +3395,7 @@ Your <a href="#login">Login Plugin</a> can react to the data that this data plug
 <p>The <code>cockpit.login</code> plugin point allows to add your custom views at the place where the web app renders the login form.</p>
 <p>This plugin point is available for all web apps. Just change the canonical app name for the respective webapp (<code>tasklist.login</code>, <code>admin.login</code>, <code>welcome.login</code>).</p>
 
-<h3 id="dashboard">
-  Dashboard
-</h3>
-
+<h3 id="dashboard">Dashboard</h3>
 <p><strong>Name:</strong> <code>cockpit.dashboard</code></p>
 <figure class="image">
   <span><img
@@ -3452,10 +3407,7 @@ Your <a href="#login">Login Plugin</a> can react to the data that this data plug
 
 <p>The <code>cockpit.dashboard</code> plugin point will allow to add your custom views at the bottom of the dashboard.</p>
 
-<h3 id="metrics">
-  Metrics
-</h3>
-
+<h3 id="metrics">Metrics</h3>
 <p><strong>Name:</strong> <code>cockpit.dashboard.metrics</code></p>
 <figure class="image">
   <span><img
@@ -3466,10 +3418,7 @@ Your <a href="#login">Login Plugin</a> can react to the data that this data plug
 </figure>
 
 
-<h3 id="processes-dashboard">
-  Processes Dashboard
-</h3>
-
+<h3 id="processes-dashboard">Processes Dashboard</h3>
 <p><strong>Name:</strong> <code>cockpit.processes.dashboard</code></p>
 <figure class="image">
   <span><img
@@ -3480,10 +3429,7 @@ Your <a href="#login">Login Plugin</a> can react to the data that this data plug
 </figure>
 
 
-<h3 id="decisions-dashboard">
-  Decisions Dashboard
-</h3>
-
+<h3 id="decisions-dashboard">Decisions Dashboard</h3>
 <p><strong>Name:</strong> <code>cockpit.decisions.dashboard</code></p>
 <figure class="image">
   <span><img
@@ -3494,10 +3440,7 @@ Your <a href="#login">Login Plugin</a> can react to the data that this data plug
 </figure>
 
 
-<h3 id="cases-dashboard">
-  Cases Dashboard
-</h3>
-
+<h3 id="cases-dashboard">Cases Dashboard</h3>
 <p><strong>Name:</strong> <code>cockpit.cases.dashboard</code></p>
 <figure class="image">
   <span><img
@@ -3508,10 +3451,7 @@ Your <a href="#login">Login Plugin</a> can react to the data that this data plug
 </figure>
 
 
-<h3 id="process-definition-runtime-tab">
-  Process Definition Runtime Tab
-</h3>
-
+<h3 id="process-definition-runtime-tab">Process Definition Runtime Tab</h3>
 <p><strong>Name:</strong> <code>cockpit.processDefinition.runtime.tab</code></p>
 <figure class="image">
   <span><img
@@ -3530,10 +3470,7 @@ Your <a href="#login">Login Plugin</a> can react to the data that this data plug
 <li><code>processDefinitionId</code></li>
 </ul>
 
-<h3 id="process-instance-runtime-tab">
-  Process Instance Runtime Tab
-</h3>
-
+<h3 id="process-instance-runtime-tab">Process Instance Runtime Tab</h3>
 <p><strong>Name:</strong> <code>cockpit.processInstance.runtime.tab</code></p>
 <figure class="image">
   <span><img
@@ -3552,10 +3489,7 @@ Your <a href="#login">Login Plugin</a> can react to the data that this data plug
 <li><code>processInstanceId</code></li>
 </ul>
 
-<h3 id="process-definition-runtime-action">
-  Process Definition Runtime Action
-</h3>
-
+<h3 id="process-definition-runtime-action">Process Definition Runtime Action</h3>
 <p><strong>Name:</strong> <code>cockpit.processDefinition.runtime.action</code></p>
 <figure class="image">
   <span><img
@@ -3570,10 +3504,7 @@ Your <a href="#login">Login Plugin</a> can react to the data that this data plug
 <li><code>processDefinitionId</code></li>
 </ul>
 
-<h3 id="process-instance-runtime-action">
-  Process Instance Runtime Action
-</h3>
-
+<h3 id="process-instance-runtime-action">Process Instance Runtime Action</h3>
 <p><strong>Name:</strong> <code>cockpit.processInstance.runtime.action</code></p>
 <figure class="image">
   <span><img
@@ -3588,10 +3519,7 @@ Your <a href="#login">Login Plugin</a> can react to the data that this data plug
 <li><code>processInstanceId</code></li>
 </ul>
 
-<h3 id="process-definition-view">
-  Process Definition View
-</h3>
-
+<h3 id="process-definition-view">Process Definition View</h3>
 <p><strong>Name:</strong> <code>cockpit.processDefinition.view</code></p>
 <figure class="image">
   <span><img
@@ -3602,10 +3530,7 @@ Your <a href="#login">Login Plugin</a> can react to the data that this data plug
 </figure>
 
 
-<h3 id="process-instance-view">
-  Process Instance View
-</h3>
-
+<h3 id="process-instance-view">Process Instance View</h3>
 <p><strong>Name:</strong> <code>cockpit.processInstance.view</code></p>
 <figure class="image">
   <span><img
@@ -3616,10 +3541,7 @@ Your <a href="#login">Login Plugin</a> can react to the data that this data plug
 </figure>
 
 
-<h3 id="process-definition-diagram-overlay">
-  Process Definition Diagram Overlay
-</h3>
-
+<h3 id="process-definition-diagram-overlay">Process Definition Diagram Overlay</h3>
 <p><strong>Name:</strong> <code>cockpit.processDefinition.diagram.plugin</code></p>
 <figure class="image">
   <span><img
@@ -3646,10 +3568,7 @@ This plugin point does not receive a DOM node to render into but an instance of 
 <li><code>processDefinitionId</code></li>
 </ul>
 
-<h3 id="process-instance-diagram-overlay">
-  Process Instance Diagram Overlay
-</h3>
-
+<h3 id="process-instance-diagram-overlay">Process Instance Diagram Overlay</h3>
 <p><strong>Name:</strong> <code>cockpit.processInstance.diagram.plugin</code></p>
 <figure class="image">
   <span><img
@@ -3666,10 +3585,7 @@ This plugin point does not receive a DOM node to render into but an instance of 
 <li><code>processInstanceId</code></li>
 </ul>
 
-<h3 id="job-definition-action">
-  Job Definition Action
-</h3>
-
+<h3 id="job-definition-action">Job Definition Action</h3>
 <p><strong>Name:</strong> <code>cockpit.jobDefinition.action</code></p>
 <figure class="image">
   <span><img
@@ -3684,10 +3600,7 @@ This plugin point does not receive a DOM node to render into but an instance of 
 <li><code>jobDefinitionId</code></li>
 </ul>
 
-<h3 id="decision-definition-tab">
-  Decision Definition Tab
-</h3>
-
+<h3 id="decision-definition-tab">Decision Definition Tab</h3>
 <p><strong>Name:</strong> <code>cockpit.decisionDefinition.tab</code></p>
 <figure class="image">
   <span><img
@@ -3706,10 +3619,7 @@ This plugin point does not receive a DOM node to render into but an instance of 
 <li><code>decisionDefinitionId</code></li>
 </ul>
 
-<h3 id="decision-definition-action">
-  Decision Definition Action
-</h3>
-
+<h3 id="decision-definition-action">Decision Definition Action</h3>
 <p><strong>Name:</strong> <code>cockpit.decisionDefinition.action</code></p>
 <figure class="image">
   <span><img
@@ -3724,10 +3634,7 @@ This plugin point does not receive a DOM node to render into but an instance of 
 <li><code>decisionDefinitionId</code></li>
 </ul>
 
-<h3 id="decision-definition-table">
-  Decision Definition Table
-</h3>
-
+<h3 id="decision-definition-table">Decision Definition Table</h3>
 <p><strong>Name:</strong> <code>cockpit.decisionDefinition.table</code></p>
 <figure class="image">
   <span><img
@@ -3744,10 +3651,7 @@ This plugin point does not receive a DOM node to render into but an instance of 
 <li><code>decisionDefinitionId</code></li>
 </ul>
 
-<h3 id="decision-instance-tab">
-  Decision Instance Tab
-</h3>
-
+<h3 id="decision-instance-tab">Decision Instance Tab</h3>
 <p><strong>Name:</strong> <code>cockpit.decisionInstance.tab</code></p>
 <figure class="image">
   <span><img
@@ -3766,10 +3670,7 @@ This plugin point does not receive a DOM node to render into but an instance of 
 <li><code>decisionInstanceId</code></li>
 </ul>
 
-<h3 id="decision-instance-action">
-  Decision Instance Action
-</h3>
-
+<h3 id="decision-instance-action">Decision Instance Action</h3>
 <p><strong>Name:</strong> <code>cockpit.decisionInstance.action</code></p>
 <figure class="image">
   <span><img
@@ -3784,10 +3685,7 @@ This plugin point does not receive a DOM node to render into but an instance of 
 <li><code>decisionInstanceId</code></li>
 </ul>
 
-<h3 id="decision-instance-table">
-  Decision Instance Table
-</h3>
-
+<h3 id="decision-instance-table">Decision Instance Table</h3>
 <p><strong>Name:</strong> <code>cockpit.decisionInstance.table</code></p>
 <figure class="image">
   <span><img
@@ -3804,10 +3702,7 @@ This plugin point does not receive a DOM node to render into but an instance of 
 <li><code>decisionInstanceId</code></li>
 </ul>
 
-<h3 id="case-definition-tab">
-  Case Definition Tab
-</h3>
-
+<h3 id="case-definition-tab">Case Definition Tab</h3>
 <p><strong>Name:</strong> <code>cockpit.caseDefinition.tab</code></p>
 <figure class="image">
   <span><img
@@ -3826,10 +3721,7 @@ This plugin point does not receive a DOM node to render into but an instance of 
 <li><code>decisionInstanceId</code></li>
 </ul>
 
-<h3 id="case-definition-action">
-  Case Definition Action
-</h3>
-
+<h3 id="case-definition-action">Case Definition Action</h3>
 <p><strong>Name:</strong> <code>cockpit.caseDefinition.action</code></p>
 <figure class="image">
   <span><img
@@ -3848,10 +3740,7 @@ This plugin point does not receive a DOM node to render into but an instance of 
 <li><code>caseDefinitionId</code></li>
 </ul>
 
-<h3 id="case-definition-diagram-overlay">
-  Case Definition Diagram Overlay
-</h3>
-
+<h3 id="case-definition-diagram-overlay">Case Definition Diagram Overlay</h3>
 <p><strong>Name:</strong> <code>cockpit.caseDefinition.diagram.overlay</code></p>
 <figure class="image">
   <span><img
@@ -3862,10 +3751,7 @@ This plugin point does not receive a DOM node to render into but an instance of 
 </figure>
 
 
-<h3 id="case-definition-diagram-plugin">
-  Case Definition Diagram Plugin
-</h3>
-
+<h3 id="case-definition-diagram-plugin">Case Definition Diagram Plugin</h3>
 <p><strong>Name:</strong> <code>cockpit.caseDefinition.diagram.plugin</code></p>
 <figure class="image">
   <span><img
@@ -3882,10 +3768,7 @@ This plugin point does not receive a DOM node to render into but an instance of 
 <li><code>caseDefinitionId</code></li>
 </ul>
 
-<h3 id="case-instance-tab">
-  Case Instance Tab
-</h3>
-
+<h3 id="case-instance-tab">Case Instance Tab</h3>
 <p><strong>Name:</strong> <code>cockpit.caseInstance.tab</code></p>
 <figure class="image">
   <span><img
@@ -3904,10 +3787,7 @@ This plugin point does not receive a DOM node to render into but an instance of 
 <li><code>caseInstanceId</code></li>
 </ul>
 
-<h3 id="case-instance-action">
-  Case Instance Action
-</h3>
-
+<h3 id="case-instance-action">Case Instance Action</h3>
 <p><strong>Name:</strong> <code>cockpit.caseInstance.action</code></p>
 <figure class="image">
   <span><img
@@ -3922,10 +3802,7 @@ This plugin point does not receive a DOM node to render into but an instance of 
 <li><code>caseInstanceId</code></li>
 </ul>
 
-<h3 id="case-instance-diagram-overlay">
-  Case Instance Diagram Overlay
-</h3>
-
+<h3 id="case-instance-diagram-overlay">Case Instance Diagram Overlay</h3>
 <p><strong>Name:</strong> <code>cockpit.caseInstance.diagram.overlay</code></p>
 <figure class="image">
   <span><img
@@ -3936,10 +3813,7 @@ This plugin point does not receive a DOM node to render into but an instance of 
 </figure>
 
 
-<h3 id="case-instance-diagram-plugin">
-  Case Instance Diagram Plugin
-</h3>
-
+<h3 id="case-instance-diagram-plugin">Case Instance Diagram Plugin</h3>
 <p><strong>Name:</strong> <code>cockpit.caseInstance.diagram.plugin</code></p>
 <figure class="image">
   <span><img
@@ -3957,10 +3831,7 @@ This plugin point does not receive a DOM node to render into but an instance of 
 <li><code>caseInstanceId</code></li>
 </ul>
 
-<h3 id="repository-resource-action">
-  Repository Resource Action
-</h3>
-
+<h3 id="repository-resource-action">Repository Resource Action</h3>
 <p><strong>Name:</strong> <code>cockpit.repository.resource.action</code></p>
 <figure class="image">
   <span><img
@@ -3976,10 +3847,7 @@ This plugin point does not receive a DOM node to render into but an instance of 
 <li><code>resourceId</code></li>
 </ul>
 
-<h3 id="repository-resource-detail">
-  Repository Resource Detail
-</h3>
-
+<h3 id="repository-resource-detail">Repository Resource Detail</h3>
 <p><strong>Name:</strong> <code>cockpit.repository.resource.detail</code></p>
 <figure class="image">
   <span><img
@@ -3995,10 +3863,7 @@ This plugin point does not receive a DOM node to render into but an instance of 
 <li><code>resourceId</code></li>
 </ul>
 
-<h3 id="open-task-dashboard">
-  Open Task Dashboard
-</h3>
-
+<h3 id="open-task-dashboard">Open Task Dashboard</h3>
 <p><strong>Name:</strong> <code>cockpit.tasks.dashboard</code></p>
 <figure class="image">
   <span><img
@@ -4009,10 +3874,7 @@ This plugin point does not receive a DOM node to render into but an instance of 
 </figure>
 
 
-<h3 id="incident-action">
-  Incident Action
-</h3>
-
+<h3 id="incident-action">Incident Action</h3>
 <p><strong>Name:</strong> <code>cockpit.incident.action</code></p>
 <figure class="image">
   <span><img

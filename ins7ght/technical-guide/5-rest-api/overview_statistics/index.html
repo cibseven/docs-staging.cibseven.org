@@ -428,12 +428,15 @@
     </div>
 
     <div class="col-xs-12 content-text">
-      <h1 id="overview-statistics-api">Overview Statistics API</h1>
+      
+<h2 id="overview-statistics-api">Overview Statistics API</h2>
 <p>The Overview Statistics API provides aggregated metrics and time-series data for process instances. All endpoints support filtering by process, version, and date range.</p>
 <p><strong>Base Path:</strong> <code>/overview</code></p>
 <hr>
-<h2 id="endpoints">Endpoints</h2>
-<h3 id="get-overview">GET /overview</h3>
+
+<h3 id="endpoints">Endpoints</h3>
+
+<h4 id="get-overview">GET /overview</h4>
 <p>Returns aggregated statistics for process instances.</p>
 <p><strong>Purpose:</strong> Get summary statistics including started, finalized, successful, canceled, and incident instances.</p>
 <p><strong>Parameters:</strong></p>
@@ -573,7 +576,8 @@
   </tbody>
 </table>
 <hr>
-<h3 id="get-overviewgraphstarted-instances">GET /overview/graph/started-instances</h3>
+
+<h4 id="get-overviewgraphstarted-instances">GET /overview/graph/started-instances</h4>
 <p>Returns time-series data for started process instances.</p>
 <p><strong>Purpose:</strong> Get historical data showing when process instances were started, grouped by time intervals.</p>
 <p><strong>Parameters:</strong></p>
@@ -651,7 +655,8 @@
   </tbody>
 </table>
 <hr>
-<h3 id="get-overviewgraphfinalized-instances">GET /overview/graph/finalized-instances</h3>
+
+<h4 id="get-overviewgraphfinalized-instances">GET /overview/graph/finalized-instances</h4>
 <p>Returns time-series data for finalized process instances.</p>
 <p><strong>Purpose:</strong> Get historical data showing when process instances were completed or terminated.</p>
 <p><strong>Parameters:</strong> Same as <code>/overview/graph/started-instances</code></p>
@@ -667,7 +672,8 @@
 </span></span><span class="line"><span class="cl">  <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">]</span>
 </span></span></code></pre></div><hr>
-<h3 id="get-overviewgraphsuccessful-instances">GET /overview/graph/successful-instances</h3>
+
+<h4 id="get-overviewgraphsuccessful-instances">GET /overview/graph/successful-instances</h4>
 <p>Returns time-series data for successfully completed process instances.</p>
 <p><strong>Purpose:</strong> Track process instances that completed without errors or cancellations.</p>
 <p><strong>Parameters:</strong> Same as <code>/overview/graph/started-instances</code></p>
@@ -683,7 +689,8 @@
 </span></span><span class="line"><span class="cl">  <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">]</span>
 </span></span></code></pre></div><hr>
-<h3 id="get-overviewgraphcanceled-instances">GET /overview/graph/canceled-instances</h3>
+
+<h4 id="get-overviewgraphcanceled-instances">GET /overview/graph/canceled-instances</h4>
 <p>Returns time-series data for canceled process instances.</p>
 <p><strong>Purpose:</strong> Track process instances that were canceled (internally or externally).</p>
 <p><strong>Parameters:</strong> Same as <code>/overview/graph/started-instances</code></p>
@@ -699,7 +706,8 @@
 </span></span><span class="line"><span class="cl">  <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">]</span>
 </span></span></code></pre></div><hr>
-<h3 id="get-overviewgraphincident-instances">GET /overview/graph/incident-instances</h3>
+
+<h4 id="get-overviewgraphincident-instances">GET /overview/graph/incident-instances</h4>
 <p>Returns time-series data for process instances with incidents.</p>
 <p><strong>Purpose:</strong> Track process instances that encountered errors or incidents.</p>
 <p><strong>Parameters:</strong> Same as <code>/overview/graph/started-instances</code></p>
@@ -715,17 +723,23 @@
 </span></span><span class="line"><span class="cl">  <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">]</span>
 </span></span></code></pre></div><hr>
-<h2 id="usage-examples">Usage Examples</h2>
-<h3 id="get-overall-statistics">Get Overall Statistics</h3>
+
+<h3 id="usage-examples">Usage Examples</h3>
+
+<h4 id="get-overall-statistics">Get Overall Statistics</h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X GET <span class="s2">&#34;http://localhost:8899/overview&#34;</span>
-</span></span></code></pre></div><h3 id="get-statistics-for-a-specific-process">Get Statistics for a Specific Process</h3>
+</span></span></code></pre></div>
+<h4 id="get-statistics-for-a-specific-process">Get Statistics for a Specific Process</h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X GET <span class="s2">&#34;http://localhost:8899/overview?processKey=invoice-process&amp;version=1&#34;</span>
-</span></span></code></pre></div><h3 id="get-statistics-for-a-date-range">Get Statistics for a Date Range</h3>
+</span></span></code></pre></div>
+<h4 id="get-statistics-for-a-date-range">Get Statistics for a Date Range</h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X GET <span class="s2">&#34;http://localhost:8899/overview?processKey=invoice-process&amp;version=1&amp;startDate=2025-01-01T00:00:00Z&amp;endDate=2025-01-31T23:59:59Z&#34;</span>
-</span></span></code></pre></div><h3 id="get-started-instances-time-series">Get Started Instances Time Series</h3>
+</span></span></code></pre></div>
+<h4 id="get-started-instances-time-series">Get Started Instances Time Series</h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X GET <span class="s2">&#34;http://localhost:8899/overview/graph/started-instances?processKey=invoice-process&amp;version=1&amp;startDate=2025-01-01T00:00:00Z&amp;endDate=2025-01-31T23:59:59Z&#34;</span>
 </span></span></code></pre></div><hr>
-<h2 id="notes">Notes</h2>
+
+<h3 id="notes">Notes</h3>
 <ul>
 <li>All time values are in milliseconds</li>
 <li>Date parameters must be in ISO 8601 format with timezone</li>

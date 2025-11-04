@@ -3191,16 +3191,10 @@
 
     <div class="col-xs-12 content-text">
       
-<h2 id="bpmn--cmmn-integration">
-  BPMN &amp; CMMN Integration
-</h2>
-
+<h2 id="bpmn--cmmn-integration">BPMN &amp; CMMN Integration</h2>
 <p>This section explains how to invoke DMN decision from BPMN and CMMN.</p>
 
-<h3 id="bpmn-business-rule-task">
-  BPMN Business Rule Task
-</h3>
-
+<h3 id="bpmn-business-rule-task">BPMN Business Rule Task</h3>
 <p>The BPMN business rule task can reference a <a href="/manual/latest/user-guide/process-engine/decisions/repository/">deployed</a> decision
 definition. The decision definition is evaluated when the task is executed.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;definitions</span> <span class="na">id=</span><span class="s">&#34;taskAssigneeExample&#34;</span>
@@ -3224,10 +3218,7 @@ definition. The decision definition is evaluated when the task is executed.</p>
 </span></span></code></pre></div><p>For more information on how to reference a decision definition from a business
 rule task, please refer to the <a href="/manual/latest/reference/bpmn20/tasks/business-rule-task/">BPMN 2.0 reference</a>.</p>
 
-<h3 id="dmn-decision-task">
-  DMN Decision Task
-</h3>
-
+<h3 id="dmn-decision-task">DMN Decision Task</h3>
 <p>The CMMN decision task references a <a href="/manual/latest/user-guide/process-engine/decisions/repository/">deployed</a> decision definition.
 The decision definition is invoked when the task is activated.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;definitions</span> <span class="na">id=</span><span class="s">&#34;definitions&#34;</span>
@@ -3248,10 +3239,7 @@ The decision definition is invoked when the task is activated.</p>
 </span></span></code></pre></div><p>For more information on how to reference a decision definition from a decision
 task, please refer to the <a href="/manual/latest/reference/cmmn11/tasks/decision-task/">CMMN 1.1 reference</a>.</p>
 
-<h2 id="the-decision-result">
-  The Decision Result
-</h2>
-
+<h2 id="the-decision-result">The Decision Result</h2>
 <p>The output of the decision, also called decision result, is a complex object of
 type <code>DmnDecisionResult</code>. Generally, it is a list of key-value pairs.</p>
 <p>If the decision is implemented as <a href="/manual/latest/reference/dmn/decision-table/">decision table</a> then each entry in the list represents one matched rule. The output entries of this
@@ -3282,10 +3270,7 @@ details about typed values. A complete list of all methods can be found in the
 transient variable named <code>decisionResult</code>. It can be passed into a variable by
 using a predefined or a custom mapping of the decision result, if necessary.</p>
 
-<h3 id="predefined-mapping-of-the-decision-result">
-  Predefined Mapping of the Decision Result
-</h3>
-
+<h3 id="predefined-mapping-of-the-decision-result">Predefined Mapping of the Decision Result</h3>
 <p>The engine includes predefined mappings of the decision result for common use
 cases. The mapping is similar to an <a href="/manual/latest/user-guide/process-engine/variables/#input-output-variable-mapping">output variable mapping</a>. It extracts a
 value from the decision result which is saved in a process/case variable. The
@@ -3353,10 +3338,7 @@ exception is thrown while saving the result variable.</p>
 </div>
 
 
-<h3 id="custom-mapping-of-the-decision-result">
-  Custom Mapping of the Decision Result
-</h3>
-
+<h3 id="custom-mapping-of-the-decision-result">Custom Mapping of the Decision Result</h3>
 <p>Instead of a predefined mapping, a custom decision result mapping can be used
 to pass the decision result into variables.</p>
 
@@ -3367,10 +3349,7 @@ consider the <a href="#limitations-of-the-serialization-of-the-mapping-result">l
 </div>
 
 
-<h4 id="custom-mapping-to-process-variables">
-  Custom Mapping to Process Variables
-</h4>
-
+<h4 id="custom-mapping-to-process-variables">Custom Mapping to Process Variables</h4>
 <p>If a business rule task is used to invoke a decision inside a BPMN process,
 then the decision result can be passed into process variables by using an
 <a href="/manual/latest/user-guide/process-engine/variables/#input-output-variable-mapping">output variable mapping</a>.</p>
@@ -3410,10 +3389,7 @@ task.</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
 </span></span></span></code></pre></div>
-<h4 id="custom-mapping-to-case-variables">
-  Custom Mapping to Case Variables
-</h4>
-
+<h4 id="custom-mapping-to-case-variables">Custom Mapping to Case Variables</h4>
 <p>If a decision task is used to invoke a decision inside a CMMN case, the
 decision result can be passed to a case variable by using a case execution
 listener which is attached to the decision task.</p>
@@ -3437,10 +3413,7 @@ listener which is attached to the decision task.</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
 </span></span></span></code></pre></div>
-<h3 id="limitations-of-the-serialization-of-the-mapping-result">
-  Limitations of the Serialization of the Mapping Result
-</h3>
-
+<h3 id="limitations-of-the-serialization-of-the-mapping-result">Limitations of the Serialization of the Mapping Result</h3>
 <p>The predefined mappings <code>singleResult</code>, <code>collectEntries</code> and <code>resultList</code> map
 the decision result to Java collections. The implementation of the collections
 depends on the used JDK and contains untyped values as Objects. When a collection
@@ -3463,10 +3436,7 @@ the underlying implementation can change in a new version of CIB seven.</p>
 Alternatively, you can use a custom object for serialization that you control
 by yourself.</p>
 
-<h2 id="accessing-variables-from-decisions">
-  Accessing Variables from Decisions
-</h2>
-
+<h2 id="accessing-variables-from-decisions">Accessing Variables from Decisions</h2>
 <p>DMN Decision tables and Decision Literal Expressions contain multiple expressions which will be evaluated by the
 DMN engine. For more information about the expressions of a decision
 please see our <a href="/manual/latest/reference/dmn/decision-table/">DMN 1.3 reference</a>. These expressions can
@@ -3503,19 +3473,13 @@ its unwrapped value.</p>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;/inputExpression&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/input&gt;</span>
 </span></span></code></pre></div>
-<h2 id="expression-language-integration">
-  Expression Language Integration
-</h2>
-
+<h2 id="expression-language-integration">Expression Language Integration</h2>
 <p>By default, the DMN engine uses <a href="/manual/latest/reference/dmn/feel/">FEEL</a> as expression language for input
 expressions, input entries, output entries and literal expressions.
 Please see the <a href="/manual/latest/user-guide/dmn-engine/expressions-and-scripts/">DMN engine</a> guide for more
 information about expression languages.</p>
 
-<h3 id="accessing-beans">
-  Accessing Beans
-</h3>
-
+<h3 id="accessing-beans">Accessing Beans</h3>
 <p>If the DMN engine is invoked by CIB seven, it uses the same
 JUEL configuration as the CIB seven engine. Therefore, it is also
 possible to access Spring and CDI Beans from JUEL expressions in decisions.
@@ -3528,10 +3492,7 @@ section in the <a href="/manual/latest/user-guide/spring-framework-integration/#
 </div>
 
 
-<h3 id="extending-the-expression-language">
-  Extending the Expression Language
-</h3>
-
+<h3 id="extending-the-expression-language">Extending the Expression Language</h3>
 
 <div class="note bg-warning docs-warning">
   <h3>Use of Internal API</h3>

@@ -428,12 +428,15 @@
     </div>
 
     <div class="col-xs-12 content-text">
-      <h1 id="info-api">Info API</h1>
+      
+<h2 id="info-api">Info API</h2>
 <p>The Info API provides application metadata and configuration information.</p>
 <p><strong>Base Path:</strong> <code>/info</code></p>
 <hr>
-<h2 id="endpoints">Endpoints</h2>
-<h3 id="get-info">GET /info</h3>
+
+<h3 id="endpoints">Endpoints</h3>
+
+<h4 id="get-info">GET /info</h4>
 <p>Returns the application version.</p>
 <p><strong>Purpose:</strong> Get the current version of the CIB ins7ght application.</p>
 <p><strong>Parameters:</strong> None</p>
@@ -446,7 +449,8 @@
 <li>For snapshot versions: Version number with build timestamp (e.g., <code>0.0.2-SNAPSHOT 2025-01-29-1200</code>)</li>
 </ul>
 <hr>
-<h3 id="get-infoproperties">GET /info/properties</h3>
+
+<h4 id="get-infoproperties">GET /info/properties</h4>
 <p>Returns application configuration properties.</p>
 <p><strong>Purpose:</strong> Get frontend-relevant configuration properties such as the CIB Seven webclient URL.</p>
 <p><strong>Parameters:</strong> None</p>
@@ -472,19 +476,23 @@
   </tbody>
 </table>
 <hr>
-<h2 id="usage-examples">Usage Examples</h2>
-<h3 id="get-application-version">Get Application Version</h3>
+
+<h3 id="usage-examples">Usage Examples</h3>
+
+<h4 id="get-application-version">Get Application Version</h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X GET <span class="s2">&#34;http://localhost:8899/info&#34;</span>
 </span></span></code></pre></div><p><strong>Response:</strong></p>
 <pre tabindex="0"><code>0.0.2-SNAPSHOT 2025-01-29-1200
-</code></pre><h3 id="get-configuration-properties">Get Configuration Properties</h3>
+</code></pre>
+<h4 id="get-configuration-properties">Get Configuration Properties</h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X GET <span class="s2">&#34;http://localhost:8899/info/properties&#34;</span>
 </span></span></code></pre></div><p><strong>Response:</strong></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;webclientCockpitUrl&#34;</span><span class="p">:</span> <span class="s2">&#34;http://localhost:8080/webapp/#/seven/auth/processes/dashboard&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><hr>
-<h2 id="notes">Notes</h2>
+
+<h3 id="notes">Notes</h3>
 <ul>
 <li>The <code>/info</code> endpoint returns plain text, not JSON</li>
 <li>The version includes build timestamp for snapshot builds</li>

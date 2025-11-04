@@ -428,10 +428,12 @@
     </div>
 
     <div class="col-xs-12 content-text">
-      <h1 id="polling-client---data-copy-and-import">Polling Client - Data Copy and Import</h1>
+      
+<h2 id="polling-client---data-copy-and-import">Polling Client - Data Copy and Import</h2>
 <p>The Polling Client is a core component of CIB ins7ght responsible for continuously synchronizing data from CIB seven to the CIB ins7ght database. This section explains the architecture, data flow, and mechanisms behind this critical component.</p>
 <hr>
-<h2 id="architecture-overview">Architecture Overview</h2>
+
+<h3 id="architecture-overview">Architecture Overview</h3>
 <p>The Polling Client operates as a scheduled background service within the CIB ins7ght application. It connects to the CIB seven database through REST APIs, retrieves process data, and stores it in the CIB ins7ght database for analysis.</p>
 <p><strong>Key Components:</strong></p>
 <ul>
@@ -441,7 +443,8 @@
 <li><strong>Data Persister:</strong> Stores transformed data into the CIB ins7ght database</li>
 </ul>
 <hr>
-<h2 id="data-flow">Data Flow</h2>
+
+<h3 id="data-flow">Data Flow</h3>
 <pre tabindex="0"><code>CIB seven Database (Read-Only)
         ↓
    REST API Layer
@@ -456,8 +459,10 @@
         ↓
   Analytics Engine
 </code></pre><hr>
-<h2 id="polling-mechanism">Polling Mechanism</h2>
-<h3 id="polling-cycle">Polling Cycle</h3>
+
+<h3 id="polling-mechanism">Polling Mechanism</h3>
+
+<h4 id="polling-cycle">Polling Cycle</h4>
 <p>The Polling Client operates in continuous cycles:</p>
 <ol>
 <li><strong>Trigger:</strong> The scheduler initiates a polling cycle based on the configured interval</li>
@@ -467,7 +472,8 @@
 <li><strong>Wait:</strong> The system waits for the next polling interval</li>
 </ol>
 <p><strong>Default Polling Interval:</strong> 10 seconds (configurable)</p>
-<h3 id="incremental-synchronization">Incremental Synchronization</h3>
+
+<h4 id="incremental-synchronization">Incremental Synchronization</h4>
 <p>After the initial full import, the Polling Client uses incremental synchronization:</p>
 <ul>
 <li>Tracks the last successfully imported timestamp for each data type</li>
@@ -476,9 +482,11 @@
 <li>Ensures efficient real-time data updates</li>
 </ul>
 <hr>
-<h2 id="data-sources">Data Sources</h2>
+
+<h3 id="data-sources">Data Sources</h3>
 <p>The Polling Client retrieves data from CIB seven via REST API:</p>
-<h3 id="1-process-instances">1. Process Instances</h3>
+
+<h4 id="1-process-instances">1. Process Instances</h4>
 <p><strong>Purpose:</strong> Historical process instance information including execution status and timing</p>
 <p><strong>Key Data Elements:</strong></p>
 <ul>
@@ -489,7 +497,8 @@
 <li>Current state (ACTIVE, COMPLETED, CANCELED)</li>
 </ul>
 <p><strong>Synchronization:</strong> Incremental updates based on timestamp, fetching only new or modified instances since last poll.</p>
-<h3 id="2-activity-instances">2. Activity Instances</h3>
+
+<h4 id="2-activity-instances">2. Activity Instances</h4>
 <p><strong>Purpose:</strong> Individual activity execution data for detailed performance analysis</p>
 <p><strong>Key Data Elements:</strong></p>
 <ul>
@@ -500,7 +509,8 @@
 <li>Duration metrics</li>
 </ul>
 <p><strong>Synchronization:</strong> Continuous sync of activity-level execution data to enable bottleneck analysis.</p>
-<h3 id="3-process-definitions">3. Process Definitions</h3>
+
+<h4 id="3-process-definitions">3. Process Definitions</h4>
 <p><strong>Purpose:</strong> Process definition metadata including versioning information</p>
 <p><strong>Key Data Elements:</strong></p>
 <ul>
@@ -510,7 +520,8 @@
 <li>Deployment references</li>
 </ul>
 <p><strong>Synchronization:</strong> Triggered when new process versions are deployed to CIB seven.</p>
-<h3 id="4-incidents">4. Incidents</h3>
+
+<h4 id="4-incidents">4. Incidents</h4>
 <p><strong>Purpose:</strong> Process execution incidents and error tracking</p>
 <p><strong>Key Data Elements:</strong></p>
 <ul>
@@ -521,7 +532,8 @@
 <li>Timestamp of occurrence</li>
 </ul>
 <p><strong>Synchronization:</strong> Real-time import of incidents to ensure immediate visibility into process issues.</p>
-<h3 id="5-bpmn-process-definitions">5. BPMN Process Definitions</h3>
+
+<h4 id="5-bpmn-process-definitions">5. BPMN Process Definitions</h4>
 <p><strong>Purpose:</strong> Serialized BPMN diagrams for process visualization</p>
 <p><strong>Key Data Elements:</strong></p>
 <ul>
@@ -531,7 +543,8 @@
 </ul>
 <p><strong>Synchronization:</strong> Fetched when new process definitions are detected or on-demand for visualization purposes.</p>
 <hr>
-<h2 id="data-providers">Data Providers</h2>
+
+<h3 id="data-providers">Data Providers</h3>
 <p>Each data type has a dedicated provider component that specializes in fetching and processing specific types of data:</p>
 <p><strong>Common Provider Functionality:</strong></p>
 <ul>
@@ -550,7 +563,8 @@
 <li><strong>BPMN Definition Provider:</strong> Downloads BPMN process definitions</li>
 </ul>
 <hr>
-<h2 id="data-transformation">Data Transformation</h2>
+
+<h3 id="data-transformation">Data Transformation</h3>
 <p>Raw data from CIB seven is transformed to match the CIB ins7ght schema:</p>
 <p><strong>Transformation Steps:</strong></p>
 <ol>
@@ -561,7 +575,8 @@
 <li><strong>Validation:</strong> Data integrity checks are performed</li>
 </ol>
 <hr>
-<h2 id="initial-import">Initial Import</h2>
+
+<h3 id="initial-import">Initial Import</h3>
 <p>When CIB ins7ght is first connected to a CIB seven instance:</p>
 <ol>
 <li><strong>Full Historical Import:</strong> All existing data is retrieved from CIB seven</li>
@@ -571,22 +586,27 @@
 </ol>
 <p><strong>Note:</strong> Initial import duration depends on data volume. For large datasets (millions of records), this process may take several hours.</p>
 <hr>
-<h2 id="error-handling-and-resilience">Error Handling and Resilience</h2>
+
+<h3 id="error-handling-and-resilience">Error Handling and Resilience</h3>
 <p>The Polling Client includes error handling:</p>
-<h3 id="failure-recovery">Failure Recovery</h3>
+
+<h4 id="failure-recovery">Failure Recovery</h4>
 <ul>
 <li><strong>Transaction Management:</strong> Database operations use transactions</li>
 <li><strong>State Persistence:</strong> Last successful sync timestamp is tracked in the database</li>
 <li><strong>Resume from Last Success:</strong> Polling resumes from the last known good state after failures</li>
 <li><strong>Error Logging:</strong> Errors are logged for troubleshooting</li>
 </ul>
-<h3 id="monitoring">Monitoring</h3>
+
+<h4 id="monitoring">Monitoring</h4>
 <ul>
 <li><strong>Logs:</strong> Detailed logging for troubleshooting and monitoring polling activity</li>
 </ul>
 <hr>
-<h2 id="performance-optimization">Performance Optimization</h2>
-<h3 id="batch-processing">Batch Processing</h3>
+
+<h3 id="performance-optimization">Performance Optimization</h3>
+
+<h4 id="batch-processing">Batch Processing</h4>
 <ul>
 <li>Data is fetched in configurable page sizes</li>
 <li>Default page sizes:
@@ -601,7 +621,8 @@
 <li>Optimizes network utilization</li>
 </ul>
 <hr>
-<h2 id="configuration">Configuration</h2>
+
+<h3 id="configuration">Configuration</h3>
 <p>Key configuration properties for the Polling Client:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">polling</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">time</span><span class="p">:</span><span class="w"> </span><span class="m">10</span><span class="w">                                 </span><span class="c"># Polling interval in seconds</span><span class="w">
@@ -618,8 +639,10 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l">demo</span><span class="w">
 </span></span></span></code></pre></div><p>See <a href="../../2%20Setup%20CIB%20ins7ght/configuration.md">Configuration Guide</a> for detailed authentication options.</p>
 <hr>
-<h2 id="monitoring-and-troubleshooting">Monitoring and Troubleshooting</h2>
-<h3 id="check-polling-status">Check Polling Status</h3>
+
+<h3 id="monitoring-and-troubleshooting">Monitoring and Troubleshooting</h3>
+
+<h4 id="check-polling-status">Check Polling Status</h4>
 <p><strong>Polling Info Endpoint:</strong></p>
 <pre tabindex="0"><code>GET /pollinfo
 </code></pre><p>This endpoint returns the current polling status and timestamps.</p>
@@ -646,7 +669,8 @@
 <li>Connection status to CIB seven</li>
 <li>Any errors or warnings</li>
 </ul>
-<h3 id="common-issues">Common Issues</h3>
+
+<h4 id="common-issues">Common Issues</h4>
 <p><strong>Polling Not Starting:</strong></p>
 <ul>
 <li>Check CIB seven connection settings (<code>polling.engineRestUrl</code>)</li>
@@ -668,7 +692,8 @@
 <li>Review transformation logic for errors</li>
 </ul>
 <hr>
-<h2 id="security-considerations">Security Considerations</h2>
+
+<h3 id="security-considerations">Security Considerations</h3>
 <ul>
 <li>Polling Client accesses CIB seven via REST API</li>
 <li>Credentials should be stored as environment variables</li>

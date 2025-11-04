@@ -428,18 +428,23 @@
     </div>
 
     <div class="col-xs-12 content-text">
-      <h1 id="security-instructions">Security Instructions</h1>
+      
+<h2 id="security-instructions">Security Instructions</h2>
 <p>This document describes the security features available in CIB ins7ght.</p>
 <hr>
-<h2 id="application-security">Application Security</h2>
-<h3 id="user-authentication">User Authentication</h3>
+
+<h3 id="application-security">Application Security</h3>
+
+<h4 id="user-authentication">User Authentication</h4>
 <p><strong>CIB ins7ght does not have user authentication.</strong></p>
 <p>The application has no login system, user management, or access control. All REST API endpoints are publicly accessible without authentication.</p>
 <p>If access control is required, it must be implemented externally (e.g., through network security, firewalls, VPNs, or reverse proxies).</p>
 <hr>
-<h2 id="cib-seven-connection-authentication">CIB Seven Connection Authentication</h2>
+
+<h3 id="cib-seven-connection-authentication">CIB Seven Connection Authentication</h3>
 <p>CIB ins7ght authenticates with CIB seven to poll process data. Three authentication methods are available:</p>
-<h3 id="option-1-basic-authentication">Option 1: Basic Authentication</h3>
+
+<h4 id="option-1-basic-authentication">Option 1: Basic Authentication</h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">polling</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">engineRestUrl</span><span class="p">:</span><span class="w"> </span><span class="l">http://localhost:8080/engine-rest</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">auth</span><span class="p">:</span><span class="w">
@@ -447,7 +452,8 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">basic</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l">${ENGINE_USERNAME}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l">${ENGINE_PASSWORD}</span><span class="w">
-</span></span></span></code></pre></div><h3 id="option-2-webclient-authentication">Option 2: WebClient Authentication</h3>
+</span></span></span></code></pre></div>
+<h4 id="option-2-webclient-authentication">Option 2: WebClient Authentication</h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">polling</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">auth</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">webclient</span><span class="w">
@@ -455,7 +461,8 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l">http://localhost:8080/cib-seven-webclient/rest/login</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l">${WEBCLIENT_USERNAME}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l">${WEBCLIENT_PASSWORD}</span><span class="w">
-</span></span></span></code></pre></div><h3 id="option-3-single-sign-on-sso">Option 3: Single Sign-On (SSO)</h3>
+</span></span></span></code></pre></div>
+<h4 id="option-3-single-sign-on-sso">Option 3: Single Sign-On (SSO)</h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">polling</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">auth</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">sso</span><span class="w">
@@ -466,15 +473,18 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">useWebclient</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">webclientUrl</span><span class="p">:</span><span class="w"> </span><span class="l">http://localhost:8080/cib-seven-webclient/rest/login</span><span class="w">
 </span></span></span></code></pre></div><hr>
-<h2 id="database-security">Database Security</h2>
-<h3 id="credentials">Credentials</h3>
+
+<h3 id="database-security">Database Security</h3>
+
+<h4 id="credentials">Credentials</h4>
 <p>Use environment variables for database credentials:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">DB_USERNAME</span><span class="o">=</span>your_username
 </span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">DB_PASSWORD</span><span class="o">=</span>your_password
 </span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">ENGINE_USERNAME</span><span class="o">=</span>camunda_user
 </span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">ENGINE_PASSWORD</span><span class="o">=</span>camunda_password
 </span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">SSO_CLIENT_SECRET</span><span class="o">=</span>sso_secret
-</span></span></code></pre></div><h3 id="postgresql-configuration">PostgreSQL Configuration</h3>
+</span></span></code></pre></div>
+<h4 id="postgresql-configuration">PostgreSQL Configuration</h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">spring</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">datasource</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l">jdbc:postgresql://db-host:5432/cibseven-optimize</span><span class="w">
@@ -485,7 +495,8 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">spring</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">datasource</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l">jdbc:postgresql://db-host:5432/cibseven-optimize?ssl=true&amp;sslmode=require</span><span class="w">
-</span></span></span></code></pre></div><h3 id="h2-configuration">H2 Configuration</h3>
+</span></span></span></code></pre></div>
+<h4 id="h2-configuration">H2 Configuration</h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">spring</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">datasource</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l">jdbc:h2:file:/ins7ght-h2-dbs/cib_ins7ght_db</span><span class="w">
@@ -493,7 +504,8 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l">${H2_PASSWORD}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">driver-class-name</span><span class="p">:</span><span class="w"> </span><span class="l">org.h2.Driver</span><span class="w">
 </span></span></span></code></pre></div><hr>
-<h2 id="logging">Logging</h2>
+
+<h3 id="logging">Logging</h3>
 <p>Configure logging in <code>application.yaml</code>:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">logging</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">level</span><span class="p">:</span><span class="w">
@@ -512,7 +524,8 @@
 <li>Data import errors</li>
 </ul>
 <hr>
-<h2 id="health-check">Health Check</h2>
+
+<h3 id="health-check">Health Check</h3>
 <p>Check application status:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl http://localhost:8899/info
 </span></span></code></pre></div>

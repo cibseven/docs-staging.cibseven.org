@@ -3192,10 +3192,7 @@
     <div class="col-xs-12 content-text">
       <p>The process engine configuration can be placed in both <a href="/manual/latest/reference/deployment-descriptors/descriptors/processes-xml/">processes.xml</a> and the <a href="/manual/latest/reference/deployment-descriptors/descriptors/bpm-platform-xml/">bpm-platform.xml</a> files. If the process engine is configured in either or both of those files, it will be bootstrapped by the CIB seven infrastructure and be made available through <code>BpmPlatform.getProcessEngineService().getProcessEngine(&quot;name of process engine&quot;)</code>.</p>
 
-<h2 id="example">
-  Example
-</h2>
-
+<h2 id="example">Example</h2>
 <p>The following example shows an XML snippet which can be placed in both <a href="/manual/latest/reference/deployment-descriptors/descriptors/processes-xml/">processes.xml</a> and/or <a href="/manual/latest/reference/deployment-descriptors/descriptors/bpm-platform-xml/">bpm-platform.xml</a>.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;process-engine</span> <span class="na">name=</span><span class="s">&#34;default&#34;</span><span class="nt">&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;job-acquisition&gt;</span>default<span class="nt">&lt;/job-acquisition&gt;</span>
@@ -3210,10 +3207,7 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/process-engine&gt;</span>
 </span></span></code></pre></div>
-<h2 id="syntax-reference">
-  Syntax Reference
-</h2>
-
+<h2 id="syntax-reference">Syntax Reference</h2>
 <table class="table table-striped">
   <tr>
     <th>Tag name </th>
@@ -3400,10 +3394,7 @@
   </tr>
 </table>
 
-<h2 id="configuration-properties">
-  Configuration Properties
-</h2>
-
+<h2 id="configuration-properties">Configuration Properties</h2>
 <p>The following is a list with the most commonly used process engine configuration properties, along with some explanations. The properties can be used in the <code>&lt;property name=&quot;foo&quot;&gt;bar&lt;/property&gt;</code> tag, where <code>foo</code> is the name of the property and <code>bar</code> is the value of the property.</p>
 <table class="table table-striped">
   <tr>
@@ -4200,10 +4191,7 @@
   </tr>
 </table>
 
-<h3 id="history-cleanup-configuration-parameters">
-  History cleanup configuration parameters
-</h3>
-
+<h3 id="history-cleanup-configuration-parameters">History cleanup configuration parameters</h3>
 <table class="table table-striped">
   <tr id="historyCleanupStrategy">
     <td><code>historyCleanupStrategy</code></td>
@@ -4395,10 +4383,7 @@ The history time to live defines the number of days using a time specified by th
   </tr>
 </table>
 
-<h3 id="login-parameters">
-  Login parameters
-</h3>
-
+<h3 id="login-parameters">Login parameters</h3>
 <table class="table table-striped">
   <tr>
     <td><code>loginMaxAttempts</code></td>
@@ -4427,10 +4412,7 @@ The history time to live defines the number of days using a time specified by th
   </tr>
 </table>
 
-<h3 id="resource-whitelist-pattern-parameters">
-  Resource whitelist pattern parameters
-</h3>
-
+<h3 id="resource-whitelist-pattern-parameters">Resource whitelist pattern parameters</h3>
 <table class="table table-striped">
   <tr>
     <td><code>generalResourceWhitelistPattern</code></td>
@@ -4454,10 +4436,7 @@ The history time to live defines the number of days using a time specified by th
   </tr>
 </table>
 
-<h3 id="logging-context-parameters">
-  Logging context parameters
-</h3>
-
+<h3 id="logging-context-parameters">Logging context parameters</h3>
 <p>These parameters define the keys at which the specified data can be retrieved from the Mapped Diagnostic Context (MDC). See <a href="/manual/latest/user-guide/logging/#process-data-context">Logging</a> for details.
 The specified data will only be put into the MDC if a key is defined. All parameters can be set to <code>null</code> or the empty String in order to disable their logging in the MDC.</p>
 <table class="table table-striped">
@@ -4516,10 +4495,7 @@ The specified data will only be put into the MDC if a key is defined. All parame
 </div>
 
 
-<h3 id="logging-level-parameters">
-  Logging level parameters
-</h3>
-
+<h3 id="logging-level-parameters">Logging level parameters</h3>
 <p>These parameters define the log level for the specified log entries.</p>
 <table class="table table-striped">
   <tr id="logLevelBpmnStackTrace">

@@ -428,10 +428,12 @@
     </div>
 
     <div class="col-xs-12 content-text">
-      <h1 id="configuration">Configuration</h1>
+      
+<h2 id="configuration">Configuration</h2>
 <p>CIB ins7ght provides extensive configuration options to customize the application behavior, database connections, polling intervals, and more. This section explains all available configuration properties and their effects.</p>
 <hr>
-<h2 id="configuration-file-location">Configuration File Location</h2>
+
+<h3 id="configuration-file-location">Configuration File Location</h3>
 <p>The main configuration files are located at:</p>
 <ul>
 <li><code>src/main/resources/application.yaml</code> - Default configuration</li>
@@ -445,8 +447,10 @@
 <li><code>cib-ins7ght.yaml</code> (optional, overrides previous values)</li>
 </ol>
 <hr>
-<h2 id="core-configuration-properties">Core Configuration Properties</h2>
-<h3 id="server-configuration">Server Configuration</h3>
+
+<h3 id="core-configuration-properties">Core Configuration Properties</h3>
+
+<h4 id="server-configuration">Server Configuration</h4>
 <p>Configure the HTTP server port and settings:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">server</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">8899</span><span class="w">
@@ -455,9 +459,11 @@
 <li><code>port</code>: HTTP port for the application (default: 8899)</li>
 </ul>
 <hr>
-<h3 id="database-configuration">Database Configuration</h3>
+
+<h4 id="database-configuration">Database Configuration</h4>
 <p>CIB ins7ght supports both H2 and PostgreSQL databases.</p>
-<h4 id="h2-database">H2 Database</h4>
+
+<h5 id="h2-database">H2 Database</h5>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">spring</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">datasource</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l">jdbc:h2:file:/ins7ght-h2-dbs/cib_ins7ght_db</span><span class="w">
@@ -476,7 +482,8 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">batch_versioned_data</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">order_inserts</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">order_updates</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span></span></span></code></pre></div><h4 id="postgresql-database">PostgreSQL Database</h4>
+</span></span></span></code></pre></div>
+<h5 id="postgresql-database">PostgreSQL Database</h5>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">spring</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">datasource</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l">jdbc:postgresql://localhost:5432/cibseven-optimize</span><span class="w">
@@ -570,7 +577,8 @@
   </tbody>
 </table>
 <hr>
-<h3 id="polling-configuration">Polling Configuration</h3>
+
+<h4 id="polling-configuration">Polling Configuration</h4>
 <p>Control how CIB ins7ght polls data from CIB seven:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">polling</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">time</span><span class="p">:</span><span class="w"> </span><span class="m">10</span><span class="w">
@@ -634,9 +642,11 @@
 <li>Adjust <code>batchIntervalInHours</code> based on data volume and processing needs</li>
 </ul>
 <hr>
-<h3 id="polling-authentication-configuration">Polling Authentication Configuration</h3>
+
+<h4 id="polling-authentication-configuration">Polling Authentication Configuration</h4>
 <p>CIB ins7ght supports three authentication methods for connecting to CIB seven:</p>
-<h4 id="option-1-basic-authentication">Option 1: Basic Authentication</h4>
+
+<h5 id="option-1-basic-authentication">Option 1: Basic Authentication</h5>
 <p>Direct authentication to the Camunda engine:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">polling</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">auth</span><span class="p">:</span><span class="w">
@@ -644,7 +654,8 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">basic</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l">demo</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l">demo</span><span class="w">
-</span></span></span></code></pre></div><h4 id="option-2-webclient-authentication">Option 2: WebClient Authentication</h4>
+</span></span></span></code></pre></div>
+<h5 id="option-2-webclient-authentication">Option 2: WebClient Authentication</h5>
 <p>Authentication via CIB Seven WebClient:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">polling</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">auth</span><span class="p">:</span><span class="w">
@@ -653,7 +664,8 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l">http://localhost:8080/cib-seven-webclient/rest/login</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l">admin</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l">admin</span><span class="w">
-</span></span></span></code></pre></div><h4 id="option-3-single-sign-on-sso">Option 3: Single Sign-On (SSO)</h4>
+</span></span></span></code></pre></div>
+<h5 id="option-3-single-sign-on-sso">Option 3: Single Sign-On (SSO)</h5>
 <p>OAuth2/OpenID Connect authentication:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">polling</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">auth</span><span class="p">:</span><span class="w">
@@ -753,7 +765,8 @@
 <li><strong>SSO</strong>: Enterprise environments with OAuth2/OpenID Connect identity providers</li>
 </ul>
 <hr>
-<h3 id="webclient-cockpit-url">WebClient Cockpit URL</h3>
+
+<h4 id="webclient-cockpit-url">WebClient Cockpit URL</h4>
 <p>Configure the URL to the CIB Seven webclient cockpit (used by the frontend):</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">webclientCockpitUrl</span><span class="p">:</span><span class="w"> </span><span class="l">http://localhost:8080/webapp/#/seven/auth/processes/dashboard</span><span class="w">
 </span></span></span></code></pre></div><p><strong>Property:</strong></p>
@@ -775,8 +788,10 @@
 </table>
 <hr>
 <hr>
-<h2 id="complete-configuration-example">Complete Configuration Example</h2>
-<h3 id="development-configuration-applicationyaml">Development Configuration (application.yaml)</h3>
+
+<h3 id="complete-configuration-example">Complete Configuration Example</h3>
+
+<h4 id="development-configuration-applicationyaml">Development Configuration (application.yaml)</h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">server</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">8899</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
@@ -830,7 +845,8 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">client-secret</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">useWebclient</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">webclientUrl</span><span class="p">:</span><span class="w"> </span><span class="l">http://localhost:8080/cib-seven-webclient/rest/login</span><span class="w">
-</span></span></span></code></pre></div><h3 id="production-configuration-cib-ins7ghtyaml">Production Configuration (cib-ins7ght.yaml)</h3>
+</span></span></span></code></pre></div>
+<h4 id="production-configuration-cib-ins7ghtyaml">Production Configuration (cib-ins7ght.yaml)</h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">server</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">8899</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
@@ -867,7 +883,8 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l">${ENGINE_USERNAME}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l">${ENGINE_PASSWORD}</span><span class="w">
 </span></span></span></code></pre></div><hr>
-<h2 id="environment-variables">Environment Variables</h2>
+
+<h3 id="environment-variables">Environment Variables</h3>
 <p>For sensitive information, use environment variables:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Database credentials</span>
 </span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">DB_PASSWORD</span><span class="o">=</span>secure_db_password
@@ -878,8 +895,10 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># SSO configuration (if using SSO)</span>
 </span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">SSO_CLIENT_SECRET</span><span class="o">=</span>your_sso_client_secret
-</span></span></code></pre></div><h2 id="troubleshooting-configuration">Troubleshooting Configuration</h2>
-<h3 id="database-connection-issues">Database Connection Issues</h3>
+</span></span></code></pre></div>
+<h3 id="troubleshooting-configuration">Troubleshooting Configuration</h3>
+
+<h4 id="database-connection-issues">Database Connection Issues</h4>
 <p><strong>Problem:</strong> Application fails to connect to database</p>
 <p><strong>Solutions:</strong></p>
 <ul>
@@ -888,7 +907,8 @@
 <li>Check firewall rules and network connectivity</li>
 <li>For PostgreSQL, ensure the database and schema exist</li>
 </ul>
-<h3 id="polling-not-working">Polling Not Working</h3>
+
+<h4 id="polling-not-working">Polling Not Working</h4>
 <p><strong>Problem:</strong> Data not being imported from CIB seven</p>
 <p><strong>Solutions:</strong></p>
 <ul>
@@ -898,7 +918,8 @@
 <li>Review application logs for polling errors</li>
 <li>Test engine-rest API manually: <code>curl http://your-engine-rest/engine</code></li>
 </ul>
-<h3 id="performance-issues">Performance Issues</h3>
+
+<h4 id="performance-issues">Performance Issues</h4>
 <p><strong>Problem:</strong> Application is slow or using too much memory</p>
 <p><strong>Solutions:</strong></p>
 <ul>
@@ -909,7 +930,8 @@
 <li>Monitor database query performance</li>
 </ul>
 <hr>
-<h2 id="monitoring-configuration">Monitoring Configuration</h2>
+
+<h3 id="monitoring-configuration">Monitoring Configuration</h3>
 <p>To verify your configuration is working:</p>
 <ol>
 <li><strong>Check application startup logs</strong> for configuration values</li>
@@ -919,7 +941,8 @@
 <li><strong>Verify CIB seven connectivity</strong> via logs</li>
 </ol>
 <hr>
-<h2 id="related-documentation">Related Documentation</h2>
+
+<h3 id="related-documentation">Related Documentation</h3>
 <ul>
 <li><a href="./installation.md">Installation Guide</a> - Installing and setting up CIB ins7ght</li>
 <li><a href="./security_instructions.md">Security Instructions</a> - Security best practices</li>

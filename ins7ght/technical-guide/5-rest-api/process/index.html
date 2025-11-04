@@ -428,12 +428,15 @@
     </div>
 
     <div class="col-xs-12 content-text">
-      <h1 id="process-api">Process API</h1>
+      
+<h2 id="process-api">Process API</h2>
 <p>The Process API provides access to process definitions, versions, and BPMN diagrams.</p>
 <p><strong>Base Path:</strong> <code>/process</code></p>
 <hr>
-<h2 id="endpoints">Endpoints</h2>
-<h3 id="get-process">GET /process</h3>
+
+<h3 id="endpoints">Endpoints</h3>
+
+<h4 id="get-process">GET /process</h4>
 <p>Returns all available process definitions.</p>
 <p><strong>Purpose:</strong> Get a list of all process definitions currently imported from CIB seven.</p>
 <p><strong>Parameters:</strong> None</p>
@@ -483,7 +486,8 @@
   </tbody>
 </table>
 <hr>
-<h3 id="get-processprocesskeyversion">GET /process/{processKey}/version</h3>
+
+<h4 id="get-processprocesskeyversion">GET /process/{processKey}/version</h4>
 <p>Returns all available versions for a specific process.</p>
 <p><strong>Purpose:</strong> Get version numbers for a given process definition.</p>
 <p><strong>Parameters:</strong></p>
@@ -513,7 +517,8 @@
 </span></span><span class="line"><span class="cl"><span class="p">]</span>
 </span></span></code></pre></div><p><strong>Response Type:</strong> Array of strings</p>
 <hr>
-<h3 id="get-processbpmn">GET /process/bpmn</h3>
+
+<h4 id="get-processbpmn">GET /process/bpmn</h4>
 <p>Returns the BPMN XML diagram for a specific process version.</p>
 <p><strong>Purpose:</strong> Get the BPMN 2.0 XML definition for visualization or analysis.</p>
 <p><strong>Parameters:</strong></p>
@@ -563,17 +568,23 @@
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/bpmn:definitions&gt;</span>
 </span></span></code></pre></div><p><strong>Response Type:</strong> <code>application/octet-stream</code> (binary XML data)</p>
 <hr>
-<h2 id="usage-examples">Usage Examples</h2>
-<h3 id="get-all-processes">Get All Processes</h3>
+
+<h3 id="usage-examples">Usage Examples</h3>
+
+<h4 id="get-all-processes">Get All Processes</h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X GET <span class="s2">&#34;http://localhost:8899/process&#34;</span>
-</span></span></code></pre></div><h3 id="get-versions-for-a-process">Get Versions for a Process</h3>
+</span></span></code></pre></div>
+<h4 id="get-versions-for-a-process">Get Versions for a Process</h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X GET <span class="s2">&#34;http://localhost:8899/process/invoice-process/version&#34;</span>
-</span></span></code></pre></div><h3 id="download-bpmn-diagram">Download BPMN Diagram</h3>
+</span></span></code></pre></div>
+<h4 id="download-bpmn-diagram">Download BPMN Diagram</h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X GET <span class="s2">&#34;http://localhost:8899/process/bpmn?processKey=invoice-process&amp;version=1&#34;</span> -o invoice-process.bpmn
-</span></span></code></pre></div><h3 id="get-bpmn-for-visualization">Get BPMN for Visualization</h3>
+</span></span></code></pre></div>
+<h4 id="get-bpmn-for-visualization">Get BPMN for Visualization</h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X GET <span class="s2">&#34;http://localhost:8899/process/bpmn?processKey=invoice-process&amp;version=1&#34;</span>
 </span></span></code></pre></div><hr>
-<h2 id="notes">Notes</h2>
+
+<h3 id="notes">Notes</h3>
 <ul>
 <li>The process list includes all versions; filter by <code>key</code> to group by process</li>
 <li>The BPMN endpoint returns raw XML data (binary stream)</li>

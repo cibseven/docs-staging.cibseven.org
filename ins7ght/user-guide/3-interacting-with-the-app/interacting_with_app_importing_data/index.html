@@ -428,12 +428,14 @@
     </div>
 
     <div class="col-xs-12 content-text">
-      <h1 id="data-import-overview">Data Import Overview</h1>
+      
+<h2 id="data-import-overview">Data Import Overview</h2>
 <p>CIB ins7ght continuously synchronizes data from your CIB seven environment to ensure analyses and metrics are always up to date.<br>
 This synchronization is handled by a <strong>polling client</strong>, which periodically connects via REST API to fetch new process data.</p>
 <p>The polling mechanism runs automatically in the background, checking for updates every 10 seconds (configurable upon request).<br>
 This ensures that your process dashboards and insights reflect near real-time information without requiring any manual refresh or intervention.</p>
-<h1 id="what-data-is-extracted">What Data Is Extracted</h1>
+
+<h2 id="what-data-is-extracted">What Data Is Extracted</h2>
 <p>To provide comprehensive process analysis, CIB ins7ght extracts data from the following key Camunda tables:</p>
 <ul>
 <li><strong><code>act_hi_procinst</code></strong> — contains information about process instances, including start and end times, duration, and process state.</li>
@@ -443,7 +445,8 @@ This ensures that your process dashboards and insights reflect near real-time in
 <li><strong><code>act_hi_incident</code></strong> — tracks process incidents that occur during execution.</li>
 </ul>
 <p>These tables together form the foundation of CIB ins7ght’s analytical model, allowing it to compute metrics.</p>
-<h1 id="data-handling-principles">Data Handling Principles</h1>
+
+<h2 id="data-handling-principles">Data Handling Principles</h2>
 <p>CIB ins7ght operates on a read-only extraction model, it copies data from CIB seven but never modifies or deletes anything from the source system.<br>
 All transformations, aggregations, and calculations occur exclusively within CIB ins7ght’s own system.</p>
 <p>This approach ensures:</p>
@@ -453,7 +456,8 @@ All transformations, aggregations, and calculations occur exclusively within CIB
 <li>Safe and isolated analytical processing.</li>
 <li>Historical data is saved.</li>
 </ul>
-<h1 id="initial-data-setup">Initial Data Setup</h1>
+
+<h2 id="initial-data-setup">Initial Data Setup</h2>
 <p>When CIB ins7ght is initialized for the first time, it performs a <strong>full historical data import</strong>, fetching all available records from the specified CIB seven tables.<br>
 This initial synchronization may take longer depending on the volume of existing process data, as it ensures that CIB ins7ght builds a complete analytical baseline from day one.</p>
 <p>After the initial load, only <strong>incremental updates</strong> are fetched, meaning new or modified records are imported during each polling cycle, keeping performance efficient and data always up to date.</p>

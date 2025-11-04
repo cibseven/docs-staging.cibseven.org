@@ -428,10 +428,12 @@
     </div>
 
     <div class="col-xs-12 content-text">
-      <h1 id="installation">Installation</h1>
+      
+<h2 id="installation">Installation</h2>
 <p>This guide will walk you through the process of installing CIB ins7ght in your environment.</p>
 <hr>
-<h2 id="prerequisites">Prerequisites</h2>
+
+<h3 id="prerequisites">Prerequisites</h3>
 <p>Before beginning the installation, ensure you have:</p>
 <ul>
 <li>A supported database system installed and running</li>
@@ -441,8 +443,10 @@
 <li>Sufficient system resources (RAM, CPU, storage)</li>
 </ul>
 <hr>
-<h2 id="installation-steps">Installation Steps</h2>
-<h3 id="1-download-cib-ins7ght">1. Download CIB ins7ght</h3>
+
+<h3 id="installation-steps">Installation Steps</h3>
+
+<h4 id="1-download-cib-ins7ght">1. Download CIB ins7ght</h4>
 <p>Download the latest CIB ins7ght release package from [distribution location].</p>
 <p>The package includes:</p>
 <ul>
@@ -451,12 +455,14 @@
 <li>Configuration templates</li>
 <li>Documentation</li>
 </ul>
-<h3 id="2-database-setup">2. Database Setup</h3>
+
+<h4 id="2-database-setup">2. Database Setup</h4>
 <p>Create a dedicated database for CIB ins7ght:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">CREATE</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">cib_ins7ght</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">USER</span><span class="w"> </span><span class="n">ins7ght_user</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="n">PASSWORD</span><span class="w"> </span><span class="s1">&#39;your_secure_password&#39;</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">GRANT</span><span class="w"> </span><span class="k">ALL</span><span class="w"> </span><span class="k">PRIVILEGES</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">cib_ins7ght</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">ins7ght_user</span><span class="p">;</span><span class="w">
-</span></span></span></code></pre></div><h3 id="3-configure-application-properties">3. Configure Application Properties</h3>
+</span></span></span></code></pre></div>
+<h4 id="3-configure-application-properties">3. Configure Application Properties</h4>
 <p>Navigate to the configuration directory and edit the <code>application.yml</code> or <code>cib-ins7ght.yaml</code> file.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">server</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">8899</span><span class="w">
@@ -512,37 +518,43 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">useWebclient</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">webclientUrl</span><span class="p">:</span><span class="w"> </span><span class="l">http://localhost:8080/cib-seven-webclient/rest/login</span><span class="w">
 </span></span></span></code></pre></div><p>For production configuration options, see the <a href="./configuration.md">Configuration Guide</a>.</p>
-<h3 id="4-initialize-the-database">4. Initialize the Database</h3>
+
+<h4 id="4-initialize-the-database">4. Initialize the Database</h4>
 <p>The database schema will be automatically created on first startup:</p>
 <ul>
 <li><strong>H2 and PostgreSQL:</strong> Schema is created automatically with <code>ddl-auto: create</code></li>
 </ul>
 <p>No manual migration is required.</p>
-<h3 id="5-start-the-backend-application">5. Start the Backend Application</h3>
+
+<h4 id="5-start-the-backend-application">5. Start the Backend Application</h4>
 <p>Launch the CIB ins7ght backend server:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">java -jar cib-ins7ght-web.war
 </span></span></code></pre></div><p>Or deploy the WAR file to Tomcat 10+:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Copy to Tomcat webapps directory</span>
 </span></span><span class="line"><span class="cl">cp cib-ins7ght-web.war /opt/tomcat/webapps/ins7ght.war
 </span></span></code></pre></div><p>The application will start on the configured port (default: 8899). Check the logs to confirm successful startup.</p>
-<h3 id="6-deploy-the-frontend-application">6. Deploy the Frontend Application</h3>
+
+<h4 id="6-deploy-the-frontend-application">6. Deploy the Frontend Application</h4>
 <p>The frontend can be deployed as static files to any web server (Nginx, Apache, etc.) or served directly by the backend.</p>
 <p><strong>Option A: Standalone Web Server</strong></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Copy frontend files to web server</span>
 </span></span><span class="line"><span class="cl">cp -r frontend/dist/* /var/www/cib-ins7ght/
 </span></span></code></pre></div><p><strong>Option B: Embedded with Backend</strong></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Frontend is automatically served by the backend at http://localhost:8080</span>
-</span></span></code></pre></div><h3 id="7-verify-installation">7. Verify Installation</h3>
+</span></span></code></pre></div>
+<h4 id="7-verify-installation">7. Verify Installation</h4>
 <p>Navigate to <code>http://your-server:8899</code> (or your configured port) in your web browser. You should see the CIB ins7ght application.</p>
 <p>Check the info endpoint to verify the installation:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl http://localhost:8899/info
 </span></span></code></pre></div><p>This should return the application version.</p>
 <hr>
-<h2 id="initial-data-import">Initial Data Import</h2>
+
+<h3 id="initial-data-import">Initial Data Import</h3>
 <p>Upon first startup, CIB ins7ght will automatically begin importing historical data from your CIB seven instance. This process may take several minutes to hours depending on the volume of data.</p>
 <p>You can monitor the import progress in the application logs or through the Polling status page.</p>
 <hr>
-<h2 id="post-installation-steps">Post-Installation Steps</h2>
+
+<h3 id="post-installation-steps">Post-Installation Steps</h3>
 <ol>
 <li>
 <p><strong>Verify Polling:</strong> Check that data is being imported from CIB seven</p>
@@ -576,20 +588,24 @@
 </li>
 </ol>
 <hr>
-<h2 id="troubleshooting">Troubleshooting</h2>
-<h3 id="application-wont-start">Application Won&rsquo;t Start</h3>
+
+<h3 id="troubleshooting">Troubleshooting</h3>
+
+<h4 id="application-wont-start">Application Won&rsquo;t Start</h4>
 <ul>
 <li>Check Java version compatibility</li>
 <li>Verify database connection settings</li>
 <li>Review application logs for error messages</li>
 </ul>
-<h3 id="cannot-connect-to-cib-seven">Cannot Connect to CIB seven</h3>
+
+<h4 id="cannot-connect-to-cib-seven">Cannot Connect to CIB seven</h4>
 <ul>
 <li>Verify CIB seven API URL is correct</li>
 <li>Check network connectivity</li>
 <li>Confirm API credentials are valid</li>
 </ul>
-<h3 id="frontend-not-loading">Frontend Not Loading</h3>
+
+<h4 id="frontend-not-loading">Frontend Not Loading</h4>
 <ul>
 <li>Clear browser cache</li>
 <li>Check browser console for errors</li>

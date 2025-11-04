@@ -428,10 +428,12 @@
     </div>
 
     <div class="col-xs-12 content-text">
-      <h1 id="limitations">Limitations</h1>
+      
+<h2 id="limitations">Limitations</h2>
 <p>While CIB ins7ght provides powerful insights into your CIB seven processes, there are some limitations that users should be aware of. Understanding these constraints helps set expectations and interpret the data correctly.</p>
 <hr>
-<h2 id="filters">Filters</h2>
+
+<h3 id="filters">Filters</h3>
 <ul>
 <li>
 <p>If you deploy a process definition, delete it, and then deploy it again, you may see <strong>duplicate versions</strong> in CIB ins7ght.
@@ -442,13 +444,15 @@ This happens because historical deployments are <strong>not deleted</strong> in 
 </li>
 </ul>
 <hr>
-<h2 id="waiting-time-between-two-activities">Waiting Time Between Two Activities</h2>
+
+<h3 id="waiting-time-between-two-activities">Waiting Time Between Two Activities</h3>
 <ul>
 <li>When using the feature to calculate <strong>average waiting time between two activities</strong>, if the selected activities are part of a loop, CIB ins7ght will <strong>only consider the first instance</strong>.<br>
 For example, if a task repeats 10 times in a single process instance, only the <strong>first iteration</strong> is used in the calculation.</li>
 </ul>
 <hr>
-<h2 id="data-completeness">Data Completeness</h2>
+
+<h3 id="data-completeness">Data Completeness</h3>
 <ul>
 <li><strong>Real-time data</strong> is subject to the polling interval of the client fetching CIB seven data.</li>
 <li>Very recent changes in process instances or deployments may <strong>not immediately appear</strong> until the next polling cycle.</li>

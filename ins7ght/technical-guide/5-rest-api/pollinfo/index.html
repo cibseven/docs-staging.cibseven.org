@@ -428,12 +428,15 @@
     </div>
 
     <div class="col-xs-12 content-text">
-      <h1 id="polling-info-api">Polling Info API</h1>
+      
+<h2 id="polling-info-api">Polling Info API</h2>
 <p>The Polling Info API provides real-time status information about the background polling service that synchronizes data from CIB seven.</p>
 <p><strong>Base Path:</strong> <code>/pollinfo</code></p>
 <hr>
-<h2 id="endpoint">Endpoint</h2>
-<h3 id="get-pollinfo">GET /pollinfo</h3>
+
+<h3 id="endpoint">Endpoint</h3>
+
+<h4 id="get-pollinfo">GET /pollinfo</h4>
 <p>Returns the current polling status and timestamps.</p>
 <p><strong>Purpose:</strong> Monitor the data synchronization status between CIB ins7ght and CIB seven.</p>
 <p><strong>Parameters:</strong> None</p>
@@ -479,12 +482,16 @@
   </tbody>
 </table>
 <hr>
-<h2 id="understanding-the-fields">Understanding the Fields</h2>
-<h3 id="fetchfrom">fetchFrom</h3>
+
+<h3 id="understanding-the-fields">Understanding the Fields</h3>
+
+<h4 id="fetchfrom">fetchFrom</h4>
 <p>The starting timestamp for the last polling operation. This indicates from which point in time process data was retrieved from CIB seven.</p>
-<h3 id="fetcheduntil">fetchedUntil</h3>
+
+<h4 id="fetcheduntil">fetchedUntil</h4>
 <p>The ending timestamp for the last polling operation. This indicates up to which point in time data has been successfully imported.</p>
-<h3 id="ispollingsince">isPollingSince</h3>
+
+<h4 id="ispollingsince">isPollingSince</h4>
 <p>The timestamp when the current polling cycle started. This is the key field for monitoring polling health.</p>
 <p><strong>Checking Polling Health:</strong>
 Compare <code>isPollingSince</code> to the current time:</p>
@@ -493,8 +500,10 @@ Compare <code>isPollingSince</code> to the current time:</p>
 <li>If the difference is large (e.g., &gt; 1-2 minutes), polling may be stuck or have errors</li>
 </ul>
 <hr>
-<h2 id="usage-examples">Usage Examples</h2>
-<h3 id="check-polling-status">Check Polling Status</h3>
+
+<h3 id="usage-examples">Usage Examples</h3>
+
+<h4 id="check-polling-status">Check Polling Status</h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X GET <span class="s2">&#34;http://localhost:8899/pollinfo&#34;</span>
 </span></span></code></pre></div><p><strong>Response:</strong></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">[</span>
@@ -505,7 +514,8 @@ Compare <code>isPollingSince</code> to the current time:</p>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;isPollingSince&#34;</span><span class="p">:</span> <span class="s2">&#34;2025-01-29T10:30:15.000Z&#34;</span>
 </span></span><span class="line"><span class="cl">  <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">]</span>
-</span></span></code></pre></div><h3 id="check-if-polling-is-working">Check if Polling is Working</h3>
+</span></span></code></pre></div>
+<h4 id="check-if-polling-is-working">Check if Polling is Working</h4>
 <p>Compare <code>isPollingSince</code> to current time:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Get the isPollingSince timestamp</span>
 </span></span><span class="line"><span class="cl"><span class="nv">POLLING_SINCE</span><span class="o">=</span><span class="k">$(</span>curl -s http://localhost:8899/pollinfo <span class="p">|</span> jq -r <span class="s1">&#39;.[0].isPollingSince&#39;</span><span class="k">)</span>
@@ -518,7 +528,8 @@ Compare <code>isPollingSince</code> to the current time:</p>
 <li><strong>Old timestamp</strong> (several minutes ago): ⚠️ Polling may be stuck, check logs</li>
 </ul>
 <hr>
-<h2 id="notes">Notes</h2>
+
+<h3 id="notes">Notes</h3>
 <ul>
 <li>Returns an array with typically one element (single polling status record)</li>
 <li>All timestamps are in ISO 8601 format with UTC timezone</li>
