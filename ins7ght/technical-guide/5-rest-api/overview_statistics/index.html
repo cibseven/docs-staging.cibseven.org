@@ -395,20 +395,20 @@
   </li>
 
         
-          
+      </ul>
+    
+  </li>
+
+        
+      </ul>
+    
+  </li>
+
+  
+    
   <li>
     
       <a href="/ins7ght/technical-guide/5-rest-api/pollinfo/" >Polling Info API</a>
-    
-  </li>
-
-        
-      </ul>
-    
-  </li>
-
-        
-      </ul>
     
   </li>
 
@@ -444,7 +444,44 @@
 <p><strong>Response Type:</strong> <code>Integer</code></p>
 <p><strong>Example Request:</strong></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-http" data-lang="http"><span class="line"><span class="cl"><span class="err">GET /overview/started-instances?processKey=order-process&amp;startDate=2025-01-01T00:00:00Z&amp;endDate=2025-01-31T23:59:59Z
-</span></span></span></code></pre></div><p><strong>Example Response:</strong></p>
+</span></span></span></code></pre></div><p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+      <tr>
+          <th>Parameter</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>processKey</code></td>
+          <td>string</td>
+          <td>No</td>
+          <td>Process definition key</td>
+      </tr>
+      <tr>
+          <td><code>version</code></td>
+          <td>string</td>
+          <td>No</td>
+          <td>Process version</td>
+      </tr>
+      <tr>
+          <td><code>startDate</code></td>
+          <td>string</td>
+          <td>No</td>
+          <td>Start date (ISO 8601)</td>
+      </tr>
+      <tr>
+          <td><code>endDate</code></td>
+          <td>string</td>
+          <td>No</td>
+          <td>End date (ISO 8601)</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Example Response:</strong></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="mi">142</span>
 </span></span></code></pre></div><hr>
 
@@ -453,7 +490,8 @@
 <p><strong>Response Type:</strong> <code>Integer</code></p>
 <p><strong>Example Request:</strong></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-http" data-lang="http"><span class="line"><span class="cl"><span class="err">GET /overview/finalized-instances?processKey=order-process&amp;startDate=2025-01-01T00:00:00Z&amp;endDate=2025-01-31T23:59:59Z
-</span></span></span></code></pre></div><p><strong>Example Response:</strong></p>
+</span></span></span></code></pre></div><p><strong>Parameters:</strong> Same as <code>/overview/started-instances</code></p>
+<p><strong>Example Response:</strong></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="mi">135</span>
 </span></span></code></pre></div><hr>
 
@@ -462,7 +500,8 @@
 <p><strong>Response Type:</strong> <code>Integer</code></p>
 <p><strong>Example Request:</strong></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-http" data-lang="http"><span class="line"><span class="cl"><span class="err">GET /overview/successful-instances?processKey=order-process&amp;startDate=2025-01-01T00:00:00Z&amp;endDate=2025-01-31T23:59:59Z
-</span></span></span></code></pre></div><p><strong>Example Response:</strong></p>
+</span></span></span></code></pre></div><p><strong>Parameters:</strong> Same as <code>/overview/started-instances</code></p>
+<p><strong>Example Response:</strong></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="mi">128</span>
 </span></span></code></pre></div><hr>
 
@@ -471,7 +510,8 @@
 <p><strong>Response Type:</strong> <code>Long</code></p>
 <p><strong>Example Request:</strong></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-http" data-lang="http"><span class="line"><span class="cl"><span class="err">GET /overview/avg-process-duration?processKey=order-process&amp;startDate=2025-01-01T00:00:00Z&amp;endDate=2025-01-31T23:59:59Z
-</span></span></span></code></pre></div><p><strong>Example Response:</strong></p>
+</span></span></span></code></pre></div><p><strong>Parameters:</strong> Same as <code>/overview/started-instances</code></p>
+<p><strong>Example Response:</strong></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="mi">3600000</span>
 </span></span></code></pre></div><p><strong>Note:</strong> The value is in milliseconds. In this example, 3,600,000ms = 1 hour.</p>
 <hr>
@@ -481,7 +521,8 @@
 <p><strong>Response Type:</strong> <code>Integer</code></p>
 <p><strong>Example Request:</strong></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-http" data-lang="http"><span class="line"><span class="cl"><span class="err">GET /overview/canceled-instances-internally-terminated?processKey=order-process&amp;startDate=2025-01-01T00:00:00Z&amp;endDate=2025-01-31T23:59:59Z
-</span></span></span></code></pre></div><p><strong>Example Response:</strong></p>
+</span></span></span></code></pre></div><p><strong>Parameters:</strong> Same as <code>/overview/started-instances</code></p>
+<p><strong>Example Response:</strong></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="mi">3</span>
 </span></span></code></pre></div><hr>
 
@@ -490,7 +531,8 @@
 <p><strong>Response Type:</strong> <code>Integer</code></p>
 <p><strong>Example Request:</strong></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-http" data-lang="http"><span class="line"><span class="cl"><span class="err">GET /overview/canceled-instances-externally-terminated?processKey=order-process&amp;startDate=2025-01-01T00:00:00Z&amp;endDate=2025-01-31T23:59:59Z
-</span></span></span></code></pre></div><p><strong>Example Response:</strong></p>
+</span></span></span></code></pre></div><p><strong>Parameters:</strong> Same as <code>/overview/started-instances</code></p>
+<p><strong>Example Response:</strong></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="mi">4</span>
 </span></span></code></pre></div><hr>
 
@@ -499,7 +541,8 @@
 <p><strong>Response Type:</strong> <code>Integer</code></p>
 <p><strong>Example Request:</strong></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-http" data-lang="http"><span class="line"><span class="cl"><span class="err">GET /overview/error-start-event-instances?processKey=order-process&amp;startDate=2025-01-01T00:00:00Z&amp;endDate=2025-01-31T23:59:59Z
-</span></span></span></code></pre></div><p><strong>Example Response:</strong></p>
+</span></span></span></code></pre></div><p><strong>Parameters:</strong> Same as <code>/overview/started-instances</code></p>
+<p><strong>Example Response:</strong></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="mi">7</span>
 </span></span></code></pre></div><hr>
 
@@ -508,7 +551,8 @@
 <p><strong>Response Type:</strong> <code>Integer</code></p>
 <p><strong>Example Request:</strong></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-http" data-lang="http"><span class="line"><span class="cl"><span class="err">GET /overview/incident-instances?processKey=order-process&amp;startDate=2025-01-01T00:00:00Z&amp;endDate=2025-01-31T23:59:59Z
-</span></span></span></code></pre></div><p><strong>Example Response:</strong></p>
+</span></span></span></code></pre></div><p><strong>Parameters:</strong> Same as <code>/overview/started-instances</code></p>
+<p><strong>Example Response:</strong></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="mi">5</span>
 </span></span></code></pre></div><hr>
 
@@ -520,7 +564,8 @@
 <p><strong>Response Type:</strong> <code>Double</code></p>
 <p><strong>Example Request:</strong></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-http" data-lang="http"><span class="line"><span class="cl"><span class="err">GET /overview/completed-user-tasks-percentage?processKey=order-process&amp;startDate=2025-01-01T00:00:00Z&amp;endDate=2025-01-31T23:59:59Z
-</span></span></span></code></pre></div><p><strong>Example Response:</strong></p>
+</span></span></span></code></pre></div><p><strong>Parameters:</strong> Same as <code>/overview/started-instances</code></p>
+<p><strong>Example Response:</strong></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="mf">94.5</span>
 </span></span></code></pre></div><p><strong>Note:</strong> The value is a percentage (0-100). In this example, 94.5% of user tasks were completed.</p>
 <hr>
@@ -530,7 +575,8 @@
 <p><strong>Response Type:</strong> <code>Long</code></p>
 <p><strong>Example Request:</strong></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-http" data-lang="http"><span class="line"><span class="cl"><span class="err">GET /overview/avg-user-task-duration?processKey=order-process&amp;startDate=2025-01-01T00:00:00Z&amp;endDate=2025-01-31T23:59:59Z
-</span></span></span></code></pre></div><p><strong>Example Response:</strong></p>
+</span></span></span></code></pre></div><p><strong>Parameters:</strong> Same as <code>/overview/started-instances</code></p>
+<p><strong>Example Response:</strong></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="mi">7200000</span>
 </span></span></code></pre></div><p><strong>Note:</strong> The value is in milliseconds. In this example, 7,200,000ms = 2 hours.</p>
 <hr>
