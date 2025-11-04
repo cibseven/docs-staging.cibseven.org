@@ -436,145 +436,103 @@
 
 <h3 id="endpoints">Endpoints</h3>
 
-<h4 id="get-overview">GET /overview</h4>
-<p>Returns aggregated statistics for process instances.</p>
-<p><strong>Purpose:</strong> Get summary statistics including started, finalized, successful, canceled, and incident instances.</p>
-<p><strong>Parameters:</strong></p>
-<table>
-  <thead>
-      <tr>
-          <th>Parameter</th>
-          <th>Type</th>
-          <th>Required</th>
-          <th>Description</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><code>processKey</code></td>
-          <td>string</td>
-          <td>No</td>
-          <td>Process definition key. Omit for all processes.</td>
-      </tr>
-      <tr>
-          <td><code>version</code></td>
-          <td>string</td>
-          <td>No</td>
-          <td>Process version. Must be used with <code>processKey</code>.</td>
-      </tr>
-      <tr>
-          <td><code>startDate</code></td>
-          <td>string</td>
-          <td>No</td>
-          <td>Start date in ISO 8601 format (e.g., <code>2025-01-01T00:00:00Z</code>)</td>
-      </tr>
-      <tr>
-          <td><code>endDate</code></td>
-          <td>string</td>
-          <td>No</td>
-          <td>End date in ISO 8601 format (e.g., <code>2025-01-31T23:59:59Z</code>)</td>
-      </tr>
-  </tbody>
-</table>
-<p><strong>Response Example:</strong></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;executedInstances&#34;</span><span class="p">:</span> <span class="mi">1250</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;incidentInstances&#34;</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;canceledInstances&#34;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;finalizedSuccessInstances&#34;</span><span class="p">:</span> <span class="mi">1205</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;averageDurationTime&#34;</span><span class="p">:</span> <span class="mi">3600000</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;startedInstances&#34;</span><span class="p">:</span> <span class="mi">1250</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;finalizedInstances&#34;</span><span class="p">:</span> <span class="mi">1235</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;successfulInstances&#34;</span><span class="p">:</span> <span class="mi">1205</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;canceledInstancesInternallyTerminated&#34;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;canceledInstancesExternallyTerminated&#34;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;errorStartEventInstances&#34;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;completedUserTasks&#34;</span><span class="p">:</span> <span class="mf">85.0</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;avgUserTaskDuration&#34;</span><span class="p">:</span> <span class="mi">300000</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;incidentAndErrorStartEventsInstances&#34;</span><span class="p">:</span> <span class="mi">20</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><p><strong>Response Fields:</strong></p>
-<table>
-  <thead>
-      <tr>
-          <th>Field</th>
-          <th>Type</th>
-          <th>Description</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><code>executedInstances</code></td>
-          <td>int</td>
-          <td>Total number of process instances executed</td>
-      </tr>
-      <tr>
-          <td><code>incidentInstances</code></td>
-          <td>int</td>
-          <td>Number of instances with incidents</td>
-      </tr>
-      <tr>
-          <td><code>canceledInstances</code></td>
-          <td>int</td>
-          <td>Number of canceled instances</td>
-      </tr>
-      <tr>
-          <td><code>finalizedSuccessInstances</code></td>
-          <td>int</td>
-          <td>Number of successfully completed instances</td>
-      </tr>
-      <tr>
-          <td><code>averageDurationTime</code></td>
-          <td>long</td>
-          <td>Average duration in milliseconds</td>
-      </tr>
-      <tr>
-          <td><code>startedInstances</code></td>
-          <td>int</td>
-          <td>Number of started instances</td>
-      </tr>
-      <tr>
-          <td><code>finalizedInstances</code></td>
-          <td>int</td>
-          <td>Number of finalized instances</td>
-      </tr>
-      <tr>
-          <td><code>successfulInstances</code></td>
-          <td>int</td>
-          <td>Number of successful instances</td>
-      </tr>
-      <tr>
-          <td><code>canceledInstancesInternallyTerminated</code></td>
-          <td>int</td>
-          <td>Internally terminated instances</td>
-      </tr>
-      <tr>
-          <td><code>canceledInstancesExternallyTerminated</code></td>
-          <td>int</td>
-          <td>Externally terminated instances</td>
-      </tr>
-      <tr>
-          <td><code>errorStartEventInstances</code></td>
-          <td>int</td>
-          <td>Instances with error start events</td>
-      </tr>
-      <tr>
-          <td><code>completedUserTasks</code></td>
-          <td>double</td>
-          <td>Percentage of completed user tasks</td>
-      </tr>
-      <tr>
-          <td><code>avgUserTaskDuration</code></td>
-          <td>long</td>
-          <td>Average user task duration in milliseconds</td>
-      </tr>
-      <tr>
-          <td><code>incidentAndErrorStartEventsInstances</code></td>
-          <td>int</td>
-          <td>Combined incident and error count</td>
-      </tr>
-  </tbody>
-</table>
+<h3 id="instance-count-endpoints">Instance Count Endpoints</h3>
+<p>These endpoints return aggregate counts and statistics as single values (Integer, Long, or Double).</p>
+
+<h4 id="get-overviewstarted-instances">GET /overview/started-instances</h4>
+<p>Returns the total count of process instances that were started within the specified date range.</p>
+<p><strong>Response Type:</strong> <code>Integer</code></p>
+<p><strong>Example Request:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-http" data-lang="http"><span class="line"><span class="cl"><span class="err">GET /overview/started-instances?processKey=order-process&amp;startDate=2025-01-01T00:00:00Z&amp;endDate=2025-01-31T23:59:59Z
+</span></span></span></code></pre></div><p><strong>Example Response:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="mi">142</span>
+</span></span></code></pre></div><hr>
+
+<h4 id="get-overviewfinalized-instances">GET /overview/finalized-instances</h4>
+<p>Returns the total count of process instances that were finalized (completed, canceled, or terminated) within the specified date range.</p>
+<p><strong>Response Type:</strong> <code>Integer</code></p>
+<p><strong>Example Request:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-http" data-lang="http"><span class="line"><span class="cl"><span class="err">GET /overview/finalized-instances?processKey=order-process&amp;startDate=2025-01-01T00:00:00Z&amp;endDate=2025-01-31T23:59:59Z
+</span></span></span></code></pre></div><p><strong>Example Response:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="mi">135</span>
+</span></span></code></pre></div><hr>
+
+<h4 id="get-overviewsuccessful-instances">GET /overview/successful-instances</h4>
+<p>Returns the total count of process instances that completed successfully within the specified date range.</p>
+<p><strong>Response Type:</strong> <code>Integer</code></p>
+<p><strong>Example Request:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-http" data-lang="http"><span class="line"><span class="cl"><span class="err">GET /overview/successful-instances?processKey=order-process&amp;startDate=2025-01-01T00:00:00Z&amp;endDate=2025-01-31T23:59:59Z
+</span></span></span></code></pre></div><p><strong>Example Response:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="mi">128</span>
+</span></span></code></pre></div><hr>
+
+<h4 id="get-overviewavg-process-duration">GET /overview/avg-process-duration</h4>
+<p>Returns the average duration (in milliseconds) of process instances within the specified date range.</p>
+<p><strong>Response Type:</strong> <code>Long</code></p>
+<p><strong>Example Request:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-http" data-lang="http"><span class="line"><span class="cl"><span class="err">GET /overview/avg-process-duration?processKey=order-process&amp;startDate=2025-01-01T00:00:00Z&amp;endDate=2025-01-31T23:59:59Z
+</span></span></span></code></pre></div><p><strong>Example Response:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="mi">3600000</span>
+</span></span></code></pre></div><p><strong>Note:</strong> The value is in milliseconds. In this example, 3,600,000ms = 1 hour.</p>
+<hr>
+
+<h4 id="get-overviewcanceled-instances-internally-terminated">GET /overview/canceled-instances-internally-terminated</h4>
+<p>Returns the count of process instances that were canceled due to internal termination within the specified date range.</p>
+<p><strong>Response Type:</strong> <code>Integer</code></p>
+<p><strong>Example Request:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-http" data-lang="http"><span class="line"><span class="cl"><span class="err">GET /overview/canceled-instances-internally-terminated?processKey=order-process&amp;startDate=2025-01-01T00:00:00Z&amp;endDate=2025-01-31T23:59:59Z
+</span></span></span></code></pre></div><p><strong>Example Response:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="mi">3</span>
+</span></span></code></pre></div><hr>
+
+<h4 id="get-overviewcanceled-instances-externally-terminated">GET /overview/canceled-instances-externally-terminated</h4>
+<p>Returns the count of process instances that were canceled due to external termination within the specified date range.</p>
+<p><strong>Response Type:</strong> <code>Integer</code></p>
+<p><strong>Example Request:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-http" data-lang="http"><span class="line"><span class="cl"><span class="err">GET /overview/canceled-instances-externally-terminated?processKey=order-process&amp;startDate=2025-01-01T00:00:00Z&amp;endDate=2025-01-31T23:59:59Z
+</span></span></span></code></pre></div><p><strong>Example Response:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="mi">4</span>
+</span></span></code></pre></div><hr>
+
+<h4 id="get-overviewerror-start-event-instances">GET /overview/error-start-event-instances</h4>
+<p>Returns the count of process instances that were triggered by error start events within the specified date range.</p>
+<p><strong>Response Type:</strong> <code>Integer</code></p>
+<p><strong>Example Request:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-http" data-lang="http"><span class="line"><span class="cl"><span class="err">GET /overview/error-start-event-instances?processKey=order-process&amp;startDate=2025-01-01T00:00:00Z&amp;endDate=2025-01-31T23:59:59Z
+</span></span></span></code></pre></div><p><strong>Example Response:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="mi">7</span>
+</span></span></code></pre></div><hr>
+
+<h4 id="get-overviewincident-instances">GET /overview/incident-instances</h4>
+<p>Returns the count of process instances that had incidents within the specified date range.</p>
+<p><strong>Response Type:</strong> <code>Integer</code></p>
+<p><strong>Example Request:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-http" data-lang="http"><span class="line"><span class="cl"><span class="err">GET /overview/incident-instances?processKey=order-process&amp;startDate=2025-01-01T00:00:00Z&amp;endDate=2025-01-31T23:59:59Z
+</span></span></span></code></pre></div><p><strong>Example Response:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="mi">5</span>
+</span></span></code></pre></div><hr>
+
+<h3 id="user-task-endpoints">User Task Endpoints</h3>
+<p>These endpoints provide statistics related to user tasks within process instances.</p>
+
+<h4 id="get-overviewcompleted-user-tasks-percentage">GET /overview/completed-user-tasks-percentage</h4>
+<p>Returns the percentage of user tasks that were completed within the specified date range.</p>
+<p><strong>Response Type:</strong> <code>Double</code></p>
+<p><strong>Example Request:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-http" data-lang="http"><span class="line"><span class="cl"><span class="err">GET /overview/completed-user-tasks-percentage?processKey=order-process&amp;startDate=2025-01-01T00:00:00Z&amp;endDate=2025-01-31T23:59:59Z
+</span></span></span></code></pre></div><p><strong>Example Response:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="mf">94.5</span>
+</span></span></code></pre></div><p><strong>Note:</strong> The value is a percentage (0-100). In this example, 94.5% of user tasks were completed.</p>
+<hr>
+
+<h4 id="get-overviewavg-user-task-duration">GET /overview/avg-user-task-duration</h4>
+<p>Returns the average duration (in milliseconds) of user tasks within the specified date range.</p>
+<p><strong>Response Type:</strong> <code>Long</code></p>
+<p><strong>Example Request:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-http" data-lang="http"><span class="line"><span class="cl"><span class="err">GET /overview/avg-user-task-duration?processKey=order-process&amp;startDate=2025-01-01T00:00:00Z&amp;endDate=2025-01-31T23:59:59Z
+</span></span></span></code></pre></div><p><strong>Example Response:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="mi">7200000</span>
+</span></span></code></pre></div><p><strong>Note:</strong> The value is in milliseconds. In this example, 7,200,000ms = 2 hours.</p>
 <hr>
 
 <h4 id="get-overviewgraphstarted-instances">GET /overview/graph/started-instances</h4>
@@ -756,9 +714,23 @@
   <h3>On this Page:</h3>
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#endpoints">Endpoints</a>
+    <li><a href="#endpoints">Endpoints</a></li>
+    <li><a href="#instance-count-endpoints">Instance Count Endpoints</a>
       <ul>
-        <li><a href="#get-overview">GET /overview</a></li>
+        <li><a href="#get-overviewstarted-instances">GET /overview/started-instances</a></li>
+        <li><a href="#get-overviewfinalized-instances">GET /overview/finalized-instances</a></li>
+        <li><a href="#get-overviewsuccessful-instances">GET /overview/successful-instances</a></li>
+        <li><a href="#get-overviewavg-process-duration">GET /overview/avg-process-duration</a></li>
+        <li><a href="#get-overviewcanceled-instances-internally-terminated">GET /overview/canceled-instances-internally-terminated</a></li>
+        <li><a href="#get-overviewcanceled-instances-externally-terminated">GET /overview/canceled-instances-externally-terminated</a></li>
+        <li><a href="#get-overviewerror-start-event-instances">GET /overview/error-start-event-instances</a></li>
+        <li><a href="#get-overviewincident-instances">GET /overview/incident-instances</a></li>
+      </ul>
+    </li>
+    <li><a href="#user-task-endpoints">User Task Endpoints</a>
+      <ul>
+        <li><a href="#get-overviewcompleted-user-tasks-percentage">GET /overview/completed-user-tasks-percentage</a></li>
+        <li><a href="#get-overviewavg-user-task-duration">GET /overview/avg-user-task-duration</a></li>
         <li><a href="#get-overviewgraphstarted-instances">GET /overview/graph/started-instances</a></li>
         <li><a href="#get-overviewgraphfinalized-instances">GET /overview/graph/finalized-instances</a></li>
         <li><a href="#get-overviewgraphsuccessful-instances">GET /overview/graph/successful-instances</a></li>
