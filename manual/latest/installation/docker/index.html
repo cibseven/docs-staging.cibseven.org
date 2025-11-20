@@ -2865,6 +2865,14 @@
           
   <li>
     
+      <a href="/manual/latest/webapps/cockpit/bpmn/process-instance-migration/" >Process Instance Migration</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
       <a href="/manual/latest/webapps/cockpit/bpmn/process-instance-restart/" >Process Restart</a>
     
   </li>
@@ -2930,6 +2938,14 @@
 
         
       </ul>
+    
+  </li>
+
+        
+          
+  <li>
+    
+      <a href="/manual/latest/webapps/cockpit/bpmn/batch/" >Batch Operations</a>
     
   </li>
 
@@ -3273,19 +3289,16 @@ For example, tags like <code>2.1.0</code> or <code>latest</code> without explici
 <p>Please note that these images are built using the same Dockerfile of the Community image, but including the Community+ version of CIB seven. For this reason, the same <a href="https://github.com/cibseven/cibseven-docker/#cib-seven-docker-images">documentation</a> applies.</p>
 <p>Make sure to log-in correctly before trying to pull the image:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ docker login artifacts.cibseven.org
-</span></span></code></pre></div><p>To start CIB seven Tomcat, execute the following commands:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker pull artifacts.cibseven.org/docker-ce-plus/cibseven:tomcat-latest
-</span></span><span class="line"><span class="cl">docker run -d --name cibseven -p 8080:8080 cibseven/cibseven:tomcat-latest
-</span></span></code></pre></div><p>you can also specify explicit version of CIB seven, e.g. cibseven:tomcat-2.0.4</p>
-<p>To start <a href="/manual/latest/user-guide/cibseven-run/">CIB seven Run</a>, execute the following commands:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker pull artifacts.cibseven.org/docker-ce-plus/cibseven:run-latest
-</span></span><span class="line"><span class="cl">docker run -d --name cibseven -p 8080:8080 cibseven/cibseven:run-latest
-</span></span></code></pre></div><p>you can also specify explicit version of CIB seven, e.g. cibseven:run-2.0.4</p>
-<p>To start CIB seven Wildfly version, execute the following commands:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker pull artifacts.cibseven.org/docker-ce-plus/cibseven:wildfly-latest
-</span></span><span class="line"><span class="cl">docker run -d --name cibseven -p 8080:8080 cibseven/cibseven:wildfly-latest
-</span></span></code></pre></div><p>you can also specify explicit version of CIB seven, e.g. cibseven:wildfly-2.0.4</p>
-<p>If you want to build an community+ image yourself, follow the steps described on <a href="https://github.com/cibseven/cibseven-docker/#cib-seven-docker-images">GitHub</a>.</p>
+</span></span></code></pre></div><p>To start CIB seven Tomcat version 2.0.4, execute the following commands:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker pull artifacts.cibseven.org/docker-ce-plus/cibseven:tomcat-2.0.4
+</span></span><span class="line"><span class="cl">docker run -d --name cibseven -p 8080:8080 cibseven/cibseven:tomcat-2.0.4
+</span></span></code></pre></div><p>To start <a href="/manual/latest/user-guide/cibseven-run/">CIB seven Run</a> version 2.0.4, execute the following commands:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker pull artifacts.cibseven.org/docker-ce-plus/cibseven:run-2.0.4
+</span></span><span class="line"><span class="cl">docker run -d --name cibseven -p 8080:8080 cibseven/cibseven:run-2.0.4
+</span></span></code></pre></div><p>To start CIB seven Wildfly version 2.0.4, execute the following commands:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker pull artifacts.cibseven.org/docker-ce-plus/cibseven:wildfly-2.0.4
+</span></span><span class="line"><span class="cl">docker run -d --name cibseven -p 8080:8080 cibseven/cibseven:wildfly-2.0.4
+</span></span></code></pre></div><p>If you want to build an community+ image yourself, follow the steps described on <a href="https://github.com/cibseven/cibseven-docker/#cib-seven-docker-images">GitHub</a>.</p>
 
 <h2 id="enterprise-edition">Enterprise Edition</h2>
 
@@ -3300,14 +3313,14 @@ For example, tags like <code>2.1.0</code> or <code>latest</code> without explici
 <p>Make sure to log-in correctly before trying to pull the image:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ docker login artifacts.cibseven.org
 </span></span></code></pre></div><p>To start CIB seven Tomcat, execute the following commands:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker pull artifacts.cibseven.org/docker-ee/cibseven:tomcat-2.1.0
-</span></span><span class="line"><span class="cl">docker run -d --name cibseven -p 8080:8080 cibseven/cibseven:tomcat-2.1.0
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker pull artifacts.cibseven.org/docker-ee/cibseven:tomcat-2.1.0-ee
+</span></span><span class="line"><span class="cl">docker run -d --name cibseven -p 8080:8080 cibseven/cibseven:tomcat-2.1.0-ee
 </span></span></code></pre></div><p>To start <a href="/manual/latest/user-guide/cibseven-run/">CIB seven Run</a> execute the following commands:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker pull artifacts.cibseven.org/docker-ee/cibseven:run-2.1.0
-</span></span><span class="line"><span class="cl">docker run -d --name cibseven -p 8080:8080 cibseven/cibseven:run-2.1.0
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker pull artifacts.cibseven.org/docker-ee/cibseven:run-2.1.0-ee
+</span></span><span class="line"><span class="cl">docker run -d --name cibseven -p 8080:8080 cibseven/cibseven:run-2.1.0-ee
 </span></span></code></pre></div><p>To start CIB seven Wildfly version, execute the following commands:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker pull artifacts.cibseven.org/docker-ee/cibseven:wildfly-2.1.0
-</span></span><span class="line"><span class="cl">docker run -d --name cibseven -p 8080:8080 cibseven/cibseven:wildfly-2.1.0
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker pull artifacts.cibseven.org/docker-ee/cibseven:wildfly-2.1.0-ee
+</span></span><span class="line"><span class="cl">docker run -d --name cibseven -p 8080:8080 cibseven/cibseven:wildfly-2.1.0-ee
 </span></span></code></pre></div><p>If you want to build an enterprise image yourself, follow the steps described on <a href="https://github.com/cibseven/cibseven-docker/#cib-seven-docker-images">GitHub</a>.</p>
 
     </div>
