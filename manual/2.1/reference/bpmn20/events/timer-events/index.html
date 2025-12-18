@@ -3284,11 +3284,11 @@
 <p>The recurring time duration option is better suited for handling relative timers, which are calculated in respect to some particular point in time (e.g., the time when a user task was started), while cron expressions can handle absolute timers - which is particularly useful for timer start events.</p>
 
 <h4 id="support-for-multiple-cron-dialects">Support for Multiple Cron Dialects</h4>
-<p>Starting from version 2.1.2, CIB seven supports two cron dialects: Spring 5.3 and Quartz 2.5 (including legacy Quartz 1.8 syntax).
-Users can specify the desired dialect via the cronType option, setting it to QUARTZ or SPRING53.
-Additionally, there is an option supportLegacyQuartzSyntax (true/false) to enable support for legacy Quartz 1.8 syntax.
+<p>Starting from version <code>2.1.2</code>, CIB seven supports two cron dialects: Spring 5.3 and Quartz 2.5 (including legacy Quartz 1.8 syntax).
+Users can specify the desired dialect via the <code>cronType</code> option, setting it to <code>QUARTZ</code> or <code>SPRING53</code>.
+Additionally, there is an option <code>supportLegacyQuartzSyntax</code> (true/false) to enable support for legacy Quartz 1.8 syntax.
 By default, the system supports Quartz with compatibility for Quartz 1.8.
-The configuration can be changed in the relevant server configuration files: server.xml for the WildFly distribution, bpm-platform.xml for the Tomcat distribution, or production.yml/default.yml for the Run distributions.
+The configuration can be changed in the relevant server configuration files: <code>standalone.xml</code> or <code>domain.xml</code> for the WildFly distribution, <code>bpm-platform.xml</code> for the Tomcat distribution, and <code>production.yml/default.yml</code> for the Run distributions.
 For more information about the syntax and using cron expressions see <a href="http://www.quartz-scheduler.org/documentation/quartz-2.1.7/tutorials/tutorial-lesson-06.html">CronTrigger Tutorial</a> and <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/scheduling/support/CronExpression.html#parse(java.lang.String)">Spring documentation</a></p>
 
 <h4 id="modify-a-time-cycle">Modify a Time Cycle</h4>
