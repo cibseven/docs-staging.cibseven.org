@@ -3258,11 +3258,11 @@
 
 <h3 id="highlights">Highlights</h3>
 <ul>
-<li>Major upgrade to <code>Wildfly v37.0.1</code> with enhanced Jakarta support and improved security.</li>
+<li>Major upgrade to <code>Wildfly 37.0.1.Final</code> with enhanced Jakarta support and improved security.</li>
 <li>Enhanced multi-engine support with token caching, authentication optimization, and flexible configuration.</li>
-<li>Append new file variable for process instances.</li>
+<li>Ability to add new file variable for process instances.</li>
 <li>Comprehensive accessibility improvements with <code>eslint-plugin-vuejs-accessibility</code> integration.</li>
-<li>Resolved multiple high-severity CVE vulnerabilities in <code>log4j2</code>, <code>qs</code>, <code>org.lz4</code>, and <code>netty</code>.</li>
+<li>Resolved multiple high-severity CVE vulnerabilities in <code>log4j</code>, <code>qs</code>, <code>org.lz4</code>, and <code>netty</code>.</li>
 </ul>
 
 <h3 id="new-features">New Features</h3>
@@ -3280,7 +3280,7 @@
 
 <h4 id="variables">Variables</h4>
 <ul>
-<li>Append new file variables in process instances.</li>
+<li>Ability to add new file variable for process instances.</li>
 <li>Ability to change existing variables to file type.</li>
 </ul>
 
@@ -3321,13 +3321,12 @@
 <ul>
 <li>Fixed: Modify/restart process instance functionality now works correctly.</li>
 <li>Fixed: Service task with running incidents can now be canceled.</li>
+<li>Fixed: Alignment of definition version header in <code>ProcessInstancesBatchTable</code>.</li>
+<li>Fixed: Enhanced <code>drawToolButtons</code> to combine active activity IDs from historic and runtime statistics.</li>
 <li>Fixed: Http-connector module for Wildfly distribution.</li>
-<li>Fixed: User preferences visibility for &lsquo;Selenium&rsquo; user in dev stage.</li>
 <li>Fixed: <code>IconButton.vue</code> duplication issue resolved.</li>
 <li>Fixed: Header display and layout issues for small screens.</li>
 <li>Fixed: Added null checks and error handling for zoom functionality in <code>BpmnViewer</code>.</li>
-<li>Fixed: Enhanced <code>drawToolButtons</code> to combine active activity IDs from historic and runtime statistics.</li>
-<li>Fixed: Alignment of definition version header in <code>ProcessInstancesBatchTable</code>.</li>
 <li>Fixed: Various embedded forms issues including URL construction, API URI handling, and error logging.</li>
 <li>Fixed: JWT secret decoding in multi-engine configuration.</li>
 <li>Fixed: Handling of empty path strings in multi-engine REST.</li>
@@ -3337,15 +3336,12 @@
 
 <h4 id="dependency-updates">Dependency Updates</h4>
 <ul>
-<li>Update <code>Wildfly</code> to <code>v37.0.1</code></li>
+<li>Update <code>Wildfly</code> from <code>37.0.0.Final</code> to <code>37.0.1.Final</code></li>
 <li>Update <code>Spring Boot</code> from <code>3.5.7</code> to <code>3.5.9</code></li>
-<li>Update <code>log4j2</code> to <code>2.25.3</code></li>
+<li>Update <code>log4j</code> to <code>2.25.3</code></li>
 <li>Update <code>qs</code> from <code>6.14.0</code> to <code>6.14.1</code></li>
 <li>Update <code>cibseven-components</code> to <code>2.1.3</code></li>
 <li>Update <code>bpm-sdk</code> to <code>2.1.1-dev.0</code></li>
-<li>Update <code>eslint-plugin-cypress</code> from <code>4.3.0</code> to <code>5.2.1</code></li>
-<li>Update <code>cypress</code> from <code>14.3.3</code> to <code>15.8.2</code></li>
-<li>Update <code>eslint-plugin-vuejs-accessibility</code> to <code>2.4.1</code></li>
 <li>Update <code>jib-maven-plugin</code> to <code>3.5.1</code></li>
 <li>Update <code>tomcat</code> from <code>10.1.48</code> to <code>10.1.49</code></li>
 </ul>
@@ -3355,8 +3351,8 @@
 <h5 id="high-severity">High Severity</h5>
 <ul>
 <li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2025-66566">CVE-2025-66566</a></strong> - Fixed in <code>org.lz4</code> and <code>netty</code> modules for Wildfly.</li>
-<li><strong><a href="https://github.com/advisories/GHSA-6rw7-vpxm-498p">CVE-2025-15284</a></strong> - qs&rsquo;s arrayLimit bypass allowing DoS via memory exhaustion. Fixed in <code>qs</code> &lt; <code>6.14.1</code> via <code>@cypress/request</code> dependency.</li>
-<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2025-68161">CVE-2025-68161</a></strong> - Fixed in <code>log4j2</code> by updating to <code>2.25.3</code>.</li>
+<li><strong><a href="https://github.com/advisories/GHSA-6rw7-vpxm-498p">CVE-2025-15284</a></strong> - qs&rsquo;s arrayLimit bypass allowing DoS via memory exhaustion. Fixed in <code>qs</code> &lt; <code>6.14.1</code> via <code>@cypress/request</code> dependency. Note: This package is only used for testing and is not present in the production code of the CIB seven platform deployed at customer sites.</li>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2025-68161">CVE-2025-68161</a></strong> - Fixed in <code>log4j</code> by updating to <code>2.25.3</code>.</li>
 </ul>
 
 <h5 id="medium-severity">Medium Severity</h5>
