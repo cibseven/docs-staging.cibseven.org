@@ -3267,29 +3267,36 @@
 
 <h3 id="new-features">New Features</h3>
 
-<h4 id="multi-engine-support-and-configuration">Multi-Engine Support and Configuration</h4>
+<h4 id="multi-engine-support">Multi-Engine Support</h4>
 <ul>
+<li>Support connections to multiple engines from a single CIB seven webclient.</li>
 <li>Implemented token caching mechanism for logged-in engines to improve performance and user experience.</li>
-<li>Added <code>authGroupFilterThreshold</code> option to optimize authentication group filtering and improve SQL query performance.</li>
 <li>Enhanced multi-engine REST configuration with support for custom <code>jwtSecret</code> at URL and path level.</li>
 <li>Improved multi-engine REST with customizable text, tooltips, and correct mapping.</li>
 <li>Fallback path to <code>/engine-rest</code> if not explicitly set.</li>
-<li>Refactored configuration prefixes from <code>quarkus.camunda</code> to <code>quarkus.cibseven</code>.</li>
 <li>Implemented pseudo-authentication filter for multi-engine environments.</li>
+</ul>
+
+<h4 id="multi-engine-support-for-embedded-forms">Multi-Engine Support for Embedded Forms</h4>
+<ul>
+<li>Use middleware for embedded forms instead of direct calls to <code>engine-rest</code> from <code>bpm-sdk</code>.</li>
+<li>Construct embedded form URLs based on engine configuration.</li>
+<li>Added endpoints to retrieve rendered HTML forms.</li>
+<li>Implemented middleware proxy for form content to resolve CORS issues.</li>
+<li>Updated deployed form retrieval to return bytes and proper content type.</li>
+</ul>
+
+<h4 id="engine-configuration">Engine Configuration</h4>
+<ul>
+<li>Added <code>authGroupFilterThreshold</code> option to optimize authentication group filtering and improve SQL query performance.</li>
+<li>Refactored configuration prefixes from <code>quarkus.camunda</code> to <code>quarkus.cibseven</code>.</li>
 </ul>
 
 <h4 id="variables">Variables</h4>
 <ul>
 <li>Ability to add new file variable for process instances.</li>
 <li>Ability to change existing variables to file type.</li>
-</ul>
-
-<h4 id="embedded-forms">Embedded Forms</h4>
-<ul>
-<li>Construct embedded form URLs based on engine configuration.</li>
-<li>Use middleware for embedded forms instead of direct calls to <code>engine-rest</code> from <code>bpm-sdk</code>.</li>
-<li>Added endpoints to retrieve rendered HTML forms.</li>
-<li>Updated deployed form retrieval to return bytes and proper content type.</li>
+<li>Added file download handlers and endpoint for task variable data retrieval.</li>
 </ul>
 
 <h3 id="user-experience-improvements">User Experience Improvements</h3>
@@ -3335,8 +3342,9 @@
 <h5 id="high-severity">High Severity</h5>
 <ul>
 <li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2025-66566">CVE-2025-66566</a></strong> - Fixed in <code>org.lz4</code> and <code>netty</code> modules for Wildfly.</li>
-<li><strong><a href="https://github.com/advisories/GHSA-6rw7-vpxm-498p">CVE-2025-15284</a></strong> - qs&rsquo;s arrayLimit bypass allowing DoS via memory exhaustion. Fixed in <code>qs</code> &lt; <code>6.14.1</code> via <code>@cypress/request</code> dependency. Note: This package is only used for testing and is not present in the production code of the CIB seven platform deployed at customer sites.</li>
+<li><strong><a href="https://github.com/advisories/GHSA-6rw7-vpxm-498p">CVE-2025-15284</a></strong> - qs&rsquo;s arrayLimit bypass allowing DoS via memory exhaustion. Fixed in <code>qs</code> &lt; <code>6.14.1</code> via <code>@cypress/request</code> dependency. Note: This package is used only for testing and is not present in the production code of the CIB seven platform deployed at customer sites.</li>
 <li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2025-68161">CVE-2025-68161</a></strong> - Fixed in <code>log4j</code> by updating to <code>2.25.3</code>.</li>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2025-13151">CVE-2025-13151</a></strong> - Fixed Stack-based buffer overflow in <code>libtasn1</code> by updating to <code>4.21.0-r0</code>. The vulnerable library was included transitively via the Alpine base image.</li>
 </ul>
 
 <h5 id="medium-severity">Medium Severity</h5>
@@ -3383,9 +3391,10 @@
         <li><a href="#highlights">Highlights</a></li>
         <li><a href="#new-features">New Features</a>
           <ul>
-            <li><a href="#multi-engine-support-and-configuration">Multi-Engine Support and Configuration</a></li>
+            <li><a href="#multi-engine-support">Multi-Engine Support</a></li>
+            <li><a href="#multi-engine-support-for-embedded-forms">Multi-Engine Support for Embedded Forms</a></li>
+            <li><a href="#engine-configuration">Engine Configuration</a></li>
             <li><a href="#variables">Variables</a></li>
-            <li><a href="#embedded-forms">Embedded Forms</a></li>
           </ul>
         </li>
         <li><a href="#user-experience-improvements">User Experience Improvements</a></li>
