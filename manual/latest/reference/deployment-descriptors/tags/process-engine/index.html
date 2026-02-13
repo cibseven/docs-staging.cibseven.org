@@ -103,7 +103,7 @@
     <span class="number">2.1-ee/ce&#43;</span>
 </div>
 
-
+<br />
 <ul class="site-menu-items">
   
     
@@ -3173,6 +3173,14 @@
           
   <li>
     
+      <a href="/manual/latest/update/patch-level/" >Patch Level Update</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
       <a href="/manual/latest/update/minor/" >Minor Version Update</a>
       <ul>
         
@@ -3468,6 +3476,11 @@
     <td><code>authorizationEnabled</code></td>
     <td>Boolean</td>
     <td>Activates <a href="/manual/latest/user-guide/process-engine/authorization-service/#enable-authorization-checks ">authorization checks</a>.</td>
+  </tr>
+  <tr>
+    <td><code>authGroupFilterThreshold</code></td>
+    <td>Integer</td>
+    <td>Performance tuning: <br />The property specifies a threshold for skipping auxiliary SQL requests to the ACT_RU_AUTHORIZATION table for getting group memberships. If the number of groups the user belongs to is less than this threshold, the request is skipped, which can improve performance for large ACT_RU_AUTHORIZATION tables. <br />Default value: 0</td>
   </tr>
   <tr>
     <td><code>autoStoreScriptVariables</code></td>
