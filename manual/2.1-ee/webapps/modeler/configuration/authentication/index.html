@@ -2833,33 +2833,6 @@
           
   <li>
     
-      <a href="/manual/2.1-ee/webapps/modeler/library-integration/" >Library Integration</a>
-      <ul>
-        
-          
-  <li>
-    
-      <a href="/manual/2.1-ee/webapps/modeler/library-integration/npm-installation/" >NPM Installation</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/manual/2.1-ee/webapps/modeler/library-integration/api-reference/" >API Reference</a>
-    
-  </li>
-
-        
-      </ul>
-    
-  </li>
-
-        
-          
-  <li>
-    
       <a href="/manual/2.1-ee/webapps/modeler/reference/" >Reference</a>
       <ul>
         
@@ -3414,10 +3387,10 @@
     </div>
 
     <div class="col-xs-12 content-text">
-      <p>CIB seven Modeler reuses the authentication infrastructure of <code>cibseven-webclient-core</code>. Every REST endpoint calls <code>checkAuthorization(rq, true)</code> which validates the session token provided in the request.</p>
+      <p>The modeler reuses the authentication infrastructure of <code>cibseven-webclient</code>. Every REST endpoint validates the session token provided in the request.</p>
 
-<h2 id="enabling-and-disabling-authentication">Enabling and Disabling Authentication</h2>
-<p>Authentication is <strong>enabled by default</strong>. It can be disabled for local development or testing by setting the following in <code>cibseven-webclient</code>&rsquo;s <code>application.yaml</code>:</p>
+<h2 id="disabling-authentication">Disabling Authentication</h2>
+<p>Authentication is <strong>enabled by default</strong>. It can be disabled for local development or testing:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">cibsevenmodeler</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">authentication</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
@@ -3426,29 +3399,12 @@
 </span></span></code></pre></div>
 <div class="note bg-warning docs-warning">
   <h3>Never disable authentication in production</h3>
-  <p>Disabling authentication exposes all REST endpoints without any access control. Only use this setting in isolated development or CI environments.</p>
+  <p>Disabling authentication exposes all modeler REST endpoints without any access control. Only use this setting in isolated development or CI environments.</p>
 </div>
 
 
-<h2 id="how-authentication-works">How Authentication Works</h2>
-<p>When <code>authentication.enabled=true</code>, every modeler REST endpoint:</p>
-<ol>
-<li>Reads the <code>Authorization</code> header (or session cookie) from the HTTP request</li>
-<li>Calls <code>checkAuthorization(rq, true)</code> inherited from <code>BaseService</code></li>
-<li>Returns <code>401 Unauthorized</code> if the token is missing or invalid</li>
-<li>Returns the authenticated <code>CIBUser</code> for use in business logic (e.g., recording the user ID on session entities)</li>
-</ol>
-<p>The <code>CIBUser</code> object provides:</p>
-<ul>
-<li><code>getUserID()</code> — the authenticated user&rsquo;s login name</li>
-<li>Group and authority information used for further permission checks</li>
-</ul>
-
 <h2 id="integration-with-cib-seven-engine">Integration with CIB seven Engine</h2>
-<p>Endpoints that interact with the CIB seven BPM engine (deploy, start process) forward the authenticated user context to the engine via the <code>cibseven-webclient-core</code> provider layer. This ensures that engine audit trails reflect the actual user, not a service account.</p>
-
-<h2 id="rest-path">REST Path</h2>
-<p>The modeler endpoints are served under the path configured by <code>cibseven.webclient.services.basePath</code> in <code>cibseven-webclient</code>, appended with <code>/modeler</code>. The default is <code>/services/v1/modeler</code>. There is no separate server or port for the modeler — it runs as part of <code>cibseven-webclient</code>.</p>
+<p>Endpoints that interact with the CIB seven engine (deploy, start process) forward the authenticated user context to the engine. This ensures that engine audit trails reflect the actual user, not a service account.</p>
 
     </div>
   </div>
@@ -3458,10 +3414,8 @@
   <h3>On this Page:</h3>
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#enabling-and-disabling-authentication">Enabling and Disabling Authentication</a></li>
-    <li><a href="#how-authentication-works">How Authentication Works</a></li>
+    <li><a href="#disabling-authentication">Disabling Authentication</a></li>
     <li><a href="#integration-with-cib-seven-engine">Integration with CIB seven Engine</a></li>
-    <li><a href="#rest-path">REST Path</a></li>
   </ul>
 </nav>
   <div class="docs-banner" style="display:none">

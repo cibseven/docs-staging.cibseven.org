@@ -2833,33 +2833,6 @@
           
   <li>
     
-      <a href="/manual/latest/webapps/modeler/library-integration/" >Library Integration</a>
-      <ul>
-        
-          
-  <li>
-    
-      <a href="/manual/latest/webapps/modeler/library-integration/npm-installation/" >NPM Installation</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/manual/latest/webapps/modeler/library-integration/api-reference/" >API Reference</a>
-    
-  </li>
-
-        
-      </ul>
-    
-  </li>
-
-        
-          
-  <li>
-    
       <a href="/manual/latest/webapps/modeler/reference/" >Reference</a>
       <ul>
         
@@ -3414,7 +3387,13 @@
     </div>
 
     <div class="col-xs-12 content-text">
-      <p>CIB seven Modeler is a web-based modeling application for BPMN 2.0 processes, DMN decisions, and embedded forms. It is designed exclusively as a <strong>library</strong> — the Java backend is a Maven dependency consumed by <code>cibseven-webclient</code>, and the frontend is published as the <code>cibseven-modeler</code> NPM package embedded inside <code>cibseven-webclient</code>.</p>
+      <p>CIB seven Modeler is a web-based modeling application for BPMN 2.0 processes, DMN decisions, and embedded forms. It is integrated into <code>cibseven-webclient</code> and accessible from the CIB seven start page when enabled.</p>
+
+<div class="note ">
+  <h3>Modeler is part of CIB seven Webclient</h3>
+  <p>The modeler runs as a built-in module of <code>cibseven-webclient</code>. There is no separate deployment — enabling it in the webclient configuration is all that is needed.</p>
+</div>
+
 
 <h2 id="features">Features</h2>
 <ul>
@@ -3428,38 +3407,10 @@
 <li><strong>Internationalization</strong> — English, German, Spanish, Russian</li>
 </ul>
 
-<h2 id="architecture">Architecture</h2>
-<p>CIB seven Modeler consists of two layers:</p>
-
-<h3 id="backend-java">Backend (Java)</h3>
-<p>A Spring Boot module packaged as a JAR (<code>cibseven-modeler-core</code>) and consumed as a Maven dependency by <code>cibseven-webclient-core</code>. It contributes REST endpoints under <code>/services/v1/modeler</code>, persists diagrams and forms to the shared relational database via JPA/Hibernate, and uses <a href="https://flywaydb.org/">Flyway</a> for schema migrations.</p>
-<p>The backend inherits authentication infrastructure from <code>cibseven-webclient-core</code> (<code>BaseService</code>, <code>CIBUser</code>). There is no standalone server — it runs inside <code>cibseven-webclient</code>.</p>
-
-<h3 id="frontend-vue-3">Frontend (Vue 3)</h3>
-<p>A Vue 3 frontend built with Vite, published as the <code>cibseven-modeler</code> NPM package. It is imported and embedded by <code>cibseven-webclient</code>. It is not deployed as a standalone SPA.</p>
-<pre tabindex="0"><code>cibseven-modeler/
-├── frontend/                    # Vue 3 application / NPM library
-│   ├── src/
-│   │   ├── components/modeler/  # BpmnModeler, DmnModeler, FormModeler, CibsevenModeler
-│   │   ├── services/            # REST API client services
-│   │   ├── stores/              # Vuex store modules
-│   │   ├── composables/         # Reusable Vue composables
-│   │   ├── i18n.js              # Internationalisation setup
-│   │   └── library.js           # NPM library entry point
-│   └── vite.config.js
-└── cibseven-modeler-core/       # Spring Boot backend module
-    └── src/main/java/org/cibseven/modeler/
-        ├── rest/                # REST controllers
-        ├── provider/            # Business logic layer
-        ├── repository/          # JPA repositories
-        └── model/               # JPA entity classes
-</code></pre>
 <h2 id="quick-links">Quick Links</h2>
 <ul>
-<li><a href="/manual/latest/webapps/modeler/installation/">Installation</a></li>
 <li><a href="/manual/latest/webapps/modeler/configuration/">Configuration</a></li>
 <li><a href="/manual/latest/webapps/modeler/user-guide/">User Guide</a></li>
-<li><a href="/manual/latest/webapps/modeler/library-integration/">Library Integration</a></li>
 <li><a href="/manual/latest/webapps/modeler/reference/rest-api/">REST API Reference</a></li>
 </ul>
 
@@ -3617,15 +3568,6 @@
 
     <dt>
       <a href="/manual/latest/webapps/modeler/user-guide/">User Guide</a>
-    </dt>
-    <dd>
-      
-    </dd>
-
-  
-
-    <dt>
-      <a href="/manual/latest/webapps/modeler/library-integration/">Library Integration</a>
     </dt>
     <dd>
       

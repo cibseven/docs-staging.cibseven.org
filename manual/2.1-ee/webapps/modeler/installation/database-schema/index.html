@@ -2833,33 +2833,6 @@
           
   <li>
     
-      <a href="/manual/2.1-ee/webapps/modeler/library-integration/" >Library Integration</a>
-      <ul>
-        
-          
-  <li>
-    
-      <a href="/manual/2.1-ee/webapps/modeler/library-integration/npm-installation/" >NPM Installation</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/manual/2.1-ee/webapps/modeler/library-integration/api-reference/" >API Reference</a>
-    
-  </li>
-
-        
-      </ul>
-    
-  </li>
-
-        
-          
-  <li>
-    
       <a href="/manual/2.1-ee/webapps/modeler/reference/" >Reference</a>
       <ul>
         
@@ -3414,55 +3387,26 @@
     </div>
 
     <div class="col-xs-12 content-text">
-      <p>CIB seven Modeler uses <a href="https://flywaydb.org/">Flyway</a> for database schema management. Hibernate runs in <code>validate</code> mode — it never creates or modifies tables; all DDL is handled by Flyway migrations.</p>
-
-<h2 id="schema-management-strategy">Schema Management Strategy</h2>
-<table>
-  <thead>
-      <tr>
-          <th>Aspect</th>
-          <th>Detail</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Schema manager</td>
-          <td>Flyway</td>
-      </tr>
-      <tr>
-          <td>Hibernate DDL mode</td>
-          <td><code>validate</code> (read-only)</td>
-      </tr>
-      <tr>
-          <td>Migration scripts</td>
-          <td>Vendor-specific SQL scripts</td>
-      </tr>
-      <tr>
-          <td>Baseline on migrate</td>
-          <td><code>true</code> — safe for existing databases</td>
-      </tr>
-  </tbody>
-</table>
+      <p>The modeler uses <a href="https://flywaydb.org/">Flyway</a> for database schema management. Hibernate runs in <code>validate</code> mode — it never creates or modifies tables; all DDL is handled by Flyway migrations.</p>
 
 <h2 id="migration-script-locations">Migration Script Locations</h2>
-<p>Flyway migration scripts are stored under <code>cibseven-modeler-core/src/main/resources/</code>:</p>
+<p>Flyway migration scripts are bundled inside <code>cibseven-webclient-core</code> under the <code>db/</code> resource directory:</p>
 <pre tabindex="0"><code>db/
 ├── migration-postgresql/   # PostgreSQL-specific scripts
 ├── migration-mysql/        # MySQL-specific scripts
 ├── migration-mariadb/      # MariaDB-specific scripts
 ├── migration-h2/           # H2-specific scripts (dev only)
-├── migration-oracle/       # Oracle-specific scripts
-└── migration-common/       # Shared scripts applied to all vendors
-</code></pre><p>Flyway selects the correct vendor directory automatically. You can override the locations via:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">SPRING_FLYWAY_LOCATIONS</span><span class="o">=</span>classpath:db/migration-postgresql,classpath:db/migration-common
+└── migration-oracle/       # Oracle-specific scripts
+</code></pre><p>Flyway selects the correct vendor directory based on the configured datasource. You can override the locations via environment variable:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">SPRING_FLYWAY_LOCATIONS</span><span class="o">=</span>classpath:db/migration-postgresql
 </span></span></code></pre></div>
 <h2 id="fresh-installation">Fresh Installation</h2>
-<p>On a brand new database, Flyway runs all migration scripts from <code>V1__*</code> upward, creating the full schema.</p>
+<p>On a new database, Flyway runs all migration scripts from <code>V1__*</code> upward, creating the full schema.</p>
 
 <h2 id="upgrading-an-existing-database">Upgrading an Existing Database</h2>
-<p>When <code>baseline-on-migrate=true</code> is set, Flyway records the current state as the baseline and applies only the newer migrations. No data or tables are dropped.</p>
+<p>When <code>baseline-on-migrate=true</code> is set (the default), Flyway records the current state as the baseline and applies only newer migrations. No data or tables are dropped.</p>
 
-<h2 id="core-database-tables">Core Database Tables</h2>
+<h2 id="database-tables">Database Tables</h2>
 <table>
   <thead>
       <tr>
@@ -3473,11 +3417,11 @@
   <tbody>
       <tr>
           <td><code>process_diagram</code></td>
-          <td>Stores BPMN and DMN diagram metadata and the raw XML bytes</td>
+          <td>Stores BPMN and DMN diagram metadata and the raw XML</td>
       </tr>
       <tr>
           <td><code>form_entity</code></td>
-          <td>Stores form schemas as JSON bytes</td>
+          <td>Stores form schemas as JSON</td>
       </tr>
       <tr>
           <td><code>user_session</code></td>
@@ -3505,11 +3449,10 @@
   <h3>On this Page:</h3>
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#schema-management-strategy">Schema Management Strategy</a></li>
     <li><a href="#migration-script-locations">Migration Script Locations</a></li>
     <li><a href="#fresh-installation">Fresh Installation</a></li>
     <li><a href="#upgrading-an-existing-database">Upgrading an Existing Database</a></li>
-    <li><a href="#core-database-tables">Core Database Tables</a></li>
+    <li><a href="#database-tables">Database Tables</a></li>
     <li><a href="#supported-databases">Supported Databases</a></li>
   </ul>
 </nav>

@@ -2833,33 +2833,6 @@
           
   <li>
     
-      <a href="/manual/2.1-ee/webapps/modeler/library-integration/" >Library Integration</a>
-      <ul>
-        
-          
-  <li>
-    
-      <a href="/manual/2.1-ee/webapps/modeler/library-integration/npm-installation/" >NPM Installation</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/manual/2.1-ee/webapps/modeler/library-integration/api-reference/" >API Reference</a>
-    
-  </li>
-
-        
-      </ul>
-    
-  </li>
-
-        
-          
-  <li>
-    
       <a href="/manual/2.1-ee/webapps/modeler/reference/" >Reference</a>
       <ul>
         
@@ -3414,44 +3387,9 @@
     </div>
 
     <div class="col-xs-12 content-text">
-      <p>Before integrating CIB seven Modeler, ensure the following prerequisites are met in the host environment (<code>cibseven-webclient</code>).</p>
-
-<h2 id="build-time-requirements">Build-time Requirements</h2>
-<p>These are required to build <code>cibseven-modeler</code> from source (typically done by the <code>cibseven-webclient</code> Maven build):</p>
-<table>
-  <thead>
-      <tr>
-          <th>Component</th>
-          <th>Minimum Version</th>
-          <th>Notes</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Java</td>
-          <td>17</td>
-          <td>Required to compile <code>cibseven-modeler-core</code></td>
-      </tr>
-      <tr>
-          <td>Maven</td>
-          <td>3.8</td>
-          <td>Required to build the project</td>
-      </tr>
-      <tr>
-          <td>Node.js</td>
-          <td>18</td>
-          <td>Required to build the frontend NPM library</td>
-      </tr>
-      <tr>
-          <td>npm</td>
-          <td>9</td>
-          <td>Installed alongside Node.js</td>
-      </tr>
-  </tbody>
-</table>
-
+      
 <h2 id="supported-databases">Supported Databases</h2>
-<p>CIB seven Modeler stores diagrams and forms in a relational database. The following databases are supported:</p>
+<p>The modeler stores diagrams and forms in a relational database. The following databases are supported:</p>
 <table>
   <thead>
       <tr>
@@ -3501,11 +3439,8 @@
 </div>
 
 
-<h2 id="application-server--deployment">Application Server / Deployment</h2>
-<p>CIB seven Modeler does <strong>not</strong> run as a standalone application. The <code>cibseven-modeler-core</code> JAR is included as a dependency inside <code>cibseven-webclient</code>, which handles deployment and serves the modeler endpoints as part of its own WAR/JAR.</p>
-
 <h2 id="cib-seven-engine">CIB seven Engine</h2>
-<p>To use the deployment and process-start features, a running CIB seven engine must be accessible. The modeler connects to the engine via the <code>cibseven-webclient-core</code> REST provider layer. Configure the engine URL in <code>cibseven-webclient</code>&rsquo;s <code>application.yaml</code> under the <code>cibseven.webclient</code> prefix.</p>
+<p>To use the deployment and process-start features, a running CIB seven engine must be accessible. Configure the engine URL in <code>cibseven-webclient</code>&rsquo;s <code>application.yaml</code> under the <code>cibseven.webclient.engineRest</code> prefix.</p>
 
     </div>
   </div>
@@ -3515,9 +3450,7 @@
   <h3>On this Page:</h3>
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#build-time-requirements">Build-time Requirements</a></li>
     <li><a href="#supported-databases">Supported Databases</a></li>
-    <li><a href="#application-server--deployment">Application Server / Deployment</a></li>
     <li><a href="#cib-seven-engine">CIB seven Engine</a></li>
   </ul>
 </nav>

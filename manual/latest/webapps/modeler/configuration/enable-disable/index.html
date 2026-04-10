@@ -2833,33 +2833,6 @@
           
   <li>
     
-      <a href="/manual/latest/webapps/modeler/library-integration/" >Library Integration</a>
-      <ul>
-        
-          
-  <li>
-    
-      <a href="/manual/latest/webapps/modeler/library-integration/npm-installation/" >NPM Installation</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/manual/latest/webapps/modeler/library-integration/api-reference/" >API Reference</a>
-    
-  </li>
-
-        
-      </ul>
-    
-  </li>
-
-        
-          
-  <li>
-    
       <a href="/manual/latest/webapps/modeler/reference/" >Reference</a>
       <ul>
         
@@ -3414,66 +3387,63 @@
     </div>
 
     <div class="col-xs-12 content-text">
-      <p>CIB seven Modeler can be fully enabled or disabled at deployment time using a single configuration property. When disabled, no database connection is required.</p>
+      <p>CIB seven Modeler can be fully enabled or disabled using a single configuration property. When disabled, no database connection is required and the modeler is hidden from the UI.</p>
 
-<h2 id="backend-configuration">Backend Configuration</h2>
-<p>Set the following property in <code>cibseven-webclient</code>&rsquo;s <code>application.yaml</code> (or your local <code>cibseven-webclient.yaml</code> override):</p>
+<h2 id="configuration">Configuration</h2>
+<p>Set the following property in <code>cibseven-webclient</code>&rsquo;s <code>application.yaml</code>:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">cibseven</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">webclient</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">modeler</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span></span></code></pre></div><p>Or via environment variable:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">CIBSEVEN_WEBCLIENT_MODELER_ENABLED</span><span class="o">=</span><span class="nb">false</span>
-</span></span></code></pre></div><p>When <code>enabled: false</code>:</p>
-<ul>
-<li>All modeler REST endpoints are removed from the application context</li>
-<li>JPA entities, repositories, and Flyway migrations are not activated</li>
-<li><strong>No database connection is required</strong> — DataSource, Hibernate/JPA, and Flyway auto-configurations are excluded automatically</li>
-</ul>
-
+</span></span></code></pre></div>
 <div class="note ">
   <h3>Default is enabled</h3>
   <p>The property defaults to <code>true</code>. If it is not set, the modeler starts normally and a configured database is required.</p>
 </div>
 
 
-<h2 id="frontend-configuration">Frontend Configuration</h2>
-<p>The backend property only disables the server-side components. To also hide the modeler from the UI (navigation and start page card), set the modeler permissions to an empty object in <code>config.json</code>:</p>
+<h2 id="what-happens-when-disabled">What Happens When Disabled</h2>
+<p>When <code>enabled: false</code>:</p>
+<ul>
+<li>All modeler REST endpoints are removed from the application context</li>
+<li>JPA entities, repositories, and Flyway migrations are not activated</li>
+<li><strong>No database connection is required</strong> — DataSource, Hibernate/JPA, and Flyway auto-configurations are excluded automatically</li>
+<li>The modeler card is <strong>hidden</strong> on the start page</li>
+<li>The modeler menu item is <strong>removed</strong> from the navigation</li>
+</ul>
+<p>No additional frontend configuration is needed — disabling the backend property is sufficient to fully remove the modeler from both the server and the UI.</p>
+
+<h2 id="frontend-permissions">Frontend Permissions</h2>
+<p>In addition to the backend property, you can also control modeler visibility through the frontend <code>config.json</code> permissions. This allows hiding the modeler UI while keeping the backend active (e.g., for API-only access):</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;permissions&#34;</span><span class="err">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;modeler&#34;</span><span class="p">:</span> <span class="p">{}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><p>With an empty permissions object, <code>permissionsModeler</code> evaluates to <code>false</code> in the frontend and:</p>
+</span></span></code></pre></div><p>With an empty permissions object:</p>
 <ul>
 <li>The modeler card is hidden on the start page</li>
 <li>The modeler menu item is removed from the navigation</li>
 <li>Navigating to the <code>/modeler</code> route redirects to the no-permission page</li>
+<li>The backend REST endpoints remain active</li>
 </ul>
-
-<div class="note bg-warning docs-warning">
-  <h3>Both switches needed for a complete disable</h3>
-  <p>Setting only the backend property leaves the UI card and route visible (they will produce errors when accessed). Setting only the frontend property leaves the REST endpoints and database components active. For a complete disable, both must be configured.</p>
-</div>
-
 
 <h2 id="summary">Summary</h2>
 <table>
   <thead>
       <tr>
-          <th>What to configure</th>
-          <th>Property / location</th>
+          <th>Configuration</th>
           <th>Effect</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td>Backend</td>
-          <td><code>cibseven.webclient.modeler.enabled: false</code> in <code>application.yaml</code></td>
-          <td>Disables REST, JPA, Flyway — no DB required</td>
+          <td><code>cibseven.webclient.modeler.enabled: false</code></td>
+          <td>Disables backend (REST, JPA, Flyway) <strong>and</strong> hides the UI — no database required</td>
       </tr>
       <tr>
-          <td>Frontend</td>
           <td><code>permissions.modeler: {}</code> in <code>config.json</code></td>
-          <td>Hides UI card, menu item, and route</td>
+          <td>Hides the UI only — backend remains active</td>
       </tr>
   </tbody>
 </table>
@@ -3486,8 +3456,9 @@
   <h3>On this Page:</h3>
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#backend-configuration">Backend Configuration</a></li>
-    <li><a href="#frontend-configuration">Frontend Configuration</a></li>
+    <li><a href="#configuration">Configuration</a></li>
+    <li><a href="#what-happens-when-disabled">What Happens When Disabled</a></li>
+    <li><a href="#frontend-permissions">Frontend Permissions</a></li>
     <li><a href="#summary">Summary</a></li>
   </ul>
 </nav>
