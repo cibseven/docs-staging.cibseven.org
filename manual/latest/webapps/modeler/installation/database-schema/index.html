@@ -2782,6 +2782,14 @@
   </li>
 
         
+          
+  <li>
+    
+      <a href="/manual/latest/webapps/modeler/configuration/database/" >Database</a>
+    
+  </li>
+
+        
       </ul>
     
   </li>
@@ -3387,24 +3395,8 @@
     </div>
 
     <div class="col-xs-12 content-text">
-      <p>The modeler uses <a href="https://flywaydb.org/">Flyway</a> for database schema management. Hibernate runs in <code>validate</code> mode — it never creates or modifies tables; all DDL is handled by Flyway migrations.</p>
-
-<h2 id="migration-script-locations">Migration Script Locations</h2>
-<p>Flyway migration scripts are bundled inside <code>cibseven-webclient-core</code> under the <code>db/</code> resource directory:</p>
-<pre tabindex="0"><code>db/
-├── migration-postgresql/   # PostgreSQL-specific scripts
-├── migration-mysql/        # MySQL-specific scripts
-├── migration-mariadb/      # MariaDB-specific scripts
-├── migration-h2/           # H2-specific scripts (dev only)
-└── migration-oracle/       # Oracle-specific scripts
-</code></pre><p>Flyway selects the correct vendor directory based on the configured datasource. You can override the locations via environment variable:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">SPRING_FLYWAY_LOCATIONS</span><span class="o">=</span>classpath:db/migration-postgresql
-</span></span></code></pre></div>
-<h2 id="fresh-installation">Fresh Installation</h2>
-<p>On a new database, Flyway runs all migration scripts from <code>V1__*</code> upward, creating the full schema.</p>
-
-<h2 id="upgrading-an-existing-database">Upgrading an Existing Database</h2>
-<p>When <code>baseline-on-migrate=true</code> is set (the default), Flyway records the current state as the baseline and applies only newer migrations. No data or tables are dropped.</p>
+      <p>The modeler requires a set of database tables to store diagrams, forms, and user sessions. The schema must exist before the webclient starts — the webclient connects to the database but never creates or modifies tables itself (<code>ddl-auto: none</code>).</p>
+<p>Schema creation is the responsibility of the <strong>parent application</strong> (e.g. <code>cibseven-bpm-run</code>). Refer to the parent application&rsquo;s documentation for the DDL scripts and migration tooling it provides.</p>
 
 <h2 id="database-tables">Database Tables</h2>
 <table>
@@ -3416,24 +3408,28 @@
   </thead>
   <tbody>
       <tr>
-          <td><code>process_diagram</code></td>
+          <td><code>mod_processes_diagrams</code></td>
           <td>Stores BPMN and DMN diagram metadata and the raw XML</td>
       </tr>
       <tr>
-          <td><code>form_entity</code></td>
+          <td><code>mod_forms</code></td>
           <td>Stores form schemas as JSON</td>
       </tr>
       <tr>
-          <td><code>user_session</code></td>
+          <td><code>mod_user_sessions</code></td>
           <td>Tracks open editing sessions per user</td>
       </tr>
       <tr>
-          <td><code>diagram_usage</code></td>
+          <td><code>mod_diagram_usage</code></td>
           <td>Associates a user session with a specific diagram</td>
       </tr>
       <tr>
-          <td><code>form_usage</code></td>
+          <td><code>mod_form_usage</code></td>
           <td>Associates a user session with a specific form</td>
+      </tr>
+      <tr>
+          <td><code>mod_element_templates</code></td>
+          <td>Stores reusable element template definitions</td>
       </tr>
   </tbody>
 </table>
@@ -3449,9 +3445,6 @@
   <h3>On this Page:</h3>
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#migration-script-locations">Migration Script Locations</a></li>
-    <li><a href="#fresh-installation">Fresh Installation</a></li>
-    <li><a href="#upgrading-an-existing-database">Upgrading an Existing Database</a></li>
     <li><a href="#database-tables">Database Tables</a></li>
     <li><a href="#supported-databases">Supported Databases</a></li>
   </ul>

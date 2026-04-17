@@ -2782,6 +2782,14 @@
   </li>
 
         
+          
+  <li>
+    
+      <a href="/manual/2.1-ee/webapps/modeler/configuration/database/" >Database</a>
+    
+  </li>
+
+        
       </ul>
     
   </li>
@@ -3403,9 +3411,15 @@
 <li><strong>Element templates</strong> — reusable task/event configuration templates loaded from JSON</li>
 <li><strong>Monaco Editor</strong> integration — direct XML/JSON editing with syntax highlighting</li>
 <li><strong>One-click deployment</strong> — deploy diagrams directly to a CIB seven engine</li>
-<li><strong>Multi-database support</strong> — PostgreSQL, MySQL, MariaDB, H2 (dev), Oracle</li>
+<li><strong>Multi-database support</strong> — PostgreSQL, MySQL, MariaDB, Oracle, MSSQL, DB2, H2 (dev)</li>
 <li><strong>Internationalization</strong> — English, German, Spanish, Russian</li>
 </ul>
+
+<div class="note ">
+  <h3>Database schema</h3>
+  <p>The modeler requires a prepared database schema. Schema creation is the responsibility of the parent application (e.g. <code>cibseven-bpm-run</code>). The webclient connects to the database but does not run any migrations itself.</p>
+</div>
+
 
 <h2 id="quick-links">Quick Links</h2>
 <ul>

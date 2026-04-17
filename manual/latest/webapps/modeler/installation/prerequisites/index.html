@@ -2782,6 +2782,14 @@
   </li>
 
         
+          
+  <li>
+    
+      <a href="/manual/latest/webapps/modeler/configuration/database/" >Database</a>
+    
+  </li>
+
+        
       </ul>
     
   </li>
@@ -3420,6 +3428,16 @@
           <td>Requires <code>ojdbc17</code> JDBC driver</td>
       </tr>
       <tr>
+          <td>Microsoft SQL Server</td>
+          <td>2017</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>IBM DB2</td>
+          <td>11.5</td>
+          <td></td>
+      </tr>
+      <tr>
           <td>H2</td>
           <td>2.x</td>
           <td>For development and testing only</td>
@@ -3428,14 +3446,14 @@
 </table>
 
 <div class="note bg-warning docs-warning">
-  <h3>H2 is not for production</h3>
-  <p>H2 is an in-memory/file-based database intended for local development and automated testing only. Do not use it in production deployments.</p>
+  <h3>Database schema must exist before startup</h3>
+  <p>The webclient does not create or migrate the schema. The database tables must be present before the webclient starts. Use the DDL scripts provided by the parent application (e.g. <code>cibseven-bpm-run</code>).</p>
 </div>
 
 
 <div class="note ">
   <h3>Database is optional when modeler is disabled</h3>
-  <p>If the modeler is disabled via <code>cibseven.webclient.modeler.enabled: false</code>, no database connection is required at all. See <a href="/manual/latest/webapps/modeler/configuration/enable-disable/">Enable / Disable</a> for details.</p>
+  <p>If the modeler is disabled via <code>cibseven.webclient.modeler.enabled: false</code> and no <code>spring.datasource.url</code> is configured, the DataSource auto-configuration is suppressed and no database connection is required. See <a href="/manual/latest/webapps/modeler/configuration/enable-disable/">Enable / Disable</a> for details.</p>
 </div>
 
 
