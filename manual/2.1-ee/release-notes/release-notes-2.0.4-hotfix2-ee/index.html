@@ -14,7 +14,7 @@
   <meta name="author" content="CIB software, CIB seven community" />
   
 
-  <title>Authentication | docs.cibseven.org</title>
+  <title>CIB seven 2.0.4 hotfix2 EE - Release Notes | docs.cibseven.org</title>
 
   <meta name="generator" content="Hugo 0.136.4">
   <link rel="shortcut icon" href="/manual/2.1-ee/img/favicon.ico" type="image/x-icon" />
@@ -22,7 +22,7 @@
   
 
   <link rel="stylesheet" href="/manual/2.1-ee/css/docs.a0477a0dd0fc479d343e1a56c04891f34a958a869a1b12d6bd14347ea39c6b64.css" integrity="sha256-oEd6DdD8R500PhpWwEiR80qVioaaGxLWvRQ0fqOca2Q=">
-  <link rel="canonical" href="https://docs.cibseven.org/manual/2.1-ee/webapps/modeler/configuration/authentication/" />
+  <link rel="canonical" href="https://docs.cibseven.org/manual/2.1-ee/release-notes/release-notes-2.0.4-hotfix2-ee/" />
 </head>
 <body class="">
 
@@ -2730,141 +2730,6 @@
           
   <li>
     
-      <a href="/manual/2.1-ee/webapps/modeler/" >Modeler</a>
-      <ul>
-        
-          
-  <li>
-    
-      <a href="/manual/2.1-ee/webapps/modeler/installation/" >Installation</a>
-      <ul>
-        
-          
-  <li>
-    
-      <a href="/manual/2.1-ee/webapps/modeler/installation/prerequisites/" >Prerequisites</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/manual/2.1-ee/webapps/modeler/installation/database-schema/" >Database Schema</a>
-    
-  </li>
-
-        
-      </ul>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/manual/2.1-ee/webapps/modeler/configuration/" >Configuration</a>
-      <ul>
-        
-          
-  <li>
-    
-      <a href="/manual/2.1-ee/webapps/modeler/configuration/enable-disable/" >Enable / Disable</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/manual/2.1-ee/webapps/modeler/configuration/authentication/" >Authentication</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/manual/2.1-ee/webapps/modeler/configuration/database/" >Database</a>
-    
-  </li>
-
-        
-      </ul>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/manual/2.1-ee/webapps/modeler/user-guide/" >User Guide</a>
-      <ul>
-        
-          
-  <li>
-    
-      <a href="/manual/2.1-ee/webapps/modeler/user-guide/bpmn-modeling/" >BPMN Modeling</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/manual/2.1-ee/webapps/modeler/user-guide/dmn-modeling/" >DMN Modeling</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/manual/2.1-ee/webapps/modeler/user-guide/form-modeling/" >Form Modeling</a>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/manual/2.1-ee/webapps/modeler/user-guide/element-templates/" >Element Templates</a>
-    
-  </li>
-
-        
-      </ul>
-    
-  </li>
-
-        
-          
-  <li>
-    
-      <a href="/manual/2.1-ee/webapps/modeler/reference/" >Reference</a>
-      <ul>
-        
-          
-  <li>
-    
-      <a href="/manual/2.1-ee/webapps/modeler/reference/rest-api/" >REST API</a>
-    
-  </li>
-
-        
-      </ul>
-    
-  </li>
-
-        
-      </ul>
-    
-  </li>
-
-        
-          
-  <li>
-    
       <a href="/manual/2.1-ee/webapps/tasklist/" >Tasklist</a>
       <ul>
         
@@ -3391,28 +3256,35 @@
 <div class="page-content">
   <div class="container-fluid">
     <div class="col-xs-12 content-header">
-      <h1 class="page-title">Authentication</h1>
+      <h1 class="page-title">CIB seven 2.0.4 hotfix2 EE - Release Notes</h1>
     </div>
 
     <div class="col-xs-12 content-text">
-      <p>The modeler reuses the authentication infrastructure of <code>cibseven-webclient</code>. Every REST endpoint validates the session token provided in the request.</p>
+      
+<h2 id="release-notes">Release Notes</h2>
+<p><em>Release Date: April 24, 2026</em></p>
 
-<h2 id="disabling-authentication">Disabling Authentication</h2>
-<p>Authentication is <strong>enabled by default</strong>. It can be disabled for local development or testing:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">cibsevenmodeler</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">authentication</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-</span></span></span></code></pre></div><p>Or via environment variable:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">CIBSEVENMODELER_AUTHENTICATION_ENABLED</span><span class="o">=</span><span class="nb">false</span>
-</span></span></code></pre></div>
-<div class="note bg-warning docs-warning">
-  <h3>Never disable authentication in production</h3>
-  <p>Disabling authentication exposes all modeler REST endpoints without any access control. Only use this setting in isolated development or CI environments.</p>
-</div>
+<h3 id="highlights">Highlights</h3>
+<ul>
+<li><strong>Incidents</strong>: Fixed issues where incident badges were not displayed on the BPMN diagram and where stack traces were not visible when using a non-full <a href="https://docs.cibseven.org/manual/latest/user-guide/process-engine/history/history-configuration/">history level</a> configuration</li>
+<li><strong>Process Instance Search</strong>: Runtime mode now displays an incidents icon along with the total number of incidents</li>
+<li><strong>Batch Operations</strong>: Fixed an issue where the instances table was not visible for a given search</li>
+</ul>
 
+<h3 id="user-experience-improvements-in-web-client">User Experience Improvements in Web Client</h3>
 
-<h2 id="integration-with-cib-seven-engine">Integration with CIB seven Engine</h2>
-<p>Endpoints that interact with the CIB seven engine (deploy, start process) forward the authenticated user context to the engine. This ensures that engine audit trails reflect the actual user, not a service account.</p>
+<h4 id="incidents">Incidents</h4>
+<ul>
+<li>Improved stack trace visibility for <a href="https://docs.cibseven.org/manual/latest/webapps/cockpit/bpmn/failed-jobs/">incidents</a> originating from the selected process and its subprocesses</li>
+<li>Fixed an issue where incident badges were not shown on the BPMN diagram in both the process definition view and the process instance view</li>
+<li>Fixed an issue where subprocess incident badges were not displayed in the main process instance view</li>
+</ul>
+
+<h4 id="process-instance-search">Process Instance Search</h4>
+<ul>
+<li>Added an incidents icon with the total incident count in both runtime and historic <a href="https://docs.cibseven.org/manual/latest/webapps/cockpit/bpmn/dashboard/#process-instance-search">process instance search</a> views</li>
+<li>Fixed an issue where the instances table was not displayed for a given <a href="https://docs.cibseven.org/manual/latest/webapps/cockpit/bpmn/batch/">batch operation</a> search</li>
+</ul>
 
     </div>
   </div>
@@ -3422,8 +3294,17 @@
   <h3>On this Page:</h3>
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#disabling-authentication">Disabling Authentication</a></li>
-    <li><a href="#integration-with-cib-seven-engine">Integration with CIB seven Engine</a></li>
+    <li><a href="#release-notes">Release Notes</a>
+      <ul>
+        <li><a href="#highlights">Highlights</a></li>
+        <li><a href="#user-experience-improvements-in-web-client">User Experience Improvements in Web Client</a>
+          <ul>
+            <li><a href="#incidents">Incidents</a></li>
+            <li><a href="#process-instance-search">Process Instance Search</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
   </ul>
 </nav>
   <div class="docs-banner" style="display:none">
