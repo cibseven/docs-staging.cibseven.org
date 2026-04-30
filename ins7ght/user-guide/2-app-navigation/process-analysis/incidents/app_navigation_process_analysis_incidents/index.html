@@ -14,7 +14,7 @@
   <meta name="author" content="CIB software, CIB seven community" />
   
 
-  <title>Process Analysis - Bottleneck | docs.cibseven.org</title>
+  <title>Process Analysis - Incidents | docs.cibseven.org</title>
 
   <meta name="generator" content="Hugo 0.136.4">
   <link rel="shortcut icon" href="/ins7ght/img/favicon.ico" type="image/x-icon" />
@@ -22,7 +22,7 @@
   
 
   <link rel="stylesheet" href="/ins7ght/css/docs.a0477a0dd0fc479d343e1a56c04891f34a958a869a1b12d6bd14347ea39c6b64.css" integrity="sha256-oEd6DdD8R500PhpWwEiR80qVioaaGxLWvRQ0fqOca2Q=">
-  <link rel="canonical" href="/ins7ght/user-guide/2-app-navigation/process-analysis/bottleneck/app_navigation_process_analysis_bottleneck/" />
+  <link rel="canonical" href="/ins7ght/user-guide/2-app-navigation/process-analysis/incidents/app_navigation_process_analysis_incidents/" />
 </head>
 <body class="">
 
@@ -432,13 +432,15 @@
 <div class="page-content">
   <div class="container-fluid">
     <div class="col-xs-12 content-header">
-      <h1 class="page-title">Process Analysis - Bottleneck</h1>
+      <h1 class="page-title">Process Analysis - Incidents</h1>
     </div>
 
     <div class="col-xs-12 content-text">
       
-<h2 id="process-analysis--bottleneck">Process Analysis – Bottleneck</h2>
-<p>The <strong>Process Analysis – Bottleneck</strong> page allows you to perform a detailed analysis of a specific process, helping you identify where time is being spent, which activities may be causing delays, and how process performance varies across versions. Please note that this analysis can be filtered using the Process state filter (process instance state).</p>
+<h2 id="process-analysis--incidents">Process Analysis – Incidents</h2>
+<p>The <strong>Process Analysis – Incidents</strong> page in <strong>CIB ins7ght</strong> allows you to analyze incidents within a selected BPMN process.<br>
+It helps you identify when incidents occur, which activities are most affected, which failed activities triggered the incident, and how incident behavior changes across process versions.</p>
+<p>This page is especially useful for detecting recurring process errors, identifying unstable BPMN activities, and supporting root-cause analysis by linking directly to the related case in <strong>CIB seven</strong>.</p>
 <hr>
 
 <h3 id="page-navigation">Page Navigation</h3>
@@ -447,98 +449,118 @@
 <li><strong>Process Name:</strong> The process you wish to investigate.</li>
 <li><strong>Process Version:</strong> The version of the process to analyze.</li>
 <li><strong>Timeframe:</strong> The time interval over which data will be considered.</li>
-<li><strong>Calendar:</strong> Select a specific time intervale to be analyzed.</li>
-<li><strong>Process State:</strong> Select all, one or multiple process instance states to analyze. You can select between successfully completed, active, suspended, internally terminated and externally terminated.</li>
+<li><strong>Calendar:</strong> Select a specific time interval to be analyzed.</li>
 </ul>
-<p>Once your selections are made, all visuals and metrics on the page will automatically adjust to reflect the chosen process, version, and timeframe.</p>
+<p>Once your selections are made, all visuals and metrics on the page will automatically adjust to reflect the chosen process, version and timeframe.</p>
 <hr>
 
 <h3 id="key-metrics">Key Metrics</h3>
-<p>The page highlights <strong>four main KPIs</strong>, which summarize overall process execution and performance:</p>
+<p>The page highlights <strong>two main KPIs</strong>, which summarize overall process incidents and error start events:</p>
 <ul>
-<li><strong>Successful Instances:</strong> Number of process instances that completed successfully.</li>
-<li><strong>Canceled Instances:</strong> Number of process instances that were canceled before completion.</li>
-<li><strong>Average Process Duration:</strong> Average time taken for process instances to complete.</li>
-<li><strong>Average User Task Duration:</strong> Average time spent to complete user tasks.</li>
+<li><strong>Total Incidents:</strong> Total number of incidents detected in the selected timeframe.</li>
+<li><strong>Total Error Start Events:</strong> Number of error start events in the selected timeframe.</li>
 </ul>
-<p>More main KPIs can be found on the Global Overview page.</p>
-
-<h3 id="bpmn-heatmap">BPMN Heatmap</h3>
-<p>The <strong>BPMN Heatmap</strong> provides a visual representation of process performance at the activity level.<br>
-It can be viewed in two different modes:</p>
-<ul>
-<li><strong>Duration:</strong> Highlights activities that take longer to complete on average. Red colors indicate longer average duration and green colors shorter average duration.</li>
-<li><strong>Count:</strong> Shows how frequently each activity is executed. Red colors indicate a bigger activity execution count and green colors smaller activity execution count.</li>
-</ul>
-<p>You can interact directly with the heatmap:</p>
-<ul>
-<li><strong>Select any two activities</strong> to see the <strong>average waiting time between them</strong>, helping you understand the flow and timing between key steps of your process. This feature is particularly useful for pinpointing slow transitions or handoffs.</li>
-<li>When hovering on a specific activity you can click the <strong>&ldquo;Hide from heatmap&rdquo;</strong> button to exclude one specific activity from the calculated heatmap. This can be used if you consider one activity to be skewing the analysis.</li>
-</ul>
-<figure class="image">
-  <span><img
-      src="img/waiting_time.png"
-       /></span>
-</figure>
-
-<p><strong>Heatmap settings</strong> are also available to give you another layer of data analysis and in-depth overview of BPMN process data.</p>
-<ul>
-<li><strong>Color Scale:</strong> Chose between Linear (colors distributed linearly by average time, providing a direct and intuitive view of absolute differences between value) or Logarithmic (colors distributed logarithmically by average time, making it easier to analyze wide-ranging data by highlighting relative differences and subtle patterns)</li>
-<li><strong>Invert Colors:</strong> Number of process instances that were canceled before completion.</li>
-<li><strong>Exclude activity type:</strong> Remove specific activity types that you don&rsquo;t want to be taken into account on your heatmap analysis.</li>
-</ul>
-<p>You will also find a <strong>BPMN overview</strong> of the selected process.<br>
-This visualization helps you quickly understand the structure of the process and how its activities are connected. You can also fullscreen the BPMN for improved visualization.</p>
-<p>A <strong>fullscreen</strong> button is also present to allow for better visualization of larger BPMN processes.</p>
+<p>More global process KPIs can be found on the <strong>Global Overview</strong> page.</p>
 <hr>
 
-<h3 id="instance-duration-graph-and-outlier-instances">Instance Duration Graph and Outlier Instances</h3>
-<p>Below the heatmap, the <strong>Instance Duration Graph</strong> displays the <strong>duration of each process instance</strong>.<br>
-This helps you visualize the spread of execution times and easily identify instances that took significantly longer or shorter than average (<strong>outliers</strong>).</p>
+<h3 id="number-of-incidents">Number of Incidents</h3>
+<p>The <strong>Number of Incidents over time Graph</strong> shows how incidents evolve across time.</p>
+<p>This graph displays:</p>
+<ul>
+<li><strong>Incidents:</strong> The total number of incidents detected over time.</li>
+<li><strong>Error Start Events:</strong> The number of error start events detected over time.</li>
+</ul>
 <figure class="image">
   <span><img
-      src="img/instance_duration_outlier.png"
+      src="img/nr_of_incidents.png"
        /></span>
 </figure>
 
+<p>This visualization helps you:</p>
 <ul>
-<li>Outliers are visually highlighted (e.g., maximum and minimum duration instances).</li>
-<li>A <strong>matching table</strong> lists detailed information about these specific instances, such as:
-<ul>
-<li>Instance ID</li>
-<li>Start and end times</li>
-<li>Total duration</li>
+<li>Identify incident peaks.</li>
+<li>Detect recurring error patterns.</li>
+<li>Understand whether incidents are increasing or decreasing over time.</li>
+<li>Compare general incidents against error start events.</li>
 </ul>
-</li>
-</ul>
-<p>This section helps you understand not only which processes are slow but <strong>why</strong> they may be slower, by correlating instance-level data with specific activities.</p>
-<p>This chart uses the Interquartile Range (IQR) rule to detect outliers. Any duration below Q1 - 1.5 x IQR or above Q3 + 1.5 x IQR is considered an outlier and shown in the outlier bar. You can also select between Logarithmic and Linear scale to populate this table.</p>
-<p>You can select between Linear scale (bar heights are proportional to the values, allowing straightforward comparison of absolute differences) and Logarithmic scale (bar heights are scaled logarithmically, making it easier to compare values across a wide range by emphasizing relative differences).</p>
+<p>This chart is useful for spotting operational instability and identifying time periods that require deeper investigation.</p>
 <hr>
 
-<h3 id="version-duration-graph">Version Duration Graph</h3>
-<p>At the bottom of the page, the <strong>Version Comparison Graph</strong> allows you to compare the <strong>average duration per process version</strong>.<br>
-This feature is especially useful to:</p>
+<h3 id="activities-with-incidents">Activities with Incidents</h3>
+<p>The <strong>Activities with Incidents</strong> table shows which BPMN activities are most frequently involved in incidents, having in mind the <strong>Number of Incidents graph</strong>.</p>
+<p>For each entry, the table displays:</p>
 <ul>
-<li>Evaluate whether newer versions of the process are performing better or worse.</li>
-<li>Identify potential regressions introduced by process model changes.</li>
-<li>Support data-driven improvement and version management decisions.</li>
+<li><strong>Activity:</strong> The BPMN activity where the process was located or returned to.</li>
+<li><strong>Failed Activity:</strong> The specific activity that failed and triggered the incident.</li>
+<li><strong>Incident Count:</strong> The number of incidents associated with the activity.</li>
+<li><strong>Process instance ID:</strong> A direct link to the corresponding process instance instance in <strong>CIB seven</strong> for further technical investigation.</li>
+<li><strong>Create Time:</strong> The creation time of the incident in question.</li>
+<li><strong>End Time:</strong> The end time of the incident in question.</li>
 </ul>
 <figure class="image">
   <span><img
-      src="img/version_duration.png"
+      src="img/activity_w_incidents.png"
        /></span>
 </figure>
 
+<p>The distinction between <strong>Activity</strong> and <strong>Failed Activity</strong> is important because, in some cases, the process may return to a fallback activity after a failure.<br>
+The <strong>Failed Activity</strong> captures where the problem actually occurred, while the <strong>Activity</strong> shows where the process is currently positioned or where it continued after the failure. There might be cases on which an activity fails and it falls back into the previous one.</p>
+<p>This section helps you:</p>
+<ul>
+<li>Identify the activities most responsible for incidents.</li>
+<li>Distinguish between fallback behavior and the real failure point.</li>
+<li>Navigate directly to CIB seven for deeper case-level analysis.</li>
+<li>Prioritize technical or BPMN model improvements.</li>
+</ul>
+<hr>
+
+<h3 id="incidents-heatmap">Incidents Heatmap</h3>
+<p>The <strong>Incidents Heatmap</strong> provides a visual representation of incidents directly on the BPMN process model.</p>
+<p>Activities with incidents are highlighted on the BPMN diagram, allowing you to quickly understand where errors are concentrated in the process.</p>
+<figure class="image">
+  <span><img
+      src="img/incident_heatmap.png"
+       /></span>
+</figure>
+
+<p>The heatmap helps you:</p>
+<ul>
+<li>See which BPMN activities are affected by incidents.</li>
+<li>Identify incident hotspots in the process flow.</li>
+<li>Understand whether incidents are isolated or spread across multiple areas.</li>
+<li>Support process improvement by focusing on the most problematic activities.</li>
+</ul>
+<p>A <strong>fullscreen</strong> button is also available to improve visualization for larger BPMN processes.</p>
+<hr>
+
+<h3 id="incidents-per-version-graph">Incidents per Version Graph</h3>
+<p>The <strong>Incidents per Version Graph</strong> compares the number of incidents across different process versions.</p>
+<figure class="image">
+  <span><img
+      src="img/incidents_per_version.png"
+       /></span>
+</figure>
+
+<p>This graph is especially useful to:</p>
+<ul>
+<li>Compare incident frequency between process versions.</li>
+<li>Identify whether newer versions introduced more or fewer incidents.</li>
+<li>Detect regressions caused by BPMN model changes.</li>
+<li>Support version-based process improvement decisions.</li>
+</ul>
+<p>By comparing incidents across versions, you can understand whether process changes improved stability or introduced new failure points.</p>
 <hr>
 
 <h3 id="key-takeaways">Key Takeaways</h3>
-<p>The <strong>Process Analysis – Bottleneck</strong> page is designed to help you:</p>
+<p>The <strong>Process Analysis – Incidents</strong> page is designed to help you:</p>
 <ul>
-<li>Detect which activities or transitions cause the most delay.</li>
-<li>Understand performance variations between process versions.</li>
-<li>Drill down into instance-level details to find root causes of inefficiency.</li>
-<li>Continuously improve process execution through informed optimization.</li>
+<li>Monitor incidents and error start events over time.</li>
+<li>Identify the BPMN activities with the highest number of incidents.</li>
+<li>Understand the difference between the current activity and the failed activity.</li>
+<li>Open related cases directly in <strong>CIB seven</strong> for deeper investigation.</li>
+<li>Visualize incident hotspots on the BPMN process model.</li>
+<li>Compare incident behavior across process versions.</li>
+<li>Support root-cause analysis and continuous process improvement.</li>
 </ul>
 
     </div>
@@ -551,9 +573,10 @@ This feature is especially useful to:</p>
   <ul>
     <li><a href="#page-navigation">Page Navigation</a></li>
     <li><a href="#key-metrics">Key Metrics</a></li>
-    <li><a href="#bpmn-heatmap">BPMN Heatmap</a></li>
-    <li><a href="#instance-duration-graph-and-outlier-instances">Instance Duration Graph and Outlier Instances</a></li>
-    <li><a href="#version-duration-graph">Version Duration Graph</a></li>
+    <li><a href="#number-of-incidents">Number of Incidents</a></li>
+    <li><a href="#activities-with-incidents">Activities with Incidents</a></li>
+    <li><a href="#incidents-heatmap">Incidents Heatmap</a></li>
+    <li><a href="#incidents-per-version-graph">Incidents per Version Graph</a></li>
     <li><a href="#key-takeaways">Key Takeaways</a></li>
   </ul>
 </nav>

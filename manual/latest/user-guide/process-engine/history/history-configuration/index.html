@@ -3298,22 +3298,109 @@
  and wire it in the process engine configuration.</p>
 <p>In case of specific needs, you can also create a <a href="/manual/latest/user-guide/process-engine/history/custom-implementation/#implement-a-custom-history-level">custom history level</a>.</p>
 
+<div class="note bg-info docs-info">
+  <h3>History levels and Webclient</h3>
+  <p><a href="/manual/latest/webapps/cockpit/">CIB seven web application</a> works best with History Level set to <code>FULL</code>. &ldquo;Lower&rdquo; History Levels will disable certain history-related features.</p>
+</div>
+
+
+<h4 id="feature-per-history-level">Feature per history level</h4>
+<table class="table desc-table">
+  <tr>
+    <th rowspan="2">Feature in history data set</th>
+    <th colspan="4" style="text-align: center">History level</th>
+  </tr>
+  <tr>
+    <th style="text-align: center">`NONE`</th>
+    <th style="text-align: center">`ACTIVITY`</th>
+    <th style="text-align: center">`AUDIT`</th>
+    <th style="text-align: center">`FULL`</th>
+  </tr>
+  <tr>
+    <td>Processes</td>
+    <td style="text-align: center">-</td>
+    <td style="text-align: center">+</td>
+    <td style="text-align: center">+</td>
+    <td style="text-align: center">+</td>
+  </tr>
+  <tr>
+    <td>Variables</td>
+    <td style="text-align: center">-</td>
+    <td style="text-align: center">-</td>
+    <td style="text-align: center">+</td>
+    <td style="text-align: center">+</td>
+  </tr>
+  <tr>
+    <td>Incidents</td>
+    <td style="text-align: center">-</td>
+    <td style="text-align: center">-</td>
+    <td style="text-align: center">-</td>
+    <td style="text-align: center">+</td>
+  </tr>
+</table>
+
 <h3 id="set-the-history-level">Set the history level</h3>
-<p>The history level can be provided as a property in the process engine configuration. Depending on how the process engine is configured, the property can be set using Java code:</p>
+<p>The history level can be provided as a property in the process engine configuration. Note that when using the default history backend, the history level is stored in the database and cannot be changed later.</p>
+<p>Depending on how the process engine is configured, the property can be set in different ways. It can also be set using Spring XML or a deployment descriptor (<code>bpm-platform.xml</code>, <code>processes.xml</code>). When using the CIB seven Wildfly Subsystem, the property can be set through Wildfly configuration (<code>standalone.xml</code>, <code>domain.xml</code>).</p>
+
+<h4 id="using-java-code">Using Java code</h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">ProcessEngine</span><span class="w"> </span><span class="n">processEngine</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ProcessEngineConfiguration</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">createProcessEngineConfigurationFromResourceDefault</span><span class="p">()</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">setHistory</span><span class="p">(</span><span class="n">ProcessEngineConfiguration</span><span class="p">.</span><span class="na">HISTORY_FULL</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">buildProcessEngine</span><span class="p">();</span><span class="w">
-</span></span></span></code></pre></div><p>It can also be set using Spring XML or a deployment descriptor (bpm-platform.xml, processes.xml). When using the Camunda Wildfly Subsystem, the property can be set through Wildfly configuration (standalone.xml, domain.xml).</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;history&#34;</span><span class="nt">&gt;</span>audit<span class="nt">&lt;/property&gt;</span>
-</span></span></code></pre></div><p>Note that when using the default history backend, the history level is stored in the database and cannot be changed later.</p>
+</span></span></span></code></pre></div>
+<h4 id="run-distribution">Run distribution</h4>
+<p>To proper set a required history level you have to adjust one property in two locations: engine and <a href="/manual/latest/user-guide/cibseven-run/#cib-seven-webclient-properties">webclient</a>:</p>
+<p>Location: <code>./cibseven-bpm-run-2.1.3-ee/configuration/production.yml</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">camunda:
+</span></span><span class="line"><span class="cl">  bpm:
+</span></span><span class="line"><span class="cl">    history-level: audit
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">cibseven:
+</span></span><span class="line"><span class="cl">  webclient:
+</span></span><span class="line"><span class="cl">    historyLevel: audit
+</span></span></code></pre></div>
+<h4 id="tomcat-distribution">Tomcat distribution</h4>
+<p>To proper set a required history level you have to adjust one property in two locations:</p>
 
-<div class="note bg-info docs-info">
-  <h3>History levels and Cockpit</h3>
-  <p><a href="/manual/latest/webapps/cockpit/">Camunda Cockpit</a> web application works best with History Level set to <code>FULL</code>. &ldquo;Lower&rdquo; History Levels will disable certain history-related features.</p>
-</div>
+<h5 id="1-engine">1. Engine</h5>
+<p>Location: <code>./cibseven-bpm-tomcat-2.1.3-ee/server/apache-tomcat-10.1.49/conf/bpm-platform.xml</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;process-engine</span> <span class="na">name=</span><span class="s">&#34;default&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;properties&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;history&#34;</span><span class="nt">&gt;</span>audit<span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">    ...
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/properties&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/process-engine&gt;</span>
+</span></span></code></pre></div>
+<h5 id="2-webclient">2. Webclient</h5>
+<p>CIB seven web application <a href="/manual/latest/user-guide/cibseven-run/#cib-seven-webclient-properties">configuration</a>:</p>
+<p>Location: <code>./cibseven-bpm-tomcat-2.1.3-ee/server/apache-tomcat-10.1.49/webapps/webapp/WEB-INF/classes/application.yaml</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">cibseven</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">webclient</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">historyLevel</span><span class="p">:</span><span class="w"> </span><span class="l">audit</span><span class="w">
+</span></span></span></code></pre></div>
+<h4 id="wildfly-distribution">Wildfly distribution</h4>
+<p>To proper set a required history level you have to adjust one property in two locations:</p>
 
-
+<h5 id="1-engine-1">1. Engine</h5>
+<p>When using the CIB seven Wildfly Subsystem, the property can be set through <a href="/manual/latest/user-guide/runtime-container-integration/jboss/#configure-a-process-engine-in-standalonexmldomainxml">Wildfly configuration</a> (<code>standalone.xml</code>, <code>domain.xml</code>):</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;subsystem</span> <span class="na">xmlns=</span><span class="s">&#34;urn:org.cibseven.bpm.jboss:1.1&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;process-engines&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;process-engine</span> <span class="na">name=</span><span class="s">&#34;default&#34;</span> <span class="na">default=</span><span class="s">&#34;true&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;history-level&gt;</span>audit<span class="nt">&lt;/history-level&gt;</span>
+</span></span><span class="line"><span class="cl">      ...
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/process-engine&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/process-engines&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/subsystem&gt;</span>
+</span></span></code></pre></div>
+<h5 id="2-webclient-1">2. Webclient</h5>
+<p>The application properties can be configured using Wildfly <code>&lt;system-properties&gt;</code>, as described in the <a href="/manual/latest/installation/full/jboss/configuration/#cib-seven-webapp-fine-tuning">CIB seven configuration guidelines for the Wildfly distribution</a>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;system-properties&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;cibseven.webclient.historyLevel&#34;</span> <span class="na">value=</span><span class="s">&#34;audit&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/system-properties&gt;</span>
+</span></span></code></pre></div>
 <h3 id="default-history-implementation">Default history implementation</h3>
 <p>The default history database writes History Events to the appropriate database tables. The database tables can then be queried using the <code>HistoryService</code> or using the REST API.</p>
 
@@ -3559,8 +3646,19 @@ activity instances is arbitrary and is not guaranteed.</p>
   <ul>
     <li>
       <ul>
-        <li><a href="#choose-a-history-level">Choose a history level</a></li>
-        <li><a href="#set-the-history-level">Set the history level</a></li>
+        <li><a href="#choose-a-history-level">Choose a history level</a>
+          <ul>
+            <li><a href="#feature-per-history-level">Feature per history level</a></li>
+          </ul>
+        </li>
+        <li><a href="#set-the-history-level">Set the history level</a>
+          <ul>
+            <li><a href="#using-java-code">Using Java code</a></li>
+            <li><a href="#run-distribution">Run distribution</a></li>
+            <li><a href="#tomcat-distribution">Tomcat distribution</a></li>
+            <li><a href="#wildfly-distribution">Wildfly distribution</a></li>
+          </ul>
+        </li>
         <li><a href="#default-history-implementation">Default history implementation</a></li>
         <li><a href="#history-entities">History entities</a>
           <ul>
