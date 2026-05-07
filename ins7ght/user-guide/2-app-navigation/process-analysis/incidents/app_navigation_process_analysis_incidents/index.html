@@ -466,7 +466,7 @@ It helps you identify when incidents occur, which activities are most affected, 
 <p>The page highlights <strong>two main KPIs</strong>, which summarize overall process incidents and error start events:</p>
 <ul>
 <li><strong>Total Incidents:</strong> Total number of incidents detected in the selected timeframe.</li>
-<li><strong>Total Error Start Events:</strong> Number of error start events in the selected timeframe.</li>
+<li><strong>Total Error Start Events:</strong> Number of error start events in the selected timeframe. An Error Start Event in CIB seven functions like a scoped BPMN exception handler (e.g.: &ldquo;try catch&rdquo;). It listens for propagated BpmnError events and, when triggered, interrupts the current execution flow to execute a predefined error handling path.</li>
 </ul>
 <p>More global process KPIs can be found on the <strong>Global Overview</strong> page.</p>
 <hr>
@@ -539,6 +539,7 @@ The <strong>Failed Activity</strong> captures where the problem actually occurre
 <li>Support process improvement by focusing on the most problematic activities.</li>
 </ul>
 <p>A <strong>fullscreen</strong> button is also available to improve visualization for larger BPMN processes.</p>
+<p><strong>Error Start Events are excluded from the heatmap</strong> because they act as centralized BPMN error handlers. Highlighting them would always point to the same activity instead of showing where the incident actually originated.</p>
 <hr>
 
 <h3 id="incidents-per-version-graph">Incidents per Version Graph</h3>
