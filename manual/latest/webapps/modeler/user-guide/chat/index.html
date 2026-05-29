@@ -3433,7 +3433,7 @@
       
 <div class="note bg-info docs-info">
   <h3>Enterprise Feature</h3>
-  <p>Real-time chat is only available in the enterprise edition when <code>cibseven.webclient.modeler.enabled: true</code>.</p>
+  <p>Real-time chat is only available in the enterprise edition when both <code>cibseven.webclient.modeler.enabled: true</code> and <code>cibseven.webclient.modeler.chat.enabled: true</code>. See <a href="/manual/latest/webapps/modeler/configuration/enable-disable/">Enable / Disable</a>.</p>
 </div>
 
 <p>The modeler includes a real-time chat panel for collaborating on diagrams. Users in the same room can send messages, see who is online, and attach comments to specific BPMN elements.</p>
@@ -3517,6 +3517,12 @@ Authorization: Bearer &lt;token&gt;
 <pre tabindex="0"><code>GET {basePath}/chat/{roomId}/history
 </code></pre><p>See <a href="/manual/latest/webapps/modeler/reference/rest-api/">REST API</a> for parameters.</p>
 
+<h2 id="chat-tab-behavior">Chat Tab Behavior</h2>
+<p>The Properties panel in the modeler shows a <strong>Properties / Chat</strong> tab bar when <code>chat.enabled: true</code>.</p>
+<p><strong>Unsaved diagrams</strong> — The Chat tab is visually disabled and shows the tooltip <em>&ldquo;Save the diagram to use the chat&rdquo;</em>. Clicking it has no effect. The Properties tab always remains accessible.</p>
+<p><strong>Switching diagrams</strong> — If the Chat tab is open and the user switches to a diagram that has not been saved yet, the panel automatically collapses back to the Properties tab. This prevents the user from being left with an open but non-functional chat panel on an unsaved diagram.</p>
+<p>Once a diagram is saved, the Chat tab becomes active and the WebSocket connection is established when it is selected.</p>
+
 <h2 id="database">Database</h2>
 <p>Messages are persisted in the <code>chat_messages</code> table. See <a href="/manual/latest/webapps/modeler/installation/database-schema/">Database Schema</a>.</p>
 
@@ -3534,6 +3540,7 @@ Authorization: Bearer &lt;token&gt;
     <li><a href="#sending-a-message">Sending a Message</a></li>
     <li><a href="#presence">Presence</a></li>
     <li><a href="#message-history">Message History</a></li>
+    <li><a href="#chat-tab-behavior">Chat Tab Behavior</a></li>
     <li><a href="#database">Database</a></li>
   </ul>
 </nav>

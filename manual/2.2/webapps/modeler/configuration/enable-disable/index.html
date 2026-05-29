@@ -3471,6 +3471,45 @@
 <li>The backend REST endpoints remain active</li>
 </ul>
 
+<h2 id="chat-feature-enterprise-edition">Chat Feature (Enterprise Edition)</h2>
+<p>The real-time chat inside the modeler is controlled by a separate property:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">cibseven</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">webclient</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">modeler</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">chat</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span></code></pre></div><p>Or via environment variable:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">CIBSEVEN_WEBCLIENT_MODELER_CHAT_ENABLED</span><span class="o">=</span><span class="nb">false</span>
+</span></span></code></pre></div>
+<div class="note ">
+  <h3>Default is disabled</h3>
+  <p><code>chat.enabled</code> defaults to <code>false</code>. It must be set explicitly to <code>true</code> to activate chat.</p>
+</div>
+
+
+<div class="note ">
+  <h3>Requires modeler.enabled: true</h3>
+  <p>Chat is currently used only inside the modeler. Setting <code>chat.enabled: true</code> while <code>modeler.enabled: false</code> has no effect on the UI.</p>
+</div>
+
+
+<h3 id="what-happens-when-chat-is-disabled">What Happens When Chat Is Disabled</h3>
+<p>When <code>chat.enabled: false</code>:</p>
+<ul>
+<li>The WebSocket endpoint (<code>/ws/chat</code>) is not registered</li>
+<li>Chat JPA entities and repositories are not activated — the <code>chat_messages</code> table is not required</li>
+<li>The Properties/Chat tab bar is <strong>hidden</strong> in the modeler UI — the properties panel shows in full single-panel mode</li>
+</ul>
+
+<h3 id="what-happens-when-chat-is-enabled">What Happens When Chat Is Enabled</h3>
+<p>When <code>chat.enabled: true</code>:</p>
+<ul>
+<li>The STOMP WebSocket endpoint and chat REST endpoints become active</li>
+<li>The <code>chat_messages</code> table must exist in the database (created by the SQL schema scripts)</li>
+<li>The modeler UI shows a <strong>Properties / Chat</strong> tab bar in the properties panel</li>
+<li>The Chat tab is <strong>disabled</strong> (greyed out with a tooltip) on unsaved diagrams — it becomes active once the diagram is saved</li>
+</ul>
+
 <h2 id="summary">Summary</h2>
 <table>
   <thead>
@@ -3483,6 +3522,14 @@
       <tr>
           <td><code>cibseven.webclient.modeler.enabled: false</code></td>
           <td>Disables backend (REST, JPA, Flyway) <strong>and</strong> hides the UI — no database required</td>
+      </tr>
+      <tr>
+          <td><code>cibseven.webclient.modeler.chat.enabled: false</code> (default)</td>
+          <td>Chat WebSocket and JPA inactive; modeler shows single-panel properties — no <code>chat_messages</code> table required</td>
+      </tr>
+      <tr>
+          <td><code>cibseven.webclient.modeler.chat.enabled: true</code></td>
+          <td>Chat fully active; Properties/Chat tab bar shown in modeler UI</td>
       </tr>
       <tr>
           <td><code>permissions.modeler: {}</code> in <code>config.json</code></td>
@@ -3502,6 +3549,12 @@
     <li><a href="#configuration">Configuration</a></li>
     <li><a href="#what-happens-when-disabled">What Happens When Disabled</a></li>
     <li><a href="#frontend-permissions">Frontend Permissions</a></li>
+    <li><a href="#chat-feature-enterprise-edition">Chat Feature (Enterprise Edition)</a>
+      <ul>
+        <li><a href="#what-happens-when-chat-is-disabled">What Happens When Chat Is Disabled</a></li>
+        <li><a href="#what-happens-when-chat-is-enabled">What Happens When Chat Is Enabled</a></li>
+      </ul>
+    </li>
     <li><a href="#summary">Summary</a></li>
   </ul>
 </nav>
