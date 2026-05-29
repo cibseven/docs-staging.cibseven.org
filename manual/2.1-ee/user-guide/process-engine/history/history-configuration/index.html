@@ -3331,6 +3331,13 @@
     <td style="text-align: center">+</td>
   </tr>
   <tr>
+    <td>Batches</td>
+    <td style="text-align: center">-</td>
+    <td style="text-align: center">-</td>
+    <td style="text-align: center">-</td>
+    <td style="text-align: center">+</td>
+  </tr>
+  <tr>
     <td>Incidents</td>
     <td style="text-align: center">-</td>
     <td style="text-align: center">-</td>
@@ -3350,6 +3357,8 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">buildProcessEngine</span><span class="p">();</span><span class="w">
 </span></span></span></code></pre></div>
 <h4 id="run-distribution">Run distribution</h4>
+
+<h5 id="before-220-version">Before 2.2.0 version</h5>
 <p>To proper set a required history level you have to adjust one property in two locations: engine and <a href="/manual/2.1-ee/user-guide/cibseven-run/#cib-seven-webclient-properties">webclient</a>:</p>
 <p>Location: <code>./cibseven-bpm-run-2.1.3-ee/configuration/production.yml</code>:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">camunda:
@@ -3362,8 +3371,15 @@
 </span></span><span class="line"><span class="cl">  webclient:
 </span></span><span class="line"><span class="cl">    historyLevel: audit
 </span></span></code></pre></div>
+<h5 id="since-220-version">Since 2.2.0 version</h5>
+<p>To proper set a required history level you have to adjust one property only in one location: engine:</p>
+<p>Location: <code>./cibseven-bpm-run-2.2.0-ee/configuration/production.yml</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">camunda:
+</span></span><span class="line"><span class="cl">  bpm:
+</span></span><span class="line"><span class="cl">    history-level: audit
+</span></span></code></pre></div>
 <h4 id="tomcat-distribution">Tomcat distribution</h4>
-<p>To proper set a required history level you have to adjust one property in two locations:</p>
+<p>To proper set a required history level you have to adjust one property in two locations (before 2.2.0) or in one location (since 2.2.0):</p>
 
 <h5 id="1-engine">1. Engine</h5>
 <p>Location: <code>./cibseven-bpm-tomcat-2.1.3-ee/server/apache-tomcat-10.1.49/conf/bpm-platform.xml</code></p>
@@ -3374,7 +3390,7 @@
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;/properties&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/process-engine&gt;</span>
 </span></span></code></pre></div>
-<h5 id="2-webclient">2. Webclient</h5>
+<h5 id="2-webclient-required-only-before-220-version">2. Webclient (required only before 2.2.0 version)</h5>
 <p>CIB seven web application <a href="/manual/2.1-ee/user-guide/cibseven-run/#cib-seven-webclient-properties">configuration</a>:</p>
 <p>Location: <code>./cibseven-bpm-tomcat-2.1.3-ee/server/apache-tomcat-10.1.49/webapps/webapp/WEB-INF/classes/application.yaml</code></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">cibseven</span><span class="p">:</span><span class="w">
@@ -3382,7 +3398,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">historyLevel</span><span class="p">:</span><span class="w"> </span><span class="l">audit</span><span class="w">
 </span></span></span></code></pre></div>
 <h4 id="wildfly-distribution">Wildfly distribution</h4>
-<p>To proper set a required history level you have to adjust one property in two locations:</p>
+<p>To proper set a required history level you have to adjust one property in two locations (before 2.2.0) or in one location (since 2.2.0):</p>
 
 <h5 id="1-engine-1">1. Engine</h5>
 <p>When using the CIB seven Wildfly Subsystem, the property can be set through <a href="/manual/2.1-ee/user-guide/runtime-container-integration/jboss/#configure-a-process-engine-in-standalonexmldomainxml">Wildfly configuration</a> (<code>standalone.xml</code>, <code>domain.xml</code>):</p>
@@ -3395,7 +3411,7 @@
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;/process-engines&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/subsystem&gt;</span>
 </span></span></code></pre></div>
-<h5 id="2-webclient-1">2. Webclient</h5>
+<h5 id="2-webclient-required-only-before-220-version-1">2. Webclient (required only before 2.2.0 version)</h5>
 <p>The application properties can be configured using Wildfly <code>&lt;system-properties&gt;</code>, as described in the <a href="/manual/2.1-ee/installation/full/jboss/configuration/#cib-seven-webapp-fine-tuning">CIB seven configuration guidelines for the Wildfly distribution</a>.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;system-properties&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;cibseven.webclient.historyLevel&#34;</span> <span class="na">value=</span><span class="s">&#34;audit&#34;</span><span class="nt">/&gt;</span>
