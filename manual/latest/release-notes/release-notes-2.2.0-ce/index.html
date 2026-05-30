@@ -3438,9 +3438,10 @@
 <ul>
 <li><strong>AI Agent Connector</strong> — new <code>cibseven-connect-ai-agent</code> module enabling BPMN service tasks to invoke LLM-backed agents via LangChain4j, with pgvector RAG, EU AI Act compliance, and MCP tool integration</li>
 <li><strong>OpenTelemetry &amp; JMX Metrics</strong> — built-in OpenTelemetry agent configuration and JMX metrics export in Docker images</li>
-<li><strong>Direct Provider</strong> — new <code>SevenDirectProvider</code> as an alternative <code>BpmProvider</code> implementation running without REST</li>
+<li><strong>SCIM 2.0 Identity Provider</strong> <em>(beta)</em> — new <code>identity-scim</code> plugin for SCIM 2.0-based user/group federation with caching and OIDC authentication support</li>
+<li><strong>Direct Provider</strong> <em>(beta)</em> — new <code>SevenDirectProvider</code> as an alternative <code>BpmProvider</code> implementation running without REST</li>
 <li><strong>Multi-Engine Support</strong> — connect multiple process engines from a single web client with token caching and OAuth2 support</li>
-<li><strong>Modeler</strong> — new <code>cibseven-modeler</code> module enabling BPMN creation and modification directly in web with new template icons in the diagram, collapsible Properties/Chat panel, plugin and chat extension points</li>
+<li><strong><a href="https://docs.cibseven.org/manual/latest/webapps/modeler/">Modeler</a></strong> — first stable <code>cibseven-modeler</code> <code>1.0.0</code> release with template icons in the diagram and in the cockpit viewer, collapsible panel, plugin extension points, and toast notifications</li>
 <li><strong>Accessibility</strong> — comprehensive WCAG improvements across navigation, dialogs, calendar, and form components</li>
 <li><strong>Java 21 Only</strong> — Java 17 Docker images removed; all images are now Java 21 exclusively</li>
 <li><strong>Security</strong> — multiple CVEs resolved across all patch releases since 2.1.0</li>
@@ -3455,13 +3456,14 @@
 <h3 id="configuration-changes">Configuration Changes</h3>
 <ul>
 <li><strong><code>KeycloakUserProvider</code> → <code>OAuth2UserProvider</code></strong>: The user provider class name has been renamed in all CIB seven distribution YAML configs (<code>run</code>, <code>run4</code>, Tomcat, Wildfly). Update the relevant <code>userProvider</code> entries in your configuration file.</li>
-<li><strong><code>jwtSecret</code> via system property</strong>: The JWT secret for engine-rest can now be set via the JVM system property <code>cibseven.engine-rest.jwt-secret</code> or the environment variable <code>CIBSEVEN_ENGINE_REST_JWT_SECRET</code>, without requiring a config file change (CIB7-1276).</li>
-<li><strong>AI Agent default model override</strong>: The default LLM model for the AI Agent connector can be overridden via the system property <code>cibseven.connect.ai.agent.default-model</code> or the environment variable <code>CIBSEVEN_CONNECT_AI_AGENT_DEFAULT_MODEL</code> (CIB7-1415).</li>
+<li><strong><code>jwtSecret</code> via system property</strong>: The JWT secret for engine-rest can now be set via the JVM system property <code>cibseven.engine-rest.jwt-secret</code> or the environment variable <code>CIBSEVEN_ENGINE_REST_JWT_SECRET</code>, without requiring a config file change.</li>
+<li><strong>AI Agent default model override</strong>: The default LLM model for the AI Agent connector can be overridden via the system property <code>cibseven.connect.ai.agent.default-model</code> or the environment variable <code>CIBSEVEN_CONNECT_AI_AGENT_DEFAULT_MODEL</code>.</li>
 <li><strong>Cron expression type</strong>: Configure <code>cronType</code> (<code>QUARTZ</code> or <code>SPRING53</code>) and <code>supportLegacyQuartzSyntax</code> in <code>run</code>, Tomcat, and Wildfly configuration files to control <a href="https://docs.cibseven.org/manual/latest/update/minor/20-to-21/#cron-expression">cron expression</a> handling. Default is <code>QUARTZ</code>.</li>
 <li><strong><code>authGroupFilterThreshold</code></strong>: New option in engine configuration to optimize authentication group filtering and reduce SQL query load.</li>
 <li><strong>Tomcat 11 support</strong>: Tomcat 11 is now officially supported as a deployment target.</li>
 <li><strong>Schema validation</strong>: Modeler schema validation is disabled by default in the <code>run</code> distribution.</li>
 <li><strong>Modeler datasource</strong>: A shared datasource resource link for the CIB seven Modeler is now included in <code>webapp.xml</code> for Tomcat distributions.</li>
+<li><strong>AI Agent toggle</strong>: <code>AI_AGENT_ENABLED</code> environment variable (default <code>true</code>) controls whether the AI agent connector is loaded at startup in Tomcat and WildFly Docker images; set to <code>false</code> to disable without removing any files. For the <code>run</code> distribution, the connector is active by default in dev/default mode and disabled in <code>--production</code> mode; re-enable with <code>--ai</code>, <code>--ai-agent</code>, or <code>--agent</code> flags.</li>
 </ul>
 
 <h3 id="new-features">New Features</h3>
@@ -3473,28 +3475,45 @@
 <li>Knowledge Ingestor with pgvector RAG and bundled <code>all-MiniLM-L6-v2</code> embedding model</li>
 <li>Built-in <code>ProcessStarterTool</code> — allows the LLM to start a CIB seven process by definition key, poll for completion, and return output variables</li>
 <li>Chat memory with persistence and configurable options</li>
-<li>MCP tool integration with provenance audit and mandatory name prefixing (CIB7-1399, CIB7-1407)</li>
-<li>EU AI Act compliance: chat-log persistence scoped per activity (CIB7-1395), RAG retrieval audit (CIB7-1400), AI-output marker for Art. 50(2), model parameters surfaced for Art. 15, extended record-keeping for Art. 12/14/26</li>
-<li><code>instructionMode</code> to combine caller instruction with bundled default prompt (CIB7-1394)</li>
-<li>Bundled element templates: <code>cibseven-ai-agent.json</code> and <code>cibseven-knowledge-ingestor.json</code> (CIB7-1397)</li>
-<li>Default LLM model overridable by operators via system property or environment variable (CIB7-1415)</li>
+<li>MCP tool integration with provenance audit and mandatory name prefixing</li>
+<li>EU AI Act compliance: chat-log persistence scoped per activity, RAG retrieval audit, AI-output marker for Art. 50(2), model parameters surfaced for Art. 15, extended record-keeping for Art. 12/14/26</li>
+<li><code>instructionMode</code> to combine caller instruction with bundled default prompt</li>
+<li>Bundled element templates: <code>cibseven-ai-agent.json</code> and <code>cibseven-knowledge-ingestor.json</code></li>
+<li>Default LLM model overridable by operators via system property or environment variable</li>
 </ul>
 
 <h4 id="rest-engine">REST Engine</h4>
 <ul>
 <li>New endpoint to retrieve the current process engine configuration (history level, authorization, password policy)</li>
-<li><code>jwtSecret</code> configurable via system property (CIB7-1276)</li>
+<li><code>jwtSecret</code> configurable via system property</li>
 <li>Policy-validation endpoint no longer requires authentication</li>
 </ul>
 
 <h4 id="historic-process-statistics">Historic Process Statistics</h4>
 <ul>
 <li>New REST endpoint with instance-filter support for HistoricStatistics queries</li>
+<li>Added sorting support for ActivityStatistics queries</li>
+</ul>
+
+<h4 id="task-variables">Task Variables</h4>
+<ul>
+<li>New engine option to validate that a task ID exists before assigning task variables, preventing silent data loss for non-existing tasks</li>
 </ul>
 
 <h4 id="external-task-client">External Task Client</h4>
 <ul>
 <li>OAuth2 client credentials flow for external task clients</li>
+</ul>
+
+<h4 id="scim-20-identity-provider-_beta_">SCIM 2.0 Identity Provider <em>(beta)</em></h4>
+<ul>
+<li>New <code>identity-scim</code> engine plugin for SCIM 2.0-based identity federation — connect CIB seven to any SCIM-compliant user directory (e.g. Okta, Azure AD, Microsoft Entra)</li>
+<li>Read-only and writable identity provider implementations for full user and group lifecycle management</li>
+<li>Configurable response caching: <code>cacheEnabled</code>, <code>maxCacheSize</code>, <code>cacheExpirationTimeoutMin</code> options with TTL and max-size eviction; cache is automatically invalidated on write operations</li>
+<li>OIDC authentication support for securing SCIM endpoint access</li>
+<li>User authentication support via SCIM (disabled by default; enable with <code>userAuthenticationEnabled</code>)</li>
+<li>Distributed with all CIB seven distributions (Tomcat, WildFly, <code>run</code>)</li>
+<li><strong>Beta:</strong> works for limited use cases and is under active development</li>
 </ul>
 
 <h4 id="process-instance-navigation-_since-211_">Process Instance Navigation <em>(since 2.1.1)</em></h4>
@@ -3540,9 +3559,10 @@
 <li>Ability to change existing variables to file type</li>
 </ul>
 
-<h4 id="direct-provider">Direct Provider</h4>
+<h4 id="direct-provider-_beta_">Direct Provider <em>(beta)</em></h4>
 <ul>
 <li>New <code>SevenDirectProvider</code> — an alternative <code>BpmProvider</code> implementation that accesses the process engine directly without REST, suitable for embedded deployments</li>
+<li><strong>Beta:</strong> works for limited use cases and is under active development</li>
 </ul>
 
 <h4 id="user-profile--password-validation">User Profile — Password Validation</h4>
@@ -3551,8 +3571,9 @@
 <li>Only violated password rules are displayed; validation resets on input</li>
 </ul>
 
-<h4 id="modeler-enhancements">Modeler Enhancements</h4>
+<h4 id="modelerhttpsdocscibsevenorgmanuallatestwebappsmodeler-enhancements"><a href="https://docs.cibseven.org/manual/latest/webapps/modeler/">Modeler</a> Enhancements</h4>
 <ul>
+<li>First stable release of <code>cibseven-modeler</code> <code>1.0.0</code></li>
 <li>Element template icons displayed in the BPMN diagram and in the template chooser modal</li>
 <li>Collapsible Properties/Chat side panel with toggle strip (chevron button on panel edge), similar to Camunda Desktop Modeler behavior</li>
 <li>Plugin extension point for integrating third-party plugins into the modeler</li>
@@ -3560,6 +3581,9 @@
 <li><code>group</code> property inside element-template scopes is now respected, splitting scope properties into labeled sub-groups</li>
 <li>Download button for diagram list items on the Start Page</li>
 <li>Default task type marker (user figure, gears, etc.) stays visible alongside the applied element-template icon</li>
+<li>Toast notification shown after successful deployment or process start, with a redirect option</li>
+<li>Diagram and form creation modal inputs are focused on open; press Enter to confirm creation</li>
+<li>Fixed unique IDs for internal/external template filter checkboxes</li>
 </ul>
 
 <h4 id="docker--opentelemetry--jmx">Docker — OpenTelemetry &amp; JMX</h4>
@@ -3567,12 +3591,14 @@
 <li>Built-in OpenTelemetry agent configuration in Docker images</li>
 <li>JMX metrics export support via OpenTelemetry</li>
 <li><code>run4</code> distribution Docker image with JPDA remote debug mode support</li>
+<li><code>AI_AGENT_ENABLED</code> environment variable (default <code>true</code>) to toggle the AI agent connector at startup without modifying or deleting files; supported in Tomcat and WildFly Docker images; for <code>run</code> distribution, AI agent is on in dev/default mode and off in <code>--production</code> mode</li>
 </ul>
 
 <h3 id="user-experience-improvements">User Experience Improvements</h3>
 
 <h4 id="process-instance-search-_since-216_">Process Instance Search <em>(since 2.1.6)</em></h4>
 <ul>
+<li>Process instance details shown in a sidebar: instance data, status icons, <a href="https://docs.cibseven.org/manual/latest/webapps/cockpit/bpmn/failed-jobs/">incident</a> count, links to process definition, deployment, and parent instances</li>
 <li>Added separate process instance search for runtime-only processes</li>
 <li>Added &ldquo;Runtime-only instances&rdquo; tab view for selected process definition</li>
 <li>Added incidents icon with the total incident count in <a href="https://docs.cibseven.org/manual/latest/webapps/cockpit/bpmn/dashboard/#process-instance-search">process instance search</a> views</li>
@@ -3594,6 +3620,7 @@
 <ul>
 <li>Variables table: show BPMN scope name, highlight element on click, and fix direct diagram selection</li>
 <li>Variables table: <code>activityIdBadge</code> component for improved variable filtering by activity</li>
+<li>Variables table: copy variable name with a single click via <code>CopyableActionButton</code></li>
 <li>Variables table: added <code>activity instance id</code> column and fixed <code>scope</code> column value <em>(since 2.1.5)</em></li>
 <li>Fixed fetching of variables for <code>audit</code> <a href="https://docs.cibseven.org/manual/latest/user-guide/process-engine/history/history-configuration/">history level</a> in process instance view <em>(since 2.1.6)</em></li>
 </ul>
@@ -3601,6 +3628,13 @@
 <h4 id="tasks">Tasks</h4>
 <ul>
 <li>Configurable display of process variables on task cards</li>
+<li>Task frame can now be scrolled when a task is not yet assigned</li>
+<li>Generic form: add and modify task variables directly for empty user tasks (file uploads and existing variable editing supported)</li>
+</ul>
+
+<h4 id="user-management">User Management</h4>
+<ul>
+<li>Case-insensitive user search using the <code>likePatternIgnoreCase</code> parameter</li>
 </ul>
 
 <h4 id="bpmn-diagram">BPMN Diagram</h4>
@@ -3608,6 +3642,8 @@
 <li>Activity selection persists between definition, instance, and incidents views <em>(since 2.1.1)</em></li>
 <li>Activity badges support non-full <a href="https://docs.cibseven.org/manual/latest/user-guide/process-engine/history/history-configuration/">history level</a> configurations including <code>audit</code> mode <em>(since 2.1.1)</em></li>
 <li>Fixed reset of activity instance and history state when navigating from main process to subprocess <em>(since 2.1.6)</em></li>
+<li>Short number format option for badge numbers in the BPMN Viewer (user preference; e.g. <code>1.2k</code> instead of <code>1200</code>)</li>
+<li>Element template icons rendered in the cockpit BPMN viewer</li>
 </ul>
 
 <h4 id="decision-management">Decision Management</h4>
@@ -3633,6 +3669,13 @@
 <ul>
 <li>Deployment date displayed in process definition view <em>(since 2.1.3)</em></li>
 <li>Helper text added to deployments search <em>(since 2.1.2)</em></li>
+<li>Deployments view is refreshed after deleting a deployment; selection is preserved when deletion fails</li>
+</ul>
+
+<h4 id="analytics">Analytics</h4>
+<ul>
+<li>Runtime batch count now reflected on the cockpit dashboard</li>
+<li>Historic Batches view shows an informational message when the configured <a href="https://docs.cibseven.org/manual/latest/user-guide/process-engine/history/history-configuration/">history level</a> does not support batch history</li>
 </ul>
 
 <h4 id="ttl-time-to-live">TTL (Time To Live)</h4>
@@ -3662,7 +3705,7 @@
 <ul>
 <li>Fixed <code>EngineProvider</code> not handling 401 Unauthorized response for legacy configuration fallback</li>
 <li>Fixed WildFly deployment crash caused by <code>JakartaXmlBindAnnotationModule</code> conflict in jackson 2.21.x; standardized web client logging backend to logback</li>
-<li>Fixed <code>ElementTemplateLoader</code> race condition on fresh databases by deferring initialization to <code>ContextRefreshedEvent</code> (CIB7-1420)</li>
+<li>Fixed <code>ElementTemplateLoader</code> race condition on fresh databases by deferring initialization to <code>ContextRefreshedEvent</code></li>
 <li>Fixed <code>jackson</code> <code>FAIL_ON_UNKNOWN_PROPERTIES</code> causing deserialization failures for unknown fields</li>
 <li>Fixed Hibernate naming strategy in Modeler (<code>PhysicalNamingStrategyStandardImpl</code>)</li>
 <li>Fixed date handling: engine no longer fails on dates filled in by other tasks</li>
@@ -3696,7 +3739,7 @@
 <li>Update <code>jackson core</code> from <code>2.15.2</code> to <code>2.21.2</code></li>
 <li>Update <code>tomcat</code> from <code>10.1.48</code> to <code>10.1.52</code> (Spring Boot 3.x embedded)</li>
 <li>Update <code>tomcat9</code> from <code>9.0.110</code> to <code>9.0.117</code></li>
-<li>Update <code>wildfly</code> from <code>37.0.0.Final</code> to <code>39.0.1.Final</code></li>
+<li>Update <code>wildfly</code> from <code>37.0.0.Final</code> to <code>40.0.0.Final</code></li>
 <li>Update <code>wildfly.core</code> from <code>29.0.1.Final</code> to <code>31.0.3.Final</code></li>
 <li>Update <code>groovy</code> script engine from <code>4.0.27</code> to <code>5.0.4</code></li>
 <li>Update <code>nodejs</code> from <code>20.14.0</code> to <code>24.13.1</code></li>
@@ -3709,6 +3752,7 @@
 <li>Update <code>@cib/bootstrap-components</code> from <code>1.0.1</code> to <code>1.0.3</code></li>
 <li>Update <code>@cib/common-frontend</code> from <code>1.0.1</code> to <code>1.0.3</code></li>
 <li>Update <code>@cib/bootstrap-theme</code> to <code>1.0.0</code> (new package extracted from webclient)</li>
+<li>Update <code>cibseven-modeler</code> to <code>1.0.0</code> (first stable release)</li>
 <li>Update <code>vue</code> from <code>3.5.13</code> to <code>3.5.33</code></li>
 <li>Update <code>vue-i18n</code> to <code>11.4.0</code></li>
 <li>Update <code>vue-router</code> from <code>4.5.1</code> to <code>5.0.6</code></li>
@@ -3797,7 +3841,7 @@
 
 <h4 id="build--configuration">Build &amp; Configuration</h4>
 <ul>
-<li>Single branch now produces both Spring Boot 3.5 and Spring Boot 4.0 WARs (CIB7-1377); the parallel <code>spring-boot-4</code> branch has been retired</li>
+<li>Single branch now produces both Spring Boot 3.5 and Spring Boot 4.0 WARs; the parallel <code>spring-boot-4</code> branch has been retired</li>
 <li>Tomcat 11 added as a supported deployment target</li>
 <li>Java 17 Docker images removed; only Java 21 images are built</li>
 <li>MariaDB SQL scripts updated for migration from CIB seven 2.1.3 (Camunda 7.23) <em>(since 2.1.5)</em></li>
@@ -3826,16 +3870,18 @@
             <li><a href="#ai-agent-connector">AI Agent Connector</a></li>
             <li><a href="#rest-engine">REST Engine</a></li>
             <li><a href="#historic-process-statistics">Historic Process Statistics</a></li>
+            <li><a href="#task-variables">Task Variables</a></li>
             <li><a href="#external-task-client">External Task Client</a></li>
+            <li><a href="#scim-20-identity-provider-_beta_">SCIM 2.0 Identity Provider <em>(beta)</em></a></li>
             <li><a href="#process-instance-navigation-_since-211_">Process Instance Navigation <em>(since 2.1.1)</em></a></li>
             <li><a href="#initial-setup-_since-212_">Initial Setup <em>(since 2.1.2)</em></a></li>
             <li><a href="#cron-expression-migration-_since-212_">Cron Expression Migration <em>(since 2.1.2)</em></a></li>
             <li><a href="#multi-engine-support-_since-213_">Multi-Engine Support <em>(since 2.1.3)</em></a></li>
             <li><a href="#multi-engine-support-for-embedded-forms-_since-213_">Multi-Engine Support for Embedded Forms <em>(since 2.1.3)</em></a></li>
             <li><a href="#variables--file-type-_since-213_">Variables — File Type <em>(since 2.1.3)</em></a></li>
-            <li><a href="#direct-provider">Direct Provider</a></li>
+            <li><a href="#direct-provider-_beta_">Direct Provider <em>(beta)</em></a></li>
             <li><a href="#user-profile--password-validation">User Profile — Password Validation</a></li>
-            <li><a href="#modeler-enhancements">Modeler Enhancements</a></li>
+            <li><a href="#modelerhttpsdocscibsevenorgmanuallatestwebappsmodeler-enhancements"><a href="https://docs.cibseven.org/manual/latest/webapps/modeler/">Modeler</a> Enhancements</a></li>
             <li><a href="#docker--opentelemetry--jmx">Docker — OpenTelemetry &amp; JMX</a></li>
           </ul>
         </li>
@@ -3845,11 +3891,13 @@
             <li><a href="#incidents-_since-216_">Incidents <em>(since 2.1.6)</em></a></li>
             <li><a href="#variables">Variables</a></li>
             <li><a href="#tasks">Tasks</a></li>
+            <li><a href="#user-management">User Management</a></li>
             <li><a href="#bpmn-diagram">BPMN Diagram</a></li>
             <li><a href="#decision-management">Decision Management</a></li>
             <li><a href="#start-view">Start View</a></li>
             <li><a href="#navigation-_since-211_">Navigation <em>(since 2.1.1)</em></a></li>
             <li><a href="#deployments">Deployments</a></li>
+            <li><a href="#analytics">Analytics</a></li>
             <li><a href="#ttl-time-to-live">TTL (Time To Live)</a></li>
             <li><a href="#batches-_since-211_">Batches <em>(since 2.1.1)</em></a></li>
             <li><a href="#forms-_since-211_">Forms <em>(since 2.1.1)</em></a></li>
