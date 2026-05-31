@@ -2528,6 +2528,14 @@
           
   <li>
     
+      <a href="/manual/latest/reference/connect/ai-agent-connector/" >AI Agent Connector</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
       <a href="/manual/latest/reference/connect/extending-connect/" >Extending Connect</a>
     
   </li>
@@ -2837,6 +2845,14 @@
   <li>
     
       <a href="/manual/latest/webapps/modeler/user-guide/chat/" >Real-time Chat</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
+      <a href="/manual/latest/webapps/modeler/user-guide/bpmn-ai-chat/" >BPMN AI Agent Chat</a>
     
   </li>
 
@@ -3455,6 +3471,14 @@ For example, tags like <code>2.2.0</code> or <code>latest</code> without explici
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker pull cibseven/cibseven:run-2.2.0
 </span></span><span class="line"><span class="cl">docker run -d --name cibseven -p 8080:8080 cibseven/cibseven:run-2.2.0
 </span></span></code></pre></div>
+<h3 id="start-cib-seven-run4-using-docker">Start CIB seven (Run4) using Docker</h3>
+<p>To start <a href="/manual/latest/user-guide/cibseven-run/">CIB seven Run</a> based on Spring Boot 4, execute the following commands:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker pull cibseven/cibseven:run4-latest
+</span></span><span class="line"><span class="cl">docker run -d --name cibseven -p 8080:8080 cibseven/cibseven:run4-latest
+</span></span></code></pre></div><p>or following command to use explicit version 2.2.0:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker pull cibseven/cibseven:run4-2.2.0
+</span></span><span class="line"><span class="cl">docker run -d --name cibseven -p 8080:8080 cibseven/cibseven:run4-2.2.0
+</span></span></code></pre></div>
 <h3 id="start-cib-seven-wildfly-using-docker">Start CIB seven (Wildfly) using Docker</h3>
 <p>To start CIB seven Wildfly version, execute the following commands:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker pull cibseven/cibseven:wildfly-latest
@@ -3481,6 +3505,9 @@ For example, tags like <code>2.2.0</code> or <code>latest</code> without explici
 </span></span></code></pre></div><p>To start <a href="/manual/latest/user-guide/cibseven-run/">CIB seven Run</a> execute the following commands:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker pull artifacts.cibseven.org/docker-ce-plus/cibseven:run-2.2.0
 </span></span><span class="line"><span class="cl">docker run -d --name cibseven -p 8080:8080 artifacts.cibseven.org/docker-ce-plus/cibseven:run-2.2.0
+</span></span></code></pre></div><p>To start <a href="/manual/latest/user-guide/cibseven-run/">CIB seven Run</a> based on Spring Boot 4, execute the following commands:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker pull artifacts.cibseven.org/docker-ce-plus/cibseven:run4-2.2.0
+</span></span><span class="line"><span class="cl">docker run -d --name cibseven -p 8080:8080 artifacts.cibseven.org/docker-ce-plus/cibseven:run4-2.2.0
 </span></span></code></pre></div><p>To start CIB seven Wildfly, execute the following commands:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker pull artifacts.cibseven.org/docker-ce-plus/cibseven:wildfly-2.2.0
 </span></span><span class="line"><span class="cl">docker run -d --name cibseven -p 8080:8080 artifacts.cibseven.org/docker-ce-plus/cibseven:wildfly-2.2.0
@@ -3504,6 +3531,9 @@ For example, tags like <code>2.2.0</code> or <code>latest</code> without explici
 </span></span></code></pre></div><p>To start <a href="/manual/latest/user-guide/cibseven-run/">CIB seven Run</a> execute the following commands:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker pull artifacts.cibseven.org/docker-ee/cibseven:run-2.2.0-ee
 </span></span><span class="line"><span class="cl">docker run -d --name cibseven -p 8080:8080 artifacts.cibseven.org/docker-ee/cibseven:run-2.2.0-ee
+</span></span></code></pre></div><p>To start <a href="/manual/latest/user-guide/cibseven-run/">CIB seven Run</a> based on Spring Boot 4, execute the following commands:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker pull artifacts.cibseven.org/docker-ee/cibseven:run4-2.2.0-ee
+</span></span><span class="line"><span class="cl">docker run -d --name cibseven -p 8080:8080 artifacts.cibseven.org/docker-ee/cibseven:run4-2.2.0-ee
 </span></span></code></pre></div><p>To start CIB seven Wildfly version, execute the following commands:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker pull artifacts.cibseven.org/docker-ee/cibseven:wildfly-2.2.0-ee
 </span></span><span class="line"><span class="cl">docker run -d --name cibseven -p 8080:8080 artifacts.cibseven.org/docker-ee/cibseven:wildfly-2.2.0-ee
@@ -3521,6 +3551,7 @@ For example, tags like <code>2.2.0</code> or <code>latest</code> without explici
       <ul>
         <li><a href="#start-cib-seven-tomcat-using-docker">Start CIB seven (Tomcat) using Docker</a></li>
         <li><a href="#start-cib-seven-run-using-docker">Start CIB seven (Run) using Docker</a></li>
+        <li><a href="#start-cib-seven-run4-using-docker">Start CIB seven (Run4) using Docker</a></li>
         <li><a href="#start-cib-seven-wildfly-using-docker">Start CIB seven (Wildfly) using Docker</a></li>
       </ul>
     </li>

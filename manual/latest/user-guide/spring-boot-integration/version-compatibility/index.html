@@ -2528,6 +2528,14 @@
           
   <li>
     
+      <a href="/manual/latest/reference/connect/ai-agent-connector/" >AI Agent Connector</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
       <a href="/manual/latest/reference/connect/extending-connect/" >Extending Connect</a>
     
   </li>
@@ -2837,6 +2845,14 @@
   <li>
     
       <a href="/manual/latest/webapps/modeler/user-guide/chat/" >Real-time Chat</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
+      <a href="/manual/latest/webapps/modeler/user-guide/bpmn-ai-chat/" >BPMN AI Agent Chat</a>
     
   </li>
 
@@ -3455,9 +3471,24 @@ Other combinations must be thoroughly tested before being used in production.</p
     <td>3.4.x (**)</td>
   </tr>
   <tr>
+    <td>2.0.1+</td>
+    <td>2.0.1+</td>
+    <td>3.5.x</td>
+  </tr>
+  <tr>
     <td>2.1.x</td>
     <td>2.1.x</td>
     <td>3.5.x</td>
+  </tr>
+  <tr>
+    <td>2.2.x</td>
+    <td>2.2.x</td>
+    <td>3.5.x</td>
+  </tr>
+  <tr>
+    <td>2.2.x</td>
+    <td>2.2.x</td>
+    <td>4.0.x (***)</td>
   </tr>
 </table>
 <p>* For these versions, use the following Maven coordinates:</p>
@@ -3491,7 +3522,15 @@ configure <code>dependencyManagement</code> in your application, e.g. add the fo
   ...
   &lt;/dependencies&gt;
 &lt;/dependencyManagement&gt;
-</code></pre>
+</code></pre><p>*** Starting with CIB seven <code>2.2.0</code>, Spring Boot 4 is supported via separate starter artifacts with the <code>-4</code> suffix. For Spring Boot 3, use the original artifact names (for example, <code>cibseven-spring-boot-starter</code>). For Spring Boot 4, use the <code>-4</code> suffix artifacts (for example, <code>cibseven-spring-boot-starter-4</code>).</p>
+<p>Spring Boot 4 Example:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependency&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;groupId&gt;</span>org.cibseven.bpm.springboot<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;artifactId&gt;</span>cibseven-spring-boot-starter-4<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;version&gt;</span>2.2.x<span class="nt">&lt;/version&gt;</span> <span class="c">&lt;!-- set correct version here --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/dependency&gt;</span>
+</span></span></code></pre></div><p>The same version applies to the enterprise artifacts by using the <code>-ee</code> classifier or edition-specific coordinates, depending on your setup.</p>
+
     </div>
   </div>
 </div>

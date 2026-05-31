@@ -2528,6 +2528,14 @@
           
   <li>
     
+      <a href="/manual/2.2/reference/connect/ai-agent-connector/" >AI Agent Connector</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
       <a href="/manual/2.2/reference/connect/extending-connect/" >Extending Connect</a>
     
   </li>
@@ -2837,6 +2845,14 @@
   <li>
     
       <a href="/manual/2.2/webapps/modeler/user-guide/chat/" >Real-time Chat</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
+      <a href="/manual/2.2/webapps/modeler/user-guide/bpmn-ai-chat/" >BPMN AI Agent Chat</a>
     
   </li>
 
@@ -3435,12 +3451,29 @@
 <li>For administrators and developers: <a href="#database-updates">Database updates</a></li>
 <li>For administrators and developers: <a href="#full-distribution">Full distribution update</a></li>
 <li>For administrators and developers: <a href="#docker-base-image-update">Docker Base Image Update</a></li>
+<li>For administrators and developers: <a href="#docker-java-21-only">Docker Java 21 Only</a></li>
+<li>For administrators: <a href="#opentelemetry-and-jmx-metrics">OpenTelemetry and JMX metrics</a></li>
+<li>For administrators and developers: <a href="#spring-boot-4-support">Spring Boot 4 Support</a></li>
+<li>For administrators and developers: <a href="#update-to-tomcat-11">Update to Tomcat 11</a></li>
+<li>For administrators and developers: <a href="#update-to-wildfly-40">Update to WildFly 40</a></li>
+<li>For administrators and developers: <a href="#end-of-java-11-support">End of Java 11 support</a></li>
+<li>For administrators and developers: <a href="#ai-agent-connector">AI Agent Connector</a></li>
+<li>For administrators and developers: <a href="#cib-seven-modeler">CIB seven Modeler</a></li>
+<li>For administrators: <a href="#jwt-secret-configuration">JWT secret configuration</a></li>
+<li>For administrators: <a href="#multi-engine-support">Multi-engine support</a></li>
+<li>For administrators: <a href="#license-key-location">License key location</a></li>
+<li>For administrators: <a href="#keycloak-user-provider-renaming">Keycloak User provider renaming</a></li>
+<li>For administrators: <a href="#direct-provider">Direct Provider</a></li>
+<li>For administrators: <a href="#scim2-identity-provider">SCIM2 Identity Provider</a></li>
+<li>For administrators: <a href="#new-configuration-options">New configuration options</a></li>
 </ol>
 <p>This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in CIB seven 2.2.</p>
 
 <h2 id="database-updates">Database updates</h2>
 <p>Every CIB seven installation requires a database schema update. Check our <a href="/manual/2.2/installation/database-schema/#update">database schema update guide</a>
-for further instructions.</p>
+for further instructions.
+<strong>Note:</strong>
+For rolling update SQL scripts, the file name versioning has been switched from Camunda 7 versioning to CIB seven versioning. The transition to CIB seven versioning changed version part in the file names from <code>7.x</code>-based naming to <code>2.x</code>-based naming, such as <code>h2_engine_7.24_to_2.1.sql</code> followed by <code>h2_engine_2.1_to_2.2.sql</code>. The Liquibase changelog has been updated accordingly to use the new CIB seven version identifiers as well.</p>
 
 <h2 id="full-distribution">Full distribution</h2>
 <p>This section is applicable if you installed the
@@ -3457,7 +3490,7 @@ with a <strong>shared process engine</strong>.</p>
 <p>The Docker base image has been updated from Alpine Linux 3.22 to Alpine Linux 3.23.</p>
 
 <h3 id="migration-steps">Migration Steps</h3>
-<p>For standard Docker image usage, <strong>no action is required</strong> beyond pulling the 2.2.0 image.</p>
+<p>For <a href="/manual/2.2/installation/docker/">standard Docker image</a> usage, <strong>no action is required</strong> beyond pulling the 2.2.0 image.</p>
 <p>For custom Docker configurations:</p>
 <ol>
 <li><strong>Assess Custom Code</strong>: Review any Alpine-specific customizations for version 3.23 compatibility.</li>
@@ -3465,6 +3498,124 @@ with a <strong>shared process engine</strong>.</p>
 <li><strong>Rebuild Custom Images</strong>: Update Dockerfiles that extend the CIB seven base image.</li>
 <li><strong>Test Migration</strong>: Verify functionality after updating to the new base image.</li>
 </ol>
+
+<h2 id="docker-java-21-only">Docker Java 21 Only</h2>
+<p>For CIB seven <code>2.2.0</code>, only Java 21 Docker images are published. Java 17 images are no longer built or released.</p>
+<p>Java 21 is now the default image variant, so the <code>java21-</code> tag prefix has been removed. As a result, images are published under the regular tags such as <code>cibseven:2.2.0</code> and <code>cibseven:run-2.2.0</code>, while the enterprise variants continue to use the <code>-ee</code> suffix.</p>
+
+<h3 id="migration-steps-1">Migration Steps</h3>
+<p>If you consume CIB seven Docker images in deployment scripts, CI pipelines, or container manifests, review image names and tags accordingly and switch any Java 17 or <code>java21-</code> prefixed references to the new default Java 21 tags.</p>
+
+<h2 id="opentelemetry-and-jmx-metrics">OpenTelemetry and JMX metrics</h2>
+<p>Starting with CIB seven <code>2.2.0</code>, the Docker images use the OpenTelemetry Java Agent instead of the Prometheus JMX Exporter for metrics and observability.</p>
+<p>This change modernizes the observability setup and extends it beyond Prometheus-specific metrics. JMX metrics configuration files were added for extended JVM metrics collection, and the related tests and documentation were updated accordingly.</p>
+
+<h3 id="user-impact">User impact</h3>
+<p>This change mainly affects installations that rely on the previous Prometheus JMX Exporter based setup.</p>
+<p>If you use the standard Docker image defaults, no user impact is expected.</p>
+
+<h3 id="migration-steps-2">Migration steps</h3>
+<p>If you use custom monitoring or scraping configuration, review it and adapt it to the OpenTelemetry based metrics setup.</p>
+
+<h2 id="spring-boot-4-support">Spring Boot 4 Support</h2>
+<p>CIB seven <code>2.2.0</code> starts supporting Spring Boot 4. This includes a new Spring Boot 4 starter suite and a new <code>Run4</code> distribution based on Spring Boot 4.
+Additionally, the new <code>Run4</code> distribution has been added to the <a href="/manual/2.2/installation/docker/#start-cib-seven-run4-using-docker">Docker images</a>.</p>
+
+<h3 id="user-impact-1">User impact</h3>
+<p>This change only affects installations and applications that migrate from Spring Boot 3 to Spring Boot 4.</p>
+
+<h3 id="migration-steps-3">Migration steps</h3>
+<p>If you want to move from Spring Boot 3 to Spring Boot 4:</p>
+<ol>
+<li>Update your POM files to switch from the existing Spring Boot 3 starter modules to the new Spring Boot 4 starter modules.</li>
+<li>Review your project configuration and dependencies for Spring Boot 4 compatibility.</li>
+<li>Test your application thoroughly after the upgrade.</li>
+</ol>
+
+<h2 id="update-to-tomcat-11">Update to Tomcat 11</h2>
+<p>With this release, CIB seven supports Tomcat 11 as the new default pre-packaged Tomcat distribution.</p>
+<p>If you prefer to stay on Tomcat 10, you can still use the released CIB seven modules in your Tomcat 10 installation when updating to CIB seven <code>2.2.0</code>, since the released modules remain compatible with Tomcat 10.</p>
+
+<h2 id="update-to-wildfly-40">Update to WildFly 40</h2>
+<p>With this release, CIB seven supports WildFly 40 as the new default pre-packaged WildFly distribution.</p>
+<p>If you prefer to stay on previous supported WildFly versions, such as WildFly 28 and higher, you can still use the released CIB seven modules in your WildFly installation when updating to CIB seven <code>2.2.0</code>, since the released modules remain compatible with these WildFly versions.</p>
+
+<h2 id="end-of-java-11-support">End of Java 11 support</h2>
+<p>Java 11 is no longer supported. Starting with this release, CIB seven is not supported in Java 11 environments.</p>
+<p>Update your Java runtime to a <a href="/manual/2.2/introduction/supported-environments/#java">currently supported version</a>, such as Java 17 or Java 21.</p>
+
+<h3 id="user-impact-2">User impact</h3>
+<p>This change affects installations that still run on Java 11.</p>
+
+<h3 id="migration-steps-4">Migration steps</h3>
+<p>Update your Java environment to Java 17 or Java 21 before upgrading to CIB seven <code>2.2.0</code>.</p>
+
+<h2 id="ai-agent-connector">AI Agent Connector</h2>
+<p>The <a href="/manual/2.2/reference/connect/ai-agent-connector/">AI Agent Connector</a> is a major new feature in CIB seven <code>2.2.0</code>. It introduces the new <code>cibseven-connect-ai-agent</code> module, allowing BPMN service tasks to invoke AI agents through standard connector configuration without custom Java code.</p>
+<p>The connector supports tool calling, retrieval-augmented generation with pgvector, chat memory, and audit trail capabilities. It also ships with a Knowledge Ingestor connector for preparing content used by AI-powered process interactions.</p>
+
+<h2 id="cib-seven-modeler">CIB seven Modeler</h2>
+<p>CIB seven <code>2.2.0</code> introduces CIB seven Modeler as a new web-based modeling application for BPMN, DMN, and embedded forms.</p>
+<p>The modeler is integrated into <code>cibseven-webclient</code> and includes features such as visual BPMN and DMN modeling, form modeling, element templates, and direct deployment. For more details, see the <a href="/manual/2.2/webapps/modeler/">CIB seven Modeler documentation</a>.</p>
+
+<h3 id="bpmn-ai-agent-chat">BPMN AI Agent Chat</h3>
+<p><a href="/manual/2.2/webapps/modeler/user-guide/bpmn-ai-chat/">BPMN AI Agent Chat</a> is integrated into the CIB seven Modeler and accessible in the Enterprise Edition only.</p>
+
+<h2 id="jwt-secret-configuration">JWT secret configuration</h2>
+<p>Starting with CIB seven <code>2.2.0</code>, the JWT secret for <code>engine-rest</code> can also be configured using the JVM system property <code>cibseven.engine-rest.jwt-secret</code> or the environment variable <code>CIBSEVEN_ENGINE_REST_JWT_SECRET</code>.</p>
+<p>This is useful in environments where setting dotted property names as operating-system environment variables is problematic. No migration is required unless you want to switch from file-based configuration to the new system property or environment variable based setup.</p>
+
+<h2 id="multi-engine-support">Multi-engine support</h2>
+<p>CIB seven webclient supports connections to multiple engine REST endpoints, allowing a single webclient instance to manage multiple CIB seven engines.</p>
+<p>This is useful for administrators and developers who need to switch quickly between environments such as development, test, and production. Additional engines can be configured via the <code>additionalEngineRest</code> property, and after configuration an additional engine selector icon appears in the webclient top menu.</p>
+<p>For configuration details, see <a href="/manual/2.2/webapps/configuration-options/#multi-engine-support">Multi-engine support</a>.</p>
+
+<h2 id="license-key-location">License key location</h2>
+<p>Starting with CIB seven version 2.2.0, a license key is automatically saved in the database.
+This update allows to avoid a problem with applying a license key when the user home directory is placed on a read-only file system.</p>
+
+<h3 id="user-impact-3">User impact</h3>
+<p>No user impact is expected.</p>
+
+<h2 id="keycloak-user-provider-renaming">Keycloak User provider renaming</h2>
+<p>The <code>KeycloakUserProvider</code> configuration name has been renamed to <code>OAuth2UserProvider</code>.</p>
+
+<h3 id="user-impact-4">User impact</h3>
+<p>This change affects installations that explicitly configure <code>KeycloakUserProvider</code>.</p>
+
+<h3 id="migration-steps-5">Migration steps</h3>
+<p>When updating to CIB seven <code>2.2.0</code>, review your <code>default.yml</code> or <code>application.yml</code> files and replace existing <code>userProvider</code> entries that still use <code>KeycloakUserProvider</code> with <code>OAuth2UserProvider</code>.</p>
+
+<h2 id="direct-provider">Direct Provider</h2>
+<p>Direct Provider is a new beta feature in CIB seven <code>2.2.0</code>. It introduces <code>SevenDirectProvider</code> as an alternative <code>BpmProvider</code> implementation that accesses the process engine directly without REST.</p>
+<p>This can be useful for embedded deployments that want tighter integration without going through REST APIs. As this feature is currently beta, it should be evaluated carefully before productive use.</p>
+
+<h3 id="user-impact-5">User impact</h3>
+<p>No user impact is expected unless you want to adopt this new beta feature.</p>
+
+<h3 id="migration-steps-6">Migration steps</h3>
+<p>If you want to use this feature, configure your application to use <code>SevenDirectProvider</code>.</p>
+
+<h2 id="scim2-identity-provider">SCIM2 Identity Provider</h2>
+<p><a href="/manual/2.2/user-guide/process-engine/identity-service/#the-scim2-identity-service">SCIM2 Identity Provider Plugin</a> is a new beta feature in CIB seven <code>2.2.0</code>.
+It allows CIB seven to integrate with a SCIM-compliant service and provides configurable caching and optional OIDC-secured access. As this feature is currently beta, it is intended for selected use cases and should be validated carefully before wider adoption.</p>
+
+<h3 id="user-impact-6">User impact</h3>
+<p>No user impact is expected unless you want to enable SCIM 2.0 identity provider plugin.</p>
+
+<h3 id="migration-steps-7">Migration steps</h3>
+<p>If you want to use this feature, <a href="/manual/2.2/user-guide/process-engine/identity-service/#activate-the-scim2-plugin">activate the plugin</a> in the engine configuration and <a href="/manual/2.2/user-guide/process-engine/identity-service/#scim2-plugin-configuration-properties">configure</a> the plugin accordingly.</p>
+
+<h2 id="new-configuration-options">New configuration options</h2>
+<p>This release introduces several new configuration options:</p>
+<ul>
+<li><code>checkVariableTaskId</code>: validates that a referenced task exists and is not yet completed before assigning task variables, helping to prevent orphaned task variable references.</li>
+<li><code>authGroupFilterThreshold</code>: can improve authorization query performance allowing to skip an auxiliary SQL query to <code>ACT_RU_AUTHORIZATION</code> when a user belongs to fewer groups than the configured threshold, which can improve performance for very large authorization tables.</li>
+<li><code>maxCallActivityRecursionDepth</code>: prevents infinite recursion in call activities by enforcing a configurable recursion limit.</li>
+</ul>
+
+<h3 id="user-impact-7">User impact</h3>
+<p>These options do not affect existing behavior by default. They preserve the original behavior unless explicitly enabled or configured.</p>
 
     </div>
   </div>
@@ -3479,6 +3630,67 @@ with a <strong>shared process engine</strong>.</p>
     <li><a href="#docker-base-image-update">Docker Base Image Update</a>
       <ul>
         <li><a href="#migration-steps">Migration Steps</a></li>
+      </ul>
+    </li>
+    <li><a href="#docker-java-21-only">Docker Java 21 Only</a>
+      <ul>
+        <li><a href="#migration-steps-1">Migration Steps</a></li>
+      </ul>
+    </li>
+    <li><a href="#opentelemetry-and-jmx-metrics">OpenTelemetry and JMX metrics</a>
+      <ul>
+        <li><a href="#user-impact">User impact</a></li>
+        <li><a href="#migration-steps-2">Migration steps</a></li>
+      </ul>
+    </li>
+    <li><a href="#spring-boot-4-support">Spring Boot 4 Support</a>
+      <ul>
+        <li><a href="#user-impact-1">User impact</a></li>
+        <li><a href="#migration-steps-3">Migration steps</a></li>
+      </ul>
+    </li>
+    <li><a href="#update-to-tomcat-11">Update to Tomcat 11</a></li>
+    <li><a href="#update-to-wildfly-40">Update to WildFly 40</a></li>
+    <li><a href="#end-of-java-11-support">End of Java 11 support</a>
+      <ul>
+        <li><a href="#user-impact-2">User impact</a></li>
+        <li><a href="#migration-steps-4">Migration steps</a></li>
+      </ul>
+    </li>
+    <li><a href="#ai-agent-connector">AI Agent Connector</a></li>
+    <li><a href="#cib-seven-modeler">CIB seven Modeler</a>
+      <ul>
+        <li><a href="#bpmn-ai-agent-chat">BPMN AI Agent Chat</a></li>
+      </ul>
+    </li>
+    <li><a href="#jwt-secret-configuration">JWT secret configuration</a></li>
+    <li><a href="#multi-engine-support">Multi-engine support</a></li>
+    <li><a href="#license-key-location">License key location</a>
+      <ul>
+        <li><a href="#user-impact-3">User impact</a></li>
+      </ul>
+    </li>
+    <li><a href="#keycloak-user-provider-renaming">Keycloak User provider renaming</a>
+      <ul>
+        <li><a href="#user-impact-4">User impact</a></li>
+        <li><a href="#migration-steps-5">Migration steps</a></li>
+      </ul>
+    </li>
+    <li><a href="#direct-provider">Direct Provider</a>
+      <ul>
+        <li><a href="#user-impact-5">User impact</a></li>
+        <li><a href="#migration-steps-6">Migration steps</a></li>
+      </ul>
+    </li>
+    <li><a href="#scim2-identity-provider">SCIM2 Identity Provider</a>
+      <ul>
+        <li><a href="#user-impact-6">User impact</a></li>
+        <li><a href="#migration-steps-7">Migration steps</a></li>
+      </ul>
+    </li>
+    <li><a href="#new-configuration-options">New configuration options</a>
+      <ul>
+        <li><a href="#user-impact-7">User impact</a></li>
       </ul>
     </li>
   </ul>

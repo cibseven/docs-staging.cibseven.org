@@ -2528,6 +2528,14 @@
           
   <li>
     
+      <a href="/manual/2.2/reference/connect/ai-agent-connector/" >AI Agent Connector</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
       <a href="/manual/2.2/reference/connect/extending-connect/" >Extending Connect</a>
     
   </li>
@@ -2837,6 +2845,14 @@
   <li>
     
       <a href="/manual/2.2/webapps/modeler/user-guide/chat/" >Real-time Chat</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
+      <a href="/manual/2.2/webapps/modeler/user-guide/bpmn-ai-chat/" >BPMN AI Agent Chat</a>
     
   </li>
 
@@ -3434,7 +3450,11 @@
 the CIB seven support team. The following section explains the various methods by which a CIB seven license can be added to the Process Engine.</p>
 
 <h2 id="deployment-scenarios-and-the-license-key">Deployment Scenarios and the License Key</h2>
-<p>In a clustered scenario, CIB seven license key should be applied to all nodes. When activated, a license is valid until the expiration date. The license key is valid for an unlimited amount of engines.</p>
+<p>Starting from CIB seven version 2.2.0, a license key should be applied per database.</p>
+<p>In a clustered scenario, where multiple engines on multiple nodes access a single database, the license only needs to be activated once. When activated, a license is valid until the expiration date or until you have deleted your database. The license key is valid for an unlimited amount of engines.</p>
+<p>In a multi tenancy scenario, the license check will be performed for each engine with an own database. Thus, you will be prompted to enter the license key separately for each engine.</p>
+<p><strong>Note</strong>
+In the versions before CIB seven 2.2.0, a license key was stored on the file system, and therefore it should be applied to each node of the cluster.</p>
 
 <h2 id="license-key-pickup-methods">License Key Pickup Methods</h2>
 
