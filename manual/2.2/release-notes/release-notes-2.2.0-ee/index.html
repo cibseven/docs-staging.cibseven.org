@@ -3448,17 +3448,17 @@
     <div class="col-xs-12 content-text">
       
 <h2 id="release-notes">Release Notes</h2>
-<p><em>Release Date: May 29, 2026</em></p>
+<p><em>Release Date: May 31, 2026</em></p>
 
 <h3 id="highlights">Highlights</h3>
 <ul>
-<li><strong>AI Agent Connector</strong> — new <code>cibseven-connect-ai-agent</code> module enabling BPMN service tasks to invoke LLM-backed agents via LangChain4j, with pgvector RAG, EU AI Act compliance, and MCP tool integration</li>
-<li><strong>BPMN AI Agent Chat</strong> <em>(EE exclusive)</em> — real-time AI chat panel in the <a href="https://docs.cibseven.org/manual/latest/webapps/modeler/">modeler</a> with MCP provenance badges, RAG audit trail, and EU AI Act compliance fields</li>
+<li><strong><a href="/manual/2.2/reference/connect/ai-agent-connector/">AI Agent Connector</a></strong> — new <code>cibseven-connect-ai-agent</code> module enabling BPMN service tasks to invoke LLM-backed agents via LangChain4j, with pgvector RAG, EU AI Act compliance, and MCP tool integration</li>
+<li><strong><a href="/manual/2.2/webapps/modeler/user-guide/bpmn-ai-chat/">BPMN AI Agent</a></strong> <em>(EE exclusive, beta)</em> — LLM-powered agent for designing, generating, editing, reviewing, and explaining BPMN diagrams directly in the <a href="/manual/2.2/webapps/modeler/">modeler EE</a></li>
 <li><strong>Modeler EE</strong> <em>(EE exclusive)</em> — diagram snapshots, version comparison, code diff for BPMN/DMN, token simulation, SVG export, concurrent access detection, and element highlighting</li>
 <li><strong>SCIM 2.0 Identity Provider</strong> <em>(beta)</em> — new <code>identity-scim</code> plugin for SCIM 2.0-based user/group federation with caching and OIDC authentication support</li>
 <li><strong>Direct Provider</strong> <em>(beta)</em> — new <code>SevenDirectProvider</code> / <code>SevenProviderEE</code> as alternative <code>BpmProvider</code> implementations running without REST</li>
 <li><strong>OpenTelemetry &amp; JMX Metrics</strong> — built-in OpenTelemetry agent configuration and JMX metrics export in Docker images</li>
-<li><strong><a href="https://docs.cibseven.org/manual/latest/webapps/modeler/">Modeler</a></strong> — first stable <code>cibseven-modeler</code> <code>1.0.0</code> and <code>cibseven-modeler-ee</code> <code>1.0.0</code> releases with template icons in diagram and cockpit viewer, collapsible panel, and plugin extension points</li>
+<li><strong><a href="/manual/2.2/webapps/modeler/">Modeler</a></strong> — first stable <code>cibseven-modeler</code> <code>1.0.0</code> and <code>cibseven-modeler-ee</code> <code>1.0.0</code> releases with template icons in diagram and cockpit viewer, collapsible panel, and plugin extension points</li>
 <li><strong>Java 21 Only</strong> — Java 17 Docker images removed; all images are now Java 21 exclusively <em>(since 2.1.4)</em></li>
 <li><strong>Security</strong> — multiple CVEs resolved in patch releases since 2.1.3</li>
 </ul>
@@ -3474,16 +3474,17 @@
 <li><strong><code>KeycloakUserProvider</code> → <code>OAuth2UserProvider</code></strong>: The user provider class name has been renamed in all CIB seven distribution YAML configs (<code>run</code>, <code>run4</code>, Tomcat, Wildfly). Update the relevant <code>userProvider</code> entries in your configuration file.</li>
 <li><strong><code>jwtSecret</code> via system property</strong>: The JWT secret for engine-rest can now be set via the JVM system property <code>cibseven.engine-rest.jwt-secret</code> or the environment variable <code>CIBSEVEN_ENGINE_REST_JWT_SECRET</code>, without requiring a config file change. <em>(since 2.1.6)</em></li>
 <li><strong>AI Agent default model override</strong>: The default LLM model for the AI Agent connector can be overridden via the system property <code>cibseven.connect.ai.agent.default-model</code> or the environment variable <code>CIBSEVEN_CONNECT_AI_AGENT_DEFAULT_MODEL</code>.</li>
-<li><strong>Cron expression type</strong>: Configure <code>cronType</code> (<code>QUARTZ</code> or <code>SPRING53</code>) and <code>supportLegacyQuartzSyntax</code> in <code>run</code>, Tomcat, and Wildfly configuration files to control <a href="https://docs.cibseven.org/manual/latest/update/minor/20-to-21/#cron-expression">cron expression</a> handling.</li>
+<li><strong>Cron expression type</strong>: Configure <code>cronType</code> (<code>QUARTZ</code> or <code>SPRING53</code>) and <code>supportLegacyQuartzSyntax</code> in <code>run</code>, Tomcat, and Wildfly configuration files to control <a href="/manual/2.2/update/minor/20-to-21/#cron-expression">cron expression</a> handling.</li>
 <li><strong>Schema validation</strong>: Modeler schema validation is disabled by default in the <code>run</code> distribution.</li>
 <li><strong>Modeler datasource</strong>: A shared datasource resource link for the CIB seven Modeler is now included in <code>webapp.xml</code> for Tomcat distributions.</li>
 <li><strong>AI Agent toggle</strong>: <code>AI_AGENT_ENABLED</code> environment variable (default <code>true</code>) controls whether the AI agent connector is loaded at startup in Tomcat and WildFly Docker images; set to <code>false</code> to disable without removing any files. For the <code>run</code> distribution, the connector is active by default in dev/default mode and disabled in <code>--production</code> mode; re-enable with <code>--ai</code>, <code>--ai-agent</code>, or <code>--agent</code> flags.</li>
-<li><strong><code>chat.enabled</code> flag</strong> <em>(EE exclusive)</em>: New configuration flag to gate the WebSocket endpoint, JPA persistence, and the chat tab in the frontend. Disabled by default; enable when the BPMN AI Agent Chat feature is used.</li>
+<li><strong><code>cibseven.webclient.modeler.ai.enabled</code></strong> flag <em>(EE exclusive, beta)</em>: Turns on BPMN AI Agent for designing BPMN in modeler. Enabled by default</li>
+<li><strong><code>cibseven.webclient.modeler.chat.enabled</code></strong> flag <em>(EE exclusive, beta)</em>: Turns on collobarative chat to communicate with other CIB seven users. Disabled by default</li>
 </ul>
 
 <h3 id="new-features">New Features</h3>
 
-<h4 id="ai-agent-connector">AI Agent Connector</h4>
+<h4 id="ai-agent-connectorhahahugoshortcode202s5hbhb"><a href="/manual/2.2/reference/connect/ai-agent-connector/">AI Agent Connector</a></h4>
 <ul>
 <li>New <code>cibseven-connect-ai-agent</code> module that lets BPMN service tasks invoke LLM-backed agents via the standard <code>camunda:connector</code> input/output parameter mapping — no custom Java code required</li>
 <li>Runtime supports OpenAI, Azure OpenAI, Ollama, and any OpenAI-compatible endpoint via LangChain4j</li>
@@ -3497,9 +3498,9 @@
 <li>Default LLM model overridable by operators via system property or environment variable</li>
 </ul>
 
-<h4 id="bpmn-ai-agent-chat-_ee-exclusive_">BPMN AI Agent Chat <em>(EE exclusive)</em></h4>
+<h4 id="bpmn-ai-agenthahahugoshortcode202s6hbhb-_ee-exclusive-beta_"><a href="/manual/2.2/webapps/modeler/user-guide/bpmn-ai-chat/">BPMN AI Agent</a> <em>(EE exclusive, beta)</em></h4>
 <ul>
-<li>Real-time AI chat panel integrated directly in the <a href="https://docs.cibseven.org/manual/latest/webapps/modeler/">modeler</a> — interact with an LLM agent while designing BPMN processes</li>
+<li>Real-time AI chat panel integrated directly in the <a href="/manual/2.2/webapps/modeler/">modeler</a> — interact with an LLM agent while designing BPMN processes</li>
 <li><code>chat.enabled</code> configuration flag to gate WebSocket endpoint, JPA persistence, and the frontend chat tab bar</li>
 <li><code>toolProvenance</code> MCP badge and <code>aiMeta</code> AI-generated badge displayed per message for traceability</li>
 <li>RAG audit trail renderer — surfacing retrieval events in the chat history for explainable AI</li>
@@ -3560,7 +3561,7 @@
 <li>Only violated password rules are displayed; validation resets on input</li>
 </ul>
 
-<h4 id="modelerhttpsdocscibsevenorgmanuallatestwebappsmodeler-enhancements"><a href="https://docs.cibseven.org/manual/latest/webapps/modeler/">Modeler</a> Enhancements</h4>
+<h4 id="modelerhahahugoshortcode202s8hbhb-enhancements"><a href="/manual/2.2/webapps/modeler/">Modeler</a> Enhancements</h4>
 <ul>
 <li>First stable release of <code>cibseven-modeler</code> <code>1.0.0</code> and <code>cibseven-modeler-ee</code> <code>1.0.0</code></li>
 <li>Element template icons displayed in the BPMN diagram and in the template chooser modal</li>
@@ -3597,22 +3598,22 @@
 
 <h4 id="process-instance-search">Process Instance Search</h4>
 <ul>
-<li>Process instance details shown in a sidebar: instance data, status icons, <a href="https://docs.cibseven.org/manual/latest/webapps/cockpit/bpmn/failed-jobs/">incident</a> count, links to process definition, deployment, and parent instances</li>
-<li>Added separate <a href="https://docs.cibseven.org/manual/latest/webapps/cockpit/bpmn/dashboard/#process-instance-search">process instance search</a> for runtime-only processes <em>(since 2.1.6)</em></li>
+<li>Process instance details shown in a sidebar: instance data, status icons, <a href="/manual/2.2/webapps/cockpit/bpmn/failed-jobs/">incident</a> count, links to process definition, deployment, and parent instances</li>
+<li>Added separate <a href="/manual/2.2/webapps/cockpit/bpmn/dashboard/#process-instance-search">process instance search</a> for runtime-only processes <em>(since 2.1.6)</em></li>
 <li>Added &ldquo;Runtime-only instances&rdquo; tab view for selected process definition <em>(since 2.1.6)</em></li>
 <li>Added incidents icon with the total incident count in process instance search views <em>(since 2.1.6)</em></li>
 <li>Added separate local storage keys for runtime and history search views <em>(since 2.1.6)</em></li>
 <li>Enabled sorting for the process instance ID column <em>(since 2.1.6)</em></li>
-<li>Hid unreliable variables and incident criteria in historic search for non-full <a href="https://docs.cibseven.org/manual/latest/user-guide/process-engine/history/history-configuration/">history levels</a></li>
+<li>Hid unreliable variables and incident criteria in historic search for non-full <a href="/manual/2.2/user-guide/process-engine/history/history-configuration/">history levels</a></li>
 </ul>
 
 <h4 id="incidents">Incidents</h4>
 <ul>
-<li>Show <a href="https://docs.cibseven.org/manual/latest/webapps/cockpit/bpmn/failed-jobs/">incidents</a> from history and runtime tables based on the configured <a href="https://docs.cibseven.org/manual/latest/user-guide/process-engine/history/history-configuration/">history level</a> <em>(since 2.1.6)</em></li>
+<li>Show <a href="/manual/2.2/webapps/cockpit/bpmn/failed-jobs/">incidents</a> from history and runtime tables based on the configured <a href="/manual/2.2/user-guide/process-engine/history/history-configuration/">history level</a> <em>(since 2.1.6)</em></li>
 <li>Improved stack trace visibility for incidents originating from the selected process and its subprocesses <em>(since 2.1.6)</em></li>
 <li>Fixed BPMN diagram incident badges not shown in process definition and process instance views <em>(since 2.1.6)</em></li>
 <li>Fixed subprocess incident badges not displayed in the main process instance view <em>(since 2.1.6)</em></li>
-<li>Fixed incident badges not shown on Call Activity elements in instance view with <code>audit</code> <a href="https://docs.cibseven.org/manual/latest/user-guide/process-engine/history/history-configuration/">history level</a> <em>(since 2.1.6)</em></li>
+<li>Fixed incident badges not shown on Call Activity elements in instance view with <code>audit</code> <a href="/manual/2.2/user-guide/process-engine/history/history-configuration/">history level</a> <em>(since 2.1.6)</em></li>
 <li>Enabled retrying subprocess incidents from the parent process <em>(since 2.1.5)</em></li>
 </ul>
 
@@ -3622,7 +3623,7 @@
 <li>Variables table: <code>activityIdBadge</code> component for improved variable filtering by activity</li>
 <li>Variables table: copy variable name with a single click via <code>CopyableActionButton</code></li>
 <li>Variables table: added <code>activity instance id</code> column and fixed <code>scope</code> column value <em>(since 2.1.5)</em></li>
-<li>Fixed fetching of variables for <code>audit</code> <a href="https://docs.cibseven.org/manual/latest/user-guide/process-engine/history/history-configuration/">history level</a> in process instance view <em>(since 2.1.6)</em></li>
+<li>Fixed fetching of variables for <code>audit</code> <a href="/manual/2.2/user-guide/process-engine/history/history-configuration/">history level</a> in process instance view <em>(since 2.1.6)</em></li>
 </ul>
 
 <h4 id="tasks">Tasks</h4>
@@ -3657,7 +3658,7 @@
 <h4 id="analytics">Analytics</h4>
 <ul>
 <li>Runtime batch count now reflected on the cockpit dashboard</li>
-<li>Historic Batches view shows an informational message when the configured <a href="https://docs.cibseven.org/manual/latest/user-guide/process-engine/history/history-configuration/">history level</a> does not support batch history</li>
+<li>Historic Batches view shows an informational message when the configured <a href="/manual/2.2/user-guide/process-engine/history/history-configuration/">history level</a> does not support batch history</li>
 </ul>
 
 <h4 id="accessibility">Accessibility</h4>
@@ -3829,8 +3830,8 @@
         <li><a href="#configuration-changes">Configuration Changes</a></li>
         <li><a href="#new-features">New Features</a>
           <ul>
-            <li><a href="#ai-agent-connector">AI Agent Connector</a></li>
-            <li><a href="#bpmn-ai-agent-chat-_ee-exclusive_">BPMN AI Agent Chat <em>(EE exclusive)</em></a></li>
+            <li><a href="#ai-agent-connectorhahahugoshortcode202s5hbhb"><a href="HAHAHUGOSHORTCODE202s5HBHB">AI Agent Connector</a></a></li>
+            <li><a href="#bpmn-ai-agenthahahugoshortcode202s6hbhb-_ee-exclusive-beta_"><a href="HAHAHUGOSHORTCODE202s6HBHB">BPMN AI Agent</a> <em>(EE exclusive, beta)</em></a></li>
             <li><a href="#rest-engine">REST Engine</a></li>
             <li><a href="#historic-process-statistics">Historic Process Statistics</a></li>
             <li><a href="#task-variables">Task Variables</a></li>
@@ -3839,7 +3840,7 @@
             <li><a href="#multi-engine-support-_since-214_">Multi-Engine Support <em>(since 2.1.4)</em></a></li>
             <li><a href="#direct-provider-_beta_">Direct Provider <em>(beta)</em></a></li>
             <li><a href="#user-profile--password-validation">User Profile — Password Validation</a></li>
-            <li><a href="#modelerhttpsdocscibsevenorgmanuallatestwebappsmodeler-enhancements"><a href="https://docs.cibseven.org/manual/latest/webapps/modeler/">Modeler</a> Enhancements</a></li>
+            <li><a href="#modelerhahahugoshortcode202s8hbhb-enhancements"><a href="HAHAHUGOSHORTCODE202s8HBHB">Modeler</a> Enhancements</a></li>
             <li><a href="#modeler-ee-features-_ee-exclusive_">Modeler EE Features <em>(EE exclusive)</em></a></li>
             <li><a href="#docker--opentelemetry--jmx">Docker — OpenTelemetry &amp; JMX</a></li>
           </ul>

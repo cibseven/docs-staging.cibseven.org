@@ -3448,16 +3448,16 @@
     <div class="col-xs-12 content-text">
       
 <h2 id="release-notes">Release Notes</h2>
-<p><em>Release Date: May 29, 2026</em></p>
+<p><em>Release Date: May 31, 2026</em></p>
 
 <h3 id="highlights">Highlights</h3>
 <ul>
-<li><strong>AI Agent Connector</strong> — new <code>cibseven-connect-ai-agent</code> module enabling BPMN service tasks to invoke LLM-backed agents via LangChain4j, with pgvector RAG, EU AI Act compliance, and MCP tool integration</li>
+<li><strong><a href="/manual/latest/reference/connect/ai-agent-connector/">AI Agent Connector</a></strong> — new <code>cibseven-connect-ai-agent</code> module enabling BPMN service tasks to invoke LLM-backed agents via LangChain4j, with pgvector RAG, EU AI Act compliance, and MCP tool integration</li>
 <li><strong>OpenTelemetry &amp; JMX Metrics</strong> — built-in OpenTelemetry agent configuration and JMX metrics export in Docker images</li>
 <li><strong>SCIM 2.0 Identity Provider</strong> <em>(beta)</em> — new <code>identity-scim</code> plugin for SCIM 2.0-based user/group federation with caching and OIDC authentication support</li>
 <li><strong>Direct Provider</strong> <em>(beta)</em> — new <code>SevenDirectProvider</code> as an alternative <code>BpmProvider</code> implementation running without REST</li>
 <li><strong>Multi-Engine Support</strong> — connect multiple process engines from a single web client with token caching and OAuth2 support</li>
-<li><strong><a href="https://docs.cibseven.org/manual/latest/webapps/modeler/">Modeler</a></strong> — first stable <code>cibseven-modeler</code> <code>1.0.0</code> release with template icons in the diagram and in the cockpit viewer, collapsible panel, plugin extension points, and toast notifications</li>
+<li><strong><a href="/manual/latest/webapps/modeler/">Modeler</a></strong> — first stable <code>cibseven-modeler</code> <code>1.0.0</code> release with template icons in the diagram and in the cockpit viewer, collapsible panel, plugin extension points, and toast notifications</li>
 <li><strong>Accessibility</strong> — comprehensive WCAG improvements across navigation, dialogs, calendar, and form components</li>
 <li><strong>Java 21 Only</strong> — Java 17 Docker images removed; all images are now Java 21 exclusively</li>
 <li><strong>Security</strong> — multiple CVEs resolved across all patch releases since 2.1.0</li>
@@ -3474,7 +3474,7 @@
 <li><strong><code>KeycloakUserProvider</code> → <code>OAuth2UserProvider</code></strong>: The user provider class name has been renamed in all CIB seven distribution YAML configs (<code>run</code>, <code>run4</code>, Tomcat, Wildfly). Update the relevant <code>userProvider</code> entries in your configuration file.</li>
 <li><strong><code>jwtSecret</code> via system property</strong>: The JWT secret for engine-rest can now be set via the JVM system property <code>cibseven.engine-rest.jwt-secret</code> or the environment variable <code>CIBSEVEN_ENGINE_REST_JWT_SECRET</code>, without requiring a config file change.</li>
 <li><strong>AI Agent default model override</strong>: The default LLM model for the AI Agent connector can be overridden via the system property <code>cibseven.connect.ai.agent.default-model</code> or the environment variable <code>CIBSEVEN_CONNECT_AI_AGENT_DEFAULT_MODEL</code>.</li>
-<li><strong>Cron expression type</strong>: Configure <code>cronType</code> (<code>QUARTZ</code> or <code>SPRING53</code>) and <code>supportLegacyQuartzSyntax</code> in <code>run</code>, Tomcat, and Wildfly configuration files to control <a href="https://docs.cibseven.org/manual/latest/update/minor/20-to-21/#cron-expression">cron expression</a> handling. Default is <code>QUARTZ</code>.</li>
+<li><strong>Cron expression type</strong>: Configure <code>cronType</code> (<code>QUARTZ</code> or <code>SPRING53</code>) and <code>supportLegacyQuartzSyntax</code> in <code>run</code>, Tomcat, and Wildfly configuration files to control <a href="/manual/latest/update/minor/20-to-21/#cron-expression">cron expression</a> handling. Default is <code>QUARTZ</code>.</li>
 <li><strong><code>authGroupFilterThreshold</code></strong>: New option in engine configuration to optimize authentication group filtering and reduce SQL query load.</li>
 <li><strong>Tomcat 11 support</strong>: Tomcat 11 is now officially supported as a deployment target.</li>
 <li><strong>Schema validation</strong>: Modeler schema validation is disabled by default in the <code>run</code> distribution.</li>
@@ -3484,7 +3484,7 @@
 
 <h3 id="new-features">New Features</h3>
 
-<h4 id="ai-agent-connector">AI Agent Connector</h4>
+<h4 id="ai-agent-connectorhahahugoshortcode197s3hbhb"><a href="/manual/latest/reference/connect/ai-agent-connector/">AI Agent Connector</a></h4>
 <ul>
 <li>New <code>cibseven-connect-ai-agent</code> module that lets BPMN service tasks invoke LLM-backed agents via the standard <code>camunda:connector</code> input/output parameter mapping — no custom Java code required</li>
 <li>Runtime supports OpenAI, Azure OpenAI, Ollama, and any OpenAI-compatible endpoint via LangChain4j</li>
@@ -3536,7 +3536,7 @@
 <ul>
 <li>Redirect URL for accessing a process instance using only its ID</li>
 <li>Support for jumping from the task view in Cockpit directly to the corresponding task in the Task List</li>
-<li><code>tenantId</code> support across all instance and <a href="https://docs.cibseven.org/manual/latest/webapps/cockpit/bpmn/failed-jobs/">incident</a> views</li>
+<li><code>tenantId</code> support across all instance and <a href="/manual/latest/webapps/cockpit/bpmn/failed-jobs/">incident</a> views</li>
 </ul>
 
 <h4 id="initial-setup-_since-212_">Initial Setup <em>(since 2.1.2)</em></h4>
@@ -3548,7 +3548,7 @@
 
 <h4 id="cron-expression-migration-_since-212_">Cron Expression Migration <em>(since 2.1.2)</em></h4>
 <ul>
-<li>Support for <a href="https://docs.cibseven.org/manual/latest/update/minor/20-to-21/#cron-expression">migration of Quartz 2.5.0 cron expressions</a> to Spring 5.3 syntax</li>
+<li>Support for <a href="/manual/latest/update/minor/20-to-21/#cron-expression">migration of Quartz 2.5.0 cron expressions</a> to Spring 5.3 syntax</li>
 <li>Configurable <code>cronType</code> and <code>supportLegacyQuartzSyntax</code> parameters; default type is <code>QUARTZ</code></li>
 </ul>
 
@@ -3587,7 +3587,7 @@
 <li>Only violated password rules are displayed; validation resets on input</li>
 </ul>
 
-<h4 id="modelerhttpsdocscibsevenorgmanuallatestwebappsmodeler-enhancements"><a href="https://docs.cibseven.org/manual/latest/webapps/modeler/">Modeler</a> Enhancements</h4>
+<h4 id="modelerhahahugoshortcode197s6hbhb-enhancements"><a href="/manual/latest/webapps/modeler/">Modeler</a> Enhancements</h4>
 <ul>
 <li>First stable release of <code>cibseven-modeler</code> <code>1.0.0</code></li>
 <li>Element template icons displayed in the BPMN diagram and in the template chooser modal</li>
@@ -3614,20 +3614,20 @@
 
 <h4 id="process-instance-search-_since-216_">Process Instance Search <em>(since 2.1.6)</em></h4>
 <ul>
-<li>Process instance details shown in a sidebar: instance data, status icons, <a href="https://docs.cibseven.org/manual/latest/webapps/cockpit/bpmn/failed-jobs/">incident</a> count, links to process definition, deployment, and parent instances</li>
+<li>Process instance details shown in a sidebar: instance data, status icons, <a href="/manual/latest/webapps/cockpit/bpmn/failed-jobs/">incident</a> count, links to process definition, deployment, and parent instances</li>
 <li>Added separate process instance search for runtime-only processes</li>
 <li>Added &ldquo;Runtime-only instances&rdquo; tab view for selected process definition</li>
-<li>Added incidents icon with the total incident count in <a href="https://docs.cibseven.org/manual/latest/webapps/cockpit/bpmn/dashboard/#process-instance-search">process instance search</a> views</li>
-<li>Hid unreliable variables and incident criteria in historic search for non-full <a href="https://docs.cibseven.org/manual/latest/user-guide/process-engine/history/history-configuration/">history levels</a></li>
+<li>Added incidents icon with the total incident count in <a href="/manual/latest/webapps/cockpit/bpmn/dashboard/#process-instance-search">process instance search</a> views</li>
+<li>Hid unreliable variables and incident criteria in historic search for non-full <a href="/manual/latest/user-guide/process-engine/history/history-configuration/">history levels</a></li>
 </ul>
 
 <h4 id="incidents-_since-216_">Incidents <em>(since 2.1.6)</em></h4>
 <ul>
-<li>Show <a href="https://docs.cibseven.org/manual/latest/webapps/cockpit/bpmn/failed-jobs/">incidents</a> from history and runtime tables based on the configured <a href="https://docs.cibseven.org/manual/latest/user-guide/process-engine/history/history-configuration/">history level</a></li>
+<li>Show <a href="/manual/latest/webapps/cockpit/bpmn/failed-jobs/">incidents</a> from history and runtime tables based on the configured <a href="/manual/latest/user-guide/process-engine/history/history-configuration/">history level</a></li>
 <li>Improved stack trace visibility for incidents originating from the selected process and its subprocesses</li>
 <li>Fixed BPMN diagram incident badges not shown in process definition and process instance views</li>
 <li>Fixed subprocess incident badges not displayed in the main process instance view</li>
-<li>Fixed incident badges not shown on Call Activity elements in instance view with <code>audit</code> <a href="https://docs.cibseven.org/manual/latest/user-guide/process-engine/history/history-configuration/">history level</a></li>
+<li>Fixed incident badges not shown on Call Activity elements in instance view with <code>audit</code> <a href="/manual/latest/user-guide/process-engine/history/history-configuration/">history level</a></li>
 <li>Enabled retrying subprocess incidents from the parent process <em>(since 2.1.5)</em></li>
 <li>Click on &ldquo;failed activity&rdquo; in the incidents table to select the activity in the BPMN diagram <em>(since 2.1.1)</em></li>
 </ul>
@@ -3638,7 +3638,7 @@
 <li>Variables table: <code>activityIdBadge</code> component for improved variable filtering by activity</li>
 <li>Variables table: copy variable name with a single click via <code>CopyableActionButton</code></li>
 <li>Variables table: added <code>activity instance id</code> column and fixed <code>scope</code> column value <em>(since 2.1.5)</em></li>
-<li>Fixed fetching of variables for <code>audit</code> <a href="https://docs.cibseven.org/manual/latest/user-guide/process-engine/history/history-configuration/">history level</a> in process instance view <em>(since 2.1.6)</em></li>
+<li>Fixed fetching of variables for <code>audit</code> <a href="/manual/latest/user-guide/process-engine/history/history-configuration/">history level</a> in process instance view <em>(since 2.1.6)</em></li>
 </ul>
 
 <h4 id="tasks">Tasks</h4>
@@ -3656,7 +3656,7 @@
 <h4 id="bpmn-diagram">BPMN Diagram</h4>
 <ul>
 <li>Activity selection persists between definition, instance, and incidents views <em>(since 2.1.1)</em></li>
-<li>Activity badges support non-full <a href="https://docs.cibseven.org/manual/latest/user-guide/process-engine/history/history-configuration/">history level</a> configurations including <code>audit</code> mode <em>(since 2.1.1)</em></li>
+<li>Activity badges support non-full <a href="/manual/latest/user-guide/process-engine/history/history-configuration/">history level</a> configurations including <code>audit</code> mode <em>(since 2.1.1)</em></li>
 <li>Fixed reset of activity instance and history state when navigating from main process to subprocess <em>(since 2.1.6)</em></li>
 <li>Short number format option for badge numbers in the BPMN Viewer (user preference; e.g. <code>1.2k</code> instead of <code>1200</code>)</li>
 <li>Element template icons rendered in the cockpit BPMN viewer</li>
@@ -3691,7 +3691,7 @@
 <h4 id="analytics">Analytics</h4>
 <ul>
 <li>Runtime batch count now reflected on the cockpit dashboard</li>
-<li>Historic Batches view shows an informational message when the configured <a href="https://docs.cibseven.org/manual/latest/user-guide/process-engine/history/history-configuration/">history level</a> does not support batch history</li>
+<li>Historic Batches view shows an informational message when the configured <a href="/manual/latest/user-guide/process-engine/history/history-configuration/">history level</a> does not support batch history</li>
 </ul>
 
 <h4 id="ttl-time-to-live">TTL (Time To Live)</h4>
@@ -3883,7 +3883,7 @@
         <li><a href="#configuration-changes">Configuration Changes</a></li>
         <li><a href="#new-features">New Features</a>
           <ul>
-            <li><a href="#ai-agent-connector">AI Agent Connector</a></li>
+            <li><a href="#ai-agent-connectorhahahugoshortcode197s3hbhb"><a href="HAHAHUGOSHORTCODE197s3HBHB">AI Agent Connector</a></a></li>
             <li><a href="#rest-engine">REST Engine</a></li>
             <li><a href="#historic-process-statistics">Historic Process Statistics</a></li>
             <li><a href="#task-variables">Task Variables</a></li>
@@ -3897,7 +3897,7 @@
             <li><a href="#variables--file-type-_since-213_">Variables — File Type <em>(since 2.1.3)</em></a></li>
             <li><a href="#direct-provider-_beta_">Direct Provider <em>(beta)</em></a></li>
             <li><a href="#user-profile--password-validation">User Profile — Password Validation</a></li>
-            <li><a href="#modelerhttpsdocscibsevenorgmanuallatestwebappsmodeler-enhancements"><a href="https://docs.cibseven.org/manual/latest/webapps/modeler/">Modeler</a> Enhancements</a></li>
+            <li><a href="#modelerhahahugoshortcode197s6hbhb-enhancements"><a href="HAHAHUGOSHORTCODE197s6HBHB">Modeler</a> Enhancements</a></li>
             <li><a href="#docker--opentelemetry--jmx">Docker — OpenTelemetry &amp; JMX</a></li>
           </ul>
         </li>
