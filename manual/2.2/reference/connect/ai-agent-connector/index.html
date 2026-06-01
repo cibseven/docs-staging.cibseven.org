@@ -2529,6 +2529,113 @@
   <li>
     
       <a href="/manual/2.2/reference/connect/ai-agent-connector/" >AI Agent Connector</a>
+      <ul>
+        
+          
+  <li>
+    
+      <a href="/manual/2.2/reference/connect/ai-agent-connector/getting-started/" >Getting Started</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
+      <a href="/manual/2.2/reference/connect/ai-agent-connector/installation/" >Installation &amp; Enablement</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
+      <a href="/manual/2.2/reference/connect/ai-agent-connector/configuring-the-agent/" >Configuring the Agent</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
+      <a href="/manual/2.2/reference/connect/ai-agent-connector/tools/" >Tools</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
+      <a href="/manual/2.2/reference/connect/ai-agent-connector/rag/" >Retrieval-Augmented Generation (RAG)</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
+      <a href="/manual/2.2/reference/connect/ai-agent-connector/chat-memory/" >Chat Memory</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
+      <a href="/manual/2.2/reference/connect/ai-agent-connector/audit-trail/" >Audit Trail &amp; AI Transparency</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
+      <a href="/manual/2.2/reference/connect/ai-agent-connector/configuration-reference/" >Configuration Reference</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
+      <a href="/manual/2.2/reference/connect/ai-agent-connector/examples/" >Examples &amp; Tutorials</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
+      <a href="/manual/2.2/reference/connect/ai-agent-connector/troubleshooting/" >Troubleshooting &amp; Known Limitations</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
+      <a href="/manual/2.2/reference/connect/ai-agent-connector/security-and-data-handling/" >Security &amp; Data Handling</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
+      <a href="/manual/2.2/reference/connect/ai-agent-connector/developer-guide/" >Developer Guide</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
+      <a href="/manual/2.2/reference/connect/ai-agent-connector/glossary/" >Glossary</a>
+    
+  </li>
+
+        
+      </ul>
     
   </li>
 
@@ -2844,7 +2951,7 @@
           
   <li>
     
-      <a href="/manual/2.2/webapps/modeler/user-guide/bpmn-ai-chat/" >BPMN AI Agent Chat</a>
+      <a href="/manual/2.2/webapps/modeler/user-guide/bpmn-ai-chat/" >BPMN AI Agent</a>
     
   </li>
 
@@ -3446,7 +3553,155 @@
     </div>
 
     <div class="col-xs-12 content-text">
-      <p>Will be updated soon !!!</p>
+      <p>The <strong>AI Agent Connector</strong> brings agentic AI into CIB seven business processes. It is a CIB seven
+<strong>engine connect plugin</strong>: you drop an <em>AI Agent</em> service task into a BPMN model, point it at an
+LLM provider, and the agent reasons over your input, optionally calls tools, retrieves knowledge,
+remembers the conversation, and returns a result the next BPMN step can consume — all under the
+process engine&rsquo;s transaction, authorization, and history machinery.</p>
+<p>The plugin ships two connectors:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Connector</th>
+          <th><code>connectorId</code></th>
+          <th>Purpose</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>AI Agent</strong></td>
+          <td><code>cibseven-ai-agent</code></td>
+          <td>Runs an LLM agent inside a service task: prompt → (tools / RAG / memory) → answer.</td>
+      </tr>
+      <tr>
+          <td><strong>Knowledge Ingestor</strong></td>
+          <td><code>cibseven-knowledge-ingestor</code></td>
+          <td>Embeds text into a pgvector store so the AI Agent can retrieve it later (RAG).</td>
+      </tr>
+  </tbody>
+</table>
+
+<div class="note bg-warning docs-warning">
+  <h3>Two different &#39;AI Agent&#39; features — don&#39;t confuse them</h3>
+  <p><p>CIB seven has two unrelated AI features with similar names. This documentation covers only the <strong>AI Agent Connector</strong>.</p>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th><strong>AI Agent Connector</strong> (this doc)</th>
+          <th>Modeler &ldquo;BPMN AI Agent&rdquo; / wizard</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>When</td>
+          <td><strong>Runtime</strong> — executes during a process instance</td>
+          <td><strong>Design-time</strong> — helps you author BPMN</td>
+      </tr>
+      <tr>
+          <td>Where</td>
+          <td><code>connect/ai-agent</code> engine connect plugin</td>
+          <td>CIB seven Modeler (webclient)</td>
+      </tr>
+      <tr>
+          <td>Configured via</td>
+          <td>Element-template fields + <code>CIBSEVEN_CONNECT_AI_AGENT_DEFAULT_MODEL</code></td>
+          <td><code>cibseven.webclient.modeler.ai</code> / <code>GET /agent/config</code></td>
+      </tr>
+      <tr>
+          <td>Connectors</td>
+          <td><code>cibseven-ai-agent</code>, <code>cibseven-knowledge-ingestor</code></td>
+          <td>—</td>
+      </tr>
+  </tbody>
+</table></p>
+</div>
+
+
+<h2 id="what-it-can-do">What it can do</h2>
+<ul>
+<li><strong>LLM agent loop</strong> — sends your <code>message</code> plus a system prompt to an OpenAI-compatible model and
+returns the model&rsquo;s text answer. See <a href="/manual/2.2/reference/connect/ai-agent-connector/configuring-the-agent/">Configuring the Agent</a>.</li>
+<li><strong>Tools (function calling)</strong> — the model can call <strong>Java <code>@Tool</code> classes</strong> and <strong>MCP servers</strong>. A
+built-in <code>ProcessStarterTool</code> lets the agent launch a CIB seven process by key and react to its
+result. See <a href="/manual/2.2/reference/connect/ai-agent-connector/tools/">Tools</a>.</li>
+<li><strong>RAG (retrieval-augmented generation)</strong> — ground answers in your own documents using a PostgreSQL
+<strong>pgvector</strong> store and a local or remote embedding model. See <a href="/manual/2.2/reference/connect/ai-agent-connector/rag/">RAG</a>.</li>
+<li><strong>Chat memory</strong> — keep a multi-turn conversation across BPMN steps (e.g. a human-feedback loop).
+See <a href="/manual/2.2/reference/connect/ai-agent-connector/chat-memory/">Chat Memory</a>.</li>
+<li><strong>Reasoning models</strong> — pass effort/summary hints to reasoning-capable models. See
+<a href="/manual/2.2/reference/connect/ai-agent-connector/configuring-the-agent/">Configuring the Agent</a>.</li>
+<li><strong>Audit trail &amp; AI transparency</strong> — every interaction is recorded in a per-activity chat-log
+variable, output is marked as AI-generated (<code>aiMeta</code>), and content can be redacted. See
+<a href="/manual/2.2/reference/connect/ai-agent-connector/audit-trail/">Audit Trail</a>.</li>
+</ul>
+
+<h2 id="architecture-at-a-glance">Architecture at a glance</h2>
+<ul>
+<li>Built on <strong><a href="https://docs.langchain4j.dev/">LangChain4j</a></strong> — the agent loop, tool calling, RAG, and
+embedding integrations come from LangChain4j 1.14.</li>
+<li>Talks to any <strong>OpenAI-compatible API</strong> (<code>/v1/chat/completions</code> or the Responses API for reasoning
+summaries). The default endpoint is <code>https://api.openai.com/v1</code>; point <code>baseUrl</code> elsewhere for
+Azure OpenAI, OpenRouter, Ollama, or a self-hosted gateway. Because the interface is provider-neutral,
+you can switch providers — or self-host — without re-modeling, which avoids vendor lock-in.</li>
+<li>Registers with the engine through the <strong>CIB seven Connect SPI</strong> (<code>ConnectorProvider</code> via
+<code>META-INF/services</code>). No engine changes, no <code>@ComponentScan</code>.</li>
+<li>RAG uses <strong>pgvector on PostgreSQL</strong> — no separate vector database to operate.</li>
+<li>Embeddings default to a <strong>local</strong> <code>all-MiniLM-L6-v2</code> model (384-dim, no external call); a remote
+OpenAI embedding model is optional.</li>
+</ul>
+
+<h2 id="non-invasive-by-design--the-adoption-path">Non-invasive by design — the adoption path</h2>
+<p>The connector is delivered as a <strong>removable overlay</strong>. If the plugin JARs are absent, the engine
+behaves exactly as before and pulls in <strong>no</strong> AI dependencies. Customers adopt at their own pace:</p>
+<ol>
+<li><strong>No AI</strong> — don&rsquo;t install (or remove) the overlay. The engine is unchanged.</li>
+<li><strong>Basic AI</strong> — add the overlay, set an LLM API key, drop an <em>AI Agent</em> service task. You get the
+agent loop plus the audit trail.</li>
+<li><strong>Full AI</strong> — add PostgreSQL + pgvector for RAG, expose tools via Java <code>@Tool</code> classes or MCP
+servers, and enable chat memory for multi-turn flows.</li>
+</ol>
+<p>How the overlay is enabled or removed per distribution is covered in
+<a href="/manual/2.2/reference/connect/ai-agent-connector/installation/">Installation &amp; Enablement</a>.</p>
+
+<h2 id="requirements">Requirements</h2>
+<ul>
+<li><strong>Java 17+</strong> (required by LangChain4j). All current CIB seven distributions already run on Java 17+.</li>
+<li>An <strong>OpenAI-compatible LLM endpoint</strong> and, for hosted providers, an <strong>API key</strong>.</li>
+<li><strong>Optional:</strong> <strong>PostgreSQL</strong> with the <strong><code>vector</code> (pgvector)</strong> extension — only needed for RAG.</li>
+<li><strong>Optional:</strong> <strong>MCP servers</strong> if you want to expose external tools to the agent.</li>
+</ul>
+
+<h2 id="cost--token-usage">Cost &amp; token usage</h2>
+<p>Every agent invocation calls an LLM and <strong>consumes provider tokens</strong> (i.e. cost, for paid providers).
+Cost and latency scale with how much context you send and produce, so the feature levers are also the
+cost levers:</p>
+<ul>
+<li><strong>Model</strong> — pick a model sized to the task; smaller/cheaper models for simple classification, larger
+ones only where needed.</li>
+<li><strong>Chat memory</strong> (<code>chatMemoryMaxMessages</code>) — replayed history is re-sent every turn; a smaller window
+costs less.</li>
+<li><strong>RAG</strong> (<code>maxRagResults</code>) — each retrieved chunk is added to the prompt; retrieve fewer for less cost.</li>
+<li><strong>Tools / reasoning</strong> — tool schemas, tool results, and reasoning effort all add tokens.</li>
+</ul>
+<p>There is no built-in per-call token cap in the connector; control spend through the levers above and
+your provider&rsquo;s own limits/budgets. A local provider (e.g. Ollama) removes per-token cost entirely.</p>
+
+<h2 id="maturity">Maturity</h2>
+<p>The AI Agent connector is introduced with the 2.2 release. It is functionally complete for the
+capabilities documented here; a set of hardening and enhancement items is tracked and listed honestly
+in <a href="/manual/2.2/reference/connect/ai-agent-connector/troubleshooting/">Limitations &amp; Known Issues</a>. Review that chapter and
+<a href="/manual/2.2/reference/connect/ai-agent-connector/security-and-data-handling/">Security &amp; Data Handling</a> before production use.</p>
+
+<h2 id="where-to-go-next">Where to go next</h2>
+<ul>
+<li>New to the connector? Start with <a href="/manual/2.2/reference/connect/ai-agent-connector/getting-started/">Getting Started</a>.</li>
+<li>Operator setting up a distribution? See <a href="/manual/2.2/reference/connect/ai-agent-connector/installation/">Installation &amp; Enablement</a>.</li>
+<li>Looking for a specific parameter? See the <a href="/manual/2.2/reference/connect/ai-agent-connector/configuration-reference/">Configuration Reference</a>.</li>
+<li>Want to know exactly what&rsquo;s recorded? See <a href="/manual/2.2/reference/connect/ai-agent-connector/audit-trail/">Audit Trail &amp; AI Transparency</a>.</li>
+<li>Security, data flows, secrets → <a href="/manual/2.2/reference/connect/ai-agent-connector/security-and-data-handling/">Security &amp; Data Handling</a>.</li>
+<li>Honest about the edges — see <a href="/manual/2.2/reference/connect/ai-agent-connector/troubleshooting/">Limitations &amp; Known Issues</a>.</li>
+</ul>
 
     </div>
 
@@ -3627,6 +3882,131 @@
 
 
 
+
+
+
+  <dl>
+
+  
+
+    <dt>
+      <a href="/manual/2.2/reference/connect/ai-agent-connector/getting-started/">Getting Started</a>
+    </dt>
+    <dd>
+      
+    </dd>
+
+  
+
+    <dt>
+      <a href="/manual/2.2/reference/connect/ai-agent-connector/installation/">Installation &amp; Enablement</a>
+    </dt>
+    <dd>
+      
+    </dd>
+
+  
+
+    <dt>
+      <a href="/manual/2.2/reference/connect/ai-agent-connector/configuring-the-agent/">Configuring the Agent</a>
+    </dt>
+    <dd>
+      
+    </dd>
+
+  
+
+    <dt>
+      <a href="/manual/2.2/reference/connect/ai-agent-connector/tools/">Tools</a>
+    </dt>
+    <dd>
+      
+    </dd>
+
+  
+
+    <dt>
+      <a href="/manual/2.2/reference/connect/ai-agent-connector/rag/">Retrieval-Augmented Generation (RAG)</a>
+    </dt>
+    <dd>
+      
+    </dd>
+
+  
+
+    <dt>
+      <a href="/manual/2.2/reference/connect/ai-agent-connector/chat-memory/">Chat Memory</a>
+    </dt>
+    <dd>
+      
+    </dd>
+
+  
+
+    <dt>
+      <a href="/manual/2.2/reference/connect/ai-agent-connector/audit-trail/">Audit Trail &amp; AI Transparency</a>
+    </dt>
+    <dd>
+      
+    </dd>
+
+  
+
+    <dt>
+      <a href="/manual/2.2/reference/connect/ai-agent-connector/configuration-reference/">Configuration Reference</a>
+    </dt>
+    <dd>
+      
+    </dd>
+
+  
+
+    <dt>
+      <a href="/manual/2.2/reference/connect/ai-agent-connector/examples/">Examples &amp; Tutorials</a>
+    </dt>
+    <dd>
+      
+    </dd>
+
+  
+
+    <dt>
+      <a href="/manual/2.2/reference/connect/ai-agent-connector/troubleshooting/">Troubleshooting &amp; Known Limitations</a>
+    </dt>
+    <dd>
+      
+    </dd>
+
+  
+
+    <dt>
+      <a href="/manual/2.2/reference/connect/ai-agent-connector/security-and-data-handling/">Security &amp; Data Handling</a>
+    </dt>
+    <dd>
+      
+    </dd>
+
+  
+
+    <dt>
+      <a href="/manual/2.2/reference/connect/ai-agent-connector/developer-guide/">Developer Guide</a>
+    </dt>
+    <dd>
+      
+    </dd>
+
+  
+
+    <dt>
+      <a href="/manual/2.2/reference/connect/ai-agent-connector/glossary/">Glossary</a>
+    </dt>
+    <dd>
+      
+    </dd>
+
+  
+
+  </dl>
 
 
 
