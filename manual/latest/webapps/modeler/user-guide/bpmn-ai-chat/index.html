@@ -3447,12 +3447,255 @@
 
     <div class="col-xs-12 content-text">
       
+<p>The <strong>BPMN AI Agent</strong> adds an LLM-powered chat assistant to CIB seven Modeler. From the <strong>BPMN Agent</strong> panel you describe what you need in natural language and the agent designs, generates, edits, reviews, and explains BPMN diagrams directly on the canvas. It connects to any <strong>OpenAI-compatible</strong> model endpoint you configure &mdash; hosted (OpenAI, OpenRouter) or self-hosted (Ollama, vLLM, &hellip;).</p>
+
 <div class="note bg-info docs-info">
   <h3>Enterprise Feature</h3>
-  <p>BPMN AI Agent Chat is only available in the enterprise edition when modeler is enabled: <code>cibseven.webclient.modeler.enabled: true</code>. See <a href="/manual/latest/webapps/modeler/configuration/enable-disable/">Enable / Disable</a>.</p>
+  <p>The BPMN AI Agent is available only in the Enterprise Edition and requires a valid CIB seven license. It also requires the modeler to be enabled (<code>cibseven.webclient.modeler.enabled: true</code>); see <a href="/manual/latest/webapps/modeler/configuration/enable-disable/">Enable / Disable</a>.</p>
 </div>
 
-<p>Will be updated soon !!!</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>CIB seven <strong>Enterprise Edition</strong> with a valid license.</li>
+<li>The modeler enabled: <code>cibseven.webclient.modeler.enabled: true</code> (a database is required &mdash; see <a href="/manual/latest/webapps/modeler/configuration/enable-disable/">Enable / Disable</a>).</li>
+<li>At least one OpenAI-compatible <strong>provider</strong> and one <strong>model</strong> configured (below).</li>
+</ul>
+
+<h2 id="enabling-the-agent">Enabling the Agent</h2>
+<p>The agent is disabled by default. Enable it under <code>cibseven.webclient.modeler.ai</code> in <code>cibseven-webclient</code>&rsquo;s <code>application.yaml</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">cibseven</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">webclient</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">modeler</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">ai</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span></code></pre></div><p>Or via environment variable:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">CIBSEVEN_WEBCLIENT_MODELER_AI_ENABLED</span><span class="o">=</span><span class="nb">true</span>
+</span></span></code></pre></div><div class="note ">
+  <h3>Default is disabled</h3>
+  <p><code>ai.enabled</code> defaults to <code>false</code>. When enabled, you must configure at least one provider and one model, and a <code>defaultModel</code> that matches a listed model. Every listed model must reference a provider whose <code>baseUrl</code> is set, or the webclient will not start.</p>
+</div>
+
+<h2 id="configuring-an-openai-compatible-provider">Configuring an OpenAI-Compatible Provider</h2>
+<p>Providers are named entries under <code>ai.providers</code>; each points at an OpenAI-compatible HTTP endpoint. Set its <code>baseUrl</code> (required) and, where the endpoint needs authentication, an <code>apiKey</code>. API keys support environment-variable expansion such as <code>${OPENAI_API_KEY:}</code>, so secrets stay out of the configuration file.</p>
+<p>Typical base URLs:</p>
+<ul>
+<li>OpenAI &mdash; <code>https://api.openai.com/v1</code></li>
+<li>OpenRouter &mdash; <code>https://openrouter.ai/api/v1</code></li>
+<li>Ollama &mdash; <code>http://localhost:11434/v1</code></li>
+<li>vLLM / other self-hosted &mdash; <code>http://&lt;host&gt;:&lt;port&gt;/v1</code></li>
+</ul>
+<p>The <code>api</code> field selects the API surface: <code>chat-completions</code> (the default, <code>/v1/chat/completions</code>) works with virtually every OpenAI-compatible server. Use <code>responses</code> (<code>/v1/responses</code>) for OpenAI <code>gpt-5.x</code> reasoning models that also use tools. See the <a href="#configuration-reference">configuration reference</a> for all provider fields.</p>
+
+<h2 id="defining-models">Defining Models</h2>
+<p>Models are listed under <code>ai.models</code>. Each model&rsquo;s <code>provider</code> must match the key of a configured provider, and <code>value</code> is the model id sent to that endpoint. The <code>label</code> is shown in the model dropdown. <code>defaultModel</code> must equal the <code>value</code> of one of the listed models.</p>
+
+<div class="note ">
+  <h3>Choosing a model</h3>
+  <p>For day-to-day modeling, prefer a <strong>fast</strong> model (<code>capability: FAST</code>) &mdash; lower latency keeps the chat responsive and the experience smooth. Also configure a <strong>frontier</strong> model for complex or ambiguous requests where answer quality matters most, and switch to it from the model dropdown when needed. For a cost-efficient, self-hosted option, serve the latest <a href="https://deepmind.google/models/gemma/gemma-4/">Gemma 4</a> models through an Ollama server.</p>
+</div>
+
+<h2 id="complete-example">Complete Example (OpenAI)</h2>
+<p>A minimal end-to-end configuration that enables the agent against OpenAI:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">cibseven</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">webclient</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">modeler</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">ai</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">defaultModel</span><span class="p">:</span><span class="w"> </span><span class="l">gpt-5.4-2026-03-05</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">providers</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">openai</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">baseUrl</span><span class="p">:</span><span class="w"> </span><span class="l">https://api.openai.com/v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">apiKey</span><span class="p">:</span><span class="w"> </span><span class="l">${OPENAI_API_KEY:}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">api</span><span class="p">:</span><span class="w"> </span><span class="l">responses</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">models</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l">gpt-5.4-2026-03-05</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">provider</span><span class="p">:</span><span class="w"> </span><span class="l">openai</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">label</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;GPT-5.4&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">contextWindow</span><span class="p">:</span><span class="w"> </span><span class="m">400000</span><span class="w">
+</span></span></span></code></pre></div><p>Set the <code>OPENAI_API_KEY</code> environment variable to your key. The model then appears in the modeler&rsquo;s model dropdown and is selected by default.</p>
+
+<h2 id="self-hosted-endpoints">Other OpenAI-Compatible Endpoints</h2>
+<p>Because the agent speaks the OpenAI API, any compatible server works the same way &mdash; only the <code>baseUrl</code> (and, if required, <code>apiKey</code>) change. A local Ollama server needs no API key &mdash; point <code>baseUrl</code> at its OpenAI-compatible endpoint and reference the model by the name Ollama serves it under:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">cibseven</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">webclient</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">modeler</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">ai</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">defaultModel</span><span class="p">:</span><span class="w"> </span><span class="l">gemma4:26b</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">providers</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">ollama</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">baseUrl</span><span class="p">:</span><span class="w"> </span><span class="l">http://localhost:11434/v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">models</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l">gemma4:26b</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">provider</span><span class="p">:</span><span class="w"> </span><span class="l">ollama</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">label</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;Gemma 4 (local)&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">capability</span><span class="p">:</span><span class="w"> </span><span class="l">LIGHTWEIGHT</span><span class="w">
+</span></span></span></code></pre></div><p>The same <code>models</code> entries work against a hosted aggregator too &mdash; for example OpenRouter (<code>baseUrl: https://openrouter.ai/api/v1</code>, with an <code>apiKey</code>) exposes Gemma as <code>google/gemma-4-26b-a4b-it:nitro</code>.</p>
+
+<h2 id="applying-it-in-each-distribution">Applying It in Each Distribution</h2>
+<p>The same <code>cibseven.webclient.modeler.ai</code> properties apply in every distribution — only the file you put them in differs. Add the block (or adapt the example each distribution ships) in:</p>
+<ul>
+<li><strong>CIB seven Run</strong> — <code>configuration/default.yml</code> (or <code>configuration/production.yml</code> when started with <code>--production</code>), under the existing <code>cibseven.webclient.modeler</code> tree.</li>
+<li><strong>Tomcat</strong> — <code>conf/Catalina/localhost/webapp.xml</code>, as context <code>&lt;Parameter&gt;</code> entries.</li>
+<li><strong>WildFly</strong> — <code>WEB-INF/classes/application-wildfly.yaml</code> in the deployed WAR.</li>
+</ul>
+
+<h2 id="using-the-agent">Using the Agent</h2>
+<p>Open a BPMN diagram and open the <strong>BPMN Agent</strong> panel. Pick a model from the dropdown at the bottom (the selected model and, for reasoning models, an effort level are shown there), type your request, and send it. The agent edits the diagram and lists the applied changes (added, changed, and removed elements) for review. Enable the <strong>Auto-accept</strong> toggle to apply changes automatically without confirming each step.</p>
+<div class="note ">
+  <h3>Beta</h3>
+  <p>The BPMN AI Agent is currently in beta. Review generated diagrams before deploying them.</p>
+</div>
+
+<h2 id="configuration-reference">Configuration Reference</h2>
+<p>All properties live under the <code>cibseven.webclient.modeler.ai</code> prefix.</p>
+<h3 id="agent-options">Agent options</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Property</th>
+          <th>Default</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>enabled</code></td>
+          <td><code>false</code></td>
+          <td>Master switch for the agent.</td>
+      </tr>
+      <tr>
+          <td><code>defaultModel</code></td>
+          <td>&ndash;</td>
+          <td>Model <code>value</code> selected by default; must match a listed model.</td>
+      </tr>
+      <tr>
+          <td><code>maxTokens</code></td>
+          <td><code>50000</code></td>
+          <td>Per-session chat-memory token budget (input + history).</td>
+      </tr>
+      <tr>
+          <td><code>limits.messageMaxChars</code></td>
+          <td><code>600000</code></td>
+          <td>Max characters in a user message.</td>
+      </tr>
+      <tr>
+          <td><code>limits.filesMaxCount</code></td>
+          <td><code>10</code></td>
+          <td>Max attached files per request.</td>
+      </tr>
+      <tr>
+          <td><code>limits.filesMaxBytesPerFile</code></td>
+          <td><code>5242880</code></td>
+          <td>Max size (bytes) of any single attached file.</td>
+      </tr>
+      <tr>
+          <td><code>limits.currentBpmnXmlMaxChars</code></td>
+          <td><code>500000</code></td>
+          <td>Max characters of canvas BPMN XML sent per request.</td>
+      </tr>
+      <tr>
+          <td><code>limits.elementTemplatesMaxCount</code></td>
+          <td><code>1000</code></td>
+          <td>Max element templates sent per request.</td>
+      </tr>
+      <tr>
+          <td><code>systemPrompt.append</code></td>
+          <td>&ndash;</td>
+          <td>Inline text appended to every agent system prompt.</td>
+      </tr>
+      <tr>
+          <td><code>systemPrompt.appendFile</code></td>
+          <td>&ndash;</td>
+          <td>A <code>classpath:</code> or <code>file:</code> resource appended to every system prompt.</td>
+      </tr>
+      <tr>
+          <td><code>skills</code></td>
+          <td>&ndash;</td>
+          <td>Extra skill directories, each laid out as <code>&lt;dir&gt;/&lt;skill&gt;/SKILL.md</code>.</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="provider-options">Provider options (<code>providers.&lt;name&gt;</code>)</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Property</th>
+          <th>Default</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>baseUrl</code></td>
+          <td>&ndash; (required)</td>
+          <td>OpenAI-compatible base URL, e.g. <code>https://api.openai.com/v1</code>.</td>
+      </tr>
+      <tr>
+          <td><code>apiKey</code></td>
+          <td>&ndash;</td>
+          <td>Bearer token sent as <code>Authorization</code>; supports <code>${ENV_VAR:}</code> expansion.</td>
+      </tr>
+      <tr>
+          <td><code>timeoutSeconds</code></td>
+          <td><code>300</code></td>
+          <td>Per-request timeout.</td>
+      </tr>
+      <tr>
+          <td><code>api</code></td>
+          <td><code>chat-completions</code></td>
+          <td>API surface: <code>chat-completions</code> or <code>responses</code> (needed for gpt-5.x reasoning + tools).</td>
+      </tr>
+      <tr>
+          <td><code>headers</code></td>
+          <td>&ndash;</td>
+          <td>Extra HTTP headers added to every request (values support <code>${ENV_VAR:}</code>).</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="model-options">Model options (entries under <code>models</code>)</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Property</th>
+          <th>Default</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>value</code></td>
+          <td>&ndash; (required)</td>
+          <td>Model id sent to the endpoint.</td>
+      </tr>
+      <tr>
+          <td><code>provider</code></td>
+          <td>&ndash; (required)</td>
+          <td>Key of a configured provider.</td>
+      </tr>
+      <tr>
+          <td><code>label</code></td>
+          <td>&ndash;</td>
+          <td>Name shown in the model dropdown.</td>
+      </tr>
+      <tr>
+          <td><code>contextWindow</code></td>
+          <td>&ndash;</td>
+          <td>Context size in tokens.</td>
+      </tr>
+      <tr>
+          <td><code>capability</code></td>
+          <td><code>GENERAL</code></td>
+          <td><code>GENERAL</code>, <code>FAST</code>, or <code>LIGHTWEIGHT</code>.</td>
+      </tr>
+      <tr>
+          <td><code>supportedEfforts</code></td>
+          <td><code>[]</code></td>
+          <td>Reasoning effort levels, e.g. <code>[low, medium, high]</code>.</td>
+      </tr>
+  </tbody>
+</table>
 
     </div>
   </div>
@@ -3460,7 +3703,24 @@
 
 <div class="page-toc">
   <h3>On this Page:</h3>
-  <nav id="TableOfContents"></nav>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#prerequisites">Prerequisites</a></li>
+    <li><a href="#enabling-the-agent">Enabling the Agent</a></li>
+    <li><a href="#configuring-an-openai-compatible-provider">Configuring an OpenAI-Compatible Provider</a></li>
+    <li><a href="#defining-models">Defining Models</a></li>
+    <li><a href="#complete-example">Complete Example (OpenAI)</a></li>
+    <li><a href="#self-hosted-endpoints">Other OpenAI-Compatible Endpoints</a></li>
+    <li><a href="#applying-it-in-each-distribution">Applying It in Each Distribution</a></li>
+    <li><a href="#using-the-agent">Using the Agent</a></li>
+    <li><a href="#configuration-reference">Configuration Reference</a>
+      <ul>
+        <li><a href="#agent-options">Agent options</a></li>
+        <li><a href="#provider-options">Provider options</a></li>
+        <li><a href="#model-options">Model options</a></li>
+      </ul></li>
+  </ul>
+</nav>
   <div class="docs-banner" style="display:none">
  :(
 </div>
