@@ -3569,7 +3569,7 @@
 </ul>
 
 <h2 id="enabling-the-agent">Enabling the Agent</h2>
-<p>The agent is disabled by default. Enable it under <code>cibseven.webclient.modeler.ai</code> in <code>cibseven-webclient</code>&rsquo;s <code>application.yaml</code>:</p>
+<p><strong>The BPMN AI Agent is disabled by default.</strong> Enable it by setting <code>enabled: true</code> under <code>cibseven.webclient.modeler.ai</code> in <code>cibseven-webclient</code>&rsquo;s <code>application.yaml</code>:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">cibseven</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">webclient</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">modeler</span><span class="p">:</span><span class="w">
@@ -3579,8 +3579,8 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">CIBSEVEN_WEBCLIENT_MODELER_AI_ENABLED</span><span class="o">=</span><span class="nb">true</span>
 </span></span></code></pre></div>
 <div class="note ">
-  <h3>Default is disabled</h3>
-  <p><code>ai.enabled</code> defaults to <code>false</code>. When enabled, you must configure at least one provider and one model, and a <code>defaultModel</code> that matches a listed model. Every listed model must reference a provider whose <code>baseUrl</code> is set, or the webclient will not start.</p>
+  <h3>Required configuration</h3>
+  <p>When the agent is enabled, the <code>defaultModel</code> must match one of the listed models, and every listed model must reference a provider whose <code>baseUrl</code> is set — otherwise the webclient will not start.</p>
 </div>
 
 
@@ -3643,8 +3643,8 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">capability</span><span class="p">:</span><span class="w"> </span><span class="l">LIGHTWEIGHT</span><span class="w">
 </span></span></span></code></pre></div><p>The same <code>models</code> entries work against a hosted aggregator too — for example OpenRouter (<code>baseUrl: https://openrouter.ai/api/v1</code>, with an <code>apiKey</code>) exposes Gemma as <code>google/gemma-4-26b-a4b-it:nitro</code>.</p>
 
-<h2 id="applying-it-in-each-distribution">Applying It in Each Distribution</h2>
-<p>The same <code>cibseven.webclient.modeler.ai</code> properties apply in every distribution — only the file you put them in differs. Add the block (or adapt the example each distribution ships) in:</p>
+<h2 id="per-distribution-configuration">Per-Distribution Configuration</h2>
+<p>The configuration from the <a href="#complete-example-openai">example above</a> works across all distributions. Place the <code>cibseven.webclient.modeler.ai</code> properties in the distribution-specific file listed below:</p>
 <ul>
 <li><strong>CIB seven Run</strong> — <code>configuration/default.yml</code> (or <code>configuration/production.yml</code> when started with <code>--production</code>), under the existing <code>cibseven.webclient.modeler</code> tree.</li>
 <li><strong>Tomcat</strong> — <code>conf/Catalina/localhost/webapp.xml</code>, as context <code>&lt;Parameter&gt;</code> entries.</li>
@@ -3652,7 +3652,27 @@
 </ul>
 
 <h2 id="using-the-agent">Using the Agent</h2>
-<p>Open a BPMN diagram and open the <strong>BPMN Agent</strong> panel. Pick a model from the dropdown at the bottom (the selected model and, for reasoning models, an effort level are shown there), type your request, and send it. The agent edits the diagram and lists the applied changes (added, changed, and removed elements) for review. Enable the <strong>Auto-accept</strong> toggle to apply changes automatically without confirming each step.</p>
+<p>Open a BPMN diagram, then open the <strong>BPMN Agent</strong> panel from the modeler toolbar. The panel docks beside the canvas — you can float, resize, or collapse it, and its position is remembered between sessions. Type what you want in natural language and send it; the agent&rsquo;s reply streams in live, and you can <strong>Stop</strong> a running request at any time.</p>
+
+<h3 id="composing-a-request">Composing a request</h3>
+<p>The compose box at the bottom gives you several ways to shape a request:</p>
+<ul>
+<li><strong>Model</strong> — pick the model from the dropdown; for reasoning models a reasoning <strong>effort</strong> level is shown next to it.</li>
+<li><strong>Mode</strong> — choose how the agent should act on the request (for example, ask a question about the diagram instead of editing it).</li>
+<li><strong>Context</strong> — select elements on the canvas to attach them as context, and <strong>attach files</strong> for the agent to take into account.</li>
+<li><strong>Voice</strong> — dictate a request instead of typing it.</li>
+<li><strong>Token budget</strong> — an indicator shows how much of the per-session context budget the conversation has used.</li>
+</ul>
+
+<h3 id="reviewing-and-applying-changes">Reviewing and applying changes</h3>
+<p>When the agent modifies the diagram, the change is shown as a <strong>diff card</strong> listing the added, changed, and removed elements. Review it and <strong>Apply</strong> or <strong>Discard</strong> it, or ask the agent to <strong>revise</strong> it. Enable the <strong>Auto-accept</strong> toggle to apply edits automatically without confirming each one; the layout is tidied up automatically when needed.</p>
+<p>For a larger request the agent first proposes a <strong>plan</strong>. You can approve the whole plan, generate a quick draft, or work through it one step at a time — <strong>continue</strong> to the next step, <strong>skip</strong> a step, <strong>modify</strong> it, or <strong>reject</strong> the remaining steps.</p>
+
+<h3 id="fixing-validation-issues">Fixing validation issues</h3>
+<p>When the diagram has BPMN validation problems, the panel lists them inline with the number of errors and warnings, each with a <strong>quick-fix</strong> the agent applies on click.</p>
+
+<h3 id="chat-sessions">Chat sessions</h3>
+<p>Each conversation is kept as a session. Start a <strong>new chat</strong>, switch between previous sessions from the history, and delete the ones you no longer need.</p>
 
 <div class="note ">
   <h3>Beta</h3>
@@ -3826,8 +3846,15 @@
     <li><a href="#defining-models">Defining Models</a></li>
     <li><a href="#complete-example-openai">Complete Example (OpenAI)</a></li>
     <li><a href="#other-openai-compatible-endpoints">Other OpenAI-Compatible Endpoints</a></li>
-    <li><a href="#applying-it-in-each-distribution">Applying It in Each Distribution</a></li>
-    <li><a href="#using-the-agent">Using the Agent</a></li>
+    <li><a href="#per-distribution-configuration">Per-Distribution Configuration</a></li>
+    <li><a href="#using-the-agent">Using the Agent</a>
+      <ul>
+        <li><a href="#composing-a-request">Composing a request</a></li>
+        <li><a href="#reviewing-and-applying-changes">Reviewing and applying changes</a></li>
+        <li><a href="#fixing-validation-issues">Fixing validation issues</a></li>
+        <li><a href="#chat-sessions">Chat sessions</a></li>
+      </ul>
+    </li>
     <li><a href="#configuration-reference">Configuration Reference</a>
       <ul>
         <li><a href="#agent-options">Agent options</a></li>
