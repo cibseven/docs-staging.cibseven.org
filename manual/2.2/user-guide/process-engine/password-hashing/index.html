@@ -16,7 +16,7 @@
 
   <title>Password Hashing | docs.cibseven.org</title>
 
-  <meta name="generator" content="Hugo 0.136.4">
+  <meta name="generator" content="Hugo 0.162.1">
   <link rel="shortcut icon" href="/manual/2.2/img/favicon.ico" type="image/x-icon" />
 
   
@@ -3577,7 +3577,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="c1">// This name is used to resolve the algorithm used for the encryption of a password.</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="s">&#34;NAME_OF_THE_ALGORITHM&#34;</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
 </span></span></span></code></pre></div><p>Once this is done, you can use the process engine configuration to plug in the custom implementation by the setting the <code>passwordEncryptor</code> property to your custom implementation, e.g., <code>MyPasswordEncryptor</code>. See <a href="../process-engine-bootstrapping">Process Engine Bootstrapping</a> on where you have to set the property for your Camunda environment.</p>
 <p>Note that, even if you have already users created with passwords hashed by other algorithms, e.g., old custom algorithms or the Camunda default hash algorithm <code>SHA-512</code>, they can still automatically be resolved by the engine although you have added your custom algorithm afterwards. The property <code>customPasswordChecker</code> is a list of hashing algorithms to be used to check (older) passwords. The Camunda default hashing algorithms are automatically added, so please only add your previous custom <code>passwordEncryptor</code> implementation to that list.</p>
 
@@ -3595,7 +3595,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">generateSalt</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// do something</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
 </span></span></span></code></pre></div><p>Once this is done, you can use the process engine configuration to plug in the custom implementation by the setting the <code>saltGenerator</code> property to your custom implementation, e.g., <code>MyCustomSaltGenerator</code>. See <a href="../process-engine-bootstrapping">Process Engine Bootstrapping</a> on where you have to set the property for your Camunda environment.</p>
 
     </div>

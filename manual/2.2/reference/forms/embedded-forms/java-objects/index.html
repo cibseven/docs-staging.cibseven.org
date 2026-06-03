@@ -16,7 +16,7 @@
 
   <title>Working with Java Objects | docs.cibseven.org</title>
 
-  <meta name="generator" content="Hugo 0.136.4">
+  <meta name="generator" content="Hugo 0.162.1">
   <link rel="shortcut icon" href="/manual/2.2/img/favicon.ico" type="image/x-icon" />
 
   
@@ -3570,11 +3570,11 @@ We thus need to fetch the variable programatically:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">cam-script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/form-script&#34;</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nx">camForm</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;form-loaded&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">// tell the form SDK to fetch the variable named &#39;invoiceData&#39;
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">camForm</span><span class="p">.</span><span class="nx">variableManager</span><span class="p">.</span><span class="nx">fetchVariable</span><span class="p">(</span><span class="s1">&#39;invoiceData&#39;</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="cl">    <span class="nx">camForm</span><span class="p">.</span><span class="nx">variableManager</span><span class="p">.</span><span class="nx">fetchVariable</span><span class="p">(</span><span class="s1">&#39;invoiceData&#39;</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">  <span class="p">});</span>
 </span></span><span class="line"><span class="cl">  <span class="nx">camForm</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;variables-fetched&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">// work with the variable (bind it to the current AngularJS $scope)
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">$scope</span><span class="p">.</span><span class="nx">invoiceData</span> <span class="o">=</span> <span class="nx">camForm</span><span class="p">.</span><span class="nx">variableManager</span><span class="p">.</span><span class="nx">variableValue</span><span class="p">(</span><span class="s1">&#39;invoiceData&#39;</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="cl">    <span class="nx">$scope</span><span class="p">.</span><span class="nx">invoiceData</span> <span class="o">=</span> <span class="nx">camForm</span><span class="p">.</span><span class="nx">variableManager</span><span class="p">.</span><span class="nx">variableValue</span><span class="p">(</span><span class="s1">&#39;invoiceData&#39;</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">  <span class="p">});</span>
 </span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </span></span></code></pre></div>
@@ -3587,15 +3587,15 @@ We thus need to fetch the variable programatically:</p>
 </span></span><span class="line"><span class="cl">  <span class="nx">camForm</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;form-loaded&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="c1">// declare variable &#39;customerData&#39; incuding metadata for serialization
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">camForm</span><span class="p">.</span><span class="nx">variableManager</span><span class="p">.</span><span class="nx">createVariable</span><span class="p">({</span>
+</span></span></span><span class="line"><span class="cl">    <span class="nx">camForm</span><span class="p">.</span><span class="nx">variableManager</span><span class="p">.</span><span class="nx">createVariable</span><span class="p">({</span>
 </span></span><span class="line"><span class="cl">      <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;customerData&#39;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;Object&#39;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nx">value</span><span class="o">:</span> <span class="nx">dataObject</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nx">valueInfo</span><span class="o">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="c1">// indicate that object is serialized as json
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nx">serializationDataFormat</span><span class="o">:</span> <span class="s1">&#39;application/json&#39;</span><span class="p">,</span>
+</span></span></span><span class="line"><span class="cl">        <span class="nx">serializationDataFormat</span><span class="o">:</span> <span class="s1">&#39;application/json&#39;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">        <span class="c1">// provide classname of java object to map to
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nx">objectTypeName</span><span class="o">:</span> <span class="s1">&#39;org.cibseven.bpm.example.CustomerData&#39;</span>
+</span></span></span><span class="line"><span class="cl">        <span class="nx">objectTypeName</span><span class="o">:</span> <span class="s1">&#39;org.cibseven.bpm.example.CustomerData&#39;</span>
 </span></span><span class="line"><span class="cl">      <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="p">});</span>
 </span></span><span class="line"><span class="cl">

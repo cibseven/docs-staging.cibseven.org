@@ -16,7 +16,7 @@
 
   <title>Configuration | docs.cibseven.org</title>
 
-  <meta name="generator" content="Hugo 0.136.4">
+  <meta name="generator" content="Hugo 0.162.1">
   <link rel="shortcut icon" href="/manual/latest/img/favicon.ico" type="image/x-icon" />
 
   
@@ -3563,50 +3563,50 @@
 <h2 id="configuration-reference">Configuration Reference</h2>
 <p>All modeler properties live under the <code>cibseven.webclient.modeler</code> prefix.</p>
 <table>
-  <thead>
-      <tr>
-          <th>Property</th>
-          <th>Default</th>
-          <th>Description</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><code>cibseven.webclient.modeler.enabled</code></td>
-          <td><code>false</code></td>
-          <td>Enable or disable the modeler. When <code>false</code>, no database is required and all modeler endpoints are removed.</td>
-      </tr>
-      <tr>
-          <td><code>cibseven.webclient.modeler.chat.enabled</code></td>
-          <td><code>false</code></td>
-          <td>Enable or disable the real-time chat feature (WebSocket, JPA tables, modeler tab bar). Requires <code>modeler.enabled: true</code>. See <a href="/manual/latest/webapps/modeler/configuration/enable-disable/">Enable / Disable</a>. Enterprise Edition only.</td>
-      </tr>
-      <tr>
-          <td><code>cibseven.webclient.modeler.session.expiresAfterMin</code></td>
-          <td><code>10</code></td>
-          <td>Minutes of inactivity before an open editing session is considered expired.</td>
-      </tr>
-      <tr>
-          <td><code>cibseven.webclient.modeler.deleteUsages.usageLimit</code></td>
-          <td><code>50</code></td>
-          <td>Maximum number of session records retained per diagram before old ones are cleaned up.</td>
-      </tr>
-      <tr>
-          <td><code>cibseven.webclient.modeler.deleteUsages.cron</code></td>
-          <td><code>0 0 0 * * ?</code></td>
-          <td>Cron expression controlling when the session cleanup job runs (default: midnight daily).</td>
-      </tr>
-      <tr>
-          <td><code>cibseven.webclient.modeler.templates.paths</code></td>
-          <td>—</td>
-          <td>List of Spring Resource patterns. At startup, JSON files matching these patterns are loaded into the element templates database. See <a href="/manual/latest/webapps/modeler/user-guide/element-templates/">Element Templates</a>.</td>
-      </tr>
-      <tr>
-          <td><code>cibsevenmodeler.authentication.enabled</code></td>
-          <td><code>true</code></td>
-          <td>Whether modeler REST endpoints enforce authentication. See <a href="/manual/latest/webapps/modeler/configuration/authentication/">Authentication</a>.</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Property</th>
+					<th>Default</th>
+					<th>Description</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>cibseven.webclient.modeler.enabled</code></td>
+					<td><code>false</code></td>
+					<td>Enable or disable the modeler. When <code>false</code>, no database is required and all modeler endpoints are removed.</td>
+			</tr>
+			<tr>
+					<td><code>cibseven.webclient.modeler.chat.enabled</code></td>
+					<td><code>false</code></td>
+					<td>Enable or disable the real-time chat feature (WebSocket, JPA tables, modeler tab bar). Requires <code>modeler.enabled: true</code>. See <a href="/manual/latest/webapps/modeler/configuration/enable-disable/">Enable / Disable</a>. Enterprise Edition only.</td>
+			</tr>
+			<tr>
+					<td><code>cibseven.webclient.modeler.session.expiresAfterMin</code></td>
+					<td><code>10</code></td>
+					<td>Minutes of inactivity before an open editing session is considered expired.</td>
+			</tr>
+			<tr>
+					<td><code>cibseven.webclient.modeler.deleteUsages.usageLimit</code></td>
+					<td><code>50</code></td>
+					<td>Maximum number of session records retained per diagram before old ones are cleaned up.</td>
+			</tr>
+			<tr>
+					<td><code>cibseven.webclient.modeler.deleteUsages.cron</code></td>
+					<td><code>0 0 0 * * ?</code></td>
+					<td>Cron expression controlling when the session cleanup job runs (default: midnight daily).</td>
+			</tr>
+			<tr>
+					<td><code>cibseven.webclient.modeler.templates.paths</code></td>
+					<td>—</td>
+					<td>List of Spring Resource patterns. At startup, JSON files matching these patterns are loaded into the element templates database. See <a href="/manual/latest/webapps/modeler/user-guide/element-templates/">Element Templates</a>.</td>
+			</tr>
+			<tr>
+					<td><code>cibsevenmodeler.authentication.enabled</code></td>
+					<td><code>true</code></td>
+					<td>Whether modeler REST endpoints enforce authentication. See <a href="/manual/latest/webapps/modeler/configuration/authentication/">Authentication</a>.</td>
+			</tr>
+	</tbody>
 </table>
 
     </div>

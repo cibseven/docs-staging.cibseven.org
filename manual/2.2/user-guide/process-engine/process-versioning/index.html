@@ -16,7 +16,7 @@
 
   <title>Process Versioning | docs.cibseven.org</title>
 
-  <meta name="generator" content="Hugo 0.136.4">
+  <meta name="generator" content="Hugo 0.162.1">
   <link rel="shortcut icon" href="/manual/2.2/img/favicon.ico" type="image/x-icon" />
 
   
@@ -3587,12 +3587,12 @@
 </ul>
 <p>The default and recommended usage is to use <code>startProcessInstanceByKey</code> and always use the latest version:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">processEngine</span><span class="p">.</span><span class="na">getRuntimeService</span><span class="p">().</span><span class="na">startProcessInstanceByKey</span><span class="p">(</span><span class="s">&#34;invoice&#34;</span><span class="p">);</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// will use the latest version (2 in our example)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c1">// will use the latest version (2 in our example)</span><span class="w">
 </span></span></span></code></pre></div><p>If you want to specifically start an instance of an old process definition, use a Process Definition Query to find the correct ProcessDefinition id and use <code>startProcessInstanceById</code>:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">ProcessDefinition</span><span class="w"> </span><span class="n">pd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">processEngine</span><span class="p">.</span><span class="na">getRepositoryService</span><span class="p">().</span><span class="na">createProcessDefinitionQuery</span><span class="p">()</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">processDefinitionKey</span><span class="p">(</span><span class="s">&#34;invoice&#34;</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">processDefinitionVersion</span><span class="p">(</span><span class="n">1</span><span class="p">).</span><span class="na">singleResult</span><span class="p">();</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">processEngine</span><span class="p">.</span><span class="na">getRuntimeService</span><span class="p">().</span><span class="na">startProcessInstanceById</span><span class="p">(</span><span class="n">pd</span><span class="p">.</span><span class="na">getId</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">processEngine</span><span class="p">.</span><span class="na">getRuntimeService</span><span class="p">().</span><span class="na">startProcessInstanceById</span><span class="p">(</span><span class="n">pd</span><span class="p">.</span><span class="na">getId</span><span class="p">());</span><span class="w">
 </span></span></span></code></pre></div><p>When you use <a href="/manual/2.2/reference/bpmn20/subprocesses/call-activity/">BPMN CallActivities</a> you can configure which version is used:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;callActivity</span> <span class="na">id=</span><span class="s">&#34;callSubProcess&#34;</span> <span class="na">calledElement=</span><span class="s">&#34;checkCreditProcess&#34;</span>
 </span></span><span class="line"><span class="cl">  <span class="na">camunda:calledElementBinding=</span><span class="s">&#34;latest|deployment|version&#34;</span>
@@ -3633,7 +3633,7 @@ extension attribute to the process:</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">processDefinitionKey</span><span class="p">(</span><span class="s">&#34;invoice&#34;</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">processDefinitionVersion</span><span class="p">(</span><span class="n">1</span><span class="p">).</span><span class="na">singleResult</span><span class="p">();</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">pd</span><span class="p">.</span><span class="na">getVersionTag</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">pd</span><span class="p">.</span><span class="na">getVersionTag</span><span class="p">();</span><span class="w">
 </span></span></span></code></pre></div><p>or to fetch a list of all deployed process definitions which contain the specified version:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">List</span><span class="o">&lt;</span><span class="n">ProcessDefinition</span><span class="o">&gt;</span><span class="w"> </span><span class="n">pdList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">processEngine</span><span class="p">.</span><span class="na">getRepositoryService</span><span class="p">().</span><span class="na">createProcessDefinitionQuery</span><span class="p">()</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">versionTag</span><span class="p">(</span><span class="s">&#34;1.5-patch2&#34;</span><span class="p">)</span><span class="w">
@@ -3651,7 +3651,7 @@ definition for a version tag:</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">desc</span><span class="p">()</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">listPage</span><span class="p">(</span><span class="n">0</span><span class="p">,</span><span class="n">1</span><span class="p">);</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">processEngine</span><span class="p">.</span><span class="na">getRuntimeService</span><span class="p">().</span><span class="na">startProcessInstanceById</span><span class="p">(</span><span class="n">pd</span><span class="p">.</span><span class="na">getId</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">processEngine</span><span class="p">.</span><span class="na">getRuntimeService</span><span class="p">().</span><span class="na">startProcessInstanceById</span><span class="p">(</span><span class="n">pd</span><span class="p">.</span><span class="na">getId</span><span class="p">());</span><span class="w">
 </span></span></span></code></pre></div>
 <div class="note bg-info docs-info">
   <h3>Version Tag</h3>

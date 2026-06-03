@@ -16,7 +16,7 @@
 
   <title>Microsoft SQL Server and Azure SQL Database Configuration | docs.cibseven.org</title>
 
-  <meta name="generator" content="Hugo 0.136.4">
+  <meta name="generator" content="Hugo 0.162.1">
   <link rel="shortcut icon" href="/manual/2.2/img/favicon.ico" type="image/x-icon" />
 
   
@@ -3578,10 +3578,10 @@ As a result you may suffer deadlocks when putting the process engine under high 
 <p>If you experience deadlocks in your MSSQL installation, you must execute the
 following statements in order to enable SNAPSHOT isolation:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">ALTER</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="p">[</span><span class="n">process</span><span class="o">-</span><span class="n">engine</span><span class="p">]</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SET</span><span class="w"> </span><span class="n">ALLOW_SNAPSHOT_ISOLATION</span><span class="w"> </span><span class="k">ON</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="k">SET</span><span class="w"> </span><span class="n">ALLOW_SNAPSHOT_ISOLATION</span><span class="w"> </span><span class="k">ON</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">ALTER</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="p">[</span><span class="n">process</span><span class="o">-</span><span class="n">engine</span><span class="p">]</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SET</span><span class="w"> </span><span class="n">READ_COMMITTED_SNAPSHOT</span><span class="w"> </span><span class="k">ON</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="k">ALTER</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="p">[</span><span class="n">process</span><span class="o">-</span><span class="n">engine</span><span class="p">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="k">SET</span><span class="w"> </span><span class="n">READ_COMMITTED_SNAPSHOT</span><span class="w"> </span><span class="k">ON</span><span class="w">
 </span></span></span></code></pre></div><p>where <code>[process-engine]</code> contains the name of your database.</p>
 
 <h2 id="cib-seven-support-for-azure-sql">CIB seven support for Azure SQL</h2>
@@ -3612,7 +3612,7 @@ database, the default value will be used. Using the default value may lead to un
 behavior unsupported by CIB seven.</p>
 <p>To set the <em>Database Compatibility Level</em> to a specific value, execute the following code:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">ALTER</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="p">[</span><span class="n">database_name</span><span class="p">]</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SET</span><span class="w"> </span><span class="n">COMPATIBILITY_LEVEL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">compatibility_level</span><span class="p">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="k">SET</span><span class="w"> </span><span class="n">COMPATIBILITY_LEVEL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">compatibility_level</span><span class="p">]</span><span class="w">
 </span></span></span></code></pre></div><p>In the code above, <code>[database_name]</code> should be replaced with the name of your database, and
 <code>[compatibility_level]</code> should be replaced with the <em>Database Compatibility Level</em> value of the
 SQL Server version you would like to use. You can see a list of all the available values

@@ -16,7 +16,7 @@
 
   <title>The CIB seven WildFly Subsystem | docs.cibseven.org</title>
 
-  <meta name="generator" content="Hugo 0.136.4">
+  <meta name="generator" content="Hugo 0.162.1">
   <link rel="shortcut icon" href="/manual/latest/img/favicon.ico" type="image/x-icon" />
 
   
@@ -3639,7 +3639,7 @@ You are able to configure it through the following new configuration elements be
 class would provide a method named</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setMyCustomProperty</span><span class="p">(</span><span class="kt">boolean</span><span class="w"> </span><span class="kt">boolean</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">...</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
 </span></span></span></code></pre></div>
 <div class="note bg-warning docs-warning">
   <h3>Module dependency of custom configuration class</h3>
@@ -3859,7 +3859,7 @@ Wildfly offers multiple <a href="https://docs.wildfly.org/23/Developer_Guide.htm
 </span></span></code></pre></div><p>This way, the global process engine resource <code>java:global/camunda-bpm-platform/process-engine/default</code> is available locally under the name <code>processEngine/default</code>. Since the application server is aware of this dependency, it will make sure the Process Engine Service exists before starting the application and it will stop the application if the process engine is removed.</p>
 <p>The same effect can be achieved using the <code>@Resource</code> Annotation:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Stateless</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">PaComponent</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">PaComponent</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@Resource</span><span class="p">(</span><span class="n">mappedName</span><span class="o">=</span><span class="s">&#34;java:global/camunda-bpm-platform/process-engine/default&#34;</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="n">ProcessEngine</span><span class="w"> </span><span class="n">processEngine</span><span class="p">;</span><span class="w">
@@ -3869,7 +3869,7 @@ Wildfly offers multiple <a href="https://docs.wildfly.org/23/Developer_Guide.htm
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">processEngine</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
 </span></span></span></code></pre></div>
     </div>
   </div>

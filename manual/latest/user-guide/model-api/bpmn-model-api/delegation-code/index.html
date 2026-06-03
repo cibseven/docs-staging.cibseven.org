@@ -16,7 +16,7 @@
 
   <title>Delegation Code | docs.cibseven.org</title>
 
-  <meta name="generator" content="Hugo 0.136.4">
+  <meta name="generator" content="Hugo 0.162.1">
   <link rel="shortcut icon" href="/manual/latest/img/favicon.ico" type="image/x-icon" />
 
   
@@ -3565,7 +3565,7 @@ Therefore the returned flow element can be cast to a <code>ServiceTask</code>.</
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">BpmnModelInstance</span><span class="w"> </span><span class="n">modelInstance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">execution</span><span class="p">.</span><span class="na">getBpmnModelInstance</span><span class="p">();</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">ServiceTask</span><span class="w"> </span><span class="n">serviceTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">ServiceTask</span><span class="p">)</span><span class="w"> </span><span class="n">execution</span><span class="p">.</span><span class="na">getBpmnModelElementInstance</span><span class="p">();</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
 </span></span></span></code></pre></div>
 <h2 id="execution-listener">Execution Listener</h2>
 <p>If your class implements the <code>org.cibseven.bpm.engine.delegate.ExecutionListener</code> interface, you can access the BPMN model instance
@@ -3577,7 +3577,7 @@ and sequence flows, it can not be guaranteed which type the flow element will be
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">BpmnModelInstance</span><span class="w"> </span><span class="n">modelInstance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">execution</span><span class="p">.</span><span class="na">getBpmnModelInstance</span><span class="p">();</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">FlowElement</span><span class="w"> </span><span class="n">flowElement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">execution</span><span class="p">.</span><span class="na">getBpmnModelElementInstance</span><span class="p">();</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
 </span></span></span></code></pre></div>
 <h2 id="task-listener">Task Listener</h2>
 <p>If your class implements the <code>org.cibseven.bpm.engine.delegate.TaskListener</code> interface, you can access the BPMN model instance
@@ -3588,7 +3588,7 @@ and the current user task since a Task Listener can only be added to a user task
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">BpmnModelInstance</span><span class="w"> </span><span class="n">modelInstance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">delegateTask</span><span class="p">.</span><span class="na">getBpmnModelInstance</span><span class="p">();</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">UserTask</span><span class="w"> </span><span class="n">userTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">delegateTask</span><span class="p">.</span><span class="na">getBpmnModelElementInstance</span><span class="p">();</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
 </span></span></span></code></pre></div>
     </div>
   </div>

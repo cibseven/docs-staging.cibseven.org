@@ -16,7 +16,7 @@
 
   <title>Built-In Beans | docs.cibseven.org</title>
 
-  <meta name="generator" content="Hugo 0.136.4">
+  <meta name="generator" content="Hugo 0.162.1">
   <link rel="shortcut icon" href="/manual/2.2/img/favicon.ico" type="image/x-icon" />
 
   
@@ -3591,7 +3591,7 @@ without a <code>@ProcessEngineName</code> annotation.</p>
 must be extended. The following code implements a contextual resolution of the engine by the currently authenticated user.
 Note that which contextual data is used and how it is accessed is entirely up to you.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Specializes</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">UserAwareEngineServicesProvider</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">ProcessEngineServicesProducer</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">UserAwareEngineServicesProvider</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">ProcessEngineServicesProducer</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c1">// User can be any object containing user information from which the tenant can be determined</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@Inject</span><span class="w">
@@ -3624,13 +3624,13 @@ Note that which contextual data is used and how it is accessed is entirely up to
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">...</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
 </span></span></span></code></pre></div><p>The above code makes selecting the process engine based on the current user&rsquo;s tenant completely transparent.
 For each request, the currently authenticated user is retrieved and the correct process engine is looked up.
 Note that the class <code>UserInfo</code> represents any kind of context object that identifies the current tenant.
 For example, it could be a JAAS principal. The produced engine can be accessed in the following way:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Inject</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">private</span><span class="w"> </span><span class="n">RuntimeService</span><span class="w"> </span><span class="n">runtimeService</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kd">private</span><span class="w"> </span><span class="n">RuntimeService</span><span class="w"> </span><span class="n">runtimeService</span><span class="p">;</span><span class="w">
 </span></span></span></code></pre></div>
     </div>
   </div>

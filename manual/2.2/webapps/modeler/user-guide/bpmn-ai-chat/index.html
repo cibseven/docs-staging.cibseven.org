@@ -16,7 +16,7 @@
 
   <title>BPMN AI Agent | docs.cibseven.org</title>
 
-  <meta name="generator" content="Hugo 0.136.4">
+  <meta name="generator" content="Hugo 0.162.1">
   <link rel="shortcut icon" href="/manual/2.2/img/favicon.ico" type="image/x-icon" />
 
   
@@ -3686,151 +3686,151 @@
 
 <h3 id="agent-options">Agent options</h3>
 <table>
-  <thead>
-      <tr>
-          <th>Property</th>
-          <th>Default</th>
-          <th>Description</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><code>enabled</code></td>
-          <td><code>false</code></td>
-          <td>Master switch for the agent.</td>
-      </tr>
-      <tr>
-          <td><code>defaultModel</code></td>
-          <td>–</td>
-          <td>Model <code>value</code> selected by default; must match a listed model.</td>
-      </tr>
-      <tr>
-          <td><code>maxTokens</code></td>
-          <td><code>50000</code></td>
-          <td>Per-session chat-memory token budget (input + history).</td>
-      </tr>
-      <tr>
-          <td><code>limits.messageMaxChars</code></td>
-          <td><code>600000</code></td>
-          <td>Max characters in a user message.</td>
-      </tr>
-      <tr>
-          <td><code>limits.filesMaxCount</code></td>
-          <td><code>10</code></td>
-          <td>Max attached files per request.</td>
-      </tr>
-      <tr>
-          <td><code>limits.filesMaxBytesPerFile</code></td>
-          <td><code>5242880</code></td>
-          <td>Max size (bytes) of any single attached file.</td>
-      </tr>
-      <tr>
-          <td><code>limits.currentBpmnXmlMaxChars</code></td>
-          <td><code>500000</code></td>
-          <td>Max characters of canvas BPMN XML sent per request.</td>
-      </tr>
-      <tr>
-          <td><code>limits.elementTemplatesMaxCount</code></td>
-          <td><code>1000</code></td>
-          <td>Max element templates sent per request.</td>
-      </tr>
-      <tr>
-          <td><code>systemPrompt.append</code></td>
-          <td>–</td>
-          <td>Inline text appended to every agent system prompt.</td>
-      </tr>
-      <tr>
-          <td><code>systemPrompt.appendFile</code></td>
-          <td>–</td>
-          <td>A <code>classpath:</code> or <code>file:</code> resource appended to every system prompt.</td>
-      </tr>
-      <tr>
-          <td><code>skills</code></td>
-          <td>–</td>
-          <td>Extra skill directories, each laid out as <code>&lt;dir&gt;/&lt;skill&gt;/SKILL.md</code>.</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Property</th>
+					<th>Default</th>
+					<th>Description</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>enabled</code></td>
+					<td><code>false</code></td>
+					<td>Master switch for the agent.</td>
+			</tr>
+			<tr>
+					<td><code>defaultModel</code></td>
+					<td>–</td>
+					<td>Model <code>value</code> selected by default; must match a listed model.</td>
+			</tr>
+			<tr>
+					<td><code>maxTokens</code></td>
+					<td><code>50000</code></td>
+					<td>Per-session chat-memory token budget (input + history).</td>
+			</tr>
+			<tr>
+					<td><code>limits.messageMaxChars</code></td>
+					<td><code>600000</code></td>
+					<td>Max characters in a user message.</td>
+			</tr>
+			<tr>
+					<td><code>limits.filesMaxCount</code></td>
+					<td><code>10</code></td>
+					<td>Max attached files per request.</td>
+			</tr>
+			<tr>
+					<td><code>limits.filesMaxBytesPerFile</code></td>
+					<td><code>5242880</code></td>
+					<td>Max size (bytes) of any single attached file.</td>
+			</tr>
+			<tr>
+					<td><code>limits.currentBpmnXmlMaxChars</code></td>
+					<td><code>500000</code></td>
+					<td>Max characters of canvas BPMN XML sent per request.</td>
+			</tr>
+			<tr>
+					<td><code>limits.elementTemplatesMaxCount</code></td>
+					<td><code>1000</code></td>
+					<td>Max element templates sent per request.</td>
+			</tr>
+			<tr>
+					<td><code>systemPrompt.append</code></td>
+					<td>–</td>
+					<td>Inline text appended to every agent system prompt.</td>
+			</tr>
+			<tr>
+					<td><code>systemPrompt.appendFile</code></td>
+					<td>–</td>
+					<td>A <code>classpath:</code> or <code>file:</code> resource appended to every system prompt.</td>
+			</tr>
+			<tr>
+					<td><code>skills</code></td>
+					<td>–</td>
+					<td>Extra skill directories, each laid out as <code>&lt;dir&gt;/&lt;skill&gt;/SKILL.md</code>.</td>
+			</tr>
+	</tbody>
 </table>
 
 <h3 id="provider-options-providersname">Provider options (<code>providers.&lt;name&gt;</code>)</h3>
 <table>
-  <thead>
-      <tr>
-          <th>Property</th>
-          <th>Default</th>
-          <th>Description</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><code>baseUrl</code></td>
-          <td>– (required)</td>
-          <td>OpenAI-compatible base URL, e.g. <code>https://api.openai.com/v1</code>.</td>
-      </tr>
-      <tr>
-          <td><code>apiKey</code></td>
-          <td>–</td>
-          <td>Bearer token sent as <code>Authorization</code>; supports <code>${ENV_VAR:}</code> expansion.</td>
-      </tr>
-      <tr>
-          <td><code>timeoutSeconds</code></td>
-          <td><code>300</code></td>
-          <td>Per-request timeout.</td>
-      </tr>
-      <tr>
-          <td><code>api</code></td>
-          <td><code>chat-completions</code></td>
-          <td>API surface: <code>chat-completions</code> or <code>responses</code> (needed for gpt-5.x reasoning + tools).</td>
-      </tr>
-      <tr>
-          <td><code>headers</code></td>
-          <td>–</td>
-          <td>Extra HTTP headers added to every request (values support <code>${ENV_VAR:}</code>).</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Property</th>
+					<th>Default</th>
+					<th>Description</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>baseUrl</code></td>
+					<td>– (required)</td>
+					<td>OpenAI-compatible base URL, e.g. <code>https://api.openai.com/v1</code>.</td>
+			</tr>
+			<tr>
+					<td><code>apiKey</code></td>
+					<td>–</td>
+					<td>Bearer token sent as <code>Authorization</code>; supports <code>${ENV_VAR:}</code> expansion.</td>
+			</tr>
+			<tr>
+					<td><code>timeoutSeconds</code></td>
+					<td><code>300</code></td>
+					<td>Per-request timeout.</td>
+			</tr>
+			<tr>
+					<td><code>api</code></td>
+					<td><code>chat-completions</code></td>
+					<td>API surface: <code>chat-completions</code> or <code>responses</code> (needed for gpt-5.x reasoning + tools).</td>
+			</tr>
+			<tr>
+					<td><code>headers</code></td>
+					<td>–</td>
+					<td>Extra HTTP headers added to every request (values support <code>${ENV_VAR:}</code>).</td>
+			</tr>
+	</tbody>
 </table>
 
 <h3 id="model-options-entries-under-models">Model options (entries under <code>models</code>)</h3>
 <table>
-  <thead>
-      <tr>
-          <th>Property</th>
-          <th>Default</th>
-          <th>Description</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><code>value</code></td>
-          <td>– (required)</td>
-          <td>Model id sent to the endpoint.</td>
-      </tr>
-      <tr>
-          <td><code>provider</code></td>
-          <td>– (required)</td>
-          <td>Key of a configured provider.</td>
-      </tr>
-      <tr>
-          <td><code>label</code></td>
-          <td>–</td>
-          <td>Name shown in the model dropdown.</td>
-      </tr>
-      <tr>
-          <td><code>contextWindow</code></td>
-          <td>–</td>
-          <td>Context size in tokens.</td>
-      </tr>
-      <tr>
-          <td><code>capability</code></td>
-          <td><code>GENERAL</code></td>
-          <td><code>GENERAL</code>, <code>FAST</code>, or <code>LIGHTWEIGHT</code>.</td>
-      </tr>
-      <tr>
-          <td><code>supportedEfforts</code></td>
-          <td><code>[]</code></td>
-          <td>Reasoning effort levels, e.g. <code>[low, medium, high]</code>.</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Property</th>
+					<th>Default</th>
+					<th>Description</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>value</code></td>
+					<td>– (required)</td>
+					<td>Model id sent to the endpoint.</td>
+			</tr>
+			<tr>
+					<td><code>provider</code></td>
+					<td>– (required)</td>
+					<td>Key of a configured provider.</td>
+			</tr>
+			<tr>
+					<td><code>label</code></td>
+					<td>–</td>
+					<td>Name shown in the model dropdown.</td>
+			</tr>
+			<tr>
+					<td><code>contextWindow</code></td>
+					<td>–</td>
+					<td>Context size in tokens.</td>
+			</tr>
+			<tr>
+					<td><code>capability</code></td>
+					<td><code>GENERAL</code></td>
+					<td><code>GENERAL</code>, <code>FAST</code>, or <code>LIGHTWEIGHT</code>.</td>
+			</tr>
+			<tr>
+					<td><code>supportedEfforts</code></td>
+					<td><code>[]</code></td>
+					<td>Reasoning effort levels, e.g. <code>[low, medium, high]</code>.</td>
+			</tr>
+	</tbody>
 </table>
 
     </div>

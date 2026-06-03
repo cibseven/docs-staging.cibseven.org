@@ -16,7 +16,7 @@
 
   <title>Installation &amp; Enablement | docs.cibseven.org</title>
 
-  <meta name="generator" content="Hugo 0.136.4">
+  <meta name="generator" content="Hugo 0.162.1">
   <link rel="shortcut icon" href="/manual/2.2/img/favicon.ico" type="image/x-icon" />
 
   
@@ -3609,22 +3609,22 @@ sets <code>-XX:MaxMetaspaceSize=1024m</code>).</p>
 <h2 id="setting-the-default-model">Setting the default model</h2>
 <p>Operators set the organisation-wide default model (used when a task leaves <strong>Model</strong> empty) via:</p>
 <table>
-  <thead>
-      <tr>
-          <th></th>
-          <th></th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>JVM system property</td>
-          <td><code>-Dcibseven.connect.ai-agent.defaultModel=&lt;provider-model&gt;</code></td>
-      </tr>
-      <tr>
-          <td>Environment variable</td>
-          <td><code>CIBSEVEN_CONNECT_AI_AGENT_DEFAULT_MODEL=&lt;provider-model&gt;</code></td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th></th>
+					<th></th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>JVM system property</td>
+					<td><code>-Dcibseven.connect.ai-agent.defaultModel=&lt;provider-model&gt;</code></td>
+			</tr>
+			<tr>
+					<td>Environment variable</td>
+					<td><code>CIBSEVEN_CONNECT_AI_AGENT_DEFAULT_MODEL=&lt;provider-model&gt;</code></td>
+			</tr>
+	</tbody>
 </table>
 <p>Resolution is <strong>property → env → built-in fallback (<code>gpt-5.4-nano</code>)</strong>. The run distro&rsquo;s <code>default.yml</code>
 documents this stanza. See also <a href="/manual/2.2/reference/connect/ai-agent-connector/configuration-reference/">Configuration Reference</a>.
@@ -3656,34 +3656,34 @@ Ingestor</strong> appear in the template picker automatically. Operators can dro
 </span></span></code></pre></div>
 <h2 id="enable--disable-at-a-glance">Enable / disable at a glance</h2>
 <table>
-  <thead>
-      <tr>
-          <th>Distribution</th>
-          <th>Overlay location</th>
-          <th>Default</th>
-          <th>Disable</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>run / run4</td>
-          <td><code>configuration/userlib-ai/</code></td>
-          <td>on (dev) / <strong>off (<code>--production</code>)</strong></td>
-          <td><code>--production</code> without <code>--ai</code>, or <code>AI_AGENT_ENABLED=false</code></td>
-      </tr>
-      <tr>
-          <td>Tomcat</td>
-          <td><code>lib-ai/</code> on <code>common.loader</code></td>
-          <td>on</td>
-          <td>delete <code>lib-ai/</code> or strip the <code>common.loader</code> entries (Docker: <code>AI_AGENT_ENABLED=false</code>)</td>
-      </tr>
-      <tr>
-          <td>WildFly</td>
-          <td>JBoss module + import</td>
-          <td>on</td>
-          <td>remove the module dir / import (Docker: <code>AI_AGENT_ENABLED=false</code>)</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Distribution</th>
+					<th>Overlay location</th>
+					<th>Default</th>
+					<th>Disable</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>run / run4</td>
+					<td><code>configuration/userlib-ai/</code></td>
+					<td>on (dev) / <strong>off (<code>--production</code>)</strong></td>
+					<td><code>--production</code> without <code>--ai</code>, or <code>AI_AGENT_ENABLED=false</code></td>
+			</tr>
+			<tr>
+					<td>Tomcat</td>
+					<td><code>lib-ai/</code> on <code>common.loader</code></td>
+					<td>on</td>
+					<td>delete <code>lib-ai/</code> or strip the <code>common.loader</code> entries (Docker: <code>AI_AGENT_ENABLED=false</code>)</td>
+			</tr>
+			<tr>
+					<td>WildFly</td>
+					<td>JBoss module + import</td>
+					<td>on</td>
+					<td>remove the module dir / import (Docker: <code>AI_AGENT_ENABLED=false</code>)</td>
+			</tr>
+	</tbody>
 </table>
 
 <h2 id="footprint-sizing--egress">Footprint, sizing &amp; egress</h2>

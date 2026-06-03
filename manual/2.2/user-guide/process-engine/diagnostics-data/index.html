@@ -16,7 +16,7 @@
 
   <title>Diagnostics data | docs.cibseven.org</title>
 
-  <meta name="generator" content="Hugo 0.136.4">
+  <meta name="generator" content="Hugo 0.162.1">
   <link rel="shortcut icon" href="/manual/2.2/img/favicon.ico" type="image/x-icon" />
 
   
@@ -3561,13 +3561,13 @@ Being able to easily access the collected data is helpful when asking for help i
 <h4 id="java-api">Java API</h4>
 <p>To fetch the collected data via the Java API, you can use the <code>ManagementService</code> class. For example, the following code retrieves the detected JDK vendor and version:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">ProcessEngine</span><span class="w"> </span><span class="n">processEngine</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">ManagementService</span><span class="w"> </span><span class="n">managementService</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">processEngine</span><span class="p">.</span><span class="na">getManagementService</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">ManagementService</span><span class="w"> </span><span class="n">managementService</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">processEngine</span><span class="p">.</span><span class="na">getManagementService</span><span class="p">();</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">TelemetryData</span><span class="w"> </span><span class="n">telemetryData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">managementService</span><span class="p">.</span><span class="na">getTelemetryData</span><span class="p">();</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Internals</span><span class="w"> </span><span class="n">productInternals</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">telemetryData</span><span class="p">.</span><span class="na">getProduct</span><span class="p">().</span><span class="na">getInternals</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">TelemetryData</span><span class="w"> </span><span class="n">telemetryData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">managementService</span><span class="p">.</span><span class="na">getTelemetryData</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">Internals</span><span class="w"> </span><span class="n">productInternals</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">telemetryData</span><span class="p">.</span><span class="na">getProduct</span><span class="p">().</span><span class="na">getInternals</span><span class="p">();</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">String</span><span class="w"> </span><span class="n">jdkVendor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">productInternals</span><span class="p">.</span><span class="na">getJdk</span><span class="p">().</span><span class="na">getVendor</span><span class="p">();</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">String</span><span class="w"> </span><span class="n">jdkVersion</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">productInternals</span><span class="p">.</span><span class="na">getJdk</span><span class="p">().</span><span class="na">getVersion</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">String</span><span class="w"> </span><span class="n">jdkVendor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">productInternals</span><span class="p">.</span><span class="na">getJdk</span><span class="p">().</span><span class="na">getVendor</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">String</span><span class="w"> </span><span class="n">jdkVersion</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">productInternals</span><span class="p">.</span><span class="na">getJdk</span><span class="p">().</span><span class="na">getVersion</span><span class="p">();</span><span class="w">
 </span></span></span></code></pre></div>
 <h4 id="rest-api">REST API</h4>
 <p>You can fetch the collected data via the REST API by calling the <a href="/manual/2.2/reference/rest/specification/#tag/Telemetry/operation/getTelemetryData">Get Telemetry Data</a> endpoint.</p>

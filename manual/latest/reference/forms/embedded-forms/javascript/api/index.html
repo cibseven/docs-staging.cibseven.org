@@ -16,7 +16,7 @@
 
   <title>Available API | docs.cibseven.org</title>
 
-  <meta name="generator" content="Hugo 0.136.4">
+  <meta name="generator" content="Hugo 0.162.1">
   <link rel="shortcut icon" href="/manual/latest/img/favicon.ico" type="image/x-icon" />
 
   
@@ -3565,7 +3565,7 @@ the form API and allows definition of event handers for participation in the for
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="nx">camForm</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;variables-fetched&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">      <span class="c1">// access to all process variables after the form has loaded
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">variableManager</span><span class="p">.</span><span class="nx">variables</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="cl">      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">variableManager</span><span class="p">.</span><span class="nx">variables</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="p">});</span>
 </span></span><span class="line"><span class="cl">  <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">
@@ -3596,7 +3596,7 @@ While AngularJS remains available in the Camunda web applications, these applica
 </span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">script</span> <span class="na">cam-script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/form-script&#34;</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">camForm</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;variables-applied&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">      <span class="c1">// the input field is bound to $scope.customerId
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="nx">$scope</span><span class="p">.</span><span class="nx">customerId</span> <span class="o">=</span> <span class="s2">&#34;some-id&#34;</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="cl">      <span class="nx">$scope</span><span class="p">.</span><span class="nx">customerId</span> <span class="o">=</span> <span class="s2">&#34;some-id&#34;</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">});</span>
 </span></span><span class="line"><span class="cl">  <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">
@@ -3622,7 +3622,7 @@ While AngularJS remains available in the Camunda web applications, these applica
 </span></span><span class="line"><span class="cl">    <span class="nx">inject</span><span class="p">([</span><span class="s1">&#39;$http&#39;</span><span class="p">,</span> <span class="s1">&#39;Uri&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$http</span><span class="p">,</span> <span class="nx">Uri</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">      <span class="nx">camForm</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;form-loaded&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="c1">// use injected $http service for making requests, e.g.
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nx">$http</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">Uri</span><span class="p">.</span><span class="nx">appUri</span><span class="p">(</span><span class="s1">&#39;engine://engine/:engine/task/&#39;</span> <span class="o">+</span> <span class="nx">camForm</span><span class="p">.</span><span class="nx">taskId</span><span class="p">)).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">task</span><span class="p">)</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="cl">        <span class="nx">$http</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">Uri</span><span class="p">.</span><span class="nx">appUri</span><span class="p">(</span><span class="s1">&#39;engine://engine/:engine/task/&#39;</span> <span class="o">+</span> <span class="nx">camForm</span><span class="p">.</span><span class="nx">taskId</span><span class="p">)).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">task</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">          <span class="nx">$scope</span><span class="p">.</span><span class="nx">task</span> <span class="o">=</span> <span class="nx">task</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">        <span class="p">});</span>
 </span></span><span class="line"><span class="cl">      <span class="p">});</span>

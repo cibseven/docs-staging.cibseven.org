@@ -16,7 +16,7 @@
 
   <title>Batch | docs.cibseven.org</title>
 
-  <meta name="generator" content="Hugo 0.136.4">
+  <meta name="generator" content="Hugo 0.162.1">
   <link rel="shortcut icon" href="/manual/2.2/img/favicon.ico" type="image/x-icon" />
 
   
@@ -3629,7 +3629,7 @@ jobs. You can query the corresponding job log entries by the specific job
 definition id.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">HistoricBatch</span><span class="w"> </span><span class="n">historicBatch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">List</span><span class="o">&lt;</span><span class="n">HistoricJobLog</span><span class="o">&gt;</span><span class="w"> </span><span class="n">batchExecutionJobLogs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">processEngine</span><span class="p">.</span><span class="na">getHistoryService</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">List</span><span class="o">&lt;</span><span class="n">HistoricJobLog</span><span class="o">&gt;</span><span class="w"> </span><span class="n">batchExecutionJobLogs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">processEngine</span><span class="p">.</span><span class="na">getHistoryService</span><span class="p">()</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">createHistoricJobLogQuery</span><span class="p">()</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">jobDefinitionId</span><span class="p">(</span><span class="n">historicBatch</span><span class="p">.</span><span class="na">getBatchJobDefinitionId</span><span class="p">())</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">orderByTimestamp</span><span class="p">()</span><span class="w">
@@ -3649,11 +3649,11 @@ service.</p>
 <h3 id="delete-a-batch">Delete a Batch</h3>
 <p>A running batch can be deleted using the management service.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// Delete a batch preserving the history of the batch</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">processEngine</span><span class="p">.</span><span class="na">getManagementService</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">processEngine</span><span class="p">.</span><span class="na">getManagementService</span><span class="p">()</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">deleteBatch</span><span class="p">(</span><span class="s">&#34;myBatch&#34;</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">);</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// Delete a batch include history of the batch</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">processEngine</span><span class="p">.</span><span class="na">getManagementService</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c1">// Delete a batch include history of the batch</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">processEngine</span><span class="p">.</span><span class="na">getManagementService</span><span class="p">()</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">deleteBatch</span><span class="p">(</span><span class="s">&#34;myBatch&#34;</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span><span class="w">
 </span></span></span></code></pre></div><p>A historic batch can be deleted using the history service.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">processEngine</span><span class="p">.</span><span class="na">getHistoryService</span><span class="p">()</span><span class="w">
@@ -3677,9 +3677,9 @@ definition</a> or even a single batch <a href="/manual/2.2/user-guide/process-en
 using the management service.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">Batch</span><span class="w"> </span><span class="n">batch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">String</span><span class="w"> </span><span class="n">batchJobDefinitionId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">batch</span><span class="p">.</span><span class="na">getBatchJobDefinitionId</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">String</span><span class="w"> </span><span class="n">batchJobDefinitionId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">batch</span><span class="p">.</span><span class="na">getBatchJobDefinitionId</span><span class="p">();</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">processEngine</span><span class="p">.</span><span class="na">getManagementService</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">processEngine</span><span class="p">.</span><span class="na">getManagementService</span><span class="p">()</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">setOverridingJobPriorityForJobDefinition</span><span class="p">(</span><span class="n">batchJobDefinitionId</span><span class="p">,</span><span class="w"> </span><span class="n">100</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span><span class="w">
 </span></span></span></code></pre></div>
 <h3 id="operation-log">Operation log</h3>
@@ -3700,7 +3700,7 @@ instance. In sum the seed job will be invoked 100 times, until it has created th
 <p>The Java API can be used to get the job definition for the seed job of a batch:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">Batch</span><span class="w"> </span><span class="n">batch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">JobDefinition</span><span class="w"> </span><span class="n">seedJobDefinition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">processEngine</span><span class="p">.</span><span class="na">getManagementService</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">JobDefinition</span><span class="w"> </span><span class="n">seedJobDefinition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">processEngine</span><span class="p">.</span><span class="na">getManagementService</span><span class="p">()</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">createJobDefinitionQuery</span><span class="p">()</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">jobDefinitionId</span><span class="p">(</span><span class="n">batch</span><span class="p">.</span><span class="na">getSeedJobDefinitionId</span><span class="p">())</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">singleResult</span><span class="p">();</span><span class="w">
@@ -3722,7 +3722,7 @@ for failed batch execution jobs with no retries left.</p>
 batch, e.g., for a <a href="/manual/2.2/user-guide/process-engine/process-instance-migration/#asynchronous-batch-migration-execution">process instance migration batch</a>:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">Batch</span><span class="w"> </span><span class="n">batch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">JobDefinition</span><span class="w"> </span><span class="n">executionJobDefinition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">processEngine</span><span class="p">.</span><span class="na">getManagementService</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">JobDefinition</span><span class="w"> </span><span class="n">executionJobDefinition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">processEngine</span><span class="p">.</span><span class="na">getManagementService</span><span class="p">()</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">createJobDefinitionQuery</span><span class="p">()</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">jobDefinitionId</span><span class="p">(</span><span class="n">batch</span><span class="p">.</span><span class="na">getBatchJobDefinitionId</span><span class="p">())</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">singleResult</span><span class="p">();</span><span class="w">
@@ -3740,7 +3740,7 @@ can be configured by the <code>batchPollTime</code> (default: 30 seconds) proper
 batch:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">Batch</span><span class="w"> </span><span class="n">batch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">JobDefinition</span><span class="w"> </span><span class="n">monitorJobDefinition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">processEngine</span><span class="p">.</span><span class="na">getManagementService</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">JobDefinition</span><span class="w"> </span><span class="n">monitorJobDefinition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">processEngine</span><span class="p">.</span><span class="na">getManagementService</span><span class="p">()</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">createJobDefinitionQuery</span><span class="p">()</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">jobDefinitionId</span><span class="p">(</span><span class="n">batch</span><span class="p">.</span><span class="na">getMonitorJobDefinitionId</span><span class="p">())</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">singleResult</span><span class="p">();</span><span class="w">

@@ -16,7 +16,7 @@
 
   <title>Multi-Tenancy | docs.cibseven.org</title>
 
-  <meta name="generator" content="Hugo 0.136.4">
+  <meta name="generator" content="Hugo 0.162.1">
   <link rel="shortcut icon" href="/manual/latest/img/favicon.ico" type="image/x-icon" />
 
   
@@ -3712,10 +3712,10 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c1">// All API calls executed here have &#34;tenant1&#34; transparently set as tenantId</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">finally</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="k">finally</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">identityService</span><span class="p">.</span><span class="na">clearAuthentication</span><span class="p">();</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
 </span></span></span></code></pre></div><p>In the above example, all API calls executed between <code>setAuthentication(...)</code> and <code>clearAuthentication()</code> are transparently executed with the list
 of provided tenant Ids.</p>
 
@@ -3725,10 +3725,10 @@ of provided tenant Ids.</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">identityService</span><span class="p">.</span><span class="na">setAuthentication</span><span class="p">(</span><span class="s">&#34;mary&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">asList</span><span class="p">(</span><span class="s">&#34;accounting&#34;</span><span class="p">),</span><span class="w"> </span><span class="n">asList</span><span class="p">(</span><span class="s">&#34;tenant1&#34;</span><span class="p">));</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">repositoryService</span><span class="p">.</span><span class="na">createProcessDefinitionQuery</span><span class="p">().</span><span class="na">list</span><span class="p">();</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">finally</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="k">finally</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">identityService</span><span class="p">.</span><span class="na">clearAuthentication</span><span class="p">();</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
 </span></span></span></code></pre></div><p>Is equivalent to</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">repositoryService</span><span class="p">.</span><span class="na">createProcessDefinitionQuery</span><span class="p">()</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">tenantIdIn</span><span class="p">(</span><span class="s">&#34;tenant1&#34;</span><span class="p">)</span><span class="w">
@@ -3743,10 +3743,10 @@ resources by other tenants:</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c1">// throws an exception if task has tenant id other than &#34;tenant1&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">taskService</span><span class="p">.</span><span class="na">complete</span><span class="p">(</span><span class="s">&#34;someTaskId&#34;</span><span class="p">);</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">finally</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="k">finally</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">identityService</span><span class="p">.</span><span class="na">clearAuthentication</span><span class="p">();</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
 </span></span></span></code></pre></div>
 <h4 id="getting-a-users-tenant-ids-from-the-identity-service">Getting a user&rsquo;s Tenant Ids from the Identity Service</h4>
 <p>The process engine&rsquo;s Identity Service can be used to manage users, groups and tenants as well as their relationships.
@@ -3755,21 +3755,21 @@ The following example shows how to retrieve the lists of groups and tenants for 
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">userMember</span><span class="p">(</span><span class="n">userId</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">list</span><span class="p">();</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">List</span><span class="o">&lt;</span><span class="n">Tenant</span><span class="o">&gt;</span><span class="w"> </span><span class="n">tenants</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">identityService</span><span class="p">.</span><span class="na">createTenantQuery</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">List</span><span class="o">&lt;</span><span class="n">Tenant</span><span class="o">&gt;</span><span class="w"> </span><span class="n">tenants</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">identityService</span><span class="p">.</span><span class="na">createTenantQuery</span><span class="p">()</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">userMember</span><span class="p">(</span><span class="n">userId</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">includingGroupsOfUser</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">list</span><span class="p">();</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">identityService</span><span class="p">.</span><span class="na">setAuthentication</span><span class="p">(</span><span class="n">userId</span><span class="p">,</span><span class="w"> </span><span class="n">groups</span><span class="p">,</span><span class="w"> </span><span class="n">tenants</span><span class="p">);</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c1">// get all tasks visible to user.</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">taskService</span><span class="p">.</span><span class="na">createTaskQuery</span><span class="p">().</span><span class="na">list</span><span class="p">();</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">finally</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="k">finally</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">identityService</span><span class="p">.</span><span class="na">clearAuthentication</span><span class="p">();</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
 </span></span></span></code></pre></div>
 <div class="note bg-info docs-info">
   <h3>LDAP Identity Service</h3>
@@ -3786,9 +3786,9 @@ The following example shows how to retrieve the lists of groups and tenants for 
 <p>Additionally, it is also possible to disable the restrictions for a single command (e.g., for a maintenance task). Use the <code>CommandContext</code> to disable and enable the restrictions for the current command.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">commandContext</span><span class="p">.</span><span class="na">disableTenantCheck</span><span class="p">();</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// e.g., do maintenance tasks over all tenants</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c1">// e.g., do maintenance tasks over all tenants</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">commandContext</span><span class="p">.</span><span class="na">enableTenantCheck</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">commandContext</span><span class="p">.</span><span class="na">enableTenantCheck</span><span class="p">();</span><span class="w">
 </span></span></span></code></pre></div><p>Note that the restrictions can&rsquo;t be enabled for a command if they are disabled in the <code>ProcessEngineConfiguration</code>.</p>
 
 <h4 id="access-all-tenants-as-administrator">Access all Tenants as Administrator</h4>
@@ -3875,7 +3875,7 @@ Shared resources  do not have a tenant id which means that no tenant id is propa
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
 </span></span></span></code></pre></div><p>To use the <code>TenantIdProvider</code>, it must be set in the Process Engine Configuration, for example using the <code>camunda.cfg.xml</code>:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;beans&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;processEngineConfiguration&#34;</span> <span class="na">class=</span><span class="s">&#34;org.cibseven.bpm.engine.impl.cfg.StandaloneProcessEngineConfiguration&#34;</span><span class="nt">&gt;</span>

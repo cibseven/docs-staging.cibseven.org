@@ -16,7 +16,7 @@
 
   <title>REST API Reference | docs.cibseven.org</title>
 
-  <meta name="generator" content="Hugo 0.136.4">
+  <meta name="generator" content="Hugo 0.162.1">
   <link rel="shortcut icon" href="/manual/2.2/img/favicon.ico" type="image/x-icon" />
 
   
@@ -3565,35 +3565,35 @@
 </code></pre><p>Returns a paginated, reduced list of diagram metadata (excludes raw XML bytes).</p>
 <p><strong>Query Parameters:</strong></p>
 <table>
-  <thead>
-      <tr>
-          <th>Parameter</th>
-          <th>Required</th>
-          <th>Description</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><code>firstResult</code></td>
-          <td>Yes</td>
-          <td>Zero-based offset for pagination</td>
-      </tr>
-      <tr>
-          <td><code>maxResults</code></td>
-          <td>Yes</td>
-          <td>Maximum number of results to return</td>
-      </tr>
-      <tr>
-          <td><code>diagramType</code></td>
-          <td>No</td>
-          <td>Filter by type: <code>bpmn-c7</code>, <code>dmn</code>, etc.</td>
-      </tr>
-      <tr>
-          <td><code>keyword</code></td>
-          <td>No</td>
-          <td>Filter by name (case-insensitive substring)</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Parameter</th>
+					<th>Required</th>
+					<th>Description</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>firstResult</code></td>
+					<td>Yes</td>
+					<td>Zero-based offset for pagination</td>
+			</tr>
+			<tr>
+					<td><code>maxResults</code></td>
+					<td>Yes</td>
+					<td>Maximum number of results to return</td>
+			</tr>
+			<tr>
+					<td><code>diagramType</code></td>
+					<td>No</td>
+					<td>Filter by type: <code>bpmn-c7</code>, <code>dmn</code>, etc.</td>
+			</tr>
+			<tr>
+					<td><code>keyword</code></td>
+					<td>No</td>
+					<td>Filter by name (case-insensitive substring)</td>
+			</tr>
+	</tbody>
 </table>
 <p><strong>Response:</strong> <code>200 OK</code> — Array of <code>ProcessDiagramReduce</code> objects.</p>
 <hr>
@@ -3603,35 +3603,35 @@
 </code></pre><p>Returns a combined list of BPMN diagrams and forms in a unified format.</p>
 <p><strong>Query Parameters:</strong></p>
 <table>
-  <thead>
-      <tr>
-          <th>Parameter</th>
-          <th>Required</th>
-          <th>Description</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><code>firstResult</code></td>
-          <td>Yes</td>
-          <td>Pagination offset</td>
-      </tr>
-      <tr>
-          <td><code>maxResults</code></td>
-          <td>Yes</td>
-          <td>Maximum results</td>
-      </tr>
-      <tr>
-          <td><code>keyword</code></td>
-          <td>No</td>
-          <td>Name filter</td>
-      </tr>
-      <tr>
-          <td><code>type</code></td>
-          <td>No</td>
-          <td><code>diagram</code> or <code>form</code></td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Parameter</th>
+					<th>Required</th>
+					<th>Description</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>firstResult</code></td>
+					<td>Yes</td>
+					<td>Pagination offset</td>
+			</tr>
+			<tr>
+					<td><code>maxResults</code></td>
+					<td>Yes</td>
+					<td>Maximum results</td>
+			</tr>
+			<tr>
+					<td><code>keyword</code></td>
+					<td>No</td>
+					<td>Name filter</td>
+			</tr>
+			<tr>
+					<td><code>type</code></td>
+					<td>No</td>
+					<td><code>diagram</code> or <code>form</code></td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 
@@ -3650,25 +3650,25 @@
 </code></pre><p>Uploads a <code>.bpmn</code> or <code>.dmn</code> file and saves it as a new diagram.</p>
 <p><strong>Form Parameters:</strong></p>
 <table>
-  <thead>
-      <tr>
-          <th>Parameter</th>
-          <th>Required</th>
-          <th>Description</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><code>file</code></td>
-          <td>Yes</td>
-          <td>Multipart file upload (<code>.bpmn</code> or <code>.dmn</code>)</td>
-      </tr>
-      <tr>
-          <td><code>overwrite</code></td>
-          <td>Yes</td>
-          <td><code>true</code> to overwrite an existing diagram with the same name</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Parameter</th>
+					<th>Required</th>
+					<th>Description</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>file</code></td>
+					<td>Yes</td>
+					<td>Multipart file upload (<code>.bpmn</code> or <code>.dmn</code>)</td>
+			</tr>
+			<tr>
+					<td><code>overwrite</code></td>
+					<td>Yes</td>
+					<td><code>true</code> to overwrite an existing diagram with the same name</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 
@@ -3759,26 +3759,26 @@
 <p><strong>Path Parameters:</strong> <code>id</code> (diagram ID)</p>
 <p><strong>Response:</strong></p>
 <table>
-  <thead>
-      <tr>
-          <th><code>message</code> value</th>
-          <th>Meaning</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><code>NO_SESSION</code></td>
-          <td>No one else has this diagram open</td>
-      </tr>
-      <tr>
-          <td><code>SAME_USER</code></td>
-          <td>The current user already has it open</td>
-      </tr>
-      <tr>
-          <td><code>SESSION_FOUND</code></td>
-          <td>Another user has it open — response includes <code>userId</code> and <code>openedAt</code></td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th><code>message</code> value</th>
+					<th>Meaning</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>NO_SESSION</code></td>
+					<td>No one else has this diagram open</td>
+			</tr>
+			<tr>
+					<td><code>SAME_USER</code></td>
+					<td>The current user already has it open</td>
+			</tr>
+			<tr>
+					<td><code>SESSION_FOUND</code></td>
+					<td>Another user has it open — response includes <code>userId</code> and <code>openedAt</code></td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 
@@ -3832,49 +3832,49 @@
 </code></pre><p>Returns chat messages for a room in reverse chronological order (newest first).</p>
 <p><strong>Path Parameters:</strong></p>
 <table>
-  <thead>
-      <tr>
-          <th>Parameter</th>
-          <th>Description</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><code>roomId</code></td>
-          <td>Composite room identifier — see <a href="/manual/2.2/webapps/modeler/user-guide/chat/">Real-time Chat</a></td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Parameter</th>
+					<th>Description</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>roomId</code></td>
+					<td>Composite room identifier — see <a href="/manual/2.2/webapps/modeler/user-guide/chat/">Real-time Chat</a></td>
+			</tr>
+	</tbody>
 </table>
 <p><strong>Query Parameters:</strong></p>
 <table>
-  <thead>
-      <tr>
-          <th>Parameter</th>
-          <th>Required</th>
-          <th>Default</th>
-          <th>Description</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><code>limit</code></td>
-          <td>No</td>
-          <td><code>100</code></td>
-          <td>Maximum number of messages to return</td>
-      </tr>
-      <tr>
-          <td><code>before</code></td>
-          <td>No</td>
-          <td>—</td>
-          <td>ISO-8601 datetime — return only messages created before this timestamp (for pagination)</td>
-      </tr>
-      <tr>
-          <td><code>elementId</code></td>
-          <td>No</td>
-          <td>—</td>
-          <td>Filter messages by the BPMN element ID they are attached to</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Parameter</th>
+					<th>Required</th>
+					<th>Default</th>
+					<th>Description</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>limit</code></td>
+					<td>No</td>
+					<td><code>100</code></td>
+					<td>Maximum number of messages to return</td>
+			</tr>
+			<tr>
+					<td><code>before</code></td>
+					<td>No</td>
+					<td>—</td>
+					<td>ISO-8601 datetime — return only messages created before this timestamp (for pagination)</td>
+			</tr>
+			<tr>
+					<td><code>elementId</code></td>
+					<td>No</td>
+					<td>—</td>
+					<td>Filter messages by the BPMN element ID they are attached to</td>
+			</tr>
+	</tbody>
 </table>
 <p><strong>Response:</strong> <code>200 OK</code> — Array of message objects including <code>id</code>, <code>roomId</code>, <code>userId</code>, <code>displayName</code>, <code>content</code>, <code>createdAt</code>, <code>editedAt</code>, and optionally <code>elementId</code>.</p>
 <hr>
@@ -3884,37 +3884,37 @@
 </code></pre><p>Returns the set of users currently subscribed to the room&rsquo;s WebSocket topic.</p>
 <p><strong>Path Parameters:</strong></p>
 <table>
-  <thead>
-      <tr>
-          <th>Parameter</th>
-          <th>Description</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><code>roomId</code></td>
-          <td>Composite room identifier</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Parameter</th>
+					<th>Description</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>roomId</code></td>
+					<td>Composite room identifier</td>
+			</tr>
+	</tbody>
 </table>
 <p><strong>Response:</strong> <code>200 OK</code> — Array of presence objects:</p>
 <table>
-  <thead>
-      <tr>
-          <th>Field</th>
-          <th>Description</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><code>userId</code></td>
-          <td>Authenticated user ID</td>
-      </tr>
-      <tr>
-          <td><code>displayName</code></td>
-          <td>User&rsquo;s display name</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Field</th>
+					<th>Description</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>userId</code></td>
+					<td>Authenticated user ID</td>
+			</tr>
+			<tr>
+					<td><code>displayName</code></td>
+					<td>User&rsquo;s display name</td>
+			</tr>
+	</tbody>
 </table>
 
     </div>

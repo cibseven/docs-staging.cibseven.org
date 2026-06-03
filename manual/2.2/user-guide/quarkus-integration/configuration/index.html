@@ -16,7 +16,7 @@
 
   <title>Quarkus Extension Configuration | docs.cibseven.org</title>
 
-  <meta name="generator" content="Hugo 0.136.4">
+  <meta name="generator" content="Hugo 0.162.1">
   <link rel="shortcut icon" href="/manual/2.2/img/favicon.ico" type="image/x-icon" />
 
   
@@ -3635,12 +3635,12 @@ convert any property names from <code>camelCase</code> to the <code>kebab-case</
 <h4 id="programmatic-configuration">Programmatic Configuration</h4>
 <p>You can also configure the process engine programmatically, by providing a <code>QuarkusProcessEngineConfiguration</code> CDI bean.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@ApplicationScoped</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyCustomEngineConfig</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">QuarkusProcessEngineConfiguration</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyCustomEngineConfig</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">QuarkusProcessEngineConfiguration</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="nf">MyCustomEngineConfig</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// your custom configuration is done here</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">setProcessEngineName</span><span class="p">(</span><span class="s">&#34;customEngine&#34;</span><span class="p">);</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
 </span></span></span></code></pre></div><p>Note that values of properties set in a <code>QuarkusProcessEngineConfiguration</code> instance have a lower ordinal than
 properties defined in a Quarkus config source.</p>
 <p>In the above example, a <code>QuarkusProcessEngineConfiguration</code> CDI bean defines &ldquo;customEngine&rdquo; as the <code>processEngineName</code>.

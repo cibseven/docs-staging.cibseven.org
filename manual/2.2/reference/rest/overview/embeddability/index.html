@@ -16,7 +16,7 @@
 
   <title>Embed the API | docs.cibseven.org</title>
 
-  <meta name="generator" content="Hugo 0.136.4">
+  <meta name="generator" content="Hugo 0.162.1">
   <link rel="shortcut icon" href="/manual/2.2/img/favicon.ico" type="image/x-icon" />
 
   
@@ -3580,7 +3580,7 @@ Furthermore, the engine classes and Jackson&rsquo;s <code>com.fasterxml.jackson.
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/dependency&gt;</span>
 </span></span></code></pre></div><p><strong>Step 2:</strong> Add the REST resources that you need to your JAX-RS application. Example:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@ApplicationPath</span><span class="p">(</span><span class="s">&#34;/&#34;</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyApplication</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Application</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyApplication</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Application</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@Override</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">Set</span><span class="o">&lt;</span><span class="n">Class</span><span class="o">&lt;?&gt;&gt;</span><span class="w"> </span><span class="n">getClasses</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">Set</span><span class="o">&lt;</span><span class="n">Class</span><span class="o">&lt;?&gt;&gt;</span><span class="w"> </span><span class="n">classes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashSet</span><span class="o">&lt;</span><span class="n">Class</span><span class="o">&lt;?&gt;&gt;</span><span class="p">();</span><span class="w">
@@ -3594,7 +3594,7 @@ Furthermore, the engine classes and Jackson&rsquo;s <code>com.fasterxml.jackson.
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">classes</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
 </span></span></span></code></pre></div><p><code>CamundaRestResources.getResourceClasses()</code> contains two JAX-RS resources that serve as the entry points. One of these (<code>org.cibseven.bpm.engine.rest.impl.NamedProcessEngineRestServiceImpl</code>) provides all of the REST resources listed in this document on paths beginning with <code>/engine/{name}</code> while the other (<code>org.cibseven.bpm.engine.rest.impl.DefaultProcessEngineRestServiceImpl</code>) provides access to the default engine&rsquo;s resources on the root path <code>/</code>.</p>
 <p>To restrict the exposed REST resources to specific types (e.g., only process-definition-related methods), a subclass of <code>org.cibseven.bpm.engine.rest.impl.AbstractProcessEngineRestServiceImpl</code> can be implemented and registered with the JAX-RS application. Such a subclass can control which resources get exposed by offering JAX-RS-annotated methods. See the sources of <code>NamedProcessEngineRestServiceImpl</code> and <code>DefaultProcessEngineRestServiceImpl</code> for an example. <strong>Note</strong>: The path to a subresource should always match the path defined in the subresource&rsquo;s interface.</p>
 <p>The configuration class <code>JacksonConfigurator</code> is required to correctly configure the serialization of date fields.

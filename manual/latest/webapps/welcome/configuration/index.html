@@ -16,7 +16,7 @@
 
   <title>Configuration | docs.cibseven.org</title>
 
-  <meta name="generator" content="Hugo 0.136.4">
+  <meta name="generator" content="Hugo 0.162.1">
   <link rel="shortcut icon" href="/manual/latest/img/favicon.ico" type="image/x-icon" />
 
   
@@ -3571,14 +3571,14 @@ available:</p>
 <h3 id="example">Example</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="c1">// …
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">links</span><span class="o">:</span> <span class="p">[</span>
+</span></span></span><span class="line"><span class="cl">  <span class="nx">links</span><span class="o">:</span> <span class="p">[</span>
 </span></span><span class="line"><span class="cl">    <span class="p">{</span>
 </span></span><span class="line"><span class="cl">      <span class="nx">label</span><span class="o">:</span> <span class="s1">&#39;Camunda Forum&#39;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nx">href</span><span class="o">:</span> <span class="s1">&#39;https://forum.camunda.org&#39;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nx">description</span><span class="o">:</span> <span class="s1">&#39;Forum for Camnuda BPM users and developers&#39;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">},</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">// ...
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="p">]</span>
+</span></span></span><span class="line"><span class="cl">  <span class="p">]</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div>
 <h2 id="logo-and-header-color">Logo and Header Color</h2>
@@ -3602,7 +3602,7 @@ and can override the standard styles.</p>
 by changing the <code>app/welcome/scripts/config.js</code> configuration file as follow:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="c1">// …
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">app</span><span class="o">:</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="cl">  <span class="nx">app</span><span class="o">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Welcome&#39;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">vendor</span><span class="o">:</span> <span class="s1">&#39;Company&#39;</span>
 </span></span><span class="line"><span class="cl">  <span class="p">}</span>
@@ -3622,7 +3622,7 @@ directory with the corresponding language code.</p>
 defined via the <code>fallbackLocale</code> property in the configuration file:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="c1">// …
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="s2">&#34;locales&#34;</span><span class="o">:</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="cl">  <span class="s2">&#34;locales&#34;</span><span class="o">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="s2">&#34;availableLocales&#34;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&#34;en&#34;</span><span class="p">,</span> <span class="s2">&#34;de&#34;</span><span class="p">],</span>
 </span></span><span class="line"><span class="cl">    <span class="s2">&#34;fallbackLocale&#34;</span><span class="o">:</span> <span class="s2">&#34;en&#34;</span>
 </span></span><span class="line"><span class="cl">  <span class="p">}</span>
@@ -3637,7 +3637,7 @@ same-origin, the CSRF mechanisms could interfere with each other. To avoid the n
 can change the name of the CSRF cookie in the <code>config.js</code> file as follows:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="c1">// …
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">csrfCookieName</span><span class="o">:</span> <span class="s1">&#39;MY-XSRF-TOKEN&#39;</span>
+</span></span></span><span class="line"><span class="cl">  <span class="nx">csrfCookieName</span><span class="o">:</span> <span class="s1">&#39;MY-XSRF-TOKEN&#39;</span>
 </span></span><span class="line"><span class="cl"><span class="p">};</span>
 </span></span></code></pre></div><p><strong>Note:</strong> Please make sure to change the CSRF cookie name also on <a href="/manual/latest/webapps/shared-options/csrf-prevention/#cookie-name">server-side</a>.</p>
 
@@ -3646,7 +3646,7 @@ can change the name of the CSRF cookie in the <code>config.js</code> file as fol
 not want this message to be shown, you can disable it by adjusting the <code>config.js</code> as follows:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="c1">// …
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">disableWelcomeMessage</span><span class="o">:</span> <span class="kc">true</span>
+</span></span></span><span class="line"><span class="cl">  <span class="nx">disableWelcomeMessage</span><span class="o">:</span> <span class="kc">true</span>
 </span></span><span class="line"><span class="cl"><span class="p">};</span>
 </span></span></code></pre></div><p><strong>Note:</strong> This does only affect the Welcome login page. For other webapps, you need to adjust the corresponding config file as well.</p>
 

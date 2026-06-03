@@ -16,7 +16,7 @@
 
   <title>User operation log | docs.cibseven.org</title>
 
-  <meta name="generator" content="Hugo 0.136.4">
+  <meta name="generator" content="Hugo 0.162.1">
   <link rel="shortcut icon" href="/manual/latest/img/favicon.ico" type="image/x-icon" />
 
   
@@ -3597,10 +3597,10 @@ business context.</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">singleResult</span><span class="p">()</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">.</span><span class="na">getOperationId</span><span class="p">();</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">String</span><span class="w"> </span><span class="n">annotation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;Instances restarted due to wrong turn&#34;</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">historyService</span><span class="p">.</span><span class="na">setAnnotationForOperationLogById</span><span class="p">(</span><span class="n">operationId</span><span class="p">,</span><span class="w"> </span><span class="n">annotation</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">String</span><span class="w"> </span><span class="n">annotation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;Instances restarted due to wrong turn&#34;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">historyService</span><span class="p">.</span><span class="na">setAnnotationForOperationLogById</span><span class="p">(</span><span class="n">operationId</span><span class="p">,</span><span class="w"> </span><span class="n">annotation</span><span class="p">);</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">historyService</span><span class="p">.</span><span class="na">clearAnnotationForOperationLogById</span><span class="p">(</span><span class="n">operationId</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">historyService</span><span class="p">.</span><span class="na">clearAnnotationForOperationLogById</span><span class="p">(</span><span class="n">operationId</span><span class="p">);</span><span class="w">
 </span></span></span></code></pre></div><p><strong>Please note:</strong> Annotations are present on all entries that belong to an operation log.</p>
 <p>Please also see the REST API reference for <a href="/manual/latest/reference/rest/specification/#tag/Historic-User-Operation-Log/operation/setAnnotationUserOperationLog">setting</a> and
 <a href="/manual/latest/reference/rest/specification/#tag/Historic-User-Operation-Log/operation/clearAnnotationUserOperationLog">clearing</a> annotations.</p>

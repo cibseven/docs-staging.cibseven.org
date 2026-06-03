@@ -16,7 +16,7 @@
 
   <title>Writing JSON | docs.cibseven.org</title>
 
-  <meta name="generator" content="Hugo 0.136.4">
+  <meta name="generator" content="Hugo 0.162.1">
   <link rel="shortcut icon" href="/manual/2.2/img/favicon.ico" type="image/x-icon" />
 
   
@@ -3558,16 +3558,16 @@
 <h2 id="writing-to-a-string">Writing to a String:</h2>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import static</span><span class="w"> </span><span class="nn">org.cibseven.spin.Spin.JSON</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">SpinJsonNode</span><span class="w"> </span><span class="n">jsonNode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JSON</span><span class="p">(</span><span class="s">&#34;{\&#34;customer\&#34;: \&#34;Kermit\&#34;}&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">SpinJsonNode</span><span class="w"> </span><span class="n">jsonNode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JSON</span><span class="p">(</span><span class="s">&#34;{\&#34;customer\&#34;: \&#34;Kermit\&#34;}&#34;</span><span class="p">);</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">String</span><span class="w"> </span><span class="n">json</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jsonNode</span><span class="p">.</span><span class="na">toString</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">String</span><span class="w"> </span><span class="n">json</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jsonNode</span><span class="p">.</span><span class="na">toString</span><span class="p">();</span><span class="w">
 </span></span></span></code></pre></div>
 <h2 id="writing-to-a-writer">Writing to a Writer</h2>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import static</span><span class="w"> </span><span class="nn">org.cibseven.spin.Spin.JSON</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">SpinJsonNode</span><span class="w"> </span><span class="n">jsonNode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JSON</span><span class="p">(</span><span class="s">&#34;{\&#34;customer\&#34;: \&#34;Kermit\&#34;}&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">SpinJsonNode</span><span class="w"> </span><span class="n">jsonNode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JSON</span><span class="p">(</span><span class="s">&#34;{\&#34;customer\&#34;: \&#34;Kermit\&#34;}&#34;</span><span class="p">);</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">StringWriter</span><span class="w"> </span><span class="n">writer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jsonNode</span><span class="p">.</span><span class="na">writeToWriter</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">StringWriter</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">StringWriter</span><span class="w"> </span><span class="n">writer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jsonNode</span><span class="p">.</span><span class="na">writeToWriter</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">StringWriter</span><span class="p">());</span><span class="w">
 </span></span></span></code></pre></div>
     </div>
   </div>

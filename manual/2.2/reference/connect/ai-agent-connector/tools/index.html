@@ -16,7 +16,7 @@
 
   <title>Tools | docs.cibseven.org</title>
 
-  <meta name="generator" content="Hugo 0.136.4">
+  <meta name="generator" content="Hugo 0.162.1">
   <link rel="shortcut icon" href="/manual/2.2/img/favicon.ico" type="image/x-icon" />
 
   
@@ -3581,40 +3581,40 @@ never has to orchestrate its own polling loop.</p>
 
 <h3 id="arguments-the-model-supplies">Arguments the model supplies</h3>
 <table>
-  <thead>
-      <tr>
-          <th>Argument</th>
-          <th>Meaning</th>
-          <th>Default</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><code>key</code></td>
-          <td>Process definition key to start (e.g. <code>mcpProcess_hello</code>).</td>
-          <td>—</td>
-      </tr>
-      <tr>
-          <td><code>variables</code></td>
-          <td>Process variables to pass at start; may be empty.</td>
-          <td><code>{}</code></td>
-      </tr>
-      <tr>
-          <td><code>outputPrefix</code></td>
-          <td>Only variables whose names start with this prefix are returned; empty string returns all.</td>
-          <td><code>&quot;&quot;</code></td>
-      </tr>
-      <tr>
-          <td><code>maxRetries</code></td>
-          <td>Max polls after start before giving up.</td>
-          <td><code>5</code></td>
-      </tr>
-      <tr>
-          <td><code>pollIntervalMillis</code></td>
-          <td>Milliseconds between polls.</td>
-          <td><code>2000</code></td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Argument</th>
+					<th>Meaning</th>
+					<th>Default</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>key</code></td>
+					<td>Process definition key to start (e.g. <code>mcpProcess_hello</code>).</td>
+					<td>—</td>
+			</tr>
+			<tr>
+					<td><code>variables</code></td>
+					<td>Process variables to pass at start; may be empty.</td>
+					<td><code>{}</code></td>
+			</tr>
+			<tr>
+					<td><code>outputPrefix</code></td>
+					<td>Only variables whose names start with this prefix are returned; empty string returns all.</td>
+					<td><code>&quot;&quot;</code></td>
+			</tr>
+			<tr>
+					<td><code>maxRetries</code></td>
+					<td>Max polls after start before giving up.</td>
+					<td><code>5</code></td>
+			</tr>
+			<tr>
+					<td><code>pollIntervalMillis</code></td>
+					<td>Milliseconds between polls.</td>
+					<td><code>2000</code></td>
+			</tr>
+	</tbody>
 </table>
 <p><strong>Result map returned to the model:</strong> <code>processInstanceId</code>, <code>processDefinitionId</code>, <code>state</code> (one of
 <code>ACTIVE</code>, <code>SUSPENDED</code>, <code>COMPLETED</code>, <code>EXTERNALLY_TERMINATED</code>, <code>INTERNALLY_TERMINATED</code>), <code>ended</code>,
@@ -3663,7 +3663,7 @@ overlay or otherwise visible to the connector&rsquo;s classloader.</li>
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// ... call your weather service ...</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s">&#34;Munich: 18°C, cloudy&#34;</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
 </span></span></span></code></pre></div>
 <div class="note bg-warning docs-warning">
   <h3>Security Note</h3>

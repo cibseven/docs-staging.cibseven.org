@@ -16,7 +16,7 @@
 
   <title>CIB seven 2.2.0 EE - Release Notes | docs.cibseven.org</title>
 
-  <meta name="generator" content="Hugo 0.136.4">
+  <meta name="generator" content="Hugo 0.162.1">
   <link rel="shortcut icon" href="/manual/latest/img/favicon.ico" type="image/x-icon" />
 
   
@@ -3591,7 +3591,7 @@
 
 <h3 id="new-features">New Features</h3>
 
-<h4 id="ai-agent-connectorhahahugoshortcode216s6hbhb"><a href="/manual/latest/reference/connect/ai-agent-connector/">AI Agent Connector</a></h4>
+<h4 id="ai-agent-connector"><a href="/manual/latest/reference/connect/ai-agent-connector/">AI Agent Connector</a></h4>
 <ul>
 <li>New <code>cibseven-connect-ai-agent</code> module that lets BPMN service tasks invoke LLM-backed agents via the standard <code>camunda:connector</code> input/output parameter mapping — no custom Java code required</li>
 <li>Runtime supports OpenAI, Azure OpenAI, Ollama, and any OpenAI-compatible endpoint via LangChain4j</li>
@@ -3605,7 +3605,7 @@
 <li>Default LLM model overridable by operators via system property or environment variable</li>
 </ul>
 
-<h4 id="bpmn-ai-agenthahahugoshortcode216s7hbhb-_ee-exclusive-beta_"><a href="/manual/latest/webapps/modeler/user-guide/bpmn-ai-chat/">BPMN AI Agent</a> <em>(EE exclusive, beta)</em></h4>
+<h4 id="bpmn-ai-agent-ee-exclusive-beta"><a href="/manual/latest/webapps/modeler/user-guide/bpmn-ai-chat/">BPMN AI Agent</a> <em>(EE exclusive, beta)</em></h4>
 <ul>
 <li>Real-time, streaming AI chat panel docked in the modeler — describe a change in natural
 language and the agent designs, generates, edits, reviews, and explains BPMN directly on the canvas</li>
@@ -3642,7 +3642,7 @@ Discard, with an Auto-accept toggle to apply edits automatically</li>
 <li>OAuth2 client credentials flow for external task clients</li>
 </ul>
 
-<h4 id="scim-20-identity-provider-_beta_">SCIM 2.0 Identity Provider <em>(beta)</em></h4>
+<h4 id="scim-20-identity-provider-beta">SCIM 2.0 Identity Provider <em>(beta)</em></h4>
 <ul>
 <li>New <code>identity-scim</code> engine plugin for SCIM 2.0-based identity federation — connect CIB seven to any SCIM-compliant user directory (e.g. Okta, Azure AD, Microsoft Entra)</li>
 <li>Read-only and writable identity provider implementations for full user and group lifecycle management</li>
@@ -3653,12 +3653,12 @@ Discard, with an Auto-accept toggle to apply edits automatically</li>
 <li><strong>Beta:</strong> works for limited use cases and is under active development</li>
 </ul>
 
-<h4 id="multi-engine-support-_since-214_">Multi-Engine Support <em>(since 2.1.4)</em></h4>
+<h4 id="multi-engine-support-since-214">Multi-Engine Support <em>(since 2.1.4)</em></h4>
 <ul>
 <li>Base REST URL fallback for the &ldquo;default&rdquo; engine (omitting <code>/engine/default</code> suffix) for backward compatibility <em>(since 2.1.4)</em></li>
 </ul>
 
-<h4 id="direct-provider-_beta_">Direct Provider <em>(beta)</em></h4>
+<h4 id="direct-provider-beta">Direct Provider <em>(beta)</em></h4>
 <ul>
 <li>New <code>SevenDirectProvider</code> (<code>SevenProviderEE</code> in the EE edition) — an alternative <code>BpmProvider</code> implementation that accesses the process engine directly without REST, suitable for embedded deployments</li>
 <li><code>BpmProviderEE</code> beans for enhanced direct BPM integration in the EE context</li>
@@ -3671,7 +3671,7 @@ Discard, with an Auto-accept toggle to apply edits automatically</li>
 <li>Only violated password rules are displayed; validation resets on input</li>
 </ul>
 
-<h4 id="modelerhahahugoshortcode216s8hbhb-enhancements"><a href="/manual/latest/webapps/modeler/">Modeler</a> Enhancements</h4>
+<h4 id="modeler-enhancements"><a href="/manual/latest/webapps/modeler/">Modeler</a> Enhancements</h4>
 <ul>
 <li>First stable release of <code>cibseven-modeler</code> <code>1.0.0</code> and <code>cibseven-modeler-ee</code> <code>1.0.0</code></li>
 <li>Element template icons displayed in the BPMN diagram and in the template chooser modal</li>
@@ -3685,7 +3685,7 @@ Discard, with an Auto-accept toggle to apply edits automatically</li>
 <li>Fixed unique IDs for internal/external template filter checkboxes</li>
 </ul>
 
-<h4 id="modeler-ee-features-_ee-exclusive_">Modeler EE Features <em>(EE exclusive)</em></h4>
+<h4 id="modeler-ee-features-ee-exclusive">Modeler EE Features <em>(EE exclusive)</em></h4>
 <ul>
 <li><strong>Diagram Snapshots</strong> — capture and manage diagram version snapshots with full version history</li>
 <li><strong>Version Comparison</strong> — compare any two diagram snapshots side-by-side with visual diff highlighting</li>
@@ -3777,7 +3777,7 @@ Discard, with an Auto-accept toggle to apply edits automatically</li>
 <li><code>eslint-plugin-vuejs-accessibility</code> integrated for ongoing accessibility linting</li>
 </ul>
 
-<h4 id="process-management-_ee-exclusive_">Process Management <em>(EE exclusive)</em></h4>
+<h4 id="process-management-ee-exclusive">Process Management <em>(EE exclusive)</em></h4>
 <ul>
 <li>Fixed a problem deleting all versions of a process definition</li>
 <li>Deferred store update in <code>RemoveAllVersionsModal</code> until the user dismisses the success modal, preventing premature UI state changes</li>
@@ -3943,18 +3943,18 @@ Discard, with an Auto-accept toggle to apply edits automatically</li>
         <li><a href="#configuration-changes">Configuration Changes</a></li>
         <li><a href="#new-features">New Features</a>
           <ul>
-            <li><a href="#ai-agent-connectorhahahugoshortcode216s6hbhb"><a href="HAHAHUGOSHORTCODE216s6HBHB">AI Agent Connector</a></a></li>
-            <li><a href="#bpmn-ai-agenthahahugoshortcode216s7hbhb-_ee-exclusive-beta_"><a href="HAHAHUGOSHORTCODE216s7HBHB">BPMN AI Agent</a> <em>(EE exclusive, beta)</em></a></li>
+            <li><a href="#ai-agent-connector">AI Agent Connector</a></li>
+            <li><a href="#bpmn-ai-agent-ee-exclusive-beta">BPMN AI Agent <em>(EE exclusive, beta)</em></a></li>
             <li><a href="#rest-engine">REST Engine</a></li>
             <li><a href="#historic-process-statistics">Historic Process Statistics</a></li>
             <li><a href="#task-variables">Task Variables</a></li>
             <li><a href="#external-task-client">External Task Client</a></li>
-            <li><a href="#scim-20-identity-provider-_beta_">SCIM 2.0 Identity Provider <em>(beta)</em></a></li>
-            <li><a href="#multi-engine-support-_since-214_">Multi-Engine Support <em>(since 2.1.4)</em></a></li>
-            <li><a href="#direct-provider-_beta_">Direct Provider <em>(beta)</em></a></li>
+            <li><a href="#scim-20-identity-provider-beta">SCIM 2.0 Identity Provider <em>(beta)</em></a></li>
+            <li><a href="#multi-engine-support-since-214">Multi-Engine Support <em>(since 2.1.4)</em></a></li>
+            <li><a href="#direct-provider-beta">Direct Provider <em>(beta)</em></a></li>
             <li><a href="#user-profile--password-validation">User Profile — Password Validation</a></li>
-            <li><a href="#modelerhahahugoshortcode216s8hbhb-enhancements"><a href="HAHAHUGOSHORTCODE216s8HBHB">Modeler</a> Enhancements</a></li>
-            <li><a href="#modeler-ee-features-_ee-exclusive_">Modeler EE Features <em>(EE exclusive)</em></a></li>
+            <li><a href="#modeler-enhancements">Modeler Enhancements</a></li>
+            <li><a href="#modeler-ee-features-ee-exclusive">Modeler EE Features <em>(EE exclusive)</em></a></li>
             <li><a href="#docker--opentelemetry--jmx">Docker — OpenTelemetry &amp; JMX</a></li>
           </ul>
         </li>
@@ -3970,7 +3970,7 @@ Discard, with an Auto-accept toggle to apply edits automatically</li>
             <li><a href="#deployments">Deployments</a></li>
             <li><a href="#analytics">Analytics</a></li>
             <li><a href="#accessibility">Accessibility</a></li>
-            <li><a href="#process-management-_ee-exclusive_">Process Management <em>(EE exclusive)</em></a></li>
+            <li><a href="#process-management-ee-exclusive">Process Management <em>(EE exclusive)</em></a></li>
           </ul>
         </li>
         <li><a href="#bug-fixes">Bug Fixes</a></li>

@@ -16,7 +16,7 @@
 
   <title>SOAP Connector | docs.cibseven.org</title>
 
-  <meta name="generator" content="Hugo 0.136.4">
+  <meta name="generator" content="Hugo 0.162.1">
   <link rel="shortcut icon" href="/manual/latest/img/favicon.ico" type="image/x-icon" />
 
   
@@ -3612,15 +3612,15 @@ available:</p>
 </table>
 <p>This can be used as follows:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">HttpRequest</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">http</span><span class="p">.</span><span class="na">createRequest</span><span class="p">();</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">request</span><span class="p">.</span><span class="na">setRequestParameter</span><span class="p">(</span><span class="s">&#34;method&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;GET&#34;</span><span class="p">);</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">request</span><span class="p">.</span><span class="na">setRequestParameter</span><span class="p">(</span><span class="s">&#34;url&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;http://camunda.org&#34;</span><span class="p">);</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">request</span><span class="p">.</span><span class="na">setRequestParameter</span><span class="p">(</span><span class="s">&#34;payload&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;hello world!&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">request</span><span class="p">.</span><span class="na">setRequestParameter</span><span class="p">(</span><span class="s">&#34;method&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;GET&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">request</span><span class="p">.</span><span class="na">setRequestParameter</span><span class="p">(</span><span class="s">&#34;url&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;http://camunda.org&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">request</span><span class="p">.</span><span class="na">setRequestParameter</span><span class="p">(</span><span class="s">&#34;payload&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;hello world!&#34;</span><span class="p">);</span><span class="w">
 </span></span></span></code></pre></div>
 <h2 id="response">Response</h2>
 <p>A response contains the status code, response headers and body.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">Integer</span><span class="w"> </span><span class="n">statusCode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="na">getStatusCode</span><span class="p">();</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">String</span><span class="w"> </span><span class="n">contentTypeHeader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="na">getHeader</span><span class="p">(</span><span class="s">&#34;Content-Type&#34;</span><span class="p">);</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">String</span><span class="w"> </span><span class="n">body</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="na">getResponse</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">String</span><span class="w"> </span><span class="n">contentTypeHeader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="na">getHeader</span><span class="p">(</span><span class="s">&#34;Content-Type&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">String</span><span class="w"> </span><span class="n">body</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="na">getResponse</span><span class="p">();</span><span class="w">
 </span></span></span></code></pre></div><p>After the response was processed it should be closed.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">response</span><span class="p">.</span><span class="na">close</span><span class="p">()</span><span class="w">
 </span></span></span></code></pre></div>
@@ -3648,8 +3648,8 @@ are available:</p>
 </table>
 <p>This can be used as follows:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">response</span><span class="p">.</span><span class="na">getResponseParameter</span><span class="p">(</span><span class="s">&#34;statusCode&#34;</span><span class="p">);</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">response</span><span class="p">.</span><span class="na">getResponseParameter</span><span class="p">(</span><span class="s">&#34;headers&#34;</span><span class="p">);</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">response</span><span class="p">.</span><span class="na">getResponseParameter</span><span class="p">(</span><span class="s">&#34;response&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">response</span><span class="p">.</span><span class="na">getResponseParameter</span><span class="p">(</span><span class="s">&#34;headers&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">response</span><span class="p">.</span><span class="na">getResponseParameter</span><span class="p">(</span><span class="s">&#34;response&#34;</span><span class="p">);</span><span class="w">
 </span></span></span></code></pre></div>
     </div>
   </div>

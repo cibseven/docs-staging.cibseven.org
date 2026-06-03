@@ -16,7 +16,7 @@
 
   <title>Spring Security OAuth2 Integration | docs.cibseven.org</title>
 
-  <meta name="generator" content="Hugo 0.136.4">
+  <meta name="generator" content="Hugo 0.162.1">
   <link rel="shortcut icon" href="/manual/latest/img/favicon.ico" type="image/x-icon" />
 
   
@@ -3619,7 +3619,7 @@ excluding the auto configuration classes:</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">CamundaSpringSecurityOAuth2EngineAutoConfiguration</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">CamundaSpringSecurityOAuth2WebappAutoConfiguration</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">CamundaBpmSpringSecurityDisableAutoConfiguration</span><span class="p">.</span><span class="na">class</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">});</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">});</span><span class="w">
 </span></span></span></code></pre></div><p>Or in the application properties:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">spring</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">autoconfigure</span><span class="p">:</span><span class="w">
@@ -3775,14 +3775,14 @@ Additionally, we highlight and explain a few lines for clarity:</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">group-name-attribute</span><span class="p">:</span><span class="w"> </span><span class="l">keycloak-groups</span><span class="w"> </span><span class="c"># 4</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">run.auth.enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="c"># 8</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spring.security</span><span class="p">:</span><span class="w"> </span><span class="c"># 5</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">spring.security</span><span class="p">:</span><span class="w"> </span><span class="c"># 5</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">oauth2</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">resourceserver</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">jwt</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c"># principal-claim-name: preferred_username # 7</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">jwk-set-uri</span><span class="p">:</span><span class="w"> </span><span class="l">&lt;certsUri&gt;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">cibseven.webclient</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">cibseven.webclient</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">user</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">provider</span><span class="p">:</span><span class="w"> </span><span class="l">org.cibseven.webapp.auth.OAuth2UserProvider</span><span class="w"> </span><span class="c"># 1</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">sso</span><span class="p">:</span><span class="w"> </span><span class="c"># 2</span><span class="w">
@@ -3845,7 +3845,7 @@ Additionally, we also mark and explain a few lines:</p>
 </span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="nt">identity-provider</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="nt">group-name-attribute</span><span class="p">:</span><span class="w"> </span><span class="l">okta-groups</span><span class="w"> </span><span class="c"># 2</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spring.security</span><span class="p">:</span><span class="w"> </span><span class="c"># 3</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">spring.security</span><span class="p">:</span><span class="w"> </span><span class="c"># 3</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="nt">oauth2</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="nt">client</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="nt">registration</span><span class="p">:</span><span class="w">

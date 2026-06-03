@@ -16,7 +16,7 @@
 
   <title>External Task Client Spring Boot Starter | docs.cibseven.org</title>
 
-  <meta name="generator" content="Hugo 0.136.4">
+  <meta name="generator" content="Hugo 0.162.1">
   <link rel="shortcut icon" href="/manual/latest/img/favicon.ico" type="image/x-icon" />
 
   
@@ -3592,7 +3592,7 @@ either referencing the topic name in your <code>application.yml</code> file:</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">processDefinitionKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;loan_process&#34;</span><span class="p">,</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">includeExtensionProperties</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">variableNames</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;defaultScore&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">)</span><span class="w">
 </span></span></span></code></pre></div><p>Please find the complete list of attributes in the
 <a href="/javadoc/cibseven/2.2/org/cibseven/bpm/client/spring/annotation/ExternalTaskSubscription.html">Javadocs</a>
 .</p>
@@ -3601,8 +3601,8 @@ either referencing the topic name in your <code>application.yml</code> file:</p>
 <h4 id="handler-configuration-example">Handler Configuration Example</h4>
 <p>Please consider the following complete handler bean example:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Configuration</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@ExternalTaskSubscription</span><span class="p">(</span><span class="s">&#34;creditScoreChecker&#34;</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CreditScoreCheckerHandler</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">ExternalTaskHandler</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nd">@ExternalTaskSubscription</span><span class="p">(</span><span class="s">&#34;creditScoreChecker&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CreditScoreCheckerHandler</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">ExternalTaskHandler</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@Override</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">execute</span><span class="p">(</span><span class="n">ExternalTask</span><span class="w"> </span><span class="n">externalTask</span><span class="p">,</span><span class="w"> 
@@ -3610,10 +3610,10 @@ either referencing the topic name in your <code>application.yml</code> file:</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// add your business logic here</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
 </span></span></span></code></pre></div><p>If you want to define multiple handler beans within one configuration class, you can do it as follows:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Configuration</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">HandlerConfiguration</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">HandlerConfiguration</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@Bean</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@ExternalTaskSubscription</span><span class="p">(</span><span class="s">&#34;creditScoreChecker&#34;</span><span class="p">)</span><span class="w">
@@ -3633,7 +3633,7 @@ either referencing the topic name in your <code>application.yml</code> file:</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">};</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
 </span></span></span></code></pre></div>
 <h4 id="openclose-a-topic-subscription">Open/close a Topic Subscription</h4>
 <p>When not further configured, a topic subscription is automatically opened when the Spring Boot
@@ -3646,7 +3646,7 @@ application is started.</p>
 <p>When the subscription has been initialized, a <code>SubscriptionInitializedEvent</code> is emitted, and the
 topic subscription can be opened or closed:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Configuration</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">SubscriptionInitializedListener</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">SubscriptionInitializedListener</span><span class="w"> 
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">implements</span><span class="w"> </span><span class="n">ApplicationListener</span><span class="o">&lt;</span><span class="n">SubscriptionInitializedEvent</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@Override</span><span class="w">
@@ -3670,7 +3670,7 @@ topic subscription can be opened or closed:</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
 </span></span></span></code></pre></div>
 <h3 id="configuration">Configuration</h3>
 
@@ -3977,23 +3977,23 @@ topic subscription can be opened or closed:</p>
 extension point, for example, to implement a custom authentication strategy like OAuth 2.0.</p>
 <p>You can register one or more request interceptors by defining beans of type <code>ClientRequestInterceptor</code>:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Configuration</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">RequestInterceptorConfiguration</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">ClientRequestInterceptor</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">RequestInterceptorConfiguration</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">ClientRequestInterceptor</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c1">// ...</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
 </span></span></span></code></pre></div>
 <h4 id="backoff-strategy">Backoff Strategy</h4>
 <p>By default, the Client uses an exponential backoff strategy. You can replace it with a custom strategy
 by defining a bean of type <code>BackoffStrategy</code>:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Configuration</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">BackoffStrategyConfiguration</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">BackoffStrategy</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">BackoffStrategyConfiguration</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">BackoffStrategy</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c1">// ...</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
 </span></span></span></code></pre></div>
 <h4 id="resolving-properties">Resolving Properties</h4>
 <p>String-based Client configuration properties can be resolved from a custom properties file by
 defining a bean of type <code>PropertySourcesPlaceholderConfigurer</code>:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Configuration</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">PropertyPlaceholderConfiguration</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">PropertyPlaceholderConfiguration</span><span class="w"> 
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">extends</span><span class="w"> </span><span class="n">PropertySourcesPlaceholderConfigurer</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="nf">PropertyPlaceholderConfiguration</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -4002,7 +4002,7 @@ defining a bean of type <code>PropertySourcesPlaceholderConfigurer</code>:</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">setLocation</span><span class="p">(</span><span class="n">location</span><span class="p">);</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
 </span></span></span></code></pre></div><p>When using the example shown above, the Client tries to resolve string-based properties from a
 <code>client.properties</code> file as follows:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-properties" data-lang="properties"><span class="line"><span class="cl"><span class="na">client.baseUrl</span><span class="o">=</span><span class="s">http://localhost:8080/engine-rest</span>
@@ -4019,7 +4019,7 @@ defining a bean of type <code>PropertySourcesPlaceholderConfigurer</code>:</p>
 <h4 id="custom-client">Custom Client</h4>
 <p>You can bootstrap the Client programmatically, which skips the internal creation of the Client:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Configuration</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CustomClientConfiguration</span><span class="w"> </span><span class="p">{</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CustomClientConfiguration</span><span class="w"> </span><span class="p">{</span><span class="w"> 
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@Bean</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">ExternalTaskClient</span><span class="w"> </span><span class="nf">customClient</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -4028,7 +4028,7 @@ defining a bean of type <code>PropertySourcesPlaceholderConfigurer</code>:</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
 </span></span></span></code></pre></div>
 <h3 id="beans">Beans</h3>
 <p>You can define handler beans, but more beans are defined internally, and they are beyond your control.
@@ -4044,10 +4044,10 @@ However, these beans can be accessed via auto wiring.</p>
 <pre tabindex="0"><code>handler bean name + &#34;Subscription&#34;
 </code></pre><p>For instance, the following handler bean definition:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Bean</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@ExternalTaskSubscription</span><span class="p">(</span><span class="s">&#34;creditScoreChecker&#34;</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="n">ExternalTaskHandler</span><span class="w"> </span><span class="nf">creditScoreCheckerHandler</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nd">@ExternalTaskSubscription</span><span class="p">(</span><span class="s">&#34;creditScoreChecker&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="n">ExternalTaskHandler</span><span class="w"> </span><span class="nf">creditScoreCheckerHandler</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c1">// ...</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
 </span></span></span></code></pre></div><p>Will result in the subscription bean name:</p>
 <pre tabindex="0"><code>creditScoreCheckerHandlerSubscription
 </code></pre>

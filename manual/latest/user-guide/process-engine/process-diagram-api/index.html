@@ -16,7 +16,7 @@
 
   <title>Process Diagram Visualization | docs.cibseven.org</title>
 
-  <meta name="generator" content="Hugo 0.136.4">
+  <meta name="generator" content="Hugo 0.162.1">
   <link rel="shortcut icon" href="/manual/latest/img/favicon.ico" type="image/x-icon" />
 
   
@@ -3571,7 +3571,7 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">BpmnViewer</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;bpmn-js&#39;</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">xml</span> <span class="o">=</span> <span class="nx">getBpmnXml</span><span class="p">();</span> <span class="c1">// get the process xml via REST
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">var</span> <span class="nx">viewer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">BpmnViewer</span><span class="p">({</span> <span class="nx">container</span><span class="o">:</span> <span class="s1">&#39;body&#39;</span> <span class="p">});</span>
+</span></span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">viewer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">BpmnViewer</span><span class="p">({</span> <span class="nx">container</span><span class="o">:</span> <span class="s1">&#39;body&#39;</span> <span class="p">});</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="nx">viewer</span><span class="p">.</span><span class="nx">importXML</span><span class="p">(</span><span class="nx">xml</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">

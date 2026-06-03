@@ -16,7 +16,7 @@
 
   <title>Configuration | docs.cibseven.org</title>
 
-  <meta name="generator" content="Hugo 0.136.4">
+  <meta name="generator" content="Hugo 0.162.1">
   <link rel="shortcut icon" href="/manual/latest/img/favicon.ico" type="image/x-icon" />
 
   
@@ -3589,7 +3589,7 @@ and can override the standard styles.</p>
 by changing the <code>app/admin/scripts/config.js</code> configuration file as follow:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="c1">// …
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">app</span><span class="o">:</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="cl">  <span class="nx">app</span><span class="o">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Admin&#39;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">vendor</span><span class="o">:</span> <span class="s1">&#39;Company&#39;</span>
 </span></span><span class="line"><span class="cl">  <span class="p">}</span>
@@ -3608,7 +3608,7 @@ directory with the corresponding language code.</p>
 <p>If the browser uses a language which is not available, Admin uses the locale defined via the <code>fallbackLocale</code> property in the configuration file:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="c1">// …
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="s2">&#34;locales&#34;</span><span class="o">:</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="cl">  <span class="s2">&#34;locales&#34;</span><span class="o">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="s2">&#34;availableLocales&#34;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&#34;en&#34;</span><span class="p">,</span> <span class="s2">&#34;de&#34;</span><span class="p">],</span>
 </span></span><span class="line"><span class="cl">    <span class="s2">&#34;fallbackLocale&#34;</span><span class="o">:</span> <span class="s2">&#34;en&#34;</span>
 </span></span><span class="line"><span class="cl">  <span class="p">}</span> 
@@ -3623,7 +3623,7 @@ custom frontend module. Admin shares the frontend module structure with <a href=
 <p>Add your files to the <code>customScripts</code> property of the <code>app/admin/scripts/config.js</code> file:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="c1">// …
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">customScripts</span><span class="o">:</span> 
+</span></span></span><span class="line"><span class="cl">  <span class="nx">customScripts</span><span class="o">:</span> 
 </span></span><span class="line"><span class="cl">    <span class="p">[</span><span class="s1">&#39;custom-module/module.js&#39;</span><span class="p">]</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>This includes a <code>custom-module/module.js</code> file. The path is relative to the <code>app/admin</code> folder in the CIB seven webapp .war file.</p>
@@ -3633,7 +3633,7 @@ custom frontend module. Admin shares the frontend module structure with <a href=
 same origin, the CSRF mechanisms could interfere with each other. To avoid the name conflict, change the name of the CSRF cookie in the <code>config.js</code> file as follows:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="c1">// …
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">csrfCookieName</span><span class="o">:</span> <span class="s1">&#39;MY-XSRF-TOKEN&#39;</span>
+</span></span></span><span class="line"><span class="cl">  <span class="nx">csrfCookieName</span><span class="o">:</span> <span class="s1">&#39;MY-XSRF-TOKEN&#39;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p><strong>Note:</strong> Ensure you also change the CSRF cookie name on <a href="/manual/latest/webapps/shared-options/csrf-prevention/#cookie-name">server-side</a>.</p>
 
@@ -3642,7 +3642,7 @@ same origin, the CSRF mechanisms could interfere with each other. To avoid the n
 not want this message to be shown, you can disable it by adjusting the <code>config.js</code> as follows:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="c1">// …
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">disableWelcomeMessage</span><span class="o">:</span> <span class="kc">true</span>
+</span></span></span><span class="line"><span class="cl">  <span class="nx">disableWelcomeMessage</span><span class="o">:</span> <span class="kc">true</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p><strong>Note:</strong> This only affects the Admin login page. For other web apps, adjust the corresponding config file as well.</p>
 
@@ -3650,7 +3650,7 @@ not want this message to be shown, you can disable it by adjusting the <code>con
 <p>The default maximum length of a user operation log annotation is 4000 characters. Some databases have smaller limits. You can change the maximum allowed input length in the <code>config.js</code> file as follows:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="c1">// …
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">userOperationLogAnnotationLength</span><span class="o">:</span> <span class="mi">4000</span>
+</span></span></span><span class="line"><span class="cl">  <span class="nx">userOperationLogAnnotationLength</span><span class="o">:</span> <span class="mi">4000</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p><strong>Note:</strong> This only affects the Admin Operation Log. For the Cockpit Operation Log, check out the <a href="/manual/latest/webapps/cockpit/extend/configuration/#user-operation-log-annotation-length">Cockpit configuration</a>.</p>
 
@@ -3658,7 +3658,7 @@ not want this message to be shown, you can disable it by adjusting the <code>con
 <p>The task worker metrics (TW) on the metrics page are displayed by default. You can disable this behavior by adjusting the <code>config.js</code> as follows:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="c1">// …
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">alwaysShowUniqueTaskWorkerMetrics</span><span class="o">:</span> <span class="kc">false</span>
+</span></span></span><span class="line"><span class="cl">  <span class="nx">alwaysShowUniqueTaskWorkerMetrics</span><span class="o">:</span> <span class="kc">false</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>If disabled, the metrics can still be displayed on-demand via a checkbox.</p>
 

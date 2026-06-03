@@ -16,7 +16,7 @@
 
   <title>Participating in the Form Lifecycle | docs.cibseven.org</title>
 
-  <meta name="generator" content="Hugo 0.136.4">
+  <meta name="generator" content="Hugo 0.162.1">
   <link rel="shortcut icon" href="/manual/2.2/img/favicon.ico" type="image/x-icon" />
 
   
@@ -3571,13 +3571,13 @@ useful to declare additional variables programmatically:</p>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="nx">camForm</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;form-loaded&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">      <span class="c1">// this callback is executed *before* the variables are loaded from the server.
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="c1">// if we declare a variable here, its value will be fetched as well
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="nx">variableManager</span><span class="p">.</span><span class="nx">fetchVariable</span><span class="p">(</span><span class="s1">&#39;customVariable&#39;</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="cl">      <span class="c1">// if we declare a variable here, its value will be fetched as well
+</span></span></span><span class="line"><span class="cl">      <span class="nx">variableManager</span><span class="p">.</span><span class="nx">fetchVariable</span><span class="p">(</span><span class="s1">&#39;customVariable&#39;</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="p">});</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="nx">camForm</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;variables-fetched&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">      <span class="c1">// this callback is executed *after* the variables have been fetched from the server
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="kd">var</span> <span class="nx">variableValue</span> <span class="o">=</span> <span class="nx">variableManager</span><span class="p">.</span><span class="nx">variableValue</span><span class="p">(</span><span class="s1">&#39;customVariable&#39;</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="cl">      <span class="kd">var</span> <span class="nx">variableValue</span> <span class="o">=</span> <span class="nx">variableManager</span><span class="p">.</span><span class="nx">variableValue</span><span class="p">(</span><span class="s1">&#39;customVariable&#39;</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">      <span class="nx">$</span><span class="p">(</span> <span class="s1">&#39;#my-container&#39;</span><span class="p">,</span> <span class="nx">camForm</span><span class="p">.</span><span class="nx">formElement</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="nx">variableValue</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="p">});</span>
 </span></span><span class="line"><span class="cl">  <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
@@ -3594,10 +3594,10 @@ variables to the submit:</p>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="nx">camForm</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;submit&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">      <span class="c1">// this callback is executed when the form is submitted, *before* the submit request to
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="c1">// the server is executed
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span></span><span class="line"><span class="cl">      <span class="c1">// the server is executed
+</span></span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">      <span class="c1">// creating a new variable will add it to the form submit
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="nx">variableManager</span><span class="p">.</span><span class="nx">createVariable</span><span class="p">({</span>
+</span></span></span><span class="line"><span class="cl">      <span class="nx">variableManager</span><span class="p">.</span><span class="nx">createVariable</span><span class="p">({</span>
 </span></span><span class="line"><span class="cl">        <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;customVariable&#39;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">        <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;String&#39;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">        <span class="nx">value</span><span class="o">:</span> <span class="s1">&#39;Some Value...&#39;</span><span class="p">,</span>
@@ -3632,14 +3632,14 @@ use any <code>cam-variable-*</code> directives.</p>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="nx">camForm</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;form-loaded&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">      <span class="c1">// fetch the variable &#39;customVariable&#39;
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="nx">variableManager</span><span class="p">.</span><span class="nx">fetchVariable</span><span class="p">(</span><span class="s1">&#39;customVariable&#39;</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="cl">      <span class="nx">variableManager</span><span class="p">.</span><span class="nx">fetchVariable</span><span class="p">(</span><span class="s1">&#39;customVariable&#39;</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="p">});</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="nx">camForm</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;variables-fetched&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">      <span class="c1">// value has been fetched from the backend
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="kd">var</span> <span class="nx">value</span> <span class="o">=</span> <span class="nx">variableManager</span><span class="p">.</span><span class="nx">variableValue</span><span class="p">(</span><span class="s1">&#39;customVariable&#39;</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="cl">      <span class="kd">var</span> <span class="nx">value</span> <span class="o">=</span> <span class="nx">variableManager</span><span class="p">.</span><span class="nx">variableValue</span><span class="p">(</span><span class="s1">&#39;customVariable&#39;</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">      <span class="c1">// write the variable value to the form field
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="nx">customField</span><span class="p">.</span><span class="nx">val</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="cl">      <span class="nx">customField</span><span class="p">.</span><span class="nx">val</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="p">});</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="nx">camForm</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;submit&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">evt</span><span class="p">)</span> <span class="p">{</span>
@@ -3648,11 +3648,11 @@ use any <code>cam-variable-*</code> directives.</p>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">      <span class="k">if</span><span class="p">(</span><span class="nx">fieldValue</span> <span class="o">===</span> <span class="nx">backendValue</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="c1">// prevent submit if value of form field was not changed
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nx">evt</span><span class="p">.</span><span class="nx">submitPrevented</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="cl">        <span class="nx">evt</span><span class="p">.</span><span class="nx">submitPrevented</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="c1">// set value in variable manager so that it can be sent to backend
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nx">variableManager</span><span class="p">.</span><span class="nx">variableValue</span><span class="p">(</span><span class="s1">&#39;customVariable&#39;</span><span class="p">,</span> <span class="nx">fieldValue</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="cl">        <span class="nx">variableManager</span><span class="p">.</span><span class="nx">variableValue</span><span class="p">(</span><span class="s1">&#39;customVariable&#39;</span><span class="p">,</span> <span class="nx">fieldValue</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">      <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="p">});</span>
 </span></span><span class="line"><span class="cl">  <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
@@ -3675,17 +3675,17 @@ use any <code>cam-variable-*</code> directives.</p>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">  <span class="nx">camForm</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;form-loaded&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">// fetch the variable &#39;customVariable&#39;
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">variableManager</span><span class="p">.</span><span class="nx">fetchVariable</span><span class="p">(</span><span class="s1">&#39;customVariable&#39;</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="cl">    <span class="nx">variableManager</span><span class="p">.</span><span class="nx">fetchVariable</span><span class="p">(</span><span class="s1">&#39;customVariable&#39;</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">  <span class="p">});</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">  <span class="nx">camForm</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;variables-fetched&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">// value has been fetched, bind to $scope.customerId
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">$scope</span><span class="p">.</span><span class="nx">customerId</span> <span class="o">=</span> <span class="nx">variableManager</span><span class="p">.</span><span class="nx">variable</span><span class="p">(</span><span class="s1">&#39;customVariable&#39;</span><span class="p">).</span><span class="nx">value</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="cl">    <span class="nx">$scope</span><span class="p">.</span><span class="nx">customerId</span> <span class="o">=</span> <span class="nx">variableManager</span><span class="p">.</span><span class="nx">variable</span><span class="p">(</span><span class="s1">&#39;customVariable&#39;</span><span class="p">).</span><span class="nx">value</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">  <span class="p">});</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">  <span class="nx">camForm</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;submit&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">evt</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">// set value in variable manager so that it can be sent to backend
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">variableManager</span><span class="p">.</span><span class="nx">variableValue</span><span class="p">(</span><span class="s1">&#39;customVariable&#39;</span><span class="p">,</span> <span class="nx">$scope</span><span class="p">.</span><span class="nx">customerId</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="cl">    <span class="nx">variableManager</span><span class="p">.</span><span class="nx">variableValue</span><span class="p">(</span><span class="s1">&#39;customVariable&#39;</span><span class="p">,</span> <span class="nx">$scope</span><span class="p">.</span><span class="nx">customerId</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">  <span class="p">});</span>
 </span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">

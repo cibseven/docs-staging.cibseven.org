@@ -16,7 +16,7 @@
 
   <title>Audit Trail &amp; AI Transparency | docs.cibseven.org</title>
 
-  <meta name="generator" content="Hugo 0.136.4">
+  <meta name="generator" content="Hugo 0.162.1">
   <link rel="shortcut icon" href="/manual/latest/img/favicon.ico" type="image/x-icon" />
 
   
@@ -3623,25 +3623,25 @@ from human-authored ones. Leave the output field unset to skip it. See
 plus the original character length (the rest of the event — identity, model, tools, timings — is
 preserved):</p>
 <table>
-  <thead>
-      <tr>
-          <th>Setting</th>
-          <th>Kind</th>
-          <th>Default</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><code>cibseven.connect.ai-agent.redactContent</code></td>
-          <td>system property</td>
-          <td><code>false</code></td>
-      </tr>
-      <tr>
-          <td><code>CIBSEVEN_CONNECT_AI_AGENT_REDACT_CONTENT</code></td>
-          <td>env var</td>
-          <td><code>false</code></td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Setting</th>
+					<th>Kind</th>
+					<th>Default</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>cibseven.connect.ai-agent.redactContent</code></td>
+					<td>system property</td>
+					<td><code>false</code></td>
+			</tr>
+			<tr>
+					<td><code>CIBSEVEN_CONNECT_AI_AGENT_REDACT_CONTENT</code></td>
+					<td>env var</td>
+					<td><code>false</code></td>
+			</tr>
+	</tbody>
 </table>
 <p>When enabled, each <code>messages[].content</code> becomes a <code>{hash, length, redacted}</code> marker. This trades
 webclient readability for confidentiality. Resolution is <strong>property → env → default false</strong>.</p>

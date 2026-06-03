@@ -16,7 +16,7 @@
 
   <title>Password Policy | docs.cibseven.org</title>
 
-  <meta name="generator" content="Hugo 0.136.4">
+  <meta name="generator" content="Hugo 0.162.1">
   <link rel="shortcut icon" href="/manual/latest/img/favicon.ico" type="image/x-icon" />
 
   
@@ -3578,7 +3578,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">PasswordPolicyRule</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getRules</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// create rules</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
 </span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyPasswordPolicyRule</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">PasswordPolicyRule</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nd">@Override</span><span class="w">
@@ -3597,7 +3597,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// validate the candidate password</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// return true if valid or false if invalid</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
 </span></span></span></code></pre></div><p>By providing a rule placeholder and parameters via <code>getPlaceholder</code> and <code>getParameters</code> a custom front end can display error messages based on the rules and their configuration. (e.g. &ldquo;The password must at least have a length of X characters&rdquo; with X being configurable and passed within the parameter map)</p>
 <p>A rules <code>execute</code> method checks if the entered password meets this rule or not. It is executed when trying to save a user.</p>
 

@@ -16,7 +16,7 @@
 
   <title>CIB seven 2.2.0 CE - Release Notes | docs.cibseven.org</title>
 
-  <meta name="generator" content="Hugo 0.136.4">
+  <meta name="generator" content="Hugo 0.162.1">
   <link rel="shortcut icon" href="/manual/latest/img/favicon.ico" type="image/x-icon" />
 
   
@@ -3591,7 +3591,7 @@
 
 <h3 id="new-features">New Features</h3>
 
-<h4 id="ai-agent-connectorhahahugoshortcode217s3hbhb"><a href="/manual/latest/reference/connect/ai-agent-connector/">AI Agent Connector</a></h4>
+<h4 id="ai-agent-connector"><a href="/manual/latest/reference/connect/ai-agent-connector/">AI Agent Connector</a></h4>
 <ul>
 <li>New <code>cibseven-connect-ai-agent</code> module that lets BPMN service tasks invoke LLM-backed agents via the standard <code>camunda:connector</code> input/output parameter mapping — no custom Java code required</li>
 <li>Runtime supports OpenAI, Azure OpenAI, Ollama, and any OpenAI-compatible endpoint via LangChain4j</li>
@@ -3628,7 +3628,7 @@
 <li>OAuth2 client credentials flow for external task clients</li>
 </ul>
 
-<h4 id="scim-20-identity-provider-_beta_">SCIM 2.0 Identity Provider <em>(beta)</em></h4>
+<h4 id="scim-20-identity-provider-beta">SCIM 2.0 Identity Provider <em>(beta)</em></h4>
 <ul>
 <li>New <code>identity-scim</code> engine plugin for SCIM 2.0-based identity federation — connect CIB seven to any SCIM-compliant user directory (e.g. Okta, Azure AD, Microsoft Entra)</li>
 <li>Read-only and writable identity provider implementations for full user and group lifecycle management</li>
@@ -3639,27 +3639,27 @@
 <li><strong>Beta:</strong> works for limited use cases and is under active development</li>
 </ul>
 
-<h4 id="process-instance-navigation-_since-211_">Process Instance Navigation <em>(since 2.1.1)</em></h4>
+<h4 id="process-instance-navigation-since-211">Process Instance Navigation <em>(since 2.1.1)</em></h4>
 <ul>
 <li>Redirect URL for accessing a process instance using only its ID</li>
 <li>Support for jumping from the task view in Cockpit directly to the corresponding task in the Task List</li>
 <li><code>tenantId</code> support across all instance and <a href="/manual/latest/webapps/cockpit/bpmn/failed-jobs/">incident</a> views</li>
 </ul>
 
-<h4 id="initial-setup-_since-212_">Initial Setup <em>(since 2.1.2)</em></h4>
+<h4 id="initial-setup-since-212">Initial Setup <em>(since 2.1.2)</em></h4>
 <ul>
 <li>Initial setup page appears when no users exist in the system</li>
 <li>Backend support for creating the first admin user with full admin rights</li>
 <li>Setup restricted to internal user provider only; automatic detection of missing authentication</li>
 </ul>
 
-<h4 id="cron-expression-migration-_since-212_">Cron Expression Migration <em>(since 2.1.2)</em></h4>
+<h4 id="cron-expression-migration-since-212">Cron Expression Migration <em>(since 2.1.2)</em></h4>
 <ul>
 <li>Support for <a href="/manual/latest/update/minor/20-to-21/#cron-expression">migration of Quartz 2.5.0 cron expressions</a> to Spring 5.3 syntax</li>
 <li>Configurable <code>cronType</code> and <code>supportLegacyQuartzSyntax</code> parameters; default type is <code>QUARTZ</code></li>
 </ul>
 
-<h4 id="multi-engine-support-_since-213_">Multi-Engine Support <em>(since 2.1.3)</em></h4>
+<h4 id="multi-engine-support-since-213">Multi-Engine Support <em>(since 2.1.3)</em></h4>
 <ul>
 <li>Connect to multiple engines from a single CIB seven web client</li>
 <li>Token caching mechanism for logged-in engines to improve performance</li>
@@ -3669,20 +3669,20 @@
 <li>Pseudo-authentication filter for multi-engine environments</li>
 </ul>
 
-<h4 id="multi-engine-support-for-embedded-forms-_since-213_">Multi-Engine Support for Embedded Forms <em>(since 2.1.3)</em></h4>
+<h4 id="multi-engine-support-for-embedded-forms-since-213">Multi-Engine Support for Embedded Forms <em>(since 2.1.3)</em></h4>
 <ul>
 <li>Middleware routing for embedded forms instead of direct <code>engine-rest</code> calls from <code>bpm-sdk</code></li>
 <li>Embedded form URLs constructed based on engine configuration</li>
 <li>Middleware proxy for form content to resolve CORS issues</li>
 </ul>
 
-<h4 id="variables--file-type-_since-213_">Variables — File Type <em>(since 2.1.3)</em></h4>
+<h4 id="variables--file-type-since-213">Variables — File Type <em>(since 2.1.3)</em></h4>
 <ul>
 <li>Ability to add a new file variable for process instances</li>
 <li>Ability to change existing variables to file type</li>
 </ul>
 
-<h4 id="direct-provider-_beta_">Direct Provider <em>(beta)</em></h4>
+<h4 id="direct-provider-beta">Direct Provider <em>(beta)</em></h4>
 <ul>
 <li>New <code>SevenDirectProvider</code> — an alternative <code>BpmProvider</code> implementation that accesses the process engine directly without REST, suitable for embedded deployments</li>
 <li><strong>Beta:</strong> works for limited use cases and is under active development</li>
@@ -3694,7 +3694,7 @@
 <li>Only violated password rules are displayed; validation resets on input</li>
 </ul>
 
-<h4 id="modelerhahahugoshortcode217s6hbhb-enhancements"><a href="/manual/latest/webapps/modeler/">Modeler</a> Enhancements</h4>
+<h4 id="modeler-enhancements"><a href="/manual/latest/webapps/modeler/">Modeler</a> Enhancements</h4>
 <ul>
 <li>First stable release of <code>cibseven-modeler</code> <code>1.0.0</code></li>
 <li>Element template icons displayed in the BPMN diagram and in the template chooser modal</li>
@@ -3719,7 +3719,7 @@
 
 <h3 id="user-experience-improvements">User Experience Improvements</h3>
 
-<h4 id="process-instance-search-_since-216_">Process Instance Search <em>(since 2.1.6)</em></h4>
+<h4 id="process-instance-search-since-216">Process Instance Search <em>(since 2.1.6)</em></h4>
 <ul>
 <li>Process instance details shown in a sidebar: instance data, status icons, <a href="/manual/latest/webapps/cockpit/bpmn/failed-jobs/">incident</a> count, links to process definition, deployment, and parent instances</li>
 <li>Added separate process instance search for runtime-only processes</li>
@@ -3728,7 +3728,7 @@
 <li>Hid unreliable variables and incident criteria in historic search for non-full <a href="/manual/latest/user-guide/process-engine/history/history-configuration/">history levels</a></li>
 </ul>
 
-<h4 id="incidents-_since-216_">Incidents <em>(since 2.1.6)</em></h4>
+<h4 id="incidents-since-216">Incidents <em>(since 2.1.6)</em></h4>
 <ul>
 <li>Show <a href="/manual/latest/webapps/cockpit/bpmn/failed-jobs/">incidents</a> from history and runtime tables based on the configured <a href="/manual/latest/user-guide/process-engine/history/history-configuration/">history level</a></li>
 <li>Improved stack trace visibility for incidents originating from the selected process and its subprocesses</li>
@@ -3780,7 +3780,7 @@
 <li>Dynamic tile rendering with adaptive layout <em>(since 2.1.1)</em></li>
 </ul>
 
-<h4 id="navigation-_since-211_">Navigation <em>(since 2.1.1)</em></h4>
+<h4 id="navigation-since-211">Navigation <em>(since 2.1.1)</em></h4>
 <ul>
 <li>Enhanced navigation between process instances and process definitions, with and without <code>tenantId</code> <em>(since 2.1.5)</em></li>
 <li>Improved mobile navigation menu and header for better usability on small screens <em>(since 2.1.3)</em></li>
@@ -3806,14 +3806,14 @@
 <li>Allow setting TTL to unlimited; enhanced UI and improved modal layout <em>(since 2.1.3)</em></li>
 </ul>
 
-<h4 id="batches-_since-211_">Batches <em>(since 2.1.1)</em></h4>
+<h4 id="batches-since-211">Batches <em>(since 2.1.1)</em></h4>
 <ul>
 <li>Improved cell selector; prevented resize on selection changes</li>
 <li>Added vertical scroll for better overflow handling</li>
 <li>Improved cell view on selection in Historic and Runtime Batches tables</li>
 </ul>
 
-<h4 id="forms-_since-211_">Forms <em>(since 2.1.1)</em></h4>
+<h4 id="forms-since-211">Forms <em>(since 2.1.1)</em></h4>
 <ul>
 <li>Press Enter to submit tenant creation form</li>
 </ul>
@@ -3993,40 +3993,40 @@
         <li><a href="#configuration-changes">Configuration Changes</a></li>
         <li><a href="#new-features">New Features</a>
           <ul>
-            <li><a href="#ai-agent-connectorhahahugoshortcode217s3hbhb"><a href="HAHAHUGOSHORTCODE217s3HBHB">AI Agent Connector</a></a></li>
+            <li><a href="#ai-agent-connector">AI Agent Connector</a></li>
             <li><a href="#rest-engine">REST Engine</a></li>
             <li><a href="#historic-process-statistics">Historic Process Statistics</a></li>
             <li><a href="#task-variables">Task Variables</a></li>
             <li><a href="#external-task-client">External Task Client</a></li>
-            <li><a href="#scim-20-identity-provider-_beta_">SCIM 2.0 Identity Provider <em>(beta)</em></a></li>
-            <li><a href="#process-instance-navigation-_since-211_">Process Instance Navigation <em>(since 2.1.1)</em></a></li>
-            <li><a href="#initial-setup-_since-212_">Initial Setup <em>(since 2.1.2)</em></a></li>
-            <li><a href="#cron-expression-migration-_since-212_">Cron Expression Migration <em>(since 2.1.2)</em></a></li>
-            <li><a href="#multi-engine-support-_since-213_">Multi-Engine Support <em>(since 2.1.3)</em></a></li>
-            <li><a href="#multi-engine-support-for-embedded-forms-_since-213_">Multi-Engine Support for Embedded Forms <em>(since 2.1.3)</em></a></li>
-            <li><a href="#variables--file-type-_since-213_">Variables — File Type <em>(since 2.1.3)</em></a></li>
-            <li><a href="#direct-provider-_beta_">Direct Provider <em>(beta)</em></a></li>
+            <li><a href="#scim-20-identity-provider-beta">SCIM 2.0 Identity Provider <em>(beta)</em></a></li>
+            <li><a href="#process-instance-navigation-since-211">Process Instance Navigation <em>(since 2.1.1)</em></a></li>
+            <li><a href="#initial-setup-since-212">Initial Setup <em>(since 2.1.2)</em></a></li>
+            <li><a href="#cron-expression-migration-since-212">Cron Expression Migration <em>(since 2.1.2)</em></a></li>
+            <li><a href="#multi-engine-support-since-213">Multi-Engine Support <em>(since 2.1.3)</em></a></li>
+            <li><a href="#multi-engine-support-for-embedded-forms-since-213">Multi-Engine Support for Embedded Forms <em>(since 2.1.3)</em></a></li>
+            <li><a href="#variables--file-type-since-213">Variables — File Type <em>(since 2.1.3)</em></a></li>
+            <li><a href="#direct-provider-beta">Direct Provider <em>(beta)</em></a></li>
             <li><a href="#user-profile--password-validation">User Profile — Password Validation</a></li>
-            <li><a href="#modelerhahahugoshortcode217s6hbhb-enhancements"><a href="HAHAHUGOSHORTCODE217s6HBHB">Modeler</a> Enhancements</a></li>
+            <li><a href="#modeler-enhancements">Modeler Enhancements</a></li>
             <li><a href="#docker--opentelemetry--jmx">Docker — OpenTelemetry &amp; JMX</a></li>
           </ul>
         </li>
         <li><a href="#user-experience-improvements">User Experience Improvements</a>
           <ul>
-            <li><a href="#process-instance-search-_since-216_">Process Instance Search <em>(since 2.1.6)</em></a></li>
-            <li><a href="#incidents-_since-216_">Incidents <em>(since 2.1.6)</em></a></li>
+            <li><a href="#process-instance-search-since-216">Process Instance Search <em>(since 2.1.6)</em></a></li>
+            <li><a href="#incidents-since-216">Incidents <em>(since 2.1.6)</em></a></li>
             <li><a href="#variables">Variables</a></li>
             <li><a href="#tasks">Tasks</a></li>
             <li><a href="#user-management">User Management</a></li>
             <li><a href="#bpmn-diagram">BPMN Diagram</a></li>
             <li><a href="#decision-management">Decision Management</a></li>
             <li><a href="#start-view">Start View</a></li>
-            <li><a href="#navigation-_since-211_">Navigation <em>(since 2.1.1)</em></a></li>
+            <li><a href="#navigation-since-211">Navigation <em>(since 2.1.1)</em></a></li>
             <li><a href="#deployments">Deployments</a></li>
             <li><a href="#analytics">Analytics</a></li>
             <li><a href="#ttl-time-to-live">TTL (Time To Live)</a></li>
-            <li><a href="#batches-_since-211_">Batches <em>(since 2.1.1)</em></a></li>
-            <li><a href="#forms-_since-211_">Forms <em>(since 2.1.1)</em></a></li>
+            <li><a href="#batches-since-211">Batches <em>(since 2.1.1)</em></a></li>
+            <li><a href="#forms-since-211">Forms <em>(since 2.1.1)</em></a></li>
             <li><a href="#accessibility">Accessibility</a></li>
           </ul>
         </li>

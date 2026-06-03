@@ -16,7 +16,7 @@
 
   <title>Getting Started | docs.cibseven.org</title>
 
-  <meta name="generator" content="Hugo 0.136.4">
+  <meta name="generator" content="Hugo 0.162.1">
   <link rel="shortcut icon" href="/manual/latest/img/favicon.ico" type="image/x-icon" />
 
   
@@ -3579,46 +3579,46 @@ variable (e.g. <code>${apiKey}</code>) or, at the deployment level, the <code>OP
 <p>Only two fields are <strong>required</strong>: <strong>Agent name</strong> and <strong>Message</strong>. Everything else is optional and
 has a sensible default.</p>
 <table>
-  <thead>
-      <tr>
-          <th>Field</th>
-          <th>Group</th>
-          <th>Example</th>
-          <th>Notes</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><strong>Agent name</strong></td>
-          <td>Input</td>
-          <td><code>Summarizer</code></td>
-          <td>Logical name of the agent.</td>
-      </tr>
-      <tr>
-          <td><strong>Message</strong></td>
-          <td>Input</td>
-          <td><code>Summarize: ${feedbackText}</code></td>
-          <td>The user message; may reference process variables.</td>
-      </tr>
-      <tr>
-          <td><strong>Instruction</strong></td>
-          <td>Input</td>
-          <td><code>Summarize the core concern in 10 words or less.</code></td>
-          <td>Optional system prompt. Empty → bundled default prompt.</td>
-      </tr>
-      <tr>
-          <td><strong>API key</strong></td>
-          <td>Agent</td>
-          <td><code>${apiKey}</code></td>
-          <td>Optional if <code>OPENAI_API_KEY</code> is set in the environment.</td>
-      </tr>
-      <tr>
-          <td><strong>Model</strong></td>
-          <td>Agent</td>
-          <td><em>(leave empty)</em></td>
-          <td>Optional. Falls back to the deployment default model.</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Field</th>
+					<th>Group</th>
+					<th>Example</th>
+					<th>Notes</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><strong>Agent name</strong></td>
+					<td>Input</td>
+					<td><code>Summarizer</code></td>
+					<td>Logical name of the agent.</td>
+			</tr>
+			<tr>
+					<td><strong>Message</strong></td>
+					<td>Input</td>
+					<td><code>Summarize: ${feedbackText}</code></td>
+					<td>The user message; may reference process variables.</td>
+			</tr>
+			<tr>
+					<td><strong>Instruction</strong></td>
+					<td>Input</td>
+					<td><code>Summarize the core concern in 10 words or less.</code></td>
+					<td>Optional system prompt. Empty → bundled default prompt.</td>
+			</tr>
+			<tr>
+					<td><strong>API key</strong></td>
+					<td>Agent</td>
+					<td><code>${apiKey}</code></td>
+					<td>Optional if <code>OPENAI_API_KEY</code> is set in the environment.</td>
+			</tr>
+			<tr>
+					<td><strong>Model</strong></td>
+					<td>Agent</td>
+					<td><em>(leave empty)</em></td>
+					<td>Optional. Falls back to the deployment default model.</td>
+			</tr>
+	</tbody>
 </table>
 <p>If you leave <strong>Model</strong>, <strong>Base URL</strong>, and <strong>API key</strong> empty, the connector uses the deployment&rsquo;s
 default model, the OpenAI endpoint (<code>https://api.openai.com/v1</code>), and the <code>OPENAI_API_KEY</code>

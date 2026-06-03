@@ -16,7 +16,7 @@
 
   <title>Real-time Chat | docs.cibseven.org</title>
 
-  <meta name="generator" content="Hugo 0.136.4">
+  <meta name="generator" content="Hugo 0.162.1">
   <link rel="shortcut icon" href="/manual/2.2/img/favicon.ico" type="image/x-icon" />
 
   
@@ -3571,30 +3571,30 @@ Authorization: Bearer &lt;token&gt;
 
 <h2 id="topics">Topics</h2>
 <table>
-  <thead>
-      <tr>
-          <th>Topic</th>
-          <th>Direction</th>
-          <th>Description</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><code>/topic/chat/{roomId}</code></td>
-          <td>Subscribe</td>
-          <td>Receive new, edited, and deleted messages in real time</td>
-      </tr>
-      <tr>
-          <td><code>/topic/chat/{roomId}/presence</code></td>
-          <td>Subscribe</td>
-          <td>Receive live updates of who is currently online in the room</td>
-      </tr>
-      <tr>
-          <td><code>/app/chat/{roomId}</code></td>
-          <td>Publish</td>
-          <td>Send a new message to the room</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Topic</th>
+					<th>Direction</th>
+					<th>Description</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>/topic/chat/{roomId}</code></td>
+					<td>Subscribe</td>
+					<td>Receive new, edited, and deleted messages in real time</td>
+			</tr>
+			<tr>
+					<td><code>/topic/chat/{roomId}/presence</code></td>
+					<td>Subscribe</td>
+					<td>Receive live updates of who is currently online in the room</td>
+			</tr>
+			<tr>
+					<td><code>/app/chat/{roomId}</code></td>
+					<td>Publish</td>
+					<td>Send a new message to the room</td>
+			</tr>
+	</tbody>
 </table>
 
 <h2 id="room-id">Room ID</h2>
@@ -3610,25 +3610,25 @@ Authorization: Bearer &lt;token&gt;
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;elementId&#34;</span><span class="p">:</span> <span class="s2">&#34;Task_1&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><table>
-  <thead>
-      <tr>
-          <th>Field</th>
-          <th>Required</th>
-          <th>Description</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><code>content</code></td>
-          <td>Yes</td>
-          <td>Message text (must not be blank)</td>
-      </tr>
-      <tr>
-          <td><code>elementId</code></td>
-          <td>No</td>
-          <td>BPMN element ID to attach the message to a specific element</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Field</th>
+					<th>Required</th>
+					<th>Description</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>content</code></td>
+					<td>Yes</td>
+					<td>Message text (must not be blank)</td>
+			</tr>
+			<tr>
+					<td><code>elementId</code></td>
+					<td>No</td>
+					<td>BPMN element ID to attach the message to a specific element</td>
+			</tr>
+	</tbody>
 </table>
 
 <h2 id="presence">Presence</h2>

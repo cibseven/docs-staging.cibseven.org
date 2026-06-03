@@ -16,7 +16,7 @@
 
   <title>AI Agent Connector | docs.cibseven.org</title>
 
-  <meta name="generator" content="Hugo 0.136.4">
+  <meta name="generator" content="Hugo 0.162.1">
   <link rel="shortcut icon" href="/manual/2.2/img/favicon.ico" type="image/x-icon" />
 
   
@@ -3560,60 +3560,60 @@ remembers the conversation, and returns a result the next BPMN step can consume 
 process engine&rsquo;s transaction, authorization, and history machinery.</p>
 <p>The plugin ships two connectors:</p>
 <table>
-  <thead>
-      <tr>
-          <th>Connector</th>
-          <th><code>connectorId</code></th>
-          <th>Purpose</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><strong>AI Agent</strong></td>
-          <td><code>cibseven-ai-agent</code></td>
-          <td>Runs an LLM agent inside a service task: prompt → (tools / RAG / memory) → answer.</td>
-      </tr>
-      <tr>
-          <td><strong>Knowledge Ingestor</strong></td>
-          <td><code>cibseven-knowledge-ingestor</code></td>
-          <td>Embeds text into a pgvector store so the AI Agent can retrieve it later (RAG).</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Connector</th>
+					<th><code>connectorId</code></th>
+					<th>Purpose</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><strong>AI Agent</strong></td>
+					<td><code>cibseven-ai-agent</code></td>
+					<td>Runs an LLM agent inside a service task: prompt → (tools / RAG / memory) → answer.</td>
+			</tr>
+			<tr>
+					<td><strong>Knowledge Ingestor</strong></td>
+					<td><code>cibseven-knowledge-ingestor</code></td>
+					<td>Embeds text into a pgvector store so the AI Agent can retrieve it later (RAG).</td>
+			</tr>
+	</tbody>
 </table>
 
 <div class="note bg-warning docs-warning">
   <h3>Two different &#39;AI Agent&#39; features — don&#39;t confuse them</h3>
   <p><p>CIB seven has two unrelated AI features with similar names. This documentation covers only the <strong>AI Agent Connector</strong>.</p>
 <table>
-  <thead>
-      <tr>
-          <th></th>
-          <th><strong>AI Agent Connector</strong> (this doc)</th>
-          <th>Modeler &ldquo;BPMN AI Agent&rdquo; / wizard</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>When</td>
-          <td><strong>Runtime</strong> — executes during a process instance</td>
-          <td><strong>Design-time</strong> — helps you author BPMN</td>
-      </tr>
-      <tr>
-          <td>Where</td>
-          <td><code>connect/ai-agent</code> engine connect plugin</td>
-          <td>CIB seven Modeler (webclient)</td>
-      </tr>
-      <tr>
-          <td>Configured via</td>
-          <td>Element-template fields + <code>CIBSEVEN_CONNECT_AI_AGENT_DEFAULT_MODEL</code></td>
-          <td><code>cibseven.webclient.modeler.ai</code> / <code>GET /agent/config</code></td>
-      </tr>
-      <tr>
-          <td>Connectors</td>
-          <td><code>cibseven-ai-agent</code>, <code>cibseven-knowledge-ingestor</code></td>
-          <td>—</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th></th>
+					<th><strong>AI Agent Connector</strong> (this doc)</th>
+					<th>Modeler &ldquo;BPMN AI Agent&rdquo; / wizard</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>When</td>
+					<td><strong>Runtime</strong> — executes during a process instance</td>
+					<td><strong>Design-time</strong> — helps you author BPMN</td>
+			</tr>
+			<tr>
+					<td>Where</td>
+					<td><code>connect/ai-agent</code> engine connect plugin</td>
+					<td>CIB seven Modeler (webclient)</td>
+			</tr>
+			<tr>
+					<td>Configured via</td>
+					<td>Element-template fields + <code>CIBSEVEN_CONNECT_AI_AGENT_DEFAULT_MODEL</code></td>
+					<td><code>cibseven.webclient.modeler.ai</code> / <code>GET /agent/config</code></td>
+			</tr>
+			<tr>
+					<td>Connectors</td>
+					<td><code>cibseven-ai-agent</code>, <code>cibseven-knowledge-ingestor</code></td>
+					<td>—</td>
+			</tr>
+	</tbody>
 </table></p>
 </div>
 
