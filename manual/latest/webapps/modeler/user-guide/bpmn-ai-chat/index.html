@@ -4061,6 +4061,16 @@
 </ul>
 
 <h3 id="reviewing-and-applying-changes">Reviewing and applying changes</h3>
+<p>In <strong>plan</strong> mode the agent first proposes a <strong>plan</strong> before making changes, which you can review and adjust before any edit is applied.</p>
+<figure class="image">
+  <span><img
+      src="../img/bpmn-ai-chat-plan.png"
+      
+          title="Proposed plan in plan mode — numbered steps with the elements each will add or change, before any edit is applied"
+       /></span>
+</figure>
+
+<p>As the agent works through the plan one step at a time, the panel shows its reasoning summary, the files it generates, and the changes it applies for each step — <strong>continue</strong> to the next step, <strong>skip</strong> one, <strong>modify</strong> it, or <strong>reject</strong> the remaining steps. If you want faster results, choose <strong>quick draft</strong> to implement the whole plan in one pass instead.</p>
 <figure class="image">
   <span><img
       src="../img/bpmn-ai-chat-agent-panel.png"
@@ -4078,7 +4088,15 @@
        /></span>
 </figure>
 
-<p>For a larger request the agent first proposes a <strong>plan</strong>. You can approve the whole plan, generate a quick draft, or work through it one step at a time — <strong>continue</strong> to the next step, <strong>skip</strong> a step, <strong>modify</strong> it, or <strong>reject</strong> the remaining steps.</p>
+<p>Not every request changes the diagram. In <strong>ask</strong> mode the agent only answers — it explains what the process does, walks through it step by step, and flags anything that looks wrong, without proposing any edits. Use it to understand an unfamiliar diagram or to review one before you start changing it.</p>
+<figure class="image">
+  <span><img
+      src="../img/bpmn-ai-chat-ask.png"
+      
+          title="Ask mode — the agent explains what the process does, step by step, without changing the diagram"
+       /></span>
+</figure>
+
 
 <h3 id="fixing-validation-issues">Fixing validation issues</h3>
 <p>When the diagram has BPMN validation problems, the panel lists them inline with the number of errors and warnings, each with a <strong>quick-fix</strong> the agent applies on click.</p>
