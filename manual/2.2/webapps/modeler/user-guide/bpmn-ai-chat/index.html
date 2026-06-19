@@ -4094,14 +4094,14 @@
 <h3 id="chat-sessions">Chat sessions</h3>
 <p>Each conversation is kept as a session. Start a <strong>new chat</strong>, switch between previous sessions from the history, and delete the ones you no longer need.</p>
 
-<h2 id="limitations-and-reviewing-output">Limitations and Reviewing Output</h2>
+<h2 id="limitations">Limitations</h2>
 <p>The agent is a generative assistant: it speeds up modeling, but it can be wrong. The chat itself reminds you that <strong>&ldquo;AI can make mistakes&rdquo;</strong>, and AI-generated content is marked as such.</p>
 <ul>
 <li><strong>Always review changes before applying them.</strong> Every edit is shown as a diff card you can <strong>Apply</strong> or <strong>Discard</strong> before it touches the canvas.</li>
 <li><strong>Results vary.</strong> The same request can produce different diagrams on different runs; lower <a href="#reasoning-effort">reasoning effort</a> trades some quality for speed.</li>
 <li><strong>Context is bounded.</strong> Large diagrams, many attached files, and long conversations consume the per-session token budget; when it runs low, start a <strong>new chat</strong> or attach less context. Per-request input sizes are also capped (see <a href="#configuration-reference">Configuration Reference</a>).</li>
 <li><strong>Cost scales with usage.</strong> With hosted providers you pay per token, so more context and higher effort cost more; a self-hosted model removes per-token cost.</li>
-<li><strong>Forms are not yet supported.</strong> Embedded and form-js form generation will be available in upcoming versions.</li>
+<li><strong>Embedded and form-js forms are not yet supported.</strong> The agent can generate processes and standalone forms; tight integration with embedded and form-js forms will be available in upcoming versions.</li>
 </ul>
 
 <div class="note bg-info docs-info">
@@ -4325,7 +4325,7 @@
         <li><a href="#chat-sessions">Chat sessions</a></li>
       </ul>
     </li>
-    <li><a href="#limitations-and-reviewing-output">Limitations and Reviewing Output</a></li>
+    <li><a href="#limitations">Limitations</a></li>
     <li><a href="#data-handling-and-privacy">Data Handling and Privacy</a></li>
     <li><a href="#troubleshooting">Troubleshooting</a></li>
     <li><a href="#configuration-reference">Configuration Reference</a>
