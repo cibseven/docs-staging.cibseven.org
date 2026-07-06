@@ -16,12 +16,12 @@
 
   <title>Spring Security OAuth2 Integration | docs.cibseven.org</title>
 
-  <meta name="generator" content="Hugo 0.162.1">
+  <meta name="generator" content="Hugo 0.136.4">
   <link rel="shortcut icon" href="/manual/latest/img/favicon.ico" type="image/x-icon" />
 
   
 
-  <link rel="stylesheet" href="/manual/latest/css/docs.0ac9000d0b136618d757f7e65b9f2c6ec7a0207018614b8f3045bb04ec8e66b3.css" integrity="sha256-CskADQsTZhjXV/fmW58sbsegIHAYYUuPMEW7BOyOZrM=">
+  <link rel="stylesheet" href="/manual/latest/css/docs.a0477a0dd0fc479d343e1a56c04891f34a958a869a1b12d6bd14347ea39c6b64.css" integrity="sha256-oEd6DdD8R500PhpWwEiR80qVioaaGxLWvRQ0fqOca2Q=">
   <link rel="canonical" href="https://docs.cibseven.org/manual/latest/user-guide/spring-boot-integration/spring-security/" />
 </head>
 <body class="">
@@ -100,7 +100,7 @@
       
     
 
-    <span class="number">2.2</span>
+    <span class="number">2.2-ee</span>
 </div>
 
 <br />
@@ -3891,7 +3891,7 @@ registration defined in the application properties (<code>spring.security.oauth2
 <h4 id="oauth2-enabled-configuration-for-the-engine-rest">OAuth2 Enabled Configuration for the Engine REST</h4>
 <p>This configuration activates when OAuth2 resource server registration is defined. This class configures the Spring
 Security filter chain to secure the engine REST.</p>
-<p>Spring auto configuration class: <a href="/javadoc/cibseven/2.2/org/cibseven/bpm/spring/boot/starter/security/oauth2/CamundaSpringSecurityOAuth2EngineAutoConfiguration.html">CamundaSpringSecurityOAuth2EngineAutoConfiguration</a>
+<p>Spring auto configuration class: <a href="/javadoc/cibseven/2.2-ee/org/cibseven/bpm/spring/boot/starter/security/oauth2/CamundaSpringSecurityOAuth2EngineAutoConfiguration.html">CamundaSpringSecurityOAuth2EngineAutoConfiguration</a>
 </p>
 
 <div class="note bg-info docs-info">
@@ -3908,7 +3908,7 @@ excluding the auto configuration classes:</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">CamundaSpringSecurityOAuth2EngineAutoConfiguration</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">CamundaSpringSecurityOAuth2WebappAutoConfiguration</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">CamundaBpmSpringSecurityDisableAutoConfiguration</span><span class="p">.</span><span class="na">class</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="p">});</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">});</span><span class="w">
 </span></span></span></code></pre></div><p>Or in the application properties:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">spring</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">autoconfigure</span><span class="p">:</span><span class="w">
@@ -3967,7 +3967,7 @@ to grant administrator authorizations for a particular OAuth2 user or group.</li
 
 <h3 id="oauth2-identity-provider">OAuth2 Identity Provider</h3>
 <p>Additionally to the OAuth2 login, CIB seven also provides support to use groups from OAuth2.
-This is achieved with a custom <a href="/manual/latest/user-guide/process-engine/identity-service/">identity service</a>, called <a href="/javadoc/cibseven/2.2/org/cibseven/bpm/spring/boot/starter/security/oauth2/impl/OAuth2IdentityProvider.html">OAuth2IdentityProvider</a>
+This is achieved with a custom <a href="/manual/latest/user-guide/process-engine/identity-service/">identity service</a>, called <a href="/javadoc/cibseven/2.2-ee/org/cibseven/bpm/spring/boot/starter/security/oauth2/impl/OAuth2IdentityProvider.html">OAuth2IdentityProvider</a>
 .</p>
 <p>This is a read-only identity provider that configures user&rsquo;s groups from the <a href="https://docs.spring.io/spring-security/reference/servlet/authorization/architecture.html">Spring Security&rsquo;s granted authorities</a>.
 This identity provider also supports the default CIB seven Database Identity Service as a fallback for authentications for the REST API.</p>
@@ -4056,14 +4056,14 @@ Additionally, we highlight and explain a few lines for clarity:</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">group-name-attribute</span><span class="p">:</span><span class="w"> </span><span class="l">keycloak-groups</span><span class="w"> </span><span class="c"># 4</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">run.auth.enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="c"># 8</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="nt">spring.security</span><span class="p">:</span><span class="w"> </span><span class="c"># 5</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spring.security</span><span class="p">:</span><span class="w"> </span><span class="c"># 5</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">oauth2</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">resourceserver</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">jwt</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c"># principal-claim-name: preferred_username # 7</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">jwk-set-uri</span><span class="p">:</span><span class="w"> </span><span class="l">&lt;certsUri&gt;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="nt">cibseven.webclient</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">cibseven.webclient</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">user</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">provider</span><span class="p">:</span><span class="w"> </span><span class="l">org.cibseven.webapp.auth.OAuth2UserProvider</span><span class="w"> </span><span class="c"># 1</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">sso</span><span class="p">:</span><span class="w"> </span><span class="c"># 2</span><span class="w">

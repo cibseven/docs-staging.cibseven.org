@@ -16,12 +16,12 @@
 
   <title>History for DMN Decisions | docs.cibseven.org</title>
 
-  <meta name="generator" content="Hugo 0.162.1">
+  <meta name="generator" content="Hugo 0.136.4">
   <link rel="shortcut icon" href="/manual/latest/img/favicon.ico" type="image/x-icon" />
 
   
 
-  <link rel="stylesheet" href="/manual/latest/css/docs.0ac9000d0b136618d757f7e65b9f2c6ec7a0207018614b8f3045bb04ec8e66b3.css" integrity="sha256-CskADQsTZhjXV/fmW58sbsegIHAYYUuPMEW7BOyOZrM=">
+  <link rel="stylesheet" href="/manual/latest/css/docs.a0477a0dd0fc479d343e1a56c04891f34a958a869a1b12d6bd14347ea39c6b64.css" integrity="sha256-oEd6DdD8R500PhpWwEiR80qVioaaGxLWvRQ0fqOca2Q=">
   <link rel="canonical" href="https://docs.cibseven.org/manual/latest/user-guide/process-engine/decisions/history/" />
 </head>
 <body class="">
@@ -100,7 +100,7 @@
       
     
 
-    <span class="number">2.2</span>
+    <span class="number">2.2-ee</span>
 </div>
 
 <br />
@@ -3890,17 +3890,17 @@ evaluated.</p>
 filtered by the process definition id or key and process instance id.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">HistoryService</span><span class="w"> </span><span class="n">historyService</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">processEngine</span><span class="p">.</span><span class="na">getHistoryService</span><span class="p">();</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="n">List</span><span class="o">&lt;</span><span class="n">HistoricDecisionInstance</span><span class="o">&gt;</span><span class="w"> </span><span class="n">historicDecisionInstances</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">historyService</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">List</span><span class="o">&lt;</span><span class="n">HistoricDecisionInstance</span><span class="o">&gt;</span><span class="w"> </span><span class="n">historicDecisionInstances</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">historyService</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">createHistoricDecisionInstanceQuery</span><span class="p">()</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">processDefinitionId</span><span class="p">(</span><span class="s">&#34;processDefinitionId&#34;</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">list</span><span class="p">();</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="n">historicDecisionInstances</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">historyService</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">historicDecisionInstances</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">historyService</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">createHistoricDecisionInstanceQuery</span><span class="p">()</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">processDefinitionKey</span><span class="p">(</span><span class="s">&#34;processDefinitionKey&#34;</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">list</span><span class="p">();</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="n">historicDecisionInstances</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">historyService</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">historicDecisionInstances</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">historyService</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">createHistoricDecisionInstanceQuery</span><span class="p">()</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">processInstanceId</span><span class="p">(</span><span class="s">&#34;processInstanceId&#34;</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">list</span><span class="p">();</span><span class="w">
@@ -3908,17 +3908,17 @@ filtered by the process definition id or key and process instance id.</p>
 by the case definition id or key and case instance id.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">HistoryService</span><span class="w"> </span><span class="n">historyService</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">processEngine</span><span class="p">.</span><span class="na">getHistoryService</span><span class="p">();</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="n">List</span><span class="o">&lt;</span><span class="n">HistoricDecisionInstance</span><span class="o">&gt;</span><span class="w"> </span><span class="n">historicDecisionInstances</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">historyService</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">List</span><span class="o">&lt;</span><span class="n">HistoricDecisionInstance</span><span class="o">&gt;</span><span class="w"> </span><span class="n">historicDecisionInstances</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">historyService</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">createHistoricDecisionInstanceQuery</span><span class="p">()</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">caseDefinitionId</span><span class="p">(</span><span class="s">&#34;caseDefinitionId&#34;</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">list</span><span class="p">();</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="n">historicDecisionInstances</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">historyService</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">historicDecisionInstances</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">historyService</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">createHistoricDecisionInstanceQuery</span><span class="p">()</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">caseDefinitionKey</span><span class="p">(</span><span class="s">&#34;caseDefinitionKey&#34;</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">list</span><span class="p">();</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="n">historicDecisionInstances</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">historyService</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">historicDecisionInstances</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">historyService</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">createHistoricDecisionInstanceQuery</span><span class="p">()</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">caseInstanceId</span><span class="p">(</span><span class="s">&#34;caseInstanceId&#34;</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">list</span><span class="p">();</span><span class="w">
@@ -3934,28 +3934,28 @@ the query to retrieve the inputs and outputs from the result.</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">list</span><span class="p">();</span><span class="w">
 </span></span></span></code></pre></div>
 <h2 id="the-historic-decision-instance">The Historic Decision Instance</h2>
-<p>The <a href="/javadoc/cibseven/2.2/?org/cibseven/bpm/engine/history/HistoricDecisionInstance">HistoricDecisionInstance</a>
+<p>The <a href="/javadoc/cibseven/2.2-ee/?org/cibseven/bpm/engine/history/HistoricDecisionInstance">HistoricDecisionInstance</a>
  contains information about a single
 evaluation of a decision.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">HistoricDecisionInstance</span><span class="w"> </span><span class="n">historicDecision</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="c1">// id of the decision definition</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="n">String</span><span class="w"> </span><span class="n">decisionDefinitionId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">historicDecision</span><span class="p">.</span><span class="na">getDecisionDefinitionId</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// id of the decision definition</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">String</span><span class="w"> </span><span class="n">decisionDefinitionId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">historicDecision</span><span class="p">.</span><span class="na">getDecisionDefinitionId</span><span class="p">();</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="c1">// key of the decision definition</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="n">String</span><span class="w"> </span><span class="n">decisionDefinitionKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">historicDecision</span><span class="p">.</span><span class="na">getDecisionDefinitionKey</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// key of the decision definition</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">String</span><span class="w"> </span><span class="n">decisionDefinitionKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">historicDecision</span><span class="p">.</span><span class="na">getDecisionDefinitionKey</span><span class="p">();</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="c1">// name of the decision</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="n">String</span><span class="w"> </span><span class="n">decisionDefinitionName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">historicDecision</span><span class="p">.</span><span class="na">getDecisionDefinitionName</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// name of the decision</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">String</span><span class="w"> </span><span class="n">decisionDefinitionName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">historicDecision</span><span class="p">.</span><span class="na">getDecisionDefinitionName</span><span class="p">();</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="c1">// time when the decision was evaluated</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="n">Date</span><span class="w"> </span><span class="n">evaluationTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">historicDecision</span><span class="p">.</span><span class="na">getEvaluationTime</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// time when the decision was evaluated</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Date</span><span class="w"> </span><span class="n">evaluationTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">historicDecision</span><span class="p">.</span><span class="na">getEvaluationTime</span><span class="p">();</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="c1">// inputs of the decision (if includeInputs was specified in the query)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="n">List</span><span class="o">&lt;</span><span class="n">HistoricDecisionInputInstance</span><span class="o">&gt;</span><span class="w"> </span><span class="n">inputs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">historicDecision</span><span class="p">.</span><span class="na">getInputs</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// inputs of the decision (if includeInputs was specified in the query)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">List</span><span class="o">&lt;</span><span class="n">HistoricDecisionInputInstance</span><span class="o">&gt;</span><span class="w"> </span><span class="n">inputs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">historicDecision</span><span class="p">.</span><span class="na">getInputs</span><span class="p">();</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="c1">// outputs of the decision (if includeOutputs was specified in the query)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="n">List</span><span class="o">&lt;</span><span class="n">HistoricDecisionOutputInstance</span><span class="o">&gt;</span><span class="w"> </span><span class="n">outputs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">historicDecision</span><span class="p">.</span><span class="na">getOutputs</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// outputs of the decision (if includeOutputs was specified in the query)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">List</span><span class="o">&lt;</span><span class="n">HistoricDecisionOutputInstance</span><span class="o">&gt;</span><span class="w"> </span><span class="n">outputs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">historicDecision</span><span class="p">.</span><span class="na">getOutputs</span><span class="p">();</span><span class="w">
 </span></span></span></code></pre></div><p>In case the decision was evaluated from a process, information of the process
 definition, the process instance and the activity is set in the
 <code>HistoricDecisionInstance</code>. The same applies for decisions evaluated from
@@ -3968,55 +3968,55 @@ the <code>getCollectResultValue()</code> method.</p>
 reference</a>.</p>
 
 <h3 id="historic-decision-input-instance">Historic Decision Input Instance</h3>
-<p>The <a href="/javadoc/cibseven/2.2/?org/cibseven/bpm/engine/history/HistoricDecisionInputInstance">HistoricDecisionInputInstance</a>
+<p>The <a href="/javadoc/cibseven/2.2-ee/?org/cibseven/bpm/engine/history/HistoricDecisionInputInstance">HistoricDecisionInputInstance</a>
  represents one input of an
 evaluated decision (e.g., an input clause of a decision table).</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">HistoricDecisionInputInstance</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="c1">// id of the input clause</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="n">String</span><span class="w"> </span><span class="n">clauseId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">input</span><span class="p">.</span><span class="na">getClauseId</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// id of the input clause</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">String</span><span class="w"> </span><span class="n">clauseId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">input</span><span class="p">.</span><span class="na">getClauseId</span><span class="p">();</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="c1">// label of the input clause</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="n">String</span><span class="w"> </span><span class="n">clauseName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">input</span><span class="p">.</span><span class="na">getClauseName</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// label of the input clause</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">String</span><span class="w"> </span><span class="n">clauseName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">input</span><span class="p">.</span><span class="na">getClauseName</span><span class="p">();</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="c1">// evaluated value of the input expression</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="n">Object</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">input</span><span class="p">.</span><span class="na">getValue</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// evaluated value of the input expression</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Object</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">input</span><span class="p">.</span><span class="na">getValue</span><span class="p">();</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="c1">// evaluated value of the input expression as typed value</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="c1">// which contains type information</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="n">TypedValue</span><span class="w"> </span><span class="n">typedValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">input</span><span class="p">.</span><span class="na">getTypedValue</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// evaluated value of the input expression as typed value</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// which contains type information</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">TypedValue</span><span class="w"> </span><span class="n">typedValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">input</span><span class="p">.</span><span class="na">getTypedValue</span><span class="p">();</span><span class="w">
 </span></span></span></code></pre></div><p>Note that the value may be the result of a type transformation in case the
 input specifies a type.</p>
 
 <h3 id="historic-decision-output-instance">Historic Decision Output Instance</h3>
-<p>The <a href="/javadoc/cibseven/2.2/?org/cibseven/bpm/engine/history/HistoricDecisionOutputInstance">HistoricDecisionOutputInstance</a>
+<p>The <a href="/javadoc/cibseven/2.2-ee/?org/cibseven/bpm/engine/history/HistoricDecisionOutputInstance">HistoricDecisionOutputInstance</a>
  represents one output entry of an
 evaluated decision. If the decision is implemented as decision table, the
 <code>HistoricDecisionInstance</code> contains one <code>HistoricDecisionOutputInstance</code>
 for each output clause and matched rule.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">HistoricDecisionOutputInstance</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="c1">// id of the output clause</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="n">String</span><span class="w"> </span><span class="n">clauseId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">output</span><span class="p">.</span><span class="na">getClauseId</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// id of the output clause</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">String</span><span class="w"> </span><span class="n">clauseId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">output</span><span class="p">.</span><span class="na">getClauseId</span><span class="p">();</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="c1">// label of the output clause</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="n">String</span><span class="w"> </span><span class="n">clauseName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">output</span><span class="p">.</span><span class="na">getClauseName</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// label of the output clause</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">String</span><span class="w"> </span><span class="n">clauseName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">output</span><span class="p">.</span><span class="na">getClauseName</span><span class="p">();</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="c1">// evaluated value of the output entry</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="n">Object</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">output</span><span class="p">.</span><span class="na">getValue</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// evaluated value of the output entry</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Object</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">output</span><span class="p">.</span><span class="na">getValue</span><span class="p">();</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="c1">// evaluated value of the output entry as typed value</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="c1">// which contains type information</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="n">TypedValue</span><span class="w"> </span><span class="n">typedValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">output</span><span class="p">.</span><span class="na">getTypedValue</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// evaluated value of the output entry as typed value</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// which contains type information</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">TypedValue</span><span class="w"> </span><span class="n">typedValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">output</span><span class="p">.</span><span class="na">getTypedValue</span><span class="p">();</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="c1">// id of matched rule the output belongs to</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="n">String</span><span class="w"> </span><span class="n">ruleId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">output</span><span class="p">.</span><span class="na">getRuleId</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// id of matched rule the output belongs to</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">String</span><span class="w"> </span><span class="n">ruleId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">output</span><span class="p">.</span><span class="na">getRuleId</span><span class="p">();</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="c1">// the position of the rule in the list of matched rules</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="n">Integer</span><span class="w"> </span><span class="n">ruleOrder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">output</span><span class="p">.</span><span class="na">getRuleOrder</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// the position of the rule in the list of matched rules</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Integer</span><span class="w"> </span><span class="n">ruleOrder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">output</span><span class="p">.</span><span class="na">getRuleOrder</span><span class="p">();</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="c1">// name of the output clause used as output variable identifier</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="n">String</span><span class="w"> </span><span class="n">variableName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">output</span><span class="p">.</span><span class="na">getVariableName</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// name of the output clause used as output variable identifier</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">String</span><span class="w"> </span><span class="n">variableName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">output</span><span class="p">.</span><span class="na">getVariableName</span><span class="p">();</span><span class="w">
 </span></span></span></code></pre></div><p>Note that the value may be the result of a type transformation in case the
 output specifies a type.</p>
 
