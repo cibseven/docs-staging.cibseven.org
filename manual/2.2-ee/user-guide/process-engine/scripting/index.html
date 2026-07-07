@@ -16,12 +16,12 @@
 
   <title>Scripting | docs.cibseven.org</title>
 
-  <meta name="generator" content="Hugo 0.136.4">
+  <meta name="generator" content="Hugo 0.162.1">
   <link rel="shortcut icon" href="/manual/2.2-ee/img/favicon.ico" type="image/x-icon" />
 
   
 
-  <link rel="stylesheet" href="/manual/2.2-ee/css/docs.a0477a0dd0fc479d343e1a56c04891f34a958a869a1b12d6bd14347ea39c6b64.css" integrity="sha256-oEd6DdD8R500PhpWwEiR80qVioaaGxLWvRQ0fqOca2Q=">
+  <link rel="stylesheet" href="/manual/2.2-ee/css/docs.0ac9000d0b136618d757f7e65b9f2c6ec7a0207018614b8f3045bb04ec8e66b3.css" integrity="sha256-CskADQsTZhjXV/fmW58sbsegIHAYYUuPMEW7BOyOZrM=">
   <link rel="canonical" href="https://docs.cibseven.org/manual/2.2-ee/user-guide/process-engine/scripting/" />
 </head>
 <body class="">
@@ -3539,6 +3539,22 @@
           
   <li>
     
+      <a href="/manual/2.2-ee/release-notes/release-notes-2.2.1-ee/" >2.2.1 EE</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
+      <a href="/manual/2.2-ee/release-notes/release-notes-2.2.1-ce-plus/" >2.2.1 CE&#43;</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
       <a href="/manual/2.2-ee/release-notes/release-notes-2.2.0-ee/" >2.2.0 EE</a>
     
   </li>
@@ -3548,6 +3564,22 @@
   <li>
     
       <a href="/manual/2.2-ee/release-notes/release-notes-2.2.0-ce/" >2.2.0 CE</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
+      <a href="/manual/2.2-ee/release-notes/release-notes-2.1.7-ee/" >2.1.7 EE</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
+      <a href="/manual/2.2-ee/release-notes/release-notes-2.1.7-ce-plus/" >2.1.7 CE&#43;</a>
     
   </li>
 
@@ -3660,6 +3692,22 @@
   <li>
     
       <a href="/manual/2.2-ee/release-notes/release-notes-2.1.0-ce/" >2.1.0 CE</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
+      <a href="/manual/2.2-ee/release-notes/release-notes-2.0.11-ee/" >2.0.11 EE</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
+      <a href="/manual/2.2-ee/release-notes/release-notes-2.0.11-ce-plus/" >2.0.11 CE&#43;</a>
     
   </li>
 
@@ -3946,8 +3994,8 @@ scripts.</p>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/definitions&gt;</span>
 </span></span></code></pre></div><p>To start the process, a variable <code>inputArray</code> is necessary.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="n">variables</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="o">&gt;</span><span class="p">();</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">variables</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&#34;inputArray&#34;</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Integer</span><span class="o">[]</span><span class="p">{</span><span class="n">5</span><span class="p">,</span><span class="w"> </span><span class="n">23</span><span class="p">,</span><span class="w"> </span><span class="n">42</span><span class="p">});</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">runtimeService</span><span class="p">.</span><span class="na">startProcessInstanceByKey</span><span class="p">(</span><span class="s">&#34;process&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">variables</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">variables</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&#34;inputArray&#34;</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Integer</span><span class="o">[]</span><span class="p">{</span><span class="n">5</span><span class="p">,</span><span class="w"> </span><span class="n">23</span><span class="p">,</span><span class="w"> </span><span class="n">42</span><span class="p">});</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">runtimeService</span><span class="p">.</span><span class="na">startProcessInstanceByKey</span><span class="p">(</span><span class="s">&#34;process&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">variables</span><span class="p">);</span><span class="w">
 </span></span></span></code></pre></div>
 <h2 id="use-scripts-as-execution-listeners">Use Scripts as Execution Listeners</h2>
 <p>Besides Java code and expression language, CIB seven also supports the execution of a script
@@ -4080,7 +4128,7 @@ code.</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// do something</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
 </span></span></span></code></pre></div><p>The script source code can also be loaded from an external resource in the same way as described
 for <a href="#script-source">script tasks</a>.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;camunda:inputOutput&gt;</span>
@@ -4183,7 +4231,7 @@ you can change settings on the script engine instance provided to that method as
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="n">scriptEngine</span><span class="p">.</span><span class="na">getContext</span><span class="p">().</span><span class="na">setAttribute</span><span class="p">(</span><span class="s">&#34;#jsr223.groovy.engine.keep.globals&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;soft&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">ScriptContext</span><span class="p">.</span><span class="na">ENGINE_SCOPE</span><span class="p">);</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
 </span></span></span></code></pre></div><p>If you need more flexibility in configuring a script engine, you can override a method further up the chain in the script engine creation
 or provide your own plain implementation of the interface. Have a look at the following example that provides a custom <strong>GraalVM JavaScript</strong>
 instance with Nashorn Compatibility Mode enabled:</p>
@@ -4208,14 +4256,14 @@ instance with Nashorn Compatibility Mode enabled:</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="na">allowExperimentalOptions</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="na">option</span><span class="p">(</span><span class="s">&#34;js.nashorn-compat&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;true&#34;</span><span class="p">));</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
 </span></span></span></code></pre></div>
 <h2 id="reference-process-application-provided-classes">Reference Process Application Provided Classes</h2>
 <p>The script can reference to process application provided classes by importing them like in the following groovy script example.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">my.process.application.CustomClass</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">CustomClass</span><span class="p">().</span><span class="na">calculate</span><span class="p">()</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">execution</span><span class="p">.</span><span class="na">setVariable</span><span class="p">(</span><span class="err">&#39;</span><span class="n">sum</span><span class="err">&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">sum</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">CustomClass</span><span class="p">().</span><span class="na">calculate</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">execution</span><span class="p">.</span><span class="na">setVariable</span><span class="p">(</span><span class="err">&#39;</span><span class="n">sum</span><span class="err">&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">sum</span><span class="p">)</span><span class="w">
 </span></span></span></code></pre></div><p>To avoid possible class loading problems during the script execution, it is recommended to set the process engine configuration flag name <code>enableFetchScriptEngineFromProcessApplication</code> to true.</p>
 <p>Be aware that the process engine flag <code>enableFetchScriptEngineFromProcessApplication</code> is only relevant in a shared engine scenario.</p>
 
@@ -4236,13 +4284,13 @@ i.e., <code>$sum</code>)</p>
 <p>These variables correspond to the <code>DelegateExecution</code>, <code>DelegateTask</code> or resp. <code>ConnectorVariableScope</code>
 interface which means that it can be used to get and set variables or access process engine services.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// get process variable</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">execution</span><span class="p">.</span><span class="na">getVariable</span><span class="p">(</span><span class="sc">&#39;x&#39;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">execution</span><span class="p">.</span><span class="na">getVariable</span><span class="p">(</span><span class="sc">&#39;x&#39;</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// set process variable</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">execution</span><span class="p">.</span><span class="na">setVariable</span><span class="p">(</span><span class="sc">&#39;y&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">15</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c1">// set process variable</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">execution</span><span class="p">.</span><span class="na">setVariable</span><span class="p">(</span><span class="sc">&#39;y&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">15</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// get task service and query for task</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">task</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">execution</span><span class="p">.</span><span class="na">getProcessEngineServices</span><span class="p">().</span><span class="na">getTaskService</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c1">// get task service and query for task</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">task</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">execution</span><span class="p">.</span><span class="na">getProcessEngineServices</span><span class="p">().</span><span class="na">getTaskService</span><span class="p">()</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">createTaskQuery</span><span class="p">()</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">taskDefinitionKey</span><span class="p">(</span><span class="s">&#34;task&#34;</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">.</span><span class="na">singleResult</span><span class="p">()</span><span class="w">
@@ -4267,7 +4315,7 @@ interface which means that it can be used to get and set variables or access pro
 <li>Java:</li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">var</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">System</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">system</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="err">&#39;</span><span class="n">This</span><span class="w"> </span><span class="n">prints</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">console</span><span class="err">&#39;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">system</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="err">&#39;</span><span class="n">This</span><span class="w"> </span><span class="n">prints</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">console</span><span class="err">&#39;</span><span class="p">);</span><span class="w">
 </span></span></span></code></pre></div>
 <h2 id="script-source">Script Source</h2>
 <p>The standard way to specify the script source code in the BPMN XML model is to add it directly to
