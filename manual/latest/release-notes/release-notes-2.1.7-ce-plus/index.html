@@ -3910,13 +3910,89 @@
     <div class="col-xs-12 content-text">
       <p><em>Release Date: July 7, 2026</em></p>
 
+<h2 id="highlights">Highlights</h2>
+<ul>
+<li><strong>Security</strong> 23 CVEs resolved: two Critical in Apache <code>tomcat</code> (<code>10.1.55</code>); eight High across <code>tomcat</code>, <code>jackson</code>, <code>postgresql</code>, and <code>openjdk17</code>; eight Medium in <code>curl</code>/<code>libcurl</code> and <code>openjdk17</code>; five Low in <code>curl</code>/<code>libcurl</code> and <code>openjdk17</code></li>
+</ul>
+
+<h2 id="technical-updates">Technical Updates</h2>
+
+<h3 id="dependency-updates">Dependency Updates</h3>
+<ul>
+<li>Update <code>Spring Boot</code> from <code>3.5.14</code> to <code>3.5.15</code></li>
+<li>Update <code>spring-boot-4</code> (<code>run4</code>) from <code>4.0.6</code> to <code>4.0.7</code></li>
+<li>Update <code>jackson</code> (<code>jackson-core</code>, <code>jackson-databind</code>) from <code>2.21.2</code> to <code>2.21.4</code></li>
+<li>Update <code>tomcat</code> from <code>10.1.54</code> to <code>10.1.55</code></li>
+<li>Update <code>org.postgresql:postgresql</code> from <code>42.5.5</code> to <code>42.7.11</code></li>
+<li>Update <code>curl</code> (<code>libcurl</code>) from <code>8.17.0-r1</code> to <code>8.19.0-r0</code> (Alpine base image)</li>
+<li>Update <code>openjdk17</code> (<code>openjdk17-jre-headless</code>) from <code>17.0.18_p8-r0</code> to <code>17.0.19_p10-r0</code> (Alpine base image)</li>
+</ul>
+
+<h3 id="resolved-cve-vulnerabilities">Resolved CVE Vulnerabilities</h3>
+
+<h4 id="critical-severity">Critical Severity</h4>
+<ul>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-41293">CVE-2026-41293</a></strong> - Improper Input Validation in Apache Tomcat <code>10.1.54</code> allowing potential remote exploitation. Fixed in <code>10.1.55</code>.</li>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-43512">CVE-2026-43512</a></strong> - Authentication bypass in digest authentication in Apache Tomcat <code>10.1.54</code>. Fixed in <code>10.1.55</code>.</li>
+</ul>
+
+<h4 id="high-severity">High Severity</h4>
+<ul>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-41284">CVE-2026-41284</a></strong> - Allocation of resources without limits in Apache Tomcat <code>10.1.54</code>, leading to Denial of Service. Fixed in <code>10.1.55</code>.</li>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-42498">CVE-2026-42498</a></strong> - HTTP Authentication header exposed to unexpected hosts during WebSocket upgrade in Apache Tomcat <code>10.1.54</code>. Fixed in <code>10.1.55</code>.</li>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-43513">CVE-2026-43513</a></strong> - Case sensitivity bypass in <code>LockOutRealm</code> in Apache Tomcat <code>10.1.54</code> allowing lockout evasion. Fixed in <code>10.1.55</code>.</li>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-22016">CVE-2026-22016</a></strong> - CVSS 7.5. Easily exploitable vulnerability in Oracle Java SE JAXP (<code>openjdk17</code> <code>17.0.18</code>) allowing unauthenticated network attackers to read all accessible data. Fixed in <code>17.0.19_p10-r0</code>.</li>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-34282">CVE-2026-34282</a></strong> - CVSS 7.5. Easily exploitable vulnerability in Oracle Java SE Networking (<code>openjdk17</code> <code>17.0.18</code>) allowing unauthenticated network attackers to cause a complete Denial of Service. Fixed in <code>17.0.19_p10-r0</code>.</li>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-42198">CVE-2026-42198</a></strong> - Client-side Denial of Service in <code>org.postgresql:postgresql</code> <code>42.5.5</code> via a malicious server instructing unbounded PBKDF2 CPU work during SCRAM-SHA-256 authentication. Fixed in <code>42.7.11</code>.</li>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-54512">CVE-2026-54512</a></strong> - Vulnerability in <code>com.fasterxml.jackson.core:jackson-databind</code> <code>2.21.2</code>, fixed by upgrading to <code>2.21.4</code>.</li>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-54513">CVE-2026-54513</a></strong> - Vulnerability in <code>com.fasterxml.jackson.core:jackson-core</code> <code>2.21.2</code>, fixed by upgrading to <code>2.21.4</code>.</li>
+</ul>
+
+<h4 id="medium-severity">Medium Severity</h4>
+<ul>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-1965">CVE-2026-1965</a></strong> - <code>libcurl</code> wrongfully reuses a Negotiate-authenticated connection for a request using different credentials, sending it as the first user. Fixed in <code>8.19.0-r0</code>.</li>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-3783">CVE-2026-3783</a></strong> - <code>curl</code> leaks an OAuth2 bearer token to a redirect target hostname when a <code>.netrc</code> entry exists for that host. Fixed in <code>8.19.0-r0</code>.</li>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-3784">CVE-2026-3784</a></strong> - <code>curl</code> wrongfully reuses an existing HTTP proxy CONNECT connection when the new request uses different proxy credentials. Fixed in <code>8.19.0-r0</code>.</li>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-3805">CVE-2026-3805</a></strong> - Use-after-free in <code>curl</code> when performing a second SMB request to the same host. Fixed in <code>8.19.0-r0</code>.</li>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2025-14017">CVE-2025-14017</a></strong> - <code>libcurl</code> multi-threaded LDAPS transfers inadvertently change TLS options globally, potentially disabling certificate verification for concurrent transfers. Fixed in <code>8.19.0-r0</code>.</li>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-22013">CVE-2026-22013</a></strong> - CVSS 5.3. Difficult to exploit vulnerability in Oracle Java SE JGSS (<code>openjdk17</code> <code>17.0.18</code>) allowing unauthorized access to critical data with human interaction. Fixed in <code>17.0.19_p10-r0</code>.</li>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-22021">CVE-2026-22021</a></strong> - CVSS 5.3. Easily exploitable vulnerability in Oracle Java SE JSSE (<code>openjdk17</code> <code>17.0.18</code>) allowing partial Denial of Service via HTTPS. Fixed in <code>17.0.19_p10-r0</code>.</li>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-23865">CVE-2026-23865</a></strong> - Integer overflow in FreeType (bundled with <code>openjdk17</code> <code>17.0.18</code>) when parsing OpenType variable font tables, leading to out-of-bounds read. Fixed in <code>17.0.19_p10-r0</code>.</li>
+</ul>
+
+<h4 id="low-severity">Low Severity</h4>
+<ul>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2025-14524">CVE-2025-14524</a></strong> - <code>curl</code> wrongly passes an OAuth2 bearer token on cross-protocol redirect to IMAP, LDAP, POP3, or SMTP. Fixed in <code>8.19.0-r0</code>.</li>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2025-14819">CVE-2025-14819</a></strong> - <code>libcurl</code> may reuse a CA store cached with a reversed <code>CURLSSLOPT_NO_PARTIALCHAIN</code> option, accepting a trust chain that should otherwise be rejected. Fixed in <code>8.19.0-r0</code>.</li>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-22007">CVE-2026-22007</a></strong> - CVSS 2.9. Difficult to exploit vulnerability in Oracle Java SE Security (<code>openjdk17</code> <code>17.0.18</code>) allowing unauthorized read of a subset of data via local access. Fixed in <code>17.0.19_p10-r0</code>.</li>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-22018">CVE-2026-22018</a></strong> - CVSS 3.7. Difficult to exploit vulnerability in Oracle Java SE Libraries (<code>openjdk17</code> <code>17.0.18</code>) allowing partial Denial of Service via network. Fixed in <code>17.0.19_p10-r0</code>.</li>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-34268">CVE-2026-34268</a></strong> - CVSS 2.9. Difficult to exploit vulnerability in Oracle Java SE Security (<code>openjdk17</code> <code>17.0.18</code>) allowing unauthorized read of a subset of data via local access. Fixed in <code>17.0.19_p10-r0</code>.</li>
+</ul>
+
     </div>
   </div>
 </div>
 
 <div class="page-toc">
   <h3>On this Page:</h3>
-  <nav id="TableOfContents"></nav>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#highlights">Highlights</a></li>
+    <li><a href="#technical-updates">Technical Updates</a>
+      <ul>
+        <li><a href="#dependency-updates">Dependency Updates</a></li>
+        <li><a href="#resolved-cve-vulnerabilities">Resolved CVE Vulnerabilities</a>
+          <ul>
+            <li><a href="#critical-severity">Critical Severity</a></li>
+            <li><a href="#high-severity">High Severity</a></li>
+            <li><a href="#medium-severity">Medium Severity</a></li>
+            <li><a href="#low-severity">Low Severity</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
   <div class="docs-banner" style="display:none">
  :(
 </div>
