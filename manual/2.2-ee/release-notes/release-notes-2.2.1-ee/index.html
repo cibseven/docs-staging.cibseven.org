@@ -3910,13 +3910,338 @@
     <div class="col-xs-12 content-text">
       <p><em>Release Date: July 7, 2026</em></p>
 
+<h2 id="highlights">Highlights</h2>
+<ul>
+<li><strong>Security</strong> Multiple CVEs resolved: <code>jackson</code> upgraded from <code>2.21.2</code> to <code>2.21.4</code> (<code>CVE-2026-54512</code>, <code>CVE-2026-54513</code>); <code>openssl</code> (<code>libcrypto3</code>, <code>libssl3</code>) updated to <code>3.5.7-r0</code> (Alpine base image) resolving 15 CVEs; <code>netty</code> updated in WildFly distribution resolving 7 CVEs; SQL injection <code>CVE-2026-55405</code> fixed in <code>langchain4j-pgvector</code></li>
+<li><strong><a href="/manual/2.2-ee/webapps/modeler/">Modeler</a></strong> Released <code>cibseven-modeler</code> <code>1.1.0</code> and <code>cibseven-modeler-ee</code> <code>1.1.0</code> with multi-file import and deployment, new extensibility points, accessibility improvements, and major stability fixes</li>
+<li><strong><a href="/manual/2.2-ee/webapps/modeler/user-guide/bpmn-ai-chat/">BPMN AI Agent</a></strong> <em>(EE exclusive)</em> AI agent now supports generating and previewing embedded and Camunda Forms; improved BPMN editing tools and system prompt</li>
+<li><strong>LDAP</strong> Configurable authentication cache and improved login behavior for large directories</li>
+<li><strong>Connect</strong> HTTP/SOAP connect connectors and element templates now ship with <code>run</code> and <code>run4</code> distributions</li>
+<li><strong>OAuth2</strong> Authentication with assertion (JWT client authentication) now supported</li>
+<li><strong>Batch Operations</strong> <em>(EE exclusive)</em> Fixed due date handling and added comma-separated process instance ID input support</li>
+<li><strong>Migration</strong> <em>(EE exclusive)</em> Fixed broken navigation links in the migration tool</li>
+</ul>
+
+<h2 id="new-features">New Features</h2>
+
+<h3 id="httpsoap-connect-connectors-in-runrun4">HTTP/SOAP Connect Connectors in <code>run</code>/<code>run4</code></h3>
+<ul>
+<li>The <code>http-client</code> and <code>soap-http-client</code> modules are now included in the <code>run</code> and <code>run4</code> distributions under <code>configuration/userlib/</code></li>
+<li>Element templates for both connectors are bundled inside the connector JARs and are immediately available in the Modeler</li>
+</ul>
+
+<h3 id="ldap-configurable-cache">LDAP Configurable Cache</h3>
+<ul>
+<li>LDAP authentication now supports a configurable cache to reduce redundant directory lookups and improve performance under load</li>
+<li>Cache parameters are configurable in the distribution YAML configuration files</li>
+</ul>
+
+<h3 id="oauth2-authentication-with-assertion">OAuth2 Authentication with Assertion</h3>
+<ul>
+<li>OAuth2 identity provider now supports authentication with assertion, enabling JWT-based client authentication and token exchange flows</li>
+<li>New SSO properties for assertion-based authentication are available in the distribution configuration files</li>
+</ul>
+
+<h3 id="process-instance-filter-in-historic-activity-statistics">Process Instance Filter in Historic Activity Statistics</h3>
+<ul>
+<li>The process instance filter in the BPMN viewer is now applied to historic activity statistics, making heat-map counts consistent with the active filter selection</li>
+</ul>
+
+<h3 id="bpmn-ai-agent-enhancements-ee-exclusive">BPMN AI Agent Enhancements <em>(EE exclusive)</em></h3>
+<ul>
+<li>AI agent now supports generating and previewing embedded and Camunda Forms directly in the chat panel</li>
+<li>Replaced <code>replaceXmlElement</code> with an atomic batch <code>patchXml</code> tool for more reliable and precise BPMN diagram editing</li>
+<li>Agent no longer forces the diff/review view when it only asks a clarifying question — layout adapts to the response type</li>
+<li>System prompt improvements for more accurate and efficient BPMN editing</li>
+</ul>
+
+<h3 id="batch-operations-ee-exclusive">Batch Operations <em>(EE exclusive)</em></h3>
+<ul>
+<li>Comma-separated process instance IDs are now accepted in the &ldquo;Id in&rdquo; search filter, restoring parity with previous behavior</li>
+</ul>
+
+<h3 id="modeler-enhancements-cibseven-modeler-110">Modeler Enhancements (<code>cibseven-modeler</code> <code>1.1.0</code>)</h3>
+
+<h4 id="multi-file-import--deployment">Multi-file Import &amp; Deployment</h4>
+<ul>
+<li>Import multiple BPMN, DMN, and Form files in a single operation</li>
+<li>Drag and drop support for bulk file imports with conflict handling</li>
+<li>Deploy multiple files at once; deploy BPMN processes together with selected forms</li>
+<li>Download diagrams directly from the start page</li>
+</ul>
+
+<h4 id="extensibility">Extensibility</h4>
+<ul>
+<li>New plugin extension point for custom integrations</li>
+<li>New chat extension point with configurable chat transport</li>
+<li>Support for grouped element-template scopes</li>
+<li>Graceful fallback when the Modeler is deployed without a configured database</li>
+</ul>
+
+<h4 id="user-interface">User Interface</h4>
+<ul>
+<li>Close all tabs in one click with unsaved-changes protection</li>
+<li>Middle-click tab closing (standard browser behavior)</li>
+<li>Optional &ldquo;Skip creation dialog&rdquo; preference to streamline diagram and form creation</li>
+<li>Collapsible Properties/Chat side panel</li>
+<li>Improved Properties Panel resizing</li>
+<li>Toast notifications with process start redirection</li>
+<li>Element-template icon rendering improvements in the BPMN modeler</li>
+<li>Improved element template search and better handling of template grouping</li>
+<li>Refreshed modeler user interface</li>
+<li>Focus management for creation dialogs — inputs are focused automatically on open</li>
+<li>Default task type markers remain visible alongside applied element-template icons</li>
+</ul>
+
+<h4 id="accessibility">Accessibility</h4>
+<ul>
+<li>Added accessible labels and modal names throughout the Modeler</li>
+<li>Live region announcements for screen readers</li>
+<li>Added accessible labels on icon-only EE controls: compare, chat options, and diff viewer <em>(EE exclusive)</em></li>
+</ul>
+
+<h4 id="modeler-ee-ee-exclusive">Modeler EE <em>(EE exclusive)</em></h4>
+<ul>
+<li>Updated Modeler EE user interface</li>
+<li>Diagram diff failures are now surfaced with a localized error message instead of failing silently</li>
+</ul>
+
+<h3 id="docker">Docker</h3>
+<ul>
+<li>Added <code>OPENTELEMETRY_AGENT_VERSION</code> build argument to Docker images for explicit OpenTelemetry agent version pinning</li>
+<li>The <code>JAVA</code> build argument is now required in Docker builds</li>
+</ul>
+
+<h2 id="user-experience-improvements-in-web-client">User Experience Improvements in Web Client</h2>
+
+<h3 id="ldap">LDAP</h3>
+<ul>
+<li>LDAP user <code>objectClass</code> is now configurable, allowing flexible directory schemas</li>
+<li>LDAP login now performs a targeted node lookup instead of a full directory search, reducing load on the directory server</li>
+<li>LDAP authentication no longer fails when the display name attribute is not configured for a user</li>
+</ul>
+
+<h3 id="tasklist">Tasklist</h3>
+<ul>
+<li>Tasks from inactive process instances are no longer shown in the task list</li>
+<li>Search query length limit removed from the task search field, allowing queries longer than 50 characters</li>
+</ul>
+
+<h3 id="forms">Forms</h3>
+<ul>
+<li>Improved error handling for embedded forms and deployed form routes with user-friendly error messages</li>
+<li>Error messages are available in multiple languages</li>
+</ul>
+
+<h3 id="bpmn-ai-agent-chat-ee-exclusive">BPMN AI Agent Chat <em>(EE exclusive)</em></h3>
+<ul>
+<li>Improved BPMN diff output in the agent response for clearer change visualization</li>
+<li>Session refresh now works correctly after reconnection</li>
+<li>Improved license-missing UX in the chat panel: replaced the robot avatar with an error icon and applied danger-themed styling; lint quick-action bar is now hidden when a license is required</li>
+<li>Chat error banner now clears automatically when the connection recovers</li>
+</ul>
+
+<h3 id="migration-tool-ee-exclusive">Migration Tool <em>(EE exclusive)</em></h3>
+<ul>
+<li>Fixed broken links to source and target process definitions in steps 4 and 5 of the migration workflow</li>
+<li>Added link icons, tooltips, and a responsive layout to the migration confirmation view</li>
+</ul>
+
+<h2 id="bug-fixes">Bug Fixes</h2>
+
+<h3 id="authorization">Authorization</h3>
+<ul>
+<li>Fixed permission selector behaving inconsistently during authorization creation</li>
+<li>Fixed authorization deletion and editing failing with a 404 error (null ID)</li>
+<li>Fixed authorization responses not handled correctly after creation</li>
+</ul>
+
+<h3 id="process-definitions">Process Definitions</h3>
+<ul>
+<li>Fixed process definition versions not ordered by version descending</li>
+<li>Fixed incorrect process instance counter after deleting a process definition version</li>
+</ul>
+
+<h3 id="multi-engine">Multi-Engine</h3>
+<ul>
+<li>Fixed an error occurring when no default engine is configured</li>
+<li>Fixed rendered forms not being routed to the user&rsquo;s engine in a multi-engine setup</li>
+</ul>
+
+<h3 id="direct-provider">Direct Provider</h3>
+<ul>
+<li>Fixed authorization checks not being applied in DirectProvider</li>
+</ul>
+
+<h3 id="modeler">Modeler</h3>
+<ul>
+<li>Fixed the Modeler edit-lock: <code>/session/close</code> now validates the lock owner before allowing a session to be closed</li>
+<li>Fixed <code>/session/check</code> leaking the session ID to unauthorized callers</li>
+<li>Hardened diagram XML parsing against XXE (XML External Entity) injection</li>
+<li>Fixed <code>checkCorrectTab</code> crashing on the dashboard when no active tab is present</li>
+<li>Fixed duplicate diagram and form ID validation — live check during creation and a save backstop</li>
+<li>Fixed <code>openDiagram</code> returning <code>-1</code> after creating a new tab</li>
+<li>Fixed batch import &ldquo;replace unsaved tab&rdquo; returning no value</li>
+<li>Fixed tab resolution and DMN import key fallback issues</li>
+<li>Fixed large number of open tabs causing display issues</li>
+<li>Fixed console and visualization errors when a referenced template is not available</li>
+<li>Fixed gap in the footer for forms and DMN diagrams</li>
+<li>Fixed Modeler accessible via direct URL even when disabled in <code>application.yaml</code></li>
+<li>Fixed template search crashes in the element-template chooser</li>
+<li>Fixed form save detection not triggering correctly in the Modeler</li>
+<li>CSS fixes in the Properties Panel</li>
+<li>Fixed layout and toolbar rendering issues in the diagram editor</li>
+<li>Monaco editor stability improvements and autocomplete fixes</li>
+<li>Improved DMN editor stability</li>
+<li>Fixed edit-lock not released reliably on tab close failure and SPA unmount <em>(EE exclusive)</em></li>
+<li>Fixed missing session ID not guarded, which could cause orphaned edit locks <em>(EE exclusive)</em></li>
+<li>Fixed Modeler EE failing to load in Firefox <em>(EE exclusive)</em></li>
+</ul>
+
+<h3 id="bpmn-ai-agent-chat-ee-exclusive-1">BPMN AI Agent Chat <em>(EE exclusive)</em></h3>
+<ul>
+<li>Fixed <code>toolSideEffects</code> not rendering correctly when the list contains multiple entries</li>
+<li>Fixed <code>createSessionHook</code> storing the session ID without validating the server response</li>
+<li>Fixed agent chat localStorage history: resolved storage limit overflow, introduced a unified prefix, enabled shared history across all browser tabs, and restored the last chat on open</li>
+<li>Fixed old <code>camundaHistoryLevel</code> property not handled correctly in middleware-ee</li>
+<li>Fixed validation error messages in agent chat translations; removed unreliable retry logic in <code>useAgentChat</code></li>
+<li>Fixed license permission check in the web client</li>
+<li>Fixed unguarded DOM/registry access in BPMN filter: guard against missing graphics registry and non-rectangular shapes</li>
+<li>Fixed WebSocket path for the chat panel not derived correctly from the configured services base URL <em>(EE exclusive)</em></li>
+</ul>
+
+<h3 id="batch-operations-ee-exclusive-1">Batch Operations <em>(EE exclusive)</em></h3>
+<ul>
+<li>Fixed due date drifting by UTC offset when editing batch operation due dates</li>
+<li>Fixed selected due date not preserved correctly in the batch operation payload</li>
+<li>Fixed time selector behaving unexpectedly when entering numbers via keyboard</li>
+</ul>
+
+<h3 id="backend">Backend</h3>
+<ul>
+<li>Fixed <code>HistoricStatistics</code> OrQuery logic in the process instance filter</li>
+<li>Fixed <code>withoutTenantId</code> flag not set correctly in tenant ID queries</li>
+</ul>
+
+<h2 id="technical-updates">Technical Updates</h2>
+
+<h3 id="dependency-updates">Dependency Updates</h3>
+<ul>
+<li>Update <code>Spring Boot</code> from <code>3.5.14</code> to <code>3.5.15</code></li>
+<li>Update <code>spring-boot-4</code> (<code>run4</code>) from <code>4.0.6</code> to <code>4.0.7</code></li>
+<li>Update <code>jackson</code> (<code>jackson-core</code>, <code>jackson-databind</code>) from <code>2.21.2</code> to <code>2.21.4</code></li>
+<li>Update <code>wildfly</code> from <code>40.0.0.Final</code> to <code>40.0.1.Final</code></li>
+<li>Update <code>netty</code> from <code>4.1.133.Final</code> to <code>4.1.135.Final</code> (WildFly distribution, via <code>wildfly</code> upgrade)</li>
+<li>Update <code>openssl</code> (<code>libcrypto3</code>, <code>libssl3</code>) from <code>3.5.6-r0</code> to <code>3.5.7-r0</code> (Alpine base image)</li>
+<li>Update <code>langchain4j</code> (<code>langchain4j-pgvector</code>) from <code>1.14.1-beta24</code> to <code>1.16.3-beta26</code></li>
+<li>Update <code>cibseven-modeler</code> to <code>1.1.0</code></li>
+<li>Update <code>cibseven-modeler-ee</code> to <code>1.1.0</code> <em>(EE exclusive)</em></li>
+<li>Update <code>@cib/common-frontend</code> to <code>1.0.4</code></li>
+</ul>
+
+<h3 id="resolved-cve-vulnerabilities">Resolved CVE Vulnerabilities</h3>
+
+<h4 id="high-severity">High Severity</h4>
+<ul>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-45447">CVE-2026-45447</a></strong> - Use-after-free in <code>openssl</code> (<code>libcrypto3</code>, <code>libssl3</code>) during PKCS#7 signature verification when processing a signed message with an empty <code>digestAlgorithms</code> SET, potentially enabling heap corruption or remote code execution. Fixed in <code>3.5.7-r0</code> (Alpine base image).</li>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-54512">CVE-2026-54512</a></strong> - Vulnerability in <code>com.fasterxml.jackson.core:jackson-databind</code> <code>2.21.2</code>, fixed by upgrading to <code>2.21.4</code>.</li>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-54513">CVE-2026-54513</a></strong> - Vulnerability in <code>com.fasterxml.jackson.core:jackson-core</code> <code>2.21.2</code>, fixed by upgrading to <code>2.21.4</code>.</li>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-55405">CVE-2026-55405</a></strong> - SQL injection in <code>dev.langchain4j:langchain4j-pgvector</code> via unescaped metadata filter keys in <code>EmbeddingSearchRequest.filter()</code>, enabling blind data exfiltration or row deletion when attacker-controlled filter keys reach the embedding store. Fixed in <code>1.16.3-beta26</code>.</li>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-44249">CVE-2026-44249</a></strong> - IPv6 subnet rule bypass in <code>io.netty:netty-handler</code> <code>IpSubnetFilterRule</code> due to incorrect masking, allowing public IPs to bypass access controls. Fixed in <code>netty</code> <code>4.1.135.Final</code> (WildFly distribution).</li>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-45416">CVE-2026-45416</a></strong> - Unbounded heap allocation in <code>io.netty:netty-handler</code> <code>SslClientHelloHandler</code> for oversized TLS ClientHello messages when <code>SniHandler</code> constructors disable the length guard and timeout. Fixed in <code>netty</code> <code>4.1.135.Final</code> (WildFly distribution).</li>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-45674">CVE-2026-45674</a></strong> - DNS cache poisoning via CNAME bailiwick bypass in <code>io.netty:netty-resolver-dns</code>, allowing a compromised authoritative server to inject records for parent domains. Fixed in <code>netty</code> <code>4.1.135.Final</code> (WildFly distribution).</li>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-47691">CVE-2026-47691</a></strong> - DNS cache poisoning via NS bailiwick bypass in <code>io.netty:netty-resolver-dns</code>, allowing a subdomain-authoritative server to poison the cache for parent zones. Fixed in <code>netty</code> <code>4.1.135.Final</code> (WildFly distribution).</li>
+</ul>
+
+<h4 id="medium-severity">Medium Severity</h4>
+<ul>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-34182">CVE-2026-34182</a></strong> - Insufficient validation of cipher and tag length fields in <code>openssl</code> CMS <code>AuthEnvelopedData</code> processing, allowing an on-path attacker to achieve key-equivalent functionality or bypass integrity validation. Fixed in <code>openssl</code> <code>3.5.7-r0</code> (Alpine base image).</li>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-34183">CVE-2026-34183</a></strong> - Unbounded memory allocation in <code>openssl</code> QUIC stack via malicious <code>PATH_CHALLENGE</code> frames, leading to Denial of Service. Fixed in <code>openssl</code> <code>3.5.7-r0</code> (Alpine base image).</li>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-42764">CVE-2026-42764</a></strong> - NULL pointer dereference in <code>openssl</code> QUIC server when receiving an initial packet with an invalid token and address validation disabled, causing Denial of Service. Fixed in <code>openssl</code> <code>3.5.7-r0</code> (Alpine base image).</li>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-45445">CVE-2026-45445</a></strong> - Application-supplied IV silently discarded in <code>openssl</code> AES-OCB via <code>EVP_Cipher()</code> one-shot interface, causing nonce reuse, loss of confidentiality, and universal authentication tag forgery. Fixed in <code>openssl</code> <code>3.5.7-r0</code> (Alpine base image).</li>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-45536">CVE-2026-45536</a></strong> - File descriptor leak in <code>io.netty:netty-transport-native-epoll</code> when a peer sends a <code>SCM_RIGHTS</code> cmsg carrying two file descriptors, bypassing the single-fd check. Fixed in <code>netty</code> <code>4.1.135.Final</code> (WildFly distribution).</li>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-45673">CVE-2026-45673</a></strong> - DNS cache poisoning via predictable transaction IDs and static UDP source port in <code>io.netty:netty-resolver-dns</code>, reducing entropy for Kaminsky-style attacks. Fixed in <code>netty</code> <code>4.1.135.Final</code> (WildFly distribution).</li>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-47244">CVE-2026-47244</a></strong> - No default <code>SETTINGS_MAX_CONCURRENT_STREAMS</code> enforcement in <code>io.netty:netty-codec-http2</code>, allowing a single connection to open an unbounded number of streams and cause Denial of Service. Fixed in <code>netty</code> <code>4.1.135.Final</code> (WildFly distribution).</li>
+</ul>
+
+<h4 id="low-severity">Low Severity</h4>
+<ul>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-34180">CVE-2026-34180</a></strong> - Heap buffer over-read in <code>openssl</code> ASN.1 decoder when parsing a crafted DER-encoded structure with a primitive element exceeding 2 GB, potentially causing a crash on 64-bit Unix platforms. Fixed in <code>openssl</code> <code>3.5.7-r0</code> (Alpine base image).</li>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-34181">CVE-2026-34181</a></strong> - Insufficient PBMAC1 integrity validation in <code>openssl</code> PKCS#12 processing, giving an attacker a 1-in-256 chance of having a forged certificate and private key accepted. Fixed in <code>openssl</code> <code>3.5.7-r0</code> (Alpine base image).</li>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-42766">CVE-2026-42766</a></strong> - NULL pointer dereference in <code>openssl</code> CMS password-based decryption when the optional <code>keyDerivationAlgorithm</code> field is absent, causing Denial of Service. Fixed in <code>openssl</code> <code>3.5.7-r0</code> (Alpine base image).</li>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-42767">CVE-2026-42767</a></strong> - NULL pointer dereference in <code>openssl</code> CMP client when processing a crafted server response with a missing algorithm parameters field in an <code>EncryptedValue</code>, causing Denial of Service. Fixed in <code>openssl</code> <code>3.5.7-r0</code> (Alpine base image).</li>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-42768">CVE-2026-42768</a></strong> - <code>CMS_decrypt()</code> and <code>PKCS7_decrypt()</code> in <code>openssl</code> vulnerable to a Bleichenbacher-style adaptive chosen-ciphertext attack when the attacker can supply CMS messages and observe error codes or decryption output. Fixed in <code>openssl</code> <code>3.5.7-r0</code> (Alpine base image).</li>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-42769">CVE-2026-42769</a></strong> - CMP root CA key update verification rendered ineffectual in <code>openssl</code> due to a certificate chain building typo, potentially allowing a Registration Authority to substitute an arbitrary root CA. Fixed in <code>openssl</code> <code>3.5.7-r0</code> (Alpine base image).</li>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-42770">CVE-2026-42770</a></strong> - DHX (X9.42) subgroup membership check in <code>openssl</code> uses the peer&rsquo;s <code>q</code> parameter instead of the local key&rsquo;s, enabling small-subgroup private key recovery (Lim-Lee attack). Fixed in <code>openssl</code> <code>3.5.7-r0</code> (Alpine base image).</li>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-45446">CVE-2026-45446</a></strong> - AES-SIV and AES-GCM-SIV in <code>openssl</code> fail to recompute the expected authentication tag when decrypting with an empty ciphertext, allowing universal message forgery via the all-zeros tag. Fixed in <code>openssl</code> <code>3.5.7-r0</code> (Alpine base image).</li>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-7383">CVE-2026-7383</a></strong> - Signed integer overflow in <code>openssl</code> <code>ASN1_mbstring_ncopy()</code> when computing the Unicode output buffer size for large inputs, potentially leading to heap buffer overflow. Fixed in <code>openssl</code> <code>3.5.7-r0</code> (Alpine base image).</li>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-9076">CVE-2026-9076</a></strong> - Heap out-of-bounds read in <code>openssl</code> CMS PWRI key unwrap when an attacker-chosen stream-mode KEK cipher bypasses the block-size guard in <code>kek_unwrap_key()</code>, potentially causing Denial of Service. Fixed in <code>openssl</code> <code>3.5.7-r0</code> (Alpine base image).</li>
+</ul>
+
     </div>
   </div>
 </div>
 
 <div class="page-toc">
   <h3>On this Page:</h3>
-  <nav id="TableOfContents"></nav>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#highlights">Highlights</a></li>
+    <li><a href="#new-features">New Features</a>
+      <ul>
+        <li><a href="#httpsoap-connect-connectors-in-runrun4">HTTP/SOAP Connect Connectors in <code>run</code>/<code>run4</code></a></li>
+        <li><a href="#ldap-configurable-cache">LDAP Configurable Cache</a></li>
+        <li><a href="#oauth2-authentication-with-assertion">OAuth2 Authentication with Assertion</a></li>
+        <li><a href="#process-instance-filter-in-historic-activity-statistics">Process Instance Filter in Historic Activity Statistics</a></li>
+        <li><a href="#bpmn-ai-agent-enhancements-ee-exclusive">BPMN AI Agent Enhancements <em>(EE exclusive)</em></a></li>
+        <li><a href="#batch-operations-ee-exclusive">Batch Operations <em>(EE exclusive)</em></a></li>
+        <li><a href="#modeler-enhancements-cibseven-modeler-110">Modeler Enhancements (<code>cibseven-modeler</code> <code>1.1.0</code>)</a>
+          <ul>
+            <li><a href="#multi-file-import--deployment">Multi-file Import &amp; Deployment</a></li>
+            <li><a href="#extensibility">Extensibility</a></li>
+            <li><a href="#user-interface">User Interface</a></li>
+            <li><a href="#accessibility">Accessibility</a></li>
+            <li><a href="#modeler-ee-ee-exclusive">Modeler EE <em>(EE exclusive)</em></a></li>
+          </ul>
+        </li>
+        <li><a href="#docker">Docker</a></li>
+      </ul>
+    </li>
+    <li><a href="#user-experience-improvements-in-web-client">User Experience Improvements in Web Client</a>
+      <ul>
+        <li><a href="#ldap">LDAP</a></li>
+        <li><a href="#tasklist">Tasklist</a></li>
+        <li><a href="#forms">Forms</a></li>
+        <li><a href="#bpmn-ai-agent-chat-ee-exclusive">BPMN AI Agent Chat <em>(EE exclusive)</em></a></li>
+        <li><a href="#migration-tool-ee-exclusive">Migration Tool <em>(EE exclusive)</em></a></li>
+      </ul>
+    </li>
+    <li><a href="#bug-fixes">Bug Fixes</a>
+      <ul>
+        <li><a href="#authorization">Authorization</a></li>
+        <li><a href="#process-definitions">Process Definitions</a></li>
+        <li><a href="#multi-engine">Multi-Engine</a></li>
+        <li><a href="#direct-provider">Direct Provider</a></li>
+        <li><a href="#modeler">Modeler</a></li>
+        <li><a href="#bpmn-ai-agent-chat-ee-exclusive-1">BPMN AI Agent Chat <em>(EE exclusive)</em></a></li>
+        <li><a href="#batch-operations-ee-exclusive-1">Batch Operations <em>(EE exclusive)</em></a></li>
+        <li><a href="#backend">Backend</a></li>
+      </ul>
+    </li>
+    <li><a href="#technical-updates">Technical Updates</a>
+      <ul>
+        <li><a href="#dependency-updates">Dependency Updates</a></li>
+        <li><a href="#resolved-cve-vulnerabilities">Resolved CVE Vulnerabilities</a>
+          <ul>
+            <li><a href="#high-severity">High Severity</a></li>
+            <li><a href="#medium-severity">Medium Severity</a></li>
+            <li><a href="#low-severity">Low Severity</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
   <div class="docs-banner" style="display:none">
  :(
 </div>
