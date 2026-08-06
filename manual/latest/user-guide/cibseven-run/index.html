@@ -4845,7 +4845,7 @@ Some of the properties are listed in the table below:</p>
   </tr>
   <tr>
       <td>.serialization.write-dates-as-timestamps</td>
-      <td><em>Deprecated.</em> Serializes dates and durations as epoch milliseconds instead of ISO-8601. Provided only as a migration aid for consumers that relied on the format used up to 2.2.1; it will be removed with the Jackson 3 migration. <br />Default value: false</td>
+      <td>Switches webclient REST responses to the Unix epoch date format, which is deprecated as of 2.2.1. Provided as a temporary migration aid starting from 2.2.2 for consumers that relied on the format used up to 2.2.1. <br />Default value: false</td>
   </tr>
   <tr>
       <td rowspan="9">management</td>

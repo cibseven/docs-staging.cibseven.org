@@ -4061,7 +4061,7 @@ Additional engines can be optionally specified via the <code>additionalEngineRes
 </span></span></span></code></pre></div><p>After configuring, an icon with additional engines should appear at the top menu of the CIB seven webclient.</p>
 
 <h3 id="date-and-time-serialization">Date and Time Serialization</h3>
-<p>As of 2.3.0 and 2.2.2-ee, date and time values in webclient REST responses are serialized as ISO-8601 strings, matching the Spring Boot default:</p>
+<p>As of 2.3.0 and 2.2.1 patch version, the Unix epoch date format is deprecated and date and time values in webclient REST responses are serialized as ISO-8601 strings, matching the Spring Boot default:</p>
 <table class="table table-striped">
   <tr>
     <th>Type</th>
@@ -4097,7 +4097,7 @@ and wrote epoch milliseconds instead (<code>1785849600000</code>), and numeric a
 types. Consumers built against that output have to parse ISO-8601 strings now.</p>
 <p>This also applies when the webclient is embedded as a library into another Spring Boot application: it no longer
 overrides that application&rsquo;s date format.</p>
-<p>As a temporary migration aid, the previous output can be restored:</p>
+<p>Starting from 2.2.2, the previous output can be temporarily restored as a migration aid:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">cibseven</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">webclient</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">custom</span><span class="p">:</span><span class="w">
@@ -4108,8 +4108,7 @@ overrides that application&rsquo;s date format.</p>
 </span></span></span></code></pre></div>
 <div class="note bg-warning docs-warning">
   <h3>Deprecated</h3>
-  <p><p><code>cibseven.webclient.custom.spring.jackson.serialization.write-dates-as-timestamps</code> is deprecated and will be
-removed. It exists only to give consumers that adapted to the earlier output a migration window. Jackson 3
+  <p><p><code>cibseven.webclient.custom.spring.jackson.serialization.write-dates-as-timestamps</code> is used to switch to the Unix epoch format which is deprecated in the webclient REST responses, starting from 2.2.2 patch version. It exists only to give consumers that adapted to the earlier output a migration window. Jackson 3
 disables timestamp output by default, so the flag loses its purpose once the wire layer moves to Jackson 3 and
 will be removed together with that migration.</p>
 <p>The flag is global: it affects every date and duration in every REST response. Prefer adapting the consumer, or
