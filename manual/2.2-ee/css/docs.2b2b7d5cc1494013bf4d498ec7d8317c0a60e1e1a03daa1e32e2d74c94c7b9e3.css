@@ -6635,7 +6635,7 @@ body {
 @media (min-width: 1065px) and (max-width: 1345px) {
   /* line 21, styles/_navbar.less */
   .navbar-container {
-    max-width: 1005px;
+    max-width: 1345px;
   }
 }
 /* line 25, styles/_navbar.less */
