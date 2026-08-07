@@ -4092,7 +4092,7 @@ Additional engines can be optionally specified via the <code>additionalEngineRes
     <td><code>"PT1H"</code></td>
   </tr>
 </table>
-<p>Up to and including 2.2.1, the webclient supplied its own <code>ObjectMapper</code>, which overrode the Spring Boot defaults
+<p>Up to and including 2.2.0, the webclient supplied its own <code>ObjectMapper</code>, which overrode the Spring Boot defaults
 and wrote epoch milliseconds instead (<code>1785849600000</code>), and numeric arrays or fractional seconds for <code>java.time</code>
 types. Consumers built against that output have to parse ISO-8601 strings now.</p>
 <p>This also applies when the webclient is embedded as a library into another Spring Boot application: it no longer
