@@ -3956,12 +3956,43 @@
   <div class="collapsible-content-body">
     
 <h4 id="date-and-time-serialization-format-change">Date and Time Serialization Format Change</h4>
-<p>Starting with 2.2.1, date and time values in webclient REST responses are serialized as ISO-8601 strings instead of Unix epoch milliseconds. See <a href="/manual/latest/webapps/configuration-options/#date-and-time-serialization">Date and Time Serialization</a> for the full list of affected types and example output.</p>
-<p>Previously, the webclient supplied its own <code>ObjectMapper</code> that overrode the Spring Boot defaults and wrote epoch milliseconds (e.g., <code>1785849600000</code>) for <code>java.util.Date</code> and numeric arrays or fractional-second values for <code>java.time</code> types.</p>
-
-<h5 id="expected-impact">Expected Impact</h5>
-<p>Consumers that parse webclient REST responses and were built against the old epoch output must be updated to accept ISO-8601 strings.</p>
-<p>If immediate migration is not possible, the previous format can be temporarily restored using an option introduced in version 2.2.2:</p>
+<p>As of 2.3.0 and 2.2.2, date and time values in webclient REST responses are serialized as ISO-8601 strings, matching the Spring Boot default:</p>
+<table class="table table-striped">
+  <tr>
+    <th>Type</th>
+    <th>Example output</th>
+  </tr>
+  <tr>
+    <td><code>java.util.Date</code>, <code>java.sql.Timestamp</code></td>
+    <td><code>"2026-08-04T13:20:00.000+00:00"</code></td>
+  </tr>
+  <tr>
+    <td><code>java.time.Instant</code></td>
+    <td><code>"2026-08-04T13:20:00Z"</code></td>
+  </tr>
+  <tr>
+    <td><code>java.time.OffsetDateTime</code></td>
+    <td><code>"2026-08-04T12:00:00+02:00"</code></td>
+  </tr>
+  <tr>
+    <td><code>java.time.LocalDateTime</code></td>
+    <td><code>"2026-08-04T12:00:00"</code></td>
+  </tr>
+  <tr>
+    <td><code>java.time.LocalDate</code></td>
+    <td><code>"2026-08-04"</code></td>
+  </tr>
+  <tr>
+    <td><code>java.time.Duration</code></td>
+    <td><code>"PT1H"</code></td>
+  </tr>
+</table>
+<p>In version 2.2.1, the webclient supplied its own <code>ObjectMapper</code>, which overrode the Spring Boot defaults
+and wrote epoch milliseconds instead (<code>1785849600000</code>), and numeric arrays or fractional seconds for <code>java.time</code>
+types. Consumers built against that output have to parse ISO-8601 strings now.</p>
+<p>This also applies when the webclient is embedded as a library into another Spring Boot application: it no longer
+overrides that application&rsquo;s date format.</p>
+<p>As a temporary migration aid, the previous output can be restored:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">cibseven</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">webclient</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">custom</span><span class="p">:</span><span class="w">
@@ -3969,7 +4000,17 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">jackson</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">serialization</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">write-dates-as-timestamps</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span></span></span></code></pre></div>
+</span></span></span></code></pre></div><div class="note bg-warning docs-warning">
+  <h3>Deprecated</h3>
+  <p><p><code>cibseven.webclient.custom.spring.jackson.serialization.write-dates-as-timestamps</code> is deprecated and will be
+removed. It exists only to give consumers that adapted to the earlier output a migration window. Jackson 3
+disables timestamp output by default, so the flag loses its purpose once the wire layer moves to Jackson 3 and
+will be removed together with that migration.</p>
+<p>The flag is global: it affects every date and duration in every REST response. Prefer adapting the consumer, or
+annotating the individual field with <code>@JsonFormat</code>, over switching the whole application back.</p>
+</p>
+</div>
+
   </div>
 </details>
 
