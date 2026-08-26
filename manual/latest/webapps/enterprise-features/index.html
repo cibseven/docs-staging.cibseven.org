@@ -3131,6 +3131,14 @@
           
   <li>
     
+      <a href="/manual/latest/webapps/cockpit/bpmn/process-instance-chat/" >Agent Chat</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
       <a href="/manual/latest/webapps/cockpit/bpmn/process-instance-history-view/" >Process History View</a>
     
   </li>
@@ -3214,6 +3222,14 @@
           
   <li>
     
+      <a href="/manual/latest/webapps/cockpit/dmn/decision-requirements-definition-view/" >Decision Requirements Definition View</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
       <a href="/manual/latest/webapps/cockpit/dmn/decision-instance-view/" >Decision Instance View</a>
     
   </li>
@@ -3251,6 +3267,22 @@
           
   <li>
     
+      <a href="/manual/latest/webapps/cockpit/cleanup/" >Cleanup</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
+      <a href="/manual/latest/webapps/cockpit/operation-log/" >Operation Log</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
       <a href="/manual/latest/webapps/cockpit/extend/" >Extending</a>
       <ul>
         
@@ -3271,6 +3303,14 @@
 
         
       </ul>
+    
+  </li>
+
+        
+          
+  <li>
+    
+      <a href="/manual/latest/webapps/cockpit/reporting/" >Reports</a>
     
   </li>
 
@@ -3990,11 +4030,29 @@ thousands of them in one batch instead of one by one.</li>
 or restarting anything.</li>
 <li><strong>AI-assisted modeling and collaboration</strong> — design diagrams with an AI agent, discuss them in
 place, and compare them against earlier versions.</li>
+<li><strong>Housekeeping at scale</strong> — clean up historic data across processes, decisions and batches, and
+keep a single searchable log of every operation performed.</li>
 </ul>
 <p>This page gives an overview of the extended functionality per web application, with links to the
 detailed documentation.</p>
 
 <h2 id="cockpit">Cockpit</h2>
+
+<h3 id="see-the-big-picture">See the big picture</h3>
+<table>
+	<thead>
+			<tr>
+					<th>Feature</th>
+					<th>What it gives you</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><a href="/manual/latest/webapps/cockpit/dashboard/#process-engine-metrics">Process Engine Metrics</a></td>
+					<td>Charts of engine-wide activity — executed jobs, activity instances started and ended — over a selectable time range, right on the dashboard.</td>
+			</tr>
+	</tbody>
+</table>
 
 <h3 id="find-and-export-what-you-need">Find and export what you need</h3>
 <table>
@@ -4053,6 +4111,26 @@ detailed documentation.</p>
 					<td><a href="/manual/latest/webapps/cockpit/bpmn/process-instance-history-view/">Process History View</a></td>
 					<td>A dedicated view for finished process instances, with the full set of history tabs for post-mortem analysis.</td>
 			</tr>
+			<tr>
+					<td><a href="/manual/latest/webapps/cockpit/operation-log/">Operation Log</a></td>
+					<td>One searchable table of every operation on every entity type across the whole engine — not just a single instance.</td>
+			</tr>
+	</tbody>
+</table>
+
+<h3 id="ask-your-process-instance">Ask your process instance</h3>
+<table>
+	<thead>
+			<tr>
+					<th>Feature</th>
+					<th>What it gives you</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><a href="/manual/latest/webapps/cockpit/bpmn/process-instance-chat/">Agent Chat</a></td>
+					<td>Ask an AI agent about the process instance you are looking at — why it has an incident, what happened along a path, how a variable changed — instead of digging through logs by hand.</td>
+			</tr>
 	</tbody>
 </table>
 
@@ -4101,6 +4179,86 @@ detailed documentation.</p>
 					<td><a href="/manual/latest/webapps/cockpit/bpmn/dashboard/#delete-all-process-definition-versions">Delete all process definition versions</a></td>
 					<td>Clean up an entire process — all versions, optionally cascading to running and historic instances — in one action.</td>
 			</tr>
+			<tr>
+					<td><a href="/manual/latest/webapps/cockpit/cleanup/">Cleanup</a></td>
+					<td>Remove finished process instances, decision instances and completed batches in bulk, on your own schedule, instead of relying solely on the automated history cleanup job.</td>
+			</tr>
+	</tbody>
+</table>
+
+<h3 id="manage-deployments">Manage deployments</h3>
+<table>
+	<thead>
+			<tr>
+					<th>Feature</th>
+					<th>What it gives you</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><a href="/manual/latest/webapps/cockpit/deployment-view/#redeploy">Redeploy</a></td>
+					<td>Create a new deployment from the resources of an existing one, without needing the original files at hand — quick recovery from an accidental deletion.</td>
+			</tr>
+	</tbody>
+</table>
+
+<h3 id="human-tasks">Human Tasks</h3>
+<table>
+	<thead>
+			<tr>
+					<th>Feature</th>
+					<th>What it gives you</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><a href="/manual/latest/webapps/cockpit/tasks-dashboard/#search-tasks">Human Task Search</a></td>
+					<td>Search across all human tasks by name, assignee, candidate group and dates, and jump straight into Tasklist to work on one.</td>
+			</tr>
+	</tbody>
+</table>
+
+<h3 id="decisions-dmn">Decisions (DMN)</h3>
+<table>
+	<thead>
+			<tr>
+					<th>Feature</th>
+					<th>What it gives you</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><a href="/manual/latest/webapps/cockpit/dmn/decision-definition-view/#live-editing">DMN Live Editing</a></td>
+					<td>Edit a decision table or literal expression directly on the decision definition view and deploy it as a new version, without leaving Cockpit.</td>
+			</tr>
+			<tr>
+					<td><a href="/manual/latest/webapps/cockpit/dmn/decision-requirements-definition-view/">Decision Requirements Definition View</a></td>
+					<td>Visualize how a decision requirements diagram&rsquo;s decisions depend on each other, and drill into a single evaluation.</td>
+			</tr>
+			<tr>
+					<td><a href="/manual/latest/webapps/cockpit/dmn/dashboard/#decision-instance-search">Decision Instance Search</a></td>
+					<td>Search decision instances across all decision definitions by name, key or evaluation time, without opening each definition individually.</td>
+			</tr>
+	</tbody>
+</table>
+
+<h3 id="reports">Reports</h3>
+<table>
+	<thead>
+			<tr>
+					<th>Feature</th>
+					<th>What it gives you</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><a href="/manual/latest/webapps/cockpit/reporting/#process-instance-duration-report">Process Instance Duration Report</a></td>
+					<td>See how long process instances take to complete, as a chart and table, and spot processes trending slower over time.</td>
+			</tr>
+			<tr>
+					<td><a href="/manual/latest/webapps/cockpit/reporting/#completed-task-instance-report">Completed Task Instance Report</a></td>
+					<td>Analyze completed human task throughput and completion time across a process, an assignee, or a time range.</td>
+			</tr>
 	</tbody>
 </table>
 
@@ -4145,10 +4303,16 @@ detailed documentation.</p>
   <ul>
     <li><a href="#cockpit">Cockpit</a>
       <ul>
+        <li><a href="#see-the-big-picture">See the big picture</a></li>
         <li><a href="#find-and-export-what-you-need">Find and export what you need</a></li>
         <li><a href="#know-exactly-what-happened">Know exactly what happened</a></li>
+        <li><a href="#ask-your-process-instance">Ask your process instance</a></li>
         <li><a href="#fix-and-adjust-running-processes">Fix and adjust running processes</a></li>
         <li><a href="#act-on-thousands-of-instances-at-once">Act on thousands of instances at once</a></li>
+        <li><a href="#manage-deployments">Manage deployments</a></li>
+        <li><a href="#human-tasks">Human Tasks</a></li>
+        <li><a href="#decisions-dmn">Decisions (DMN)</a></li>
+        <li><a href="#reports">Reports</a></li>
       </ul>
     </li>
     <li><a href="#modeler">Modeler</a></li>

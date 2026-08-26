@@ -3131,6 +3131,14 @@
           
   <li>
     
+      <a href="/manual/latest/webapps/cockpit/bpmn/process-instance-chat/" >Agent Chat</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
       <a href="/manual/latest/webapps/cockpit/bpmn/process-instance-history-view/" >Process History View</a>
     
   </li>
@@ -3214,6 +3222,14 @@
           
   <li>
     
+      <a href="/manual/latest/webapps/cockpit/dmn/decision-requirements-definition-view/" >Decision Requirements Definition View</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
       <a href="/manual/latest/webapps/cockpit/dmn/decision-instance-view/" >Decision Instance View</a>
     
   </li>
@@ -3251,6 +3267,22 @@
           
   <li>
     
+      <a href="/manual/latest/webapps/cockpit/cleanup/" >Cleanup</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
+      <a href="/manual/latest/webapps/cockpit/operation-log/" >Operation Log</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
       <a href="/manual/latest/webapps/cockpit/extend/" >Extending</a>
       <ul>
         
@@ -3271,6 +3303,14 @@
 
         
       </ul>
+    
+  </li>
+
+        
+          
+  <li>
+    
+      <a href="/manual/latest/webapps/cockpit/reporting/" >Reports</a>
     
   </li>
 
@@ -3980,7 +4020,7 @@
     </div>
 
     <div class="col-xs-12 content-text">
-      <p>The deployment view of Cockpit shows an overview of all deployments, their resources and the content of these resources. Currently, only the deletion of existing deployments is supported in the deployment view. Future releases will support redeployment of existing resources and creation of new deployments. The content of resources within deployments can be displayed. It is also possible to download single resources from this view.</p>
+      <p>The deployment view of Cockpit shows an overview of all deployments, their resources and the content of these resources. The deletion of existing deployments is supported in the deployment view, and the content of resources within deployments can be displayed. It is also possible to download single resources from this view.</p>
 <figure class="image">
   <span><img
       src="../img/cockpit-deployments-page.png"
@@ -4030,6 +4070,17 @@ Furthermore, you can copy a link to the current search query to your clipboard b
 </figure>
 
 
+<h2 id="enterprise-features">Enterprise Features</h2>
+
+<h3 id="redeploy">Redeploy</h3>
+
+<div class="note bg-info docs-info">
+  <h3>Enterprise Feature</h3>
+  <p>Redeploy is available only in the Enterprise Edition.</p>
+</div>
+
+<p>Redeploy creates a new deployment from the resources of an existing one, without needing the original files at hand. This is useful to quickly recover from an accidental deployment deletion, or to roll a resource forward into a new deployment as-is.</p>
+
     </div>
   </div>
 </div>
@@ -4041,6 +4092,11 @@ Furthermore, you can copy a link to the current search query to your clipboard b
     <li><a href="#search-and-sort">Search and Sort</a></li>
     <li><a href="#delete">Delete</a></li>
     <li><a href="#definition-resources">Definition Resources</a></li>
+    <li><a href="#enterprise-features">Enterprise Features</a>
+      <ul>
+        <li><a href="#redeploy">Redeploy</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
   <div class="docs-banner" style="display:none">
