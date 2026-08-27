@@ -4020,21 +4020,31 @@
     </div>
 
     <div class="col-xs-12 content-text">
-      <p>The <strong>Cleanup</strong> view lets you remove historic data in bulk, on your own schedule, instead of relying solely on the automated <a href="/manual/2.2-ee/user-guide/process-engine/history/history-configuration/">history cleanup job</a>. It covers three entity types, each in its own tab:</p>
+      <p>The <strong>Cleanup</strong> view lets you manage historic-data cleanup directly in Cockpit, instead of relying solely on the automated <a href="/manual/2.2-ee/user-guide/process-engine/history/history-configuration/">history cleanup job</a>. It has one tab per entity type:</p>
 <ul>
-<li><strong>Processes</strong> — finished process instances.</li>
-<li><strong>Decisions</strong> — evaluated decision instances.</li>
-<li><strong>Batches</strong> — completed batch operations.</li>
+<li><strong>Processes</strong> — finished process instances, by process definition and version.</li>
+<li><strong>Decisions</strong> — evaluated decision instances, by decision definition and version.</li>
+<li><strong>Batch Operations</strong> — completed batch operations.</li>
 </ul>
 
 <div class="note bg-info docs-info">
   <h3>Enterprise Feature</h3>
-  <p>The Cleanup view is available only in the Enterprise Edition.</p>
+  <p>The Cleanup view is available only in the Enterprise Edition. Open it from the <strong>Cleanup</strong> entry in the Cockpit navigation menu.</p>
 </div>
 
-<p>For each entity type, the <strong>Cleanable Data</strong> table lists every definition together with its finished and cleanable instance counts and its <a href="/manual/2.2-ee/user-guide/process-engine/history/history-configuration/">History Time To Live</a> — click the value to change it for that definition. Narrow the data down further with search criteria such as process or decision definition and end time, add promising criteria directly to the filter, and the view remembers the last-used criteria per tab so a recurring cleanup is quick to repeat.</p>
-<p>At the top of the page, a banner shows whether a history cleanup job is currently scheduled, and lets you trigger <strong>Cleanup Now</strong> on demand instead of waiting for the next scheduled run. A <strong>Metrics</strong> section below shows how much data — removed processes, decisions, and batch operations — has been cleaned up over a selectable time range.</p>
-<p>Deletion itself runs as a monitored <a href="/manual/2.2-ee/webapps/cockpit/bpmn/batch/">batch operation</a>, with the usual progress and error overview.</p>
+
+<h2 id="finding-what-to-clean-up">Finding what to clean up</h2>
+<p>Each tab loads its data lazily as you scroll, so large installations do not have to load the full list up front, and switching a filter cancels any load still in progress. Use the <strong>&lsquo;Only with finished instances&rsquo;</strong> filter to hide definitions that have nothing to clean up yet, sort the table by any column, and narrow it down further with the dedicated search box for processes or decisions. As with other Cockpit searches, your last-used query is restored automatically. When a tab has nothing to show, the view tells you so instead of an empty table.</p>
+
+<h2 id="history-time-to-live">History Time To Live</h2>
+<p>Cleanup relies on each definition&rsquo;s <a href="/manual/2.2-ee/user-guide/process-engine/history/history-configuration/">History Time To Live</a> (TTL) to decide when its instances become eligible for removal. Two related actions are available per definition:</p>
+<ul>
+<li><strong>Edit History Time To Live</strong> — change or clear the TTL of a process or decision definition, which governs when its <em>future</em> instances become cleanable.</li>
+<li><strong>Update Removal Time</strong> — recalculate and set the removal time on instances that already finished <em>before</em> a TTL was configured for their definition, so they become eligible for cleanup as well. This action is only offered where it applies, i.e. when the definition actually has finished instances.</li>
+</ul>
+
+<h2 id="removing-the-data">Removing the data</h2>
+<p>Once a tab is narrowed down to what you want removed, trigger the cleanup for the current selection. The action is only enabled when there is finished data to remove.</p>
 
     </div>
   </div>
@@ -4042,7 +4052,13 @@
 
 <div class="page-toc">
   <h3>On this Page:</h3>
-  <nav id="TableOfContents"></nav>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#finding-what-to-clean-up">Finding what to clean up</a></li>
+    <li><a href="#history-time-to-live">History Time To Live</a></li>
+    <li><a href="#removing-the-data">Removing the data</a></li>
+  </ul>
+</nav>
   <div class="docs-banner" style="display:none">
  :(
 </div>
