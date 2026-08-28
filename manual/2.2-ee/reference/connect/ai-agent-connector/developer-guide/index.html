@@ -21,7 +21,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/2.2-ee/css/docs.6882fc90ed56920e633e1dd1caf32d2739f4a799ee5518ec0cd1ca3178ef6b4b.css" integrity="sha256-aIL8kO1Wkg5jPh3RyvMtJzn0p5nuVRjsDNHKMXjva0s=">
+  <link rel="stylesheet" href="/manual/2.2-ee/css/docs.f43bc5ebad56145eb7697e542c3206210ee1e923799a423012550a822444a0be.css" integrity="sha256-9DvF661WFF63aX5ULDIGIQ7h6SN5mkIwElUKgiREoL4=">
   <link rel="canonical" href="https://docs.cibseven.org/manual/2.2-ee/reference/connect/ai-agent-connector/developer-guide/" />
 </head>
 <body class="">
@@ -4035,47 +4035,47 @@ day-to-day modeling, see <a href="/manual/2.2-ee/reference/connect/ai-agent-conn
   src/main/resources/org/cibseven/connect/ai/agent/default-instruction.txt
   src/main/resources/META-INF/services/…ConnectorProvider
 </code></pre><p>Key dependencies (the &ldquo;weight&rdquo; behind the removable overlay):</p>
-<table>
-	<thead>
-			<tr>
-					<th>Dependency</th>
-					<th>Role</th>
-			</tr>
-	</thead>
-	<tbody>
-			<tr>
-					<td><code>langchain4j</code> (1.14)</td>
-					<td>Agent loop, tools, RAG plumbing</td>
-			</tr>
-			<tr>
-					<td><code>langchain4j-open-ai</code></td>
-					<td>OpenAI-compatible chat + embedding + Responses API</td>
-			</tr>
-			<tr>
-					<td><code>langchain4j-agentic-mcp</code></td>
-					<td>MCP client / transport</td>
-			</tr>
-			<tr>
-					<td><code>langchain4j-embeddings-all-minilm-l6-v2</code></td>
-					<td>Local 384-dim embedding model (bundled ONNX)</td>
-			</tr>
-			<tr>
-					<td><code>langchain4j-pgvector</code></td>
-					<td>pgvector embedding store</td>
-			</tr>
-			<tr>
-					<td><code>langchain4j-document-parser-apache-pdfbox</code></td>
-					<td>PDF parsing for the ingestor CLI</td>
-			</tr>
-			<tr>
-					<td><code>cibseven-connect-core</code></td>
-					<td>The Connect SPI it implements</td>
-			</tr>
-			<tr>
-					<td><code>cibseven-engine</code> <em>(provided)</em></td>
-					<td>Engine APIs for <code>ProcessStarterTool</code> / audit context</td>
-			</tr>
-	</tbody>
+<table class="table-2col">
+  <thead>
+    <tr>
+      <th>Dependency</th>
+      <th>Role</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>langchain4j</code> (1.14)</td>
+      <td>Agent loop, tools, RAG plumbing</td>
+    </tr>
+    <tr>
+      <td><code>langchain4j-open-ai</code></td>
+      <td>OpenAI-compatible chat + embedding + Responses API</td>
+    </tr>
+    <tr>
+      <td><code>langchain4j-agentic-mcp</code></td>
+      <td>MCP client / transport</td>
+    </tr>
+    <tr>
+      <td><code>langchain4j-embeddings-all-minilm-l6-v2</code></td>
+      <td>Local 384-dim embedding model (bundled ONNX)</td>
+    </tr>
+    <tr>
+      <td><code>langchain4j-pgvector</code></td>
+      <td>pgvector embedding store</td>
+    </tr>
+    <tr>
+      <td><code>langchain4j-document-parser-apache-pdfbox</code></td>
+      <td>PDF parsing for the ingestor CLI</td>
+    </tr>
+    <tr>
+      <td><code>cibseven-connect-core</code></td>
+      <td>The Connect SPI it implements</td>
+    </tr>
+    <tr>
+      <td><code>cibseven-engine</code> <em>(provided)</em></td>
+      <td>Engine APIs for <code>ProcessStarterTool</code> / audit context</td>
+    </tr>
+  </tbody>
 </table>
 
 <h2 id="connect-spi--registration">Connect SPI &amp; registration</h2>

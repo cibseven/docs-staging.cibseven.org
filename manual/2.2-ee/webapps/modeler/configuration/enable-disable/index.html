@@ -21,7 +21,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/2.2-ee/css/docs.6882fc90ed56920e633e1dd1caf32d2739f4a799ee5518ec0cd1ca3178ef6b4b.css" integrity="sha256-aIL8kO1Wkg5jPh3RyvMtJzn0p5nuVRjsDNHKMXjva0s=">
+  <link rel="stylesheet" href="/manual/2.2-ee/css/docs.f43bc5ebad56145eb7697e542c3206210ee1e923799a423012550a822444a0be.css" integrity="sha256-9DvF661WFF63aX5ULDIGIQ7h6SN5mkIwElUKgiREoL4=">
   <link rel="canonical" href="https://docs.cibseven.org/manual/2.2-ee/webapps/modeler/configuration/enable-disable/" />
 </head>
 <body class="">
@@ -4088,25 +4088,25 @@
 <h3 id="transport-available-from-230">Transport <em>(available from 2.3.0)</em></h3>
 <p>The <code>chat.transport</code> property selects the delivery mechanism used to push events to connected clients:</p>
 <table>
-	<thead>
-			<tr>
-					<th>Value</th>
-					<th>Default</th>
-					<th>Description</th>
-			</tr>
-	</thead>
-	<tbody>
-			<tr>
-					<td><code>longpolling</code></td>
-					<td><strong>Yes</strong></td>
-					<td>Events are sourced from the shared database. Works in single-instance and multi-pod deployments — no sticky routing or message broker required.</td>
-			</tr>
-			<tr>
-					<td><code>websocket</code></td>
-					<td>No</td>
-					<td>Events are pushed over STOMP WebSocket (<code>/ws/chat</code>). Suitable for single-instance deployments only.</td>
-			</tr>
-	</tbody>
+  <thead>
+    <tr>
+      <th>Value</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>longpolling</code></td>
+      <td><strong>Yes</strong></td>
+      <td>Events are sourced from the shared database. Works in single-instance and multi-pod deployments — no sticky routing or message broker required.</td>
+    </tr>
+    <tr>
+      <td><code>websocket</code></td>
+      <td>No</td>
+      <td>Events are pushed over STOMP WebSocket (<code>/ws/chat</code>). Suitable for single-instance deployments only.</td>
+    </tr>
+  </tbody>
 </table>
 
 <div class="note ">
@@ -4134,39 +4134,39 @@
 </ul>
 
 <h2 id="summary">Summary</h2>
-<table>
-	<thead>
-			<tr>
-					<th>Configuration</th>
-					<th>Effect</th>
-			</tr>
-	</thead>
-	<tbody>
-			<tr>
-					<td><code>cibseven.webclient.modeler.enabled: false</code></td>
-					<td>Disables backend (REST, JPA) <strong>and</strong> hides the UI — no database required</td>
-			</tr>
-			<tr>
-					<td><code>cibseven.webclient.modeler.chat.enabled: false</code> (default)</td>
-					<td>Chat JPA inactive; modeler shows single-panel properties — <code>chat_messages</code> / <code>chat_presence</code> tables not required</td>
-			</tr>
-			<tr>
-					<td><code>cibseven.webclient.modeler.chat.enabled: true</code></td>
-					<td>Chat fully active; Properties/Chat tab bar shown in modeler UI</td>
-			</tr>
-			<tr>
-					<td><code>cibseven.webclient.modeler.chat.transport: longpolling</code> (default)</td>
-					<td>DB-sourced events; no WebSocket broker; multi-pod safe</td>
-			</tr>
-			<tr>
-					<td><code>cibseven.webclient.modeler.chat.transport: websocket</code></td>
-					<td>STOMP WebSocket broker active (<code>/ws/chat</code>); single-instance only</td>
-			</tr>
-			<tr>
-					<td><code>permissions.modeler: {}</code> in <code>config.json</code></td>
-					<td>Hides the UI only — backend remains active</td>
-			</tr>
-	</tbody>
+<table class="table-2col">
+  <thead>
+    <tr>
+      <th>Configuration</th>
+      <th>Effect</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>cibseven.webclient.modeler.enabled: false</code></td>
+      <td>Disables backend (REST, JPA) <strong>and</strong> hides the UI — no database required</td>
+    </tr>
+    <tr>
+      <td><code>cibseven.webclient.modeler.chat.enabled: false</code> (default)</td>
+      <td>Chat JPA inactive; modeler shows single-panel properties — <code>chat_messages</code> / <code>chat_presence</code> tables not required</td>
+    </tr>
+    <tr>
+      <td><code>cibseven.webclient.modeler.chat.enabled: true</code></td>
+      <td>Chat fully active; Properties/Chat tab bar shown in modeler UI</td>
+    </tr>
+    <tr>
+      <td><code>cibseven.webclient.modeler.chat.transport: longpolling</code> (default)</td>
+      <td>DB-sourced events; no WebSocket broker; multi-pod safe</td>
+    </tr>
+    <tr>
+      <td><code>cibseven.webclient.modeler.chat.transport: websocket</code></td>
+      <td>STOMP WebSocket broker active (<code>/ws/chat</code>); single-instance only</td>
+    </tr>
+    <tr>
+      <td><code>permissions.modeler: {}</code> in <code>config.json</code></td>
+      <td>Hides the UI only — backend remains active</td>
+    </tr>
+  </tbody>
 </table>
 
     </div>

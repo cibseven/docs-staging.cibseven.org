@@ -21,7 +21,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/latest/css/docs.6882fc90ed56920e633e1dd1caf32d2739f4a799ee5518ec0cd1ca3178ef6b4b.css" integrity="sha256-aIL8kO1Wkg5jPh3RyvMtJzn0p5nuVRjsDNHKMXjva0s=">
+  <link rel="stylesheet" href="/manual/latest/css/docs.f43bc5ebad56145eb7697e542c3206210ee1e923799a423012550a822444a0be.css" integrity="sha256-9DvF661WFF63aX5ULDIGIQ7h6SN5mkIwElUKgiREoL4=">
   <link rel="canonical" href="https://docs.cibseven.org/manual/latest/webapps/modeler/configuration/" />
 </head>
 <body class="">
@@ -4030,70 +4030,70 @@
 <h2 id="configuration-reference">Configuration Reference</h2>
 <p>All modeler properties live under the <code>cibseven.webclient.modeler</code> prefix.</p>
 <table>
-	<thead>
-			<tr>
-					<th>Property</th>
-					<th>Default</th>
-					<th>Description</th>
-			</tr>
-	</thead>
-	<tbody>
-			<tr>
-					<td><code>cibseven.webclient.modeler.enabled</code></td>
-					<td><code>false</code></td>
-					<td>Enable or disable the modeler. When <code>false</code>, no database is required and all modeler endpoints are removed.</td>
-			</tr>
-			<tr>
-					<td><code>cibseven.webclient.modeler.chat.enabled</code></td>
-					<td><code>false</code></td>
-					<td>Enable or disable the real-time chat feature (JPA tables, modeler tab bar). Requires <code>modeler.enabled: true</code>. See <a href="/manual/latest/webapps/modeler/configuration/enable-disable/">Enable / Disable</a>. Enterprise Edition only.</td>
-			</tr>
-			<tr>
-					<td><code>cibseven.webclient.modeler.chat.transport</code></td>
-					<td><code>longpolling</code></td>
-					<td>Chat delivery transport: <code>longpolling</code> (default, multi-pod safe) or <code>websocket</code> (STOMP over WebSocket). <strong>Will be available from 2.3.0.</strong> See <a href="/manual/latest/webapps/modeler/user-guide/chat/">Real-time Chat</a>. Enterprise Edition only.</td>
-			</tr>
-			<tr>
-					<td><code>cibseven.webclient.modeler.ai.enabled</code></td>
-					<td><code>false</code></td>
-					<td>Enable or disable the BPMN AI Agent. The related <code>ai.*</code> properties (<code>defaultModel</code>, <code>providers</code>, <code>models</code>, reasoning effort, memory budget) are documented in <a href="/manual/latest/webapps/modeler/user-guide/bpmn-ai-chat/">BPMN AI Agent</a>. Enterprise Edition only.</td>
-			</tr>
-			<tr>
-					<td><code>cibseven.webclient.modeler.session.expiresAfterMin</code></td>
-					<td><code>10</code></td>
-					<td>Minutes of inactivity before an open editing session is considered expired.</td>
-			</tr>
-			<tr>
-					<td><code>cibseven.webclient.modeler.deleteUsages.usageLimit</code></td>
-					<td><code>50</code></td>
-					<td>Maximum number of session records retained per diagram before old ones are cleaned up.</td>
-			</tr>
-			<tr>
-					<td><code>cibseven.webclient.modeler.deleteUsages.cron</code></td>
-					<td><code>0 0 0 * * ?</code></td>
-					<td>Cron expression controlling when the session cleanup job runs (default: midnight daily).</td>
-			</tr>
-			<tr>
-					<td><code>cibseven.webclient.modeler.history.maxResults</code></td>
-					<td><code>30</code></td>
-					<td>Maximum number of diagram snapshots listed in the history of one diagram. <strong>Will be available from 2.3.0.</strong> See <a href="/manual/latest/webapps/modeler/user-guide/snapshots/">Snapshots &amp; Comparison</a>. Enterprise Edition only.</td>
-			</tr>
-			<tr>
-					<td><code>cibsevenmodeler.deleteProcesses.versionLimit</code></td>
-					<td><code>50</code></td>
-					<td>Number of diagram versions kept per diagram; the snapshots below that are deleted by the cleanup job. Enterprise Edition only.</td>
-			</tr>
-			<tr>
-					<td><code>cibsevenmodeler.deleteProcesses.cron</code></td>
-					<td><code>0 0 0 * * ?</code></td>
-					<td>Cron expression controlling when the diagram version cleanup job runs (default: midnight daily). Enterprise Edition only.</td>
-			</tr>
-			<tr>
-					<td><code>cibseven.webclient.modeler.templates.paths</code></td>
-					<td>—</td>
-					<td>List of Spring Resource patterns. At startup, JSON files matching these patterns are loaded into the element templates database. See <a href="/manual/latest/webapps/modeler/user-guide/element-templates/">Element Templates</a>.</td>
-			</tr>
-	</tbody>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>cibseven.webclient.modeler.enabled</code></td>
+      <td><code>false</code></td>
+      <td>Enable or disable the modeler. When <code>false</code>, no database is required and all modeler endpoints are removed.</td>
+    </tr>
+    <tr>
+      <td><code>cibseven.webclient.modeler.chat.enabled</code></td>
+      <td><code>false</code></td>
+      <td>Enable or disable the real-time chat feature (JPA tables, modeler tab bar). Requires <code>modeler.enabled: true</code>. See <a href="/manual/latest/webapps/modeler/configuration/enable-disable/">Enable / Disable</a>. Enterprise Edition only.</td>
+    </tr>
+    <tr>
+      <td><code>cibseven.webclient.modeler.chat.transport</code></td>
+      <td><code>longpolling</code></td>
+      <td>Chat delivery transport: <code>longpolling</code> (default, multi-pod safe) or <code>websocket</code> (STOMP over WebSocket). <strong>Will be available from 2.3.0.</strong> See <a href="/manual/latest/webapps/modeler/user-guide/chat/">Real-time Chat</a>. Enterprise Edition only.</td>
+    </tr>
+    <tr>
+      <td><code>cibseven.webclient.modeler.ai.enabled</code></td>
+      <td><code>false</code></td>
+      <td>Enable or disable the BPMN AI Agent. The related <code>ai.*</code> properties (<code>defaultModel</code>, <code>providers</code>, <code>models</code>, reasoning effort, memory budget) are documented in <a href="/manual/latest/webapps/modeler/user-guide/bpmn-ai-chat/">BPMN AI Agent</a>. Enterprise Edition only.</td>
+    </tr>
+    <tr>
+      <td><code>cibseven.webclient.modeler.session.expiresAfterMin</code></td>
+      <td><code>10</code></td>
+      <td>Minutes of inactivity before an open editing session is considered expired.</td>
+    </tr>
+    <tr>
+      <td><code>cibseven.webclient.modeler.deleteUsages.usageLimit</code></td>
+      <td><code>50</code></td>
+      <td>Maximum number of session records retained per diagram before old ones are cleaned up.</td>
+    </tr>
+    <tr>
+      <td><code>cibseven.webclient.modeler.deleteUsages.cron</code></td>
+      <td><code>0 0 0 * * ?</code></td>
+      <td>Cron expression controlling when the session cleanup job runs (default: midnight daily).</td>
+    </tr>
+    <tr>
+      <td><code>cibseven.webclient.modeler.history.maxResults</code></td>
+      <td><code>30</code></td>
+      <td>Maximum number of diagram snapshots listed in the history of one diagram. <strong>Will be available from 2.3.0.</strong> See <a href="/manual/latest/webapps/modeler/user-guide/snapshots/">Snapshots &amp; Comparison</a>. Enterprise Edition only.</td>
+    </tr>
+    <tr>
+      <td><code>cibsevenmodeler.deleteProcesses.versionLimit</code></td>
+      <td><code>50</code></td>
+      <td>Number of diagram versions kept per diagram; the snapshots below that are deleted by the cleanup job. Enterprise Edition only.</td>
+    </tr>
+    <tr>
+      <td><code>cibsevenmodeler.deleteProcesses.cron</code></td>
+      <td><code>0 0 0 * * ?</code></td>
+      <td>Cron expression controlling when the diagram version cleanup job runs (default: midnight daily). Enterprise Edition only.</td>
+    </tr>
+    <tr>
+      <td><code>cibseven.webclient.modeler.templates.paths</code></td>
+      <td>—</td>
+      <td>List of Spring Resource patterns. At startup, JSON files matching these patterns are loaded into the element templates database. See <a href="/manual/latest/webapps/modeler/user-guide/element-templates/">Element Templates</a>.</td>
+    </tr>
+  </tbody>
 </table>
 
     </div>
