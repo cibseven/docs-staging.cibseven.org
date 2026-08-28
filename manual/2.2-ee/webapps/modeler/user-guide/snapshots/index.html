@@ -4030,6 +4030,7 @@
 
 <h2 id="browsing-snapshots">Browsing Snapshots</h2>
 <p>Open a diagram and use the snapshot (history) button in the modeler toolbar. A selector lists the saved snapshots of the current diagram, newest first, including who saved them and when. Use the search field to narrow the list.</p>
+<p>The list holds the saves that changed the diagram itself. Saving only a rename or a new description is recorded as well, but is not offered as a state to go back to, since going back to it would change nothing. The number of entries the list shows is capped by <code>cibseven.webclient.modeler.history.maxResults</code> (default <code>30</code>, <strong>available from 2.3.0</strong>).</p>
 
 <h2 id="restoring-a-snapshot">Restoring a Snapshot</h2>
 <p>Selecting a snapshot loads that saved state into the editor. The restored content becomes the working state of the diagram — save it to make it the newest snapshot. Nothing is deleted by restoring: the snapshots it was restored from remain in the history.</p>
@@ -4044,7 +4045,8 @@
 <p>The comparison is a structural BPMN diff (powered by <code>bpmn-js-differ</code>), so renamed properties, changed task types, and added/removed flows are detected even when the visual layout barely changes.</p>
 
 <h2 id="retention">Retention</h2>
-<p>Snapshots are retained per diagram up to a configurable limit; older entries are cleaned up by a scheduled job. See the <code>cibseven.webclient.modeler.deleteUsages.usageLimit</code> and <code>cibseven.webclient.modeler.deleteUsages.cron</code> properties in the <a href="/manual/2.2-ee/webapps/modeler/configuration/">Configuration Reference</a>.</p>
+<p>A scheduled job keeps the newest <code>cibsevenmodeler.deleteProcesses.versionLimit</code> versions of every diagram (default <code>50</code>) and deletes the snapshots below that, so the history of a long-lived diagram does not grow without end. <code>cibsevenmodeler.deleteProcesses.cron</code> controls when it runs (default: midnight daily). Snapshots are per diagram: deleting a diagram removes its own history only.</p>
+<p>Both properties are listed in the <a href="/manual/2.2-ee/webapps/modeler/configuration/">Configuration Reference</a>, and the snapshots live in <code>mod_processes_diagrams_aud</code> — see <a href="/manual/2.2-ee/webapps/modeler/installation/database-schema/">Database Schema</a>.</p>
 
     </div>
   </div>

@@ -4074,6 +4074,21 @@
 					<td>Cron expression controlling when the session cleanup job runs (default: midnight daily).</td>
 			</tr>
 			<tr>
+					<td><code>cibseven.webclient.modeler.history.maxResults</code></td>
+					<td><code>30</code></td>
+					<td>Maximum number of diagram snapshots listed in the history of one diagram. <strong>Will be available from 2.3.0.</strong> See <a href="/manual/2.2-ee/webapps/modeler/user-guide/snapshots/">Snapshots &amp; Comparison</a>. Enterprise Edition only.</td>
+			</tr>
+			<tr>
+					<td><code>cibsevenmodeler.deleteProcesses.versionLimit</code></td>
+					<td><code>50</code></td>
+					<td>Number of diagram versions kept per diagram; the snapshots below that are deleted by the cleanup job. Enterprise Edition only.</td>
+			</tr>
+			<tr>
+					<td><code>cibsevenmodeler.deleteProcesses.cron</code></td>
+					<td><code>0 0 0 * * ?</code></td>
+					<td>Cron expression controlling when the diagram version cleanup job runs (default: midnight daily). Enterprise Edition only.</td>
+			</tr>
+			<tr>
 					<td><code>cibseven.webclient.modeler.templates.paths</code></td>
 					<td>—</td>
 					<td>List of Spring Resource patterns. At startup, JSON files matching these patterns are loaded into the element templates database. See <a href="/manual/2.2-ee/webapps/modeler/user-guide/element-templates/">Element Templates</a>.</td>

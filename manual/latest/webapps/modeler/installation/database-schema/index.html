@@ -4058,6 +4058,14 @@
 					<td>Stores reusable element template definitions</td>
 			</tr>
 			<tr>
+					<td><code>mod_processes_diagrams_aud</code></td>
+					<td>Stores one snapshot of a diagram per save, so earlier states can be browsed, restored and compared. Written only by the enterprise edition; the community edition leaves it empty</td>
+			</tr>
+			<tr>
+					<td><code>mod_revinfo</code></td>
+					<td>Numbers those snapshots and records when each was written. Enterprise Edition only</td>
+			</tr>
+			<tr>
 					<td><code>chat_messages</code></td>
 					<td>Stores real-time chat messages per room. Deleted messages are soft-deleted: the content is cleared and the row is retained as a tombstone, marked by <code>deleted_at</code>, so that polling clients learn about the deletion. Enterprise Edition only.</td>
 			</tr>
@@ -4099,6 +4107,15 @@ otherwise the update fails on the <code>chat_messages</code> change, whether or 
 </div>
 
 
+<h4 id="diagram-snapshots">Diagram snapshots</h4>
+<p>From 2.3.0 the enterprise edition writes the diagram snapshots itself, where earlier versions had Hibernate
+Envers write them. <strong>This needs no schema change and no migration:</strong> <code>mod_processes_diagrams_aud</code> and
+<code>mod_revinfo</code> keep the shape they had, snapshots written by 2.2 stay readable, and snapshots written by 2.3
+have the same columns filled.</p>
+<p>What does change is that <code>spring.jpa.properties.hibernate.integration.envers.enabled</code> no longer has any
+effect and can be dropped from the configuration — including from the Helm values, where it was set for the
+webclient deployment. Leaving it in place is harmless: nothing reads it any more.</p>
+
 <h2 id="supported-databases">Supported Databases</h2>
 <p>Refer to <a href="/manual/latest/webapps/modeler/installation/prerequisites/">Prerequisites</a> for supported database versions.</p>
 
@@ -4113,7 +4130,11 @@ otherwise the update fails on the <code>chat_messages</code> change, whether or 
     <li><a href="#database-tables">Database Tables</a></li>
     <li><a href="#schema-updates">Schema Updates</a>
       <ul>
-        <li><a href="#22-to-23">2.2 to 2.3</a></li>
+        <li><a href="#22-to-23">2.2 to 2.3</a>
+          <ul>
+            <li><a href="#diagram-snapshots">Diagram snapshots</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
     <li><a href="#supported-databases">Supported Databases</a></li>

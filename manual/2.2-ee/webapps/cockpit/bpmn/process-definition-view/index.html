@@ -4037,15 +4037,15 @@
 <p>Use the mouse to navigate through the diagram. Hold the left mouse button to pan the diagram in the desired direction. By holding the <strong>CTRL</strong> key while scrolling the mouse wheel, you can zoom in and out. Alternatively, you can use the plus and minus icons on the right side. There is also an option to reset the zoom in that area.</p>
 <p>In the <strong>Instanced</strong> tab, all running instances are displayed in a table format. In addition to details such as the start and end time, business key, process ID, and user, you can perform various actions. The pause icon <button class="btn btn-xs"><i class="glyphicon glyphicon-pause"></i></button> allows you to suspend or activate the process instance, the eye icon <button class="btn btn-xs"><i class="glyphicon glyphicon-eye-open"></i></button> lets you open the <a href="/manual/2.2-ee/webapps/cockpit/bpmn/process-instance-view/">Process Instance View</a>, and the stop icon <button class="btn btn-xs"><i class="glyphicon glyphicon-stop"></i></button> enables you to delete the process instance.</p>
 <p>The <strong>Job Definitions</strong> tab displays the job definitions that are linked to this process definition. You can observe the name of the activity, the type of job, the configuration, and the state of each job. You can also suspend and re-activate the job definition (see <a href="/manual/2.2-ee/webapps/cockpit/bpmn/suspension/#job-definition-suspension">Suspension</a> for more information).</p>
-<!--The `Called Process Definitions` tab displays the called child processes. 
-You can learn more about navigating called process definitions and this tab in the section about [Call Activity Navigation][call-activity-navigation]. 
-In the column *Called Process Definition* the names of the called sub processes are listed. 
-Click on the name to display the process in the process definition view. 
-Please note that a filter called Parent is automatically set for the process so that you only see the instances that belong to the parent process. 
+<!--The `Called Process Definitions` tab displays the called child processes.
+You can learn more about navigating called process definitions and this tab in the section about [Call Activity Navigation][call-activity-navigation].
+In the column *Called Process Definition* the names of the called sub processes are listed.
+Click on the name to display the process in the process definition view.
+Please note that a filter called Parent is automatically set for the process so that you only see the instances that belong to the parent process.
 In the *Activity* column you can select the instance that is calling the child process.-->
 <p>The <strong>Incidents</strong> tab displays details about incidents, including the error message, timestamp, current activity, and the failed activity. It also allows you to add notes or increase the number of retries. For more information, see the section <a href="/manual/2.2-ee/webapps/cockpit/bpmn/failed-jobs/">Failed Jobs</a>.</p>
 <p>The <strong>Called Process Definitions</strong> tab displays details about called processes, such as call activities and <a href="/manual/2.2-ee/webapps/cockpit/bpmn/failed-jobs/">Failed Jobs</a>.</p>
-<!-- 
+<!--
 Here we need to include pausing, inspecting
 -->
 
@@ -4282,14 +4282,14 @@ Add a filter for process instances by filtering for a `numeric` (double, integer
        /></span>
 </figure>
 
-<!-- Additionally, you can use the called process definitions tab to get an overview of which call activity 
+<!-- Additionally, you can use the called process definitions tab to get an overview of which call activity
 calls which process definition.
 We differentiate between three states:
 
   * *Referenced*: the called process definition can be derived without any runtime information.
-  * *Running and referenced*: the called process definition can be derived without any runtime 
+  * *Running and referenced*: the called process definition can be derived without any runtime
 information and a call activity in this process is currently calling it.
-  * *Running*: There is currently a process instance calling this process definition. 
+  * *Running*: There is currently a process instance calling this process definition.
 However, the called process definition can only be resolved at runtime and is only valid for a particular process instance.
 -->
 
@@ -4356,7 +4356,7 @@ However, the called process definition can only be resolved at runtime and is on
 <p>Here, we want to refer to the section <a href="/manual/2.2-ee/webapps/cockpit/bpmn/process-instance-restart/">Process Instance Restart</a> for more details.</p>
 
 <h3 id="documentation-tab">Documentation Tab</h3>
-<p>This feature allows you to inspect documentation added in the Camunda Modeler. To do so, open the Documentation tab. The documentation table lists all documented elements. Click on a table row to highlight the element in the diagram.</p>
+<p>This feature allows you to inspect documentation added in the Modeler. To do so, open the Documentation tab. The documentation table lists all documented elements. Click on a table row to highlight the element in the diagram.</p>
 <p>To view long documentations, click on the  on the element or the documentation link in the table. This opens a modal which displays the formated documentation in a textbox. To copy the documentation to the clipboard, click on  button.</p>
 <!-- What can be done here???  MUST BE CHECKED-->
 
