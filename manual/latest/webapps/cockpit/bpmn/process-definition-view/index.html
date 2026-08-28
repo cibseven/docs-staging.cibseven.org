@@ -4293,6 +4293,51 @@ information and a call activity in this process is currently calling it.
 However, the called process definition can only be resolved at runtime and is only valid for a particular process instance.
 -->
 
+<h3 id="history-view">History View</h3>
+<p>Alongside the runtime instance list, the Instances Tab gives you a dedicated history view scoped to this process definition: every terminated or completed instance, independent of the automated history cleanup schedule. Use it to review how past runs of this definition behaved without switching to a different page.</p>
+<figure class="image">
+  <span><img
+      src="../../img/cockpit-history-view-process-definition-history.png"
+      
+          title="Process Definition View: History View"
+       /></span>
+</figure>
+
+<p>Select a historic instance to open its <a href="/manual/latest/webapps/cockpit/bpmn/process-instance-history-view/">Process History View</a> with the full set of history tabs.</p>
+
+<h3 id="heatmap">Heatmap</h3>
+<p>The diagram supports a heatmap overlay: color-coded activity counts drawn directly onto the BPMN elements, so you can spot the busiest or most incident-prone parts of a process definition at a glance instead of reading them off a table.</p>
+<figure class="image">
+  <span><img
+      src="../../img/cockpit-heatmap.png"
+      
+          title="Process Definition View: Heatmap"
+       /></span>
+</figure>
+
+
+<h3 id="delete-a-process-definition-version">Delete A Process Definition Version</h3>
+<p>In addition to deleting all versions of a process definition at once from the <a href="/manual/latest/webapps/cockpit/bpmn/dashboard/#delete-all-process-definition-versions">dashboard</a>, you can delete a single version from within the process definition view. Open the version selector, pick the version to remove, and confirm the deletion — the same cascading, skip-custom-listeners and skip-IO-mappings options apply as for deleting all versions.</p>
+<figure class="image">
+  <span><img
+      src="../../img/cockpit-delete-process-definition.png"
+      
+          title="Process Definition View: Delete A Process Definition Version"
+       /></span>
+</figure>
+
+
+<h3 id="delete-multiple-running-process-instances">Delete Multiple Running Process Instances</h3>
+<p>From the Instances Tab, select several running process instances and delete them in a single action instead of one by one. Choose to skip custom listeners or IO mappings, and confirm to remove the selected instances.</p>
+<figure class="image">
+  <span><img
+      src="../../img/cockpit-bulk-delete.png"
+      
+          title="Process Definition View: Delete Multiple Running Process Instances"
+       /></span>
+</figure>
+
+
 <h3 id="job-log-tab">Job Log Tab</h3>
 <p>The Job Log tracks the execution of asynchronous jobs within BPMN processes. It allows users to view job details and check the status of the jobs.</p>
 <figure class="image">
@@ -4388,6 +4433,10 @@ However, the called process definition can only be resolved at runtime and is on
     </li>
     <li><a href="#enterprise-features">Enterprise Features</a>
       <ul>
+        <li><a href="#history-view">History View</a></li>
+        <li><a href="#heatmap">Heatmap</a></li>
+        <li><a href="#delete-a-process-definition-version">Delete A Process Definition Version</a></li>
+        <li><a href="#delete-multiple-running-process-instances">Delete Multiple Running Process Instances</a></li>
         <li><a href="#job-log-tab">Job Log Tab</a></li>
         <li><a href="#user-operations-tab">User Operations Tab</a></li>
         <li><a href="#external-tasks-log-tab">External Tasks Log Tab</a></li>
