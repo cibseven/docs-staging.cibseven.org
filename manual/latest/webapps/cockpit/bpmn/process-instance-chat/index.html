@@ -4020,20 +4020,20 @@
     </div>
 
     <div class="col-xs-12 content-text">
-      <p><strong>Agent Chat</strong> brings an LLM-powered assistant into Cockpit, scoped to a single <strong>process instance</strong>. Open it from the <a href="/manual/latest/webapps/cockpit/bpmn/process-instance-view/">Process Instance View</a> to ask questions in plain language about the instance you are looking at — why it has an incident, what happened along a given path, or how a variable changed — instead of manually cross-referencing the audit log, job log, and variable history yourself.</p>
+      <p><strong>Agent Chat</strong> is not an interactive chat with an AI about the process instance — it is the recorded history of every <a href="/manual/latest/reference/connect/ai-agent-connector/">AI Agent Connector</a> session that actually ran as part of it. Whenever a service task in the process uses the AI Agent connector (<code>cibseven-ai-agent</code>), each request, response and any error is appended to a per-activity chat-log variable, and the <strong>Agent Chat</strong> tab in the <a href="/manual/latest/webapps/cockpit/bpmn/process-instance-view/">Process Instance View</a> renders that timeline back to you, in order. See <a href="/manual/latest/reference/connect/ai-agent-connector/audit-trail/">Audit Trail &amp; AI Transparency</a> for exactly what is recorded.</p>
 
 <div class="note bg-info docs-info">
   <h3>Enterprise Feature</h3>
-  <p>Agent Chat is available only in the Enterprise Edition, and connects to an OpenAI-compatible model configured the same way as the <a href="/manual/latest/webapps/modeler/user-guide/bpmn-ai-chat/">BPMN AI Agent</a> in the modeler.</p>
+  <p>This Cockpit visualization of the chat-log timeline is available only in the Enterprise Edition. The AI Agent Connector itself, and the chat-log audit data it records, are unaffected by edition — Agent Chat is the Enterprise-only viewer for that data.</p>
 </div>
 
-<p>The agent answers based on the data of the process instance you opened it from — its diagram, current state, variables, and history — so it always reasons about the case you are actually troubleshooting, not the process definition in general.</p>
-
-<div class="note bg-info docs-info">
-  <h3>AI can make mistakes</h3>
-  <p>Agent Chat is a generative assistant. Treat its answers as a starting point for your investigation, and verify anything critical against the underlying tabs of the Process Instance View.</p>
-</div>
-
+<p>For each recorded activity, you can see:</p>
+<ul>
+<li>the messages exchanged (system, user and tool) for every agent invocation on that activity</li>
+<li>which tools were available to the agent, and which it actually called — including CIB seven processes exposed as MCP tools</li>
+<li>any process instance the agent started as a side effect (via <code>ProcessStarterTool</code>), with the resulting process instance ID and the principal it executed as</li>
+</ul>
+<p>Because the timeline is built from the same chat-log variable used for compliance record-keeping, it is a faithful account of what the agent was told and what it decided during this process instance — not a live conversation you can steer. Treat AI-generated outcomes accordingly: review them against the underlying tabs of the Process Instance View before acting on anything consequential.</p>
 
     </div>
   </div>
