@@ -21,7 +21,7 @@
 
   
 
-  <link rel="stylesheet" href="/manual/latest/css/docs.f43bc5ebad56145eb7697e542c3206210ee1e923799a423012550a822444a0be.css" integrity="sha256-9DvF661WFF63aX5ULDIGIQ7h6SN5mkIwElUKgiREoL4=">
+  <link rel="stylesheet" href="/manual/latest/css/docs.9daa76c8436215f7a2dc94c488a504222370704b350fab4e6ef78679d410abb1.css" integrity="sha256-nap2yENiFfei3JTEiKUEIiNwcEs1D6tObveGedQQq7E=">
   <link rel="canonical" href="https://docs.cibseven.org/manual/latest/webapps/cockpit/deployment-view/" />
 </head>
 <body class="">
@@ -4072,15 +4072,6 @@ Furthermore, you can copy a link to the current search query to your clipboard b
 
 <h2 id="enterprise-features">Enterprise Features</h2>
 
-<h3 id="redeploy">Redeploy</h3>
-
-<div class="note bg-info docs-info">
-  <h3>Enterprise Feature</h3>
-  <p>Redeploy is available only in the Enterprise Edition.</p>
-</div>
-
-<p>Redeploy creates a new deployment from the resources of an existing one, without needing the original files at hand. This is useful to quickly recover from an accidental deployment deletion, or to roll a resource forward into a new deployment as-is.</p>
-
 <h3 id="create-deployment">Create Deployment</h3>
 
 <div class="note bg-info docs-info">
@@ -4088,7 +4079,41 @@ Furthermore, you can copy a link to the current search query to your clipboard b
   <p>Creating a deployment directly from Cockpit is available only in the Enterprise Edition.</p>
 </div>
 
+<figure class="image">
+  <span><img
+      src="../img/cockpit-deployments-deploy-button"
+      
+          title="Create Deployment"
+       /></span>
+</figure>
+
 <p>In addition to redeploying existing resources, Cockpit lets you create a brand new deployment by uploading BPMN, DMN and CMMN files directly from the deployment view — without going through the REST API or a build pipeline. This is useful for quick fixes and one-off deployments in a test or demo environment.</p>
+
+<h3 id="redeploy">Redeploy</h3>
+
+<div class="note bg-info docs-info">
+  <h3>Enterprise Feature</h3>
+  <p>Redeploy is available only in the Enterprise Edition.</p>
+</div>
+
+<figure class="image">
+  <span><img
+      src="../img/cockpit-deployments-redeploy-button"
+      
+          title="Redeploy"
+       /></span>
+</figure>
+
+<p>Redeploy creates a new deployment from the resources of an existing one, without needing the original files at hand. This is useful to quickly recover from an accidental deployment deletion, or to roll a resource forward into a new deployment as-is.</p>
+<p>During run of the Redeploy action a confirmation dialog will appear:</p>
+<figure class="image">
+  <span><img
+      src="../img/cockpit-deployments-redeploy-confirm"
+      
+          title="Redeploy Confirm"
+       /></span>
+</figure>
+
 
     </div>
   </div>
@@ -4103,8 +4128,8 @@ Furthermore, you can copy a link to the current search query to your clipboard b
     <li><a href="#definition-resources">Definition Resources</a></li>
     <li><a href="#enterprise-features">Enterprise Features</a>
       <ul>
-        <li><a href="#redeploy">Redeploy</a></li>
         <li><a href="#create-deployment">Create Deployment</a></li>
+        <li><a href="#redeploy">Redeploy</a></li>
       </ul>
     </li>
   </ul>
