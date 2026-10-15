@@ -4169,6 +4169,70 @@
 <h2 id="special-considerations">Special Considerations</h2>
 <p>This section describes noteworthy potentially breaking changes when you update to the respective patch levels.</p>
 
+<h3 id="2014--2110--224">2.0.14 / 2.1.10 / 2.2.4</h3>
+
+<details class="collapsible-content">
+  <summary class="collapsible-content-summary">
+    
+  </summary>
+
+  <div class="collapsible-content-body">
+    
+<h4 id="security-task-filter-expression-whitelist-enabled-by-default">Security: Task Filter Expression Whitelist Enabled by Default</h4>
+<p>JUEL expressions in task filter criteria and ad-hoc task queries (e.g. <code>assigneeExpression</code>) are now restricted to a whitelist by default.
+This closes the expression injection issue from Camunda Security Notice 157 for stored filters, ad-hoc task queries and <code>or()</code> branches.
+See also <a href="/manual/2.2-ee/user-guide/process-engine/securing-custom-code/">Securing Custom Code</a>.</p>
+<p>Allowed by default (<code>n</code> = any non-negative number):</p>
+<ul>
+<li><code>${currentUser()}</code>, <code>${currentUserGroups()}</code>, <code>${now()}</code></li>
+<li><code>${dateTime()}</code>, <code>${dateTime().withMillis(n)}</code>, <code>${dateTime().withTimeAtStartOfDay()}</code></li>
+<li><code>${dateTime().withTimeAtStartOfDay().plusDays(n).minusSeconds(n)}</code></li>
+<li><code>${dateTime().plusDays(n)}</code>, <code>${dateTime().plusDays(n).withTimeAtStartOfDay()}</code>, <code>${dateTime().plusWeeks(n)}</code></li>
+<li>plain literal values</li>
+</ul>
+
+<h5 id="expected-impact">Expected Impact</h5>
+<p>All other expressions, e.g. <code>${dateTime().minusMonths(2)}</code>, are rejected with HTTP 400. In the Tasklist, such a filter shows an error instead of the task list.</p>
+<p>Before updating, find stored filters that use expressions:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="n">ID_</span><span class="p">,</span><span class="w"> </span><span class="n">NAME_</span><span class="p">,</span><span class="w"> </span><span class="n">OWNER_</span><span class="p">,</span><span class="w"> </span><span class="n">QUERY_</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">ACT_RU_FILTER</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">QUERY_</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;%${%&#39;</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="n">QUERY_</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;%#{%&#39;</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><p>Also check custom <code>TaskQuery</code> code for <code>*Expression</code> values.</p>
+
+<h5 id="allowing-more-expressions">Allowing More Expressions</h5>
+<p>Set <code>allowedFilterExpressions</code> to a semicolon-separated list. It replaces the defaults, so include the defaults you still need.
+Numbers in brackets act as wildcards: <code>${dateTime().minusMonths()}</code> also allows <code>minusMonths(2)</code>.</p>
+<ul>
+<li>CIB seven Run / Spring Boot: <code>camunda.bpm.generic-properties.properties.allowedFilterExpressions</code></li>
+<li>Tomcat (<code>bpm-platform.xml</code>) resolves <code>${…}</code> as a placeholder; WildFly (<code>standalone.xml</code>) needs <code>$${…}</code>.</li>
+</ul>
+
+<h5 id="switches">Switches</h5>
+<table class="table table-striped">
+  <tr>
+    <th>Property</th>
+    <th>Default</th>
+    <th>Effect</th>
+  </tr>
+  <tr>
+    <td><code>enableFilterExpressionWhitelist</code></td>
+    <td><code>true</code> (new)</td>
+    <td>Whitelist on. <code>false</code> restores the old behavior (not recommended).</td>
+  </tr>
+  <tr>
+    <td><code>enableExpressionsInStoredQueries</code></td>
+    <td><code>true</code></td>
+    <td><code>false</code> disables expressions in stored filters completely.</td>
+  </tr>
+  <tr>
+    <td><code>enableExpressionsInAdhocQueries</code></td>
+    <td><code>false</code></td>
+    <td>Expressions in ad-hoc task queries stay off; if enabled, the whitelist applies.</td>
+  </tr>
+</table>
+
+  </div>
+</details>
+
+
 <h3 id="220-to-221">2.2.0 to 2.2.1</h3>
 
 <details class="collapsible-content">
@@ -4327,6 +4391,7 @@ Alternatively, update your configuration to the recommended <a href="/get-starte
     <li><a href="#database-patches">Database Patches</a></li>
     <li><a href="#special-considerations">Special Considerations</a>
       <ul>
+        <li><a href="#2014--2110--224">2.0.14 / 2.1.10 / 2.2.4</a></li>
         <li><a href="#220-to-221">2.2.0 to 2.2.1</a></li>
         <li><a href="#213-to-214">2.1.3 to 2.1.4</a></li>
         <li><a href="#212-to-213">2.1.2 to 2.1.3</a></li>
