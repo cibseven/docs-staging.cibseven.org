@@ -4203,7 +4203,7 @@
     </div>
 
     <div class="col-xs-12 content-text">
-      <p><em>Release Date: October 16, 2026</em></p>
+      <p><em>Release Date: October 17, 2026</em></p>
 
 <h3 id="highlights">Highlights</h3>
 <ul>
@@ -4211,6 +4211,7 @@
 <li><strong>Security</strong> The initial setup that creates the first administrator is now only offered on an unconfigured engine</li>
 <li><strong>Security</strong> <a href="/manual/latest/reference/connect/ai-agent-connector/">AI Agent Connector</a> chat memory is now persisted as a process variable, so a conversation can no longer be read from another process instance and survives engine restarts and replicas</li>
 <li><strong>Security</strong> Process descriptions and warning messages are now rendered as text instead of HTML, closing a stored cross-site scripting (XSS) issue</li>
+<li><strong>Security</strong> 14 CVEs resolved (1 Critical, 6 High, 6 Medium, 1 Low) in <code>jackson</code> (<code>jackson-core</code>, <code>jackson-databind</code>), <code>lz4-java</code>, <code>freemarker</code>, and <code>zlib</code>, through the dependency and Alpine base image updates below</li>
 <li><strong>Variables</strong> Users with read-only permissions can now view variable values without entering edit mode, and <code>Bytes</code> variables can be downloaded and uploaded as files</li>
 <li><strong>Direct Provider</strong> Fixed paging, runtime instance counts, the user operation log, and process instance termination when the webclient accesses the engine directly</li>
 <li><strong>Logging</strong> The engine now uses <code>SLF4J</code> 2</li>
@@ -4353,16 +4354,48 @@
 
 <h4 id="dependency-updates">Dependency Updates</h4>
 <ul>
-<li>Update <code>jackson</code> (<code>jackson-core</code>, <code>jackson-databind</code>) from <code>2.21.5</code> to <code>2.21.7</code></li>
+<li>Update <code>jackson</code> (<code>jackson-core</code>, <code>jackson-databind</code>) from <code>2.21.5</code> to <code>2.21.7</code>, resolving multiple vulnerabilities (see Resolved CVE Vulnerabilities below)</li>
 <li>Update <code>jackson</code> 3 from <code>3.1.5</code> to <code>3.1.7</code></li>
 <li>Update the <code>jackson-core</code> and <code>jackson-databind</code> modules bundled with WildFly (<code>main</code> slot) from <code>2.21.5</code> to <code>2.21.7</code> (WildFly distribution)</li>
-<li>Update <code>lz4-java</code> from <code>1.11.1</code> to <code>1.11.4</code> (WildFly distribution)</li>
-<li>Update <code>freemarker</code> from <code>2.3.31</code> to <code>2.3.35</code></li>
+<li>Update <code>lz4-java</code> from <code>1.11.1</code> to <code>1.11.4</code> (WildFly distribution), resolving multiple vulnerabilities (see Resolved CVE Vulnerabilities below)</li>
+<li>Update <code>freemarker</code> from <code>2.3.31</code> to <code>2.3.35</code>, fixing <code>CVE-2026-84939</code></li>
 <li>Update <code>slf4j-api</code> from <code>1.7.26</code> to <code>2.0.18</code></li>
 <li>Update <code>logback</code> from <code>1.2.13</code> to <code>1.5.38</code></li>
 <li>Update <code>springdoc-openapi</code> from <code>2.8.13</code> to <code>2.9.1</code> (Spring Boot 3) and from <code>3.0.2</code> to <code>3.0.3</code> (Spring Boot 4)</li>
 <li>Update <code>swagger-ui</code> from <code>5.32.6</code> to <code>5.32.14</code></li>
-<li>Update <code>zlib</code> from <code>1.3.2-r0</code> to <code>1.3.2-r1</code> (Alpine base image)</li>
+<li>Update <code>zlib</code> from <code>1.3.2-r0</code> to <code>1.3.2-r1</code> (Alpine base image), fixing <code>CVE-2026-85091</code></li>
+</ul>
+
+<h4 id="resolved-cve-vulnerabilities">Resolved CVE Vulnerabilities</h4>
+
+<h5 id="critical-severity">Critical Severity</h5>
+<ul>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-84939">CVE-2026-84939</a></strong> - Path traversal in Apache FreeMarker&rsquo;s template loading when an attacker can supply a malformed locale identifier and localized lookup is enabled, which it is by default. Affects <code>org.freemarker:freemarker</code>. - CVSS 9.1.</li>
+</ul>
+
+<h5 id="high-severity">High Severity</h5>
+<ul>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-106451">CVE-2026-106451</a></strong> - Vulnerability in <code>lz4-java</code> fixed in version <code>1.11.4</code>. Affects <code>at.yawk.lz4:lz4-java</code>. - CVSS 7.0.</li>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-68497">CVE-2026-68497</a></strong> - An unauthenticated attacker can send a request of a few megabytes with an oversized <code>Duration</code> value (e.g. <code>P</code> followed by several million digits and <code>Y</code>) to force tens of seconds to several minutes of single-threaded CPU work per request, so a handful of concurrent requests can saturate the server. Affects <code>com.fasterxml.jackson.core:jackson-databind</code>. - CVSS 7.5.</li>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-89407">CVE-2026-89407</a></strong> - Attacker-supplied JSON deserialized into a numeric type (<code>BigDecimal</code>, <code>BigInteger</code>, <code>Double</code>, <code>Float</code>) reaches a vulnerable number-parsing method through jackson-databind&rsquo;s default String-to-number coercion. Affects <code>com.fasterxml.jackson.core:jackson-core</code>. - CVSS 7.5.</li>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-89425">CVE-2026-89425</a></strong> - <code>UTF8DataInputJsonParser._reportInvalidToken()</code> builds the offending-token text for its error message in a loop with no upper bound. Affects <code>com.fasterxml.jackson.core:jackson-core</code>. - CVSS 7.5.</li>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-91776">CVE-2026-91776</a></strong> - <code>TypeDeserializerBase._findDeserializer()</code> caches resolved deserializers under the raw, attacker-supplied type ID. Affects <code>com.fasterxml.jackson.core:jackson-databind</code>. - CVSS 7.5.</li>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-91777">CVE-2026-91777</a></strong> - Vulnerability exploitable when an application deserializes attacker-influenced JSON into an identity-enabled collection or map. Affects <code>com.fasterxml.jackson.core:jackson-databind</code>. - CVSS 7.5.</li>
+</ul>
+
+<h5 id="medium-severity">Medium Severity</h5>
+<ul>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-106450">CVE-2026-106450</a></strong> - <code>LZ4FrameInputStream.readHeader()</code> allocates two new 4 MiB block buffers for every maximum-block-size frame header, so an attacker-controlled stream of many minimal empty frames triggers excessive memory allocation. Affects <code>at.yawk.lz4:lz4-java</code>. - CVSS 5.3.</li>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-106452">CVE-2026-106452</a></strong> - <code>LZ4BlockInputStream.refill()</code> allocates a compressed-input buffer of the attacker-controlled size from a legacy block header before reading any payload, so a header-only stream can request a near-2 GiB allocation. Affects <code>at.yawk.lz4:lz4-java</code>. - CVSS 5.3.</li>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-106453">CVE-2026-106453</a></strong> - <code>LZ4DecompressorWithLength</code> trusts the four-byte decompressed-length header before validating the compressed input, so a five-byte input can request up to approximately 2 GiB and exhaust the JVM heap. Affects <code>at.yawk.lz4:lz4-java</code>. - CVSS 5.3.</li>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-19032">CVE-2026-19032</a></strong> - The deserializer for <code>java.nio.file.Path</code> resolves an attacker-supplied URI without restricting the URI scheme. Affects <code>com.fasterxml.jackson.core:jackson-databind</code>. - CVSS 5.3.</li>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-83557">CVE-2026-83557</a></strong> - Attacker-controlled input can instantiate objects, e.g. a <code>java.io.File</code> for an arbitrary path, which becomes path-traversal-adjacent if the application then calls path-sensitive methods on the value. Affects <code>com.fasterxml.jackson.core:jackson-databind</code>. - CVSS 5.6.</li>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-85091">CVE-2026-85091</a></strong> - Heap buffer overflow in <code>gz_vacate()</code> when processing non-blocking <code>gzwrite()</code> operations with stale external buffer pointers (zlib <code>1.3.1.2</code> through <code>1.3.2</code>). Affects <code>zlib</code>.</li>
+</ul>
+
+<h5 id="low-severity">Low Severity</h5>
+<ul>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-106449">CVE-2026-106449</a></strong> - <code>LZ4BlockInputStream</code> with <code>stopOnEmptyBlock</code> set to <code>false</code> recursively calls <code>refill()</code> for each empty block, so a long sequence of empty blocks in an attacker-controlled stream can exhaust the decoding thread&rsquo;s stack. Affects <code>at.yawk.lz4:lz4-java</code>. - CVSS 3.7.</li>
 </ul>
 
     </div>
@@ -4411,6 +4444,7 @@
         <li><a href="#technical-updates">Technical Updates</a>
           <ul>
             <li><a href="#dependency-updates">Dependency Updates</a></li>
+            <li><a href="#resolved-cve-vulnerabilities">Resolved CVE Vulnerabilities</a></li>
           </ul>
         </li>
       </ul>
