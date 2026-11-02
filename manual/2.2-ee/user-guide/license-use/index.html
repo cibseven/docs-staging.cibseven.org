@@ -4323,7 +4323,13 @@ application must use the EE version of the starter, with <code>-ee</code> suffix
 
 <h3 id="https-and-service-workers">HTTPS and Service Workers</h3>
 <p>Browsers run a service worker only in a secure context: over HTTPS or on <code>localhost</code>. If the webclient is opened over plain HTTP or the browser has service workers turned off, licensed features show <strong>&ldquo;License Required&rdquo;</strong> although the license is valid. This also applies to the Direct Provider. Open the webclient over HTTPS.</p>
-<p>This holds for the standard login flows. A deployment that authenticates requests itself (gateway, SAML, session cookie) can leave chunk authentication to the server instead, see <a href="#leaving-chunk-authentication-to-the-server">Leaving chunk authentication to the server</a> (starting with <code>2.2.3</code>).</p>
+<p>Without HTTPS, these features work only in these cases:</p>
+<ul>
+<li>On <code>localhost</code>, for example through an SSH tunnel, or in a browser started with a flag that treats the webclient&rsquo;s HTTP address as secure (in Chrome, <code>--unsafely-treat-insecure-origin-as-secure</code>). Both are meant for tests.</li>
+<li>In deployments where a gateway or proxy authenticates the users: starting with <code>2.2.3</code>, the user provider can authenticate the chunk requests without the token of the service worker, for example from a session cookie (a SAML or reverse proxy session) or from an identity header that the gateway or proxy adds, see <a href="#leaving-chunk-authentication-to-the-server">Leaving chunk authentication to the server</a>.</li>
+</ul>
+<p>With the standard login, <code>trustServerAuthentication</code> does not help: without a service worker the token is not sent, and the request is refused with <code>403</code>.</p>
+<p>Over plain HTTP, session cookies and tokens travel unencrypted. A user provider that trusts an identity header is safe only if the webclient can be reached through the gateway or proxy alone; otherwise anyone can forge the header.</p>
 
 <h2 id="license-content">License content</h2>
 <p>This section defines what is a valid license key that will be accepted by the CIB seven webclient. This description is
