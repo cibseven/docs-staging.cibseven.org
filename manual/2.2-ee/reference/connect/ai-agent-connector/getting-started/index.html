@@ -4357,8 +4357,8 @@ the distribution and mode it may be on by default or require a flag/env var (for
 <strong>off by default</strong> in the run distribution&rsquo;s <code>--production</code> mode). If the <em>CIB seven - AI Agent</em>
 template doesn&rsquo;t appear in the Modeler, or the task fails with <em>connector not found</em>, see
 <a href="/manual/2.2-ee/reference/connect/ai-agent-connector/installation/">Installation &amp; Enablement</a> first.</p>
-<p>You also need an LLM API key available to the process — typically referenced through a process
-variable (e.g. <code>${apiKey}</code>) or, at the deployment level, the <code>OPENAI_API_KEY</code> environment variable.</p>
+<p>You also need an LLM API key on the server: the <code>OPENAI_API_KEY</code> environment variable of the
+engine&rsquo;s JVM. Do not pass it in a process variable (see <a href="/manual/2.2-ee/reference/connect/ai-agent-connector/security-and-data-handling/">Security &amp; Data Handling</a>).</p>
 
 <h2 id="2-add-an-ai-agent-service-task">2. Add an AI Agent service task</h2>
 <p>In the CIB seven Modeler:</p>
@@ -4404,8 +4404,8 @@ has a sensible default.</p>
     <tr>
       <td><strong>API key</strong></td>
       <td>Agent</td>
-      <td><code>${apiKey}</code></td>
-      <td>Optional if <code>OPENAI_API_KEY</code> is set in the environment.</td>
+      <td><em>(leave empty)</em></td>
+      <td>The connector uses the server&rsquo;s <code>OPENAI_API_KEY</code>.</td>
     </tr>
     <tr>
       <td><strong>Model</strong></td>
@@ -4432,7 +4432,7 @@ next BPMN step can read it. Two more optional outputs are available:</p>
 </ul>
 
 <h2 id="5-deploy-and-run">5. Deploy and run</h2>
-<p>Deploy the process and start an instance (supplying <code>feedbackText</code> and <code>apiKey</code> as needed). When the
+<p>Deploy the process and start an instance (supplying <code>feedbackText</code>). When the
 token reaches the service task, the connector calls the LLM and writes the answer into
 <code>summaryResult</code>. Inspect it in Cockpit, in a following user task, or in a gateway condition.</p>
 
@@ -4448,7 +4448,6 @@ token reaches the service task, the connector calls the LLM and writes the answe
 </span></span><span class="line"><span class="cl">        <span class="nt">&lt;camunda:inputParameter</span> <span class="na">name=</span><span class="s">&#34;agentName&#34;</span><span class="nt">&gt;</span>Summarizer<span class="nt">&lt;/camunda:inputParameter&gt;</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&lt;camunda:inputParameter</span> <span class="na">name=</span><span class="s">&#34;message&#34;</span><span class="nt">&gt;</span>Summarize: ${feedbackText}<span class="nt">&lt;/camunda:inputParameter&gt;</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&lt;camunda:inputParameter</span> <span class="na">name=</span><span class="s">&#34;instruction&#34;</span><span class="nt">&gt;</span>Summarize the core concern in 10 words or less.<span class="nt">&lt;/camunda:inputParameter&gt;</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&lt;camunda:inputParameter</span> <span class="na">name=</span><span class="s">&#34;apiKey&#34;</span><span class="nt">&gt;</span>${apiKey}<span class="nt">&lt;/camunda:inputParameter&gt;</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&lt;camunda:outputParameter</span> <span class="na">name=</span><span class="s">&#34;summaryResult&#34;</span><span class="nt">&gt;</span>${output}<span class="nt">&lt;/camunda:outputParameter&gt;</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&lt;/camunda:inputOutput&gt;</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&lt;camunda:connectorId&gt;</span>cibseven-ai-agent<span class="nt">&lt;/camunda:connectorId&gt;</span>

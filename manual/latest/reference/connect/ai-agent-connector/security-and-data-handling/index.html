@@ -4471,11 +4471,14 @@ must allow that egress (or route it through an approved proxy/gateway). See
 
 <h2 id="secrets--credentials">Secrets &amp; credentials</h2>
 <ul>
-<li><strong>Do not hardcode secrets into element-template fields.</strong> Any value typed into an input parameter
-(<code>apiKey</code>, <code>pgPassword</code>, <code>customHeaders</code>) is <strong>persisted as a process variable and in history</strong>,
-and is visible in Cockpit and to anyone with variable access. Reference a securely-provided
-variable (<code>${apiKey}</code>) or, preferably, the <strong><code>OPENAI_API_KEY</code> environment variable</strong> at
-deployment level.</li>
+<li><strong>Keep secrets out of the BPMN XML and out of process variables.</strong> A value typed into a field
+(<code>apiKey</code>, <code>pgPassword</code>, <code>customHeaders</code>) is stored in the <strong>BPMN XML of the deployment</strong>; an
+expression such as
+<code>${apiKey}</code> reads a <strong>process variable</strong>, which is stored in the runtime tables and, with history
+level <code>audit</code> or <code>full</code> (CIB seven Run: <code>full</code>), in the <strong>history</strong>. Leave <strong>API key</strong> empty and set
+the <strong><code>OPENAI_API_KEY</code> environment variable</strong> of the engine&rsquo;s JVM: it is stored nowhere in the engine.
+HTTP headers, MCP server headers and the PostgreSQL password have no server-side setting yet: the field
+is the only place for them, and a value set there is stored as described above.</li>
 <li><strong>Secrets in <code>message</code>/<code>instruction</code> are recorded.</strong> The chat-log timeline stores <code>messages[]</code>
 content, so anything you put in the prompt is in the audit variable (unless redaction is on). Keep
 credentials out of prompts.</li>

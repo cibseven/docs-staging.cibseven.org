@@ -4444,7 +4444,7 @@ Ingestor, see the <a href="/manual/latest/reference/connect/ai-agent-connector/c
     <tr>
       <td><strong>HTTP headers</strong></td>
       <td><code>customHeaders</code></td>
-      <td>JSON object of header → value, e.g. <code>{&quot;Authorization&quot;: &quot;Bearer sk-...&quot;}</code></td>
+      <td>JSON object of header → value, e.g. <code>{&quot;X-Request-Source&quot;: &quot;cibseven&quot;}</code></td>
     </tr>
   </tbody>
 </table>
@@ -4462,18 +4462,15 @@ provider actually serves.</p>
 <p>The same task works against any OpenAI-compatible endpoint — only <code>baseUrl</code>, <code>model</code>, and the
 authentication differ. Use a current model ID from your provider&rsquo;s catalogue in place of the
 placeholders below.</p>
-<p><strong>OpenAI (default)</strong> — omit <code>baseUrl</code>; set <code>apiKey</code> (or the <code>OPENAI_API_KEY</code> env var).</p>
+<p><strong>OpenAI (default)</strong> — omit <code>baseUrl</code>; set the key in the server&rsquo;s <code>OPENAI_API_KEY</code> env var.</p>
 <pre tabindex="0"><code>model:   &lt;an OpenAI chat model&gt;
-apiKey:  ${apiKey}
-</code></pre><p><strong>Azure OpenAI</strong> — point <code>baseUrl</code> at your Azure deployment endpoint and pass the Azure key. Many
+</code></pre><p><strong>Azure OpenAI</strong> — on the server, set <code>OPENAI_BASE_URL</code> to your Azure deployment endpoint
+(<code>https://&lt;resource&gt;.openai.azure.com/openai/v1</code>) and <code>OPENAI_API_KEY</code> to the Azure key. Many
 Azure setups expect the key in a header; use <code>customHeaders</code> if your gateway requires it.</p>
-<pre tabindex="0"><code>baseUrl: https://&lt;resource&gt;.openai.azure.com/openai/v1
-model:   &lt;your Azure deployment name&gt;
-apiKey:  ${azureKey}
-</code></pre><p><strong>OpenRouter</strong> — prefix the model with its provider; OpenRouter aggregates many vendors.</p>
-<pre tabindex="0"><code>baseUrl: https://openrouter.ai/api/v1
-model:   &lt;vendor&gt;/&lt;model&gt;     # e.g. openai/&lt;model&gt;, anthropic/&lt;model&gt;
-apiKey:  ${openrouterKey}
+<pre tabindex="0"><code>model:   &lt;your Azure deployment name&gt;
+</code></pre><p><strong>OpenRouter</strong> — on the server, set <code>OPENAI_BASE_URL</code> to <code>https://openrouter.ai/api/v1</code> and
+<code>OPENAI_API_KEY</code> to the OpenRouter key; prefix the model with its provider.</p>
+<pre tabindex="0"><code>model:   &lt;vendor&gt;/&lt;model&gt;     # e.g. openai/&lt;model&gt;, anthropic/&lt;model&gt;
 </code></pre><p><strong>Ollama (local / self-hosted)</strong> — no API key needed for a local server.</p>
 <pre tabindex="0"><code>baseUrl: http://localhost:11434/v1
 model:   &lt;a model you&#39;ve pulled into Ollama&gt;

@@ -4474,11 +4474,13 @@ least-privilege guidance see <a href="/manual/latest/reference/connect/ai-agent-
 them as a <strong>JSON array</strong> in <strong>MCP servers</strong>; their tools are registered alongside any <code>toolClasses</code>.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">[</span>
 </span></span><span class="line"><span class="cl">  <span class="p">{</span><span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;engine&#34;</span><span class="p">,</span> <span class="nt">&#34;url&#34;</span><span class="p">:</span> <span class="s2">&#34;http://localhost:8081/mcp&#34;</span><span class="p">},</span>
-</span></span><span class="line"><span class="cl">  <span class="p">{</span><span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;krank&#34;</span><span class="p">,</span>  <span class="nt">&#34;url&#34;</span><span class="p">:</span> <span class="s2">&#34;http://localhost:8082/mcp&#34;</span><span class="p">,</span> <span class="nt">&#34;headers&#34;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&#34;Authorization&#34;</span><span class="p">:</span> <span class="s2">&#34;Bearer token&#34;</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span><span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;krank&#34;</span><span class="p">,</span>  <span class="nt">&#34;url&#34;</span><span class="p">:</span> <span class="s2">&#34;http://localhost:8082/mcp&#34;</span><span class="p">,</span> <span class="nt">&#34;headers&#34;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&#34;X-Tenant&#34;</span><span class="p">:</span> <span class="s2">&#34;sales&#34;</span><span class="p">}}</span>
 </span></span><span class="line"><span class="cl"><span class="p">]</span>
 </span></span></code></pre></div><ul>
 <li><strong><code>url</code></strong> (required) — the MCP endpoint. The connector uses the HTTP-streaming transport.</li>
-<li><strong><code>headers</code></strong> (optional) — a JSON object of header → value, e.g. for bearer-token auth.</li>
+<li><strong><code>headers</code></strong> (optional) — a JSON object of header → value, e.g. for bearer-token auth. A token
+written here is stored in the BPMN XML of the deployment (or, read by an expression, in a process variable);
+there is no server-side setting for it yet.</li>
 <li><strong><code>name</code></strong> (optional, 1–32 chars of <code>[a-zA-Z0-9_-]</code>) — a <strong>prefix</strong> that disambiguates tools across
 servers. The model sees <code>&lt;name&gt;__&lt;toolName&gt;</code> instead of just <code>&lt;toolName&gt;</code>. When omitted, the
 connector derives a slug from the URL host/port (e.g. <code>localhost:8081</code> → <code>localhost-8081</code>).</li>

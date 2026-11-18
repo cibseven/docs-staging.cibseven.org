@@ -4553,7 +4553,10 @@ the number of chunks via <code>${chunksIngested}</code>.</p>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;camunda:outputParameter</span> <span class="na">name=</span><span class="s">&#34;ingestedChunks&#34;</span><span class="nt">&gt;</span>${chunksIngested}<span class="nt">&lt;/camunda:outputParameter&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;/camunda:inputOutput&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/camunda:connector&gt;</span>
-</span></span></code></pre></div><p>Use the <strong>same</strong> <code>pgTable</code>, <code>embeddingModelName</code>, and <code>embeddingDimension</code> here as on the AI Agent
+</span></span></code></pre></div><p>There is no server-side setting for <code>pgPassword</code> yet: read from a process variable, as here, it is
+stored with the variable; typed into the field, it is stored in the BPMN XML of the deployment (see
+<a href="/manual/2.2-ee/reference/connect/ai-agent-connector/security-and-data-handling/">Security &amp; Data Handling</a>).</p>
+<p>Use the <strong>same</strong> <code>pgTable</code>, <code>embeddingModelName</code>, and <code>embeddingDimension</code> here as on the AI Agent
 task that will query it. See the <code>knowledge-base.bpmn</code> demo in <a href="/manual/2.2-ee/reference/connect/ai-agent-connector/examples/">Examples</a>.</p>
 
 <h2 id="ingesting-knowledge--the-knowledgeingestor-cli">Ingesting knowledge — the <code>KnowledgeIngestor</code> CLI</h2>

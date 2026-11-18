@@ -4365,13 +4365,14 @@ import present. See <a href="/manual/2.2-ee/reference/connect/ai-agent-connector
 
 <h2 id="authentication--endpoint-errors-401-connection-refused-wrong-host">Authentication / endpoint errors (401, connection refused, wrong host)</h2>
 <ul>
-<li><strong>Missing key.</strong> Set <code>apiKey</code> on the task or the <code>OPENAI_API_KEY</code> environment variable
+<li><strong>Missing key.</strong> Set the <code>OPENAI_API_KEY</code> environment variable of the engine&rsquo;s JVM
 (see <a href="/manual/2.2-ee/reference/connect/ai-agent-connector/configuring-the-agent/">Configuring the Agent</a>).</li>
 <li><strong>Wrong endpoint.</strong> Check <code>baseUrl</code> (or <code>OPENAI_BASE_URL</code>). For Ollama use
 <code>http://localhost:11434/v1</code>; for Azure/OpenRouter see the provider recipes in
 <a href="/manual/2.2-ee/reference/connect/ai-agent-connector/configuring-the-agent/">Configuring the Agent</a>.</li>
-<li><strong>Gateway expects the key in a header.</strong> Put it in <code>customHeaders</code>
-(e.g. <code>{&quot;Authorization&quot;: &quot;Bearer ...&quot;}</code>) rather than <code>apiKey</code>.</li>
+<li><strong>Gateway expects the key in a header of its own.</strong> Put that header in <code>customHeaders</code>. Its value
+is stored in the BPMN XML of the deployment (or, read by an expression, in a process variable): there is no
+server-side setting for headers yet.</li>
 <li><strong>Placeholder key reaches the public API.</strong> If <code>baseUrl</code> is an internal gateway that injects the
 real credential, a placeholder <code>apiKey</code> may still be sent and rejected — verify the gateway&rsquo;s auth
 expectations.</li>
