@@ -3563,6 +3563,14 @@
   </li>
 
         
+          
+  <li>
+    
+      <a href="/manual/3.0/webapps/configuration-options/core-configuration/direct-provider/" >Direct Provider</a>
+    
+  </li>
+
+        
       </ul>
     
   </li>
@@ -3819,6 +3827,22 @@
           
   <li>
     
+      <a href="/manual/3.0/release-notes/release-notes-2.2.5-ee/" >2.2.5 EE</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
+      <a href="/manual/3.0/release-notes/release-notes-2.2.5-ce-plus/" >2.2.5 CE&#43;</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
       <a href="/manual/3.0/release-notes/release-notes-2.2.4-ee-hotfix/" >2.2.4 EE hotfix</a>
     
   </li>
@@ -3922,6 +3946,22 @@
     
       <a href="/manual/3.0/release-notes/2.1.x/" >Release Notes 2.1.x</a>
       <ul>
+        
+          
+  <li>
+    
+      <a href="/manual/3.0/release-notes/release-notes-2.1.11-ee/" >2.1.11 EE</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
+      <a href="/manual/3.0/release-notes/release-notes-2.1.11-ce-plus/" >2.1.11 CE&#43;</a>
+    
+  </li>
+
         
           
   <li>
@@ -4481,6 +4521,9 @@ Additional engines can be optionally specified via the <code>additionalEngineRes
 <p>For a complete, runnable setup, see the <a href="https://github.com/cibseven/cibseven-multi-engine-example">CIB seven multi-engine example</a> on GitHub: one webclient and two engines in separate containers, each engine with its own JWT secret, started with Docker Compose.</p>
 <p>In the Enterprise Edition, the license key is stored in the database of an additional engine only if this engine uses the same secret as <code>cibseven.webclient.authentication.jwtSecret</code>. If the engine has its own <code>jwtSecret</code>, keep the license file with the webclient, see <a href="/manual/3.0/user-guide/license-use/#storing-the-license-key-in-the-database">Storing the License Key in the Database</a>.</p>
 
+<h3 id="direct-provider">Direct Provider</h3>
+<p>By default, the webclient calls the engine over the engine REST API. When the webclient and the engine run in the same application, for example in CIB seven Run, the webclient can call the engine directly instead and needs no <code>engineRest.url</code>, see <a href="/manual/3.0/webapps/configuration-options/core-configuration/direct-provider/">Direct Provider</a>.</p>
+
 <h3 id="all-core-configuration-options">All Core Configuration Options</h3>
 <p>The table below lists the core webclient options with short descriptions. The properties that set the paths under which the webclient is deployed in CIB seven Run or a Spring Boot application are described in <a href="/manual/3.0/user-guide/cibseven-run/#cib-seven-webclient-properties">CIB seven webclient properties</a>.</p>
 <table class="table desc-table">
@@ -4529,10 +4572,10 @@ Additional engines can be optionally specified via the <code>additionalEngineRes
       <td>.trustServerAuthentication</td>
       <td>Lets the browser request licensed EE frontend chunks even when the webclient holds no auth token to attach to them, leaving authentication of those requests to the server. Set this to <code>true</code> only if your deployment authenticates requests itself — a custom <code>IUserProvider</code> backed by a SAML session, a reverse proxy, or a gateway — so that a chunk request without an <code>Authorization</code> header can still be authenticated. The server-side license check is unaffected: a request the user provider cannot authenticate is still rejected. See <a href="/manual/3.0/user-guide/license-use/#authenticating-licensed-frontend-chunks">Authenticating Licensed Frontend Chunks</a>. <br />Default value: false</td>
   </tr>
-  <tr>
+  <tr id="tr-cibseven-webclient-enginerest">
       <td rowspan="4">cibseven.webclient.engineRest</td>
       <td>.url</td>
-      <td>CIB seven engine REST API URL. <br />Example: http://localhost:8080</td>
+      <td>CIB seven engine REST API URL. Not needed with the <a href="/manual/3.0/webapps/configuration-options/core-configuration/direct-provider/">Direct Provider</a>. <br />Example: http://localhost:8080</td>
   </tr>
     <tr>
       <td>.path</td>
@@ -4563,7 +4606,7 @@ Additional engines can be optionally specified via the <code>additionalEngineRes
   <tr>
       <td rowspan="12">cibseven.webclient</td>
       <td>.bpm.provider</td>
-      <td>BPM provider implementation class. <br />Example: org.cibseven.webapp.providers.SevenProvider</td>
+      <td>BPM provider implementation class. <code>org.cibseven.webapp.providers.SevenProvider</code> calls the engine REST API; <code>org.cibseven.webapp.providers.SevenDirectProvider</code> (<code>SevenDirectProviderEE</code> in the Enterprise Edition) calls an engine running in the same application, without <code>engineRest.url</code>, see <a href="/manual/3.0/webapps/configuration-options/core-configuration/direct-provider/">Direct Provider</a>. <br />Default value: org.cibseven.webapp.providers.SevenProvider</td>
   </tr>
   <tr>
       <td>.historyLevel</td>
@@ -4815,6 +4858,7 @@ Additional engines can be optionally specified via the <code>additionalEngineRes
         <li><a href="#authentication">Authentication</a></li>
         <li><a href="#ldap">LDAP</a></li>
         <li><a href="#multi-engine-support">Multi-engine support</a></li>
+        <li><a href="#direct-provider">Direct Provider</a></li>
         <li><a href="#all-core-configuration-options">All Core Configuration Options</a></li>
       </ul>
     </li>
