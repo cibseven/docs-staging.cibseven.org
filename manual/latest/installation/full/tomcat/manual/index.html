@@ -255,6 +255,25 @@
           
   <li>
     
+      <a href="/manual/latest/user-guide/process-engine/ad-hoc-subprocess/" >Ad Hoc Sub-Process</a>
+      <ul>
+        
+          
+  <li>
+    
+      <a href="/manual/latest/user-guide/process-engine/agentic-ad-hoc-subprocess/" >Agentic Ad Hoc Sub-Process</a>
+    
+  </li>
+
+        
+      </ul>
+    
+  </li>
+
+        
+          
+  <li>
+    
       <a href="/manual/latest/user-guide/process-engine/delegation-code/" >Delegation Code</a>
     
   </li>
@@ -1781,6 +1800,14 @@
   <li>
     
       <a href="/manual/latest/reference/bpmn20/subprocesses/transaction-subprocess/" >Transaction Subprocess</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
+      <a href="/manual/latest/reference/bpmn20/subprocesses/ad-hoc-subprocess/" >Ad Hoc Sub-Process</a>
     
   </li>
 
@@ -3418,6 +3445,14 @@
           
   <li>
     
+      <a href="/manual/latest/webapps/modeler/user-guide/template-management/" >Template Management</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
       <a href="/manual/latest/webapps/modeler/user-guide/bpmn-ai-chat/" >BPMN AI Agent</a>
     
   </li>
@@ -3435,6 +3470,14 @@
   <li>
     
       <a href="/manual/latest/webapps/modeler/user-guide/chat/" >Real-time Chat</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
+      <a href="/manual/latest/webapps/modeler/user-guide/autosave/" >Autosave</a>
     
   </li>
 
@@ -3641,6 +3684,14 @@
           
   <li>
     
+      <a href="/manual/latest/update/minor/22-to-30/" >2.2 to 3.0</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
       <a href="/manual/latest/update/minor/21-to-22/" >2.1 to 2.2</a>
       <ul>
         
@@ -3731,6 +3782,33 @@
     
       <a href="/manual/latest/release-notes/" >Release Notes</a>
       <ul>
+        
+          
+  <li>
+    
+      <a href="/manual/latest/release-notes/3.0.x/" >Release Notes 3.0.x</a>
+      <ul>
+        
+          
+  <li>
+    
+      <a href="/manual/latest/release-notes/release-notes-3.0.0-ee/" >3.0.0 EE</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
+      <a href="/manual/latest/release-notes/release-notes-3.0.0-ce/" >3.0.0 CE</a>
+    
+  </li>
+
+        
+      </ul>
+    
+  </li>
+
         
           
   <li>
@@ -4577,13 +4655,22 @@ For example, http://localhost:8080/engine-rest/engine should return the names of
 <h3 id="graalvm-javascript-integration">GraalVM JavaScript Integration</h3>
 <p>Add the following artifacts (if not existing) from the folder <code>$TOMCAT_DISTRIBUTION/lib/</code> to the folder <code>$TOMCAT_HOME/lib/</code>:</p>
 <ul>
-<li><code>graal-sdk-21.1.0.jar</code></li>
-<li><code>icu4j-68.2.jar</code></li>
-<li><code>js-21.1.0.jar</code></li>
-<li><code>js-scriptengine-21.1.0.jar</code></li>
-<li><code>regex-21.1.0.jar</code></li>
-<li><code>truffle-api-21.1.0.jar</code></li>
+<li><code>collections-$GRAAL_VERSION.jar</code></li>
+<li><code>icu4j-$GRAAL_VERSION.jar</code> (<code>org.graalvm.shadowed:icu4j</code>, the ICU copy of GraalJS)</li>
+<li><code>icu4j-$ICU4J_VERSION.jar</code> (<code>com.ibm.icu:icu4j</code>, for code and scripts that use <code>com.ibm.icu</code> classes)</li>
+<li><code>jniutils-$GRAAL_VERSION.jar</code></li>
+<li><code>js-language-$GRAAL_VERSION.jar</code></li>
+<li><code>js-scriptengine-$GRAAL_VERSION.jar</code></li>
+<li><code>nativeimage-$GRAAL_VERSION.jar</code></li>
+<li><code>polyglot-$GRAAL_VERSION.jar</code></li>
+<li><code>regex-$GRAAL_VERSION.jar</code></li>
+<li><code>truffle-api-$GRAAL_VERSION.jar</code></li>
+<li><code>truffle-compiler-$GRAAL_VERSION.jar</code></li>
+<li><code>truffle-runtime-$GRAAL_VERSION.jar</code></li>
+<li><code>word-$GRAAL_VERSION.jar</code></li>
+<li><code>xz-$GRAAL_VERSION.jar</code></li>
 </ul>
+<p>In CIB seven 3.0, <code>$GRAAL_VERSION</code> is <code>25.0.1</code> and <code>$ICU4J_VERSION</code> is <code>71.1</code>.</p>
 
     </div>
   </div>

@@ -255,6 +255,25 @@
           
   <li>
     
+      <a href="/manual/3.0/user-guide/process-engine/ad-hoc-subprocess/" >Ad Hoc Sub-Process</a>
+      <ul>
+        
+          
+  <li>
+    
+      <a href="/manual/3.0/user-guide/process-engine/agentic-ad-hoc-subprocess/" >Agentic Ad Hoc Sub-Process</a>
+    
+  </li>
+
+        
+      </ul>
+    
+  </li>
+
+        
+          
+  <li>
+    
       <a href="/manual/3.0/user-guide/process-engine/delegation-code/" >Delegation Code</a>
     
   </li>
@@ -1781,6 +1800,14 @@
   <li>
     
       <a href="/manual/3.0/reference/bpmn20/subprocesses/transaction-subprocess/" >Transaction Subprocess</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
+      <a href="/manual/3.0/reference/bpmn20/subprocesses/ad-hoc-subprocess/" >Ad Hoc Sub-Process</a>
     
   </li>
 
@@ -3418,6 +3445,14 @@
           
   <li>
     
+      <a href="/manual/3.0/webapps/modeler/user-guide/template-management/" >Template Management</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
       <a href="/manual/3.0/webapps/modeler/user-guide/bpmn-ai-chat/" >BPMN AI Agent</a>
     
   </li>
@@ -3435,6 +3470,14 @@
   <li>
     
       <a href="/manual/3.0/webapps/modeler/user-guide/chat/" >Real-time Chat</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
+      <a href="/manual/3.0/webapps/modeler/user-guide/autosave/" >Autosave</a>
     
   </li>
 
@@ -3641,6 +3684,14 @@
           
   <li>
     
+      <a href="/manual/3.0/update/minor/22-to-30/" >2.2 to 3.0</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
       <a href="/manual/3.0/update/minor/21-to-22/" >2.1 to 2.2</a>
       <ul>
         
@@ -3731,6 +3782,33 @@
     
       <a href="/manual/3.0/release-notes/" >Release Notes</a>
       <ul>
+        
+          
+  <li>
+    
+      <a href="/manual/3.0/release-notes/3.0.x/" >Release Notes 3.0.x</a>
+      <ul>
+        
+          
+  <li>
+    
+      <a href="/manual/3.0/release-notes/release-notes-3.0.0-ee/" >3.0.0 EE</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
+      <a href="/manual/3.0/release-notes/release-notes-3.0.0-ce/" >3.0.0 CE</a>
+    
+  </li>
+
+        
+      </ul>
+    
+  </li>
+
         
           
   <li>
@@ -4360,17 +4438,17 @@
 <ul>
 <li><strong>BPMN 2.0</strong> process modeling with a full visual canvas (powered by <a href="https://github.com/bpmn-io/bpmn-js">bpmn-js</a>)</li>
 <li><strong>DMN 1.3</strong> decision table modeling (powered by <a href="https://github.com/bpmn-io/dmn-js">dmn-js</a>)</li>
-<li><strong>Form modeling</strong> — build embedded Camunda forms with a drag-and-drop editor</li>
+<li><strong>Form modeling</strong> — build <a href="https://github.com/bpmn-io/form-js">form-js</a> forms with a drag-and-drop editor</li>
 <li><strong>Element templates</strong> — reusable task/event configuration templates loaded from JSON</li>
 <li><strong>Monaco Editor</strong> integration — direct XML/JSON editing with syntax highlighting</li>
 <li><strong>One-click deployment</strong> — deploy diagrams directly to a CIB seven engine</li>
 <li><strong>Multi-database support</strong> — PostgreSQL, MySQL, MariaDB, Oracle, MSSQL, DB2, H2 (dev)</li>
-<li><strong>Internationalization</strong> — English, German, Spanish, Russian</li>
+<li><strong>Internationalization</strong> — English, German, Spanish, Russian, Ukrainian</li>
 </ul>
 
 <div class="note ">
   <h3>Database schema</h3>
-  <p>The modeler requires a prepared database schema. Schema creation is the responsibility of the parent application (e.g. <code>cibseven-bpm-run</code>). The webclient connects to the database but does not run any migrations itself.</p>
+  <p>The modeler requires a prepared database schema. The engine creates it as an optional part of its own schema, see <a href="/manual/3.0/webapps/modeler/installation/database-schema/">Database Schema</a>. The webclient connects to the database but does not run any migrations itself.</p>
 </div>
 
 

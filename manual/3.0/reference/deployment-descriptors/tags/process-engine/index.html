@@ -255,6 +255,25 @@
           
   <li>
     
+      <a href="/manual/3.0/user-guide/process-engine/ad-hoc-subprocess/" >Ad Hoc Sub-Process</a>
+      <ul>
+        
+          
+  <li>
+    
+      <a href="/manual/3.0/user-guide/process-engine/agentic-ad-hoc-subprocess/" >Agentic Ad Hoc Sub-Process</a>
+    
+  </li>
+
+        
+      </ul>
+    
+  </li>
+
+        
+          
+  <li>
+    
       <a href="/manual/3.0/user-guide/process-engine/delegation-code/" >Delegation Code</a>
     
   </li>
@@ -1781,6 +1800,14 @@
   <li>
     
       <a href="/manual/3.0/reference/bpmn20/subprocesses/transaction-subprocess/" >Transaction Subprocess</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
+      <a href="/manual/3.0/reference/bpmn20/subprocesses/ad-hoc-subprocess/" >Ad Hoc Sub-Process</a>
     
   </li>
 
@@ -3418,6 +3445,14 @@
           
   <li>
     
+      <a href="/manual/3.0/webapps/modeler/user-guide/template-management/" >Template Management</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
       <a href="/manual/3.0/webapps/modeler/user-guide/bpmn-ai-chat/" >BPMN AI Agent</a>
     
   </li>
@@ -3435,6 +3470,14 @@
   <li>
     
       <a href="/manual/3.0/webapps/modeler/user-guide/chat/" >Real-time Chat</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
+      <a href="/manual/3.0/webapps/modeler/user-guide/autosave/" >Autosave</a>
     
   </li>
 
@@ -3641,6 +3684,14 @@
           
   <li>
     
+      <a href="/manual/3.0/update/minor/22-to-30/" >2.2 to 3.0</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
       <a href="/manual/3.0/update/minor/21-to-22/" >2.1 to 2.2</a>
       <ul>
         
@@ -3731,6 +3782,33 @@
     
       <a href="/manual/3.0/release-notes/" >Release Notes</a>
       <ul>
+        
+          
+  <li>
+    
+      <a href="/manual/3.0/release-notes/3.0.x/" >Release Notes 3.0.x</a>
+      <ul>
+        
+          
+  <li>
+    
+      <a href="/manual/3.0/release-notes/release-notes-3.0.0-ee/" >3.0.0 EE</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
+      <a href="/manual/3.0/release-notes/release-notes-3.0.0-ce/" >3.0.0 CE</a>
+    
+  </li>
+
+        
+      </ul>
+    
+  </li>
+
         
           
   <li>
@@ -4662,6 +4740,12 @@
         (the <code>MOD_*</code> tables and the modeler chat's <code>CHAT_*</code> tables).
         Default value is <code>true</code>.
       <p>
+        <strong>From 3.0.0</strong> this property is a deprecated alias of <code>webclientExtensionsEnabled</code>,
+        which also covers the notification tables (<code>NOTIF_*</code>) and defaults to <code>false</code>. A
+        configuration naming <code>modelerEnabled</code> keeps working. See
+        <a href="/manual/3.0/webapps/modeler/configuration/enable-disable/">Enable / Disable</a>.
+      </p>
+      <p>
         <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
       </p>
     </td>
@@ -4759,6 +4843,15 @@
     <td>
      Sets how often a job is retried after a fail and how long the engine should wait until it tries to execute a job again. See the <a href="/manual/3.0/user-guide/process-engine/the-job-executor/#retry-time-cycle-configuration">user guide</a>
         for more details on this setting.
+    </td>
+  </tr>
+  <tr id="externalTaskFailedJobRetryTimeCycle">
+    <td><code>externalTaskFailedJobRetryTimeCycle</code></td>
+    <td>String</td>
+    <td>
+      Since 3.0.0. The retry time cycle of all external tasks that do not model their own <code>camunda:failedJobRetryTimeCycle</code>, for example <code>R5/PT1M</code>: the number of attempts and the delay between them. See the <a href="/manual/3.0/user-guide/process-engine/external-tasks/#retry-time-cycle">user guide</a>.
+      Not set by default: external tasks without a modeled cycle can then be fetched any number of times. <code>failedJobRetryTimeCycle</code> does not apply to external tasks.
+      In CIB seven Run and Spring Boot, set it with <code>camunda.bpm.generic-properties.properties.externalTaskFailedJobRetryTimeCycle</code>.
     </td>
   </tr>
   <tr id="ensureJobDueDateNotNull">
@@ -5285,7 +5378,9 @@
       <p>
         <strong>GraalVM JavaScript</strong>:
         <br>
-        If enabled, <code>polyglot.js.nashorn-compat</code> is set to <code>true</code>.
+        If enabled, <code>polyglot.js.nashorn-compat</code> is set to <code>true</code>, and the ECMAScript version
+        (<code>polyglot.js.ecmascript-version</code>, the option <code>js.ecmascript-version</code>) is set to <code>2022</code>.
+        Without the ECMAScript version, GraalVM JavaScript 25 accepts ECMAScript 5 only in Nashorn compatibility mode.
         <br>
         <strong>Note:</strong> This flag might not be available in every version of GraalVM JavaScript.
       </p>
@@ -5294,6 +5389,35 @@
       </p>
       <p>
         <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
+      </p>
+    </td>
+  </tr>
+  <tr id="javaScriptNumberNarrowing">
+    <td><code>javaScriptNumberNarrowing</code></td>
+    <td>String</td>
+    <td>
+      Specifies whether a JavaScript script returns a number from a Java <code>long</code> in the int range to Java
+      as <code>Integer</code>, as in CIB seven 2.2.
+      <p>
+        <strong>GraalVM JavaScript</strong>:
+        <br>
+        <code>long</code>: such a number becomes an <code>Integer</code> where Java expects an <code>Object</code>,
+        for example in <code>execution.setVariable</code> and as the result of a script. The result of arithmetic
+        with it stays a <code>Double</code>.
+        <br>
+        <code>none</code>: the types of GraalVM JavaScript 25, <code>Long</code> and <code>Double</code>.
+        <br>
+        The property has an effect only if <a href="#configureScriptEngineHostAccess">configureScriptEngineHostAccess</a>
+        is enabled. If the process engine cannot create GraalVM JavaScript with <code>long</code>, every JavaScript
+        script fails with the error <code>ENGINE-21006</code>. For details, see
+        <a href="/manual/3.0/update/minor/22-to-30/#number-types-in-javascript-scripts">Update from 2.2 to 3.0</a>.
+      </p>
+      <p>
+        Default value is <code>long</code>.
+      </p>
+      <p>
+        <strong>Values:</strong> <code>long</code>, <code>none</code> (String). Other values are rejected when
+        the process engine configuration is read.
       </p>
     </td>
   </tr>

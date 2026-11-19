@@ -255,6 +255,25 @@
           
   <li>
     
+      <a href="/manual/latest/user-guide/process-engine/ad-hoc-subprocess/" >Ad Hoc Sub-Process</a>
+      <ul>
+        
+          
+  <li>
+    
+      <a href="/manual/latest/user-guide/process-engine/agentic-ad-hoc-subprocess/" >Agentic Ad Hoc Sub-Process</a>
+    
+  </li>
+
+        
+      </ul>
+    
+  </li>
+
+        
+          
+  <li>
+    
       <a href="/manual/latest/user-guide/process-engine/delegation-code/" >Delegation Code</a>
     
   </li>
@@ -1781,6 +1800,14 @@
   <li>
     
       <a href="/manual/latest/reference/bpmn20/subprocesses/transaction-subprocess/" >Transaction Subprocess</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
+      <a href="/manual/latest/reference/bpmn20/subprocesses/ad-hoc-subprocess/" >Ad Hoc Sub-Process</a>
     
   </li>
 
@@ -3418,6 +3445,14 @@
           
   <li>
     
+      <a href="/manual/latest/webapps/modeler/user-guide/template-management/" >Template Management</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
       <a href="/manual/latest/webapps/modeler/user-guide/bpmn-ai-chat/" >BPMN AI Agent</a>
     
   </li>
@@ -3435,6 +3470,14 @@
   <li>
     
       <a href="/manual/latest/webapps/modeler/user-guide/chat/" >Real-time Chat</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
+      <a href="/manual/latest/webapps/modeler/user-guide/autosave/" >Autosave</a>
     
   </li>
 
@@ -3641,6 +3684,14 @@
           
   <li>
     
+      <a href="/manual/latest/update/minor/22-to-30/" >2.2 to 3.0</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
       <a href="/manual/latest/update/minor/21-to-22/" >2.1 to 2.2</a>
       <ul>
         
@@ -3731,6 +3782,33 @@
     
       <a href="/manual/latest/release-notes/" >Release Notes</a>
       <ul>
+        
+          
+  <li>
+    
+      <a href="/manual/latest/release-notes/3.0.x/" >Release Notes 3.0.x</a>
+      <ul>
+        
+          
+  <li>
+    
+      <a href="/manual/latest/release-notes/release-notes-3.0.0-ee/" >3.0.0 EE</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
+      <a href="/manual/latest/release-notes/release-notes-3.0.0-ce/" >3.0.0 CE</a>
+    
+  </li>
+
+        
+      </ul>
+    
+  </li>
+
         
           
   <li>
@@ -4352,11 +4430,11 @@
 
 <h2 id="creating-a-new-dmn-diagram">Creating a New DMN Diagram</h2>
 <ol>
-<li>Navigate to the <strong>Processes</strong> tab on the start page</li>
-<li>Click <strong>New</strong> and select <strong>DMN</strong> as the diagram type</li>
+<li>On the start page, open the folder the diagram belongs in (from 3.0.0 every model is filed in a folder, see <a href="/manual/latest/webapps/modeler/user-guide/folders/">Folders</a>)</li>
+<li>Click <strong>Create DMN</strong></li>
 <li>The DMN canvas opens with a default Decision Table</li>
 </ol>
-<p>You can also import an existing <code>.dmn</code> file using the <strong>Import</strong> button.</p>
+<p>You can also import existing <code>.dmn</code> files with <strong>Import local file</strong>, or drop them on the start page.</p>
 
 <h2 id="decision-table-editor">Decision Table Editor</h2>
 <p>The decision table view presents a spreadsheet-like editor where:</p>
@@ -4424,7 +4502,7 @@
 <p>Switch to the <strong>DRD</strong> (Decision Requirement Diagram) tab to see how multiple decision tables are connected. You can create <strong>Required Decision</strong> connections between decision nodes to express evaluation dependencies.</p>
 
 <h2 id="deploying-to-cib-seven-engine">Deploying to CIB seven Engine</h2>
-<p>DMN diagrams are deployed the same way as BPMN diagrams — click <strong>Deploy</strong> in the toolbar. The <code>.dmn</code> file is posted to the engine deployment API.</p>
+<p>DMN diagrams are deployed the same way as BPMN diagrams — click <strong>Deploy</strong> in the toolbar, see <a href="/manual/latest/webapps/modeler/user-guide/bpmn-modeling/#deploying-to-cib-seven-engine">BPMN Modeling</a>. The dialog offers no <strong>Start process</strong> for a DMN diagram.</p>
 
     </div>
   </div>

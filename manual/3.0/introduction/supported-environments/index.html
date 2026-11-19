@@ -255,6 +255,25 @@
           
   <li>
     
+      <a href="/manual/3.0/user-guide/process-engine/ad-hoc-subprocess/" >Ad Hoc Sub-Process</a>
+      <ul>
+        
+          
+  <li>
+    
+      <a href="/manual/3.0/user-guide/process-engine/agentic-ad-hoc-subprocess/" >Agentic Ad Hoc Sub-Process</a>
+    
+  </li>
+
+        
+      </ul>
+    
+  </li>
+
+        
+          
+  <li>
+    
       <a href="/manual/3.0/user-guide/process-engine/delegation-code/" >Delegation Code</a>
     
   </li>
@@ -1781,6 +1800,14 @@
   <li>
     
       <a href="/manual/3.0/reference/bpmn20/subprocesses/transaction-subprocess/" >Transaction Subprocess</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
+      <a href="/manual/3.0/reference/bpmn20/subprocesses/ad-hoc-subprocess/" >Ad Hoc Sub-Process</a>
     
   </li>
 
@@ -3418,6 +3445,14 @@
           
   <li>
     
+      <a href="/manual/3.0/webapps/modeler/user-guide/template-management/" >Template Management</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
       <a href="/manual/3.0/webapps/modeler/user-guide/bpmn-ai-chat/" >BPMN AI Agent</a>
     
   </li>
@@ -3435,6 +3470,14 @@
   <li>
     
       <a href="/manual/3.0/webapps/modeler/user-guide/chat/" >Real-time Chat</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
+      <a href="/manual/3.0/webapps/modeler/user-guide/autosave/" >Autosave</a>
     
   </li>
 
@@ -3641,6 +3684,14 @@
           
   <li>
     
+      <a href="/manual/3.0/update/minor/22-to-30/" >2.2 to 3.0</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
       <a href="/manual/3.0/update/minor/21-to-22/" >2.1 to 2.2</a>
       <ul>
         
@@ -3731,6 +3782,33 @@
     
       <a href="/manual/3.0/release-notes/" >Release Notes</a>
       <ul>
+        
+          
+  <li>
+    
+      <a href="/manual/3.0/release-notes/3.0.x/" >Release Notes 3.0.x</a>
+      <ul>
+        
+          
+  <li>
+    
+      <a href="/manual/3.0/release-notes/release-notes-3.0.0-ee/" >3.0.0 EE</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
+      <a href="/manual/3.0/release-notes/release-notes-3.0.0-ce/" >3.0.0 CE</a>
+    
+  </li>
+
+        
+      </ul>
+    
+  </li>
+
         
           
   <li>
@@ -4379,7 +4457,7 @@
 <ul>
 <li>Apache Tomcat 11.0</li>
 <li>JBoss EAP 8.1</li>
-<li>WildFly Application Server 40.0</li>
+<li>WildFly Application Server 42.0</li>
 </ul>
 
 <h2 id="databases">Databases</h2>
@@ -4416,13 +4494,20 @@
 
 <h2 id="java">Java</h2>
 <ul>
-<li>Java 17 / 21 (Compatibility is tested with Eclipse Temurin JDK)</li>
+<li>Java 17 / 21 / 25 (Compatibility is tested with Eclipse Temurin JDK)</li>
+</ul>
+<p>CIB seven 3.x is compiled for Java 17. Java 17 is the minimum version for all CIB seven artifacts, including the Java External Task Client and the standalone DMN engine.</p>
+
+<h2 id="jakarta-ee">Jakarta EE</h2>
+<ul>
+<li>Jakarta EE 11: CIB seven is built against the Jakarta EE 11 APIs, among them Jakarta Expression Language 6.0, Jakarta Servlet 6.1, Jakarta Contexts and Dependency Injection 4.1 and Jakarta RESTful Web Services 4.0.</li>
+<li>Jakarta EE 10 application servers remain compatible at the API level, for example Apache Tomcat 10.1 (covered by the integration tests of the web applications) and JBoss EAP 8.1 (not yet tested in the continuous integration).</li>
 </ul>
 
 <h2 id="java-runtime">Java Runtime</h2>
 <ul>
-<li>Oracle JDK 17 / 21</li>
-<li>OpenJDK 17 / 21, including builds of the following products:
+<li>Oracle JDK 17 / 21 / 25</li>
+<li>OpenJDK 17 / 21 / 25, including builds of the following products:
 <ul>
 <li>Oracle OpenJDK</li>
 <li>Eclipse Temurin JDK</li>
@@ -4475,6 +4560,7 @@
     </li>
     <li><a href="#web-browser">Web Browser</a></li>
     <li><a href="#java">Java</a></li>
+    <li><a href="#jakarta-ee">Jakarta EE</a></li>
     <li><a href="#java-runtime">Java Runtime</a></li>
     <li><a href="#maintenance-policy">Maintenance Policy</a>
       <ul>

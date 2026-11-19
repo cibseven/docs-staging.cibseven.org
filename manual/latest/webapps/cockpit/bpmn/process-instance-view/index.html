@@ -255,6 +255,25 @@
           
   <li>
     
+      <a href="/manual/latest/user-guide/process-engine/ad-hoc-subprocess/" >Ad Hoc Sub-Process</a>
+      <ul>
+        
+          
+  <li>
+    
+      <a href="/manual/latest/user-guide/process-engine/agentic-ad-hoc-subprocess/" >Agentic Ad Hoc Sub-Process</a>
+    
+  </li>
+
+        
+      </ul>
+    
+  </li>
+
+        
+          
+  <li>
+    
       <a href="/manual/latest/user-guide/process-engine/delegation-code/" >Delegation Code</a>
     
   </li>
@@ -1781,6 +1800,14 @@
   <li>
     
       <a href="/manual/latest/reference/bpmn20/subprocesses/transaction-subprocess/" >Transaction Subprocess</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
+      <a href="/manual/latest/reference/bpmn20/subprocesses/ad-hoc-subprocess/" >Ad Hoc Sub-Process</a>
     
   </li>
 
@@ -3418,6 +3445,14 @@
           
   <li>
     
+      <a href="/manual/latest/webapps/modeler/user-guide/template-management/" >Template Management</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
       <a href="/manual/latest/webapps/modeler/user-guide/bpmn-ai-chat/" >BPMN AI Agent</a>
     
   </li>
@@ -3435,6 +3470,14 @@
   <li>
     
       <a href="/manual/latest/webapps/modeler/user-guide/chat/" >Real-time Chat</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
+      <a href="/manual/latest/webapps/modeler/user-guide/autosave/" >Autosave</a>
     
   </li>
 
@@ -3641,6 +3684,14 @@
           
   <li>
     
+      <a href="/manual/latest/update/minor/22-to-30/" >2.2 to 3.0</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
       <a href="/manual/latest/update/minor/21-to-22/" >2.1 to 2.2</a>
       <ul>
         
@@ -3731,6 +3782,33 @@
     
       <a href="/manual/latest/release-notes/" >Release Notes</a>
       <ul>
+        
+          
+  <li>
+    
+      <a href="/manual/latest/release-notes/3.0.x/" >Release Notes 3.0.x</a>
+      <ul>
+        
+          
+  <li>
+    
+      <a href="/manual/latest/release-notes/release-notes-3.0.0-ee/" >3.0.0 EE</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
+      <a href="/manual/latest/release-notes/release-notes-3.0.0-ce/" >3.0.0 CE</a>
+    
+  </li>
+
+        
+      </ul>
+    
+  </li>
+
         
           
   <li>
@@ -4571,6 +4649,7 @@ The **external tasks** tab displays various information about external tasks, su
 
 <h3 id="external-tasks-log-tab">External Tasks Log Tab</h3>
 <p>In the <strong>External Tasks Log</strong>, you can find an overview of all external tasks of this process instance. This includes information about the <code>'external task ID'</code>, the <code>'state'</code> of the external task and the the <code>'timestamp'</code>. In case an external task has failed you will find the <code>'error message'</code>. Moreover, the <code>'activity name'</code>, the <code>'retries'</code>, the <code>'worker ID'</code>, the <code>'topic'</code>, and the <code>'priority'</code> can be seen.</p>
+<p>The <code>'state'</code> is one of <strong>Created</strong>, <strong>Fetched</strong>, <strong>Successful</strong>, <strong>Failed</strong> and <strong>Deleted</strong>. Since 3.0.0, a <strong>Fetched</strong> entry is shown every time a worker locked the external task, with the worker ID, topic, priority and retries at that moment. The time between the <strong>Created</strong> entry (or the previous <strong>Failed</strong> entry) and the <strong>Fetched</strong> entry is the time the task waited for a worker; the time between <strong>Fetched</strong> and <strong>Successful</strong> or <strong>Failed</strong> is the processing time of the worker. A task that was fetched several times, for example after its lock expired, has one <strong>Fetched</strong> entry per fetch. These entries are only written with history level <code>FULL</code>, see <a href="/manual/latest/user-guide/process-engine/external-tasks/#history-of-fetches">History of fetches</a>.</p>
 <figure class="image">
   <span><img
       src="../../img/cockpit-process-instance-view-external-task-log.png"

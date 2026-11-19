@@ -255,6 +255,25 @@
           
   <li>
     
+      <a href="/manual/latest/user-guide/process-engine/ad-hoc-subprocess/" >Ad Hoc Sub-Process</a>
+      <ul>
+        
+          
+  <li>
+    
+      <a href="/manual/latest/user-guide/process-engine/agentic-ad-hoc-subprocess/" >Agentic Ad Hoc Sub-Process</a>
+    
+  </li>
+
+        
+      </ul>
+    
+  </li>
+
+        
+          
+  <li>
+    
       <a href="/manual/latest/user-guide/process-engine/delegation-code/" >Delegation Code</a>
     
   </li>
@@ -1781,6 +1800,14 @@
   <li>
     
       <a href="/manual/latest/reference/bpmn20/subprocesses/transaction-subprocess/" >Transaction Subprocess</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
+      <a href="/manual/latest/reference/bpmn20/subprocesses/ad-hoc-subprocess/" >Ad Hoc Sub-Process</a>
     
   </li>
 
@@ -3418,6 +3445,14 @@
           
   <li>
     
+      <a href="/manual/latest/webapps/modeler/user-guide/template-management/" >Template Management</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
       <a href="/manual/latest/webapps/modeler/user-guide/bpmn-ai-chat/" >BPMN AI Agent</a>
     
   </li>
@@ -3435,6 +3470,14 @@
   <li>
     
       <a href="/manual/latest/webapps/modeler/user-guide/chat/" >Real-time Chat</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
+      <a href="/manual/latest/webapps/modeler/user-guide/autosave/" >Autosave</a>
     
   </li>
 
@@ -3641,6 +3684,14 @@
           
   <li>
     
+      <a href="/manual/latest/update/minor/22-to-30/" >2.2 to 3.0</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
       <a href="/manual/latest/update/minor/21-to-22/" >2.1 to 2.2</a>
       <ul>
         
@@ -3731,6 +3782,33 @@
     
       <a href="/manual/latest/release-notes/" >Release Notes</a>
       <ul>
+        
+          
+  <li>
+    
+      <a href="/manual/latest/release-notes/3.0.x/" >Release Notes 3.0.x</a>
+      <ul>
+        
+          
+  <li>
+    
+      <a href="/manual/latest/release-notes/release-notes-3.0.0-ee/" >3.0.0 EE</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
+      <a href="/manual/latest/release-notes/release-notes-3.0.0-ce/" >3.0.0 CE</a>
+    
+  </li>
+
+        
+      </ul>
+    
+  </li>
+
         
           
   <li>
@@ -4354,13 +4432,25 @@
 <li><a href="/manual/latest/webapps/modeler/user-guide/project-members/">Project Members</a> — Decide who works in a project, and in which role (Enterprise Edition)</li>
 <li><a href="/manual/latest/webapps/modeler/user-guide/bpmn-modeling/">BPMN Modeling</a> — Create and edit BPMN 2.0 process diagrams</li>
 <li><a href="/manual/latest/webapps/modeler/user-guide/dmn-modeling/">DMN Modeling</a> — Create and edit DMN decision tables</li>
-<li><a href="/manual/latest/webapps/modeler/user-guide/form-modeling/">Form Modeling</a> — Build embedded Camunda forms</li>
+<li><a href="/manual/latest/webapps/modeler/user-guide/form-modeling/">Form Modeling</a> — Build forms with the form-js editor</li>
+<li><a href="/manual/latest/webapps/modeler/user-guide/form-ai-chat/">Form AI Agent</a> — Build and change forms from a description or a screenshot (Enterprise Edition)</li>
 <li><a href="/manual/latest/webapps/modeler/user-guide/element-templates/">Element Templates</a> — Use and manage reusable task configurations</li>
+<li><a href="/manual/latest/webapps/modeler/user-guide/template-management/">Template Management</a> — Add, edit, hide and export element templates in the modeler (Enterprise Edition)</li>
 <li><a href="/manual/latest/webapps/modeler/user-guide/bpmn-ai-chat/">BPMN AI Agent</a> — Design, edit and review diagrams with the AI assistant (Enterprise Edition)</li>
 <li><a href="/manual/latest/webapps/modeler/user-guide/chat/">Real-time Chat</a> — Collaborate on diagrams with real-time messaging (Enterprise Edition)</li>
-<li><a href="/manual/latest/webapps/modeler/user-guide/snapshots/">Snapshots &amp; Comparison</a> — Browse, restore and compare saved diagram states (Enterprise Edition)</li>
+<li><a href="/manual/latest/webapps/modeler/user-guide/autosave/">Autosave</a> — Save diagrams and forms automatically while you edit (Enterprise Edition)</li>
+<li><a href="/manual/latest/webapps/modeler/user-guide/snapshots/">Snapshots &amp; Comparison</a> — Browse, restore and compare saved diagram and form states (Enterprise Edition)</li>
 <li><a href="/manual/latest/webapps/modeler/user-guide/token-simulation/">Token Simulation</a> — Simulate token flow through a BPMN diagram (Enterprise Edition)</li>
 </ul>
+
+<h2 id="tabs">Tabs</h2>
+<p>Every diagram and form you open gets a tab next to the start page, and a dot on a tab marks unsaved changes. The tabs you had open come back when you reload the page.</p>
+<ul>
+<li>Close a tab with its close button, or with a middle click on it.</li>
+<li>Tabs that do not fit in the bar are listed in the dropdown at its end. Each entry there has a close button of its own, and a middle click closes it as well.</li>
+<li><strong>Close all tabs</strong>, at the right end of the bar, closes every tab.</li>
+</ul>
+<p>Closing a tab with unsaved changes, closing all tabs while one has unsaved changes, or leaving the modeler then, asks for confirmation first: the unsaved changes are lost.</p>
 
     </div>
 
@@ -4609,7 +4699,7 @@
     </dt>
     <dd>
       
-        Build embedded Camunda forms
+        Build forms with the form-js editor
       
     </dd>
 
@@ -4621,6 +4711,17 @@
     <dd>
       
         Reusable task and event configuration templates
+      
+    </dd>
+
+  
+
+    <dt>
+      <a href="/manual/latest/webapps/modeler/user-guide/template-management/">Template Management</a>
+    </dt>
+    <dd>
+      
+        Add, edit, hide and export element templates in the modeler
       
     </dd>
 
@@ -4650,6 +4751,17 @@
     <dd>
       
         Collaborative chat on diagrams and elements
+      
+    </dd>
+
+  
+
+    <dt>
+      <a href="/manual/latest/webapps/modeler/user-guide/autosave/">Autosave</a>
+    </dt>
+    <dd>
+      
+        Save diagrams and forms automatically while you edit
       
     </dd>
 

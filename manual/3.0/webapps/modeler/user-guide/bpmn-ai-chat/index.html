@@ -255,6 +255,25 @@
           
   <li>
     
+      <a href="/manual/3.0/user-guide/process-engine/ad-hoc-subprocess/" >Ad Hoc Sub-Process</a>
+      <ul>
+        
+          
+  <li>
+    
+      <a href="/manual/3.0/user-guide/process-engine/agentic-ad-hoc-subprocess/" >Agentic Ad Hoc Sub-Process</a>
+    
+  </li>
+
+        
+      </ul>
+    
+  </li>
+
+        
+          
+  <li>
+    
       <a href="/manual/3.0/user-guide/process-engine/delegation-code/" >Delegation Code</a>
     
   </li>
@@ -1781,6 +1800,14 @@
   <li>
     
       <a href="/manual/3.0/reference/bpmn20/subprocesses/transaction-subprocess/" >Transaction Subprocess</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
+      <a href="/manual/3.0/reference/bpmn20/subprocesses/ad-hoc-subprocess/" >Ad Hoc Sub-Process</a>
     
   </li>
 
@@ -3418,6 +3445,14 @@
           
   <li>
     
+      <a href="/manual/3.0/webapps/modeler/user-guide/template-management/" >Template Management</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
       <a href="/manual/3.0/webapps/modeler/user-guide/bpmn-ai-chat/" >BPMN AI Agent</a>
     
   </li>
@@ -3435,6 +3470,14 @@
   <li>
     
       <a href="/manual/3.0/webapps/modeler/user-guide/chat/" >Real-time Chat</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
+      <a href="/manual/3.0/webapps/modeler/user-guide/autosave/" >Autosave</a>
     
   </li>
 
@@ -3641,6 +3684,14 @@
           
   <li>
     
+      <a href="/manual/3.0/update/minor/22-to-30/" >2.2 to 3.0</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
       <a href="/manual/3.0/update/minor/21-to-22/" >2.1 to 2.2</a>
       <ul>
         
@@ -3731,6 +3782,33 @@
     
       <a href="/manual/3.0/release-notes/" >Release Notes</a>
       <ul>
+        
+          
+  <li>
+    
+      <a href="/manual/3.0/release-notes/3.0.x/" >Release Notes 3.0.x</a>
+      <ul>
+        
+          
+  <li>
+    
+      <a href="/manual/3.0/release-notes/release-notes-3.0.0-ee/" >3.0.0 EE</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
+      <a href="/manual/3.0/release-notes/release-notes-3.0.0-ce/" >3.0.0 CE</a>
+    
+  </li>
+
+        
+      </ul>
+    
+  </li>
+
         
           
   <li>
@@ -4719,6 +4797,11 @@
       <td>Max characters of canvas BPMN XML sent per request.</td>
     </tr>
     <tr>
+      <td><code>limits.currentFormSchemaMaxChars</code></td>
+      <td><code>200000</code></td>
+      <td>Max characters of the form schema the <a href="/manual/3.0/webapps/modeler/user-guide/form-ai-chat/">Form AI Agent</a> sends per request.</td>
+    </tr>
+    <tr>
       <td><code>limits.elementTemplatesMaxCount</code></td>
       <td><code>1000</code></td>
       <td>Max element templates sent per request.</td>
@@ -4818,6 +4901,11 @@
       <td><code>supportedEfforts</code></td>
       <td><code>[]</code></td>
       <td>Reasoning effort levels offered in the model dropdown, e.g. <code>[low, medium, high]</code>; empty hides the effort selector. See <a href="#reasoning-effort">Reasoning effort</a>.</td>
+    </tr>
+    <tr>
+      <td><code>vision</code></td>
+      <td><code>true</code></td>
+      <td>Whether the model reads images and PDF files. Set it to <code>false</code> for a text-only model: attached images and PDF files are then left out of the request, and the model is told it cannot read them.</td>
     </tr>
   </tbody>
 </table>

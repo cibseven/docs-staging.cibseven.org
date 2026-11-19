@@ -255,6 +255,25 @@
           
   <li>
     
+      <a href="/manual/3.0/user-guide/process-engine/ad-hoc-subprocess/" >Ad Hoc Sub-Process</a>
+      <ul>
+        
+          
+  <li>
+    
+      <a href="/manual/3.0/user-guide/process-engine/agentic-ad-hoc-subprocess/" >Agentic Ad Hoc Sub-Process</a>
+    
+  </li>
+
+        
+      </ul>
+    
+  </li>
+
+        
+          
+  <li>
+    
       <a href="/manual/3.0/user-guide/process-engine/delegation-code/" >Delegation Code</a>
     
   </li>
@@ -1781,6 +1800,14 @@
   <li>
     
       <a href="/manual/3.0/reference/bpmn20/subprocesses/transaction-subprocess/" >Transaction Subprocess</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
+      <a href="/manual/3.0/reference/bpmn20/subprocesses/ad-hoc-subprocess/" >Ad Hoc Sub-Process</a>
     
   </li>
 
@@ -3418,6 +3445,14 @@
           
   <li>
     
+      <a href="/manual/3.0/webapps/modeler/user-guide/template-management/" >Template Management</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
       <a href="/manual/3.0/webapps/modeler/user-guide/bpmn-ai-chat/" >BPMN AI Agent</a>
     
   </li>
@@ -3435,6 +3470,14 @@
   <li>
     
       <a href="/manual/3.0/webapps/modeler/user-guide/chat/" >Real-time Chat</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
+      <a href="/manual/3.0/webapps/modeler/user-guide/autosave/" >Autosave</a>
     
   </li>
 
@@ -3641,6 +3684,14 @@
           
   <li>
     
+      <a href="/manual/3.0/update/minor/22-to-30/" >2.2 to 3.0</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
       <a href="/manual/3.0/update/minor/21-to-22/" >2.1 to 2.2</a>
       <ul>
         
@@ -3731,6 +3782,33 @@
     
       <a href="/manual/3.0/release-notes/" >Release Notes</a>
       <ul>
+        
+          
+  <li>
+    
+      <a href="/manual/3.0/release-notes/3.0.x/" >Release Notes 3.0.x</a>
+      <ul>
+        
+          
+  <li>
+    
+      <a href="/manual/3.0/release-notes/release-notes-3.0.0-ee/" >3.0.0 EE</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
+      <a href="/manual/3.0/release-notes/release-notes-3.0.0-ce/" >3.0.0 CE</a>
+    
+  </li>
+
+        
+      </ul>
+    
+  </li>
+
         
           
   <li>
@@ -4625,8 +4703,9 @@ default values. For task-oriented guidance, see <a href="/manual/3.0/reference/c
 
 <div class="note bg-info docs-info">
   <h3>Note</h3>
-  <p>The per-activity chat-log timeline is written to the process variable
-<code>cibseven-connect-ai-agent_&lt;activityId&gt;</code> automatically — it is <strong>not</strong> an output parameter.</p>
+  <p>The per-activity chat-log timeline is written to the process variables
+<code>cibseven-connect-ai-agent_&lt;activityId&gt;~&lt;eventSeq&gt;</code>, one per model call, automatically — it is <strong>not</strong>
+an output parameter. See <a href="/manual/3.0/reference/connect/ai-agent-connector/audit-trail/">Audit Trail</a>.</p>
 </div>
 
 
@@ -4791,7 +4870,7 @@ pgvector store for later RAG retrieval. See <a href="/manual/3.0/reference/conne
       <td><code>cibseven.connect.ai-agent.redactContent</code></td>
       <td>system property</td>
       <td><code>false</code></td>
-      <td>When <code>true</code>, message/response content in the audit log is replaced by a SHA-256 hash + length.</td>
+      <td>When <code>true</code>, the content of request messages in the audit log (<code>messages[].content</code>) is replaced by a SHA-256 hash + length; the answer and the tool-call arguments are not.</td>
     </tr>
     <tr>
       <td><code>CIBSEVEN_CONNECT_AI_AGENT_REDACT_CONTENT</code></td>
@@ -4803,13 +4882,37 @@ pgvector store for later RAG retrieval. See <a href="/manual/3.0/reference/conne
       <td><code>cibseven.connect.ai-agent.chatLogVariable.enabled</code></td>
       <td>system property</td>
       <td><code>true</code></td>
-      <td>When <code>false</code>, the per-activity chat-log variable is not written (in-memory events still emitted to SLF4J / history).</td>
+      <td>When <code>false</code>, the per-activity chat-log variables are not written, and the events are kept nowhere else.</td>
     </tr>
     <tr>
       <td><code>CIBSEVEN_CONNECT_AI_AGENT_CHAT_LOG_VARIABLE_ENABLED</code></td>
       <td>env</td>
       <td><code>true</code></td>
       <td>Env fallback for the chat-log toggle.</td>
+    </tr>
+    <tr>
+      <td><code>cibseven.connect.ai-agent.chatMemoryVariable.enabled</code></td>
+      <td>system property</td>
+      <td><code>true</code></td>
+      <td>When <code>false</code>, chat memory is kept in a JVM-local map instead of process variables: lost on restart, not shared across nodes.</td>
+    </tr>
+    <tr>
+      <td><code>CIBSEVEN_CONNECT_AI_AGENT_CHAT_MEMORY_VARIABLE_ENABLED</code></td>
+      <td>env</td>
+      <td><code>true</code></td>
+      <td>Env fallback for the chat-memory store switch.</td>
+    </tr>
+    <tr>
+      <td><code>cibseven.connect.ai-agent.chatMemoryMaxPayloadBytes</code></td>
+      <td>system property</td>
+      <td><code>1048576</code></td>
+      <td>Largest conversation the default store writes; a larger one fails the task. <code>0</code> or less turns the check off.</td>
+    </tr>
+    <tr>
+      <td><code>CIBSEVEN_CONNECT_AI_AGENT_CHAT_MEMORY_MAX_PAYLOAD_BYTES</code></td>
+      <td>env</td>
+      <td><code>1048576</code></td>
+      <td>Env fallback for the conversation size limit.</td>
     </tr>
     <tr>
       <td><code>AI_AGENT_ENABLED</code></td>

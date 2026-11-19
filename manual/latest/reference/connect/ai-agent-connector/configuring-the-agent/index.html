@@ -255,6 +255,25 @@
           
   <li>
     
+      <a href="/manual/latest/user-guide/process-engine/ad-hoc-subprocess/" >Ad Hoc Sub-Process</a>
+      <ul>
+        
+          
+  <li>
+    
+      <a href="/manual/latest/user-guide/process-engine/agentic-ad-hoc-subprocess/" >Agentic Ad Hoc Sub-Process</a>
+    
+  </li>
+
+        
+      </ul>
+    
+  </li>
+
+        
+          
+  <li>
+    
       <a href="/manual/latest/user-guide/process-engine/delegation-code/" >Delegation Code</a>
     
   </li>
@@ -1781,6 +1800,14 @@
   <li>
     
       <a href="/manual/latest/reference/bpmn20/subprocesses/transaction-subprocess/" >Transaction Subprocess</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
+      <a href="/manual/latest/reference/bpmn20/subprocesses/ad-hoc-subprocess/" >Ad Hoc Sub-Process</a>
     
   </li>
 
@@ -3418,6 +3445,14 @@
           
   <li>
     
+      <a href="/manual/latest/webapps/modeler/user-guide/template-management/" >Template Management</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
       <a href="/manual/latest/webapps/modeler/user-guide/bpmn-ai-chat/" >BPMN AI Agent</a>
     
   </li>
@@ -3435,6 +3470,14 @@
   <li>
     
       <a href="/manual/latest/webapps/modeler/user-guide/chat/" >Real-time Chat</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
+      <a href="/manual/latest/webapps/modeler/user-guide/autosave/" >Autosave</a>
     
   </li>
 
@@ -3641,6 +3684,14 @@
           
   <li>
     
+      <a href="/manual/latest/update/minor/22-to-30/" >2.2 to 3.0</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
       <a href="/manual/latest/update/minor/21-to-22/" >2.1 to 2.2</a>
       <ul>
         
@@ -3731,6 +3782,33 @@
     
       <a href="/manual/latest/release-notes/" >Release Notes</a>
       <ul>
+        
+          
+  <li>
+    
+      <a href="/manual/latest/release-notes/3.0.x/" >Release Notes 3.0.x</a>
+      <ul>
+        
+          
+  <li>
+    
+      <a href="/manual/latest/release-notes/release-notes-3.0.0-ee/" >3.0.0 EE</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
+      <a href="/manual/latest/release-notes/release-notes-3.0.0-ce/" >3.0.0 CE</a>
+    
+  </li>
+
+        
+      </ul>
+    
+  </li>
+
         
           
   <li>
@@ -4471,7 +4549,15 @@ Azure setups expect the key in a header; use <code>customHeaders</code> if your 
 </code></pre><p><strong>OpenRouter</strong> — on the server, set <code>OPENAI_BASE_URL</code> to <code>https://openrouter.ai/api/v1</code> and
 <code>OPENAI_API_KEY</code> to the OpenRouter key; prefix the model with its provider.</p>
 <pre tabindex="0"><code>model:   &lt;vendor&gt;/&lt;model&gt;     # e.g. openai/&lt;model&gt;, anthropic/&lt;model&gt;
-</code></pre><p><strong>Ollama (local / self-hosted)</strong> — no API key needed for a local server.</p>
+</code></pre><p><strong>Anthropic (Claude)</strong> — Anthropic&rsquo;s OpenAI-compatible endpoint, with an API key from the Claude Console.
+Leave <strong>Reasoning effort</strong> and <strong>Reasoning summary</strong> empty. Anthropic describes this endpoint as meant for
+trying out and comparing models rather than for long-term production use.</p>
+<pre tabindex="0"><code>baseUrl: https://api.anthropic.com/v1
+model:   &lt;a Claude model&gt;
+apiKey:  ${anthropicKey}
+</code></pre><p>The key is always an API key of the provider&rsquo;s developer platform. A chat subscription, such as ChatGPT,
+Claude.ai or Claude Code, is not an API key and cannot be used here.</p>
+<p><strong>Ollama (local / self-hosted)</strong> — no API key needed for a local server.</p>
 <pre tabindex="0"><code>baseUrl: http://localhost:11434/v1
 model:   &lt;a model you&#39;ve pulled into Ollama&gt;
 </code></pre>
