@@ -174,6 +174,14 @@
   </li>
 
         
+          
+  <li>
+    
+      <a href="/manual/3.0/introduction/third-party-libraries/sbom/" >Software Bill of Materials</a>
+    
+  </li>
+
+        
       </ul>
     
   </li>
@@ -3693,6 +3701,25 @@
   <li>
     
       <a href="/manual/3.0/update/minor/22-to-30/" >2.2 to 3.0</a>
+      <ul>
+        
+          
+  <li>
+    
+      <a href="/manual/3.0/update/minor/22-to-30/tomcat/" >Tomcat</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
+      <a href="/manual/3.0/update/minor/22-to-30/jboss/" >WildFly / JBoss EAP</a>
+    
+  </li>
+
+        
+      </ul>
     
   </li>
 
@@ -4571,8 +4598,9 @@ answer.</p>
 <li><strong>The AI Agent Connector enabled.</strong> The agentic sub-process is switched on and off together with it, see
 <a href="/manual/3.0/reference/connect/ai-agent-connector/installation/">Installation &amp; Enablement</a>. If the
 connector is off, the sub-process is deployed as a plain ad hoc sub-process and waits: nobody starts its activities.</li>
-<li><strong>A model with an OpenAI-compatible API.</strong> In the template, <strong>Base URL</strong> and <strong>Model</strong> work as on the AI Agent
-service task, see <a href="/manual/3.0/reference/connect/ai-agent-connector/configuring-the-agent/">Configuring the Agent</a>.
+<li><strong>A model with an OpenAI-compatible API, trained for agentic workflows</strong>, see <a href="#recommended-models">Recommended Models</a>.
+In the template, <strong>Base URL</strong> and <strong>Model</strong> work as on the AI Agent service task, see
+<a href="/manual/3.0/reference/connect/ai-agent-connector/configuring-the-agent/">Configuring the Agent</a>.
 Set the key on the server with the environment variable <code>OPENAI_API_KEY</code> and leave the <strong>API key</strong> field empty: a
 key in a process variable or in the model is stored in the database and in the history.</li>
 <li><strong>A job executor</strong> that runs the jobs. In Run it is on.</li>
@@ -4768,6 +4796,10 @@ variables and takes them as optional parameters, for example
 variables</strong>. The agent then gets their current values with every model call, whatever its memory still holds, and
 is told which of them are not set yet. In the instruction, tell the agent to note each fact as soon as the person
 gives or corrects it, and to ask only for what is not noted yet.</p>
+<p><strong>Let a tool that changes data in another system run on its own.</strong> Set <strong>Asynchronous continuations</strong> &gt; <strong>Before</strong> on
+it (<code>camunda:asyncBefore</code>). Then, if the other system fails, only this tool is retried. Without it, an error undoes
+the agent&rsquo;s whole step and the model is asked again: it may make the change a second time, or a different change.
+The other system should also treat a repeated request as already done.</p>
 <p><strong>Inside a tool</strong>, some BPMN behaves differently: catch a BPMN error on the tool itself, put a fork and its join into
 an embedded sub-process, return strings or numbers rather than dates or JSON, and do not use event sub-processes. See
 <a href="#limitations-and-deployment-checks">Limitations and Deployment Checks</a>.</p>
@@ -4800,7 +4832,7 @@ an embedded sub-process, return strings or numbers rather than dates or JSON, an
       <td><strong>Instruction mode</strong></td>
       <td>Input</td>
       <td><em>Append to default</em>, set by the template</td>
-      <td><em>Append to default</em> or <em>Prepend to default</em>: your instruction after or before the built-in one. <em>Replace default</em>: only yours, without the built-in rules that the agent asks a person only through a tool that waits and ends the work with <code>completeScope</code>; say them in your instruction. Without the <code>instructionMode</code> parameter, as in XML written by hand, your instruction replaces the built-in one.</td>
+      <td><em>Append to default</em> or <em>Prepend to default</em>: your instruction after or before the built-in one. <em>Replace default</em>: only yours, without the built-in rules that the agent asks a person only through a tool that waits, does not start an activity again for work that is already done, and ends the work with <code>completeScope</code>; say them in your instruction. Without the <code>instructionMode</code> parameter, as in XML written by hand, your instruction replaces the built-in one.</td>
     </tr>
     <tr>
       <td><strong>Context variables</strong></td>
@@ -4884,6 +4916,39 @@ Leave the <strong>API key</strong> field empty.</p>
 <code>cibseven.agentic.onLimit</code> and <code>cibseven.agentic.conversation</code>. The other fields are input and output parameters of
 the <code>cibseven-ai-agent</code> connector on the sub-process.</p>
 
+<h2 id="recommended-models">Recommended Models</h2>
+<p><strong>The model you choose decides whether the agentic sub-process works.</strong> The agent decides from the model&rsquo;s answers
+which activity to start next, when to wait and when the work is done. That needs a model trained for agentic
+workflows: for calling tools, waiting for their results and keeping track of what is still running. A model that
+answers a single question well can still fail here: it may start a task for a person twice, so the sub-process never
+ends, or call a tool with a made-up value.</p>
+<p>The instruction matters as much as the model. Say in it, in plain words, what the agent must do, when it asks a
+person and when the work is done. A clear instruction is what makes the agentic sub-process behave as your process
+expects.</p>
+<p>Choose a model trained for agentic workflows with tool calling. The models below worked with the agentic sub-process
+without such mistakes when this page was written. Models change quickly: check your provider&rsquo;s current
+recommendations for agentic work and tool calling before you choose.</p>
+<table class="table-2col">
+  <thead>
+    <tr>
+      <th>Provider</th>
+      <th>Smallest suitable model, as an example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>OpenAI</td>
+      <td><code>gpt-6-luna</code> or a larger GPT model</td>
+    </tr>
+    <tr>
+      <td>Anthropic</td>
+      <td>Claude Haiku 5.5 or a larger Claude model</td>
+    </tr>
+  </tbody>
+</table>
+<p>Left empty, <strong>Model</strong> uses the server&rsquo;s default model, <code>gpt-6-luna</code>; an installation can change it, see
+<a href="/manual/3.0/reference/connect/ai-agent-connector/installation/">Installation &amp; Enablement</a>.</p>
+
 <h2 id="ending-and-limits">Ending and Limits</h2>
 <table class="table-2col">
   <thead>
@@ -4962,6 +5027,10 @@ sub-process. With the default retry cycle this takes a little over a minute, so 
 unavailable, every running agent ends up in an incident; retry the incidents once the provider answers again.
 Retrying the incident costs one model call and repeats the tools that this model call started and
 that finish at once, such as service tasks.</p>
+<p><strong>The model can also repeat an activity.</strong> It may start an activity again that is still running or has just
+finished, for example a second task for a person. The built-in instruction tells the agent not to start an activity
+again for work that is already done; with <strong>Instruction mode</strong> <em>Replace default</em>, say it in your own instruction. A
+model made for agentic work follows this more reliably, see <a href="#recommended-models">Recommended Models</a>.</p>
 <p><strong>The agent&rsquo;s variables.</strong> In Cockpit&rsquo;s Variables tab, the variables on the sub-process whose names begin with
 <code>adHocAgent</code> are the agent&rsquo;s state and the results of its tools, one variable per result, and <code>toolCall</code> holds the
 values of the current call. The variables whose names begin with <code>cibseven-connect-ai-agent</code> are its conversation, on
@@ -5022,7 +5091,8 @@ platform; a chat subscription such as ChatGPT, Claude.ai or Claude Code is not o
 reach the agent only as a placeholder with their type; return a string or a number instead.</li>
 <li><strong>The agent&rsquo;s steps run without a user.</strong> Permissions to start tools are not checked, and the user operation log
 records no entry for what the agent starts. Give the agent only tools that may run on behalf of the process.</li>
-<li><strong>Retrying a step repeats calls.</strong> Make external calls idempotent.</li>
+<li><strong>Retrying a step repeats calls.</strong> Make calls to other systems safe to repeat, and let a tool that changes data
+there run on its own, see <a href="#tools">Tools</a>.</li>
 <li><strong>A BPMN error from a tool that nothing catches is reported to the agent as a successful completion.</strong> A boundary
 error event on the sub-process does not help: the step fails and ends in an incident. Catch the error with a
 boundary error event on the tool itself; one without an error reference catches every error, and the agent learns
@@ -5031,6 +5101,12 @@ its code.</li>
 sub-process.</li>
 <li><strong>Event sub-processes and non-interrupting boundary events inside an agentic sub-process are not supported.</strong></li>
 <li><strong>An instance with a waiting agent cannot be migrated.</strong> Migrate after the sub-process has ended.</li>
+<li><strong>Cancelling the only task the agent waits for ends the whole process instance.</strong> If you cancel it in Cockpit or
+by a process instance modification, the engine ends the sub-process and the process instance, and nobody is told.
+This will be fixed in a later release.
+Give such a task a boundary timer event; to end it early, execute the timer&rsquo;s job (REST: <code>POST /job/{id}/execute</code>).
+The agent is told that the task was interrupted and goes on. To take the work away from the agent, cancel the
+sub-process and start the activity after it in the same modification.</li>
 <li><strong>A final answer longer than 4000 characters (2000 on Oracle) is stored as a serialized Java object.</strong>
 Expressions such as <code>${agentOutput}</code> still read it as text, but Cockpit shows it as an unreadable <code>Object</code> value.
 Ask the agent for a short answer in the instruction.</li>

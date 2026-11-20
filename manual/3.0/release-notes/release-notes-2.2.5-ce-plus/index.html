@@ -174,6 +174,14 @@
   </li>
 
         
+          
+  <li>
+    
+      <a href="/manual/3.0/introduction/third-party-libraries/sbom/" >Software Bill of Materials</a>
+    
+  </li>
+
+        
       </ul>
     
   </li>
@@ -3693,6 +3701,25 @@
   <li>
     
       <a href="/manual/3.0/update/minor/22-to-30/" >2.2 to 3.0</a>
+      <ul>
+        
+          
+  <li>
+    
+      <a href="/manual/3.0/update/minor/22-to-30/tomcat/" >Tomcat</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
+      <a href="/manual/3.0/update/minor/22-to-30/jboss/" >WildFly / JBoss EAP</a>
+    
+  </li>
+
+        
+      </ul>
     
   </li>
 
@@ -4473,7 +4500,7 @@
 <li><strong>Security</strong> Attachments and comments of tasks and process instances are now protected by permission and tenant checks, enabled by default</li>
 <li><strong>Security</strong> JUEL scripts now follow the restrictions of a customized expression manager, and a new opt-in hardening adds a deny list for expressions and scripts, an allow list for task types and script languages, and an endpoint allow list for connectors</li>
 <li><strong>Security</strong> The webclient only connects to configured engine REST servers, and the <a href="/manual/3.0/reference/connect/ai-agent-connector/">AI Agent Connector</a> sends the server&rsquo;s OpenAI API key only to the configured endpoint</li>
-<li><strong>Security</strong> 76 CVEs resolved (6 Critical, 13 High, 25 Medium, 32 Low), among them <code>CVE-2026-114938</code> (Java4Shell, in the Java runtime of the Docker images), <code>CVE-2026-76183</code> (Apache Tomcat), <code>CVE-2026-77224</code> (XXE in the Java External Task Client) and <code>CVE-2026-109431</code> (attachments and comments), and the others by the <code>swagger-ui</code>, <code>zlib</code> and Alpine base image updates</li>
+<li><strong>Security</strong> 84 CVEs resolved (6 Critical, 17 High, 29 Medium, 32 Low), among them <code>CVE-2026-114938</code> (Java4Shell, in the Java runtime of the Docker images), <code>CVE-2026-76183</code> (Apache Tomcat), <code>CVE-2026-77224</code> (XXE in the Java External Task Client) and <code>CVE-2026-109431</code> (attachments and comments), and the others by the <code>swagger-ui</code>, <code>zlib</code> and Alpine base image updates</li>
 <li><strong>WildFly</strong> The WildFly distribution is based on WildFly 42, and reading a variable instance or a historic detail by id works again</li>
 <li><strong>Timers</strong> Cron time cycles no longer fire in an endless loop when clocks go back at the end of daylight saving time</li>
 </ul>
@@ -4589,6 +4616,10 @@
 <li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-108106">CVE-2026-108106</a></strong> - Xerial snappy-java before 1.1.10.9 contains an unbounded memory allocation vulnerability that allows attackers to exhaust JVM memory by declaring a large uncompressed length in compressed input. Affects <code>org.xerial.snappy:snappy-java</code>. - CVSS 7.5.</li>
 <li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-109431">CVE-2026-109431</a></strong> - Missing authorization checks let authenticated users without any permission read, download or delete the attachments and read the comments of tasks and process instances, knowing only their id. Affects the process engine and the engine REST API. - CVSS 7.3.</li>
 <li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-114938">CVE-2026-114938</a></strong> - &ldquo;Java4Shell&rdquo;: heap out-of-bounds write in the HotSpot C2 intrinsic of the <code>java.util.Base64</code> decoder on x86-64 CPUs with AVX-512 VBMI (Intel Ice Lake, AMD Zen 4 and newer), so a JVM that decodes attacker-controlled Base64 can be made to corrupt heap memory, up to remote code execution. The webclient decodes the <code>Authorization</code> header and JWT payloads before login. Not detected by the image scans yet. Affects <code>openjdk21-jre-headless</code>. - CVSS 8.1.</li>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-114939">CVE-2026-114939</a></strong> - Vulnerability in the Java runtime that an unauthenticated attacker with network access can exploit, though with difficulty. Affects <code>openjdk21-jre-headless</code>. - CVSS 7.4.</li>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-114940">CVE-2026-114940</a></strong> - Vulnerability in the Java runtime that an unauthenticated attacker with network access via TLS can exploit, though with difficulty. Affects <code>openjdk21-jre-headless</code>. - CVSS 7.4.</li>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-114941">CVE-2026-114941</a></strong> - Vulnerability in the Java runtime that an unauthenticated attacker with network access can exploit, though with difficulty. Affects <code>openjdk21-jre-headless</code>. - CVSS 7.0.</li>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-114942">CVE-2026-114942</a></strong> - Vulnerability in the Java runtime that an unauthenticated attacker with network access can exploit, though with difficulty. Affects <code>openjdk21-jre-headless</code>. - CVSS 7.0.</li>
 <li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-125350">CVE-2026-125350</a></strong> - Use after free in the XML processing of libxslt lets crafted input execute arbitrary code. Affects <code>libxslt</code>.</li>
 <li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-6732">CVE-2026-6732</a></strong> - A malicious document can trigger a type confusion that crashes the application. Affects <code>openjdk21-jre-headless</code>. - CVSS 7.5.</li>
 <li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-77224">CVE-2026-77224</a></strong> - XML external entity (XXE) injection in the Java External Task Client: a user who may set a process variable can make a worker that deserializes an <code>application/xml</code> object variable read local files and send requests to other hosts. Affects <code>org.cibseven.bpm:cibseven-external-task-client</code>. - CVSS 7.5.</li>
@@ -4602,6 +4633,10 @@
 <h5 id="medium-severity">Medium Severity</h5>
 <ul>
 <li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2025-10911">CVE-2025-10911</a></strong> - A use-after-free vulnerability was found in libxslt while parsing xsl nodes that may lead to the dereference of expired pointers and application crash. Affects <code>libxslt</code>. - CVSS 5.5.</li>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-114943">CVE-2026-114943</a></strong> - Vulnerability in the Java runtime that an unauthenticated attacker with network access can exploit, though with difficulty. Affects <code>openjdk21-jre-headless</code>. - CVSS 6.5.</li>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-114944">CVE-2026-114944</a></strong> - Vulnerability in the Java runtime that an unauthenticated attacker with network access can exploit, though with difficulty. Affects <code>openjdk21-jre-headless</code>. - CVSS 5.9.</li>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-114945">CVE-2026-114945</a></strong> - Vulnerability in the Java runtime that an unauthenticated attacker with network access can exploit. Affects <code>openjdk21-jre-headless</code>. - CVSS 5.3.</li>
+<li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-114946">CVE-2026-114946</a></strong> - Vulnerability in the Java runtime that an unauthenticated attacker with network access can exploit, though with difficulty. Affects <code>openjdk21-jre-headless</code>. - CVSS 4.8.</li>
 <li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-116590">CVE-2026-116590</a></strong> - <code>Snappy.arrayCopy()</code> passes caller-supplied ranges to native <code>memcpy</code> without validating them, so negative or oversized values read or write outside the array bounds and crash the JVM. Affects <code>org.xerial.snappy:snappy-java</code>. - CVSS 5.9.</li>
 <li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-4738">CVE-2026-4738</a></strong> - Out-of-bounds memory access in the <code>infback9</code> module of zlib. Affects <code>zlib</code>.</li>
 <li><strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-83374">CVE-2026-83374</a></strong> - Vulnerability in the Java runtime that an unauthenticated attacker with network access can exploit, though with difficulty. Affects <code>openjdk21-jre-headless</code>. - CVSS 5.9.</li>

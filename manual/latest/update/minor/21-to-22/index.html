@@ -174,6 +174,14 @@
   </li>
 
         
+          
+  <li>
+    
+      <a href="/manual/latest/introduction/third-party-libraries/sbom/" >Software Bill of Materials</a>
+    
+  </li>
+
+        
       </ul>
     
   </li>
@@ -3693,6 +3701,25 @@
   <li>
     
       <a href="/manual/latest/update/minor/22-to-30/" >2.2 to 3.0</a>
+      <ul>
+        
+          
+  <li>
+    
+      <a href="/manual/latest/update/minor/22-to-30/tomcat/" >Tomcat</a>
+    
+  </li>
+
+        
+          
+  <li>
+    
+      <a href="/manual/latest/update/minor/22-to-30/jboss/" >WildFly / JBoss EAP</a>
+    
+  </li>
+
+        
+      </ul>
     
   </li>
 
@@ -4770,7 +4797,7 @@ Additionally, the new <code>Run4</code> distribution has been added to the <a hr
 <ul>
 <li>Licensed EE features require HTTPS, see <a href="#https-for-licensed-ee-features">HTTPS for licensed EE features</a>.</li>
 <li>The license key is stored in the database and read from it only if the engine uses the same JWT secret as the webclient. In CIB seven Run, this is the case by default. If the webclient and the engine run separately and the secrets differ, the webclient uses only the license file, and a key entered in the Admin webapp is not stored, although no error is shown.</li>
-<li>For an additional engine (multi-engine) with its own <code>jwtSecret</code> that differs from the webclient secret, the key is not stored in the database of this engine.</li>
+<li>For an additional engine (multi-engine) with its own <code>jwtSecret</code> that differs from the webclient secret, the key is not stored in the database of this engine. This is fixed in <code>3.0.0</code>, where the key is stored with this engine&rsquo;s own secret.</li>
 <li>With an engine older than <code>2.2.0</code>, the key is not stored in the database.</li>
 </ul>
 
@@ -4778,7 +4805,7 @@ Additionally, the new <code>Run4</code> distribution has been added to the <a hr
 <ol>
 <li>If the webclient and the engine run separately, set the same secret for the engine as <code>cibseven.webclient.authentication.jwtSecret</code> of the webclient: through the JVM system property <code>cibseven.webclient.authentication.jwtSecret</code>, the environment variable <code>CIBSEVEN_WEBCLIENT_AUTHENTICATION_JWTSECRET</code> or the file <code>cibseven-webclient.properties</code> on the engine&rsquo;s classpath.</li>
 <li>Change the secret on the webclient and the engine at the same time: the stored key stays valid. If the secret is changed on one side only, the stored key can no longer be read: the webclient falls back to the license file, and without a valid license file licensed EE features show <strong>&ldquo;License Required&rdquo;</strong> until the secrets match again.</li>
-<li>The existing license file keeps working. A valid key from it is saved to the database the first time a user who is allowed to set the license opens the webclient (for example, an administrator; with authorization enabled, a user with the <code>SET</code> or <code>ALL</code> permission on the <code>System</code> resource); until then, the webclient reads the key from the file. Keep the license file in place for additional engines with their own <code>jwtSecret</code> and for engines older than <code>2.2.0</code>. For details, see <a href="/manual/latest/user-guide/license-use/#storing-the-license-key-in-the-database">CIB seven License Keys</a>.</li>
+<li>The existing license file keeps working. A valid key from it is saved to the database the first time a user who is allowed to set the license opens the webclient (for example, an administrator; with authorization enabled, a user with the <code>SET</code> or <code>ALL</code> permission on the <code>System</code> resource); until then, the webclient reads the key from the file. Keep the license file in place for engines older than <code>2.2.0</code> and, up to <code>2.2.x</code>, for additional engines with their own <code>jwtSecret</code>. For details, see <a href="/manual/latest/user-guide/license-use/#storing-the-license-key-in-the-database">CIB seven License Keys</a>.</li>
 </ol>
 
 <h2 id="https-for-licensed-ee-features">HTTPS for licensed EE features</h2>
