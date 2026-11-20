@@ -5163,7 +5163,7 @@ Some of the properties are listed in the table below:</p>
       <th>Description</th>
   </tr>
 <tr>
-      <td rowspan="3"><code>camunda.bpm.generic-properties.properties</code></td>
+      <td rowspan="4"><code>camunda.bpm.generic-properties.properties</code></td>
       <td><code>.useCibSevenNamespaceInScripting</code></td>
       <td>Allows to handle org.camunda classes, used in a script, when the script is launched by a process, see <a href="#migration-from-camunda">migration from Camunda</a> <br />Default value: false </td>
   </tr>
@@ -5174,6 +5174,10 @@ Some of the properties are listed in the table below:</p>
   <tr>
       <td><code>.authGroupFilterThreshold</code></td>
       <td>Allows to skip auxiliary SQL request to ACT_RU_AUTHORIZATION table when a user belongs to a number of groups which is less than specified by the property. It can improve performance for very large ACT_RU_AUTHORIZATION tables. <br />Default value: 0</td>
+  </tr>
+  <tr>
+      <td><code>.checkVariableTaskId</code></td>
+      <td>Checks a variable that belongs to a task against that task before storing it, see <a href="/manual/3.0/user-guide/process-engine/variables/#task-variables-and-completed-tasks">task variables</a> <br />Default value: false </td>
   </tr>
 </table>
 

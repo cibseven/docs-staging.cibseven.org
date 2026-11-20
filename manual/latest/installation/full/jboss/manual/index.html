@@ -4596,6 +4596,7 @@ Edit the file <code>WEB-INF/jboss-web.xml</code> in the war file and update the 
 <li>Startup WildFly.</li>
 <li>Access CIB seven web application via <code>/webapp</code> or under the context path you configured.</li>
 </ol>
+<p>The webclient WAR uses the CIB seven modules installed in <a href="#setup">Setup</a> and the datasource <code>java:jboss/datasources/ProcessEngine</code>. To run the webclient on a WildFly / JBoss EAP without them, for example next to an application with an embedded process engine, see <a href="/manual/latest/update/minor/21-to-22/#webclient-on-wildfly-without-cib-seven-modules">Webclient on WildFly without CIB seven modules</a>.</p>
 
 <h4 id="cockpit-tasklist-and-admin">Cockpit, Tasklist, and Admin</h4>
 <p>The following steps are required to deploy legacy Camunda web application:</p>

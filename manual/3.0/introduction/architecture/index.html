@@ -4596,6 +4596,24 @@ Camunda web applications used the engine as a library, CIB seven webclient uses 
 <p>CIB seven includes its own authentication service which ensures secure communication between the webclient and the engine.
 For more information about CIB seven authentication, see the following section: <a href="/manual/3.0/reference/rest/overview/authentication/">Authentication</a>.</p>
 
+<h3 id="webclient-and-process-engine-deployment-models">Webclient and Process Engine Deployment Models</h3>
+<p>By default, the webclient talks to the process engine through the REST API (<code>SevenProvider</code>, <code>SevenProviderEE</code> in the Enterprise Edition). It therefore works with each of the <a href="#cib-seven-architecture">deployment models</a> of the process engine, on the same server or on a different one:</p>
+<figure class="image">
+  <span><img
+      src="../img/webclient-deployment-models.svg"
+      
+          title="Webclient and Process Engine Deployment Models"
+       /></span>
+</figure>
+
+<ul>
+<li><strong>Shared engine:</strong> the webclient is deployed in the same Tomcat or WildFly as the process engine, as in the CIB seven distributions.</li>
+<li><strong>Embedded engine:</strong> the webclient is deployed next to your application and uses the engine REST API that your application provides. Alternatively, the webclient becomes part of your application, for example with the <a href="/manual/3.0/user-guide/spring-boot-integration/webapps/">Spring Boot webapp starter</a>.</li>
+<li><strong>Standalone engine:</strong> the process engine runs as a remote server, the webclient runs on any other server and calls the REST API over the network.</li>
+</ul>
+<p>The <a href="/manual/3.0/webapps/configuration-options/core-configuration/direct-provider/">Direct Provider</a> (<code>SevenDirectProvider</code>, <code>SevenDirectProviderEE</code> in the Enterprise Edition) calls the Java API of the process engine instead of the REST API. It needs the engine in the same JVM: a shared engine, or the webclient as part of the application that embeds the engine. A webclient deployed as a separate web application cannot reach an engine embedded in another application.</p>
+<p>On WildFly / JBoss EAP without the CIB seven modules, the webclient WAR needs two adjustments, see <a href="/manual/3.0/update/minor/21-to-22/#webclient-on-wildfly-without-cib-seven-modules">Webclient on WildFly without CIB seven modules</a>.</p>
+
 <h2 id="secure-communication-architecture">Secure Communication Architecture</h2>
 <p>CIB seven provides a secure communication architecture for the webclient and the engine REST API as depicted in the following diagram:
 <figure class="image">
@@ -4680,6 +4698,7 @@ authenticate users and retrieve their identity information.</p>
     <li><a href="#web-application-architecture">Web Application Architecture</a>
       <ul>
         <li><a href="#frontend-backend-interaction">Frontend-Backend Interaction</a></li>
+        <li><a href="#webclient-and-process-engine-deployment-models">Webclient and Process Engine Deployment Models</a></li>
       </ul>
     </li>
     <li><a href="#secure-communication-architecture">Secure Communication Architecture</a>

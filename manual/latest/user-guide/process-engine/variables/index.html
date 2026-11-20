@@ -4563,6 +4563,23 @@
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
 </span></span></span></code></pre></div><p>here variable will be set locally in &ldquo;aSubProcess&rdquo; and not propagated to the parent scope even if variable was not set beforehand locally in &ldquo;aSubProcess&rdquo;.</p>
 
+<h3 id="task-variables-and-completed-tasks">Task variables and completed tasks</h3>
+<p>A variable can also be set on a task, for example with <code>TaskService#setVariableLocal</code>. By default the
+process engine stores such a variable without checking the task it refers to, so a variable can be
+created for a task that no longer exists or that has already been completed.</p>
+<p>Set the process engine property
+<a href="/manual/latest/reference/deployment-descriptors/tags/process-engine/#checkVariableTaskId"><code>checkVariableTaskId</code></a>
+to <code>true</code> to have the engine verify the task first. Creating a variable for a task that does not
+exist or is already completed then fails with a <code>ProcessEngineException</code> instead of leaving a
+variable behind that references nothing. The default value is <code>false</code>, which keeps the previous
+behavior.</p>
+<p>In <code>bpm-platform.xml</code>, <code>standalone.xml</code> and <code>processes.xml</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;checkVariableTaskId&#34;</span><span class="nt">&gt;</span>true<span class="nt">&lt;/property&gt;</span>
+</span></span></code></pre></div><p>In CIB seven Run and Spring Boot, see
+<a href="/manual/latest/user-guide/cibseven-run/#generic-properties">Generic properties</a>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">camunda.bpm.generic-properties.properties</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">checkVariableTaskId</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span></code></pre></div>
 <h2 id="supported-variable-values">Supported Variable Values</h2>
 <p>The process engine supports the following variable value types:</p>
 <figure class="image">
@@ -4873,6 +4890,7 @@ depends on a variable <code>avgForecast</code> as the average value of the three
     <li><a href="#set-and-retrieve-variables---overview">Set and Retrieve Variables - Overview</a>
       <ul>
         <li><a href="#setting-variables-to-specific-scope">Setting variables to specific scope</a></li>
+        <li><a href="#task-variables-and-completed-tasks">Task variables and completed tasks</a></li>
       </ul>
     </li>
     <li><a href="#supported-variable-values">Supported Variable Values</a>

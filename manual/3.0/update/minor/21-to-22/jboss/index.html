@@ -4607,6 +4607,12 @@ Alternatively, switch to the private repository for the enterprise version (cred
 <li>Deploy the webclient archive to your JBoss/WildFly instance.</li>
 </ol>
 
+<div class="note bg-info docs-info">
+  <h3>Server without the CIB seven modules</h3>
+  <p>Since 2.2.0, the webclient WAR for WildFly requires the CIB seven modules of the process engine and the datasource <code>java:jboss/datasources/ProcessEngine</code>. If you run the webclient on a server without them, for example next to an application with an embedded process engine, see <a href="/manual/3.0/update/minor/21-to-22/#webclient-on-wildfly-without-cib-seven-modules">Webclient on WildFly without CIB seven modules</a>.</p>
+</div>
+
+
     </div>
   </div>
 </div>

@@ -5389,6 +5389,18 @@ Typically, those people do not need full access to the system like an administra
 </ul>
 <p>Also see the <a href="#performance-considerations">Performance Considerations</a> section on this page.</p>
 
+<h3 id="skip-the-group-membership-query">Skip the Group Membership Query</h3>
+<p>The configuration option <code>authGroupFilterThreshold</code> specifies a threshold for skipping the auxiliary
+SQL query to the <code>ACT_RU_AUTHORIZATION</code> table that reads the group memberships of the current user.
+If the user belongs to fewer groups than the threshold, the query is skipped, which can improve
+performance for very large <code>ACT_RU_AUTHORIZATION</code> tables. The default value is <code>0</code>, which always
+runs the query.</p>
+<p>See the
+<a href="/manual/3.0/reference/deployment-descriptors/tags/process-engine/#authGroupFilterThreshold"><code>&lt;process-engine&gt;</code> reference</a>
+for <code>bpm-platform.xml</code>, <code>standalone.xml</code> and <code>processes.xml</code>, and
+<a href="/manual/3.0/user-guide/cibseven-run/#generic-properties">Generic properties</a> for CIB seven Run
+and Spring Boot.</p>
+
 <h2 id="java-api-example">Java API example</h2>
 <p>An authorization is created between a user/group and a resource. It describes the user/group&rsquo;s permissions to access that resource. An authorization may express different permissions, such as the permission to <strong>Read</strong>, <strong>Update</strong>, and <strong>Delete</strong> the resource. (See Authorization for details).</p>
 <p>To grant the permission to access a certain resource, an authorization object is created. For example, to give access to a certain filter:</p>
@@ -5515,6 +5527,7 @@ Typically, those people do not need full access to the system like an administra
         <li><a href="#enable-authorization-checks">Enable Authorization Checks</a></li>
         <li><a href="#enable-authorization-checks-for-user-code">Enable Authorization Checks for User Code</a></li>
         <li><a href="#check-revoke-authorizations">Check Revoke Authorizations</a></li>
+        <li><a href="#skip-the-group-membership-query">Skip the Group Membership Query</a></li>
       </ul>
     </li>
     <li><a href="#java-api-example">Java API example</a></li>
