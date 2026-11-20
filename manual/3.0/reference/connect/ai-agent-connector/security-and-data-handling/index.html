@@ -4569,12 +4569,19 @@ you configure these.</p>
 <code>baseUrl</code></strong> — see <a href="/manual/3.0/reference/connect/ai-agent-connector/rag/">RAG</a> and
 <a href="/manual/3.0/reference/connect/ai-agent-connector/troubleshooting/">Known Limitations</a>.
 For air-gapped or sovereign deployments, use the <strong>local</strong> <code>AllMiniLmL6V2</code> model so no query or
-document text leaves your network. The chat model honours <code>baseUrl</code> normally.</p>
+document text leaves your network. The chat model honours <code>baseUrl</code> normally.
+Remote embeddings receive the server&rsquo;s <code>OPENAI_API_KEY</code> only if <code>OPENAI_BASE_URL</code> is not set or points to
+OpenAI as well, so another provider&rsquo;s key is not sent to OpenAI.</p>
 </div>
 
 <p>The transport is outbound <strong>HTTPS</strong> from the engine JVM to <code>baseUrl</code> (and to any MCP <code>url</code>). Operators
 must allow that egress (or route it through an approved proxy/gateway). See
 <a href="/manual/3.0/reference/connect/ai-agent-connector/installation/">Installation</a>.</p>
+<p><code>baseUrl</code> and the MCP server URLs often come from process variables. To limit the endpoints the
+connector may contact, configure an allow-list of endpoints, e.g.
+<code>-Dcibseven.connect.cibseven-ai-agent.allowed-endpoints=https://api.openai.com,https://mcp.example.com</code>.
+The base URL, every MCP server, the pgvector host and the OpenAI embedding endpoint are checked before
+anything is sent. See <a href="/manual/3.0/reference/connect/ai-agent-connector/configuring-the-agent/#allowed-endpoints">Allowed endpoints</a>.</p>
 
 <h2 id="what-is-stored-and-where">What is stored, and where</h2>
 <table>
@@ -4622,6 +4629,9 @@ expression such as
 <code>${apiKey}</code> reads a <strong>process variable</strong>, which is stored in the runtime tables and, with history
 level <code>audit</code> or <code>full</code> (CIB seven Run: <code>full</code>), in the <strong>history</strong>. Leave <strong>API key</strong> empty and set
 the <strong><code>OPENAI_API_KEY</code> environment variable</strong> of the engine&rsquo;s JVM: it is stored nowhere in the engine.
+The connector sends this key only to the endpoint configured in <code>OPENAI_BASE_URL</code> (default: the OpenAI
+API), so a <code>baseUrl</code> taken from a process variable does not receive it. See
+<a href="/manual/3.0/reference/connect/ai-agent-connector/configuring-the-agent/#api-key-and-endpoint">API key and endpoint</a>.
 HTTP headers, MCP server headers and the PostgreSQL password have no server-side setting yet: the field
 is the only place for them, and a value set there is stored as described above.</li>
 <li><strong>Secrets in <code>message</code>/<code>instruction</code> are recorded.</strong> The chat-log timeline stores <code>messages[]</code>
@@ -4688,7 +4698,9 @@ data-in-transit to the model. Choose the provider/endpoint accordingly.</p>
 <li><input disabled="" type="checkbox"> LLM endpoint and any MCP servers are approved for the data classification you&rsquo;ll send them.</li>
 <li><input disabled="" type="checkbox"> Embeddings: local model for sovereign data, or an approved remote endpoint.</li>
 <li><input disabled="" type="checkbox"> API keys via env / secured variables — <strong>not</strong> hardcoded in templates; not in prompts.</li>
-<li><input disabled="" type="checkbox"> Egress from the engine JVM to <code>baseUrl</code>/MCP URLs is allowed only where intended.</li>
+<li><input disabled="" type="checkbox"> Egress from the engine JVM to <code>baseUrl</code>/MCP URLs is allowed only where intended (network rules and
+the connector&rsquo;s <a href="/manual/3.0/reference/connect/ai-agent-connector/configuring-the-agent/#allowed-endpoints">allowed endpoints</a>).</li>
+<li><input disabled="" type="checkbox"> <code>OPENAI_BASE_URL</code> names the endpoint that the server&rsquo;s <code>OPENAI_API_KEY</code> belongs to.</li>
 <li><input disabled="" type="checkbox"> Tool-enabled agents run under least-privilege identities; toolset minimised per task.</li>
 <li><input disabled="" type="checkbox"> Edit rights on process models / element templates are restricted (privileged config).</li>
 <li><input disabled="" type="checkbox"> Audit retention meets your risk tier (chat-log kept, or external sink configured); see

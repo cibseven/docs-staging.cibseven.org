@@ -17,80 +17,55 @@
               label="What the customer reports" />
         </camunda:formData>
       </bpmn:extensionElements>
+      <bpmn:outgoing>toAgent</bpmn:outgoing>
     </bpmn:startEvent>
     <bpmn:sequenceFlow id="toAgent"
         sourceRef="start" targetRef="handleIncident" />
     <bpmn:adHocSubProcess id="handleIncident"
         name="Handle incident"
-        camunda:modelerTemplate=
-          "org.cibseven.connect.ai.agent.AdHocSubProcess"
+        camunda:modelerTemplate="org.cibseven.connect.ai.agent.AdHocSubProcess"
         camunda:modelerTemplateVersion="1">
       <bpmn:extensionElements>
         <camunda:connector>
           <camunda:connectorId>cibseven-ai-agent</camunda:connectorId>
           <camunda:inputOutput>
             <!-- the agent's name in the chat log and Agent Chat -->
-            <camunda:inputParameter name="agentName">
-              Incident agent
-            </camunda:inputParameter>
+            <camunda:inputParameter name="agentName">Incident agent</camunda:inputParameter>
             <!-- the task; ${...} reads the start form's values -->
-            <camunda:inputParameter name="message">
-              Resolve incident ${incidentId}: ${description}
-            </camunda:inputParameter>
+            <camunda:inputParameter name="message">Resolve incident ${incidentId}: ${description}</camunda:inputParameter>
             <!-- your rules, after the built-in ones (append) -->
-            <camunda:inputParameter name="instruction">
-              Check the logs first. Order a spare part only if
-              the logs show a hardware fault. Tell the customer
-              what was done.
-            </camunda:inputParameter>
-            <camunda:inputParameter name="instructionMode">
-              append
-            </camunda:inputParameter>
+            <camunda:inputParameter name="instruction">Check the logs first. Order a spare part only if the logs show a hardware fault. Tell the customer what was done.</camunda:inputParameter>
+            <camunda:inputParameter name="instructionMode">append</camunda:inputParameter>
             <!-- the answer, and how the last turn ended -->
-            <camunda:outputParameter name="agentOutput">
-              ${output}
-            </camunda:outputParameter>
-            <camunda:outputParameter name="agentOutput_outcome">
-              ${outcome}
-            </camunda:outputParameter>
+            <camunda:outputParameter name="agentOutput">${output}</camunda:outputParameter>
+            <camunda:outputParameter name="agentOutput_outcome">${outcome}</camunda:outputParameter>
           </camunda:inputOutput>
         </camunda:connector>
       </bpmn:extensionElements>
+      <bpmn:incoming>toAgent</bpmn:incoming>
+      <bpmn:outgoing>toEnd</bpmn:outgoing>
       <!-- finishes at once; its result goes back to the agent -->
       <bpmn:serviceTask id="checkLogs" name="Check logs"
-          camunda:expression=
-            "${'Node 3: disk read errors since 02:10'}"
+          camunda:expression="${'Node 3: disk read errors since 02:10'}"
           camunda:resultVariable="logFindings">
-        <bpmn:documentation>
-          Reads the service logs for this incident and returns
-          what they show.
-        </bpmn:documentation>
+        <bpmn:documentation>Reads the service logs for this incident and returns what they show.</bpmn:documentation>
       </bpmn:serviceTask>
 
       <!-- takes a value from the agent, see Tools below -->
       <bpmn:serviceTask id="orderSparePart" name="Order spare part"
           camunda:expression="${'Ordered: '.concat(part)}"
           camunda:resultVariable="sparePartOrder">
-        <bpmn:documentation>
-          Orders a replacement part and returns the order.
-        </bpmn:documentation>
+        <bpmn:documentation>Orders a replacement part and returns the order.</bpmn:documentation>
         <bpmn:extensionElements>
           <camunda:inputOutput>
-            <camunda:inputParameter name="part">
-              ${toolParameter(toolCall.part,
-                'The part to order, for example disk for node 3',
-                'string')}
-            </camunda:inputParameter>
+            <camunda:inputParameter name="part">${toolParameter(toolCall.part, 'The part to order, for example disk for node 3', 'string')}</camunda:inputParameter>
           </camunda:inputOutput>
         </bpmn:extensionElements>
       </bpmn:serviceTask>
 
       <!-- waits for a person; the form field is the result -->
       <bpmn:userTask id="callCustomer" name="Call customer">
-        <bpmn:documentation>
-          A person calls the customer, explains what was done
-          and records what was agreed.
-        </bpmn:documentation>
+        <bpmn:documentation>A person calls the customer, explains what was done and records what was agreed.</bpmn:documentation>
         <bpmn:extensionElements>
           <camunda:formData>
             <camunda:formField id="agreement" type="string"
@@ -101,7 +76,9 @@
     </bpmn:adHocSubProcess>
     <bpmn:sequenceFlow id="toEnd"
         sourceRef="handleIncident" targetRef="end" />
-    <bpmn:endEvent id="end" name="Incident handled" />
+    <bpmn:endEvent id="end" name="Incident handled">
+      <bpmn:incoming>toEnd</bpmn:incoming>
+    </bpmn:endEvent>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="incidentAgentDiagram">
     <bpmndi:BPMNPlane id="incidentAgentPlane" bpmnElement="incidentAgent">

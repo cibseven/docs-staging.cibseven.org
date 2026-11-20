@@ -4640,7 +4640,10 @@ tools/RAG/reasoning) — run agent tasks with <code>camunda:asyncBefore</code> s
 <li><strong>Outbound network (egress):</strong> the engine JVM makes <strong>outbound HTTPS</strong> calls to the configured
 <code>baseUrl</code> (the LLM endpoint) and to any MCP server <code>url</code>. With a <em>remote</em> embedding model it also
 calls the <strong>public OpenAI endpoint</strong> (regardless of <code>baseUrl</code> — see <a href="/manual/3.0/reference/connect/ai-agent-connector/rag/">RAG</a>). Ensure
-that egress is permitted, or route it through an approved proxy/gateway. Full data-flow detail is in
+that egress is permitted, or route it through an approved proxy/gateway. To limit the endpoints the
+connector itself may contact, configure its
+<a href="/manual/3.0/reference/connect/ai-agent-connector/configuring-the-agent/#allowed-endpoints">allowed endpoints</a>.
+Full data-flow detail is in
 <a href="/manual/3.0/reference/connect/ai-agent-connector/security-and-data-handling/">Security &amp; Data Handling</a>.</li>
 </ul>
 <p>Once enabled, head to <a href="/manual/3.0/reference/connect/ai-agent-connector/getting-started/">Getting Started</a> or

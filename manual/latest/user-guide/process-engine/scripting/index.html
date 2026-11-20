@@ -4550,6 +4550,18 @@ scripts.</p>
   </tr>
 </table>
 
+<div class="note bg-info docs-info">
+  <h3>Restricting scripts</h3>
+  <p><p>Operators can restrict the script languages that process definitions may use with the
+<a href="/manual/latest/user-guide/process-engine/securing-custom-code/#allow-list-for-task-types-and-script-languages">allow list for task types and script languages</a>.</p>
+<p>JUEL scripts (<code>juel</code>) are also checked against the
+<a href="/manual/latest/user-guide/process-engine/securing-custom-code/#deny-list-for-expressions-and-scripts">deny list for expressions and scripts</a>,
+and a <a href="/manual/latest/user-guide/process-engine/securing-custom-code/#customized-expression-managers-in-juel-scripts">customized expression manager</a>
+applies to them as well.</p>
+</p>
+</div>
+
+
 <h2 id="use-script-tasks">Use Script Tasks</h2>
 <p>With a BPMN 2.0 script task you can add a script to your BPM process (for more information see the
 <a href="/manual/latest/reference/bpmn20/tasks/script-task/">BPMN 2.0 reference</a>.</p>

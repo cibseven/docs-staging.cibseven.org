@@ -4565,8 +4565,8 @@ default values. For task-oriented guidance, see <a href="/manual/3.0/reference/c
     <tr>
       <td><code>apiKey</code></td>
       <td>String</td>
-      <td><code>OPENAI_API_KEY</code> env</td>
-      <td>Provider API key.</td>
+      <td><code>OPENAI_API_KEY</code> env, only if <code>baseUrl</code> is empty or has the scheme, host and port of <code>OPENAI_BASE_URL</code> (default <code>https://api.openai.com/v1</code>)</td>
+      <td>Provider API key. A key set here is sent to <code>baseUrl</code>, whatever it is. See <a href="/manual/3.0/reference/connect/ai-agent-connector/configuring-the-agent/#api-key-and-endpoint">API key and endpoint</a>.</td>
     </tr>
     <tr>
       <td><code>customHeaders</code></td>
@@ -4731,7 +4731,7 @@ default values. For task-oriented guidance, see <a href="/manual/3.0/reference/c
       <td><code>embeddingModelName</code></td>
       <td>String</td>
       <td>empty → local <code>AllMiniLmL6V2</code></td>
-      <td>Remote embedding model name (uses <code>apiKey</code>); empty → local model.</td>
+      <td>Remote embedding model name, always called at <code>https://api.openai.com/v1</code>; empty → local model. Uses <code>apiKey</code> only if <code>baseUrl</code> is OpenAI, else <code>OPENAI_API_KEY</code> only if <code>OPENAI_BASE_URL</code> is unset or OpenAI.</td>
     </tr>
   </tbody>
 </table>
@@ -4830,8 +4830,8 @@ pgvector store for later RAG retrieval. See <a href="/manual/3.0/reference/conne
     <tr>
       <td><code>apiKey</code></td>
       <td>String</td>
-      <td><code>OPENAI_API_KEY</code> env</td>
-      <td>API key for a remote embedding model.</td>
+      <td><code>OPENAI_API_KEY</code> env, only if <code>OPENAI_BASE_URL</code> is unset or OpenAI</td>
+      <td>OpenAI API key for a remote embedding model.</td>
     </tr>
     <tr>
       <td><code>embeddingDimension</code></td>
@@ -4913,7 +4913,7 @@ pgvector store for later RAG retrieval. See <a href="/manual/3.0/reference/conne
       <td><code>OPENAI_API_KEY</code></td>
       <td>env</td>
       <td>—</td>
-      <td>Fallback API key when <code>apiKey</code> is not set.</td>
+      <td>Fallback API key when <code>apiKey</code> is not set. Only sent to the endpoint of <code>OPENAI_BASE_URL</code> (or <code>https://api.openai.com/v1</code> if unset); remote embeddings get it only if that endpoint is OpenAI.</td>
     </tr>
     <tr>
       <td><code>OPENAI_BASE_URL</code></td>
@@ -4980,6 +4980,42 @@ pgvector store for later RAG retrieval. See <a href="/manual/3.0/reference/conne
       <td>env</td>
       <td><code>1048576</code></td>
       <td>Env fallback for the conversation size limit.</td>
+    </tr>
+    <tr>
+      <td><code>cibseven.connect.cibseven-ai-agent.allowed-endpoints</code></td>
+      <td>system property</td>
+      <td>— (no restriction)</td>
+      <td>Endpoints the AI agent may contact. See <a href="/manual/3.0/reference/connect/#allowed-endpoints">Allowed Endpoints</a>.</td>
+    </tr>
+    <tr>
+      <td><code>CIBSEVEN_CONNECT_CIBSEVEN_AI_AGENT_ALLOWED_ENDPOINTS</code></td>
+      <td>env</td>
+      <td>—</td>
+      <td>Env fallback for the agent&rsquo;s allowed endpoints.</td>
+    </tr>
+    <tr>
+      <td><code>cibseven.connect.cibseven-knowledge-ingestor.allowed-endpoints</code></td>
+      <td>system property</td>
+      <td>— (no restriction)</td>
+      <td>Endpoints the Knowledge Ingestor may contact.</td>
+    </tr>
+    <tr>
+      <td><code>CIBSEVEN_CONNECT_CIBSEVEN_KNOWLEDGE_INGESTOR_ALLOWED_ENDPOINTS</code></td>
+      <td>env</td>
+      <td>—</td>
+      <td>Env fallback for the Knowledge Ingestor&rsquo;s allowed endpoints.</td>
+    </tr>
+    <tr>
+      <td><code>cibseven.connect.allowed-endpoints</code></td>
+      <td>system property</td>
+      <td>— (no restriction)</td>
+      <td>Endpoints all connectors may contact, unless a connector has its own list.</td>
+    </tr>
+    <tr>
+      <td><code>CIBSEVEN_CONNECT_ALLOWED_ENDPOINTS</code></td>
+      <td>env</td>
+      <td>—</td>
+      <td>Env fallback for the global list.</td>
     </tr>
     <tr>
       <td><code>AI_AGENT_ENABLED</code></td>

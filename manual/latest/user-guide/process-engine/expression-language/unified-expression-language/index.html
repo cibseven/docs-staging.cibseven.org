@@ -4565,6 +4565,13 @@ usage of EL.</p>
   </tr>
 </table>
 
+<div class="note bg-info docs-info">
+  <h3>Restricted access</h3>
+  <p>Expressions are checked against a deny list that blocks reflection and access to engine internals, for example <code>getClass()</code> or <code>lang:import</code>.
+See <a href="/manual/latest/user-guide/process-engine/securing-custom-code/#deny-list-for-expressions-and-scripts">Deny List for Expressions and Scripts</a>.</p>
+</div>
+
+
 <h2 id="usage-of-expression-language">Usage of Expression Language</h2>
 
 <h3 id="delegation-code">Delegation Code</h3>

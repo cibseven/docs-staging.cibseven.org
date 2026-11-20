@@ -4500,6 +4500,9 @@ instance by its connector ID, which is <code>soap-http-connector</code>.</p>
 </span></span></span></code></pre></div><p>The SOAP connector extends the Camunda Connect HTTP connector which uses
 the Apache HTTP client in the default implementation. To read about default and custom client configuration,
 please see the corresponding section in the <a href="/manual/3.0/reference/connect/http-connector/">HTTP connector docs</a>.</p>
+<p>Operators can restrict the endpoints the SOAP connector may contact, for example with the JVM system property
+<code>cibseven.connect.soap-http-connector.allowed-endpoints</code> or the global <code>cibseven.connect.allowed-endpoints</code>.
+The request URL and every redirect are checked. See <a href="/manual/3.0/reference/connect/#allowed-endpoints">Allowed Endpoints</a>.</p>
 
 <h2 id="request">Request</h2>
 

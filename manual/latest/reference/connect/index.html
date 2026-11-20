@@ -4507,6 +4507,54 @@ The user can add own interceptors to this chain. The interceptor is called for
 every request of this connector.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">connector</span><span class="p">.</span><span class="na">addRequestInterceptor</span><span class="p">(</span><span class="n">interceptor</span><span class="p">).</span><span class="na">createRequest</span><span class="p">();</span><span class="w">
 </span></span></span></code></pre></div>
+<h2 id="allowed-endpoints">Allowed Endpoints</h2>
+<p>Connector targets such as the HTTP request URL, the AI agent&rsquo;s base URL or its MCP servers often come from process variables.
+Operators can restrict the endpoints that the <a href="/manual/latest/reference/connect/http-connector/">HTTP</a>, <a href="/manual/latest/reference/connect/soap-connector/">SOAP</a>,
+<a href="/manual/latest/reference/connect/ai-agent-connector/">AI agent and knowledge ingestor</a> connectors may contact. Without configuration, nothing is restricted.</p>
+<p>Set the allow-list as a JVM system property or an environment variable. It is not read from <code>application.yaml</code> or other Spring configuration files.</p>
+<table class="table table-striped">
+  <tr>
+    <th>System property</th>
+    <th>Environment variable</th>
+    <th>Applies to</th>
+  </tr>
+  <tr>
+    <td><code>cibseven.connect.allowed-endpoints</code></td>
+    <td><code>CIBSEVEN_CONNECT_ALLOWED_ENDPOINTS</code></td>
+    <td>All connectors.</td>
+  </tr>
+  <tr>
+    <td><code>cibseven.connect.&lt;connectorId&gt;.allowed-endpoints</code></td>
+    <td><code>CIBSEVEN_CONNECT_&lt;CONNECTOR_ID&gt;_ALLOWED_ENDPOINTS</code></td>
+    <td>One connector, for example <code>cibseven.connect.http-connector.allowed-endpoints</code> or <code>CIBSEVEN_CONNECT_CIBSEVEN_AI_AGENT_ALLOWED_ENDPOINTS</code>. In the environment variable, the connector ID is written in upper case, with <code>_</code> in place of other characters such as <code>-</code>.</td>
+  </tr>
+</table>
+<p>The first value that is set wins, in this order: the connector&rsquo;s system property, the connector&rsquo;s environment variable, the global system property, the global environment variable.
+A connector&rsquo;s own list therefore replaces the global one, and the value <code>*</code> exempts the connector from the global list.</p>
+<p>The connector IDs are <code>http-connector</code>, <code>soap-http-connector</code>, <code>cibseven-ai-agent</code> and <code>cibseven-knowledge-ingestor</code>.</p>
+<p>Entries are separated by commas or whitespace and have the form <code>scheme://host[:port]</code> or <code>scheme://*.domain[:port]</code>, without a path:</p>
+<ul>
+<li><code>https://api.example.com</code> allows this host on port 443, the default port of the scheme.</li>
+<li><code>https://*.example.com</code> allows every subdomain of <code>example.com</code>, but not <code>example.com</code> itself. A wildcard needs at least two labels and never matches an IP address.</li>
+<li><code>postgresql://db.example.com:5432</code> allows a PostgreSQL host, for example the pgvector store of the AI agent.</li>
+</ul>
+<p>Host names are compared as written, without DNS resolution. Invalid entries are ignored with a warning.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nv">JAVA_OPTS</span><span class="o">=</span><span class="s2">&#34;-Dcibseven.connect.allowed-endpoints=https://*.example.com,https://api.openai.com&#34;</span>
+</span></span></code></pre></div><p>The following endpoints are checked:</p>
+<ul>
+<li>the HTTP and SOAP request URL and every redirect,</li>
+<li>the AI agent&rsquo;s base URL, every MCP server, the pgvector host and the OpenAI embedding endpoint,</li>
+<li>the knowledge ingestor&rsquo;s pgvector host and embedding endpoint.</li>
+</ul>
+<p>A refused endpoint fails the connector call with a <code>ConnectorEndpointNotAllowedException</code> before anything is sent. The message names the connector, the refused endpoint (scheme, host and port) and the setting that was applied.</p>
+<p>Redirects are only checked for the HTTP client that the connector creates itself, not for a client set through a <a href="/manual/latest/reference/connect/http-connector/#custom-configuration">connector configurator</a>.</p>
+
+<div class="note bg-info docs-info">
+  <h3>CIB seven 2.1.11</h3>
+  <p>CIB seven 2.1 has no AI agent connector. In CIB seven 2.1.11, the allow-list applies to the HTTP and SOAP connectors.</p>
+</div>
+
+
 <h2 id="maven-coordinates">Maven Coordinates</h2>
 <p>Connect can be used in any Java-based application by adding the following maven
 dependency to your <code>pom.xml</code> file:</p>
@@ -4563,6 +4611,7 @@ your classpath. For example <code>slf4j-simple</code>, <code>log4j12</code> or <
   <nav id="TableOfContents">
   <ul>
     <li><a href="#connectors">Connectors</a></li>
+    <li><a href="#allowed-endpoints">Allowed Endpoints</a></li>
     <li><a href="#maven-coordinates">Maven Coordinates</a></li>
     <li><a href="#logging">Logging</a></li>
   </ul>

@@ -4512,6 +4512,14 @@ import present. See <a href="/manual/latest/reference/connect/ai-agent-connector
 <ul>
 <li><strong>Missing key.</strong> Set the <code>OPENAI_API_KEY</code> environment variable of the engine&rsquo;s JVM
 (see <a href="/manual/latest/reference/connect/ai-agent-connector/configuring-the-agent/">Configuring the Agent</a>).</li>
+<li><strong>Server key not sent to this endpoint.</strong> <code>OPENAI_API_KEY</code> is only sent to the endpoint of
+<code>OPENAI_BASE_URL</code> (default <code>https://api.openai.com/v1</code>). If the model sets another <code>baseUrl</code>, the
+request goes out without a key and the connector logs a warning naming the endpoint. Set
+<code>OPENAI_BASE_URL</code> to that endpoint, or define the API key in the model; see
+<a href="/manual/latest/reference/connect/ai-agent-connector/configuring-the-agent/#api-key-and-endpoint">API key and endpoint</a>.</li>
+<li><strong>Endpoint not allowed.</strong> A <code>ConnectorEndpointNotAllowedException</code> means the endpoint is missing from the
+connector&rsquo;s allowed endpoints; see
+<a href="/manual/latest/reference/connect/ai-agent-connector/configuring-the-agent/#allowed-endpoints">Allowed endpoints</a>.</li>
 <li><strong>Wrong endpoint.</strong> Check <code>baseUrl</code> (or <code>OPENAI_BASE_URL</code>). For Ollama use
 <code>http://localhost:11434/v1</code>; for Azure/OpenRouter see the provider recipes in
 <a href="/manual/latest/reference/connect/ai-agent-connector/configuring-the-agent/">Configuring the Agent</a>.</li>

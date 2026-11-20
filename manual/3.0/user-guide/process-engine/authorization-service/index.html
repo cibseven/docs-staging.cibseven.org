@@ -5078,6 +5078,37 @@ Keep in mind that user who is allowed to perform variable updates could trigger 
 <p>GRANT and REVOKE authorizations with <strong>Retry Job</strong>, <strong>Suspend</strong>, and <strong>Update Variable</strong> permissions precede over <strong>Update</strong>.
 Keep in mind that user who is allowed to perform variable updates could trigger other changes in the process by updating a variable. For example, successful evaluation of conditional event related to this variable.</p>
 
+<h3 id="attachment-and-comment-permissions">Attachment and Comment Permissions</h3>
+<p>Attachments and comments have no resource of their own. Access to the attachments and comments of a task or a process instance is checked against the permissions on that task or process instance, including the tenant check.</p>
+<p><strong>Attachments</strong></p>
+<ul>
+<li>Reading an attachment of a task, its content or the attachment list of a task: <strong>Read</strong> on the task or <strong>Read Task</strong> on the process definition.</li>
+<li>Reading an attachment of a process instance or the attachment list of a process instance: <strong>Read</strong> on the process instance or <strong>Read Instance</strong> on the process definition. Attachments of tasks the user may not read are left out of the list.</li>
+<li>Creating, updating or deleting an attachment of a task: <strong>Task Work</strong> or <strong>Update</strong> on the task, or <strong>Task Work</strong> or <strong>Update Task</strong> on the process definition.</li>
+<li>Creating, updating or deleting an attachment of a process instance: <strong>Update</strong> on the process instance or <strong>Update Instance</strong> on the process definition.</li>
+</ul>
+<p><strong>Comments</strong></p>
+<ul>
+<li>Reading the comments or events of a task: <strong>Read</strong> on the task or <strong>Read Task</strong> on the process definition.</li>
+<li>Reading the comments of a process instance: <strong>Read</strong> on the process instance or <strong>Read Instance</strong> on the process definition. Comments of tasks the user may not read are left out.</li>
+<li>Adding a comment to a task: <strong>Task Work</strong> or <strong>Update</strong> on the task, or <strong>Update Task</strong> on the process definition.</li>
+<li>Adding a comment to a process instance: <strong>Update</strong> on the process instance or <strong>Update Instance</strong> on the process definition.</li>
+</ul>
+<p><strong>Completed tasks and process instances</strong></p>
+<p>Attachments and comments of completed tasks and process instances are checked against the history permissions:</p>
+<ul>
+<li>Reading needs <strong>Read History</strong> on the process definition, or <strong>Read</strong> on the historic task or historic process instance if <a href="#historic-instance-permissions">Historic Instance Permissions</a> are enabled.</li>
+<li>Creating, updating or deleting an attachment, and adding a comment, needs <strong>Delete History</strong> on the process definition or <strong>All</strong> on the historic task or historic process instance.</li>
+</ul>
+<p>As for the task itself, the former assignee of a completed process task needs <strong>Read History</strong> on the process definition to keep reading its attachments and comments. Enable Historic Instance Permissions if assignees should keep this access.
+Attachments whose task or process instance no longer exists, not even in the history, can only be read or changed by an administrator.
+An attachment or comment for both a task and a process instance is rejected if the task does not belong to that process instance.</p>
+<p>A user without the required permission gets an <code>AuthorizationException</code>; the REST API answers with HTTP status 403.
+Without authorization checks and tenant checks, attachments and comments are not restricted.</p>
+<p>The checks are enabled by default. The process engine configuration properties <a href="/manual/3.0/reference/deployment-descriptors/tags/process-engine/#enforceAttachmentPermissions">enforceAttachmentPermissions</a> and <a href="/manual/3.0/reference/deployment-descriptors/tags/process-engine/#enforceCommentPermissions">enforceCommentPermissions</a> switch them off when set to <code>false</code>.
+We do not recommend this: the attachments and comments of every task and process instance are then open to every authenticated user.
+Updating and deleting comments are checked even if <code>enforceCommentPermissions</code> is <code>false</code>.</p>
+
 <h3 id="additional-decision-definition-permissions">Additional Decision Definition Permissions</h3>
 <p>In addition to <strong>Update</strong>, <strong>Read</strong>, and <strong>Delete</strong>, the following permissions are available on the Decision Definition Resource:</p>
 <ul>
@@ -5529,6 +5560,7 @@ and Spring Boot.</p>
         </li>
         <li><a href="#additional-process-definition-permissions">Additional Process Definition Permissions</a></li>
         <li><a href="#additional-process-instance-permissions">Additional Process Instance Permissions</a></li>
+        <li><a href="#attachment-and-comment-permissions">Attachment and Comment Permissions</a></li>
         <li><a href="#additional-decision-definition-permissions">Additional Decision Definition Permissions</a></li>
         <li><a href="#additional-batch-permissions">Additional Batch Permissions</a></li>
         <li><a href="#default-read-variable-permissions">Default Read Variable Permissions</a></li>

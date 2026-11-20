@@ -4547,6 +4547,14 @@ information see the <a href="/manual/latest/reference/connect/extending-connect/
 </div>
 
 
+<h2 id="allowed-endpoints">Allowed Endpoints</h2>
+<p>Operators can restrict the endpoints the HTTP connector may contact, for example with the JVM system property
+<code>cibseven.connect.http-connector.allowed-endpoints</code> or the global <code>cibseven.connect.allowed-endpoints</code>.
+The request URL and every redirect are checked; a refused endpoint fails the request with a
+<code>ConnectorEndpointNotAllowedException</code> before anything is sent.
+Redirects are not checked if you replace the HTTP client through a connector configurator.
+For the syntax and all settings, see <a href="/manual/latest/reference/connect/#allowed-endpoints">Allowed Endpoints</a>.</p>
+
 <h2 id="requests">Requests</h2>
 
 <h3 id="create-a-simple-http-request">Create a Simple HTTP Request</h3>
@@ -4666,6 +4674,7 @@ are available:</p>
         <li><a href="#custom-configuration">Custom Configuration</a></li>
       </ul>
     </li>
+    <li><a href="#allowed-endpoints">Allowed Endpoints</a></li>
     <li><a href="#requests">Requests</a>
       <ul>
         <li><a href="#create-a-simple-http-request">Create a Simple HTTP Request</a></li>

@@ -4909,6 +4909,46 @@
       </p>
     </td>
   </tr>
+  <tr id="deniedExpressionAccess">
+    <td><code>deniedExpressionAccess</code></td>
+    <td>String</td>
+    <td>
+      Comma-separated entries that are added to the default
+      <a href="/manual/latest/user-guide/process-engine/securing-custom-code/#deny-list-for-expressions-and-scripts">deny list for expressions and scripts</a>;
+      <code>-entry</code> removes a default entry. Default: not set, the built-in defaults apply.
+      The value is fixed when the process engine is built.
+      In CIB seven 2.2.5 and 2.1.11, the deny list is only active once this property has at least one entry.
+      <p>
+        <strong>Example:</strong> <code>java.lang.System,com.example.Admin#delete</code>
+      </p>
+    </td>
+  </tr>
+  <tr id="executionAllowList">
+    <td><code>executionAllowList</code></td>
+    <td>String</td>
+    <td>
+      Comma-separated list of the task types (<code>shell</code>, <code>mail</code>, <code>external</code>) and script languages that process definitions may use, see
+      <a href="/manual/latest/user-guide/process-engine/securing-custom-code/#allow-list-for-task-types-and-script-languages">allow list for task types and script languages</a>.
+      Default: not set, no restriction.
+      <p>
+        <strong>Example:</strong> <code>external, groovy</code>
+      </p>
+    </td>
+  </tr>
+  <tr id="expressionHardeningMode">
+    <td><code>expressionHardeningMode</code></td>
+    <td>String</td>
+    <td>
+      Controls how a violation of the <a href="/manual/latest/user-guide/process-engine/securing-custom-code/#deny-list-for-expressions-and-scripts">deny list</a> and of the
+      <a href="/manual/latest/user-guide/process-engine/securing-custom-code/#allow-list-for-task-types-and-script-languages">allow list</a> is handled:
+      <code>enforce</code> blocks it, <code>report</code> logs a warning and allows it, <code>off</code> disables both checks.
+      See <a href="/manual/latest/user-guide/process-engine/securing-custom-code/#hardening-mode">hardening mode</a>.
+      Default value is <code>enforce</code>. The value is fixed when the process engine is built.
+      <p>
+        <strong>Values:</strong> <code>off</code>, <code>report</code>, <code>enforce</code>.
+      </p>
+    </td>
+  </tr>
   <tr>
     <td><code>enableFetchProcessDefinitionDescription</code></td>
     <td>Boolean</td>
@@ -5026,6 +5066,30 @@
       <p>
         <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
       </p>
+    </td>
+  </tr>
+  <tr id="enforceAttachmentPermissions">
+    <td><code>enforceAttachmentPermissions</code></td>
+    <td>Boolean</td>
+    <td>
+        If set to <code>true</code>, reading, creating, updating and deleting task and process instance attachments require a
+        <a href="/manual/latest/user-guide/process-engine/authorization-service/#attachment-and-comment-permissions">permission on the task or process instance</a>.
+        <code>false</code> switches these checks off. Default value is <code>true</code>.
+        <p>
+            <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
+        </p>
+    </td>
+  </tr>
+  <tr id="enforceCommentPermissions">
+    <td><code>enforceCommentPermissions</code></td>
+    <td>Boolean</td>
+    <td>
+        If set to <code>true</code>, creating and reading task and process instance comments and reading task events require a
+        <a href="/manual/latest/user-guide/process-engine/authorization-service/#attachment-and-comment-permissions">permission on the task or process instance</a>.
+        <code>false</code> switches these checks off; updating and deleting comments stay checked. Default value is <code>true</code>.
+        <p>
+            <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
+        </p>
     </td>
   </tr>
   <tr>

@@ -4643,8 +4643,7 @@ the customer.</p>
 </figure>
 
 <p><strong>The whole model</strong> is the file <a href="bpmn/incident-agent.bpmn">incident-agent.bpmn</a>: save it and open it in the
-Modeler. Below are its parts, one by one, with line breaks for reading: the engine ignores the spaces and line
-breaks around a value. The service tasks compute their result with an expression, so that the model
+Modeler. Below are its parts, one by one. The service tasks compute their result with an expression, so that the model
 deploys as it is; in a real process, a connector, an external task or a Java delegate takes their place.</p>
 <p><strong>1. The start event</strong> asks for the two values that the agent&rsquo;s task reads.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;bpmn:startEvent</span> <span class="na">id=</span><span class="s">&#34;start&#34;</span> <span class="na">name=</span><span class="s">&#34;Incident reported&#34;</span><span class="nt">&gt;</span>
@@ -4656,90 +4655,67 @@ deploys as it is; in a real process, a connector, an external task or a Java del
 </span></span><span class="line"><span class="cl">          <span class="na">label=</span><span class="s">&#34;What the customer reports&#34;</span> <span class="nt">/&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;/camunda:formData&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;/bpmn:extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;bpmn:outgoing&gt;</span>toAgent<span class="nt">&lt;/bpmn:outgoing&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/bpmn:startEvent&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;bpmn:sequenceFlow</span> <span class="na">id=</span><span class="s">&#34;toAgent&#34;</span>
 </span></span><span class="line"><span class="cl">    <span class="na">sourceRef=</span><span class="s">&#34;start&#34;</span> <span class="na">targetRef=</span><span class="s">&#34;handleIncident&#34;</span> <span class="nt">/&gt;</span>
 </span></span></code></pre></div><p><strong>2. The sub-process and its agent.</strong> The template writes these values; in the Modeler they are its fields.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;bpmn:adHocSubProcess</span> <span class="na">id=</span><span class="s">&#34;handleIncident&#34;</span>
 </span></span><span class="line"><span class="cl">    <span class="na">name=</span><span class="s">&#34;Handle incident&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="na">camunda:modelerTemplate=</span>
-</span></span><span class="line"><span class="cl">      <span class="s">&#34;org.cibseven.connect.ai.agent.AdHocSubProcess&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="na">camunda:modelerTemplate=</span><span class="s">&#34;org.cibseven.connect.ai.agent.AdHocSubProcess&#34;</span>
 </span></span><span class="line"><span class="cl">    <span class="na">camunda:modelerTemplateVersion=</span><span class="s">&#34;1&#34;</span><span class="nt">&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;bpmn:extensionElements&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;camunda:connector&gt;</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&lt;camunda:connectorId&gt;</span>cibseven-ai-agent<span class="nt">&lt;/camunda:connectorId&gt;</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&lt;camunda:inputOutput&gt;</span>
 </span></span><span class="line"><span class="cl">        <span class="c">&lt;!-- the agent&#39;s name in the chat log and Agent Chat --&gt;</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&lt;camunda:inputParameter</span> <span class="na">name=</span><span class="s">&#34;agentName&#34;</span><span class="nt">&gt;</span>
-</span></span><span class="line"><span class="cl">          Incident agent
-</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/camunda:inputParameter&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;camunda:inputParameter</span> <span class="na">name=</span><span class="s">&#34;agentName&#34;</span><span class="nt">&gt;</span>Incident agent<span class="nt">&lt;/camunda:inputParameter&gt;</span>
 </span></span><span class="line"><span class="cl">        <span class="c">&lt;!-- the task; ${...} reads the start form&#39;s values --&gt;</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&lt;camunda:inputParameter</span> <span class="na">name=</span><span class="s">&#34;message&#34;</span><span class="nt">&gt;</span>
-</span></span><span class="line"><span class="cl">          Resolve incident ${incidentId}: ${description}
-</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/camunda:inputParameter&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;camunda:inputParameter</span> <span class="na">name=</span><span class="s">&#34;message&#34;</span><span class="nt">&gt;</span>Resolve incident ${incidentId}: ${description}<span class="nt">&lt;/camunda:inputParameter&gt;</span>
 </span></span><span class="line"><span class="cl">        <span class="c">&lt;!-- your rules, after the built-in ones (append) --&gt;</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&lt;camunda:inputParameter</span> <span class="na">name=</span><span class="s">&#34;instruction&#34;</span><span class="nt">&gt;</span>
-</span></span><span class="line"><span class="cl">          Check the logs first. Order a spare part only if
-</span></span><span class="line"><span class="cl">          the logs show a hardware fault. Tell the customer
-</span></span><span class="line"><span class="cl">          what was done.
-</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/camunda:inputParameter&gt;</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&lt;camunda:inputParameter</span> <span class="na">name=</span><span class="s">&#34;instructionMode&#34;</span><span class="nt">&gt;</span>
-</span></span><span class="line"><span class="cl">          append
-</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/camunda:inputParameter&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;camunda:inputParameter</span> <span class="na">name=</span><span class="s">&#34;instruction&#34;</span><span class="nt">&gt;</span>Check the logs first. Order a spare part only if the logs show a hardware fault. Tell the customer what was done.<span class="nt">&lt;/camunda:inputParameter&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;camunda:inputParameter</span> <span class="na">name=</span><span class="s">&#34;instructionMode&#34;</span><span class="nt">&gt;</span>append<span class="nt">&lt;/camunda:inputParameter&gt;</span>
 </span></span><span class="line"><span class="cl">        <span class="c">&lt;!-- the answer, and how the last turn ended --&gt;</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&lt;camunda:outputParameter</span> <span class="na">name=</span><span class="s">&#34;agentOutput&#34;</span><span class="nt">&gt;</span>
-</span></span><span class="line"><span class="cl">          ${output}
-</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/camunda:outputParameter&gt;</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&lt;camunda:outputParameter</span> <span class="na">name=</span><span class="s">&#34;agentOutput_outcome&#34;</span><span class="nt">&gt;</span>
-</span></span><span class="line"><span class="cl">          ${outcome}
-</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/camunda:outputParameter&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;camunda:outputParameter</span> <span class="na">name=</span><span class="s">&#34;agentOutput&#34;</span><span class="nt">&gt;</span>${output}<span class="nt">&lt;/camunda:outputParameter&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;camunda:outputParameter</span> <span class="na">name=</span><span class="s">&#34;agentOutput_outcome&#34;</span><span class="nt">&gt;</span>${outcome}<span class="nt">&lt;/camunda:outputParameter&gt;</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&lt;/camunda:inputOutput&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;/camunda:connector&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;/bpmn:extensionElements&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;bpmn:incoming&gt;</span>toAgent<span class="nt">&lt;/bpmn:incoming&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;bpmn:outgoing&gt;</span>toEnd<span class="nt">&lt;/bpmn:outgoing&gt;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">  <span class="c">&lt;!-- the tools of part 3 go here --&gt;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/bpmn:adHocSubProcess&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;bpmn:sequenceFlow</span> <span class="na">id=</span><span class="s">&#34;toEnd&#34;</span>
 </span></span><span class="line"><span class="cl">    <span class="na">sourceRef=</span><span class="s">&#34;handleIncident&#34;</span> <span class="na">targetRef=</span><span class="s">&#34;end&#34;</span> <span class="nt">/&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="nt">&lt;bpmn:endEvent</span> <span class="na">id=</span><span class="s">&#34;end&#34;</span> <span class="na">name=</span><span class="s">&#34;Incident handled&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;bpmn:endEvent</span> <span class="na">id=</span><span class="s">&#34;end&#34;</span> <span class="na">name=</span><span class="s">&#34;Incident handled&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;bpmn:incoming&gt;</span>toEnd<span class="nt">&lt;/bpmn:incoming&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/bpmn:endEvent&gt;</span>
 </span></span></code></pre></div><p><strong>3. The tools</strong>: the activities inside the sub-process. The id of each is the tool&rsquo;s name, and its documentation
 tells the agent what the tool does.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="c">&lt;!-- finishes at once; its result goes back to the agent --&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;bpmn:serviceTask</span> <span class="na">id=</span><span class="s">&#34;checkLogs&#34;</span> <span class="na">name=</span><span class="s">&#34;Check logs&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="na">camunda:expression=</span>
-</span></span><span class="line"><span class="cl">      <span class="s">&#34;${&#39;Node 3: disk read errors since 02:10&#39;}&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="na">camunda:expression=</span><span class="s">&#34;${&#39;Node 3: disk read errors since 02:10&#39;}&#34;</span>
 </span></span><span class="line"><span class="cl">    <span class="na">camunda:resultVariable=</span><span class="s">&#34;logFindings&#34;</span><span class="nt">&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&lt;bpmn:documentation&gt;</span>
-</span></span><span class="line"><span class="cl">    Reads the service logs for this incident and returns
-</span></span><span class="line"><span class="cl">    what they show.
-</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/bpmn:documentation&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;bpmn:documentation&gt;</span>Reads the service logs for this incident and returns what they show.<span class="nt">&lt;/bpmn:documentation&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/bpmn:serviceTask&gt;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c">&lt;!-- takes a value from the agent, see Tools below --&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;bpmn:serviceTask</span> <span class="na">id=</span><span class="s">&#34;orderSparePart&#34;</span> <span class="na">name=</span><span class="s">&#34;Order spare part&#34;</span>
 </span></span><span class="line"><span class="cl">    <span class="na">camunda:expression=</span><span class="s">&#34;${&#39;Ordered: &#39;.concat(part)}&#34;</span>
 </span></span><span class="line"><span class="cl">    <span class="na">camunda:resultVariable=</span><span class="s">&#34;sparePartOrder&#34;</span><span class="nt">&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&lt;bpmn:documentation&gt;</span>
-</span></span><span class="line"><span class="cl">    Orders a replacement part and returns the order.
-</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/bpmn:documentation&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;bpmn:documentation&gt;</span>Orders a replacement part and returns the order.<span class="nt">&lt;/bpmn:documentation&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;bpmn:extensionElements&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;camunda:inputOutput&gt;</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&lt;camunda:inputParameter</span> <span class="na">name=</span><span class="s">&#34;part&#34;</span><span class="nt">&gt;</span>
-</span></span><span class="line"><span class="cl">        ${toolParameter(toolCall.part,
-</span></span><span class="line"><span class="cl">          &#39;The part to order, for example disk for node 3&#39;,
-</span></span><span class="line"><span class="cl">          &#39;string&#39;)}
-</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/camunda:inputParameter&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;camunda:inputParameter</span> <span class="na">name=</span><span class="s">&#34;part&#34;</span><span class="nt">&gt;</span>${toolParameter(toolCall.part, &#39;The part to order, for example disk for node 3&#39;, &#39;string&#39;)}<span class="nt">&lt;/camunda:inputParameter&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;/camunda:inputOutput&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;/bpmn:extensionElements&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/bpmn:serviceTask&gt;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c">&lt;!-- waits for a person; the form field is the result --&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;bpmn:userTask</span> <span class="na">id=</span><span class="s">&#34;callCustomer&#34;</span> <span class="na">name=</span><span class="s">&#34;Call customer&#34;</span><span class="nt">&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&lt;bpmn:documentation&gt;</span>
-</span></span><span class="line"><span class="cl">    A person calls the customer, explains what was done
-</span></span><span class="line"><span class="cl">    and records what was agreed.
-</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/bpmn:documentation&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;bpmn:documentation&gt;</span>A person calls the customer, explains what was done and records what was agreed.<span class="nt">&lt;/bpmn:documentation&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;bpmn:extensionElements&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;camunda:formData&gt;</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&lt;camunda:formField</span> <span class="na">id=</span><span class="s">&#34;agreement&#34;</span> <span class="na">type=</span><span class="s">&#34;string&#34;</span>
